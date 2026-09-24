@@ -1,0 +1,368 @@
+/*
+ * Lingora design tokens: the only file that contains raw colour values.
+ *
+ * Dark mode only. Everything in `@theme` becomes a CSS variable on :root and a Tailwind utility
+ * (e.g. --color-primary -> bg-primary, --radius-card -> rounded-card). Tailwind's default palette,
+ * radii, shadows, type scale and animations are reset so only these tokens can be used.
+ */
+
+@theme static {
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+  --ease-*: initial;
+  --animate-*: initial;
+
+  /* Surfaces and text */
+  --color-bg: #131f24;
+  --color-bg-deep: #0d171b;
+  --color-surface: #1c2b33;
+  --color-surface-raised: #25363f;
+  --color-border: #2f4450;
+  --color-border-strong: #3d5664;
+  --color-fg: #f2f7f9;
+  --color-fg-muted: #9db2bd;
+  --color-fg-subtle: #6e8793;
+  --color-focus: #8ee8ff;
+  --color-highlight: rgb(255 255 255 / 0.2);
+  --color-shine: rgb(255 255 255 / 0.5);
+  --color-scrim: rgb(5 11 14 / 0.6);
+
+  /* Brand: primary violet, secondary aurora teal */
+  --color-primary: #7e54ff;
+  --color-primary-edge: #5a33d6;
+  --color-primary-soft: #b9a0ff;
+  --color-primary-surface: #251f4a;
+  --color-on-primary: #ffffff;
+
+  --color-secondary: #22d3c5;
+  --color-secondary-edge: #119a8f;
+  --color-secondary-surface: #113634;
+  --color-on-secondary: #062421;
+
+  /* Feedback: correct, wrong, hint */
+  --color-success: #2fd67f;
+  --color-success-edge: #1b9b58;
+  --color-success-surface: #143628;
+  --color-on-success: #062418;
+
+  --color-danger: #ff5a4e;
+  --color-danger-edge: #c8392f;
+  --color-danger-surface: #3a1c1c;
+  --color-on-danger: #2a0906;
+
+  --color-warning: #ffb21e;
+  --color-warning-edge: #c98400;
+  --color-warning-surface: #382c12;
+  --color-on-warning: #2b1a00;
+
+  /* Gamification */
+  --color-streak: #ff8a1f;
+  --color-streak-core: #ffd23f;
+  --color-xp: #ffc933;
+  --color-xp-edge: #d19a00;
+  --color-xp-surface: #3a3012;
+  --color-on-xp: #2d1f00;
+
+  /* Locked and disabled */
+  --color-locked: #37464f;
+  --color-locked-edge: #27343b;
+  --color-on-locked: #7d909a;
+
+  /* Unit colours: face, darker 3D edge, readable text on the face */
+  --color-unit-violet: var(--color-primary);
+  --color-unit-violet-edge: var(--color-primary-edge);
+  --color-on-unit-violet: var(--color-on-primary);
+  --color-unit-teal: var(--color-secondary);
+  --color-unit-teal-edge: var(--color-secondary-edge);
+  --color-on-unit-teal: var(--color-on-secondary);
+  --color-unit-sky: #38b6ff;
+  --color-unit-sky-edge: #1c86cc;
+  --color-on-unit-sky: #04202f;
+  --color-unit-rose: #ff5fa2;
+  --color-unit-rose-edge: #cf3b7c;
+  --color-on-unit-rose: #2e0619;
+  --color-unit-amber: #ffbe3b;
+  --color-unit-amber-edge: #cc8f14;
+  --color-on-unit-amber: #2d1c00;
+  --color-unit-lime: #b6e63c;
+  --color-unit-lime-edge: #84ac1c;
+  --color-on-unit-lime: #1c2600;
+  --color-unit-indigo: #5a63f5;
+  --color-unit-indigo-edge: #3a41c9;
+  --color-on-unit-indigo: #ffffff;
+  --color-unit-coral: #ff7e5f;
+  --color-unit-coral-edge: #d45a3e;
+  --color-on-unit-coral: #2e0e05;
+
+  /* Mascot (placeholder character) */
+  --color-mascot-top: #5ce8da;
+  --color-mascot-bottom: #8e6bff;
+  --color-mascot-eye: #ffffff;
+  --color-mascot-pupil: #0f1e26;
+  --color-mascot-cheek: #ff8fb8;
+  --color-mascot-mouth: #3b1233;
+  --color-mascot-tongue: #ff6b8e;
+  --color-mascot-tear: #7fd4ff;
+
+  /* Radii: buttons 12-16 px, cards 16-24 px */
+  --radius-sm: 0.5rem;
+  --radius-chip: 0.75rem;
+  --radius-button-sm: 0.75rem;
+  --radius-button: 0.875rem;
+  --radius-button-lg: 1rem;
+  --radius-card-sm: 1rem;
+  --radius-card: 1.25rem;
+  --radius-card-lg: 1.5rem;
+  --radius-sheet: 1.5rem;
+
+  /* Depth that is not a 3D edge */
+  --shadow-float: 0 10px 24px rgb(0 0 0 / 0.35);
+  --shadow-sheet: 0 -12px 32px rgb(0 0 0 / 0.4);
+  --shadow-knob: 0 2px 0 rgb(0 0 0 / 0.25);
+
+  /* Spacing: 4 px grid plus named layout values */
+  --spacing: 0.25rem;
+  --spacing-gutter: 1rem;
+  --spacing-edge: 4px;
+  --spacing-edge-node: 8px;
+  --spacing-path-swing: 4.5rem;
+  --spacing-top-bar: 4rem;
+  --spacing-nav: 4.5rem;
+  --container-app: 28rem;
+
+  /* Typography: Nunito, heavy weights */
+  --font-sans: 'Nunito Variable', 'Nunito', ui-rounded, system-ui, sans-serif;
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1rem;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.125rem;
+  --text-label: 0.9375rem;
+  --text-label--line-height: 1.25rem;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.5rem;
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.625rem;
+  --text-title: 1.5rem;
+  --text-title--line-height: 1.875rem;
+  --text-headline: 1.875rem;
+  --text-headline--line-height: 2.25rem;
+  --text-display: 2.5rem;
+  --text-display--line-height: 2.75rem;
+
+  /* Motion: easing curves and looping animations (springs live in src/styles/motion.ts) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --animate-pulse-ring: pulse-ring 1.8s var(--ease-out) infinite;
+  --animate-bob: bob 1.6s var(--ease-in-out) infinite;
+  --animate-float: float 3.2s var(--ease-in-out) infinite;
+  --animate-shine: shine 2.8s var(--ease-in-out) infinite;
+  --animate-flicker: flicker 1.6s var(--ease-in-out) infinite;
+  --animate-dot: dot 1s var(--ease-in-out) infinite;
+
+  @keyframes pulse-ring {
+    from {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    to {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  @keyframes shine {
+    0% {
+      transform: translateX(-120%) skewX(-20deg);
+    }
+    55%,
+    100% {
+      transform: translateX(420%) skewX(-20deg);
+    }
+  }
+  @keyframes flicker {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+    35% {
+      transform: scale(1.06, 0.95) rotate(-3deg);
+    }
+    70% {
+      transform: scale(0.97, 1.05) rotate(2deg);
+    }
+  }
+  @keyframes dot {
+    0%,
+    80%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
+    40% {
+      transform: translateY(-4px);
+      opacity: 1;
+    }
+  }
+}
+
+/* Tone utilities (bg-tone-face, text-tone-text, ...) resolve against the nearest [data-tone]. */
+@theme inline {
+  --color-tone-face: var(--tone-face);
+  --color-tone-edge: var(--tone-edge);
+  --color-tone-on: var(--tone-on);
+  --color-tone-surface: var(--tone-surface);
+  --color-tone-text: var(--tone-text);
+  --color-tone-border: var(--tone-border);
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Keep in sync with `durations` in src/styles/motion.ts (checked by motion.test.ts). */
+  --duration-press: 100ms;
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 300ms;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  --z-bar: 20;
+  --z-sheet: 40;
+}
+
+/*
+ * Tones map a semantic colour family onto generic variables so one component style
+ * (solid face, outline, 3D edge) works for every colour.
+ */
+@layer base {
+  :root,
+  [data-tone='neutral'] {
+    --tone-face: var(--color-surface-raised);
+    --tone-edge: var(--color-border);
+    --tone-on: var(--color-fg);
+    --tone-surface: transparent;
+    --tone-text: var(--color-fg);
+    --tone-border: var(--color-border);
+  }
+  [data-tone='primary'] {
+    --tone-face: var(--color-primary);
+    --tone-edge: var(--color-primary-edge);
+    --tone-on: var(--color-on-primary);
+    --tone-surface: var(--color-primary-surface);
+    --tone-text: var(--color-primary-soft);
+    --tone-border: var(--color-primary);
+  }
+  [data-tone='secondary'] {
+    --tone-face: var(--color-secondary);
+    --tone-edge: var(--color-secondary-edge);
+    --tone-on: var(--color-on-secondary);
+    --tone-surface: var(--color-secondary-surface);
+    --tone-text: var(--color-secondary);
+    --tone-border: var(--color-secondary);
+  }
+  [data-tone='success'] {
+    --tone-face: var(--color-success);
+    --tone-edge: var(--color-success-edge);
+    --tone-on: var(--color-on-success);
+    --tone-surface: var(--color-success-surface);
+    --tone-text: var(--color-success);
+    --tone-border: var(--color-success);
+  }
+  [data-tone='danger'] {
+    --tone-face: var(--color-danger);
+    --tone-edge: var(--color-danger-edge);
+    --tone-on: var(--color-on-danger);
+    --tone-surface: var(--color-danger-surface);
+    --tone-text: var(--color-danger);
+    --tone-border: var(--color-danger);
+  }
+  [data-tone='warning'] {
+    --tone-face: var(--color-warning);
+    --tone-edge: var(--color-warning-edge);
+    --tone-on: var(--color-on-warning);
+    --tone-surface: var(--color-warning-surface);
+    --tone-text: var(--color-warning);
+    --tone-border: var(--color-warning);
+  }
+  [data-tone='xp'] {
+    --tone-face: var(--color-xp);
+    --tone-edge: var(--color-xp-edge);
+    --tone-on: var(--color-on-xp);
+    --tone-surface: var(--color-xp-surface);
+    --tone-text: var(--color-xp);
+    --tone-border: var(--color-xp);
+  }
+  [data-tone='locked'] {
+    --tone-face: var(--color-locked);
+    --tone-edge: var(--color-locked-edge);
+    --tone-on: var(--color-on-locked);
+    --tone-surface: transparent;
+    --tone-text: var(--color-on-locked);
+    --tone-border: var(--color-locked);
+  }
+  [data-tone='unit-violet'] {
+    --tone-face: var(--color-unit-violet);
+    --tone-edge: var(--color-unit-violet-edge);
+    --tone-on: var(--color-on-unit-violet);
+  }
+  [data-tone='unit-teal'] {
+    --tone-face: var(--color-unit-teal);
+    --tone-edge: var(--color-unit-teal-edge);
+    --tone-on: var(--color-on-unit-teal);
+  }
+  [data-tone='unit-sky'] {
+    --tone-face: var(--color-unit-sky);
+    --tone-edge: var(--color-unit-sky-edge);
+    --tone-on: var(--color-on-unit-sky);
+  }
+  [data-tone='unit-rose'] {
+    --tone-face: var(--color-unit-rose);
+    --tone-edge: var(--color-unit-rose-edge);
+    --tone-on: var(--color-on-unit-rose);
+  }
+  [data-tone='unit-amber'] {
+    --tone-face: var(--color-unit-amber);
+    --tone-edge: var(--color-unit-amber-edge);
+    --tone-on: var(--color-on-unit-amber);
+  }
+  [data-tone='unit-lime'] {
+    --tone-face: var(--color-unit-lime);
+    --tone-edge: var(--color-unit-lime-edge);
+    --tone-on: var(--color-on-unit-lime);
+  }
+  [data-tone='unit-indigo'] {
+    --tone-face: var(--color-unit-indigo);
+    --tone-edge: var(--color-unit-indigo-edge);
+    --tone-on: var(--color-on-unit-indigo);
+  }
+  [data-tone='unit-coral'] {
+    --tone-face: var(--color-unit-coral);
+    --tone-edge: var(--color-unit-coral-edge);
+    --tone-on: var(--color-on-unit-coral);
+  }
+}

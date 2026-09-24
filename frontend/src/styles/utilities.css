@@ -1,0 +1,54 @@
+/*
+ * Shared component utilities built on the tone variables from tokens.css.
+ */
+
+/*
+ * 3D press: a darker bottom edge (box-shadow) that collapses while the element moves down by the
+ * same depth. It uses the standalone `translate` property so it composes with Motion's inline
+ * `transform` (shake, hop, layout animations) instead of being overridden by it.
+ */
+@utility pressable {
+  box-shadow: 0 var(--press-depth, var(--spacing-edge)) 0 var(--press-edge, var(--tone-edge));
+  transition-property: translate, box-shadow, filter, background-color, border-color, color;
+  transition-duration: var(--duration-press);
+  transition-timing-function: var(--ease-out);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active:not(:disabled, [aria-disabled='true']),
+  &[data-pressed='true'] {
+    translate: 0 var(--press-depth, var(--spacing-edge));
+    box-shadow: 0 0 0 var(--press-edge, var(--tone-edge));
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+
+  @media (hover: hover) {
+    &:hover:not(:disabled, [aria-disabled='true']) {
+      filter: brightness(1.08);
+    }
+  }
+}
+
+/* Static 3D edge for non-interactive surfaces (banners, badges, bubbles). */
+@utility edge-3d {
+  box-shadow: 0 var(--press-depth, var(--spacing-edge)) 0 var(--press-edge, var(--tone-edge));
+}
+
+/* Coloured face with its readable text colour. */
+@utility tone-solid {
+  background-color: var(--tone-face);
+  color: var(--tone-on);
+}
+
+/* Tinted surface with a coloured 2 px border and coloured text. */
+@utility tone-outline {
+  border: 2px solid var(--tone-border);
+  background-color: var(--tone-surface);
+  color: var(--tone-text);
+}

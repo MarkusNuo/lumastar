@@ -1,0 +1,24 @@
+import type { Transition } from 'motion/react';
+
+/** Durations in seconds; mirror the `--duration-*` CSS variables in tokens.css. */
+export const durations = {
+  press: 0.1,
+  fast: 0.15,
+  base: 0.22,
+  slow: 0.3,
+} as const;
+
+/**
+ * Spring presets. `visualDuration` keeps every spring inside the 150-300 ms window of PRD 12.4
+ * while `bounce` controls how juicy it feels.
+ */
+export const springs = {
+  /** Toggles, knobs, small state changes. */
+  snappy: { type: 'spring', visualDuration: durations.fast, bounce: 0.2 },
+  /** Pops and hops: counters, correct answers, tiles landing. */
+  bouncy: { type: 'spring', visualDuration: durations.base, bounce: 0.45 },
+  /** Progress fills and rings. */
+  gentle: { type: 'spring', visualDuration: durations.slow, bounce: 0.15 },
+  /** Bottom sheets sliding in. */
+  sheet: { type: 'spring', visualDuration: durations.slow, bounce: 0.18 },
+} as const satisfies Record<string, Transition>;
