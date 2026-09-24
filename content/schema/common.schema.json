@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lingora.invalid/schema/common.schema.json",
+  "title": "Lingora shared content definitions",
+  "description": "Shared $defs for all content files (docs/CONTENT_FORMAT.md). The host lingora.invalid is a reserved, never-resolving TLD used only as a stable schema id.",
+  "$defs": {
+    "schemaVersion": { "const": 1 },
+    "nonEmptyString": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "level": {
+      "enum": [
+        "A0", "A1.1", "A1.2", "A1.3", "A2.1", "A2.2", "A2.3",
+        "B1.1", "B1.2", "B1.3", "B2.1", "B2.2", "B2.3",
+        "C1.1", "C1.2", "C1.3", "C2.1", "C2.2", "C2.3"
+      ]
+    },
+    "unitId": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "itemId": { "type": "string", "pattern": "^item_[a-z0-9_]+$" },
+    "skillTagId": { "type": "string", "pattern": "^(vocab|phrase|grammar|spelling|reading)(\\.[a-z0-9_]+)+$" },
+    "skillTagList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/skillTagId" }
+    },
+    "errorCategory": {
+      "enum": [
+        "vocab.unknown", "vocab.confused",
+        "spelling.diacritics", "spelling.nasal_vowel", "spelling.other",
+        "variant.standard_form",
+        "grammar.definite_article", "grammar.case", "grammar.linking_article", "grammar.gender",
+        "grammar.infinitive", "grammar.participle", "grammar.verb_conjugation", "grammar.verb_tense",
+        "grammar.word_order", "grammar.clitics"
+      ]
+    },
+    "exerciseType": {
+      "enum": ["multiple_choice", "translate_wordbank", "translate_free", "fill_gap", "match_pairs", "word_order"]
+    },
+    "answerLang": { "enum": ["sq", "de"] },
+    "competence": { "enum": ["vocabulary", "grammar", "reading", "translation"] },
+    "textList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "prompt": {
+      "type": "object",
+      "required": ["lang", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "lang": { "enum": ["de", "sq"] },
+        "text": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "errorHint": {
+      "type": "object",
+      "required": ["pattern", "category"],
+      "additionalProperties": false,
+      "properties": {
+        "pattern": { "$ref": "#/$defs/nonEmptyString" },
+        "category": { "$ref": "#/$defs/errorCategory" },
+        "hint": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "pair": {
+      "type": "object",
+      "required": ["left", "right"],
+      "additionalProperties": false,
+      "properties": {
+        "left": { "$ref": "#/$defs/nonEmptyString" },
+        "right": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": ["id", "kind", "gheg", "de", "reviewed"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/itemId" },
+        "kind": { "enum": ["word", "phrase", "grammar"] },
+        "gheg": { "$ref": "#/$defs/nonEmptyString" },
+        "de": { "$ref": "#/$defs/nonEmptyString" },
+        "partOfSpeech": {
+          "enum": [
+            "noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction",
+            "numeral", "interjection", "particle", "phrase", "other"
+          ]
+        },
+        "gender": { "enum": ["m", "f", "n"] },
+        "definite": { "$ref": "#/$defs/nonEmptyString" },
+        "plural": { "$ref": "#/$defs/nonEmptyString" },
+        "alternatives": { "$ref": "#/$defs/textList" },
+        "note": { "$ref": "#/$defs/nonEmptyString" },
+        "reviewed": { "type": "boolean" }
+      }
+    },
+    "exercise": {
+      "type": "object",
+      "required": [
+        "id", "type", "level", "difficulty", "skillTags", "itemIds",
+        "prompt", "explanation", "reviewed", "source"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^(ex|pl)_[a-z0-9_]+_\\d{3}$" },
+        "type": { "$ref": "#/$defs/exerciseType" },
+        "level": { "$ref": "#/$defs/level" },
+        "difficulty": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "skillTags": { "$ref": "#/$defs/skillTagList" },
+        "itemIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/itemId" } },
+        "competence": { "$ref": "#/$defs/competence" },
+        "prompt": { "$ref": "#/$defs/prompt" },
+        "explanation": { "$ref": "#/$defs/nonEmptyString" },
+        "errorHints": { "type": "array", "items": { "$ref": "#/$defs/errorHint" } },
+        "reviewed": { "type": "boolean" },
+        "source": { "enum": ["manual", "ai"] },
+        "note": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "multiple_choice" } } },
+          "then": {
+            "required": ["choices", "solutions"],
+            "properties": {
+              "choices": {
+                "type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true,
+                "items": { "$ref": "#/$defs/nonEmptyString" }
+              },
+              "solutions": {
+                "type": "array", "minItems": 1, "maxItems": 1,
+                "items": { "$ref": "#/$defs/nonEmptyString" }
+              }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "translate_wordbank" } } },
+          "then": {
+            "required": ["answerLang", "solutions", "wordBank"],
+            "properties": {
+              "answerLang": { "$ref": "#/$defs/answerLang" },
+              "solutions": { "$ref": "#/$defs/textList" },
+              "wordBank": { "type": "array", "minItems": 3, "items": { "$ref": "#/$defs/nonEmptyString" } }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "translate_free" } } },
+          "then": {
+            "required": ["answerLang", "solutions"],
+            "properties": {
+              "answerLang": { "$ref": "#/$defs/answerLang" },
+              "solutions": { "$ref": "#/$defs/textList" },
+              "standardForms": { "$ref": "#/$defs/textList" }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "fill_gap" } } },
+          "then": {
+            "required": ["answerLang", "text", "solutions"],
+            "properties": {
+              "answerLang": { "$ref": "#/$defs/answerLang" },
+              "text": { "type": "string", "pattern": "___" },
+              "solutions": { "$ref": "#/$defs/textList" },
+              "choices": {
+                "type": "array", "minItems": 2, "uniqueItems": true,
+                "items": { "$ref": "#/$defs/nonEmptyString" }
+              },
+              "standardForms": { "$ref": "#/$defs/textList" }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "match_pairs" } } },
+          "then": {
+            "required": ["pairs"],
+            "properties": {
+              "pairs": { "type": "array", "minItems": 5, "maxItems": 5, "items": { "$ref": "#/$defs/pair" } }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "word_order" } } },
+          "then": {
+            "required": ["answerLang", "tokens", "solutions"],
+            "properties": {
+              "answerLang": { "$ref": "#/$defs/answerLang" },
+              "tokens": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/nonEmptyString" } },
+              "solutions": { "$ref": "#/$defs/textList" }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

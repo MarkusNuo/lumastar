@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "description": "Standard-Formen (Tosk-Basis), die in Gheg-Texten von Lingora nie vorkommen dürfen: Lösungen, Satzbausteine, Wortbank, Lückentexte, Gheg-Aufgabenstellungen, linke Seite von Wortpaaren und Item-Formen. Geprüft werden ganze Wörter (klein geschrieben, Unicode NFC) und Wortmuster (regulärer Ausdruck auf ein einzelnes Wort). Nicht geprüft werden standardForms, Erklärungen und errorHints. Regeln und Begründungen: content/LANGUAGE_GUIDE.md, Abschnitt 10.",
+  "words": [
+    { "standard": "është", "gheg": "âsht", "reason": "„ist“ (3. Person Singular von „sein“); im Gheg mit Nasalvokal." },
+    { "standard": "nënë", "gheg": "nânë", "reason": "„Mutter“; Standard-ë vor Nasal entspricht Gheg-â." },
+    { "standard": "nëna", "gheg": "nâna", "reason": "„die Mutter“; Standard-ë vor Nasal entspricht Gheg-â." },
+    { "standard": "nënën", "gheg": "nânën", "reason": "„die Mutter“ (Akkusativ)." },
+    { "standard": "nënës", "gheg": "nânës", "reason": "„der Mutter“ (Genitiv/Dativ)." },
+    { "standard": "nënat", "gheg": "nânat", "reason": "„die Mütter“." },
+    { "standard": "një", "gheg": "nji", "reason": "„ein, eine, eins“; typische Gheg-Form." },
+    { "standard": "asnjë", "gheg": "asnji", "reason": "„kein(e)“; wie nji." },
+    { "standard": "ndonjë", "gheg": "ndonji", "reason": "„irgendein(e)“; wie nji." },
+    { "standard": "qenë", "gheg": "kânë / kjenë", "reason": "Partizip von „sein“ (gewesen)." },
+    { "standard": "bërë", "gheg": "bâ", "reason": "Partizip von „machen“ (gemacht); kurzes Gheg-Partizip." },
+    { "standard": "bëj", "gheg": "bâj", "reason": "„ich mache“; Standard-ë vor Nasal entspricht Gheg-â." },
+    { "standard": "bën", "gheg": "bân", "reason": "„du machst / er macht“." },
+    { "standard": "bëjmë", "gheg": "bâjmë", "reason": "„wir machen“.", "note": "Gheg-Endung der 1. Person Plural zu prüfen." },
+    { "standard": "bëni", "gheg": "bâni", "reason": "„ihr macht / Sie machen“." },
+    { "standard": "bëjnë", "gheg": "bâjnë", "reason": "„sie machen“." },
+    { "standard": "ardhur", "gheg": "ardhë", "reason": "Partizip von „kommen“; Gheg ohne -ur." },
+    { "standard": "fjetur", "gheg": "fjetë", "reason": "Partizip von „schlafen“; Gheg ohne -ur." },
+    { "standard": "pasur", "gheg": "pasë", "reason": "Partizip von „haben“; Gheg ohne -ur." },
+    { "standard": "folur", "gheg": "folë", "reason": "Partizip von „sprechen“; Gheg ohne -ur.", "note": "Im Kosovo auch „fol“ gesprochen – Schreibung zu prüfen." },
+    { "standard": "këmbë", "gheg": "kâmbë", "reason": "„Fuss, Bein“; Standard-ë vor Nasal entspricht Gheg-â." },
+    { "standard": "këmba", "gheg": "kâmba", "reason": "„der Fuss, das Bein“." },
+    { "standard": "dhëmb", "gheg": "dhâmb", "reason": "„Zahn“." },
+    { "standard": "dhëmbi", "gheg": "dhâmbi", "reason": "„der Zahn“." },
+    { "standard": "hënë", "gheg": "hânë", "reason": "„Mond“; auch in „e hânë“ (Montag)." },
+    { "standard": "hëna", "gheg": "hâna", "reason": "„der Mond“." },
+    { "standard": "këngë", "gheg": "kângë", "reason": "„Lied“." },
+    { "standard": "kënga", "gheg": "kânga", "reason": "„das Lied“." },
+    { "standard": "ëmbël", "gheg": "âmbël", "reason": "„süss“ (i/e âmbël)." },
+    { "standard": "mbrëmje", "gheg": "mbrâmje", "reason": "„Abend“.", "note": "Gheg-Form mit â zu prüfen." },
+    { "standard": "mbrëmja", "gheg": "mbrâmja", "reason": "„der Abend“.", "note": "Gheg-Form mit â zu prüfen." },
+    { "standard": "mirëmbrëma", "gheg": "mirëmbrâma", "reason": "„guten Abend“.", "note": "Gheg-Form mit â zu prüfen." },
+    { "standard": "emër", "gheg": "emën", "reason": "„Name“; Rhotazismus: Standard -r- entspricht Gheg -n-." },
+    { "standard": "emri", "gheg": "emni", "reason": "„der Name“; Rhotazismus.", "note": "Im Kosovo ist „emri“ unter Standard-Einfluss verbreitet – zu prüfen." },
+    { "standard": "emrin", "gheg": "emnin", "reason": "„den Namen“ (Akkusativ); Rhotazismus.", "note": "Im Kosovo ist „emrin“ unter Standard-Einfluss verbreitet – zu prüfen." },
+    { "standard": "emrit", "gheg": "emnit", "reason": "„des Namens“ (Genitiv/Dativ); Rhotazismus." },
+    { "standard": "dimër", "gheg": "dimën", "reason": "„Winter“; Rhotazismus." },
+    { "standard": "dimri", "gheg": "dimni", "reason": "„der Winter“; Rhotazismus." },
+    { "standard": "shqipëri", "gheg": "Shqipni", "reason": "„Albanien“; Rhotazismus." },
+    { "standard": "shqipëria", "gheg": "Shqipnia", "reason": "„(das) Albanien“; Rhotazismus." },
+    { "standard": "çfarë", "gheg": "çka", "reason": "„was“; im Kosovo sagt man „çka“." },
+    { "standard": "tani", "gheg": "tash / tashti", "reason": "„jetzt“; Kosovo-Gheg „tash“." },
+    { "standard": "dua", "gheg": "du / due", "reason": "„ich will / ich liebe“.", "note": "Schreibung „du“ oder „due“ zu prüfen." },
+    { "standard": "duke", "gheg": "tue / tu", "reason": "Gerundium-Partikel („beim …“); Gheg „tue + Partizip“.", "note": "Kosovo-Aussprache „tu/tuj“ – Schreibung zu prüfen." },
+    { "standard": "gjë", "gheg": "gja", "reason": "„Sache, etwas“.", "note": "Zu prüfen, ob im Kosovo „gja“ oder „gjâ“ geschrieben werden soll." }
+  ],
+  "patterns": [
+    {
+      "id": "participle_uar",
+      "pattern": "uar(a|at|ave|e|i|in|it|ës|ën)?$",
+      "gheg": "-ue (Partizip) / -uem (Adjektiv)",
+      "reason": "Standard-Partizip auf -uar; im Gheg kurz auf -ue: punuar → punue, shkuar → shkue, i martuar → i martuem.",
+      "examples": ["punuar", "shkuar", "mësuar", "martuar", "punuara", "mësuarit"],
+      "exceptions": [
+        { "word": "duar", "reason": "Plural von „dorë“ (Hand), kein Partizip. Gheg-Form evtl. „duer“ – zu prüfen." },
+        { "word": "gëzuar", "reason": "Trinkspruch „Prost!“, auch im Kosovo so gebräuchlich – zu prüfen." }
+      ]
+    },
+    {
+      "id": "participle_ene",
+      "pattern": "ënë$",
+      "gheg": "-ânë",
+      "reason": "Standard-Partizipien auf -ënë; im Gheg mit Nasalvokal: dhënë → dhânë, thënë → thânë, ngrënë → ngrânë.",
+      "examples": ["dhënë", "thënë", "ngrënë", "lënë", "zënë"],
+      "exceptions": [],
+      "note": "Muster zu prüfen: Gheg-Wörter auf -ënë sind nicht bekannt; bei einem Fehlalarm hier als Ausnahme eintragen."
+    },
+    {
+      "id": "house_shtepi",
+      "pattern": "^shtëpi",
+      "gheg": "shpi-",
+      "reason": "„Haus“ in allen Formen: shtëpi → shpi, shtëpia → shpija, shtëpinë → shpinë, shtëpisë → shpisë.",
+      "examples": ["shtëpi", "shtëpia", "shtëpinë", "shtëpisë", "shtëpitë"],
+      "exceptions": []
+    }
+  ]
+}

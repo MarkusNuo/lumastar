@@ -1,0 +1,17 @@
+{
+  "name": "lingora-content",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Lingora learning content (Gheg Albanian, Kosovo) and its validator",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
+  }
+}

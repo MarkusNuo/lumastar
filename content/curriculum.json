@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 1,
+  "variety": "gheg-kosovo",
+  "stages": [
+    {
+      "level": "A0",
+      "title": "Erste Schritte",
+      "units": [
+        {
+          "id": "a0_u01_sounds",
+          "title": "Laute & Buchstaben",
+          "description": "Das albanische Alphabet, ë und ç und die Gheg-Nasalvokale.",
+          "goals": ["Ich kann die albanischen Buchstaben lesen und aussprechen.", "Ich erkenne Nasalvokale wie â in „âsht“."],
+          "skillTags": ["spelling.alphabet", "spelling.special_letters", "spelling.nasal_vowels"],
+          "color": "violet",
+          "icon": "letters",
+          "estimatedLessons": 3
+        },
+        {
+          "id": "a0_u02_first_words",
+          "title": "Erste Wörter",
+          "description": "Ja, nein, danke und die wichtigsten Wörter für den Anfang.",
+          "goals": ["Ich kann ja und nein sagen und mich bedanken.", "Ich kenne erste Alltagswörter wie Wasser und Brot."],
+          "skillTags": ["vocab.basics", "phrase.politeness"],
+          "color": "teal",
+          "icon": "sparkles",
+          "estimatedLessons": 3
+        },
+        {
+          "id": "a0_u03_me_and_you",
+          "title": "Ich und du",
+          "description": "Personalpronomen und das Verb „sein“: unë jam, ti je, ai âsht.",
+          "goals": ["Ich kann sagen, wer ich bin.", "Ich kenne die Formen jam, je und âsht."],
+          "skillTags": ["grammar.pronouns.personal", "grammar.verbs.jam"],
+          "color": "sky",
+          "icon": "user",
+          "estimatedLessons": 3
+        }
+      ]
+    },
+    {
+      "level": "A1.1",
+      "title": "Erste Gespräche",
+      "units": [
+        {
+          "id": "a1_u01_greetings",
+          "title": "Begrüssung & Höflichkeit",
+          "description": "Grüssen, sich verabschieden, bitte und danke sagen.",
+          "goals": [
+            "Ich kann jemanden grüssen und mich verabschieden.",
+            "Ich kann fragen, wie es jemandem geht, und darauf antworten.",
+            "Ich kann bitte und danke sagen."
+          ],
+          "skillTags": ["vocab.greetings", "phrase.politeness", "phrase.small_talk"],
+          "color": "violet",
+          "icon": "hand-waving",
+          "estimatedLessons": 4,
+          "file": "units/a1_u01_greetings.json"
+        },
+        {
+          "id": "a1_u02_introductions",
+          "title": "Sich vorstellen",
+          "description": "Name, Herkunft und Wohnort nennen und nachfragen.",
+          "goals": ["Ich kann meinen Namen sagen und nach dem Namen fragen.", "Ich kann sagen, woher ich komme und wo ich wohne."],
+          "skillTags": ["phrase.introductions", "vocab.countries", "grammar.verbs.jam"],
+          "color": "teal",
+          "icon": "id-card",
+          "estimatedLessons": 4
+        },
+        {
+          "id": "a1_u03_numbers",
+          "title": "Zahlen 1–100",
+          "description": "Zählen, das Alter angeben und Zahlen verstehen.",
+          "goals": ["Ich kann von 1 bis 100 zählen.", "Ich kann mein Alter sagen und nach dem Alter fragen."],
+          "skillTags": ["vocab.numbers", "phrase.age"],
+          "color": "sky",
+          "icon": "hash",
+          "estimatedLessons": 4
+        },
+        {
+          "id": "a1_u04_family",
+          "title": "Familie",
+          "description": "Familienmitglieder benennen und über die eigene Familie sprechen.",
+          "goals": [
+            "Ich kann meine Familienmitglieder benennen.",
+            "Ich kann sagen, wie viele Geschwister oder Kinder ich habe.",
+            "Ich kann „mein“ und „meine“ richtig verwenden: babai im, nâna ime."
+          ],
+          "skillTags": [
+            "vocab.family",
+            "grammar.definite_article.fem",
+            "grammar.definite_article.masc",
+            "grammar.possessive",
+            "grammar.demonstratives",
+            "grammar.verbs.kam"
+          ],
+          "color": "rose",
+          "icon": "users",
+          "estimatedLessons": 5,
+          "file": "units/a1_u04_family.json"
+        }
+      ]
+    },
+    {
+      "level": "A1.2",
+      "title": "Alltag zu Hause",
+      "units": [
+        {
+          "id": "a1_u05_food_drink",
+          "title": "Essen & Trinken",
+          "description": "Lebensmittel, Getränke und im Café bestellen.",
+          "goals": ["Ich kann einfache Speisen und Getränke benennen.", "Ich kann im Café etwas bestellen."],
+          "skillTags": ["vocab.food", "vocab.drinks", "phrase.ordering"],
+          "color": "amber",
+          "icon": "utensils",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a1_u06_home",
+          "title": "Zuhause",
+          "description": "Räume, Möbel und sagen, wo sich etwas befindet.",
+          "goals": ["Ich kann die Räume meiner Wohnung benennen.", "Ich kann sagen, wo sich etwas befindet."],
+          "skillTags": ["vocab.home", "grammar.prepositions"],
+          "color": "lime",
+          "icon": "house",
+          "estimatedLessons": 4
+        },
+        {
+          "id": "a1_u07_definite_article",
+          "title": "Bestimmter Artikel",
+          "description": "Der Artikel wird hinten angehängt: shpi → shpija, djalë → djali.",
+          "goals": ["Ich kann den bestimmten Artikel an Nomen anhängen.", "Ich unterscheide Nominativ und Akkusativ: shpija – shpinë."],
+          "skillTags": ["grammar.definite_article.masc", "grammar.definite_article.fem", "grammar.case.accusative"],
+          "color": "indigo",
+          "icon": "tag",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a1_u08_verbs_jam_kam",
+          "title": "Verben jam & kam",
+          "description": "„Sein“ und „haben“ in allen Personen, als Frage und verneint.",
+          "goals": ["Ich kann jam und kam in allen Personen verwenden.", "Ich kann fragen und verneinen: A ke kohë? Nuk kam."],
+          "skillTags": ["grammar.verbs.jam", "grammar.verbs.kam", "grammar.negation", "grammar.question_particle"],
+          "color": "coral",
+          "icon": "puzzle",
+          "estimatedLessons": 5
+        }
+      ]
+    },
+    {
+      "level": "A1.3",
+      "title": "Tun & beschreiben",
+      "units": [
+        {
+          "id": "a1_u09_present_regular",
+          "title": "Präsens regelmässiger Verben",
+          "description": "Sagen, was man tut: punoj, jetoj, mësoj.",
+          "goals": ["Ich kann regelmässige Verben im Präsens konjugieren.", "Ich kann sagen, was ich gerade tue: po punoj."],
+          "skillTags": ["grammar.verbs.present", "vocab.activities"],
+          "color": "violet",
+          "icon": "zap",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a1_u10_infinitive_me",
+          "title": "Infinitiv me + Partizip",
+          "description": "Der typische Gheg-Infinitiv: me punue, me shkue, me ngrânë.",
+          "goals": ["Ich kann den Gheg-Infinitiv mit „me“ bilden.", "Ich kann sagen, was ich tun will oder muss: du me punue."],
+          "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.participle", "grammar.verbs.modal"],
+          "color": "teal",
+          "icon": "link",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a1_u11_colours_adjectives",
+          "title": "Farben & Adjektive",
+          "description": "Dinge beschreiben – mit dem Verbindungsartikel i/e.",
+          "goals": ["Ich kann Farben und häufige Adjektive verwenden.", "Ich setze den Verbindungsartikel richtig: djali i madh, vajza e madhe."],
+          "skillTags": ["vocab.colours", "grammar.linking_article", "grammar.adjective_agreement"],
+          "color": "sky",
+          "icon": "palette",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a1_u12_time_days",
+          "title": "Uhrzeit & Tage",
+          "description": "Uhrzeiten, Wochentage und Verabredungen.",
+          "goals": ["Ich kann nach der Uhrzeit fragen und sie angeben.", "Ich kenne die Wochentage, z. B. e hânë (Montag)."],
+          "skillTags": ["vocab.time", "vocab.days", "phrase.time_telling"],
+          "color": "rose",
+          "icon": "clock",
+          "estimatedLessons": 4
+        },
+        {
+          "id": "a1_u13_shopping",
+          "title": "Einkaufen",
+          "description": "Preise erfragen, Mengen angeben und bezahlen.",
+          "goals": ["Ich kann fragen, was etwas kostet.", "Ich kann auf dem Markt einfache Mengen verlangen."],
+          "skillTags": ["vocab.shopping", "phrase.shopping", "vocab.numbers"],
+          "color": "amber",
+          "icon": "shopping-bag",
+          "estimatedLessons": 4
+        }
+      ]
+    },
+    {
+      "level": "A2.1",
+      "title": "Mein Alltag",
+      "units": [
+        {
+          "id": "a2_u01_daily_routine",
+          "title": "Tagesablauf",
+          "description": "Vom Aufstehen bis zum Schlafengehen – mit reflexiven Verben.",
+          "goals": ["Ich kann meinen Tagesablauf beschreiben.", "Ich kann reflexive Verben wie çohem (aufstehen) und lahem (sich waschen) verwenden."],
+          "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+          "color": "lime",
+          "icon": "sunrise",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a2_u02_past_simple",
+          "title": "Was ich gestern tat",
+          "description": "Die einfache Vergangenheit (Aorist): punova, shkova, hangra.",
+          "goals": ["Ich kann erzählen, was ich gestern gemacht habe.", "Ich kenne die Vergangenheitsformen häufiger Verben."],
+          "skillTags": ["grammar.verbs.past_simple", "vocab.time"],
+          "color": "indigo",
+          "icon": "history",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a2_u03_body_health",
+          "title": "Körper & Gesundheit",
+          "description": "Körperteile, Beschwerden und der Besuch beim Arzt.",
+          "goals": ["Ich kann sagen, was mir wehtut.", "Ich kann beim Arzt einfache Fragen beantworten."],
+          "skillTags": ["vocab.body", "vocab.health", "phrase.health"],
+          "color": "coral",
+          "icon": "heart-pulse",
+          "estimatedLessons": 5
+        }
+      ]
+    },
+    {
+      "level": "A2.2",
+      "title": "Pläne & Wünsche",
+      "units": [
+        {
+          "id": "a2_u04_future",
+          "title": "Zukunft",
+          "description": "Pläne ausdrücken mit der Gheg-Zukunft: kam me shkue.",
+          "goals": ["Ich kann sagen, was ich morgen oder nächste Woche mache.", "Ich kann die Zukunft mit „kam me + Partizip“ bilden."],
+          "skillTags": ["grammar.verbs.future", "phrase.plans"],
+          "color": "violet",
+          "icon": "rocket",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a2_u05_modal_verbs",
+          "title": "Wollen, können, müssen",
+          "description": "Modalverben mit dem Gheg-Infinitiv: du me, muj me, duhet me.",
+          "goals": ["Ich kann sagen, was ich will, kann oder muss.", "Ich verbinde Modalverben mit „me + Partizip“."],
+          "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+          "color": "teal",
+          "icon": "key",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a2_u06_clitics",
+          "title": "Pronomen-Kurzformen",
+          "description": "Kurze Objektpronomen: më, të, e, i, na, ju – und ihre Verbindungen.",
+          "goals": ["Ich kann Objektpronomen wie „më“ und „e“ richtig einsetzen.", "Ich verstehe Verbindungen wie „ma“ (më + e)."],
+          "skillTags": ["grammar.clitics"],
+          "color": "sky",
+          "icon": "at-sign",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a2_u07_weather_seasons",
+          "title": "Wetter & Jahreszeiten",
+          "description": "Über das Wetter reden – und vena (Wein) nicht mit vera (Sommer) verwechseln.",
+          "goals": ["Ich kann das Wetter beschreiben.", "Ich kenne die Jahreszeiten, z. B. vera (der Sommer) und dimni (der Winter)."],
+          "skillTags": ["vocab.weather", "vocab.seasons"],
+          "color": "rose",
+          "icon": "cloud-sun",
+          "estimatedLessons": 4
+        }
+      ]
+    },
+    {
+      "level": "A2.3",
+      "title": "Unterwegs",
+      "units": [
+        {
+          "id": "a2_u08_travel_directions",
+          "title": "Reisen & Wege",
+          "description": "Verkehrsmittel, Tickets und nach dem Weg fragen.",
+          "goals": ["Ich kann nach dem Weg fragen und eine Wegbeschreibung verstehen.", "Ich kann ein Ticket kaufen und nach Abfahrtszeiten fragen."],
+          "skillTags": ["vocab.travel", "phrase.directions", "grammar.prepositions", "reading.dialogues"],
+          "color": "amber",
+          "icon": "map",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a2_u09_perfect",
+          "title": "Perfekt & Partizipien",
+          "description": "Was ich schon erlebt habe: kam punue, jam kânë.",
+          "goals": ["Ich kann das Perfekt mit kam/jam + Partizip bilden.", "Ich kenne die kurzen Gheg-Partizipien wie bâ, pa und ardhë."],
+          "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+          "color": "lime",
+          "icon": "badge-check",
+          "estimatedLessons": 5
+        },
+        {
+          "id": "a2_u10_cases",
+          "title": "Dativ, Genitiv & Ablativ",
+          "description": "Wem, wessen, woher: nânës, i babait, prej shpisë.",
+          "goals": ["Ich kann Nomen im Dativ und Genitiv verwenden.", "Ich kann mit dem Ablativ sagen, woher etwas kommt."],
+          "skillTags": ["grammar.case.dative", "grammar.case.genitive", "grammar.case.ablative", "grammar.linking_article"],
+          "color": "indigo",
+          "icon": "layers",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u11_work_leisure",
+          "title": "Arbeit & Freizeit",
+          "description": "Beruf, Arbeitsalltag und Hobbys.",
+          "goals": ["Ich kann sagen, was ich beruflich mache.", "Ich kann über meine Hobbys sprechen."],
+          "skillTags": ["vocab.work", "vocab.leisure", "reading.short_texts"],
+          "color": "coral",
+          "icon": "briefcase",
+          "estimatedLessons": 5
+        }
+      ]
+    },
+    {
+      "level": "B1.1",
+      "title": "Erzählen & wohnen",
+      "units": [
+        {
+          "id": "b1_u01_imperfect",
+          "title": "Wie es früher war",
+          "description": "Das Imperfekt für Gewohnheiten und Beschreibungen in der Vergangenheit.",
+          "goals": ["Ich kann erzählen, wie etwas früher war.", "Ich unterscheide Imperfekt und Aorist."],
+          "skillTags": ["grammar.verbs.imperfect", "reading.short_texts"],
+          "color": "violet",
+          "icon": "hourglass",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "b1_u02_housing",
+          "title": "Wohnen & Nachbarschaft",
+          "description": "Wohnungssuche, Nachbarn und Anliegen im Alltag.",
+          "goals": ["Ich kann eine Wohnung beschreiben und Fragen zur Miete stellen.", "Ich kann Nachbarn um etwas bitten."],
+          "skillTags": ["vocab.home", "phrase.requests"],
+          "color": "teal",
+          "icon": "building",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "B1.2",
+      "title": "Meinungen",
+      "units": [
+        {
+          "id": "b1_u03_opinions",
+          "title": "Meinungen & Vergleiche",
+          "description": "Sagen, was man denkt, und Dinge vergleichen: ma i madh se …",
+          "goals": ["Ich kann meine Meinung begründen.", "Ich kann Dinge mit „ma … se“ vergleichen."],
+          "skillTags": ["phrase.opinions", "grammar.comparison", "grammar.conjunctions"],
+          "color": "sky",
+          "icon": "message-circle",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "b1_u04_subjunctive",
+          "title": "Konjunktiv",
+          "description": "Wünsche und Absichten mit „të“ + Konjunktiv – und wann Gheg den Infinitiv mit „me“ vorzieht.",
+          "goals": ["Ich kann den Konjunktiv nach „që“ und „të“ bilden.", "Ich weiss, wann Gheg den Infinitiv mit „me“ bevorzugt."],
+          "skillTags": ["grammar.verbs.subjunctive", "grammar.verbs.infinitive_me"],
+          "color": "rose",
+          "icon": "wand",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "B1.3",
+      "title": "Gesellschaft",
+      "units": [
+        {
+          "id": "b1_u05_traditions",
+          "title": "Feste & Traditionen",
+          "description": "Hochzeiten, Feiertage und Bräuche im Kosovo.",
+          "goals": ["Ich kann über Feste und Bräuche sprechen.", "Ich kenne passende Glückwünsche."],
+          "skillTags": ["vocab.culture", "phrase.wishes", "reading.short_texts"],
+          "color": "amber",
+          "icon": "party-popper",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "b1_u06_relative_clauses",
+          "title": "Relativsätze",
+          "description": "Sätze verbinden mit „që“ und „i cili / e cila“.",
+          "goals": ["Ich kann Relativsätze mit „që“ bilden.", "Ich verstehe „i cili / e cila“ in Texten."],
+          "skillTags": ["grammar.relative_clauses", "grammar.conjunctions"],
+          "color": "lime",
+          "icon": "link-2",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "B2.1",
+      "title": "Bedingungen & Medien",
+      "units": [
+        {
+          "id": "b2_u01_conditional",
+          "title": "Bedingungen",
+          "description": "Wenn-Sätze und Konditional: reale und irreale Bedingungen.",
+          "goals": ["Ich kann reale und irreale Bedingungen ausdrücken.", "Ich kann Vermutungen formulieren."],
+          "skillTags": ["grammar.verbs.conditional", "grammar.complex_sentences"],
+          "color": "indigo",
+          "icon": "git-fork",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "b2_u02_media_news",
+          "title": "Medien & Nachrichten",
+          "description": "Nachrichten verstehen und über aktuelle Themen sprechen.",
+          "goals": ["Ich kann die Hauptaussagen kurzer Nachrichten verstehen.", "Ich kann über ein aktuelles Thema berichten."],
+          "skillTags": ["vocab.media", "reading.news"],
+          "color": "coral",
+          "icon": "newspaper",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "B2.2",
+      "title": "Handeln & arbeiten",
+      "units": [
+        {
+          "id": "b2_u03_gerund",
+          "title": "Gerundium mit tue",
+          "description": "Gleichzeitige Handlungen mit der Gheg-Form „tue + Partizip“.",
+          "goals": ["Ich kann das Gerundium mit „tue“ bilden (Standard: „duke“).", "Ich kann gleichzeitige Handlungen beschreiben."],
+          "skillTags": ["grammar.verbs.gerund", "grammar.verbs.participle"],
+          "color": "violet",
+          "icon": "repeat",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "b2_u04_work_life",
+          "title": "Arbeitswelt & formelle Texte",
+          "description": "Bewerbung, Sitzungen und formelle E-Mails.",
+          "goals": ["Ich kann eine formelle E-Mail schreiben.", "Ich kann in einem Gespräch über meine Arbeit Auskunft geben."],
+          "skillTags": ["vocab.work", "phrase.formal_writing"],
+          "color": "teal",
+          "icon": "mail",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "B2.3",
+      "title": "Umwelt & Passiv",
+      "units": [
+        {
+          "id": "b2_u05_passive",
+          "title": "Passiv & unpersönliche Sätze",
+          "description": "Handlungen ohne Täter ausdrücken, z. B. „flitet shqip“ (man spricht Albanisch).",
+          "goals": ["Ich kann Passivsätze bilden und verstehen.", "Ich kann unpersönliche Aussagen machen."],
+          "skillTags": ["grammar.verbs.passive"],
+          "color": "sky",
+          "icon": "shuffle",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "b2_u06_nature",
+          "title": "Natur & Umwelt",
+          "description": "Landschaft, Klima und Umweltschutz.",
+          "goals": ["Ich kann Landschaften beschreiben.", "Ich kann über Umweltprobleme diskutieren."],
+          "skillTags": ["vocab.nature", "reading.short_texts"],
+          "color": "rose",
+          "icon": "leaf",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "C1.1",
+      "title": "Nuancen",
+      "units": [
+        {
+          "id": "c1_u01_admirative",
+          "title": "Admirativ",
+          "description": "Überraschung ausdrücken – eine Besonderheit des Albanischen.",
+          "goals": ["Ich erkenne und verwende den Admirativ.", "Ich kann Überraschung und Ironie ausdrücken."],
+          "skillTags": ["grammar.verbs.admirative"],
+          "color": "amber",
+          "icon": "sparkles",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "c1_u02_idioms",
+          "title": "Redewendungen",
+          "description": "Bildhafte Ausdrücke und Idiome aus dem Kosovo-Alltag.",
+          "goals": ["Ich verstehe häufige Redewendungen.", "Ich kann einige Idiome passend einsetzen."],
+          "skillTags": ["phrase.idioms"],
+          "color": "lime",
+          "icon": "quote",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "C1.2",
+      "title": "Überzeugen",
+      "units": [
+        {
+          "id": "c1_u03_optative",
+          "title": "Optativ & Segenswünsche",
+          "description": "Wünsche mit dem Optativ: rrofsh, pafshim, të bâftë mirë.",
+          "goals": ["Ich kann den Optativ in Wünschen verwenden.", "Ich kenne traditionelle Segenswünsche."],
+          "skillTags": ["grammar.verbs.optative", "phrase.wishes"],
+          "color": "indigo",
+          "icon": "gift",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "c1_u04_argumentation",
+          "title": "Argumentieren & Diskutieren",
+          "description": "Standpunkte vertreten, widersprechen und Kompromisse finden.",
+          "goals": ["Ich kann in einer Diskussion meinen Standpunkt vertreten.", "Ich kann Argumente mit Konjunktionen verknüpfen."],
+          "skillTags": ["phrase.argumentation", "grammar.conjunctions", "grammar.complex_sentences"],
+          "color": "coral",
+          "icon": "scale",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "C1.3",
+      "title": "Literatur & Register",
+      "units": [
+        {
+          "id": "c1_u05_literature",
+          "title": "Gheg-Literatur",
+          "description": "Literarische Texte in Gheg lesen und verstehen.",
+          "goals": ["Ich kann literarische Gheg-Texte mit Hilfe verstehen.", "Ich erkenne typische Merkmale der Gheg-Schriftsprache."],
+          "skillTags": ["reading.literature"],
+          "color": "violet",
+          "icon": "book-open",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "c1_u06_register",
+          "title": "Gheg und Standard",
+          "description": "Zwischen Kosovo-Gheg und Standardalbanisch unterscheiden und das Register anpassen.",
+          "goals": ["Ich erkenne Standard-Formen und kann sie ins Gheg übertragen.", "Ich passe meine Sprache an die Situation an."],
+          "skillTags": ["phrase.register", "vocab.regional_variants"],
+          "color": "teal",
+          "icon": "languages",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "C2.1",
+      "title": "Varianten",
+      "units": [
+        {
+          "id": "c2_u01_regional_variants",
+          "title": "Regionale Varianten",
+          "description": "Kosovo, Shkodra, Nordmazedonien: Unterschiede innerhalb des Gheg verstehen.",
+          "goals": ["Ich verstehe regionale Gheg-Varianten.", "Ich kann Unterschiede in Wortschatz und Aussprache benennen."],
+          "skillTags": ["vocab.regional_variants"],
+          "color": "sky",
+          "icon": "map-pin",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "c2_u02_complex_syntax",
+          "title": "Komplexe Satzgefüge",
+          "description": "Lange Sätze, Einschübe und präzise Verknüpfungen.",
+          "goals": ["Ich kann komplexe Sätze sicher bilden.", "Ich verstehe anspruchsvolle Sachtexte."],
+          "skillTags": ["grammar.complex_sentences", "reading.long_texts"],
+          "color": "rose",
+          "icon": "network",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "C2.2",
+      "title": "Kultur & Gesellschaft",
+      "units": [
+        {
+          "id": "c2_u03_humour",
+          "title": "Humor & Wortspiele",
+          "description": "Witze, Ironie und Wortspiele verstehen.",
+          "goals": ["Ich verstehe Witze und Anspielungen.", "Ich kann selbst mit Sprache spielen."],
+          "skillTags": ["phrase.humour", "phrase.idioms"],
+          "color": "amber",
+          "icon": "smile",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "c2_u04_history_society",
+          "title": "Geschichte & Gesellschaft",
+          "description": "Anspruchsvolle Texte über Geschichte, Politik und Gesellschaft.",
+          "goals": ["Ich kann längere Sachtexte zu Geschichte und Gesellschaft verstehen.", "Ich kann differenziert über gesellschaftliche Themen sprechen."],
+          "skillTags": ["vocab.history", "reading.long_texts"],
+          "color": "lime",
+          "icon": "landmark",
+          "estimatedLessons": 6
+        }
+      ]
+    },
+    {
+      "level": "C2.3",
+      "title": "Meisterschaft",
+      "units": [
+        {
+          "id": "c2_u05_style",
+          "title": "Stil & Ausdruck",
+          "description": "Präzise und stilsicher formulieren – mündlich und schriftlich.",
+          "goals": ["Ich kann Texte stilistisch passend formulieren.", "Ich kann feine Bedeutungsunterschiede ausdrücken."],
+          "skillTags": ["phrase.style", "phrase.register"],
+          "color": "indigo",
+          "icon": "pen-tool",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "c2_u06_oral_tradition",
+          "title": "Mündliche Überlieferung",
+          "description": "Sprichwörter, Volkslieder und Epen der Gheg-Tradition.",
+          "goals": ["Ich verstehe Sprichwörter und kann sie verwenden.", "Ich kann Auszüge aus Liedern und Epen verstehen."],
+          "skillTags": ["reading.oral_tradition", "phrase.proverbs"],
+          "color": "coral",
+          "icon": "music",
+          "estimatedLessons": 6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lingora.invalid/schema/gheg_blocklist.schema.json",
+  "title": "Lingora Gheg blocklist",
+  "description": "content/gheg_blocklist.json: Standard-only forms that must never appear in Gheg solutions (content/LANGUAGE_GUIDE.md).",
+  "type": "object",
+  "required": ["schemaVersion", "description", "words", "patterns"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "$ref": "common.schema.json#/$defs/schemaVersion" },
+    "description": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+    "words": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["standard", "gheg", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "standard": { "type": "string", "pattern": "^[\\p{Ll}]+$" },
+          "gheg": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+          "reason": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+          "note": { "$ref": "common.schema.json#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "pattern", "gheg", "reason", "examples", "exceptions"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+          "pattern": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+          "gheg": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+          "reason": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+          "examples": { "$ref": "common.schema.json#/$defs/textList" },
+          "exceptions": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "required": ["word", "reason"],
+              "additionalProperties": false,
+              "properties": {
+                "word": { "type": "string", "pattern": "^[\\p{Ll}]+$" },
+                "reason": { "$ref": "common.schema.json#/$defs/nonEmptyString" }
+              }
+            }
+          },
+          "note": { "$ref": "common.schema.json#/$defs/nonEmptyString" }
+        }
+      }
+    }
+  }
+}

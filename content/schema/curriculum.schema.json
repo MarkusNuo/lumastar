@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lingora.invalid/schema/curriculum.schema.json",
+  "title": "Lingora curriculum",
+  "description": "content/curriculum.json: stages A0 to C2.3 and their units in path order (docs/CONTENT_FORMAT.md).",
+  "type": "object",
+  "required": ["schemaVersion", "variety", "stages"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "$ref": "common.schema.json#/$defs/schemaVersion" },
+    "variety": { "const": "gheg-kosovo" },
+    "stages": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/stage" } }
+  },
+  "$defs": {
+    "stage": {
+      "type": "object",
+      "required": ["level", "title", "units"],
+      "additionalProperties": false,
+      "properties": {
+        "level": { "$ref": "common.schema.json#/$defs/level" },
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "units": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/unit" } }
+      }
+    },
+    "unit": {
+      "type": "object",
+      "required": ["id", "title", "description", "goals", "skillTags", "color", "icon", "estimatedLessons"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/unitId" },
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "description": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "goals": { "$ref": "common.schema.json#/$defs/textList" },
+        "skillTags": { "$ref": "common.schema.json#/$defs/skillTagList" },
+        "color": { "enum": ["violet", "teal", "sky", "rose", "amber", "lime", "indigo", "coral"] },
+        "icon": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "estimatedLessons": { "type": "integer", "minimum": 1 },
+        "file": { "type": "string", "pattern": "^units/[a-z][a-z0-9_]*\\.json$" }
+      }
+    }
+  }
+}
