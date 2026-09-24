@@ -50,7 +50,8 @@ Every stage ends with a checkpoint that is composed automatically from the stage
 - Unit ids: `^[a-z][a-z0-9_]*$`, globally unique. Order in the file is the path order.
 - `color` ∈ `violet, teal, sky, rose, amber, lime, indigo, coral` (frontend maps them to tokens).
 - `icon`: free icon key (frontend falls back to a default icon).
-- `file` is omitted for skeleton units (B1–C2 in the MVP): they have title, goals and tags only.
+- `file` is omitted for units whose exercises are not written yet (all B1–C2 units in the MVP, and A0–A2
+  units until M6). Such units have title, goals and tags only; the importer and the plan must handle them.
 
 ## skill_tags.json
 
@@ -126,6 +127,18 @@ Type-specific fields (`answerLang` ∈ `sq` (Gheg), `de`):
 - Several Gheg spellings may be listed in `solutions`.
 - P1/P2 types (`conjugation_drill`, `declension_drill`, `reading`, `free_writing`, `listen_select`) are
   reserved; their format is defined when they are implemented.
+
+## Answer normalisation and tokenisation
+
+Shared by the backend evaluator, the frontend pre-check and the content validator:
+
+1. Unicode NFC, trim, lowercase, collapse whitespace to single spaces.
+2. Strip punctuation `. , ! ? ; : " „ “ ” « » ' ’ ‘ ( ) - – — …` (keep letters, digits and spaces).
+3. `errorHints` patterns are matched against the answer after steps 1–2 (diacritics are **kept**).
+4. Diacritic folding for "almost correct" (`ë→e`, `ç→c`, `â→a`, `ê→e`, `î→i`, `ô→o`, `û→u`) is a separate,
+   later comparison step.
+5. Word-bank and word-order tokens: split the sentence on whitespace, strip surrounding punctuation from each
+   token, compare case-insensitively.
 
 ## Error categories (PRD F6)
 
