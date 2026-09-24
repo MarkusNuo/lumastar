@@ -1,0 +1,23 @@
+name: lingora
+
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${LINGORA_DB_NAME:-lingora}
+      POSTGRES_USER: ${LINGORA_DB_USER:-lingora}
+      POSTGRES_PASSWORD: ${LINGORA_DB_PASSWORD:-lingora}
+    ports:
+      - "${LINGORA_DB_PORT:-5433}:5432"
+    volumes:
+      # PostgreSQL 18 images keep versioned data below /var/lib/postgresql
+      - lingora-db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  lingora-db:
