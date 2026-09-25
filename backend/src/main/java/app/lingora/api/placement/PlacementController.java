@@ -51,7 +51,7 @@ public class PlacementController {
     @PostMapping("/{testId}/answers")
     @Operation(operationId = "answerPlacementItem", summary = "Answer the current item and get the next one",
             description = "No verdict and no solution: the test gives no feedback. When the test is over the learner is "
-                    + "placed: level, initial mastery, onboarding completed.")
+                    + "placed: level, initial mastery, onboarding completed, learning plan created or revised.")
     @ApiResponse(responseCode = "200", description = "The next item, or finished")
     @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))

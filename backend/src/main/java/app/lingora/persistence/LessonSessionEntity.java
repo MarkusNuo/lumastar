@@ -2,6 +2,7 @@ package app.lingora.persistence;
 
 import app.lingora.core.lesson.XpCalculator.LessonXp;
 import app.lingora.domain.Level;
+import app.lingora.domain.SkillTag;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +32,9 @@ public class LessonSessionEntity {
     private String unitId;
 
     private Level level;
+
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    private List<String> focusSkillTags;
 
     private String composedBy;
 
@@ -64,9 +68,19 @@ public class LessonSessionEntity {
         this.kind = SessionKind.LESSON;
         this.unitId = unitId;
         this.level = level;
+        this.focusSkillTags = List.of();
         this.exerciseIds = List.copyOf(exerciseIds);
         this.composedBy = composedBy;
         this.startedAt = startedAt;
+    }
+
+    /** A focus lesson on a weak skill tag (PRD F3, F7); it belongs to no unit of the curriculum. */
+    public static LessonSessionEntity focus(UUID userId, SkillTag tag, Level level, List<String> exerciseIds, String composedBy,
+                                            Instant startedAt) {
+        LessonSessionEntity session = new LessonSessionEntity(userId, null, level, exerciseIds, composedBy, startedAt);
+        session.kind = SessionKind.FOCUS;
+        session.focusSkillTags = List.of(tag.id());
+        return session;
     }
 
     /** Records the result of the lesson; {@code accuracy} counts first attempts only. */

@@ -9,14 +9,17 @@ import app.lingora.core.lesson.XpCalculator.FirstAttempt;
 import app.lingora.core.lesson.XpCalculator.LessonXp;
 import app.lingora.domain.EvaluationResult;
 import app.lingora.domain.Exercise;
+import app.lingora.domain.FocusUnitId;
 import app.lingora.domain.Item;
-import app.lingora.domain.LearnerProfile;
+import app.lingora.domain.LearningPlan.PlanUnit;
+import app.lingora.domain.Level;
 import app.lingora.domain.Outcome;
 import app.lingora.domain.SkillMastery;
 import app.lingora.domain.Unit;
 import app.lingora.persistence.AttemptEntity;
 import app.lingora.persistence.AttemptRepository;
 import app.lingora.persistence.ContentCatalog;
+import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LessonSessionEntity;
 import app.lingora.persistence.LessonSessionRepository;
 import app.lingora.persistence.SkillMasteryStore;
@@ -29,6 +32,7 @@ import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
@@ -36,7 +40,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer together with the mastery of its
- * skill tags (PRD 8.2), finish with XP (F9). FSRS reviews follow with the adaptivity milestone.
+ * skill tags (PRD 8.2), finish with XP (F9). A focus unit of the plan (PRD F3) is played like a unit made of all lesson
+ * exercises carrying its skill tag at or below the learner's level. FSRS reviews follow with the adaptivity milestone.
  */
 @Service
 class LessonService {
@@ -47,6 +52,7 @@ class LessonService {
     private final LessonSessionRepository sessions;
     private final AttemptRepository attempts;
     private final UserRepository users;
+    private final LearningPlanStore plans;
     private final SkillMasteryStore mastery;
     private final LessonComposer composer;
     private final AnswerEvaluator evaluator;
@@ -54,12 +60,13 @@ class LessonService {
     private final Clock clock;
 
     LessonService(ContentCatalog catalog, LessonSessionRepository sessions, AttemptRepository attempts, UserRepository users,
-                  SkillMasteryStore mastery, LessonComposer composer, AnswerEvaluator evaluator,
+                  LearningPlanStore plans, SkillMasteryStore mastery, LessonComposer composer, AnswerEvaluator evaluator,
                   EngineProperties engineProperties, Clock clock) {
         this.catalog = catalog;
         this.sessions = sessions;
         this.attempts = attempts;
         this.users = users;
+        this.plans = plans;
         this.mastery = mastery;
         this.composer = composer;
         this.evaluator = evaluator;
@@ -69,16 +76,45 @@ class LessonService {
 
     @Transactional
     LessonResponse start(UserEntity learner, String unitId) {
+        Optional<FocusUnitId> focus = FocusUnitId.parse(unitId);
+        if (focus.isPresent()) {
+            return startFocus(learner, unitId, focus.get());
+        }
         Unit unit = catalog.activeUnit(unitId).orElseThrow(() -> LessonProblems.unitNotFound(unitId));
         if (unit.isSkeleton()) {
             throw LessonProblems.unitWithoutContent(unitId);
         }
         Instant now = clock.instant();
-        SkillMastery current = mastery.effective(learner.getId(), now);
-        List<Exercise> exercises = composer.compose(unit, profileOf(learner), current, List.of(), List.of());
+        List<Exercise> exercises = compose(learner, unit, now);
         LessonSessionEntity session = sessions.save(new LessonSessionEntity(learner.getId(), unit.id(), unit.level(),
                 exercises.stream().map(Exercise::id).toList(), engineId, now));
         return new LessonResponse(session.getId(), unit.id(), exercises.stream().map(LessonExercise::of).toList());
+    }
+
+    /** A focus unit of the current plan, played with the exercises of its skill tag up to the learner's level. */
+    private LessonResponse startFocus(UserEntity learner, String unitId, FocusUnitId focus) {
+        Level level = learner.getCurrentLevel();
+        PlanUnit planned = plans.current(learner.getId())
+                .flatMap(stored -> stored.plan().unit(unitId))
+                .filter(unit -> level != null)
+                .orElseThrow(() -> LessonProblems.unitNotFound(unitId));
+        List<Exercise> pool = catalog.lessonExercisesWithSkillTag(focus.tag(), level);
+        if (pool.isEmpty()) {
+            throw LessonProblems.unitWithoutContent(unitId);
+        }
+        // The composer takes a unit; curriculum unit ids have no dots, so the tag's dots become underscores.
+        Unit unit = new Unit(unitId.replace('.', '_'), level, planned.title(), null, List.of(), List.of(focus.tag()), null,
+                null, planned.lessonCount(), List.of(), List.of(), pool);
+        Instant now = clock.instant();
+        List<Exercise> exercises = compose(learner, unit, now);
+        LessonSessionEntity session = sessions.save(LessonSessionEntity.focus(learner.getId(), focus.tag(), level,
+                exercises.stream().map(Exercise::id).toList(), engineId, now));
+        return new LessonResponse(session.getId(), unitId, exercises.stream().map(LessonExercise::of).toList());
+    }
+
+    private List<Exercise> compose(UserEntity learner, Unit unit, Instant now) {
+        SkillMastery current = mastery.effective(learner.getId(), now);
+        return composer.compose(unit, learner.toProfile(), current, List.of(), List.of());
     }
 
     @Transactional
@@ -161,10 +197,5 @@ class LessonService {
         return catalog.items(Set.copyOf(itemIds)).stream()
                 .sorted(Comparator.comparingInt(item -> itemIds.indexOf(item.id())))
                 .toList();
-    }
-
-    private static LearnerProfile profileOf(UserEntity learner) {
-        return new LearnerProfile(learner.getId(), learner.getDisplayName(), Set.of(), learner.getDailyGoalMinutes(),
-                learner.getCurrentLevel(), learner.getXpTotal());
     }
 }

@@ -1,5 +1,6 @@
 package app.lingora.api.placement;
 
+import app.lingora.api.plan.PlanService;
 import app.lingora.config.EngineProperties;
 import app.lingora.core.evaluation.AnswerEvaluator;
 import app.lingora.core.evaluation.UnsupportedAnswerException;
@@ -10,6 +11,9 @@ import app.lingora.domain.Exercise;
 import app.lingora.domain.Level;
 import app.lingora.domain.PlacementResult;
 import app.lingora.domain.PlacementState;
+import app.lingora.domain.PlanChange;
+import app.lingora.domain.PlanChangeKind;
+import app.lingora.domain.PlanTrigger;
 import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.PlacementAnswerEntity;
 import app.lingora.persistence.PlacementAnswerRepository;
@@ -24,6 +28,7 @@ import app.lingora.persistence.UserRepository;
 import java.time.Clock;
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
@@ -31,7 +36,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * The placement test of PRD F2: start (abandoning an unfinished test), answer item by item without feedback, and on
- * the end place the learner. Placing sets the level, seeds the initial mastery and completes the onboarding.
+ * the end place the learner. Placing sets the level, seeds the initial mastery, completes the onboarding and creates
+ * or revises the learning plan.
  * Every write locks the account row first, so a learner's placement and plan changes never interleave.
  */
 @Service
@@ -43,20 +49,22 @@ class PlacementService {
     private final StageRepository stages;
     private final ContentCatalog catalog;
     private final SkillMasteryStore mastery;
+    private final PlanService plans;
     private final PlacementEngineFactory engines;
     private final AnswerEvaluator evaluator;
     private final String engineId;
     private final Clock clock;
 
     PlacementService(UserRepository users, PlacementTestRepository tests, PlacementAnswerRepository answers,
-                     StageRepository stages, ContentCatalog catalog, SkillMasteryStore mastery, PlacementEngineFactory engines,
-                     AnswerEvaluator evaluator, EngineProperties engineProperties, Clock clock) {
+                     StageRepository stages, ContentCatalog catalog, SkillMasteryStore mastery, PlanService plans,
+                     PlacementEngineFactory engines, AnswerEvaluator evaluator, EngineProperties engineProperties, Clock clock) {
         this.users = users;
         this.tests = tests;
         this.answers = answers;
         this.stages = stages;
         this.catalog = catalog;
         this.mastery = mastery;
+        this.plans = plans;
         this.engines = engines;
         this.evaluator = evaluator;
         this.engineId = engineProperties.engine().id();
@@ -110,7 +118,7 @@ class PlacementService {
         }
         PlacementResult placement = engine.evaluate(answered);
         test.complete(answered, placement, now);
-        place(learner, placement, now);
+        place(learner, placement, false, now);
         return new PlacementAnswerResponse(true, null, position);
     }
 
@@ -123,7 +131,7 @@ class PlacementService {
         Instant now = clock.instant();
         tests.abandonUnfinished(userId, now);
         PlacementTestEntity test = tests.save(PlacementTestEntity.skipped(userId, engineId, Level.lowest(), now));
-        place(learner, test.placementResult(), now);
+        place(learner, test.placementResult(), true, now);
         return resultOf(test);
     }
 
@@ -137,10 +145,28 @@ class PlacementService {
         return resultOf(test);
     }
 
-    private void place(UserEntity learner, PlacementResult placement, Instant now) {
+    /** Sets the level, raises the mastery estimates and creates or revises the plan (PRD F2, F3). */
+    private void place(UserEntity learner, PlacementResult placement, boolean skipped, Instant now) {
+        Level previous = learner.getCurrentLevel();
         learner.place(placement.level(), now);
         users.flush();
         mastery.seedInitial(learner.getId(), placement.initialMastery(), now);
+        plans.revise(learner.getId(), PlanTrigger.PLACEMENT, planCause(previous, placement.level(), skipped));
+    }
+
+    private static PlanChange planCause(Level previous, Level placed, boolean skipped) {
+        if (previous == null) {
+            String reason = skipped
+                    ? "Lernplan ab %s erstellt, Einstufung übersprungen".formatted(placed.code())
+                    : "Lernplan nach der Einstufung erstellt: %s bis C2".formatted(placed.code());
+            return new PlanChange(PlanChangeKind.PLAN_CREATED, reason, Map.of("level", placed.code()));
+        }
+        if (previous == placed) {
+            return new PlanChange(PlanChangeKind.REPLANNED, "Neueinstufung: %s bestätigt".formatted(placed.code()),
+                    Map.of("level", placed.code()));
+        }
+        return new PlanChange(PlanChangeKind.LEVEL_CHANGED, "Neueinstufung: %s → %s".formatted(previous.code(), placed.code()),
+                Map.of("from", previous.code(), "to", placed.code()));
     }
 
     private PlacementResultResponse resultOf(PlacementTestEntity test) {

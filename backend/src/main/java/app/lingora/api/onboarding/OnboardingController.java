@@ -40,8 +40,9 @@ public class OnboardingController {
 
     @PutMapping
     @Operation(operationId = "answerOnboarding", summary = "Save the answers of the onboarding questions",
-            description = "Can be sent again later, e.g. to change the daily goal. The onboarding is done once the first "
-                    + "placement test is completed or skipped.")
+            description = "Can be sent again later, e.g. to change the daily goal; a changed daily goal recalculates the "
+                    + "plan and its time estimates. The onboarding is done once the first placement test is completed or "
+                    + "skipped.")
     @ApiResponse(responseCode = "200", description = "Where the placement test starts and whether it may be skipped")
     @ApiResponse(responseCode = "400", description = "Invalid answers (code validation_failed or bad_request)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))

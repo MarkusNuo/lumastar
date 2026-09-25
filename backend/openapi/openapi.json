@@ -166,6 +166,26 @@
         ],
         "type": "object"
       },
+      "Checkpoint": {
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CheckpointStatus",
+            "description": "locked until checkpoints arrive (M4)"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "CheckpointStatus": {
+        "enum": [
+          "locked",
+          "available",
+          "passed"
+        ],
+        "type": "string"
+      },
       "Competence": {
         "enum": [
           "vocabulary",
@@ -722,6 +742,127 @@
         ],
         "type": "string"
       },
+      "PathResponse": {
+        "description": "The learning path of the home screen (PRD 12.3): the plan up to C2 with the live progress",
+        "properties": {
+          "currentLevel": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "dailyGoalMinutes": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "estimates": {
+            "additionalProperties": {
+              "format": "date",
+              "type": "string"
+            },
+            "description": "Per CEFR band (A1 … C2) of the plan the expected date by which it is done, e.g. {\"A2\": \"2026-11-10\"}",
+            "type": "object"
+          },
+          "stages": {
+            "description": "From the current level up to C2.3",
+            "items": {
+              "$ref": "#/components/schemas/PathStage"
+            },
+            "type": "array"
+          },
+          "targetLevel": {
+            "example": "C2",
+            "type": "string"
+          }
+        },
+        "required": [
+          "currentLevel",
+          "dailyGoalMinutes",
+          "estimates",
+          "stages",
+          "targetLevel"
+        ],
+        "type": "object"
+      },
+      "PathStage": {
+        "properties": {
+          "checkpoint": {
+            "$ref": "#/components/schemas/Checkpoint",
+            "description": "The test at the end of the stage"
+          },
+          "level": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "title": {
+            "type": "string"
+          },
+          "units": {
+            "items": {
+              "$ref": "#/components/schemas/PathUnit"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "checkpoint",
+          "level",
+          "title",
+          "units"
+        ],
+        "type": "object"
+      },
+      "PathUnit": {
+        "description": "A node group of the path: a curriculum unit or an inserted focus unit",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/UnitColor",
+            "description": "Banner colour; absent for focus units"
+          },
+          "estimatedLessons": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "focus": {
+            "description": "A focus unit for a weak skill tag",
+            "type": "boolean"
+          },
+          "hasContent": {
+            "description": "false while the unit has no exercises yet; it cannot be started",
+            "type": "boolean"
+          },
+          "icon": {
+            "description": "Free icon key; \"target\" for focus units",
+            "type": "string"
+          },
+          "lessonsCompleted": {
+            "description": "At most estimatedLessons",
+            "format": "int32",
+            "type": "integer"
+          },
+          "reason": {
+            "description": "Why the plan skipped, shortened or inserted the unit, in German",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PlanUnitStatus",
+            "description": "Live status: in_progress is the first unit that is neither completed nor skipped and has exercises"
+          },
+          "title": {
+            "type": "string"
+          },
+          "unitId": {
+            "description": "Start its lessons with POST /api/lessons",
+            "type": "string"
+          }
+        },
+        "required": [
+          "estimatedLessons",
+          "focus",
+          "hasContent",
+          "lessonsCompleted",
+          "status",
+          "title",
+          "unitId"
+        ],
+        "type": "object"
+      },
       "PlacementAnswerRequest": {
         "properties": {
           "answer": {
@@ -896,6 +1037,169 @@
           "weaknesses"
         ],
         "type": "object"
+      },
+      "PlanChangeKind": {
+        "enum": [
+          "plan_created",
+          "focus_inserted",
+          "unit_skipped",
+          "unit_shortened",
+          "level_changed",
+          "replanned"
+        ],
+        "type": "string"
+      },
+      "PlanChangeResponse": {
+        "description": "One entry of the plan history (PRD F3)",
+        "properties": {
+          "changedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "planVersion": {
+            "description": "The plan version the change led to",
+            "format": "int32",
+            "type": "integer"
+          },
+          "reason": {
+            "description": "German reason, e.g. \"Fokus-Lektion ‚Infinitiv me + Partizip‘ eingefügt, Fehlerquote 45 %\"",
+            "type": "string"
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/PlanTrigger"
+          },
+          "type": {
+            "$ref": "#/components/schemas/PlanChangeKind"
+          }
+        },
+        "required": [
+          "changedAt",
+          "planVersion",
+          "reason",
+          "trigger",
+          "type"
+        ],
+        "type": "object"
+      },
+      "PlanResponse": {
+        "description": "The current plan version as stored (learning_plan.json, PRD 8.3); the statuses are those at its calculation, the live progress is in GET /api/path",
+        "properties": {
+          "estimates": {
+            "additionalProperties": {
+              "format": "date",
+              "type": "string"
+            },
+            "description": "Per CEFR band (A1 … C2) of the plan the expected date by which it is done",
+            "type": "object"
+          },
+          "generatedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "generatedBy": {
+            "example": "rule_based_v1",
+            "type": "string"
+          },
+          "stages": {
+            "items": {
+              "$ref": "#/components/schemas/PlanStage"
+            },
+            "type": "array"
+          },
+          "startLevel": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "validFrom": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "version": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "estimates",
+          "generatedAt",
+          "generatedBy",
+          "stages",
+          "startLevel",
+          "validFrom",
+          "version"
+        ],
+        "type": "object"
+      },
+      "PlanStage": {
+        "properties": {
+          "level": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "title": {
+            "type": "string"
+          },
+          "units": {
+            "items": {
+              "$ref": "#/components/schemas/PlanUnit"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "level",
+          "title",
+          "units"
+        ],
+        "type": "object"
+      },
+      "PlanTrigger": {
+        "enum": [
+          "placement",
+          "checkpoint",
+          "periodic",
+          "lesson",
+          "manual"
+        ],
+        "type": "string"
+      },
+      "PlanUnit": {
+        "properties": {
+          "estimatedLessons": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "focus": {
+            "type": "boolean"
+          },
+          "reason": {
+            "description": "German reason, e.g. \"Fehlerquote 45 % bei Infinitiv me + Partizip\"",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PlanUnitStatus"
+          },
+          "title": {
+            "type": "string"
+          },
+          "unitId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "focus",
+          "status",
+          "title",
+          "unitId"
+        ],
+        "type": "object"
+      },
+      "PlanUnitStatus": {
+        "enum": [
+          "planned",
+          "in_progress",
+          "completed",
+          "skipped"
+        ],
+        "type": "string"
       },
       "ProblemDetail": {
         "description": "RFC 9457 problem details",
@@ -1130,6 +1434,7 @@
       "StartLessonRequest": {
         "properties": {
           "unitId": {
+            "description": "A curriculum unit or a focus unit of the current plan, as listed by GET /api/path",
             "example": "a1_u01_greetings",
             "maxLength": 100,
             "minLength": 0,
@@ -1491,7 +1796,7 @@
     },
     "/api/lessons": {
       "post": {
-        "description": "The exercises include their solutions and accepted variants so that the app can pre-check answers instantly (PRD 11.2).",
+        "description": "The exercises include their solutions and accepted variants so that the app can pre-check answers instantly (PRD 11.2). A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level.",
         "operationId": "startLesson",
         "requestBody": {
           "content": {
@@ -1552,7 +1857,7 @@
                 }
               }
             },
-            "description": "Unknown unit (code unit_not_found)"
+            "description": "Unknown unit or focus unit not in the plan (code unit_not_found)"
           },
           "409": {
             "content": {
@@ -1798,7 +2103,7 @@
     },
     "/api/onboarding": {
       "put": {
-        "description": "Can be sent again later, e.g. to change the daily goal. The onboarding is done once the first placement test is completed or skipped.",
+        "description": "Can be sent again later, e.g. to change the daily goal; a changed daily goal recalculates the plan and its time estimates. The onboarding is done once the first placement test is completed or skipped.",
         "operationId": "answerOnboarding",
         "requestBody": {
           "content": {
@@ -1892,6 +2197,48 @@
         "summary": "Answer options of the onboarding questions with German labels",
         "tags": [
           "onboarding"
+        ]
+      }
+    },
+    "/api/path": {
+      "get": {
+        "description": "Stages from the current level to C2.3 with their units, the live progress per unit and the time estimates. Focus units for weak skill tags sit right after the unit in progress.",
+        "operationId": "getPath",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PathResponse"
+                }
+              }
+            },
+            "description": "The path"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "No plan yet: placement test open (code plan_not_found)"
+          }
+        },
+        "summary": "The learning path of the home screen",
+        "tags": [
+          "plan"
         ]
       }
     },
@@ -2013,7 +2360,7 @@
     },
     "/api/placement/{testId}/answers": {
       "post": {
-        "description": "No verdict and no solution: the test gives no feedback. When the test is over the learner is placed: level, initial mastery, onboarding completed.",
+        "description": "No verdict and no solution: the test gives no feedback. When the test is over the learner is placed: level, initial mastery, onboarding completed, learning plan created or revised.",
         "operationId": "answerPlacementItem",
         "parameters": [
           {
@@ -2179,6 +2526,83 @@
         "summary": "Result of a completed or skipped test",
         "tags": [
           "placement"
+        ]
+      }
+    },
+    "/api/plan": {
+      "get": {
+        "description": "The plan as calculated (learning_plan.json of PRD 8.3), e.g. for the plan timeline after the placement test.",
+        "operationId": "getPlan",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanResponse"
+                }
+              }
+            },
+            "description": "The plan"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "No plan yet (code plan_not_found)"
+          }
+        },
+        "summary": "The current learning plan with its time estimates",
+        "tags": [
+          "plan"
+        ]
+      }
+    },
+    "/api/plan/changes": {
+      "get": {
+        "description": "Newest plan version first; the changes of one version in the order they were made, starting with its cause.",
+        "operationId": "getPlanChanges",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PlanChangeResponse"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "The history; empty before the first plan"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "The plan history with German reasons",
+        "tags": [
+          "plan"
         ]
       }
     },
@@ -2443,6 +2867,10 @@
     {
       "description": "Adaptive placement test: start, answer item by item, result; skip for beginners",
       "name": "placement"
+    },
+    {
+      "description": "Personal learning plan up to C2, its history and the learning path",
+      "name": "plan"
     },
     {
       "description": "The signed-in learner",

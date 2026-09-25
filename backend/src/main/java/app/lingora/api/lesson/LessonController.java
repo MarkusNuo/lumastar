@@ -36,14 +36,15 @@ public class LessonController {
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(operationId = "startLesson", summary = "Compose and start a lesson of a unit",
             description = "The exercises include their solutions and accepted variants so that the app can pre-check "
-                    + "answers instantly (PRD 11.2).")
+                    + "answers instantly (PRD 11.2). A focus unit of the current plan (focus_<skill tag>_<n>) is "
+                    + "composed of the exercises carrying its skill tag at or below the learner's level.")
     @ApiResponse(responseCode = "201", description = "The lesson with its exercises")
     @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "404", description = "Unknown unit (code unit_not_found)", content = @Content(
-            mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
+    @ApiResponse(responseCode = "404", description = "Unknown unit or focus unit not in the plan (code unit_not_found)",
+            content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "409", description = "The unit has no exercises yet (code unit_without_content)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public LessonResponse startLesson(@AuthenticationPrincipal AuthenticatedUser principal,

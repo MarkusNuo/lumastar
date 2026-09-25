@@ -20,4 +20,10 @@ public interface ExerciseRepository extends JpaRepository<ExerciseEntity, String
               AND :tag = ANY (skill_tags) AND level = ANY (:levels)
             ORDER BY id""", nativeQuery = true)
     List<ExerciseEntity> findLessonExercisesWithSkillTag(String tag, String[] levels);
+
+    /** The skill tags of the active global lesson exercises on the given levels. */
+    @Query(value = """
+            SELECT DISTINCT unnest(skill_tags) FROM exercises
+            WHERE pool = 'lesson' AND owner_user_id IS NULL AND retired_at IS NULL AND level = ANY (:levels)""", nativeQuery = true)
+    List<String> findLessonSkillTags(String[] levels);
 }

@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
@@ -78,9 +79,17 @@ public class ContentCatalog {
     /** Active lesson exercises of any unit that carry the skill tag and are not above {@code maxLevel}. */
     @Transactional(readOnly = true)
     public List<Exercise> lessonExercisesWithSkillTag(SkillTag tag, Level maxLevel) {
-        String[] levels = Arrays.stream(Level.values()).filter(level -> !level.isAbove(maxLevel)).map(Level::code)
-                .toArray(String[]::new);
-        return exercises.findLessonExercisesWithSkillTag(tag.id(), levels).stream().map(this::toExercise).toList();
+        return exercises.findLessonExercisesWithSkillTag(tag.id(), levelsUpTo(maxLevel)).stream().map(this::toExercise).toList();
+    }
+
+    /** The skill tags that active lesson exercises not above {@code maxLevel} practise. */
+    @Transactional(readOnly = true)
+    public Set<SkillTag> lessonSkillTags(Level maxLevel) {
+        return exercises.findLessonSkillTags(levelsUpTo(maxLevel)).stream().map(SkillTag::of).collect(Collectors.toSet());
+    }
+
+    private static String[] levelsUpTo(Level maxLevel) {
+        return Arrays.stream(Level.values()).filter(level -> !level.isAbove(maxLevel)).map(Level::code).toArray(String[]::new);
     }
 
     /** Exercises by id, retired ones included, because lessons and attempts keep referring to them. */
