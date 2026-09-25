@@ -27,6 +27,9 @@ const DEMOS: { label: string; exercise: LessonExercise }[] = [
   { label: 'Satzbausteine ordnen', exercise: SAMPLE_WORD_ORDER },
 ];
 
+// Fixed tile order so the catalog (and its e2e screenshots) looks the same on every load.
+const CATALOG_SHUFFLE_SEED = 2026;
+
 const OUTCOME_DISPLAY: Record<Outcome, { tone: Tone; label: string }> = {
   correct: { tone: 'success', label: 'Richtig' },
   almost_correct: { tone: 'warning', label: 'Fast richtig' },
@@ -72,6 +75,7 @@ function ExerciseDemo({ exercise }: { exercise: LessonExercise }) {
         onAnswerChange={setAnswer}
         onSubmit={check}
         focusOnStart={false}
+        shuffleSeed={CATALOG_SHUFFLE_SEED}
       />
       {verdict && <VerdictLine verdict={verdict} />}
       {verdict ? (

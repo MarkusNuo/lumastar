@@ -1,6 +1,20 @@
-type Random = () => number;
+export type Random = () => number;
 
 const MAX_SCRAMBLE_TRIES = 12;
+
+/** Repeatable pseudo-random numbers in [0, 1) from a linear congruential generator. */
+export function seededRandom(seed: number): Random {
+  let state = seed >>> 0;
+  return () => {
+    state = (Math.imul(state, 1_664_525) + 1_013_904_223) >>> 0;
+    return state / 2 ** 32;
+  };
+}
+
+/** A fresh generator for one shuffle: seeded when a fixed order is wanted, Math.random otherwise. */
+export function randomFor(seed: number | undefined): Random {
+  return seed === undefined ? Math.random : seededRandom(seed);
+}
 
 /** Fisher-Yates shuffle into a new array. */
 export function shuffled<T>(items: readonly T[], random: Random = Math.random): T[] {

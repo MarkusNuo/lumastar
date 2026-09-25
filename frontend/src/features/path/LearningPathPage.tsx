@@ -1,9 +1,6 @@
-import { ArrowClockwiseIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
-import { Button } from '../../components/ui/Button';
-import { Callout } from '../../components/ui/Callout';
-import { LoadingDots } from '../../components/ui/LoadingDots';
+import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { PATH_COPY } from './copy';
 import { curriculumQuery } from './curriculumQuery';
 import { buildLearningPath, type PathStage } from './learningPath';
@@ -20,22 +17,13 @@ export function LearningPathPage() {
       {curriculum.data ? (
         curriculum.data.map((stage) => <StageSection key={stage.level} stage={stage} />)
       ) : curriculum.isError ? (
-        <div className="flex flex-col gap-3">
-          <Callout tone="danger">{PATH_COPY.loadFailed}</Callout>
-          <Button
-            variant="neutral"
-            icon={ArrowClockwiseIcon}
-            loading={curriculum.isFetching}
-            onClick={() => void curriculum.refetch()}
-          >
-            {PATH_COPY.retry}
-          </Button>
-        </div>
+        <LoadFailed
+          message={PATH_COPY.loadFailed}
+          retrying={curriculum.isFetching}
+          onRetry={() => void curriculum.refetch()}
+        />
       ) : (
-        <div role="status" className="grid h-60 place-items-center text-primary-soft">
-          <LoadingDots />
-          <span className="sr-only">{PATH_COPY.loading}</span>
-        </div>
+        <LoadingBlock label={PATH_COPY.loading} className="h-60" />
       )}
     </div>
   );

@@ -9,6 +9,7 @@ import { ExercisesSection } from './sections/ExercisesSection';
 import { FeedbackSection } from './sections/FeedbackSection';
 import { GamificationSection } from './sections/GamificationSection';
 import { InputsSection } from './sections/InputsSection';
+import { ListsSection } from './sections/ListsSection';
 import { MascotSection } from './sections/MascotSection';
 import { NavigationSection } from './sections/NavigationSection';
 import { PathSection } from './sections/PathSection';
@@ -31,6 +32,7 @@ const SECTIONS = [
   { id: 'lernpfad', title: 'Lernpfad', Content: PathSection },
   { id: 'belohnung', title: 'Streak, XP & Niveau', Content: GamificationSection },
   { id: 'navigation', title: 'Navigation', Content: NavigationSection },
+  { id: 'listen', title: 'Listen, Sheets & Toasts', Content: ListsSection },
   { id: 'maskottchen', title: 'Maskottchen', Content: MascotSection },
 ] as const;
 

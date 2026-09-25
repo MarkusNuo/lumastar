@@ -40,8 +40,11 @@ export const UI_COPY = {
     shift: 'Grossbuchstaben',
     insert: (char: string) => `${char} einfügen`,
   },
+  retry: 'Nochmals versuchen',
+  sheet: { close: 'Schliessen' },
   streak: (days: number, active: boolean) =>
     `Streak: ${days} ${days === 1 ? 'Tag' : 'Tage'}${active ? '' : ', heute noch nicht gelernt'}`,
+  toast: { dismiss: 'Meldung schliessen' },
   unitBanner: { guidebook: 'Lernhilfe öffnen' },
   wordTile: { correct: 'richtig', wrong: 'falsch' },
 } as const;

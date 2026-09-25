@@ -257,6 +257,8 @@
 
   --z-bar: 20;
   --z-sheet: 40;
+  /* Above sheets: a toast can confirm an action taken inside one. */
+  --z-toast: 50;
 }
 
 /*

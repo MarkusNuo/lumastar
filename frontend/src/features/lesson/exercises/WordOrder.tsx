@@ -5,7 +5,7 @@ import type { WordOrderExercise } from '../model';
 import { ExerciseHeader } from './ExerciseHeader';
 import { reactionOf, type ExerciseProps } from './exerciseProps';
 import { PromptBubble } from './PromptBubble';
-import { scrambledIndices } from './shuffle';
+import { randomFor, scrambledIndices } from './shuffle';
 import { useWordBank } from './useWordBank';
 import { WordBankBoard } from './WordBankBoard';
 
@@ -15,13 +15,18 @@ export function WordOrder({
   verdict,
   retry,
   onAnswerChange,
+  shuffleSeed,
 }: ExerciseProps<WordOrderExercise>) {
   const words = exercise.tokens;
   const [bankOrder] = useState(() =>
-    scrambledIndices(words.length, (order) => {
-      const tokens = order.map((index) => words[index] ?? '');
-      return precheck(exercise, { kind: 'tokens', tokens }).outcome === 'correct';
-    }),
+    scrambledIndices(
+      words.length,
+      (order) => {
+        const tokens = order.map((index) => words[index] ?? '');
+        return precheck(exercise, { kind: 'tokens', tokens }).outcome === 'correct';
+      },
+      randomFor(shuffleSeed),
+    ),
   );
   const { picked, toggle } = useWordBank(words, (tokens) =>
     onAnswerChange(tokens.length > 0 ? { kind: 'tokens', tokens } : null),

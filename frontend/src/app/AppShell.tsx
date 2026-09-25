@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Outlet, ScrollRestoration } from 'react-router';
 import { BottomNav } from '../components/ui/BottomNav';
 import { useMe } from '../features/auth/authHooks';
 import { topBarStats } from './learnerStats';
@@ -17,6 +17,8 @@ export function AppShell() {
       <div className="fixed inset-x-0 bottom-0 z-(--z-bar) bg-bg pb-(--safe-bottom)">
         <BottomNav items={NAV_ITEMS} className="mx-auto max-w-app" />
       </div>
+      {/* A new tab starts at the top instead of at the scroll position of the previous one. */}
+      <ScrollRestoration />
     </div>
   );
 }

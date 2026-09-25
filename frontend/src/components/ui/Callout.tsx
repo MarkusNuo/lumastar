@@ -29,7 +29,7 @@ export function Callout({ tone, children, className }: CalloutProps) {
       )}
     >
       <ToneIcon aria-hidden="true" size={22} weight="bold" className="shrink-0 text-tone-text" />
-      <p className="min-w-0 text-fg">{children}</p>
+      <div className="min-w-0 text-fg">{children}</div>
     </div>
   );
 }

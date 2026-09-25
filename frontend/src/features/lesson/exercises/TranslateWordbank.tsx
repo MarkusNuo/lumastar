@@ -4,7 +4,7 @@ import type { TranslateWordbankExercise } from '../model';
 import { ExerciseHeader } from './ExerciseHeader';
 import { reactionOf, type ExerciseProps } from './exerciseProps';
 import { PromptBubble } from './PromptBubble';
-import { shuffled } from './shuffle';
+import { randomFor, shuffled } from './shuffle';
 import { useWordBank } from './useWordBank';
 import { WordBankBoard } from './WordBankBoard';
 
@@ -13,10 +13,16 @@ export function TranslateWordbank({
   verdict,
   retry,
   onAnswerChange,
+  shuffleSeed,
 }: ExerciseProps<TranslateWordbankExercise>) {
   const words = exercise.wordBank;
   // The content lists the solution's words first.
-  const [bankOrder] = useState(() => shuffled(words.map((_, index) => index)));
+  const [bankOrder] = useState(() =>
+    shuffled(
+      words.map((_, index) => index),
+      randomFor(shuffleSeed),
+    ),
+  );
   const { picked, toggle } = useWordBank(words, (tokens) =>
     onAnswerChange(tokens.length > 0 ? { kind: 'tokens', tokens } : null),
   );

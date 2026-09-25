@@ -18,3 +18,6 @@ export type LessonExerciseResponse = Schemas['LessonExercise'];
 export type SubmittedAnswer = Schemas['SubmittedAnswer'];
 export type AttemptResponse = Schemas['AttemptResponse'];
 export type LessonResultResponse = Schemas['LessonResultResponse'];
+
+export type ImportResult = Schemas['ImportResult'];
+export type BackupCounts = Schemas['BackupCounts'];

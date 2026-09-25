@@ -13,7 +13,7 @@ import {
   type MatchTileState,
   type PairSide,
 } from './pairMatching';
-import { shuffled } from './shuffle';
+import { randomFor, shuffled } from './shuffle';
 
 /** Long enough to see the colour, short enough not to slow down the next tap. */
 const FLASH_MS = 450;
@@ -38,12 +38,14 @@ export function MatchPairs({
   verdict,
   retry,
   onSubmit,
+  shuffleSeed,
 }: ExerciseProps<MatchPairsExercise>) {
   const { pairs } = exercise;
   const [state, dispatch] = useReducer(matchReducer, INITIAL_MATCH_STATE);
   const [orders] = useState(() => {
     const indices = pairs.map((_, index) => index);
-    return { left: shuffled(indices), right: shuffled(indices) };
+    const random = randomFor(shuffleSeed);
+    return { left: shuffled(indices, random), right: shuffled(indices, random) };
   });
   const complete = allMatched(state, pairs.length);
   const locked = complete || verdict !== undefined;

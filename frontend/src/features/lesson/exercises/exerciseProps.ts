@@ -13,6 +13,11 @@ export interface ExerciseProps<E extends LessonExercise> {
   onSubmit: (answer: Answer) => void;
   /** Puts the cursor into a text field on start; off where several exercises share a page. */
   focusOnStart?: boolean;
+  /**
+   * Fixes the order of shuffled tiles, e.g. for stable catalog screenshots. Lessons leave it out so
+   * every exercise shuffles anew.
+   */
+  shuffleSeed?: number;
 }
 
 export type Reaction = 'idle' | 'success' | 'error';

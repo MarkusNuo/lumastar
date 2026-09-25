@@ -30,6 +30,13 @@ export const api = createApiClient();
  * types `data` as optional, so this narrows it for endpoints that answer with a body.
  */
 export async function unwrap<T>(pending: Promise<{ data?: T; response: Response }>): Promise<T> {
+  return (await unwrapWithResponse(pending)).data;
+}
+
+/** Like {@link unwrap}, but keeps the response for its headers (e.g. a download's file name). */
+export async function unwrapWithResponse<T>(
+  pending: Promise<{ data?: T; response: Response }>,
+): Promise<{ data: T; response: Response }> {
   const { data, response } = await pending;
   if (data === undefined) {
     throw new ApiError('The response has no body', {
@@ -37,5 +44,5 @@ export async function unwrap<T>(pending: Promise<{ data?: T; response: Response 
       code: CLIENT_ERROR_CODES.unexpectedResponse,
     });
   }
-  return data;
+  return { data, response };
 }
