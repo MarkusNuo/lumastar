@@ -22,7 +22,6 @@
     { "id": "item_rruge", "kind": "word", "gheg": "rrugë", "de": "Strasse, Weg", "partOfSpeech": "noun", "gender": "f", "definite": "rruga", "reviewed": false },
     { "id": "item_qytet", "kind": "word", "gheg": "qytet", "de": "Stadt", "partOfSpeech": "noun", "gender": "m", "definite": "qyteti", "reviewed": false },
     { "id": "item_telefon", "kind": "word", "gheg": "telefon", "de": "Telefon, Handy", "partOfSpeech": "noun", "gender": "m", "definite": "telefoni", "reviewed": false },
-    { "id": "item_cante", "kind": "word", "gheg": "çantë", "de": "Tasche", "partOfSpeech": "noun", "gender": "f", "definite": "çanta", "reviewed": false },
     { "id": "item_per", "kind": "word", "gheg": "për", "de": "für (mit Akkusativ)", "partOfSpeech": "preposition", "reviewed": false },
     {
       "id": "item_hap",
@@ -34,8 +33,7 @@
       "reviewed": false
     },
     { "id": "item_mbyll", "kind": "word", "gheg": "mbyll", "de": "schliess!; ich schliesse", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_njoh", "kind": "word", "gheg": "njoh", "de": "ich kenne (jemanden)", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_i_gjate", "kind": "phrase", "gheg": "i gjatë, e gjatë", "de": "lang; gross (Person)", "partOfSpeech": "adjective", "reviewed": false }
+    { "id": "item_njoh", "kind": "word", "gheg": "njoh", "de": "ich kenne (jemanden)", "partOfSpeech": "verb", "reviewed": false }
   ],
   "exercises": [
     {

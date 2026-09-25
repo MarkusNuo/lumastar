@@ -42,10 +42,7 @@
     },
     { "id": "item_mish", "kind": "word", "gheg": "mish", "de": "Fleisch", "partOfSpeech": "noun", "gender": "m", "definite": "mishi", "reviewed": false },
     { "id": "item_peshk", "kind": "word", "gheg": "peshk", "de": "Fisch", "partOfSpeech": "noun", "gender": "m", "definite": "peshku", "reviewed": false },
-    { "id": "item_djathe", "kind": "word", "gheg": "djathë", "de": "Käse", "partOfSpeech": "noun", "gender": "m", "definite": "djathi", "reviewed": false },
-    { "id": "item_veze", "kind": "word", "gheg": "vezë", "de": "Ei", "partOfSpeech": "noun", "gender": "f", "definite": "veza", "plural": "vezë", "reviewed": false },
     { "id": "item_sallate", "kind": "word", "gheg": "sallatë", "de": "Salat", "partOfSpeech": "noun", "gender": "f", "definite": "sallata", "reviewed": false },
-    { "id": "item_molle", "kind": "word", "gheg": "mollë", "de": "Apfel", "partOfSpeech": "noun", "gender": "f", "definite": "molla", "plural": "mollë", "reviewed": false },
     { "id": "item_sheqer", "kind": "word", "gheg": "sheqer", "de": "Zucker", "partOfSpeech": "noun", "gender": "m", "definite": "sheqeri", "reviewed": false },
     {
       "id": "item_makiato",
@@ -56,9 +53,6 @@
       "note": "Das typische Kaffeegetränk im Kosovo. Genus und bestimmte Form zu prüfen; darum nur unbestimmt verwendet.",
       "reviewed": false
     },
-    { "id": "item_mengjes", "kind": "word", "gheg": "mëngjes", "de": "Frühstück; Morgen", "partOfSpeech": "noun", "gender": "m", "definite": "mëngjesi", "reviewed": false },
-    { "id": "item_dreke", "kind": "word", "gheg": "drekë", "de": "Mittagessen", "partOfSpeech": "noun", "gender": "f", "definite": "dreka", "reviewed": false },
-    { "id": "item_darke", "kind": "word", "gheg": "darkë", "de": "Abendessen", "partOfSpeech": "noun", "gender": "f", "definite": "darka", "reviewed": false },
     { "id": "item_ha", "kind": "word", "gheg": "ha", "de": "essen (ich esse, du isst, er/sie isst)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_pi", "kind": "word", "gheg": "pi", "de": "trinken (ich trinke, du trinkst, er/sie trinkt)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_kam_uri", "kind": "phrase", "gheg": "kam uri", "de": "ich habe Hunger", "partOfSpeech": "phrase", "reviewed": false },
@@ -93,7 +87,6 @@
       "reviewed": false
     },
     { "id": "item_pa_ohne", "kind": "word", "gheg": "pa", "de": "ohne", "partOfSpeech": "preposition", "reviewed": false },
-    { "id": "item_i_ftohte", "kind": "phrase", "gheg": "i ftohtë, e ftohtë", "de": "kalt", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_i_nxehte", "kind": "phrase", "gheg": "i nxehtë, e nxehtë", "de": "heiss", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_i_ambel", "kind": "phrase", "gheg": "i âmbël, e âmbël", "de": "süss", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_a_keni", "kind": "phrase", "gheg": "a keni …?", "de": "habt ihr …?, haben Sie …?", "partOfSpeech": "phrase", "reviewed": false }
