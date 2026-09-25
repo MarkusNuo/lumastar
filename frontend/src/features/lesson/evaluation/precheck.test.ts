@@ -82,7 +82,7 @@ describe('precheck of typed answers', () => {
       outcome: 'almost_correct',
       countsAsCorrect: true,
       solution: 'âsht',
-      hint: 'Fast richtig – achte auf den Zirkumflex: **âsht**',
+      hint: 'Achte auf den Zirkumflex: **âsht**',
     });
   });
 
@@ -92,14 +92,14 @@ describe('precheck of typed answers', () => {
     expect(verdict).toMatchObject({
       outcome: 'almost_correct',
       solution: 'Çka po bân?',
-      hint: 'Fast richtig – achte auf die Sonderzeichen: **Çka**',
+      hint: 'Achte auf die Sonderzeichen: **Çka**',
     });
   });
 
   it('names every word with missing diacritics', () => {
     const verdict = precheck(SAMPLE_TRANSLATE_FREE_NASAL, text('cka po ban'));
 
-    expect(verdict.hint).toBe('Fast richtig – achte auf die Sonderzeichen: **Çka**, **bân**');
+    expect(verdict.hint).toBe('Achte auf die Sonderzeichen: **Çka**, **bân**');
   });
 
   it('never counts an added diacritic as almost correct: "jâm" for "jam"', () => {
@@ -117,7 +117,7 @@ describe('precheck of typed answers', () => {
 
     expect(precheck(exercise, text('mirêdita'))).toMatchObject({
       outcome: 'almost_correct',
-      hint: 'Fast richtig – achte auf die Schreibweise: **mirëdita**',
+      hint: 'Achte auf die Schreibweise: **mirëdita**',
     });
     expect(precheck(exercise, text('mirêditê')).outcome).toBe('wrong');
   });
@@ -129,7 +129,7 @@ describe('precheck of typed answers', () => {
       outcome: 'correct_standard_form',
       countsAsCorrect: true,
       solution: 'âsht',
-      hint: 'Richtig! Auf Gheg sagt man eher „âsht“ statt „është“.',
+      hint: 'Auf Gheg sagt man eher **âsht** statt **është**.',
     });
   });
 
@@ -139,7 +139,7 @@ describe('precheck of typed answers', () => {
     expect(verdict).toMatchObject({
       outcome: 'correct_standard_form',
       solution: 'Ju lutem, nji kafe.',
-      hint: 'Richtig! Auf Gheg sagt man eher „nji“ statt „një“.',
+      hint: 'Auf Gheg sagt man eher **nji** statt **një**.',
     });
   });
 
@@ -162,7 +162,7 @@ describe('precheck of typed answers', () => {
     expect(verdict).toMatchObject({
       outcome: 'almost_correct',
       solution: 'Nji kafe, ju lutem.',
-      hint: 'Fast richtig – achte auf die Schreibweise: **lutem**',
+      hint: 'Achte auf die Schreibweise: **lutem**',
     });
   });
 
@@ -294,7 +294,7 @@ describe('precheck of matched pairs', () => {
     expect(precheck(SAMPLE_MATCH_PAIRS, { kind: 'mistakes', mistakes: 1 })).toMatchObject({
       outcome: 'almost_correct',
       countsAsCorrect: true,
-      hint: 'Fast richtig – ein Paar hast du zuerst falsch zugeordnet.',
+      hint: 'Ein Paar hast du zuerst falsch zugeordnet.',
     });
   });
 

@@ -29,14 +29,14 @@ const EXAMPLES: FeedbackExample[] = [
     trigger: 'Fast richtig',
     button: 'warning',
     solution: 'Shpija âsht e madhe.',
-    hint: 'Fast richtig – achte auf den Zirkumflex: **âsht**',
+    hint: 'Achte auf den Zirkumflex: **âsht**',
   },
   {
     variant: 'standard',
     trigger: 'Standard',
     button: 'secondary',
     solution: 'Shpija âsht e madhe.',
-    hint: 'Richtig! Auf Gheg sagt man eher „âsht“ statt „është“.',
+    hint: 'Auf Gheg sagt man eher **âsht** statt **është**.',
   },
   {
     variant: 'wrong',

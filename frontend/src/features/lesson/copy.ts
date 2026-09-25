@@ -91,17 +91,15 @@ export const LESSON_COPY = {
   hints: {
     standardForm: (swaps: { gheg: string; standard: string }[], solution: string) =>
       swaps.length === 0 || swaps.length > MAX_LISTED_SWAPS
-        ? `Richtig! Auf Gheg sagt man eher: ${quote(solution)}`
-        : `Richtig! Auf Gheg sagt man eher ${enumerate(
-            swaps.map((swap) => `${quote(swap.gheg)} statt ${quote(swap.standard)}`),
+        ? `Auf Gheg sagt man eher: ${quote(solution)}`
+        : `Auf Gheg sagt man eher ${enumerate(
+            swaps.map((swap) => `${bold([swap.gheg])} statt ${bold([swap.standard])}`),
           )}.`,
-    missingCircumflex: (words: string[]) =>
-      `Fast richtig – achte auf den Zirkumflex: ${bold(words)}`,
-    missingDiacritics: (words: string[]) =>
-      `Fast richtig – achte auf die Sonderzeichen: ${bold(words)}`,
-    typo: (words: string[]) => `Fast richtig – achte auf die Schreibweise: ${bold(words)}`,
+    missingCircumflex: (words: string[]) => `Achte auf den Zirkumflex: ${bold(words)}`,
+    missingDiacritics: (words: string[]) => `Achte auf die Sonderzeichen: ${bold(words)}`,
+    typo: (words: string[]) => `Achte auf die Schreibweise: ${bold(words)}`,
     wordOrder: 'Die Wörter stimmen, aber die Reihenfolge noch nicht.',
-    onePairMismatched: 'Fast richtig – ein Paar hast du zuerst falsch zugeordnet.',
+    onePairMismatched: 'Ein Paar hast du zuerst falsch zugeordnet.',
     pairsMismatched: (mistakes: number) => `Du hast ${mistakes} Paare zuerst falsch zugeordnet.`,
   },
 } as const;

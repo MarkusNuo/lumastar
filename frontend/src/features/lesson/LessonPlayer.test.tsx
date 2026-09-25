@@ -95,7 +95,7 @@ describe('LessonPlayer', () => {
           outcome: 'correct_standard_form',
           countsAsCorrect: true,
           solution: 'mirëdita',
-          hint: 'Richtig! Auf Gheg sagt man eher **mirëdita**.',
+          hint: 'Auf Gheg sagt man eher **mirëdita** statt **mirdita**.',
         }),
       ),
     );
