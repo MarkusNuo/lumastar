@@ -1,6 +1,8 @@
-/** Collects errors and warnings per content file and prints a per-file report. */
+/** Collects errors and warnings per content file and prints a per-file report with optional summaries. */
 export class Report {
   #files = new Map();
+  #fileSummaries = new Map();
+  #totals = [];
 
   /** Registers a checked file so it shows up as OK even without findings. */
   addFile(file) {
@@ -15,6 +17,17 @@ export class Report {
     this.#add(file, 'warning', location, message);
   }
 
+  /** Adds an informational line to a file's status line (not a finding). */
+  summarize(file, text) {
+    this.addFile(file);
+    this.#fileSummaries.set(file, [...(this.#fileSummaries.get(file) ?? []), text]);
+  }
+
+  /** Adds an informational line printed below the error and warning totals. */
+  summarizeTotal(text) {
+    this.#totals.push(text);
+  }
+
   get errorCount() {
     return this.#count('error');
   }
@@ -24,14 +37,18 @@ export class Report {
   }
 
   print(write = console.log) {
+    const nameWidth = Math.max(0, ...[...this.#files.keys()].map((file) => file.length));
     for (const [file, findings] of [...this.#files].sort(([a], [b]) => a.localeCompare(b))) {
-      write(`${statusOf(findings).padEnd(6)} ${file}`);
+      const summaries = this.#fileSummaries.get(file) ?? [];
+      const name = summaries.length > 0 ? file.padEnd(nameWidth) : file;
+      write([`${statusOf(findings).padEnd(6)} ${name}`, ...summaries].join('  '));
       for (const { severity, location, message } of findings) {
         write(`         ${severity.padEnd(7)} ${location ? `${location}  ` : ''}${message}`);
       }
     }
     write('');
     write(`${this.#files.size} files checked: ${plural(this.errorCount, 'error')}, ${plural(this.warningCount, 'warning')}.`);
+    for (const text of this.#totals) write(text);
   }
 
   #add(file, severity, location, message) {

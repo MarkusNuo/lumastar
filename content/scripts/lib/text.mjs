@@ -1,31 +1,41 @@
-// Text helpers shared by the checks. They mirror the evaluator's tolerance rules
-// (content/LANGUAGE_GUIDE.md): case and sentence punctuation are ignored, apostrophes are kept.
+// Text helpers shared by the checks. normalizeAnswer and tokenize implement the section
+// "Answer normalisation and tokenisation" of docs/CONTENT_FORMAT.md exactly, so the validator agrees
+// with the backend evaluator and the frontend pre-check.
 
-const PUNCTUATION = '.,!?;:…"„“”«»‹›()\\[\\]¿¡–—-';
-const EDGE_PUNCTUATION = new RegExp(`^[${PUNCTUATION}]+|[${PUNCTUATION}]+$`, 'gu');
-const ANY_PUNCTUATION = new RegExp(`[${PUNCTUATION}]`, 'gu');
-const TYPOGRAPHIC_APOSTROPHES = /[’‘´]/gu;
+/** Characters removed by normalisation step 2 and stripped from token edges (step 5). */
+export const STRIPPED_PUNCTUATION = ['.', ',', '!', '?', ';', ':', '"', '„', '“', '”', '«', '»', "'", '’', '‘', '(', ')', '-', '–', '—', '…'];
 
-function clean(text) {
-  return text.normalize('NFC').replace(TYPOGRAPHIC_APOSTROPHES, "'");
+const PUNCTUATION_CLASS = `[${STRIPPED_PUNCTUATION.map((character) => (/[\\\]\-^]/u.test(character) ? `\\${character}` : character)).join('')}]`;
+const ANY_PUNCTUATION = new RegExp(PUNCTUATION_CLASS, 'gu');
+const EDGE_PUNCTUATION = new RegExp(`^${PUNCTUATION_CLASS}+|${PUNCTUATION_CLASS}+$`, 'gu');
+const WHITESPACE = /\s+/gu;
+
+/**
+ * Steps 1–2: Unicode NFC, trim, lower case, single spaces, then the listed punctuation stripped.
+ * Diacritics are kept (step 3: error hints match this form). Whitespace is collapsed once more after
+ * stripping, so "Mirë – po ti" and "Mirë, po ti" both become "mirë po ti".
+ */
+export function normalizeAnswer(text) {
+  return collapseWhitespace(collapseWhitespace(text.normalize('NFC').toLowerCase()).replace(ANY_PUNCTUATION, ''));
 }
 
-/** Lower-cases, drops sentence punctuation and collapses whitespace. */
-export function normalizeForComparison(text) {
-  return clean(text).toLowerCase().replace(ANY_PUNCTUATION, ' ').replace(/\s+/gu, ' ').trim();
-}
-
-/** Splits a sentence into tap tokens: whitespace-separated, without leading/trailing punctuation. */
-export function tokenize(text) {
-  return clean(text)
-    .split(/\s+/u)
+/** Step 5: split on whitespace and strip surrounding punctuation from each token (inner apostrophes stay: s'ka). */
+export function tokenize(sentence) {
+  return sentence
+    .trim()
+    .split(WHITESPACE)
     .map((token) => token.replace(EDGE_PUNCTUATION, ''))
     .filter(Boolean);
 }
 
-/** Lower-cased letter runs of a text; apostrophes split words (s'ka → s, ka). */
+/** Step 5: tokens are compared case-insensitively. */
+export function sameToken(left, right) {
+  return left.toLowerCase() === right.toLowerCase();
+}
+
+/** Lower-cased letter runs of a text, for word-level blocklist lookups; apostrophes split words (s'ka → s, ka). */
 export function wordsOf(text) {
-  return clean(text).toLowerCase().match(/\p{L}+/gu) ?? [];
+  return text.normalize('NFC').toLowerCase().match(/\p{L}+/gu) ?? [];
 }
 
 /** Returns the entries of `needed` that are missing from `available` (case-insensitive multisets). */
@@ -38,6 +48,10 @@ export function missingFromMultiset(needed, available) {
     else remaining.set(entry, count - 1);
   }
   return missing;
+}
+
+function collapseWhitespace(text) {
+  return text.replace(WHITESPACE, ' ').trim();
 }
 
 function countBy(values) {

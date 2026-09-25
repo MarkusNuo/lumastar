@@ -127,7 +127,7 @@
       "solutions": ["Mirë, po ti?"],
       "explanation": "„Si je?“ heisst „Wie geht es dir?“. Mit „Mirë, po ti?“ antwortest du „Gut, und du?“.",
       "errorHints": [
-        { "pattern": "^s'ka p[eë]rse", "category": "vocab.confused", "hint": "„S'ka përse“ ist die Antwort auf „danke“: „gern geschehen“." }
+        { "pattern": "^ska p[eë]rse", "category": "vocab.confused", "hint": "„S'ka përse“ ist die Antwort auf „danke“: „gern geschehen“." }
       ],
       "reviewed": false,
       "source": "manual"

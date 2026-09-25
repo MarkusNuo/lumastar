@@ -291,7 +291,7 @@ Gheg-Partizipien sind kürzer als die Standard-Partizipien. Regeln:
 
 ### 7.4 Perfekt
 
-**kam/jam + Partizip**: *Kam punue.* – „Ich habe gearbeitet.“ *Kam pa.* – „Ich habe gesehen.“ *Jam kânë në Prizren.* – „Ich bin in Prizren gewesen.“
+**kam + Partizip**: *Kam punue.* – „Ich habe gearbeitet.“ *Kam pa.* – „Ich habe gesehen.“ *Kam kânë në Prizren.* – „Ich bin in Prizren gewesen.“ Auch „sein“ bildet das Perfekt mit *kam* (anders als im Deutschen). **jam + Partizip** steht nur bei reflexiven und passiven Verben: *Jam lodhë.* – „Ich bin müde geworden.“, *Shpija âsht ndërtue.* – „Das Haus ist gebaut worden.“ (zu prüfen)
 
 ### 7.5 Zukunft
 
@@ -383,7 +383,7 @@ Vor Adjektiven und Genitiven steht ein **Verbindungsartikel**, der sich nach dem
 
 Diese Regeln gelten für Freitext (`translate_free`, `fill_gap` ohne Auswahl) und sinngemäss für die anderen Typen. Umgesetzt werden sie im Backend (`AnswerEvaluator`, PRD F5). Reihenfolge:
 
-1. **Normalisieren:** Gross-/Kleinschreibung, Satzzeichen (`. , ! ? ; : „ “ " …`) und mehrfache Leerzeichen werden ignoriert; ’ gilt als '.
+1. **Normalisieren** (verbindlich: `docs/CONTENT_FORMAT.md`, Abschnitt „Answer normalisation and tokenisation“): Unicode NFC, Kleinschreibung, einfache Leerzeichen; Satzzeichen und Apostrophe (`. , ! ? ; : " „ “ ” « » ' ’ ‘ ( ) - – — …`) werden entfernt, also *S'ka përse!* → *ska përse*. Sonderzeichen (ë, ç, â …) bleiben erhalten.
 2. **Exakt gleich** einer Lösung aus `solutions` → **richtig**.
 3. **Nur Zirkumflex fehlt** (*asht* statt *âsht*) → **fast richtig**, Tag `spelling.nasal_vowel`.
 4. **ë oder ç fehlt** (*shume* statt *shumë*, *cka* statt *çka*) → **fast richtig**, Tag `spelling.diacritics`. Fehlen beide Arten, gilt `spelling.diacritics` (zu prüfen: beide Tags vergeben?).
@@ -396,7 +396,8 @@ Diese Regeln gelten für Freitext (`translate_free`, `fill_gap` ohne Auswahl) un
 **errorHints schreiben:**
 
 - `\b` funktioniert in JavaScript nicht zuverlässig neben ë, ç oder â. Stattdessen `(^|\s)` und `(\s|$)` verwenden.
-- Varianten mit und ohne Sonderzeichen abdecken, z. B. `n[aâ]n[eë]`, weil offen ist, ob der Evaluator die Antwort vor dem Vergleich von Sonderzeichen befreit.
+- Muster laufen auf die normalisierte Antwort **mit** Sonderzeichen, aber **ohne** Satzzeichen und Apostrophe: `^ska p[eë]rse` statt `^s'ka përse`. Weil Lernende Sonderzeichen oft weglassen, trotzdem beide Varianten abdecken, z. B. `n[aâ]n[eë]`.
+- Ein Muster darf keine Lösung aus `solutions` treffen (sonst ist es zu breit); `npm run validate` prüft das.
 - Nur Syntax verwenden, die in JavaScript und Java gleich funktioniert (Zeichenklassen, Gruppen, `^`, `$`, `(?!…)`).
 - Standard-Formen gehören nicht in `errorHints`, sondern in `standardForms` (sie sind kein Fehler).
 
@@ -450,3 +451,4 @@ Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 9. Ausnahmen der Blockliste: *gëzuar* (Prost) und *duar* (Hände); Muster *-ënë*.
 10. Evaluator: Bewertung von Formen ohne End-ë (*mir*) und von lautnahen Schreibungen (*osht, nona*); Tags, wenn Zirkumflex und ë/ç zugleich fehlen; automatische Erkennung von Standard-Formen über die Blockliste.
 11. Kurzformen mit Apostroph (*m'fal, t'lutem*) als zusätzliche Lösungen zulassen?
+12. Formen aus der Einstufungsbank (`placement.json`, vor allem B2–C2): Konditional *kisha me* + Partizip (*kisha me ardhë*), Bedingung mit *me pasë / me e pasë ditë*, Partizipien *ra* (von *bie*), *ble*, *vozitë*, *mbrojtë*, *ndezë*, *hedhë*, *gjetë*, *mërzitë*, *rritë*, *vendosë*, *qëndrue*, Passiv mit *prej* als Agens, *i lumtun*, *pare* (Geld), *veturë*, *me bâ muhabet*, Klitikon-Stellung in *për me të pa*, ironisches *Punë e madhe!*, Sprichwort *Gjuha kockë s'ka, po kockë thyen*. Die betroffenen Aufgaben haben eine `note`.

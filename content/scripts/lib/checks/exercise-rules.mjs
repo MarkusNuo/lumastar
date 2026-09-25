@@ -1,9 +1,13 @@
 import { at } from '../report.mjs';
-import { missingFromMultiset, normalizeForComparison, tokenize } from '../text.mjs';
+import { STRIPPED_PUNCTUATION, missingFromMultiset, normalizeAnswer, sameToken, tokenize } from '../text.mjs';
 import { exercisesOf, isUnitDoc } from '../walk.mjs';
 
 const GAP = '___';
 const WORD_BANK_DISTRACTORS = { min: 2, max: 4 };
+// Punctuation that normalisation always removes and that has no meaning in a regex: a hint pattern
+// containing one of these can never match a normalised answer.
+const REGEX_SYNTAX = new Set(['.', ',', '!', '?', ':', '(', ')', '-']);
+const NEVER_IN_NORMALISED_ANSWER = STRIPPED_PUNCTUATION.filter((character) => !REGEX_SYNTAX.has(character));
 
 /** Per-type rules that JSON Schema cannot express, plus error-hint and standard-form sanity checks. */
 export function checkExerciseRules(content, report) {
@@ -25,15 +29,17 @@ const TYPE_RULES = {
       : [{ path: '/solutions/0', message: 'The solution must be one of the 4 choices.' }],
 
   translate_wordbank: (exercise) => {
+    const problems = uncleanTokenProblems(exercise.wordBank, '/wordBank');
     const tokens = tokenize(exercise.solutions[0]);
     const missing = missingFromMultiset(tokens, exercise.wordBank);
     if (missing.length > 0) {
-      return [{ path: '/wordBank', message: `wordBank lacks token(s) of solutions[0]: ${quoteAll(missing)}.` }];
+      return [...problems, { path: '/wordBank', message: `wordBank lacks token(s) of solutions[0]: ${quoteAll(missing)}.` }];
     }
     const distractors = exercise.wordBank.length - tokens.length;
-    return distractors >= WORD_BANK_DISTRACTORS.min && distractors <= WORD_BANK_DISTRACTORS.max
-      ? []
-      : [{ path: '/wordBank', message: `wordBank needs ${WORD_BANK_DISTRACTORS.min}–${WORD_BANK_DISTRACTORS.max} distractors besides the tokens of solutions[0], found ${distractors}.` }];
+    if (distractors < WORD_BANK_DISTRACTORS.min || distractors > WORD_BANK_DISTRACTORS.max) {
+      problems.push({ path: '/wordBank', message: `wordBank needs ${WORD_BANK_DISTRACTORS.min}–${WORD_BANK_DISTRACTORS.max} distractors besides the tokens of solutions[0], found ${distractors}.` });
+    }
+    return problems;
   },
 
   fill_gap: (exercise) => {
@@ -48,14 +54,16 @@ const TYPE_RULES = {
 
   match_pairs: (exercise) =>
     ['left', 'right'].flatMap((side) => {
-      const duplicates = duplicatesOf(exercise.pairs.map((pair) => normalizeForComparison(pair[side])));
+      const duplicates = duplicatesOf(exercise.pairs.map((pair) => normalizeAnswer(pair[side])));
       return duplicates.length > 0 ? [{ path: '/pairs', message: `Pairs need unique ${side} sides, duplicated: ${quoteAll(duplicates)}.` }] : [];
     }),
 
   word_order: (exercise) => {
-    const problems = [];
-    if (normalizeForComparison(exercise.tokens.join(' ')) !== normalizeForComparison(exercise.solutions[0])) {
-      problems.push({ path: '/tokens', message: 'tokens joined in order must equal solutions[0] (ignoring case and punctuation).' });
+    const problems = uncleanTokenProblems(exercise.tokens, '/tokens');
+    const expected = tokenize(exercise.solutions[0]);
+    const inOrder = expected.length === exercise.tokens.length && expected.every((token, index) => sameToken(token, exercise.tokens[index]));
+    if (!inOrder) {
+      problems.push({ path: '/tokens', message: `tokens must be the tokens of solutions[0] in order: ${quoteAll(expected)}.` });
     }
     for (const [index, solution] of exercise.solutions.entries()) {
       if (!isSameMultiset(tokenize(solution), exercise.tokens)) {
@@ -66,21 +74,47 @@ const TYPE_RULES = {
   },
 };
 
+/** Word-bank and word-order entries are single tokens without surrounding punctuation (contract step 5). */
+function uncleanTokenProblems(entries, path) {
+  return entries.flatMap((entry, index) => {
+    const tokens = tokenize(entry);
+    return tokens.length === 1 && tokens[0] === entry
+      ? []
+      : [{ path: `${path}/${index}`, message: `"${entry}" must be a single token without surrounding punctuation.` }];
+  });
+}
+
+/**
+ * Hint patterns are matched case-insensitively against the normalised wrong answer (diacritics kept).
+ * A pattern must compile, must be able to match a normalised answer at all, and must not match a
+ * solution: solutions never reach the hints, so such a pattern is too broad and misfires on near misses.
+ * Matching a standard form is fine (e.g. "punuar" still catches the mixed form "tue punuar").
+ */
 function errorHintProblems(exercise) {
+  const solutions = exercise.solutions ?? [];
   return (exercise.errorHints ?? []).flatMap((hint, index) => {
+    const path = `/errorHints/${index}/pattern`;
+    let regex;
     try {
-      new RegExp(hint.pattern, 'iu');
-      return [];
+      regex = new RegExp(hint.pattern, 'iu');
     } catch (error) {
-      return [{ path: `/errorHints/${index}/pattern`, message: `Invalid regex: ${error.message}` }];
+      return [{ path, message: `Invalid regex: ${error.message}` }];
     }
+    const removed = NEVER_IN_NORMALISED_ANSWER.filter((character) => hint.pattern.includes(character));
+    if (removed.length > 0) {
+      return [{ path, message: `Pattern contains ${quoteAll(removed)}, which normalisation removes from every answer, so it can never match.` }];
+    }
+    const matchedSolution = solutions.find((solution) => regex.test(normalizeAnswer(solution)));
+    return matchedSolution
+      ? [{ path, message: `Pattern matches the solution "${matchedSolution}"; hints only apply to wrong answers.` }]
+      : [];
   });
 }
 
 function standardFormProblems(exercise) {
-  const solutions = new Set((exercise.solutions ?? []).map(normalizeForComparison));
+  const solutions = new Set((exercise.solutions ?? []).map(normalizeAnswer));
   return (exercise.standardForms ?? []).flatMap((form, index) =>
-    solutions.has(normalizeForComparison(form))
+    solutions.has(normalizeAnswer(form))
       ? [{ path: `/standardForms/${index}`, message: 'A standard form must not also be listed as a Gheg solution.' }]
       : [],
   );
