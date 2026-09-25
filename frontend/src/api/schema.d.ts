@@ -103,7 +103,7 @@ export interface paths {
         put?: never;
         /**
          * Compose and start a lesson of a unit
-         * @description The exercises include their solutions and accepted variants so that the app can pre-check answers instantly (PRD 11.2).
+         * @description The exercises include their solutions and accepted variants so that the app can pre-check answers instantly (PRD 11.2). A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level.
          */
         post: operations["startLesson"];
         delete?: never;
@@ -179,7 +179,7 @@ export interface paths {
         get?: never;
         /**
          * Save the answers of the onboarding questions
-         * @description Can be sent again later, e.g. to change the daily goal. The onboarding is done once the first placement test is completed or skipped.
+         * @description Can be sent again later, e.g. to change the daily goal; a changed daily goal recalculates the plan and its time estimates. The onboarding is done once the first placement test is completed or skipped.
          */
         put: operations["answerOnboarding"];
         post?: never;
@@ -198,6 +198,26 @@ export interface paths {
         };
         /** Answer options of the onboarding questions with German labels */
         get: operations["getOnboardingOptions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/path": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * The learning path of the home screen
+         * @description Stages from the current level to C2.3 with their units, the live progress per unit and the time estimates. Focus units for weak skill tags sit right after the unit in progress.
+         */
+        get: operations["getPath"];
         put?: never;
         post?: never;
         delete?: never;
@@ -257,7 +277,7 @@ export interface paths {
         put?: never;
         /**
          * Answer the current item and get the next one
-         * @description No verdict and no solution: the test gives no feedback. When the test is over the learner is placed: level, initial mastery, onboarding completed.
+         * @description No verdict and no solution: the test gives no feedback. When the test is over the learner is placed: level, initial mastery, onboarding completed, learning plan created or revised.
          */
         post: operations["answerPlacementItem"];
         delete?: never;
@@ -275,6 +295,46 @@ export interface paths {
         };
         /** Result of a completed or skipped test */
         get: operations["getPlacementResult"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/plan": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * The current learning plan with its time estimates
+         * @description The plan as calculated (learning_plan.json of PRD 8.3), e.g. for the plan timeline after the placement test.
+         */
+        get: operations["getPlan"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/plan/changes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * The plan history with German reasons
+         * @description Newest plan version first; the changes of one version in the order they were made, starting with its cause.
+         */
+        get: operations["getPlanChanges"];
         put?: never;
         post?: never;
         delete?: never;
@@ -438,6 +498,12 @@ export interface components {
             /** Format: int32 */
             streaks: number;
         };
+        Checkpoint: {
+            /** @description locked until checkpoints arrive (M4) */
+            status: components["schemas"]["CheckpointStatus"];
+        };
+        /** @enum {string} */
+        CheckpointStatus: "locked" | "available" | "passed";
         /** @enum {string} */
         Competence: "vocabulary" | "grammar" | "reading" | "translation";
         CompetenceResult: {
@@ -612,6 +678,52 @@ export interface components {
         OnboardingStep: "profile" | "placement" | "done";
         /** @enum {string} */
         Outcome: "correct" | "almost_correct" | "correct_standard_form" | "wrong";
+        /** @description The learning path of the home screen (PRD 12.3): the plan up to C2 with the live progress */
+        PathResponse: {
+            currentLevel: components["schemas"]["Level"];
+            /** Format: int32 */
+            dailyGoalMinutes: number;
+            /** @description Per CEFR band (A1 … C2) of the plan the expected date by which it is done, e.g. {"A2": "2026-11-10"} */
+            estimates: {
+                [key: string]: string;
+            };
+            /** @description From the current level up to C2.3 */
+            stages: components["schemas"]["PathStage"][];
+            /** @example C2 */
+            targetLevel: string;
+        };
+        PathStage: {
+            /** @description The test at the end of the stage */
+            checkpoint: components["schemas"]["Checkpoint"];
+            level: components["schemas"]["Level"];
+            title: string;
+            units: components["schemas"]["PathUnit"][];
+        };
+        /** @description A node group of the path: a curriculum unit or an inserted focus unit */
+        PathUnit: {
+            /** @description Banner colour; absent for focus units */
+            color?: components["schemas"]["UnitColor"];
+            /** Format: int32 */
+            estimatedLessons: number;
+            /** @description A focus unit for a weak skill tag */
+            focus: boolean;
+            /** @description false while the unit has no exercises yet; it cannot be started */
+            hasContent: boolean;
+            /** @description Free icon key; "target" for focus units */
+            icon?: string;
+            /**
+             * Format: int32
+             * @description At most estimatedLessons
+             */
+            lessonsCompleted: number;
+            /** @description Why the plan skipped, shortened or inserted the unit, in German */
+            reason?: string;
+            /** @description Live status: in_progress is the first unit that is neither completed nor skipped and has exercises */
+            status: components["schemas"]["PlanUnitStatus"];
+            title: string;
+            /** @description Start its lessons with POST /api/lessons */
+            unitId: string;
+        };
         PlacementAnswerRequest: {
             answer: components["schemas"]["SubmittedAnswer"];
             /** @description Id of the item shown */
@@ -679,6 +791,58 @@ export interface components {
             /** @description Top 3 weaknesses, weakest first */
             weaknesses: components["schemas"]["SkillEstimate"][];
         };
+        /** @enum {string} */
+        PlanChangeKind: "plan_created" | "focus_inserted" | "unit_skipped" | "unit_shortened" | "level_changed" | "replanned";
+        /** @description One entry of the plan history (PRD F3) */
+        PlanChangeResponse: {
+            /** Format: date-time */
+            changedAt: string;
+            /**
+             * Format: int32
+             * @description The plan version the change led to
+             */
+            planVersion: number;
+            /** @description German reason, e.g. "Fokus-Lektion ‚Infinitiv me + Partizip‘ eingefügt, Fehlerquote 45 %" */
+            reason: string;
+            trigger: components["schemas"]["PlanTrigger"];
+            type: components["schemas"]["PlanChangeKind"];
+        };
+        /** @description The current plan version as stored (learning_plan.json, PRD 8.3); the statuses are those at its calculation, the live progress is in GET /api/path */
+        PlanResponse: {
+            /** @description Per CEFR band (A1 … C2) of the plan the expected date by which it is done */
+            estimates: {
+                [key: string]: string;
+            };
+            /** Format: date-time */
+            generatedAt: string;
+            /** @example rule_based_v1 */
+            generatedBy: string;
+            stages: components["schemas"]["PlanStage"][];
+            startLevel: components["schemas"]["Level"];
+            /** Format: date-time */
+            validFrom: string;
+            /** Format: int32 */
+            version: number;
+        };
+        PlanStage: {
+            level: components["schemas"]["Level"];
+            title: string;
+            units: components["schemas"]["PlanUnit"][];
+        };
+        /** @enum {string} */
+        PlanTrigger: "placement" | "checkpoint" | "periodic" | "lesson" | "manual";
+        PlanUnit: {
+            /** Format: int32 */
+            estimatedLessons?: number;
+            focus: boolean;
+            /** @description German reason, e.g. "Fehlerquote 45 % bei Infinitiv me + Partizip" */
+            reason?: string;
+            status: components["schemas"]["PlanUnitStatus"];
+            title: string;
+            unitId: string;
+        };
+        /** @enum {string} */
+        PlanUnitStatus: "planned" | "in_progress" | "completed" | "skipped";
         /** @description RFC 9457 problem details */
         ProblemDetail: {
             /** @description Stable, machine-readable error code, e.g. invalid_credentials */
@@ -762,7 +926,10 @@ export interface components {
             skillTag: string;
         };
         StartLessonRequest: {
-            /** @example a1_u01_greetings */
+            /**
+             * @description A curriculum unit or a focus unit of the current plan, as listed by GET /api/path
+             * @example a1_u01_greetings
+             */
             unitId: string;
         };
         /** @description A started placement test with its first item */
@@ -1055,7 +1222,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Unknown unit (code unit_not_found) */
+            /** @description Unknown unit or focus unit not in the plan (code unit_not_found) */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1322,6 +1489,44 @@ export interface operations {
             };
         };
     };
+    getPath: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The path */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PathResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description No plan yet: placement test open (code plan_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
     startPlacement: {
         parameters: {
             query?: never;
@@ -1536,6 +1741,73 @@ export interface operations {
             };
             /** @description Still running or abandoned (code placement_not_finished) */
             409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getPlan: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The plan */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description No plan yet (code plan_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getPlanChanges: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The history; empty before the first plan */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanChangeResponse"][];
+                };
+            };
+            /** @description Not signed in */
+            401: {
                 headers: {
                     [name: string]: unknown;
                 };
