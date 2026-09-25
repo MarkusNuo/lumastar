@@ -132,8 +132,9 @@ Type-specific fields (`answerLang` ∈ `sq` (Gheg), `de`):
 
 Shared by the backend evaluator, the frontend pre-check and the content validator:
 
-1. Unicode NFC, trim, lowercase, collapse whitespace to single spaces.
-2. Strip punctuation `. , ! ? ; : " „ “ ” « » ' ’ ‘ ( ) - – — …` (keep letters, digits and spaces).
+1. Unicode NFC, lowercase.
+2. Remove every character that is not a letter, a digit or whitespace (all punctuation and symbols,
+   including apostrophes: *s'ka* → *ska*), then trim and collapse whitespace to single spaces.
 3. `errorHints` patterns are matched against the answer after steps 1–2 (diacritics are **kept**).
 4. Diacritic folding for "almost correct" (`ë→e`, `ç→c`, `â→a`, `ê→e`, `î→i`, `ô→o`, `û→u`) is a separate,
    later comparison step.
