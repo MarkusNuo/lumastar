@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u02_family",
+  "level": "A1.1",
+  "grammar": [
+    {
+      "title": "Der bestimmte Artikel",
+      "explanation": "Der bestimmte Artikel wird als Endung angehängt: *shpi* → *shpija* (das Haus), *nânë* → *nâna* (die Mutter)."
+    }
+  ],
+  "items": [
+    { "id": "item_nane", "kind": "word", "gheg": "nânë", "de": "Mutter", "partOfSpeech": "noun", "gender": "f", "definite": "nâna", "reviewed": false },
+    { "id": "item_baba", "kind": "word", "gheg": "baba", "de": "Vater", "partOfSpeech": "noun", "gender": "m", "definite": "babai", "reviewed": false },
+    { "id": "item_shpi", "kind": "word", "gheg": "shpi", "de": "Haus", "partOfSpeech": "noun", "gender": "f", "definite": "shpija", "reviewed": false },
+    { "id": "item_asht", "kind": "word", "gheg": "âsht", "de": "ist", "partOfSpeech": "verb", "note": "3. Person Singular von „jam“", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u02_001",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["grammar.verb_be", "vocab.family"],
+      "itemIds": ["item_nane", "item_asht", "item_shpi"],
+      "prompt": { "lang": "de", "text": "Die Mutter ist zu Hause." },
+      "answerLang": "sq",
+      "text": "Nâna ___ në shpi.",
+      "solutions": ["âsht"],
+      "choices": ["âsht", "jam", "je"],
+      "standardForms": ["është"],
+      "errorHints": [
+        { "pattern": "^asht$", "category": "spelling.nasal_vowel", "hint": "Achte auf den Zirkumflex: âsht." }
+      ],
+      "explanation": "„Ist“ heisst auf Gheg „âsht“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_002",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "vocab.home"],
+      "itemIds": ["item_shpi", "item_asht"],
+      "prompt": { "lang": "de", "text": "Das Haus ist gross." },
+      "answerLang": "sq",
+      "solutions": ["Shpija âsht e madhe."],
+      "standardForms": ["Shtëpia është e madhe."],
+      "explanation": "Der bestimmte Artikel wird angehängt: shpi → shpija. „Ist“ heisst auf Gheg „âsht“.",
+      "errorHints": [
+        { "pattern": "^shpi\\b", "category": "grammar.definite_article", "hint": "Das Haus = shpija (Artikel als Endung)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_003",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.definite_article.fem"],
+      "itemIds": ["item_nane"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „nâna“?" },
+      "choices": ["die Mutter", "der Vater", "das Haus", "die Schwester"],
+      "solutions": ["die Mutter"],
+      "explanation": "„nânë“ heisst Mutter, mit Artikel „nâna“: die Mutter.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

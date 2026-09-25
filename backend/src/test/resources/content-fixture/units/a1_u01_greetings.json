@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u01_greetings",
+  "level": "A1.1",
+  "grammar": [
+    { "title": "Guten Tag!", "explanation": "Tagsüber grüsst man mit *Mirëdita*, beim Abschied sagt man *Mirupafshim*." }
+  ],
+  "items": [
+    { "id": "item_miredita", "kind": "phrase", "gheg": "mirëdita", "de": "guten Tag", "partOfSpeech": "interjection", "reviewed": false },
+    { "id": "item_si_je", "kind": "phrase", "gheg": "si je?", "de": "wie geht es dir?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_faleminderit", "kind": "word", "gheg": "faleminderit", "de": "danke", "partOfSpeech": "interjection", "reviewed": false },
+    { "id": "item_mirupafshim", "kind": "phrase", "gheg": "mirupafshim", "de": "auf Wiedersehen", "partOfSpeech": "interjection", "reviewed": false },
+    { "id": "item_po", "kind": "word", "gheg": "po", "de": "ja", "partOfSpeech": "particle", "reviewed": false },
+    { "id": "item_jo", "kind": "word", "gheg": "jo", "de": "nein", "partOfSpeech": "particle", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u01_001",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_miredita"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Guten Tag“?" },
+      "choices": ["Mirëdita", "Mirupafshim", "Faleminderit", "Po"],
+      "solutions": ["Mirëdita"],
+      "explanation": "„Mirëdita“ ist der übliche Gruss tagsüber.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_002",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.politeness", "vocab.greetings"],
+      "itemIds": ["item_si_je"],
+      "prompt": { "lang": "de", "text": "Wie geht es dir?" },
+      "answerLang": "sq",
+      "solutions": ["Si je?"],
+      "explanation": "„Si je?“ ist die vertraute Frage nach dem Befinden.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_003",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_miredita", "item_si_je"],
+      "prompt": { "lang": "sq", "text": "Mirëdita, si je?" },
+      "answerLang": "de",
+      "solutions": ["Guten Tag, wie geht es dir?"],
+      "wordBank": ["Guten", "Tag", "wie", "geht", "es", "dir", "Abend", "danke"],
+      "explanation": "„Mirëdita“ heisst „Guten Tag“, „si je?“ heisst „wie geht es dir?“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_004",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings", "phrase.politeness"],
+      "itemIds": ["item_miredita", "item_mirupafshim", "item_faleminderit", "item_po", "item_jo"],
+      "prompt": { "lang": "de", "text": "Ordne die Paare zu." },
+      "pairs": [
+        { "left": "Mirëdita", "right": "Guten Tag" },
+        { "left": "Mirupafshim", "right": "Auf Wiedersehen" },
+        { "left": "Faleminderit", "right": "Danke" },
+        { "left": "Po", "right": "Ja" },
+        { "left": "Jo", "right": "Nein" }
+      ],
+      "explanation": "Diese Wörter brauchst du bei jeder Begegnung.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_005",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_miredita", "item_si_je"],
+      "prompt": { "lang": "de", "text": "Guten Tag, wie geht es dir?" },
+      "answerLang": "sq",
+      "tokens": ["Mirëdita", "si", "je"],
+      "solutions": ["Mirëdita, si je?"],
+      "explanation": "Zuerst der Gruss, dann die Frage.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

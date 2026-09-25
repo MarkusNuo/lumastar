@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: lingora
+  jackson:
+    # Absent optional fields are omitted, matching the non-required properties of the OpenAPI schemas.
+    default-property-inclusion: non_null
+  datasource:
+    url: ${LINGORA_DB_URL:jdbc:postgresql://localhost:5433/lingora}
+    username: ${LINGORA_DB_USER:lingora}
+    password: ${LINGORA_DB_PASSWORD:lingora}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        # Jackson 2 is on the classpath too (via springdoc); JSON columns use Jackson 3 like the rest of the app.
+        type.json_format_mapper: jackson3
+        jdbc.batch_size: 100
+        order_inserts: true
+        order_updates: true
+
+server:
+  servlet:
+    session:
+      timeout: 7d
+      cookie:
+        name: LINGORA_SESSION
+        http-only: true
+        same-site: lax
+        secure: ${LINGORA_COOKIE_SECURE:false}
+        max-age: 7d
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+springdoc:
+  writer-with-order-by-keys: true
+  default-produces-media-type: application/json
+  # Public on purpose: the spec holds no data and the frontend client is generated from it.
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    csrf:
+      enabled: true
+
+lingora:
+  engine: rule-based
+  content:
+    path: ${LINGORA_CONTENT_PATH:../content}
+    seed-on-startup: true

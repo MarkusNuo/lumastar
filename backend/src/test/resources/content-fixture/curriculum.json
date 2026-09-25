@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "variety": "gheg-kosovo",
+  "stages": [
+    {
+      "level": "A1.1",
+      "title": "Erste Gespräche",
+      "units": [
+        {
+          "id": "a1_u01_greetings",
+          "title": "Begrüssung & Höflichkeit",
+          "description": "Grüssen, sich verabschieden, bitte und danke sagen.",
+          "goals": ["Ich kann jemanden grüssen und mich verabschieden."],
+          "skillTags": ["vocab.greetings", "phrase.politeness"],
+          "color": "violet",
+          "icon": "hand-waving",
+          "estimatedLessons": 4,
+          "file": "units/a1_u01_greetings.json"
+        },
+        {
+          "id": "a1_u02_family",
+          "title": "Familie",
+          "description": "Familienmitglieder benennen und sagen, wer zu Hause ist.",
+          "goals": ["Ich kann meine Familie vorstellen."],
+          "skillTags": ["vocab.family", "grammar.definite_article.fem"],
+          "color": "teal",
+          "icon": "users",
+          "estimatedLessons": 5,
+          "file": "units/a1_u02_family.json"
+        }
+      ]
+    },
+    {
+      "level": "A1.2",
+      "title": "Alltag",
+      "units": [
+        {
+          "id": "a1_u03_numbers",
+          "title": "Zahlen 1–100",
+          "goals": ["Ich kann bis 100 zählen."],
+          "skillTags": ["vocab.numbers"]
+        }
+      ]
+    }
+  ]
+}

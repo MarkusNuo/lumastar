@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "tags": [
+    { "id": "vocab.greetings", "label": "Begrüssung", "area": "vocab" },
+    { "id": "vocab.family", "label": "Familie", "area": "vocab" },
+    { "id": "vocab.home", "label": "Zuhause", "area": "vocab" },
+    { "id": "vocab.numbers", "label": "Zahlen", "area": "vocab" },
+    { "id": "phrase.politeness", "label": "Höflichkeit", "area": "phrase" },
+    { "id": "grammar.definite_article.fem", "label": "Bestimmter Artikel (feminin)", "area": "grammar" },
+    { "id": "grammar.verb_be", "label": "Verb „sein“ (jam)", "area": "grammar" }
+  ]
+}
