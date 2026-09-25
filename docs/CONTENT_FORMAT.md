@@ -133,13 +133,27 @@ Type-specific fields (`answerLang` ∈ `sq` (Gheg), `de`):
 Shared by the backend evaluator, the frontend pre-check and the content validator:
 
 1. Unicode NFC, lowercase.
-2. Remove every character that is not a letter, a digit or whitespace (all punctuation and symbols,
-   including apostrophes: *s'ka* → *ska*), then trim and collapse whitespace to single spaces.
+2. Remove apostrophes (`'` `’` `‘` `ʼ`): *s'ka* → *ska*. Replace every other character that is not a letter,
+   a digit or whitespace with a space (so "Jo,faleminderit" → "jo faleminderit"), then trim and collapse
+   whitespace to single spaces.
 3. `errorHints` patterns are matched against the answer after steps 1–2 (diacritics are **kept**).
 4. Diacritic folding for "almost correct" (`ë→e`, `ç→c`, `â→a`, `ê→e`, `î→i`, `ô→o`, `û→u`) is a separate,
-   later comparison step.
+   later comparison step. It applies only to **missing** diacritics: every character in which the answer
+   differs from the solution must be the plain letter of the solution's character (an added or wrong
+   diacritic, e.g. *jâm* for *jam*, is not "almost correct").
 5. Word-bank and word-order tokens: split the sentence on whitespace, strip surrounding punctuation from each
    token, compare case-insensitively.
+6. Tolerance (diacritic folding, typo distance) applies to **typed** answers only (`translate_free`, `fill_gap`
+   without choices). Answers built from tiles or choices (`translate_wordbank`, `word_order`, `multiple_choice`,
+   `fill_gap` with choices, `match_pairs`) are exact: correct, or wrong (same tokens in another order →
+   `grammar.word_order`).
+7. The Standard-form lexicon (`content/gheg_blocklist.json`) is applied identically in backend and frontend;
+   the backend serves it to the frontend, and lesson exercise views include `errorHints`.
+8. `match_pairs` answers report the wrong matches (`[{ left, right }]`); the backend derives the mistake count
+   and the confused items from them.
+
+Shared evaluator test cases live in `content/fixtures/evaluator-cases.json` and are run by the backend and
+frontend test suites.
 
 ## Error categories (PRD F6)
 
