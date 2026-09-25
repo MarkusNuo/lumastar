@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { useNavigate } from 'react-router';
 import { Mascot } from '../../components/ui/Mascot';
 import { PathNode } from '../../components/ui/PathNode';
@@ -11,12 +12,14 @@ export function UnitPath({ unit }: { unit: PathUnit }) {
   const navigate = useNavigate();
   const currentIndex = unit.nodes.findIndex((node) => node.status === 'current');
   const start = () => void navigate(`/lesson/${unit.id}`);
+  const titleId = useId();
 
   return (
-    <section className="flex flex-col gap-8">
+    <section aria-labelledby={titleId} className="flex flex-col gap-8">
       <UnitBanner
         color={unit.color}
         titleAs="h3"
+        titleId={titleId}
         eyebrow={unit.eyebrow}
         title={unit.title}
         subtitle={unit.description}

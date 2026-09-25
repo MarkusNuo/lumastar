@@ -6,6 +6,7 @@ import { IconButton } from '../../components/ui/IconButton';
 import { ProgressBar } from '../../components/ui/ProgressBar';
 import { LESSON_COPY } from './copy';
 import { ExerciseScreen } from './ExerciseScreen';
+import { seedFrom } from './exercises/shuffle';
 import { LessonStatusScreen } from './LessonStatusScreen';
 import type { Lesson, LessonResult } from './model';
 import { LessonResultScreen } from './result/LessonResultScreen';
@@ -67,6 +68,7 @@ export function LessonPlayer({ lesson, onQuit, onFinish }: LessonPlayerProps) {
       <ExerciseScreen
         key={entry.key}
         entry={entry}
+        shuffleSeed={seedFrom(`${lesson.sessionId}:${entry.exercise.id}`)}
         onCheck={session.check}
         onContinue={session.proceed}
         keyboardEnabled={!quitOpen}

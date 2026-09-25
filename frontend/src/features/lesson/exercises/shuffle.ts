@@ -11,6 +11,15 @@ export function seededRandom(seed: number): Random {
   };
 }
 
+/** A 32-bit seed from a text (FNV-1a), e.g. from session and exercise id. */
+export function seedFrom(text: string): number {
+  let hash = 0x811c9dc5;
+  for (let index = 0; index < text.length; index++) {
+    hash = Math.imul(hash ^ text.charCodeAt(index), 0x01000193);
+  }
+  return hash >>> 0;
+}
+
 /** A fresh generator for one shuffle: seeded when a fixed order is wanted, Math.random otherwise. */
 export function randomFor(seed: number | undefined): Random {
   return seed === undefined ? Math.random : seededRandom(seed);

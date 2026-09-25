@@ -69,6 +69,11 @@ function renderPlayer() {
 
 const feedback = () => screen.findByRole('dialog');
 
+const optionOrder = () =>
+  within(screen.getByRole('group', { name: SAMPLE_MULTIPLE_CHOICE.prompt.text }))
+    .getAllByRole('button')
+    .map((button) => button.textContent);
+
 describe('LessonPlayer', () => {
   it('shows the pre-check at once and switches to the backend verdict when it differs', async () => {
     let answer: (response: Response) => void = () => undefined;
@@ -116,6 +121,7 @@ describe('LessonPlayer', () => {
     });
     const { user, onFinish } = renderPlayer();
     const progress = () => screen.getByRole('progressbar', { name: 'Lektionsfortschritt' });
+    const firstOrder = optionOrder();
 
     await user.click(screen.getByRole('button', { name: /mirupafshim/ }));
     await user.keyboard('{Enter}');
@@ -131,6 +137,7 @@ describe('LessonPlayer', () => {
 
     expect(await screen.findByText('Nochmals')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: SAMPLE_MULTIPLE_CHOICE.prompt.text })).toBeVisible();
+    expect(optionOrder(), 'the retry keeps the order of the options').toEqual(firstOrder);
     await user.click(screen.getByRole('button', { name: /mirëdita/ }));
     await user.click(screen.getByRole('button', { name: 'Prüfen' }));
     await user.click(await screen.findByRole('button', { name: 'Weiter' }));

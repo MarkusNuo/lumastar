@@ -13,6 +13,8 @@ export interface UnitBannerProps {
   guidebookLabel?: string;
   /** Heading level of the title within the page outline. */
   titleAs?: 'h2' | 'h3';
+  /** Id of the title, so the surrounding unit section can be named after it. */
+  titleId?: string;
   className?: string;
 }
 
@@ -24,10 +26,11 @@ export function UnitBanner({
   onGuidebookClick,
   guidebookLabel = UI_COPY.unitBanner.guidebook,
   titleAs: Title = 'h2',
+  titleId,
   className,
 }: UnitBannerProps) {
   return (
-    <section
+    <div
       data-tone={unitTone(color)}
       className={cx(
         'relative flex items-center gap-3 overflow-hidden rounded-card tone-solid py-4 pr-3 pl-5 edge-3d',
@@ -40,7 +43,9 @@ export function UnitBanner({
       />
       <div className="relative min-w-0 flex-1">
         <p className="text-caption font-extrabold tracking-wider uppercase opacity-80">{eyebrow}</p>
-        <Title className="text-lead font-black">{title}</Title>
+        <Title id={titleId} className="text-lead font-black">
+          {title}
+        </Title>
         {subtitle && <p className="mt-0.5 text-label font-bold opacity-85">{subtitle}</p>}
       </div>
       {onGuidebookClick && (
@@ -53,6 +58,6 @@ export function UnitBanner({
           <BookOpenTextIcon aria-hidden="true" size={26} weight="bold" />
         </button>
       )}
-    </section>
+    </div>
   );
 }

@@ -14,8 +14,9 @@ export interface ExerciseProps<E extends LessonExercise> {
   /** Puts the cursor into a text field on start; off where several exercises share a page. */
   focusOnStart?: boolean;
   /**
-   * Fixes the order of shuffled tiles, e.g. for stable catalog screenshots. Lessons leave it out so
-   * every exercise shuffles anew.
+   * Fixes the order of shuffled options and tiles. The lesson player derives it from session and
+   * exercise, so a retry shows the same order; the catalog uses a constant for stable screenshots.
+   * Without it every mount shuffles anew.
    */
   shuffleSeed?: number;
 }

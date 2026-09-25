@@ -1,6 +1,6 @@
 import { ArrowClockwiseIcon, LightningIcon, TargetIcon, TimerIcon } from '@phosphor-icons/react';
 import { motion } from 'motion/react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { Callout } from '../../../components/ui/Callout';
 import { Card } from '../../../components/ui/Card';
@@ -15,6 +15,9 @@ import { formatDuration, formatPercent } from './format';
 import { useCountUp } from './useCountUp';
 
 const copy = LESSON_COPY.result;
+
+/** A long list would push the lesson end far down; the rest is one tap away. */
+const COLLAPSED_WORDS = 6;
 
 export interface LessonResultScreenProps {
   result: LessonResult;
@@ -124,13 +127,18 @@ function XpBreakdownLine({ breakdown }: { breakdown: XpBreakdown }) {
 }
 
 function LearnedWords({ items }: { items: LearnedItem[] }) {
+  const [expanded, setExpanded] = useState(false);
+  const listId = useId();
+  const collapsible = items.length > COLLAPSED_WORDS;
+  const shown = collapsible && !expanded ? items.slice(0, COLLAPSED_WORDS) : items;
+
   return (
     <Card variant="outline" padding="none" className="w-full text-left">
       <h2 className="px-4 pt-4 pb-2 text-label font-black tracking-wide text-fg-muted uppercase">
         {copy.learnedTitle}
       </h2>
-      <ul className="divide-y-2 divide-border">
-        {items.map((item) => (
+      <ul id={listId} className="divide-y-2 divide-border">
+        {shown.map((item) => (
           <li key={item.id} className="flex flex-wrap items-baseline gap-x-3 px-4 py-2.5">
             <span lang="sq" className="text-body font-black">
               {item.gheg}
@@ -139,6 +147,20 @@ function LearnedWords({ items }: { items: LearnedItem[] }) {
           </li>
         ))}
       </ul>
+      {collapsible && (
+        <div className="border-t-2 border-border p-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            fullWidth
+            aria-expanded={expanded}
+            aria-controls={listId}
+            onClick={() => setExpanded((current) => !current)}
+          >
+            {expanded ? copy.showFewerWords : copy.showAllWords(items.length)}
+          </Button>
+        </div>
+      )}
     </Card>
   );
 }

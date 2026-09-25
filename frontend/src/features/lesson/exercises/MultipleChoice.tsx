@@ -5,6 +5,7 @@ import type { MultipleChoiceExercise, Verdict } from '../model';
 import { ExerciseHeader } from './ExerciseHeader';
 import { reactionOf, type ExerciseProps } from './exerciseProps';
 import { ReactionSurface } from './ReactionSurface';
+import { randomFor, shuffled } from './shuffle';
 
 function resultFor(
   choice: string,
@@ -23,7 +24,10 @@ export function MultipleChoice({
   verdict,
   retry,
   onAnswerChange,
+  shuffleSeed,
 }: ExerciseProps<MultipleChoiceExercise>) {
+  // The content lists the solution first.
+  const [choices] = useState(() => shuffled(exercise.choices, randomFor(shuffleSeed)));
   const [selected, setSelected] = useState<string | null>(null);
   const locked = verdict !== undefined;
 
@@ -40,14 +44,14 @@ export function MultipleChoice({
       const typing =
         event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement;
       if (typing || event.altKey || event.ctrlKey || event.metaKey) return;
-      const choice = exercise.choices[Number(event.key) - 1];
+      const choice = choices[Number(event.key) - 1];
       if (choice === undefined) return;
       setSelected(choice);
       onAnswerChange({ kind: 'choice', choice });
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [exercise.choices, locked, onAnswerChange]);
+  }, [choices, locked, onAnswerChange]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -58,7 +62,7 @@ export function MultipleChoice({
         reviewed={exercise.reviewed}
       />
       <div role="group" aria-label={exercise.prompt.text} className="flex flex-col gap-3">
-        {exercise.choices.map((choice, index) => {
+        {choices.map((choice, index) => {
           const result = resultFor(choice, selected, verdict);
           return (
             <ReactionSurface

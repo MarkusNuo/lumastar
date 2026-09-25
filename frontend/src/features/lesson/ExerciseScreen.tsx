@@ -29,6 +29,8 @@ function shownSolution(verdict: Verdict): string | undefined {
 
 export interface ExerciseScreenProps {
   entry: QueueEntry;
+  /** Keeps the order of options and tiles the same when the exercise comes back as a retry. */
+  shuffleSeed: number;
   onCheck: (answer: Answer) => void;
   onContinue: () => void;
   /** Off while a dialog is open on top. */
@@ -38,6 +40,7 @@ export interface ExerciseScreenProps {
 /** One exercise: the task, a fixed "Prüfen" button and the feedback sheet (PRD 12.3). */
 export function ExerciseScreen({
   entry,
+  shuffleSeed,
   onCheck,
   onContinue,
   keyboardEnabled,
@@ -86,6 +89,7 @@ export function ExerciseScreen({
           verdict={verdict}
           onAnswerChange={setAnswer}
           onSubmit={onCheck}
+          shuffleSeed={shuffleSeed}
         />
       </motion.div>
       {needsCheckButton(exercise) && (

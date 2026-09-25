@@ -10,6 +10,7 @@ import { ExerciseHeader } from './ExerciseHeader';
 import { reactionOf, type ExerciseProps, type Reaction } from './exerciseProps';
 import { PromptBubble } from './PromptBubble';
 import { ReactionSurface } from './ReactionSurface';
+import { randomFor, shuffled } from './shuffle';
 import { textStatus, toTextAnswer } from './textAnswer';
 
 const gapTileState: Record<Reaction, WordTileState> = {
@@ -52,8 +53,16 @@ function GapWithChoices({
   exercise,
   verdict,
   onAnswerChange,
+  shuffleSeed,
   choices,
 }: ExerciseProps<FillGapExercise> & { choices: string[] }) {
+  // Display order; `index` points into `choices`. The content lists the solution first.
+  const [options] = useState(() =>
+    shuffled(
+      choices.map((choice, index) => ({ choice, index })),
+      randomFor(shuffleSeed),
+    ),
+  );
   const [chosen, setChosen] = useState<number | null>(null);
   const layoutPrefix = useId();
   const locked = verdict !== undefined;
@@ -74,10 +83,16 @@ function GapWithChoices({
           text={exercise.text}
           lang={exercise.answerLang}
           gap={
+            // Baseline-aligned: the empty gap's dashed line sits on the text line like an
+            // underline, and a placed chip's word lines up with the words around it.
             <span
               role="group"
               aria-label={LESSON_COPY.gapLabel}
-              className="mx-1.5 inline-flex min-h-12 min-w-20 items-end justify-center border-b-3 border-dashed border-border-strong align-bottom"
+              className={cx(
+                'mx-1.5 inline-flex items-end justify-center align-baseline',
+                chosenWord === undefined &&
+                  'min-h-12 min-w-20 border-b-3 border-dashed border-border-strong',
+              )}
             >
               {chosen !== null && chosenWord !== undefined && (
                 <WordTile
@@ -98,9 +113,9 @@ function GapWithChoices({
         aria-label={LESSON_COPY.gapChoices}
         className="flex flex-wrap justify-center gap-2"
       >
-        {choices.map((choice, index) => (
+        {options.map(({ choice, index }) => (
           <WordTile
-            key={choice}
+            key={index}
             layoutId={chosen === index ? undefined : tileId(index)}
             lang={exercise.answerLang}
             state={chosen === index ? 'placed' : locked ? 'disabled' : 'idle'}

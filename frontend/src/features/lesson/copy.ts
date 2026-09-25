@@ -52,6 +52,8 @@ export const LESSON_COPY = {
       speedBonus: 'Tempo',
     },
     learnedTitle: 'Geübte Wörter',
+    showAllWords: (count: number) => `Alle ${count} anzeigen`,
+    showFewerWords: 'Weniger anzeigen',
     notSaved:
       'Dein Ergebnis konnte noch nicht gespeichert werden. XP und geübte Wörter erscheinen, sobald es geklappt hat.',
     retrySave: 'Nochmals speichern',

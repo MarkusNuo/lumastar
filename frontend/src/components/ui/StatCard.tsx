@@ -25,7 +25,8 @@ export function StatCard({
       data-tone={tone}
       className={cx('flex min-w-0 flex-col rounded-card-sm bg-tone-face p-0.5 edge-3d', className)}
     >
-      <p className="truncate px-2 py-1 text-center text-micro font-black tracking-wider text-tone-on uppercase">
+      {/* Tight tracking and padding so "Genauigkeit" fits a third of a 360 px screen. */}
+      <p className="truncate px-1 py-1 text-center text-micro font-black tracking-wide text-tone-on uppercase">
         {label}
       </p>
       <p className="flex min-h-14 items-center justify-center gap-1.5 rounded-[calc(var(--radius-card-sm)-2px)] bg-bg px-2 text-lead font-black whitespace-nowrap text-tone-text tabular-nums">

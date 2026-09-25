@@ -62,6 +62,34 @@ describe('LessonResultScreen', () => {
     expect(onContinue).toHaveBeenCalledOnce();
   });
 
+  it('shows the first six practised words and the rest on request', async () => {
+    const learnedItems = Array.from({ length: 9 }, (_, index) => ({
+      id: `item_${index}`,
+      gheg: `fjalë ${index + 1}`,
+      de: `Wort ${index + 1}`,
+    }));
+    const { user } = renderResult({ ...SAVED, learnedItems });
+    const words = () => screen.getAllByText(/^fjalë \d$/u).map((word) => word.textContent);
+
+    expect(words()).toEqual(learnedItems.slice(0, 6).map((item) => item.gheg));
+    const toggle = screen.getByRole('button', { name: 'Alle 9 anzeigen' });
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+
+    await user.click(toggle);
+
+    expect(words()).toHaveLength(9);
+    expect(screen.getByRole('button', { name: 'Weniger anzeigen' })).toHaveAttribute(
+      'aria-expanded',
+      'true',
+    );
+  });
+
+  it('lists a short set of words without a toggle', () => {
+    renderResult(SAVED);
+
+    expect(screen.queryByRole('button', { name: /anzeigen/ })).not.toBeInTheDocument();
+  });
+
   it('offers to save again when the result could not be saved', async () => {
     const { user, onRetrySave } = renderResult({
       accuracy: 0.5,

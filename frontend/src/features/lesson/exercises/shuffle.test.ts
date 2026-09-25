@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { randomFor, scrambledIndices, seededRandom, shuffled } from './shuffle';
+import { randomFor, scrambledIndices, seededRandom, seedFrom, shuffled } from './shuffle';
 
 describe('seededRandom', () => {
   it('repeats the same sequence for the same seed', () => {
@@ -19,6 +19,16 @@ describe('seededRandom', () => {
       expect(value).toBeGreaterThanOrEqual(0);
       expect(value).toBeLessThan(1);
     }
+  });
+});
+
+describe('seedFrom', () => {
+  it('gives the same seed for the same text and another one for another text', () => {
+    const exercise = 'ex_a1_u01_greetings_001';
+
+    expect(seedFrom(`session-1:${exercise}`)).toBe(seedFrom(`session-1:${exercise}`));
+    expect(seedFrom(`session-1:${exercise}`)).not.toBe(seedFrom(`session-2:${exercise}`));
+    expect(Number.isInteger(seedFrom(''))).toBe(true);
   });
 });
 
