@@ -13,7 +13,7 @@ import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.databind.node.ObjectNode;
 
 /** The small, contract-conformant content set under {@code src/test/resources/content-fixture}. */
-final class ContentFixture {
+public final class ContentFixture {
 
     static final String GREETINGS = "units/a1_u01_greetings.json";
     static final String FAMILY = "units/a1_u02_family.json";
@@ -23,7 +23,7 @@ final class ContentFixture {
     private ContentFixture() {
     }
 
-    static Path path() {
+    public static Path path() {
         try {
             return Path.of(ContentFixture.class.getResource("/content-fixture").toURI());
         } catch (URISyntaxException e) {

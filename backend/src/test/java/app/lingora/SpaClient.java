@@ -1,31 +1,31 @@
 package app.lingora;
 
 import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpSession;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
 import org.springframework.test.web.servlet.assertj.MockMvcTester.MockMvcRequestBuilder;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
 /**
- * Calls the API like the browser SPA: it keeps the session and echoes the {@code XSRF-TOKEN} cookie in the
- * {@code X-XSRF-TOKEN} header. Every client has its own remote address, so login throttling never leaks between
- * tests.
+ * Calls the API like the browser SPA: it keeps the cookies (the session cookie and {@code XSRF-TOKEN}) and echoes the
+ * CSRF token in the {@code X-XSRF-TOKEN} header. Every client has its own remote address, so login throttling never
+ * leaks between tests.
  */
 public final class SpaClient {
 
+    public static final String SESSION_COOKIE = "LINGORA_SESSION";
     public static final String CSRF_COOKIE = "XSRF-TOKEN";
     public static final String CSRF_HEADER = "X-XSRF-TOKEN";
     private static final AtomicInteger CLIENT_COUNT = new AtomicInteger();
 
     private final MockMvcTester mvc;
     private final String remoteAddress;
-    private MockHttpSession session;
-    private String csrfToken;
+    private final Map<String, String> cookies = new LinkedHashMap<>();
 
     public SpaClient(MockMvcTester mvc) {
         this.mvc = mvc;
@@ -39,8 +39,8 @@ public final class SpaClient {
 
     public MvcTestResult post(String uri, String json) {
         MockMvcRequestBuilder request = jsonPost(uri, json);
-        if (csrfToken != null) {
-            request.header(CSRF_HEADER, csrfToken);
+        if (csrfToken() != null) {
+            request.header(CSRF_HEADER, csrfToken());
         }
         return exchange(request);
     }
@@ -53,17 +53,17 @@ public final class SpaClient {
         return exchange(jsonPost(uri, json));
     }
 
-    /** Opens a session before signing in, as a browser that already talked to the server would have. */
-    public void openSession() {
-        session = new MockHttpSession();
+    /** Continues a session of another client, as a browser holding that session cookie would. */
+    public void useSession(String sessionCookie) {
+        cookies.put(SESSION_COOKIE, sessionCookie);
     }
 
-    public String sessionId() {
-        return session == null ? null : session.getId();
+    public String sessionCookie() {
+        return cookies.get(SESSION_COOKIE);
     }
 
     public String csrfToken() {
-        return csrfToken;
+        return cookies.get(CSRF_COOKIE);
     }
 
     public static List<String> setCookieHeaders(MvcTestResult result, String cookieName) {
@@ -81,19 +81,21 @@ public final class SpaClient {
             servletRequest.setRemoteAddr(remoteAddress);
             return servletRequest;
         });
-        if (session != null) {
-            request.session(session);
-        }
-        if (csrfToken != null) {
-            request.cookie(new Cookie(CSRF_COOKIE, csrfToken));
+        if (!cookies.isEmpty()) {
+            request.cookie(cookies.entrySet().stream().map(cookie -> new Cookie(cookie.getKey(), cookie.getValue()))
+                    .toArray(Cookie[]::new));
         }
         MvcTestResult result = request.exchange();
-        HttpSession current = result.getRequest().getSession(false);
-        session = current instanceof MockHttpSession mockSession ? mockSession : null;
-        List<String> csrfCookies = setCookieHeaders(result, CSRF_COOKIE);
-        if (!csrfCookies.isEmpty()) {
-            String value = csrfCookies.getLast().substring(CSRF_COOKIE.length() + 1).split(";", 2)[0];
-            csrfToken = value.isEmpty() ? null : value;
+        for (String name : List.of(SESSION_COOKIE, CSRF_COOKIE)) {
+            List<String> updates = setCookieHeaders(result, name);
+            if (!updates.isEmpty()) {
+                String value = updates.getLast().substring(name.length() + 1).split(";", 2)[0];
+                if (value.isEmpty()) {
+                    cookies.remove(name);
+                } else {
+                    cookies.put(name, value);
+                }
+            }
         }
         return result;
     }

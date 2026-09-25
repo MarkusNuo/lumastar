@@ -1,6 +1,86 @@
 {
   "components": {
     "schemas": {
+      "AnswerLang": {
+        "enum": [
+          "sq",
+          "de"
+        ],
+        "type": "string"
+      },
+      "AttemptRequest": {
+        "properties": {
+          "answer": {
+            "$ref": "#/components/schemas/SubmittedAnswer"
+          },
+          "exerciseId": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "responseTimeMs": {
+            "description": "Time from showing the exercise to the answer",
+            "format": "int32",
+            "maximum": 86400000,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "retry": {
+            "default": false,
+            "description": "true for a wrong exercise repeated at the end of the lesson (PRD F5)",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "answer",
+          "exerciseId",
+          "responseTimeMs"
+        ],
+        "type": "object"
+      },
+      "AttemptResponse": {
+        "description": "Binding evaluation of an answer; it replaces the pre-check of the app if the two differ (PRD 11.2)",
+        "properties": {
+          "countsAsCorrect": {
+            "description": "true for correct, almost correct and standard-form answers",
+            "type": "boolean"
+          },
+          "errorCategory": {
+            "$ref": "#/components/schemas/ErrorCategory",
+            "description": "Absent for a correct answer"
+          },
+          "exerciseId": {
+            "type": "string"
+          },
+          "explanation": {
+            "description": "German explanation of the exercise",
+            "type": "string"
+          },
+          "hint": {
+            "description": "Short German hint; words to look at are marked as **bold**",
+            "type": "string"
+          },
+          "outcome": {
+            "$ref": "#/components/schemas/Outcome"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/Rating",
+            "description": "Provisional FSRS rating of the answer"
+          },
+          "solution": {
+            "description": "The accepted solution closest to the answer; absent for match_pairs",
+            "type": "string"
+          }
+        },
+        "required": [
+          "countsAsCorrect",
+          "exerciseId",
+          "explanation",
+          "outcome",
+          "rating"
+        ],
+        "type": "object"
+      },
       "AuthStatusResponse": {
         "properties": {
           "authenticated": {
@@ -18,6 +98,352 @@
         "required": [
           "authenticated",
           "setupRequired"
+        ],
+        "type": "object"
+      },
+      "CurriculumResponse": {
+        "properties": {
+          "stages": {
+            "items": {
+              "$ref": "#/components/schemas/CurriculumStage"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "stages"
+        ],
+        "type": "object"
+      },
+      "CurriculumStage": {
+        "properties": {
+          "level": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "title": {
+            "type": "string"
+          },
+          "units": {
+            "items": {
+              "$ref": "#/components/schemas/CurriculumUnit"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "level",
+          "title",
+          "units"
+        ],
+        "type": "object"
+      },
+      "CurriculumUnit": {
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/UnitColor",
+            "description": "Banner colour; the frontend maps it to a design token"
+          },
+          "description": {
+            "type": "string"
+          },
+          "estimatedLessons": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "hasContent": {
+            "description": "false for skeleton units whose exercises are not written yet; they cannot be started",
+            "type": "boolean"
+          },
+          "icon": {
+            "description": "Free icon key; the frontend falls back to a default icon",
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "skillTags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "hasContent",
+          "id",
+          "skillTags",
+          "title"
+        ],
+        "type": "object"
+      },
+      "ErrorCategory": {
+        "enum": [
+          "vocab.unknown",
+          "vocab.confused",
+          "spelling.diacritics",
+          "spelling.nasal_vowel",
+          "spelling.other",
+          "variant.standard_form",
+          "grammar.definite_article",
+          "grammar.case",
+          "grammar.linking_article",
+          "grammar.gender",
+          "grammar.infinitive",
+          "grammar.participle",
+          "grammar.verb_conjugation",
+          "grammar.verb_tense",
+          "grammar.word_order",
+          "grammar.clitics"
+        ],
+        "type": "string"
+      },
+      "ExercisePair": {
+        "description": "A Gheg expression and its German meaning",
+        "properties": {
+          "left": {
+            "type": "string"
+          },
+          "right": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "left",
+          "right"
+        ],
+        "type": "object"
+      },
+      "ExercisePrompt": {
+        "properties": {
+          "lang": {
+            "$ref": "#/components/schemas/AnswerLang"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lang",
+          "text"
+        ],
+        "type": "object"
+      },
+      "ExerciseType": {
+        "enum": [
+          "multiple_choice",
+          "translate_wordbank",
+          "translate_free",
+          "fill_gap",
+          "match_pairs",
+          "word_order",
+          "conjugation_drill",
+          "declension_drill",
+          "reading",
+          "free_writing",
+          "listen_select"
+        ],
+        "type": "string"
+      },
+      "LearnedItem": {
+        "properties": {
+          "de": {
+            "type": "string"
+          },
+          "gheg": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "de",
+          "gheg",
+          "id"
+        ],
+        "type": "object"
+      },
+      "LessonExercise": {
+        "properties": {
+          "answerLang": {
+            "$ref": "#/components/schemas/AnswerLang",
+            "description": "Language of the answer; all types except multiple_choice and match_pairs"
+          },
+          "choices": {
+            "description": "multiple_choice (4 options) and fill_gap answered by picking a chip",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "difficulty": {
+            "description": "1 (easy) to 3 (hard)",
+            "format": "int32",
+            "type": "integer"
+          },
+          "explanation": {
+            "description": "German explanation for the feedback sheet",
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "itemIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "level": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "pairs": {
+            "description": "match_pairs: 5 pairs; the app shuffles both sides",
+            "items": {
+              "$ref": "#/components/schemas/ExercisePair"
+            },
+            "type": "array"
+          },
+          "prompt": {
+            "$ref": "#/components/schemas/ExercisePrompt"
+          },
+          "reviewed": {
+            "description": "false until the author has checked the content",
+            "type": "boolean"
+          },
+          "skillTags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "solutions": {
+            "description": "Accepted solutions, the first one is canonical; absent for match_pairs",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "standardForms": {
+            "description": "Standard Albanian variants that count as correct with a hint (variant.standard_form)",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "text": {
+            "description": "fill_gap: sentence with exactly one ___ gap",
+            "type": "string"
+          },
+          "tokens": {
+            "description": "word_order: the words of the first solution in the correct order; the app shuffles them",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ExerciseType"
+          },
+          "wordBank": {
+            "description": "translate_wordbank: word chips including distractors",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "difficulty",
+          "explanation",
+          "id",
+          "itemIds",
+          "level",
+          "prompt",
+          "reviewed",
+          "skillTags",
+          "type"
+        ],
+        "type": "object"
+      },
+      "LessonResponse": {
+        "description": "A started lesson; its exercises are in the order they are played",
+        "properties": {
+          "exercises": {
+            "items": {
+              "$ref": "#/components/schemas/LessonExercise"
+            },
+            "type": "array"
+          },
+          "sessionId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "unitId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "exercises",
+          "sessionId",
+          "unitId"
+        ],
+        "type": "object"
+      },
+      "LessonResultResponse": {
+        "description": "Result of a finished lesson; completing it again returns the same result",
+        "properties": {
+          "accuracy": {
+            "description": "Share of exercises answered correctly at the first attempt, 0 to 1",
+            "format": "double",
+            "type": "number"
+          },
+          "correctCount": {
+            "description": "Exercises answered correctly at the first attempt",
+            "format": "int32",
+            "type": "integer"
+          },
+          "durationMs": {
+            "description": "From the lesson start to its completion",
+            "format": "int64",
+            "type": "integer"
+          },
+          "exerciseCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "learnedItems": {
+            "description": "Items practised in the lesson",
+            "items": {
+              "$ref": "#/components/schemas/LearnedItem"
+            },
+            "type": "array"
+          },
+          "xpBreakdown": {
+            "$ref": "#/components/schemas/XpBreakdown"
+          },
+          "xpEarned": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "xpTotal": {
+            "description": "XP of the learner including this lesson",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "accuracy",
+          "correctCount",
+          "durationMs",
+          "exerciseCount",
+          "learnedItems",
+          "xpBreakdown",
+          "xpEarned",
+          "xpTotal"
         ],
         "type": "object"
       },
@@ -57,6 +483,15 @@
           "password"
         ],
         "type": "object"
+      },
+      "Outcome": {
+        "enum": [
+          "correct",
+          "almost_correct",
+          "correct_standard_form",
+          "wrong"
+        ],
+        "type": "string"
       },
       "ProblemDetail": {
         "description": "RFC 9457 problem details",
@@ -145,6 +580,15 @@
         ],
         "type": "object"
       },
+      "Rating": {
+        "enum": [
+          "again",
+          "hard",
+          "good",
+          "easy"
+        ],
+        "type": "string"
+      },
       "SetupRequest": {
         "description": "Creates the only account of this instance.",
         "properties": {
@@ -165,6 +609,93 @@
         "required": [
           "displayName",
           "password"
+        ],
+        "type": "object"
+      },
+      "StartLessonRequest": {
+        "properties": {
+          "unitId": {
+            "example": "a1_u01_greetings",
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "required": [
+          "unitId"
+        ],
+        "type": "object"
+      },
+      "SubmittedAnswer": {
+        "description": "Exactly one field, depending on the exercise type: text for translate_free and fill_gap without choices, choice for multiple_choice and fill_gap with choices, tokens for translate_wordbank and word_order, mistakes for match_pairs.",
+        "properties": {
+          "choice": {
+            "description": "The picked option, as offered",
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          },
+          "mistakes": {
+            "description": "Wrong matches before all pairs were matched",
+            "format": "int32",
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "text": {
+            "description": "Typed answer",
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          },
+          "tokens": {
+            "description": "Word chips in the chosen order",
+            "items": {
+              "maxLength": 100,
+              "minLength": 0,
+              "type": "string"
+            },
+            "maxItems": 50,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "UnitColor": {
+        "enum": [
+          "violet",
+          "teal",
+          "sky",
+          "rose",
+          "amber",
+          "lime",
+          "indigo",
+          "coral"
+        ],
+        "type": "string"
+      },
+      "XpBreakdown": {
+        "properties": {
+          "base": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "perfectBonus": {
+            "description": "No mistake at the first attempts",
+            "format": "int32",
+            "type": "integer"
+          },
+          "speedBonus": {
+            "description": "Median first-attempt response time of at most 8 seconds",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "base",
+          "perfectBonus",
+          "speedBonus"
         ],
         "type": "object"
       }
@@ -379,6 +910,313 @@
         ]
       }
     },
+    "/api/curriculum": {
+      "get": {
+        "operationId": "getCurriculum",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurriculumResponse"
+                }
+              }
+            },
+            "description": "The curriculum"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "All stages from A0 to C2.3 with their units",
+        "tags": [
+          "curriculum"
+        ]
+      }
+    },
+    "/api/lessons": {
+      "post": {
+        "description": "The exercises include their solutions and accepted variants so that the app can pre-check answers instantly (PRD 11.2).",
+        "operationId": "startLesson",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartLessonRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonResponse"
+                }
+              }
+            },
+            "description": "The lesson with its exercises"
+          },
+          "400": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Invalid request"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Unknown unit (code unit_not_found)"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "The unit has no exercises yet (code unit_without_content)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Compose and start a lesson of a unit",
+        "tags": [
+          "lessons"
+        ]
+      }
+    },
+    "/api/lessons/{sessionId}/attempts": {
+      "post": {
+        "description": "The binding evaluation with error category, hint and FSRS rating. Wrong exercises repeated at the end of the lesson are sent with retry = true.",
+        "operationId": "submitAttempt",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttemptRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttemptResponse"
+                }
+              }
+            },
+            "description": "The evaluation"
+          },
+          "400": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Invalid request"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Unknown lesson (code lesson_not_found)"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Lesson completed, exercise already answered or retried before its first answer (codes lesson_completed, exercise_already_answered, retry_before_first_attempt)"
+          },
+          "422": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Exercise not in the lesson or answer field not fitting its type (codes exercise_not_in_lesson, answer_type_mismatch)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Evaluate and record an answer",
+        "tags": [
+          "lessons"
+        ]
+      }
+    },
+    "/api/lessons/{sessionId}/complete": {
+      "post": {
+        "description": "Idempotent: completing a finished lesson again returns the same result without awarding XP twice.",
+        "operationId": "completeLesson",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonResultResponse"
+                }
+              }
+            },
+            "description": "The lesson result"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Unknown lesson (code lesson_not_found)"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not every exercise has been answered (code lesson_incomplete)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Finish the lesson and award its XP",
+        "tags": [
+          "lessons"
+        ]
+      }
+    },
     "/api/me": {
       "get": {
         "operationId": "getMe",
@@ -426,6 +1264,14 @@
     {
       "description": "First-start setup, sign-in and sign-out of the single account",
       "name": "auth"
+    },
+    {
+      "description": "Stages and units of the learning path",
+      "name": "curriculum"
+    },
+    {
+      "description": "Lesson player: start a lesson, answer its exercises, finish it with XP",
+      "name": "lessons"
     },
     {
       "description": "The signed-in learner",

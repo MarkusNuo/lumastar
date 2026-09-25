@@ -24,4 +24,16 @@ class WordsTest {
         assertThat(Words.of("  Po  ,  jo ")).containsExactly("po", "jo");
         assertThat(Words.of(" ")).isEmpty();
     }
+
+    @Test
+    void comparesInUnicodeNfc() {
+        String decomposed = "Âsht mirë";
+
+        assertThat(Words.of(decomposed)).containsExactly("âsht", "mirë");
+    }
+
+    @Test
+    void splitsOnUnicodeWhitespace() {
+        assertThat(Words.of("Mirë jam")).containsExactly("mirë", "jam");
+    }
 }

@@ -59,13 +59,19 @@ class DomainInvariantsTest {
     @Test
     void evaluationResultKeepsOutcomeCategoryAndRatingConsistent() {
         assertThat(new EvaluationResult(Outcome.CORRECT_STANDARD_FORM, ErrorCategory.VARIANT_STANDARD_FORM,
-                "Auf Gheg: âsht", null, Rating.GOOD).outcome().isAccepted()).isTrue();
+                "Auf Gheg: âsht", null, "âsht", Rating.GOOD).countsAsCorrect()).isTrue();
+        assertThat(new EvaluationResult(Outcome.ALMOST_CORRECT, ErrorCategory.SPELLING_NASAL_VOWEL,
+                null, null, "âsht", Rating.HARD).countsAsCorrect()).isTrue();
+        assertThat(new EvaluationResult(Outcome.WRONG, ErrorCategory.VOCAB_UNKNOWN,
+                null, null, "âsht", Rating.AGAIN).countsAsCorrect()).isFalse();
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new EvaluationResult(Outcome.CORRECT, ErrorCategory.SPELLING_OTHER, null, null, Rating.GOOD));
+                .isThrownBy(() -> new EvaluationResult(Outcome.CORRECT, ErrorCategory.SPELLING_OTHER, null, null, null, Rating.GOOD));
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new EvaluationResult(Outcome.WRONG, ErrorCategory.VOCAB_UNKNOWN, null, null, Rating.HARD));
+                .isThrownBy(() -> new EvaluationResult(Outcome.ALMOST_CORRECT, null, null, null, null, Rating.HARD));
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new EvaluationResult(Outcome.CORRECT, null, null, null, Rating.AGAIN));
+                .isThrownBy(() -> new EvaluationResult(Outcome.WRONG, ErrorCategory.VOCAB_UNKNOWN, null, null, null, Rating.HARD));
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> new EvaluationResult(Outcome.CORRECT, null, null, null, null, Rating.AGAIN));
     }
 
     @Test

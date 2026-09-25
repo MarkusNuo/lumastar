@@ -8,6 +8,10 @@ spring:
     url: ${LINGORA_DB_URL:jdbc:postgresql://localhost:5433/lingora}
     username: ${LINGORA_DB_USER:lingora}
     password: ${LINGORA_DB_PASSWORD:lingora}
+  session:
+    jdbc:
+      # The tables are created by Flyway (V2__spring_session.sql).
+      initialize-schema: never
   jpa:
     open-in-view: false
     hibernate:

@@ -14,15 +14,18 @@ class SchemaMigrationTest extends IntegrationTest {
     private static final List<String> LEARNER_TABLES = List.of("streaks", "placement_tests", "placement_answers",
             "learning_plans", "plan_changes", "sessions", "attempts", "skill_mastery", "srs_cards", "review_log",
             "fsrs_params", "ai_requests");
+    private static final List<String> HTTP_SESSION_TABLES = List.of("spring_session", "spring_session_attributes");
     private static final List<String> CONTENT_TABLES = List.of("content_skill_tags", "content_stages", "content_units",
             "content_items", "exercises");
 
     @Test
-    void appliesTheInitialMigration() {
-        List<Map<String, Object>> history = jdbc.sql("SELECT version, success FROM flyway_schema_history WHERE version IS NOT NULL")
+    void appliesAllMigrations() {
+        List<Map<String, Object>> history = jdbc.sql("""
+                        SELECT version, success FROM flyway_schema_history WHERE version IS NOT NULL ORDER BY installed_rank""")
                 .query().listOfRows();
 
-        assertThat(history).containsExactly(Map.of("version", "1", "success", true));
+        assertThat(history).containsExactly(Map.of("version", "1", "success", true), Map.of("version", "2", "success", true),
+                Map.of("version", "3", "success", true));
     }
 
     @Test
@@ -33,7 +36,7 @@ class SchemaMigrationTest extends IntegrationTest {
                 .query(String.class).list();
 
         assertThat(tables).containsExactlyInAnyOrderElementsOf(
-                Stream.of(List.of("users"), LEARNER_TABLES, CONTENT_TABLES).flatMap(List::stream).toList());
+                Stream.of(List.of("users"), LEARNER_TABLES, CONTENT_TABLES, HTTP_SESSION_TABLES).flatMap(List::stream).toList());
     }
 
     @Test

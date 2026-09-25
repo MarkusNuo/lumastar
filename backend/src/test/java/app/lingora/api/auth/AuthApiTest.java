@@ -113,19 +113,32 @@ class AuthApiTest extends IntegrationTest {
 
     @Test
     void loginSignsInWithANewSessionIdAndCsrfToken() {
-        setUpAccount();
         browser.get(STATUS);
-        browser.openSession();
-        String sessionBefore = browser.sessionId();
+        browser.post(SETUP, SETUP_BODY);
+        String sessionBefore = browser.sessionCookie();
         String csrfBefore = browser.csrfToken();
 
         MvcTestResult login = browser.post(LOGIN, LOGIN_BODY);
 
         assertThat(login).hasStatus(HttpStatus.NO_CONTENT);
-        assertThat(browser.sessionId()).isNotNull().isNotEqualTo(sessionBefore);
+        assertThat(browser.sessionCookie()).isNotNull().isNotEqualTo(sessionBefore);
         assertThat(browser.csrfToken()).isNotNull().isNotEqualTo(csrfBefore);
         assertThat(browser.get(ME)).hasStatusOk();
+        SpaClient withOldSession = new SpaClient(mvc);
+        withOldSession.useSession(sessionBefore);
+        assertProblem(withOldSession.get(ME), HttpStatus.UNAUTHORIZED, "authentication_required");
         assertThat(browser.post(LOGOUT, "")).hasStatus(HttpStatus.NO_CONTENT);
+    }
+
+    @Test
+    void storesTheSessionInTheDatabase() {
+        browser.get(STATUS);
+        browser.post(SETUP, SETUP_BODY);
+
+        assertThat(jdbc.sql("SELECT count(*) FROM spring_session").query(Integer.class).single()).isPositive();
+        SpaClient sameBrowserLater = new SpaClient(mvc);
+        sameBrowserLater.useSession(browser.sessionCookie());
+        assertThat(sameBrowserLater.get(ME)).hasStatusOk();
     }
 
     @Test

@@ -4,9 +4,11 @@ import app.lingora.domain.AnswerLang;
 import app.lingora.domain.Competence;
 import app.lingora.domain.ErrorHint;
 import app.lingora.domain.Exercise;
+import app.lingora.domain.ExercisePayload;
 import app.lingora.domain.ExerciseSource;
 import app.lingora.domain.ExerciseType;
 import app.lingora.domain.Level;
+import app.lingora.domain.Prompt;
 import app.lingora.domain.SkillTag;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -84,6 +86,12 @@ public class ExerciseEntity extends SeededContentEntity {
         reviewed = exercise.reviewed();
         note = exercise.note();
         reactivate();
+    }
+
+    /** The stored exercise as a domain record; {@code payload} is the decoded {@link #getPayload()}. */
+    public Exercise toExercise(ExercisePayload payload) {
+        return new Exercise(getId(), level, difficulty, skillTags.stream().map(SkillTag::of).toList(), itemIds, competence,
+                new Prompt(promptLang, promptText), explanation, errorHints, source, reviewed, note, payload);
     }
 
     public ExerciseType getType() {

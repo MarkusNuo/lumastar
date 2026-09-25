@@ -3,12 +3,15 @@ package app.lingora.persistence;
 import app.lingora.domain.AnswerLang;
 import app.lingora.domain.Coded;
 import app.lingora.domain.Competence;
+import app.lingora.domain.ErrorCategory;
 import app.lingora.domain.ExerciseSource;
 import app.lingora.domain.ExerciseType;
 import app.lingora.domain.Gender;
 import app.lingora.domain.ItemKind;
 import app.lingora.domain.Level;
+import app.lingora.domain.Outcome;
 import app.lingora.domain.PartOfSpeech;
+import app.lingora.domain.Rating;
 import app.lingora.domain.SkillArea;
 import app.lingora.domain.UnitColor;
 import jakarta.persistence.AttributeConverter;
@@ -113,6 +116,34 @@ public final class CodedEnumConverters {
     public static class UnitColorConverter extends CodedEnumConverter<UnitColor> {
         public UnitColorConverter() {
             super(UnitColor.class);
+        }
+    }
+
+    @Converter(autoApply = true)
+    public static class SessionKindConverter extends CodedEnumConverter<SessionKind> {
+        public SessionKindConverter() {
+            super(SessionKind.class);
+        }
+    }
+
+    @Converter(autoApply = true)
+    public static class OutcomeConverter extends CodedEnumConverter<Outcome> {
+        public OutcomeConverter() {
+            super(Outcome.class);
+        }
+    }
+
+    @Converter(autoApply = true)
+    public static class ErrorCategoryConverter extends CodedEnumConverter<ErrorCategory> {
+        public ErrorCategoryConverter() {
+            super(ErrorCategory.class);
+        }
+    }
+
+    @Converter(autoApply = true)
+    public static class RatingConverter extends CodedEnumConverter<Rating> {
+        public RatingConverter() {
+            super(Rating.class);
         }
     }
 }

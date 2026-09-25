@@ -58,4 +58,8 @@ public class ItemEntity extends SeededContentEntity {
         reviewed = item.reviewed();
         reactivate();
     }
+
+    public Item toItem() {
+        return new Item(getId(), kind, gheg, de, partOfSpeech, gender, definite, plural, alternatives, note, reviewed);
+    }
 }

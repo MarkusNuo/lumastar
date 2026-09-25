@@ -9,10 +9,19 @@ public sealed interface Answer {
 
     Duration responseTime();
 
-    /** Typed or chosen text: translate_free, fill_gap and multiple_choice. */
+    /** Typed text: translate_free and fill_gap without choices. */
     record Text(String value, Duration responseTime) implements Answer {
 
         public Text {
+            Objects.requireNonNull(value, "value");
+            requireValid(responseTime);
+        }
+    }
+
+    /** The option the learner picked: multiple_choice and fill_gap with choices. */
+    record Choice(String value, Duration responseTime) implements Answer {
+
+        public Choice {
             Objects.requireNonNull(value, "value");
             requireValid(responseTime);
         }
@@ -27,11 +36,11 @@ public sealed interface Answer {
         }
     }
 
-    /** Pairs as matched by the learner: match_pairs. */
-    record Pairs(List<MatchPair> pairs, Duration responseTime) implements Answer {
+    /** Wrong matches the learner made before all pairs were matched: match_pairs. */
+    record PairMistakes(int mistakes, Duration responseTime) implements Answer {
 
-        public Pairs {
-            pairs = List.copyOf(pairs);
+        public PairMistakes {
+            Require.that(mistakes >= 0, "mistakes must not be negative");
             requireValid(responseTime);
         }
     }

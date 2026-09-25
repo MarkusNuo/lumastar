@@ -1,6 +1,8 @@
 package app.lingora.persistence;
 
+import app.lingora.domain.Exercise;
 import app.lingora.domain.GrammarNote;
+import app.lingora.domain.Item;
 import app.lingora.domain.Level;
 import app.lingora.domain.SkillTag;
 import app.lingora.domain.Unit;
@@ -60,5 +62,43 @@ public class UnitEntity extends SeededContentEntity {
         grammar = unit.grammar();
         hasContent = !unit.isSkeleton();
         reactivate();
+    }
+
+    /** The unit as a domain record with the given (active) items and exercises. */
+    public Unit toUnit(List<Item> items, List<Exercise> exercises) {
+        return new Unit(getId(), level, title, description, goals, skillTags.stream().map(SkillTag::of).toList(), color, icon,
+                estimatedLessons, grammar, items, exercises);
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public List<String> getSkillTags() {
+        return skillTags;
+    }
+
+    public UnitColor getColor() {
+        return color;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public Integer getEstimatedLessons() {
+        return estimatedLessons;
+    }
+
+    public boolean hasContent() {
+        return hasContent;
     }
 }

@@ -2,7 +2,6 @@ package app.lingora.content;
 
 import app.lingora.domain.Exercise;
 import app.lingora.domain.Item;
-import app.lingora.domain.SkillTagDefinition;
 import app.lingora.domain.Stage;
 import app.lingora.domain.Unit;
 import app.lingora.persistence.ExerciseEntity;

@@ -1,5 +1,6 @@
 package app.lingora.persistence;
 
+import app.lingora.domain.Level;
 import app.lingora.domain.Stage;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
@@ -27,5 +28,13 @@ public class StageEntity extends SeededContentEntity {
         title = stage.title();
         this.position = position;
         reactivate();
+    }
+
+    public Level getLevel() {
+        return Level.fromCode(getId());
+    }
+
+    public String getTitle() {
+        return title;
     }
 }
