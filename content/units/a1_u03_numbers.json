@@ -1,0 +1,1198 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u03_numbers",
+  "level": "A1.1",
+  "grammar": [
+    {
+      "title": "Die Zahlen 1 bis 10",
+      "explanation": "| | | | |\n|---|---|---|---|\n| 1 | **nji** | 6 | gjashtë |\n| 2 | dy | 7 | shtatë |\n| 3 | tre | 8 | tetë |\n| 4 | katër | 9 | **nândë** |\n| 5 | pesë | 10 | dhjetë |\n\nGheg sagt **nji** (Standard: *një*) und **nândë** mit dem Nasalvokal â (Standard: *nëntë*). Das End-ë hört man kaum: *pesë* ≈ „pes“."
+    },
+    {
+      "title": "11 bis 19: „mbë“ heisst „auf“",
+      "explanation": "Die Zahlen von 11 bis 19 sind „Einer **auf** zehn“: **nji-mbë-dhjetë** (11), **dy-mbë-dhjetë** (12), **tre-mbë-dhjetë** (13) … **nândë-mbë-dhjetë** (19). Man schreibt sie zusammen.\n\nStandard schreibt *njëmbëdhjetë*, Gheg **njimbëdhjetë**."
+    },
+    {
+      "title": "Zehner, „e“ und das Alter",
+      "explanation": "| | | | |\n|---|---|---|---|\n| 20 | **njizet** | 60 | gjashtëdhjetë |\n| 30 | tridhjetë | 70 | shtatëdhjetë |\n| 40 | dyzet | 80 | tetëdhjetë |\n| 50 | pesëdhjetë | 90 | nândëdhjetë |\n| 100 | **njiqind** | | |\n\nZuerst kommt der Zehner, dann **e** (und), dann der Einer – umgekehrt als im Deutschen: *njizet e pesë* (25), *tridhjetë e nji* (31).\n\nAlter: **Sa vjeç je?** – „Wie alt bist du?“ **Jam njizet e pesë vjeç.** – „Ich bin 25 Jahre alt.“"
+    }
+  ],
+  "items": [
+    { "id": "item_dy", "kind": "word", "gheg": "dy", "de": "zwei", "partOfSpeech": "numeral", "reviewed": false },
+    {
+      "id": "item_tre",
+      "kind": "word",
+      "gheg": "tre",
+      "de": "drei",
+      "partOfSpeech": "numeral",
+      "note": "Standard unterscheidet „tre“ (m.) und „tri“ (f.: tri motra) – zu prüfen, wie das im Kosovo-Alltag gehandhabt wird.",
+      "reviewed": false
+    },
+    { "id": "item_kater", "kind": "word", "gheg": "katër", "de": "vier", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_pese", "kind": "word", "gheg": "pesë", "de": "fünf", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_gjashte", "kind": "word", "gheg": "gjashtë", "de": "sechs", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_shtate", "kind": "word", "gheg": "shtatë", "de": "sieben", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_tete", "kind": "word", "gheg": "tetë", "de": "acht", "partOfSpeech": "numeral", "reviewed": false },
+    {
+      "id": "item_nande",
+      "kind": "word",
+      "gheg": "nândë",
+      "de": "neun",
+      "partOfSpeech": "numeral",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_dhjete", "kind": "word", "gheg": "dhjetë", "de": "zehn", "partOfSpeech": "numeral", "reviewed": false },
+    {
+      "id": "item_njimbedhjete",
+      "kind": "word",
+      "gheg": "njimbëdhjetë",
+      "de": "elf",
+      "partOfSpeech": "numeral",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_dymbedhjete", "kind": "word", "gheg": "dymbëdhjetë", "de": "zwölf", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_trembedhjete", "kind": "word", "gheg": "trembëdhjetë", "de": "dreizehn", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_pesembedhjete", "kind": "word", "gheg": "pesëmbëdhjetë", "de": "fünfzehn", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_shtatembedhjete", "kind": "word", "gheg": "shtatëmbëdhjetë", "de": "siebzehn", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_tetembedhjete", "kind": "word", "gheg": "tetëmbëdhjetë", "de": "achtzehn", "partOfSpeech": "numeral", "reviewed": false },
+    {
+      "id": "item_nandembedhjete",
+      "kind": "word",
+      "gheg": "nândëmbëdhjetë",
+      "de": "neunzehn",
+      "partOfSpeech": "numeral",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_njizet",
+      "kind": "word",
+      "gheg": "njizet",
+      "de": "zwanzig",
+      "partOfSpeech": "numeral",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_tridhjete", "kind": "word", "gheg": "tridhjetë", "de": "dreissig", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_dyzet", "kind": "word", "gheg": "dyzet", "de": "vierzig", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_pesedhjete", "kind": "word", "gheg": "pesëdhjetë", "de": "fünfzig", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_gjashtedhjete", "kind": "word", "gheg": "gjashtëdhjetë", "de": "sechzig", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_shtatedhjete", "kind": "word", "gheg": "shtatëdhjetë", "de": "siebzig", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_tetedhjete", "kind": "word", "gheg": "tetëdhjetë", "de": "achtzig", "partOfSpeech": "numeral", "reviewed": false },
+    {
+      "id": "item_nandedhjete",
+      "kind": "word",
+      "gheg": "nândëdhjetë",
+      "de": "neunzig",
+      "partOfSpeech": "numeral",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_njiqind",
+      "kind": "word",
+      "gheg": "njiqind",
+      "de": "hundert",
+      "partOfSpeech": "numeral",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_zero", "kind": "word", "gheg": "zero", "de": "null", "partOfSpeech": "numeral", "reviewed": false },
+    { "id": "item_sa", "kind": "word", "gheg": "sa", "de": "wie viel, wie viele", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_vjec", "kind": "word", "gheg": "vjeç", "de": "… Jahre alt", "partOfSpeech": "adjective", "reviewed": false },
+    {
+      "id": "item_sa_vjec_je",
+      "kind": "phrase",
+      "gheg": "sa vjeç je?",
+      "de": "wie alt bist du?",
+      "partOfSpeech": "phrase",
+      "note": "„Sa vjet i ke/ka?“ als weitere Kosovo-Form akzeptiert – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_vit", "kind": "word", "gheg": "vit", "de": "Jahr", "partOfSpeech": "noun", "gender": "m", "definite": "viti", "plural": "vjet", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u03_numbers_001",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_pese"],
+      "prompt": { "lang": "de", "text": "Welche Zahl ist „pesë“?" },
+      "choices": ["5", "4", "6", "50"],
+      "solutions": ["5"],
+      "explanation": "„Pesë“ heisst 5. 50 wäre „pesëdhjetë“ – fünf mal zehn.",
+      "errorHints": [
+        { "pattern": "^50$", "category": "vocab.confused", "hint": "50 heisst „pesëdhjetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_002",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_dy", "item_tre", "item_dhjete", "item_nji"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „zwei“?" },
+      "choices": ["dy", "tre", "dhjetë", "nji"],
+      "solutions": ["dy"],
+      "explanation": "„Dy“ heisst 2. Das y klingt wie „ü“: „dü“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_003",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_tete"],
+      "prompt": { "lang": "de", "text": "Welche Zahl ist „tetë“?" },
+      "choices": ["8", "7", "18", "80"],
+      "solutions": ["8"],
+      "explanation": "„Tetë“ heisst 8. 18 ist „tetëmbëdhjetë“, 80 ist „tetëdhjetë“.",
+      "errorHints": [
+        { "pattern": "^18$", "category": "vocab.confused", "hint": "18 heisst „tetëmbëdhjetë“ – mit „mbë“." },
+        { "pattern": "^80$", "category": "vocab.confused", "hint": "80 heisst „tetëdhjetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_004",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_nji"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „eins“ im Gheg?" },
+      "choices": ["nji", "nândë", "dy", "zero"],
+      "solutions": ["nji"],
+      "explanation": "„Nji“ heisst „eins“ und „ein, eine“. Standard schreibt „një“.",
+      "errorHints": [
+        { "pattern": "^n[aâ]nd[eë]$", "category": "vocab.confused", "hint": "„Nândë“ ist 9." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_005",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers", "spelling.nasal_vowels"],
+      "itemIds": ["item_nande"],
+      "prompt": { "lang": "de", "text": "Welche Zahl ist „nândë“?" },
+      "choices": ["9", "19", "90", "7"],
+      "solutions": ["9"],
+      "explanation": "„Nândë“ heisst 9 – mit dem Nasalvokal â wie in „nânë“ (Standard: „nëntë“).",
+      "errorHints": [
+        { "pattern": "^19$", "category": "vocab.confused", "hint": "19 heisst „nândëmbëdhjetë“." },
+        { "pattern": "^90$", "category": "vocab.confused", "hint": "90 heisst „nândëdhjetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_006",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_dymbedhjete"],
+      "prompt": { "lang": "de", "text": "Welche Zahl ist „dymbëdhjetë“?" },
+      "choices": ["12", "20", "2", "22"],
+      "solutions": ["12"],
+      "explanation": "„Dy-mbë-dhjetë“ heisst wörtlich „zwei auf zehn“ – also 12.",
+      "errorHints": [
+        { "pattern": "^22$", "category": "vocab.confused", "hint": "22 heisst „njizet e dy“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_007",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_njizet"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „20“ im Gheg?" },
+      "choices": ["njizet", "dyzet", "dymbëdhjetë", "dhjetë"],
+      "solutions": ["njizet"],
+      "explanation": "„Njizet“ heisst 20 (Standard: „njëzet“). „Dyzet“ ist 40.",
+      "errorHints": [
+        { "pattern": "^dyzet$", "category": "vocab.confused", "hint": "„Dyzet“ ist 40 – „zweimal zwanzig“." },
+        { "pattern": "^dymb", "category": "vocab.confused", "hint": "„Dymbëdhjetë“ ist 12." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_008",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_dyzet"],
+      "prompt": { "lang": "de", "text": "Welche Zahl ist „dyzet“?" },
+      "choices": ["40", "20", "12", "42"],
+      "solutions": ["40"],
+      "explanation": "„Dyzet“ heisst 40 – wörtlich „zwei Zwanziger“.",
+      "errorHints": [
+        { "pattern": "^20$", "category": "vocab.confused", "hint": "20 heisst „njizet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_009",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age"],
+      "itemIds": ["item_sa_vjec_je"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Sa vjeç je?“" },
+      "choices": ["Wie alt bist du?", "Wie viele Kinder hast du?", "Wie heisst du?", "Wo wohnst du?"],
+      "solutions": ["Wie alt bist du?"],
+      "explanation": "„Sa“ heisst „wie viel“, „vjeç“ heisst „… Jahre alt“. „Sa vjeç je?“ – „Wie alt bist du?“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_010",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_tridhjete", "item_shtate"],
+      "prompt": { "lang": "de", "text": "Welche Zahl ist „tridhjetë e shtatë“?" },
+      "choices": ["37", "73", "27", "307"],
+      "solutions": ["37"],
+      "explanation": "Zuerst der Zehner, dann „e“ und der Einer: tridhjetë (30) e shtatë (7) = 37.",
+      "errorHints": [
+        { "pattern": "^73$", "category": "grammar.word_order", "hint": "Im Albanischen kommt der Zehner zuerst: „tridhjetë e shtatë“ = 30 + 7." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_011",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_njiqind"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „100“ im Gheg?" },
+      "choices": ["njiqind", "dhjetë", "nândëdhjetë", "njimbëdhjetë"],
+      "solutions": ["njiqind"],
+      "explanation": "„Njiqind“ heisst 100 – wörtlich „ein Hundert“ (Standard: „njëqind“).",
+      "errorHints": [
+        { "pattern": "^njimb", "category": "vocab.confused", "hint": "„Njimbëdhjetë“ ist 11." },
+        { "pattern": "^n[aâ]nd[eë]dhjet", "category": "vocab.confused", "hint": "„Nândëdhjetë“ ist 90." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_012",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_gjashtedhjete", "item_kater"],
+      "prompt": { "lang": "de", "text": "Welche Zahl ist „gjashtëdhjetë e katër“?" },
+      "choices": ["64", "46", "14", "604"],
+      "solutions": ["64"],
+      "explanation": "Gjashtëdhjetë (60) e katër (4) = 64. Der Zehner steht vorne.",
+      "errorHints": [
+        { "pattern": "^46$", "category": "grammar.word_order", "hint": "Der Zehner steht vorne: „gjashtëdhjetë e katër“ = 60 + 4." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_013",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_nji", "item_dy", "item_tre", "item_kater", "item_pese"],
+      "prompt": { "lang": "de", "text": "Ordne die Zahlen zu." },
+      "pairs": [
+        { "left": "nji", "right": "1" },
+        { "left": "dy", "right": "2" },
+        { "left": "tre", "right": "3" },
+        { "left": "katër", "right": "4" },
+        { "left": "pesë", "right": "5" }
+      ],
+      "explanation": "„Nji“ ist die Gheg-Form von „një“ (eins).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_014",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_gjashte", "item_shtate", "item_tete", "item_nande", "item_dhjete"],
+      "prompt": { "lang": "de", "text": "Ordne die Zahlen zu." },
+      "pairs": [
+        { "left": "gjashtë", "right": "6" },
+        { "left": "shtatë", "right": "7" },
+        { "left": "tetë", "right": "8" },
+        { "left": "nândë", "right": "9" },
+        { "left": "dhjetë", "right": "10" }
+      ],
+      "explanation": "„Nândë“ (9) hat den Gheg-Nasalvokal â (Standard: „nëntë“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_015",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_njimbedhjete", "item_dymbedhjete", "item_trembedhjete", "item_pesembedhjete", "item_nandembedhjete"],
+      "prompt": { "lang": "de", "text": "Ordne die Zahlen zu." },
+      "pairs": [
+        { "left": "njimbëdhjetë", "right": "11" },
+        { "left": "dymbëdhjetë", "right": "12" },
+        { "left": "trembëdhjetë", "right": "13" },
+        { "left": "pesëmbëdhjetë", "right": "15" },
+        { "left": "nândëmbëdhjetë", "right": "19" }
+      ],
+      "explanation": "Von 11 bis 19 steht „mbë“ (auf) zwischen Einer und „dhjetë“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen. „nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_016",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_njizet", "item_tridhjete", "item_dyzet", "item_pesedhjete", "item_njiqind"],
+      "prompt": { "lang": "de", "text": "Ordne die Zahlen zu." },
+      "pairs": [
+        { "left": "njizet", "right": "20" },
+        { "left": "tridhjetë", "right": "30" },
+        { "left": "dyzet", "right": "40" },
+        { "left": "pesëdhjetë", "right": "50" },
+        { "left": "njiqind", "right": "100" }
+      ],
+      "explanation": "20 und 40 sind besonders: „njizet“ und „dyzet“ (zwei Zwanziger). Die anderen Zehner enden auf „-dhjetë“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_017",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_gjashtedhjete", "item_shtatedhjete", "item_tetedhjete", "item_nandedhjete", "item_njizet"],
+      "prompt": { "lang": "de", "text": "Ordne die Zahlen zu." },
+      "pairs": [
+        { "left": "gjashtëdhjetë", "right": "60" },
+        { "left": "shtatëdhjetë", "right": "70" },
+        { "left": "tetëdhjetë", "right": "80" },
+        { "left": "nândëdhjetë", "right": "90" },
+        { "left": "njizet e nji", "right": "21" }
+      ],
+      "explanation": "Die Zehner ab 30 sind „Einer + dhjetë“: shtatë-dhjetë = sieben mal zehn.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen. Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_018",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_sa_vjec_je", "item_vjec", "item_vit", "item_sa", "item_zero"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "sa vjeç je?", "right": "wie alt bist du?" },
+        { "left": "vjeç", "right": "… Jahre alt" },
+        { "left": "vit", "right": "Jahr" },
+        { "left": "sa", "right": "wie viel" },
+        { "left": "zero", "right": "null" }
+      ],
+      "explanation": "„Vjeç“ brauchst du nur für das Alter: „Jam dhjetë vjeç.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_019",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_nji", "item_dy", "item_tre", "item_kater"],
+      "prompt": { "lang": "de", "text": "1, 2, 3, 4" },
+      "answerLang": "sq",
+      "text": "Nji, dy, ___, katër.",
+      "solutions": ["tre"],
+      "choices": ["tre", "pesë", "tetë", "dy"],
+      "explanation": "Nji, dy, tre, katër – 1, 2, 3, 4.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_020",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_jam", "item_dhjete", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Ich bin zehn Jahre alt." },
+      "answerLang": "sq",
+      "text": "Jam ___ vjeç.",
+      "solutions": ["dhjetë"],
+      "choices": ["dhjetë", "dy", "njizet", "tetë"],
+      "explanation": "„Dhjetë“ heisst 10. Das dh ist das weiche „th“ wie in „this“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_021",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age"],
+      "itemIds": ["item_sa_vjec_je"],
+      "prompt": { "lang": "de", "text": "Wie alt bist du?" },
+      "answerLang": "sq",
+      "text": "Sa ___ je?",
+      "solutions": ["vjeç"],
+      "explanation": "„Vjeç“ heisst „… Jahre alt“. Das ç am Ende klingt wie „tsch“.",
+      "errorHints": [
+        { "pattern": "^vit$", "category": "vocab.confused", "hint": "„Vit“ heisst „Jahr“. Für das Alter sagst du „vjeç“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_022",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_dy", "item_kater"],
+      "prompt": { "lang": "de", "text": "Zwei und zwei macht vier." },
+      "answerLang": "sq",
+      "text": "Dy e dy bâjnë ___.",
+      "solutions": ["katër"],
+      "explanation": "„Bâjnë“ heisst „(sie) machen“ – Gheg-Form von Standard „bëjnë“. 2 + 2 = katër.",
+      "errorHints": [
+        { "pattern": "^kat[eë]rmb", "category": "vocab.confused", "hint": "„Katërmbëdhjetë“ ist 14. Vier heisst „katër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_023",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_pese", "item_dhjete"],
+      "prompt": { "lang": "de", "text": "Fünf und fünf macht zehn." },
+      "answerLang": "sq",
+      "text": "Pesë e pesë bâjnë ___.",
+      "solutions": ["dhjetë"],
+      "choices": ["dhjetë", "pesëdhjetë", "njimbëdhjetë", "nândë"],
+      "explanation": "5 + 5 = 10: „dhjetë“. „Pesëdhjetë“ wäre 50.",
+      "errorHints": [
+        { "pattern": "^pes[eë]dhjet", "category": "vocab.confused", "hint": "„Pesëdhjetë“ ist 50." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_024",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_tetembedhjete", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Arta ist achtzehn Jahre alt." },
+      "answerLang": "sq",
+      "text": "Arta âsht ___ vjeç.",
+      "solutions": ["tetëmbëdhjetë"],
+      "explanation": "18 ist „tetë-mbë-dhjetë“ – acht auf zehn.",
+      "errorHints": [
+        { "pattern": "^tet[eë]dhjet[eë]$", "category": "vocab.confused", "hint": "„Tetëdhjetë“ ist 80. 18 heisst „tetëmbëdhjetë“ – mit „mbë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_025",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_njizet", "item_pese", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Ich bin fünfundzwanzig Jahre alt." },
+      "answerLang": "sq",
+      "text": "Jam njizet e ___ vjeç.",
+      "solutions": ["pesë"],
+      "choices": ["pesë", "katër", "gjashtë", "pesëdhjetë"],
+      "explanation": "Njizet (20) e pesë (5) = 25.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_026",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.age", "vocab.numbers", "spelling.nasal_vowels"],
+      "itemIds": ["item_nandedhjete", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Sie ist neunzig Jahre alt." },
+      "answerLang": "sq",
+      "text": "Ajo âsht ___ vjeç.",
+      "solutions": ["nândëdhjetë"],
+      "standardForms": ["nëntëdhjetë"],
+      "explanation": "90 ist „nândëdhjetë“: nândë (9) mal dhjetë (10). Standard schreibt „nëntëdhjetë“.",
+      "errorHints": [
+        { "pattern": "^n[aâ]nd[eë]mb[eë]dhjet[eë]$", "category": "vocab.confused", "hint": "„Nândëmbëdhjetë“ ist 19. 90 heisst „nândëdhjetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_027",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers", "phrase.politeness"],
+      "itemIds": ["item_dy", "item_kafe", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Zwei Kaffee, bitte." },
+      "answerLang": "sq",
+      "text": "___ kafe, të lutem.",
+      "solutions": ["Dy"],
+      "choices": ["Dy", "Nji", "Tre", "Dhjetë"],
+      "explanation": "„Kafe“ bleibt in der Mehrzahl gleich: nji kafe, dy kafe.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_028",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.numbers", "spelling.nasal_vowels"],
+      "itemIds": ["item_nji", "item_tre", "item_pese", "item_shtate", "item_nande"],
+      "prompt": { "lang": "de", "text": "1, 3, 5, 7, 9" },
+      "answerLang": "sq",
+      "text": "Nji, tre, pesë, shtatë, ___.",
+      "solutions": ["nândë"],
+      "standardForms": ["nëntë"],
+      "explanation": "9 heisst „nândë“ – mit dem Nasalvokal â wie in „nânë“ (Standard: „nëntë“).",
+      "errorHints": [
+        { "pattern": "^tet[eë]$", "category": "vocab.confused", "hint": "„Tetë“ ist 8. Die nächste ungerade Zahl nach 7 ist 9: „nândë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_029",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_tridhjete", "item_nji"],
+      "prompt": { "lang": "de", "text": "31 (dreissig und eins)" },
+      "answerLang": "sq",
+      "text": "Tridhjetë ___ nji",
+      "solutions": ["e"],
+      "choices": ["e", "dhe", "mbë", "a"],
+      "explanation": "Bei 21, 31, 41 … verbindet „e“ den Zehner mit dem Einer: tridhjetë e nji.",
+      "errorHints": [
+        { "pattern": "^mb[eë]$", "category": "vocab.confused", "hint": "„Mbë“ brauchst du nur bei 11–19. Bei 31 verbindest du mit „e“." },
+        { "pattern": "^dhe$", "category": "vocab.confused", "hint": "In Zahlen verbindet man mit dem kurzen „e“: tridhjetë e nji." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_030",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_trembedhjete"],
+      "prompt": { "lang": "de", "text": "13 (drei auf zehn)" },
+      "answerLang": "sq",
+      "text": "Tre___dhjetë",
+      "solutions": ["mbë"],
+      "choices": ["mbë", "e", "dhe", "zet"],
+      "explanation": "Von 11 bis 19 steht „mbë“ (auf) in der Mitte: tre-mbë-dhjetë = 13.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "vocab.confused", "hint": "„E“ verbindet Zehner und Einer ab 21. Bei 11–19 steht „mbë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_031",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_shtate"],
+      "prompt": { "lang": "de", "text": "sieben" },
+      "answerLang": "sq",
+      "solutions": ["shtatë"],
+      "explanation": "„Shtatë“ heisst 7. Das sh klingt wie „sch“.",
+      "errorHints": [
+        { "pattern": "^tet[eë]$", "category": "vocab.confused", "hint": "„Tetë“ ist 8. Sieben heisst „shtatë“." },
+        { "pattern": "^schtat", "category": "spelling.other", "hint": "Den Laut „sch“ schreibt man sh: shtatë." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_032",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age"],
+      "itemIds": ["item_sa_vjec_je"],
+      "prompt": { "lang": "de", "text": "Wie alt bist du?" },
+      "answerLang": "sq",
+      "solutions": ["Sa vjeç je?", "Sa vjeç je ti?", "Ti sa vjeç je?", "Sa vjet i ke?"],
+      "explanation": "„Sa vjeç je?“ – wörtlich „Wie viele Jahre alt bist du?“. Im Kosovo hört man auch „Sa vjet i ke?“.",
+      "errorHints": [
+        { "pattern": "^sa vje[cç] jeni", "category": "grammar.verb_conjugation", "hint": "„Jeni“ ist die Ihr- oder Sie-Form. Zu einer Person, die du duzt: „je“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Sa vjet i ke/ka?“ als weitere Kosovo-Form akzeptiert – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_033",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_jam", "item_njizet", "item_pese", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Ich bin fünfundzwanzig Jahre alt." },
+      "answerLang": "sq",
+      "solutions": ["Jam njizet e pesë vjeç.", "Unë jam njizet e pesë vjeç."],
+      "standardForms": ["Jam njëzet e pesë vjeç.", "Unë jam njëzet e pesë vjeç."],
+      "explanation": "Zuerst 20 (njizet), dann „e“, dann 5 (pesë): njizet e pesë. Standard sagt „njëzet“.",
+      "errorHints": [
+        { "pattern": "pes[eë] e njiz", "category": "grammar.word_order", "hint": "Der Zehner kommt zuerst: „njizet e pesë“ – umgekehrt als im Deutschen." },
+        { "pattern": "njiz[eë]t pes", "category": "spelling.other", "hint": "Zwischen Zehner und Einer steht „e“: njizet e pesë." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_034",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_ai", "item_asht", "item_dhjete", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Er ist zehn Jahre alt." },
+      "answerLang": "sq",
+      "solutions": ["Ai âsht dhjetë vjeç.", "Âsht dhjetë vjeç."],
+      "standardForms": ["Ai është dhjetë vjeç.", "Është dhjetë vjeç."],
+      "explanation": "Beim Alter steht „âsht“ (ist) und am Ende „vjeç“: „Ai âsht dhjetë vjeç.“",
+      "errorHints": [
+        { "pattern": "(^|\\s)je dhjet", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. Für „er ist“: „âsht“." },
+        { "pattern": "^ajo ", "category": "grammar.gender", "hint": "„Ajo“ heisst „sie“. Für „er“: „ai“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_035",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_njizet"],
+      "prompt": { "lang": "de", "text": "zwanzig" },
+      "answerLang": "sq",
+      "solutions": ["njizet"],
+      "standardForms": ["njëzet"],
+      "explanation": "„Njizet“ heisst 20 – mit dem Gheg-„nji“ (Standard: „njëzet“).",
+      "errorHints": [
+        { "pattern": "^dyzet$", "category": "vocab.confused", "hint": "„Dyzet“ ist 40. 20 heisst „njizet“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_036",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_dy", "item_kater"],
+      "prompt": { "lang": "de", "text": "Zwei und zwei macht vier." },
+      "answerLang": "sq",
+      "solutions": ["Dy e dy bâjnë katër.", "Dy dhe dy bâjnë katër.", "Dy plus dy bâjnë katër."],
+      "standardForms": ["Dy e dy bëjnë katër.", "Dy dhe dy bëjnë katër.", "Dy plus dy bëjnë katër."],
+      "explanation": "„Bâjnë“ heisst „(sie) machen“ – die Gheg-Form von „bëjnë“. Mit „e“ oder „plus“ verbindest du die Zahlen.",
+      "errorHints": [
+        { "pattern": "(^|\\s)b[aâ]n(\\s|$)", "category": "grammar.verb_conjugation", "hint": "Das Subjekt ist Mehrzahl (zwei und zwei) – darum „bâjnë“." },
+        { "pattern": "(^|\\s)b[aâ]j(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Bâj“ heisst „ich mache“. Hier brauchst du „bâjnë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_037",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.age"],
+      "itemIds": ["item_sa", "item_vjec", "item_asht", "item_ajo"],
+      "prompt": { "lang": "de", "text": "Wie alt ist sie?" },
+      "answerLang": "sq",
+      "solutions": ["Sa vjeç âsht ajo?", "Ajo sa vjeç âsht?", "Sa vjet i ka?"],
+      "standardForms": ["Sa vjeç është ajo?", "Ajo sa vjeç është?"],
+      "explanation": "Für „sie ist“ brauchst du „âsht“: „Sa vjeç âsht ajo?“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)je ajo", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. Für „sie ist“: „âsht“." },
+        { "pattern": "(^|\\s)ai(\\s|$)", "category": "grammar.gender", "hint": "„Ai“ heisst „er“. Für „sie“: „ajo“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Sa vjet i ke/ka?“ als weitere Kosovo-Form akzeptiert – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_038",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.age", "vocab.numbers", "spelling.nasal_vowels"],
+      "itemIds": ["item_nane", "item_asht", "item_dyzet", "item_nande", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Die Mutter ist neunundvierzig Jahre alt." },
+      "answerLang": "sq",
+      "solutions": ["Nâna âsht dyzet e nândë vjeç."],
+      "standardForms": ["Nëna është dyzet e nëntë vjeç.", "Nâna âsht dyzet e nëntë vjeç.", "Nëna është dyzet e nândë vjeç."],
+      "explanation": "Drei Gheg-Formen in einem Satz: „nâna“, „âsht“ und „nândë“ – alle mit â. 49 = dyzet (40) e nândë (9).",
+      "errorHints": [
+        { "pattern": "^n[aâ]n[eë] ", "category": "grammar.definite_article", "hint": "„Die Mutter“ heisst „nâna“ – der Artikel hängt hinten dran." },
+        { "pattern": "n[aâ]nd[eë] e dyzet", "category": "grammar.word_order", "hint": "Der Zehner kommt zuerst: „dyzet e nândë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_039",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers", "phrase.politeness"],
+      "itemIds": ["item_dy", "item_kafe", "item_te_lutem", "item_ju_lutem"],
+      "prompt": { "lang": "de", "text": "Zwei Kaffee, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Dy kafe, të lutem.", "Dy kafe, ju lutem.", "Të lutem, dy kafe.", "Ju lutem, dy kafe."],
+      "explanation": "„Kafe“ bleibt in der Mehrzahl gleich: dy kafe.",
+      "errorHints": [
+        { "pattern": "(^|\\s)nji kafe", "category": "vocab.confused", "hint": "„Nji“ heisst „ein, eins“. „Zwei“ heisst „dy“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_040",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_nji", "item_dy", "item_tre"],
+      "prompt": { "lang": "sq", "text": "Nji, dy, tre." },
+      "answerLang": "de",
+      "solutions": ["Eins, zwei, drei."],
+      "wordBank": ["Eins", "zwei", "drei", "vier", "zehn"],
+      "explanation": "Nji, dy, tre – so beginnt man zu zählen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_041",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_jam", "item_dhjete", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Ich bin zehn Jahre alt." },
+      "answerLang": "sq",
+      "solutions": ["Jam dhjetë vjeç.", "Unë jam dhjetë vjeç."],
+      "wordBank": ["Jam", "dhjetë", "vjeç", "je", "dy"],
+      "explanation": "„Vjeç“ steht am Ende und bedeutet „… Jahre alt“.",
+      "errorHints": [
+        { "pattern": "^je ", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. Für „ich bin“: „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_042",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age"],
+      "itemIds": ["item_sa_vjec_je"],
+      "prompt": { "lang": "sq", "text": "Sa vjeç je?" },
+      "answerLang": "de",
+      "solutions": ["Wie alt bist du?"],
+      "wordBank": ["Wie", "alt", "bist", "du", "heisst", "wo"],
+      "explanation": "„Sa vjeç je?“ fragt nach dem Alter.",
+      "errorHints": [
+        { "pattern": "heisst", "category": "vocab.confused", "hint": "„Wie heisst du?“ wäre „Si quhesh?“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_043",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers", "phrase.politeness"],
+      "itemIds": ["item_dy", "item_kafe", "item_dhe", "item_nji", "item_caj", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Zwei Kaffee und ein Tee, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Dy kafe dhe nji çaj, të lutem.", "Dy kafe edhe nji çaj, të lutem.", "Dy kafe e nji çaj, të lutem."],
+      "wordBank": ["Dy", "kafe", "dhe", "nji", "çaj", "të", "lutem", "tre", "ujë"],
+      "explanation": "„Dy“ heisst zwei, „nji“ heisst ein. Die Nomen bleiben danach unverändert.",
+      "errorHints": [
+        { "pattern": "^tre ", "category": "vocab.confused", "hint": "„Tre“ ist 3. Zwei heisst „dy“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_044",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_shtatembedhjete", "item_vjec"],
+      "prompt": { "lang": "sq", "text": "Drita âsht shtatëmbëdhjetë vjeç." },
+      "answerLang": "de",
+      "solutions": ["Drita ist siebzehn Jahre alt.", "Drita ist siebzehn."],
+      "wordBank": ["Drita", "ist", "siebzehn", "Jahre", "alt", "siebzig", "sieben"],
+      "explanation": "„Shtatë-mbë-dhjetë“ ist „sieben auf zehn“ – also 17.",
+      "errorHints": [
+        { "pattern": "siebzig", "category": "vocab.confused", "hint": "70 wäre „shtatëdhjetë“ (ohne „mbë“)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_045",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_jam", "item_tridhjete", "item_vjec", "item_po_ti"],
+      "prompt": { "lang": "de", "text": "Ich bin dreissig Jahre alt, und du?" },
+      "answerLang": "sq",
+      "solutions": ["Jam tridhjetë vjeç, po ti?", "Unë jam tridhjetë vjeç, po ti?"],
+      "wordBank": ["Jam", "tridhjetë", "vjeç", "po", "ti", "tre", "je", "dhjetë"],
+      "explanation": "„Tridhjetë“ heisst 30 – drei mal zehn. „Po ti?“ heisst „und du?“.",
+      "errorHints": [
+        { "pattern": "^jam tre vje", "category": "vocab.confused", "hint": "„Tre“ ist 3. 30 heisst „tridhjetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_046",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_pese", "item_tre", "item_tete"],
+      "prompt": { "lang": "sq", "text": "Pesë e tre bâjnë tetë." },
+      "answerLang": "de",
+      "solutions": [
+        "Fünf und drei macht acht.",
+        "Fünf und drei sind acht.",
+        "Fünf plus drei macht acht.",
+        "Fünf und drei ergibt acht.",
+        "Fünf und drei gibt acht."
+      ],
+      "wordBank": ["Fünf", "und", "drei", "macht", "acht", "achtzig", "oder"],
+      "explanation": "„Bâjnë“ heisst „(sie) machen“ – so rechnet man auf Albanisch: 5 + 3 = 8.",
+      "errorHints": [
+        { "pattern": "achtzig", "category": "vocab.confused", "hint": "80 wäre „tetëdhjetë“. „Tetë“ ist 8." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_047",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age"],
+      "itemIds": ["item_sa", "item_vjec", "item_asht", "item_ai"],
+      "prompt": { "lang": "de", "text": "Wie alt ist er?" },
+      "answerLang": "sq",
+      "solutions": ["Sa vjeç âsht ai?", "Ai sa vjeç âsht?"],
+      "wordBank": ["Sa", "vjeç", "âsht", "ai", "je", "ajo"],
+      "explanation": "Für „er“ sagst du „ai“, für „ist“ „âsht“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ajo(\\s|$)", "category": "grammar.gender", "hint": "„Ajo“ heisst „sie“. Für „er“: „ai“." },
+        { "pattern": "(^|\\s)je(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. Für „er ist“: „âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_048",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.age", "vocab.numbers", "spelling.nasal_vowels"],
+      "itemIds": ["item_nane", "item_asht", "item_dyzet", "item_nande", "item_vjec"],
+      "prompt": { "lang": "sq", "text": "Nâna âsht dyzet e nândë vjeç." },
+      "answerLang": "de",
+      "solutions": ["Die Mutter ist neunundvierzig Jahre alt.", "Die Mutter ist neunundvierzig."],
+      "wordBank": ["Die", "Mutter", "ist", "neunundvierzig", "Jahre", "alt", "neunundneunzig", "vierzig"],
+      "explanation": "„Dyzet e nândë“ = 40 + 9 = 49. Im Deutschen kommt der Einer zuerst, im Albanischen der Zehner.",
+      "errorHints": [
+        { "pattern": "neunundneunzig", "category": "vocab.confused", "hint": "99 wäre „nândëdhjetë e nândë“. „Dyzet“ ist 40." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nândë“ (9) mit Nasalvokal nach der Faustregel ë vor n → â (Standard: „nëntë“); steht nicht in der â-Liste der Richtlinie 4.2 – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_049",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_njizet", "item_nji", "item_dy", "item_tre"],
+      "prompt": { "lang": "de", "text": "Einundzwanzig, zweiundzwanzig, dreiundzwanzig." },
+      "answerLang": "sq",
+      "solutions": ["Njizet e nji, njizet e dy, njizet e tre."],
+      "wordBank": ["Njizet", "e", "nji", "njizet", "e", "dy", "njizet", "e", "tre", "dyzet", "mbë"],
+      "explanation": "Ab 21: Zehner + „e“ + Einer. So zählst du weiter bis 99.",
+      "errorHints": [
+        { "pattern": "(^|\\s)dyzet(\\s|$)", "category": "vocab.confused", "hint": "„Dyzet“ ist 40. 20 heisst „njizet“." },
+        { "pattern": "njizet mb", "category": "vocab.confused", "hint": "„Mbë“ brauchst du nur bei 11–19. Ab 21 steht „e“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_050",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_baba", "item_asht", "item_gjashtedhjete", "item_vjec"],
+      "prompt": { "lang": "sq", "text": "Babai âsht gjashtëdhjetë vjeç." },
+      "answerLang": "de",
+      "solutions": ["Der Vater ist sechzig Jahre alt.", "Der Vater ist sechzig."],
+      "wordBank": ["Der", "Vater", "ist", "sechzig", "Jahre", "alt", "sechzehn", "siebzig"],
+      "explanation": "„Gjashtë-dhjetë“ ist „sechs mal zehn“ – 60. 16 wäre „gjashtëmbëdhjetë“.",
+      "errorHints": [
+        { "pattern": "sechzehn", "category": "vocab.confused", "hint": "16 wäre „gjashtëmbëdhjetë“ – mit „mbë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_051",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_sa", "item_pese"],
+      "prompt": { "lang": "de", "text": "Wie viel ist fünf und fünf?" },
+      "answerLang": "sq",
+      "solutions": ["Sa bâjnë pesë e pesë?", "Sa âsht pesë e pesë?", "Sa bâjnë pesë plus pesë?"],
+      "wordBank": ["Sa", "bâjnë", "pesë", "e", "pesë", "je", "dhjetë", "dy"],
+      "explanation": "Wörtlich: „Wie viel machen fünf und fünf?“ – „bâjnë“ ist die Gheg-Form von „bëjnë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_052",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_nji", "item_dy", "item_tre", "item_kater", "item_pese"],
+      "prompt": { "lang": "de", "text": "Eins, zwei, drei, vier, fünf." },
+      "answerLang": "sq",
+      "tokens": ["Nji", "dy", "tre", "katër", "pesë"],
+      "solutions": ["Nji, dy, tre, katër, pesë."],
+      "explanation": "Zählen von 1 bis 5: nji, dy, tre, katër, pesë.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_053",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age"],
+      "itemIds": ["item_sa_vjec_je"],
+      "prompt": { "lang": "de", "text": "Wie alt bist du?" },
+      "answerLang": "sq",
+      "tokens": ["Sa", "vjeç", "je"],
+      "solutions": ["Sa vjeç je?"],
+      "explanation": "„Sa vjeç“ (wie alt) steht am Anfang, „je“ (bist du) am Ende.",
+      "errorHints": [
+        { "pattern": "^vje[cç] sa", "category": "grammar.word_order", "hint": "Das Fragewort „sa“ steht am Anfang: „Sa vjeç je?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_054",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_une", "item_jam", "item_tete", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Ich bin acht Jahre alt." },
+      "answerLang": "sq",
+      "tokens": ["Unë", "jam", "tetë", "vjeç"],
+      "solutions": ["Unë jam tetë vjeç."],
+      "explanation": "Die Zahl steht vor „vjeç“: „tetë vjeç“ – acht Jahre alt.",
+      "errorHints": [
+        { "pattern": "vje[cç] tet", "category": "grammar.word_order", "hint": "Die Zahl steht vor „vjeç“: „tetë vjeç“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_055",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers"],
+      "itemIds": ["item_dy", "item_kater"],
+      "prompt": { "lang": "de", "text": "Zwei und zwei macht vier." },
+      "answerLang": "sq",
+      "tokens": ["Dy", "e", "dy", "bâjnë", "katër"],
+      "solutions": ["Dy e dy bâjnë katër."],
+      "explanation": "Wie im Deutschen: Zahlen, dann „bâjnë“ (machen), dann das Ergebnis.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_056",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_ajo", "item_asht", "item_njizet", "item_nji", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Sie ist einundzwanzig Jahre alt." },
+      "answerLang": "sq",
+      "tokens": ["Ajo", "âsht", "njizet", "e", "nji", "vjeç"],
+      "solutions": ["Ajo âsht njizet e nji vjeç."],
+      "explanation": "21 = njizet e nji: zuerst der Zehner, dann „e“ und der Einer.",
+      "errorHints": [
+        { "pattern": "nji e njizet", "category": "grammar.word_order", "hint": "Der Zehner kommt zuerst: „njizet e nji“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „nji“ auch in zusammengesetzten Zahlen: njimbëdhjetë, njizet, njiqind (Standard: njëmbëdhjetë, njëzet, njëqind) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u03_numbers_057",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.numbers", "phrase.politeness"],
+      "itemIds": ["item_dy", "item_kafe", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Zwei Kaffee, bitte." },
+      "answerLang": "sq",
+      "tokens": ["Dy", "kafe", "të", "lutem"],
+      "solutions": ["Dy kafe, të lutem.", "Të lutem, dy kafe."],
+      "explanation": "Die Zahl steht vor dem Nomen: „dy kafe“.",
+      "errorHints": [
+        { "pattern": "kafe dy", "category": "grammar.word_order", "hint": "Die Zahl steht vor dem Nomen: „dy kafe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_058",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_une", "item_jam", "item_dyzet", "item_vjec", "item_po_ti"],
+      "prompt": { "lang": "de", "text": "Ich bin vierzig Jahre alt, und du?" },
+      "answerLang": "sq",
+      "tokens": ["Unë", "jam", "dyzet", "vjeç", "po", "ti"],
+      "solutions": ["Unë jam dyzet vjeç, po ti?"],
+      "explanation": "„Dyzet“ ist 40. Mit „po ti?“ gibst du die Frage zurück.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_059",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.age"],
+      "itemIds": ["item_sa", "item_vjec", "item_asht", "item_baba"],
+      "prompt": { "lang": "de", "text": "Wie alt ist der Vater?" },
+      "answerLang": "sq",
+      "tokens": ["Sa", "vjeç", "âsht", "babai"],
+      "solutions": ["Sa vjeç âsht babai?", "Babai sa vjeç âsht?"],
+      "explanation": "Meist steht „sa vjeç“ vorne. „Babai sa vjeç âsht?“ geht auch.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u03_numbers_060",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.age", "vocab.numbers"],
+      "itemIds": ["item_asht", "item_tridhjete", "item_pese", "item_vjec"],
+      "prompt": { "lang": "de", "text": "Blerim ist fünfunddreissig Jahre alt." },
+      "answerLang": "sq",
+      "tokens": ["Blerim", "âsht", "tridhjetë", "e", "pesë", "vjeç"],
+      "solutions": ["Blerim âsht tridhjetë e pesë vjeç."],
+      "explanation": "Im Deutschen „fünfunddreissig“, im Albanischen „tridhjetë e pesë“ – der Zehner kommt zuerst.",
+      "errorHints": [
+        { "pattern": "pes[eë] e tridhjet", "category": "grammar.word_order", "hint": "Zuerst kommt der Zehner, dann „e“ und der Einer: tridhjetë e pesë." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

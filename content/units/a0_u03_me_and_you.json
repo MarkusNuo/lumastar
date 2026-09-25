@@ -1,0 +1,1121 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a0_u03_me_and_you",
+  "level": "A0",
+  "grammar": [
+    {
+      "title": "Ich, du, er, sie …",
+      "explanation": "| Albanisch | Deutsch |\n|---|---|\n| unë | ich |\n| ti | du |\n| ai | er |\n| ajo | sie (eine Frau) |\n| ne | wir |\n| ju | ihr; Sie (höflich) |\n| ata | sie (Männer oder gemischte Gruppe) |\n| ato | sie (nur Frauen) |\n\n**Ju** ist zugleich „ihr“ und die höfliche Anrede „Sie“."
+    },
+    {
+      "title": "Das Verb „sein“: jam, je, âsht",
+      "explanation": "| | sein |\n|---|---|\n| unë | **jam** |\n| ti | **je** |\n| ai, ajo | **âsht** |\n| ne | **jemi** |\n| ju | **jeni** |\n| ata, ato | **janë** |\n\n**Âsht** ist die Gheg-Form von „ist“ mit dem Nasalvokal â (Standard: *është*)."
+    },
+    {
+      "title": "Das Pronomen darf fehlen",
+      "explanation": "Die Verbform zeigt schon, wer gemeint ist. Darum kannst du das Pronomen weglassen: *Jam Arta.* = *Unë jam Arta.* – „Ich bin Arta.“ Mit Pronomen klingt es betonter.\n\nJa/Nein-Fragen beginnen oft mit **a**: *A je mirë?* – „Geht es dir gut?“ Verneint wird mit **nuk**: *Nuk jam Arta.*"
+    }
+  ],
+  "items": [
+    { "id": "item_une", "kind": "word", "gheg": "unë", "de": "ich", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_ti", "kind": "word", "gheg": "ti", "de": "du", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_ai", "kind": "word", "gheg": "ai", "de": "er", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_ajo", "kind": "word", "gheg": "ajo", "de": "sie (eine Frau)", "partOfSpeech": "pronoun", "reviewed": false },
+    {
+      "id": "item_ne_pron",
+      "kind": "word",
+      "gheg": "ne",
+      "de": "wir",
+      "partOfSpeech": "pronoun",
+      "note": "Im Kosovo-Alltag auch „na“ (Richtlinie 9.1, zu prüfen). Id mit Zusatz „_pron“, damit sie nicht mit „në“ (in) kollidiert.",
+      "reviewed": false
+    },
+    { "id": "item_ju", "kind": "word", "gheg": "ju", "de": "ihr; Sie (höflich)", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_ata", "kind": "word", "gheg": "ata", "de": "sie (Männer oder gemischte Gruppe)", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_ato", "kind": "word", "gheg": "ato", "de": "sie (nur Frauen)", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_je", "kind": "word", "gheg": "je", "de": "du bist", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_jemi",
+      "kind": "word",
+      "gheg": "jemi",
+      "de": "wir sind",
+      "partOfSpeech": "verb",
+      "note": "Im Kosovo-Alltag auch „jena“ (Richtlinie 5.1, zu prüfen).",
+      "reviewed": false
+    },
+    { "id": "item_jeni", "kind": "word", "gheg": "jeni", "de": "ihr seid, Sie sind", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_jane", "kind": "word", "gheg": "janë", "de": "sie sind", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_nuk", "kind": "word", "gheg": "nuk", "de": "nicht", "partOfSpeech": "particle", "reviewed": false },
+    { "id": "item_ne_shpi", "kind": "phrase", "gheg": "në shpi", "de": "zu Hause", "partOfSpeech": "phrase", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a0_u03_me_and_you_001",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_une"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ich“?" },
+      "choices": ["unë", "ti", "ai", "ne"],
+      "solutions": ["unë"],
+      "explanation": "„Unë“ heisst „ich“. Das End-ë hört man kaum: „un“.",
+      "errorHints": [
+        { "pattern": "^ti$", "category": "vocab.confused", "hint": "„Ti“ heisst „du“." },
+        { "pattern": "^ne$", "category": "vocab.confused", "hint": "„Ne“ heisst „wir“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_002",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_ajo"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „ajo“?" },
+      "choices": ["sie (eine Frau)", "er", "du", "wir"],
+      "solutions": ["sie (eine Frau)"],
+      "explanation": "„Ajo“ heisst „sie“ (eine Frau), „ai“ heisst „er“.",
+      "errorHints": [
+        { "pattern": "^er$", "category": "grammar.gender", "hint": "„Er“ heisst „ai“. „Ajo“ ist „sie“ (eine Frau)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_003",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ti", "item_je"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „du bist“?" },
+      "choices": ["ti je", "ti jam", "ti âsht", "ti jeni"],
+      "solutions": ["ti je"],
+      "explanation": "Zu „ti“ (du) gehört „je“: „ti je“ – „du bist“.",
+      "errorHints": [
+        { "pattern": "^ti jam$", "category": "grammar.verb_conjugation", "hint": "„Jam“ gehört zu „unë“: unë jam, ti je." },
+        { "pattern": "^ti jeni$", "category": "grammar.verb_conjugation", "hint": "„Jeni“ gehört zu „ju“ (ihr, Sie). Zu „ti“ passt „je“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_004",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ne_pron", "item_jemi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „ne jemi“?" },
+      "choices": ["wir sind", "ihr seid", "sie sind", "ich bin"],
+      "solutions": ["wir sind"],
+      "explanation": "„Ne“ heisst „wir“, „jemi“ heisst „(wir) sind“.",
+      "errorHints": [
+        { "pattern": "^ihr seid$", "category": "grammar.verb_conjugation", "hint": "„Ihr seid“ heisst „ju jeni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_005",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ai", "item_asht"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „er ist“?" },
+      "choices": ["ai âsht", "ai je", "ajo âsht", "ai janë"],
+      "solutions": ["ai âsht"],
+      "explanation": "„Ai âsht“ heisst „er ist“. „Âsht“ ist die Gheg-Form (Standard: „është“).",
+      "errorHints": [
+        { "pattern": "^ajo", "category": "grammar.gender", "hint": "„Ajo“ heisst „sie“. Für „er“ sagst du „ai“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_006",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_ju"],
+      "prompt": { "lang": "de", "text": "Du sprichst mit mehreren Freunden. Welches Wort heisst „ihr“?" },
+      "choices": ["ju", "ti", "ne", "ata"],
+      "solutions": ["ju"],
+      "explanation": "„Ju“ heisst „ihr“ – und ist zugleich die höfliche Anrede „Sie“.",
+      "errorHints": [
+        { "pattern": "^ata$", "category": "vocab.confused", "hint": "„Ata“ heisst „sie“ (Mehrzahl). Wenn du die Leute ansprichst, sagst du „ju“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_007",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_ato", "item_ata"],
+      "prompt": { "lang": "de", "text": "„Sie sind hier.“ – Es sind nur Frauen. Welches Pronomen passt?" },
+      "choices": ["ato", "ata", "ajo", "ju"],
+      "solutions": ["ato"],
+      "explanation": "„Ato“ steht nur für Frauen. Für Männer oder gemischte Gruppen sagt man „ata“.",
+      "errorHints": [
+        { "pattern": "^ata$", "category": "grammar.gender", "hint": "„Ata“ sagt man für Männer oder gemischte Gruppen. Nur Frauen: „ato“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_008",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.pronouns.personal", "grammar.verbs.jam"],
+      "itemIds": ["item_kush", "item_je", "item_ti"],
+      "prompt": { "lang": "de", "text": "Was heisst „Kush je ti?“" },
+      "choices": ["Wer bist du?", "Wo bist du?", "Wie geht es dir?", "Bist du hier?"],
+      "solutions": ["Wer bist du?"],
+      "explanation": "„Kush“ heisst „wer“, „je“ heisst „du bist“.",
+      "errorHints": [
+        { "pattern": "^wo ", "category": "vocab.confused", "hint": "„Wo“ heisst „ku“: „Ku je?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_009",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_je", "item_mire"],
+      "prompt": { "lang": "de", "text": "Was heisst „A je mirë?“" },
+      "choices": ["Geht es dir gut?", "Wer bist du?", "Bist du zu Hause?", "Wo bist du?"],
+      "solutions": ["Geht es dir gut?"],
+      "explanation": "„A“ macht aus dem Satz eine Ja/Nein-Frage. Wörtlich: „Bist du gut?“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_010",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_ata", "item_jane"],
+      "prompt": { "lang": "de", "text": "Welche Form von „sein“ passt zu „ata“ (sie)?" },
+      "choices": ["janë", "jemi", "jeni", "je"],
+      "solutions": ["janë"],
+      "explanation": "„Ata janë“ und „ato janë“ heissen beide „sie sind“.",
+      "errorHints": [
+        { "pattern": "^jemi$", "category": "grammar.verb_conjugation", "hint": "„Jemi“ gehört zu „ne“ (wir)." },
+        { "pattern": "^jeni$", "category": "grammar.verb_conjugation", "hint": "„Jeni“ gehört zu „ju“ (ihr)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_011",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jemi", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Jemi në shpi.“?" },
+      "choices": ["Wir sind zu Hause.", "Ihr seid zu Hause.", "Sie sind zu Hause.", "Ich bin zu Hause."],
+      "solutions": ["Wir sind zu Hause."],
+      "explanation": "„Jemi“ zeigt schon, dass „wir“ gemeint ist – das Pronomen „ne“ kann fehlen.",
+      "errorHints": [
+        { "pattern": "^ihr ", "category": "grammar.verb_conjugation", "hint": "„Ihr seid“ wäre „jeni“. „Jemi“ heisst „wir sind“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_012",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jam", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Jam në shpi.“?" },
+      "choices": ["Ich bin zu Hause.", "Er ist zu Hause.", "Du bist zu Hause.", "Wir sind zu Hause."],
+      "solutions": ["Ich bin zu Hause."],
+      "explanation": "Ohne Pronomen zeigt die Verbform die Person: „jam“ heisst „ich bin“.",
+      "errorHints": [
+        { "pattern": "^du ", "category": "grammar.verb_conjugation", "hint": "„Du bist“ wäre „je“. „Jam“ heisst „ich bin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_013",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_une", "item_ti", "item_ai", "item_ajo", "item_ne_pron"],
+      "prompt": { "lang": "de", "text": "Ordne die Pronomen zu." },
+      "pairs": [
+        { "left": "unë", "right": "ich" },
+        { "left": "ti", "right": "du" },
+        { "left": "ai", "right": "er" },
+        { "left": "ajo", "right": "sie (eine Frau)" },
+        { "left": "ne", "right": "wir" }
+      ],
+      "explanation": "Diese Pronomen brauchst du in fast jedem Satz.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_014",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jam", "item_je", "item_asht", "item_jemi", "item_jane"],
+      "prompt": { "lang": "de", "text": "Ordne die Formen von „sein“ zu." },
+      "pairs": [
+        { "left": "jam", "right": "ich bin" },
+        { "left": "je", "right": "du bist" },
+        { "left": "âsht", "right": "er/sie ist" },
+        { "left": "jemi", "right": "wir sind" },
+        { "left": "janë", "right": "sie sind" }
+      ],
+      "explanation": "„Âsht“ ist die Gheg-Form von „ist“ (Standard: „është“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_015",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_ju", "item_ata", "item_ato", "item_kush", "item_ku"],
+      "prompt": { "lang": "de", "text": "Ordne die Paare zu." },
+      "pairs": [
+        { "left": "ju", "right": "ihr, Sie" },
+        { "left": "ata", "right": "sie (Männer oder gemischt)" },
+        { "left": "ato", "right": "sie (nur Frauen)" },
+        { "left": "kush", "right": "wer" },
+        { "left": "ku", "right": "wo" }
+      ],
+      "explanation": "„Ata“ und „ato“ heissen beide „sie“ (Mehrzahl). „Ato“ steht nur für Frauen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_016",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_kush", "item_ku", "item_je", "item_ne_shpi", "item_edhe", "item_une"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Kush je?", "right": "Wer bist du?" },
+        { "left": "Ku je?", "right": "Wo bist du?" },
+        { "left": "A je mirë?", "right": "Geht es dir gut?" },
+        { "left": "Jam në shpi.", "right": "Ich bin zu Hause." },
+        { "left": "Edhe unë.", "right": "Ich auch." }
+      ],
+      "explanation": "„Kush“ heisst „wer“, „ku“ heisst „wo“. „Edhe unë“ heisst „ich auch“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_017",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ai", "item_ajo", "item_jeni", "item_ata", "item_ato"],
+      "prompt": { "lang": "de", "text": "Ordne die Paare zu." },
+      "pairs": [
+        { "left": "ai âsht", "right": "er ist" },
+        { "left": "ajo âsht", "right": "sie ist" },
+        { "left": "ju jeni", "right": "ihr seid" },
+        { "left": "ata janë", "right": "sie sind (Männer)" },
+        { "left": "ato janë", "right": "sie sind (Frauen)" }
+      ],
+      "explanation": "„Ai“ und „ajo“ haben dieselbe Verbform „âsht“, „ata“ und „ato“ dieselbe Form „janë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_018",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_ketu", "item_ne_shpi", "item_mire", "item_po", "item_nuk"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "këtu", "right": "hier" },
+        { "left": "në shpi", "right": "zu Hause" },
+        { "left": "mirë", "right": "gut" },
+        { "left": "po", "right": "ja" },
+        { "left": "nuk", "right": "nicht" }
+      ],
+      "explanation": "„Nuk“ steht vor dem Verb: „Nuk jam këtu.“ – „Ich bin nicht hier.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_019",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_une", "item_jam"],
+      "prompt": { "lang": "de", "text": "Ich bin Arta." },
+      "answerLang": "sq",
+      "text": "Unë ___ Arta.",
+      "solutions": ["jam"],
+      "choices": ["jam", "je", "âsht", "jemi"],
+      "explanation": "Zu „unë“ (ich) gehört „jam“.",
+      "errorHints": [
+        { "pattern": "^je$", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. Zu „unë“ gehört „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_020",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_ti", "item_je"],
+      "prompt": { "lang": "de", "text": "Du bist Besa." },
+      "answerLang": "sq",
+      "text": "Ti ___ Besa.",
+      "solutions": ["je"],
+      "choices": ["je", "jam", "âsht", "janë"],
+      "explanation": "Zu „ti“ (du) gehört „je“.",
+      "errorHints": [
+        { "pattern": "^jam$", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“. Zu „ti“ gehört „je“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_021",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "spelling.nasal_vowels"],
+      "itemIds": ["item_ai", "item_asht"],
+      "prompt": { "lang": "de", "text": "Er ist Arben." },
+      "answerLang": "sq",
+      "text": "Ai ___ Arben.",
+      "solutions": ["âsht"],
+      "standardForms": ["është"],
+      "explanation": "„Ai âsht“ – „er ist“. Gheg schreibt „âsht“ mit Nasalvokal (Standard: „është“).",
+      "errorHints": [
+        { "pattern": "^(je|jam|jemi|jeni|jan[eë]?)$", "category": "grammar.verb_conjugation", "hint": "Es geht um „er“ – also „âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_022",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_ne_pron", "item_jemi", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Wir sind hier." },
+      "answerLang": "sq",
+      "text": "___ jemi këtu.",
+      "solutions": ["Ne"],
+      "choices": ["Ne", "Ju", "Ata", "Unë"],
+      "explanation": "„Jemi“ gehört zu „ne“ (wir).",
+      "errorHints": [
+        { "pattern": "^ju$", "category": "grammar.verb_conjugation", "hint": "„Ju“ heisst „ihr“ und hat die Form „jeni“. Zu „jemi“ gehört „ne“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_023",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_ju", "item_jeni", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Ihr seid zu Hause." },
+      "answerLang": "sq",
+      "text": "Ju ___ në shpi.",
+      "solutions": ["jeni"],
+      "choices": ["jeni", "jemi", "janë", "je"],
+      "explanation": "Zu „ju“ (ihr, Sie) gehört „jeni“.",
+      "errorHints": [
+        { "pattern": "^jemi$", "category": "grammar.verb_conjugation", "hint": "„Jemi“ heisst „wir sind“. Zu „ju“ gehört „jeni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_024",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_ata", "item_jane", "item_mire"],
+      "prompt": { "lang": "de", "text": "Ihnen geht es gut. (wörtlich: Sie sind gut.)" },
+      "answerLang": "sq",
+      "text": "Ata ___ mirë.",
+      "solutions": ["janë"],
+      "explanation": "Zu „ata“ und „ato“ (sie, Mehrzahl) gehört „janë“.",
+      "errorHints": [
+        { "pattern": "^(jemi|jeni|jam|je|[aâ]sht)$", "category": "grammar.verb_conjugation", "hint": "„Ata“ ist Mehrzahl (sie) – also „janë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_025",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_ajo", "item_asht"],
+      "prompt": { "lang": "de", "text": "Sie ist Drita." },
+      "answerLang": "sq",
+      "text": "___ âsht Drita.",
+      "solutions": ["Ajo"],
+      "choices": ["Ajo", "Ai", "Ato", "Ti"],
+      "explanation": "Für eine Frau sagst du „ajo“ (sie), für einen Mann „ai“ (er).",
+      "errorHints": [
+        { "pattern": "^ai$", "category": "grammar.gender", "hint": "„Ai“ heisst „er“. Für eine Frau sagst du „ajo“." },
+        { "pattern": "^ato$", "category": "grammar.verb_conjugation", "hint": "„Ato“ ist Mehrzahl. Für eine Frau sagst du „ajo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_026",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_kush", "item_je", "item_ti"],
+      "prompt": { "lang": "de", "text": "Wer bist du?" },
+      "answerLang": "sq",
+      "text": "Kush ___ ti?",
+      "solutions": ["je"],
+      "explanation": "„Kush je ti?“ – „Wer bist du?“ Zu „ti“ gehört „je“.",
+      "errorHints": [
+        { "pattern": "^(jam|[aâ]sht|jeni)$", "category": "grammar.verb_conjugation", "hint": "Du fragst „du“ – also „je“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_027",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_jeni", "item_mire"],
+      "prompt": { "lang": "de", "text": "Geht es euch gut? (wörtlich: Seid ihr gut?)" },
+      "answerLang": "sq",
+      "text": "A ___ mirë?",
+      "solutions": ["jeni"],
+      "explanation": "Du fragst mehrere Personen (ihr) – darum „jeni“.",
+      "errorHints": [
+        { "pattern": "^je$", "category": "grammar.verb_conjugation", "hint": "„Je“ ist „du bist“. Für „ihr“ brauchst du „jeni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_028",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_ato", "item_jane", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Sie (die Frauen) sind zu Hause." },
+      "answerLang": "sq",
+      "text": "Ato ___ në shpi.",
+      "solutions": ["janë"],
+      "choices": ["janë", "âsht", "jemi", "jeni"],
+      "explanation": "„Ato“ (sie, nur Frauen) hat dieselbe Form wie „ata“: „janë“.",
+      "errorHints": [
+        { "pattern": "^[aâ]sht$", "category": "grammar.verb_conjugation", "hint": "„Âsht“ ist Einzahl (er/sie ist). „Ato“ ist Mehrzahl: „janë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_029",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_po", "item_jam", "item_mire"],
+      "prompt": { "lang": "de", "text": "Ja, mir geht es gut. (wörtlich: Ja, ich bin gut.)" },
+      "answerLang": "sq",
+      "text": "Po, ___ mirë.",
+      "solutions": ["jam"],
+      "explanation": "„Jam mirë“ ist die übliche Antwort auf „A je mirë?“.",
+      "errorHints": [
+        { "pattern": "^(je|[aâ]sht)$", "category": "grammar.verb_conjugation", "hint": "Du sprichst von dir selbst – also „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_030",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.pronouns.personal"],
+      "itemIds": ["item_une", "item_ketu", "item_ti", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Ich bin hier, du bist zu Hause." },
+      "answerLang": "sq",
+      "text": "___ jam këtu, ti je në shpi.",
+      "solutions": ["Unë"],
+      "explanation": "„Jam“ gehört zu „unë“ (ich). Mit Pronomen wird der Unterschied zwischen „ich“ und „du“ deutlicher.",
+      "errorHints": [
+        { "pattern": "^ti$", "category": "grammar.verb_conjugation", "hint": "„Ti“ heisst „du“ und hat die Form „je“. Zu „jam“ gehört „unë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_031",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_une", "item_jam"],
+      "prompt": { "lang": "de", "text": "Ich bin Arta." },
+      "answerLang": "sq",
+      "solutions": ["Unë jam Arta.", "Jam Arta."],
+      "explanation": "„Unë jam“ heisst „ich bin“. Das Pronomen „unë“ darf auch fehlen.",
+      "errorHints": [
+        { "pattern": "^(un[eë] )?je arta$", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. „Ich bin“ heisst „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_032",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ti", "item_je"],
+      "prompt": { "lang": "de", "text": "Du bist Besa." },
+      "answerLang": "sq",
+      "solutions": ["Ti je Besa.", "Je Besa."],
+      "explanation": "„Ti je“ heisst „du bist“.",
+      "errorHints": [
+        { "pattern": "^(ti )?jam besa$", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“. „Du bist“ heisst „ti je“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_033",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ai", "item_asht"],
+      "prompt": { "lang": "de", "text": "Er ist Arben." },
+      "answerLang": "sq",
+      "solutions": ["Ai âsht Arben.", "Âsht Arben."],
+      "standardForms": ["Ai është Arben.", "Është Arben."],
+      "explanation": "„Ai“ heisst „er“, „âsht“ heisst „ist“ (Standard: „është“).",
+      "errorHints": [
+        { "pattern": "^ajo ", "category": "grammar.gender", "hint": "„Ajo“ heisst „sie“. Für „er“ sagst du „ai“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_034",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ne_pron", "item_jemi", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Wir sind zu Hause." },
+      "answerLang": "sq",
+      "solutions": ["Ne jemi në shpi.", "Jemi në shpi."],
+      "standardForms": ["Ne jemi në shtëpi.", "Jemi në shtëpi."],
+      "explanation": "„Në shpi“ heisst „zu Hause“ (Standard: „në shtëpi“). „Jemi“ heisst „wir sind“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)jeni(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid“. „Wir sind“ heisst „jemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_035",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.pronouns.personal", "grammar.verbs.jam"],
+      "itemIds": ["item_kush", "item_je", "item_ti"],
+      "prompt": { "lang": "de", "text": "Wer bist du?" },
+      "answerLang": "sq",
+      "solutions": ["Kush je ti?", "Kush je?", "Ti kush je?"],
+      "explanation": "„Kush“ heisst „wer“. Das „ti“ am Ende darf auch fehlen.",
+      "errorHints": [
+        { "pattern": "^ku je", "category": "vocab.confused", "hint": "„Ku“ heisst „wo“. „Wer“ heisst „kush“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_036",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_je", "item_mire"],
+      "prompt": { "lang": "de", "text": "Geht es dir gut?" },
+      "answerLang": "sq",
+      "solutions": ["A je mirë?", "Je mirë?"],
+      "explanation": "„A je mirë?“ heisst wörtlich „Bist du gut?“. Das „a“ am Anfang markiert die Frage.",
+      "errorHints": [
+        { "pattern": "(^|\\s)jeni(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jeni“ ist die Ihr- oder Sie-Form. Zu einer Person, die du duzt: „A je mirë?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_037",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.pronouns.personal", "grammar.verbs.jam"],
+      "itemIds": ["item_ato", "item_jane", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Sie sind hier. (Es sind nur Frauen.)" },
+      "answerLang": "sq",
+      "solutions": ["Ato janë këtu.", "Janë këtu."],
+      "explanation": "Für eine Gruppe von Frauen sagst du „ato“. Die Verbform „janë“ ist dieselbe wie bei „ata“.",
+      "errorHints": [
+        { "pattern": "^ata ", "category": "grammar.gender", "hint": "Es sind nur Frauen – darum „ato“, nicht „ata“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_038",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_jam", "item_une"],
+      "prompt": { "lang": "de", "text": "Ich bin nicht Arta, ich bin Besa." },
+      "answerLang": "sq",
+      "solutions": [
+        "Unë nuk jam Arta, jam Besa.",
+        "Nuk jam Arta, jam Besa.",
+        "Unë nuk jam Arta, unë jam Besa.",
+        "Nuk jam Arta, unë jam Besa."
+      ],
+      "explanation": "„Nuk“ heisst „nicht“ und steht direkt vor dem Verb: „nuk jam“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)jo jam", "category": "vocab.confused", "hint": "Vor einem Verb heisst „nicht“ „nuk“: „Nuk jam …“." },
+        { "pattern": "(^|\\s)jam nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_039",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ku", "item_jeni", "item_ju"],
+      "prompt": { "lang": "de", "text": "Wo seid ihr?" },
+      "answerLang": "sq",
+      "solutions": ["Ku jeni?", "Ku jeni ju?", "Ju ku jeni?"],
+      "explanation": "„Ku“ heisst „wo“, „jeni“ heisst „ihr seid“.",
+      "errorHints": [
+        { "pattern": "^ku je$", "category": "grammar.verb_conjugation", "hint": "„Ku je?“ fragt eine Person (du). Für „ihr“: „Ku jeni?“" },
+        { "pattern": "^kush ", "category": "vocab.confused", "hint": "„Kush“ heisst „wer“. „Wo“ heisst „ku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_040",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_une", "item_jam"],
+      "prompt": { "lang": "de", "text": "Ich bin Blerim." },
+      "answerLang": "sq",
+      "solutions": ["Unë jam Blerim.", "Jam Blerim."],
+      "wordBank": ["Unë", "jam", "Blerim", "je", "ti"],
+      "explanation": "„Unë jam“ – „ich bin“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)je blerim", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. „Ich bin“ heisst „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_041",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ti", "item_je"],
+      "prompt": { "lang": "sq", "text": "Ti je Drita." },
+      "answerLang": "de",
+      "solutions": ["Du bist Drita."],
+      "wordBank": ["Du", "bist", "Drita", "ich", "bin"],
+      "explanation": "„Ti je“ heisst „du bist“.",
+      "errorHints": [
+        { "pattern": "^ich ", "category": "grammar.verb_conjugation", "hint": "„Ti je“ heisst „du bist“, nicht „ich bin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_042",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ajo", "item_asht"],
+      "prompt": { "lang": "de", "text": "Sie ist Besa." },
+      "answerLang": "sq",
+      "solutions": ["Ajo âsht Besa.", "Âsht Besa."],
+      "wordBank": ["Ajo", "âsht", "Besa", "ai", "je"],
+      "explanation": "Für eine Frau sagst du „ajo“. „Âsht“ heisst „ist“.",
+      "errorHints": [
+        { "pattern": "^ai ", "category": "grammar.gender", "hint": "„Ai“ heisst „er“. Für eine Frau sagst du „ajo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_043",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ne_pron", "item_jemi", "item_mire"],
+      "prompt": { "lang": "sq", "text": "Ne jemi mirë." },
+      "answerLang": "de",
+      "solutions": ["Uns geht es gut.", "Es geht uns gut.", "Wir sind gut."],
+      "wordBank": ["Uns", "geht", "es", "gut", "schlecht", "euch"],
+      "explanation": "„Ne jemi mirë“ heisst wörtlich „Wir sind gut“ – auf Deutsch: „Uns geht es gut.“",
+      "errorHints": [
+        { "pattern": "euch", "category": "grammar.verb_conjugation", "hint": "„Ne“ heisst „wir“ – also „uns“. „Euch“ wäre „ju“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_044",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ne_pron", "item_jemi", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Wir sind zu Hause." },
+      "answerLang": "sq",
+      "solutions": ["Ne jemi në shpi.", "Jemi në shpi."],
+      "wordBank": ["Ne", "jemi", "në", "shpi", "jeni", "janë"],
+      "explanation": "„Në shpi“ heisst „zu Hause“, wörtlich „im Haus“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)jeni(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid“. Zu „ne“ gehört „jemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_045",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ata", "item_jane", "item_ne_shpi"],
+      "prompt": { "lang": "sq", "text": "Ata janë në shpi." },
+      "answerLang": "de",
+      "solutions": ["Sie sind zu Hause.", "Sie sind daheim."],
+      "wordBank": ["Sie", "sind", "zu", "Hause", "wir", "hier"],
+      "explanation": "„Ata“ heisst „sie“ (Mehrzahl), „janë“ heisst „sind“.",
+      "errorHints": [
+        { "pattern": "^wir ", "category": "grammar.verb_conjugation", "hint": "„Ata“ heisst „sie“. „Wir“ wäre „ne“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_046",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.pronouns.personal", "grammar.verbs.jam"],
+      "itemIds": ["item_kush", "item_asht", "item_ai"],
+      "prompt": { "lang": "de", "text": "Wer ist er?" },
+      "answerLang": "sq",
+      "solutions": ["Kush âsht ai?", "Ai kush âsht?"],
+      "wordBank": ["Kush", "âsht", "ai", "ajo", "je"],
+      "explanation": "„Kush“ heisst „wer“, „ai“ heisst „er“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ajo(\\s|$)", "category": "grammar.gender", "hint": "„Ajo“ heisst „sie“. Für „er“ sagst du „ai“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_047",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.pronouns.personal", "grammar.verbs.jam"],
+      "itemIds": ["item_kush", "item_jeni", "item_ju"],
+      "prompt": { "lang": "sq", "text": "Kush jeni ju?" },
+      "answerLang": "de",
+      "solutions": ["Wer seid ihr?", "Wer sind Sie?"],
+      "wordBank": ["Wer", "seid", "ihr", "sind", "Sie", "du"],
+      "explanation": "„Ju jeni“ heisst „ihr seid“ – oder höflich „Sie sind“. Beides ist richtig.",
+      "errorHints": [
+        { "pattern": "(^|\\s)du$", "category": "grammar.verb_conjugation", "hint": "„Ju“ ist Mehrzahl oder höflich. „Du“ wäre „ti“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_048",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_je", "item_mire"],
+      "prompt": { "lang": "de", "text": "Geht es dir gut?" },
+      "answerLang": "sq",
+      "solutions": ["A je mirë?", "Je mirë?"],
+      "wordBank": ["A", "je", "mirë", "jam", "jeni"],
+      "explanation": "„A je mirë?“ – wörtlich „Bist du gut?“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)jeni(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jeni“ ist die Ihr- oder Sie-Form. Für „dir“ brauchst du „je“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_049",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_po", "item_jam", "item_mire"],
+      "prompt": { "lang": "sq", "text": "Po, jam mirë." },
+      "answerLang": "de",
+      "solutions": ["Ja, mir geht es gut.", "Ja, es geht mir gut."],
+      "wordBank": ["Ja", "mir", "geht", "es", "gut", "nein", "dir"],
+      "explanation": "„Po“ heisst „ja“. „Jam mirë“ heisst wörtlich „ich bin gut“.",
+      "errorHints": [
+        { "pattern": "^nein", "category": "vocab.confused", "hint": "„Po“ heisst „ja“." },
+        { "pattern": "(^|\\s)dir(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“ – also „mir“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_050",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_une", "item_jam", "item_ketu", "item_ti", "item_je", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Ich bin hier, du bist zu Hause." },
+      "answerLang": "sq",
+      "solutions": ["Unë jam këtu, ti je në shpi.", "Jam këtu, ti je në shpi."],
+      "wordBank": ["Unë", "jam", "këtu", "ti", "je", "në", "shpi", "ai", "âsht"],
+      "explanation": "„Unë jam“ – ich bin, „ti je“ – du bist.",
+      "errorHints": [
+        { "pattern": "^ai ", "category": "grammar.verb_conjugation", "hint": "„Ai“ heisst „er“. Du sprichst von dir: „unë jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_051",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ato", "item_jane", "item_dhe"],
+      "prompt": { "lang": "sq", "text": "Ato janë Arta dhe Drita." },
+      "answerLang": "de",
+      "solutions": ["Das sind Arta und Drita.", "Sie sind Arta und Drita."],
+      "wordBank": ["Das", "sind", "Arta", "und", "Drita", "ist", "oder"],
+      "explanation": "„Ato janë“ heisst „sie sind“ – für eine Gruppe von Frauen. Auf Deutsch sagt man oft „Das sind …“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)oder(\\s|$)", "category": "vocab.confused", "hint": "„Dhe“ heisst „und“. „Oder“ wäre „apo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_052",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_une", "item_jam"],
+      "prompt": { "lang": "de", "text": "Ich bin Arta." },
+      "answerLang": "sq",
+      "tokens": ["Unë", "jam", "Arta"],
+      "solutions": ["Unë jam Arta."],
+      "explanation": "Wie im Deutschen: zuerst „unë“ (ich), dann „jam“ (bin).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_053",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ai", "item_asht"],
+      "prompt": { "lang": "de", "text": "Er ist Arben." },
+      "answerLang": "sq",
+      "tokens": ["Ai", "âsht", "Arben"],
+      "solutions": ["Ai âsht Arben."],
+      "explanation": "„Ai âsht“ – „er ist“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_054",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.pronouns.personal", "grammar.verbs.jam"],
+      "itemIds": ["item_kush", "item_je", "item_ti"],
+      "prompt": { "lang": "de", "text": "Wer bist du?" },
+      "answerLang": "sq",
+      "tokens": ["Kush", "je", "ti"],
+      "solutions": ["Kush je ti?", "Ti kush je?"],
+      "explanation": "Meist steht „kush“ am Anfang. „Ti kush je?“ ist ebenfalls möglich.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_055",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_je", "item_mire"],
+      "prompt": { "lang": "de", "text": "Geht es dir gut?" },
+      "answerLang": "sq",
+      "tokens": ["A", "je", "mirë"],
+      "solutions": ["A je mirë?"],
+      "explanation": "Die Fragepartikel „a“ steht am Satzanfang.",
+      "errorHints": [
+        { "pattern": "^je a", "category": "grammar.word_order", "hint": "Die Fragepartikel „a“ steht am Satzanfang: „A je mirë?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_056",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ne_pron", "item_jemi", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Wir sind zu Hause." },
+      "answerLang": "sq",
+      "tokens": ["Ne", "jemi", "në", "shpi"],
+      "solutions": ["Ne jemi në shpi."],
+      "explanation": "„Në shpi“ (zu Hause) bleibt zusammen und steht am Ende.",
+      "errorHints": [
+        { "pattern": "shpi n[eë]", "category": "grammar.word_order", "hint": "Es heisst „në shpi“: zuerst „në“, dann „shpi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_057",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ato", "item_jane", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Sie (die Frauen) sind hier." },
+      "answerLang": "sq",
+      "tokens": ["Ato", "janë", "këtu"],
+      "solutions": ["Ato janë këtu."],
+      "explanation": "„Ato janë këtu.“ – das Pronomen, dann das Verb, dann „këtu“ (hier).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_058",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_une", "item_jam", "item_po_ti"],
+      "prompt": { "lang": "de", "text": "Ich bin Driton, und du?" },
+      "answerLang": "sq",
+      "tokens": ["Unë", "jam", "Driton", "po", "ti"],
+      "solutions": ["Unë jam Driton, po ti?"],
+      "explanation": "„Po ti?“ heisst „und du?“ – hier bedeutet „po“ nicht „ja“.",
+      "errorHints": [
+        { "pattern": "ti po$", "category": "grammar.word_order", "hint": "Es heisst „po ti?“ – „po“ steht vor „ti“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_059",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.pronouns.personal"],
+      "itemIds": ["item_ju", "item_jeni", "item_ne_shpi", "item_ne_pron", "item_jemi", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Ihr seid zu Hause, wir sind hier." },
+      "answerLang": "sq",
+      "tokens": ["Ju", "jeni", "në", "shpi", "ne", "jemi", "këtu"],
+      "solutions": ["Ju jeni në shpi, ne jemi këtu.", "Ne jemi këtu, ju jeni në shpi."],
+      "explanation": "„Ju jeni“ – ihr seid, „ne jemi“ – wir sind.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u03_me_and_you_060",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_jam"],
+      "prompt": { "lang": "de", "text": "Ich bin nicht Arta, ich bin Besa." },
+      "answerLang": "sq",
+      "tokens": ["Nuk", "jam", "Arta", "jam", "Besa"],
+      "solutions": ["Nuk jam Arta, jam Besa."],
+      "explanation": "„Nuk“ steht direkt vor dem Verb: „nuk jam“ – „ich bin nicht“.",
+      "errorHints": [
+        { "pattern": "^jam nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „Nuk jam …“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

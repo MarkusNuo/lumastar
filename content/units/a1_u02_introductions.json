@@ -1,0 +1,1183 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u02_introductions",
+  "level": "A1.1",
+  "grammar": [
+    {
+      "title": "Wie heisst du?",
+      "explanation": "| Frage | Antwort |\n|---|---|\n| Si quhesh? | Quhem Arta. |\n| Si quhet ajo? | Ajo quhet Drita. |\n| Kush je ti? | Unë jam Arben. |\n\nDu kannst auch sagen: **Emni im âsht Arta.** – „Mein Name ist Arta.“ Gheg behält hier das **n** (*emën, emni*), wo Standard ein **r** hat (*emër, emri*)."
+    },
+    {
+      "title": "Woher? Wo?",
+      "explanation": "**Prej ku je?** – „Woher kommst du?“ Nach **prej** (aus) bekommt der Ortsname eine kurze Endung:\n\n| Ort | aus … |\n|---|---|\n| Kosovë | prej Kosove |\n| Zvicër | prej Zvicre |\n| Gjermani | prej Gjermanie |\n| Prishtinë | prej Prishtine |\n\n**Ku jeton?** – „Wo wohnst du?“ Nach **në** (in) bleibt der Name, wie er ist: *Jetoj në Zvicër. Jetoj në Prishtinë.*\n\nIm Standardalbanischen sagt man „nga“: *Jam nga Kosova.*"
+    },
+    {
+      "title": "Sprachen und Herkunft",
+      "explanation": "Sprachen: *Flas shqip.* – „Ich spreche Albanisch.“ *A flet gjermanisht?* – „Sprichst du Deutsch?“\n\nHerkunft hat eine Form für Männer und eine für Frauen, klein geschrieben: *zviceran / zvicerane* (Schweizer / Schweizerin), *gjerman / gjermane*, *shqiptar / shqiptare*.\n\n„Aber“ heisst im Gheg oft **po**: *Jam prej Kosove, po jetoj në Zvicër.* (Standard: *por*)."
+    }
+  ],
+  "items": [
+    { "id": "item_quhem", "kind": "word", "gheg": "quhem", "de": "ich heisse", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_quhesh", "kind": "word", "gheg": "quhesh", "de": "du heisst", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_si_quhesh", "kind": "phrase", "gheg": "si quhesh?", "de": "wie heisst du?", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_emen",
+      "kind": "word",
+      "gheg": "emën",
+      "de": "Name",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "emni",
+      "note": "„emni“ (Gheg) statt „emri“ – im Kosovo ist „emri“ verbreitet; zu prüfen (Richtlinie 13.3).",
+      "reviewed": false
+    },
+    {
+      "id": "item_prej",
+      "kind": "word",
+      "gheg": "prej",
+      "de": "aus, von",
+      "partOfSpeech": "preposition",
+      "note": "„prej“ statt Standard „nga“; im Kosovo ist „nga“ ebenfalls verbreitet – zu prüfen (Richtlinie 5.2).",
+      "reviewed": false
+    },
+    {
+      "id": "item_prej_ku_je",
+      "kind": "phrase",
+      "gheg": "prej ku je?",
+      "de": "woher kommst du?",
+      "partOfSpeech": "phrase",
+      "note": "Im Kosovo auch „prej kah je?“ – als weitere Lösung akzeptiert, zu prüfen (Richtlinie 5.2).",
+      "reviewed": false
+    },
+    { "id": "item_jeton", "kind": "word", "gheg": "jeton", "de": "du wohnst, er/sie wohnt", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_ne_prep",
+      "kind": "word",
+      "gheg": "në",
+      "de": "in",
+      "partOfSpeech": "preposition",
+      "note": "Id mit Zusatz „_prep“, damit sie nicht mit „ne“ (wir) kollidiert.",
+      "reviewed": false
+    },
+    { "id": "item_kosove", "kind": "word", "gheg": "Kosovë", "de": "Kosovo", "partOfSpeech": "noun", "gender": "f", "definite": "Kosova", "reviewed": false },
+    { "id": "item_zvicer", "kind": "word", "gheg": "Zvicër", "de": "Schweiz", "partOfSpeech": "noun", "gender": "f", "definite": "Zvicra", "reviewed": false },
+    { "id": "item_gjermani", "kind": "word", "gheg": "Gjermani", "de": "Deutschland", "partOfSpeech": "noun", "gender": "f", "definite": "Gjermania", "reviewed": false },
+    { "id": "item_austri", "kind": "word", "gheg": "Austri", "de": "Österreich", "partOfSpeech": "noun", "gender": "f", "definite": "Austria", "reviewed": false },
+    { "id": "item_shqipni", "kind": "word", "gheg": "Shqipni", "de": "Albanien", "partOfSpeech": "noun", "gender": "f", "definite": "Shqipnia", "reviewed": false },
+    { "id": "item_shqip", "kind": "word", "gheg": "shqip", "de": "Albanisch (Sprache), auf Albanisch", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_gjermanisht", "kind": "word", "gheg": "gjermanisht", "de": "Deutsch (Sprache), auf Deutsch", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_flas", "kind": "word", "gheg": "flas", "de": "ich spreche", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_flet", "kind": "word", "gheg": "flet", "de": "du sprichst, er/sie spricht", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_gezohem", "kind": "word", "gheg": "gëzohem", "de": "freut mich", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_me_vjen_mire",
+      "kind": "phrase",
+      "gheg": "më vjen mirë",
+      "de": "freut mich",
+      "partOfSpeech": "phrase",
+      "note": "Im Kosovo sehr üblich neben „gëzohem“ – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_zviceran", "kind": "word", "gheg": "zviceran, zvicerane", "de": "Schweizer, Schweizerin", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_gjerman", "kind": "word", "gheg": "gjerman, gjermane", "de": "Deutscher, Deutsche", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_shqiptar", "kind": "word", "gheg": "shqiptar, shqiptare", "de": "Albaner, Albanerin", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_shok", "kind": "word", "gheg": "shok", "de": "Freund", "partOfSpeech": "noun", "gender": "m", "definite": "shoku", "plural": "shokë", "reviewed": false },
+    { "id": "item_shoqe", "kind": "word", "gheg": "shoqe", "de": "Freundin", "partOfSpeech": "noun", "gender": "f", "definite": "shoqja", "plural": "shoqe", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u02_introductions_001",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_si_quhesh"],
+      "prompt": { "lang": "de", "text": "Wie fragst du nach dem Namen?" },
+      "choices": ["Si quhesh?", "Prej ku je?", "Ku jeton?", "Si je?"],
+      "solutions": ["Si quhesh?"],
+      "explanation": "„Si quhesh?“ heisst „Wie heisst du?“. „Si je?“ fragt dagegen „Wie geht es dir?“.",
+      "errorHints": [
+        { "pattern": "^si je$", "category": "vocab.confused", "hint": "„Si je?“ heisst „Wie geht es dir?“." },
+        { "pattern": "^prej ku je$", "category": "vocab.confused", "hint": "„Prej ku je?“ heisst „Woher kommst du?“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_002",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_prej_ku_je"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Prej ku je?“" },
+      "choices": ["Woher kommst du?", "Wo wohnst du?", "Wie heisst du?", "Wer bist du?"],
+      "solutions": ["Woher kommst du?"],
+      "explanation": "„Prej“ heisst „aus, von“, „ku“ heisst „wo“ – zusammen „woher“.",
+      "errorHints": [
+        { "pattern": "^wo wohnst", "category": "vocab.confused", "hint": "„Wo wohnst du?“ heisst „Ku jeton?“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_003",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_quhem"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Quhem Besa.“?" },
+      "choices": ["Ich heisse Besa.", "Ich bin aus Besa.", "Ich wohne bei Besa.", "Du heisst Besa."],
+      "solutions": ["Ich heisse Besa."],
+      "explanation": "„Quhem“ heisst „ich heisse“. „Du heisst“ wäre „quhesh“.",
+      "errorHints": [
+        { "pattern": "^du heisst", "category": "grammar.verb_conjugation", "hint": "„Du heisst“ wäre „quhesh“. „Quhem“ heisst „ich heisse“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_004",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.countries"],
+      "itemIds": ["item_zvicer"],
+      "prompt": { "lang": "de", "text": "Wie heisst „die Schweiz“ auf Albanisch?" },
+      "choices": ["Zvicër", "Gjermani", "Austri", "Kosovë"],
+      "solutions": ["Zvicër"],
+      "explanation": "„Zvicër“ ist die Schweiz, mit Artikel „Zvicra“. Das z klingt weich wie in „Rose“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_005",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_jetoj", "item_ne_prep"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Jetoj në Prishtinë.“?" },
+      "choices": ["Ich wohne in Prishtina.", "Ich komme aus Prishtina.", "Ich arbeite in Prishtina.", "Ich heisse Prishtina."],
+      "solutions": ["Ich wohne in Prishtina."],
+      "explanation": "„Jetoj“ heisst „ich lebe, ich wohne“, „në“ heisst „in“.",
+      "errorHints": [
+        { "pattern": "komme aus", "category": "vocab.confused", "hint": "„Ich komme aus …“ heisst „Jam prej …“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_006",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_jeton", "item_jetoj"],
+      "prompt": { "lang": "de", "text": "Jemand fragt dich „Ku jeton?“. Was passt als Antwort?" },
+      "choices": ["Jetoj në Pejë.", "Quhem Arta.", "Jam prej Kosove.", "Flas shqip."],
+      "solutions": ["Jetoj në Pejë."],
+      "explanation": "„Ku jeton?“ heisst „Wo wohnst du?“ – du antwortest mit „Jetoj në …“.",
+      "errorHints": [
+        { "pattern": "^jam prej", "category": "vocab.confused", "hint": "„Jam prej …“ sagt, woher du kommst. „Ku jeton?“ fragt, wo du wohnst." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_007",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_gezohem"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Freut mich!“?" },
+      "choices": ["Gëzohem!", "Faleminderit!", "Mirupafshim!", "S'ka përse!"],
+      "solutions": ["Gëzohem!"],
+      "explanation": "„Gëzohem!“ heisst „Freut mich!“. Im Kosovo sagt man auch „Më vjen mirë!“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_008",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.countries", "grammar.adjective_agreement"],
+      "itemIds": ["item_zviceran"],
+      "prompt": { "lang": "de", "text": "Eine Frau sagt: „Ich bin Schweizerin.“ Welche Form passt?" },
+      "choices": ["Jam zvicerane.", "Jam zviceran.", "Jam Zvicër.", "Jam prej zvicerane."],
+      "solutions": ["Jam zvicerane."],
+      "explanation": "Für eine Frau endet die Herkunft auf -e: „zvicerane“. Ein Mann sagt „zviceran“.",
+      "errorHints": [
+        { "pattern": "^jam zviceran$", "category": "grammar.gender", "hint": "Für eine Frau: „zvicerane“ (mit -e)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_009",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "grammar.possessive"],
+      "itemIds": ["item_emen", "item_im", "item_asht"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Emni im âsht Drita.“?" },
+      "choices": ["Mein Name ist Drita.", "Meine Mutter ist Drita.", "Ich wohne bei Drita.", "Ihr Name ist Drita."],
+      "solutions": ["Mein Name ist Drita."],
+      "explanation": "„Emni im“ heisst „mein Name“. Gheg sagt „emni“, Standard „emri“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Gheg) statt „emri“ – im Kosovo ist „emri“ verbreitet; zu prüfen (Richtlinie 13.3)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_010",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.countries", "phrase.introductions"],
+      "itemIds": ["item_prej", "item_gjermani"],
+      "prompt": { "lang": "de", "text": "„Ich komme aus Deutschland.“ Was sagst du?" },
+      "choices": ["Jam prej Gjermanie.", "Jetoj në Gjermani.", "Jam në Gjermani.", "Quhem Gjermani."],
+      "solutions": ["Jam prej Gjermanie."],
+      "explanation": "Nach „prej“ (aus) bekommt „Gjermani“ die Endung -e: „prej Gjermanie“.",
+      "errorHints": [
+        { "pattern": "^jetoj", "category": "vocab.confused", "hint": "„Jetoj në Gjermani“ heisst „Ich wohne in Deutschland“." },
+        { "pattern": "^jam n[eë] ", "category": "vocab.confused", "hint": "„Jam në …“ heisst „Ich bin in …“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_011",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_a", "item_flet", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „A flet shqip?“" },
+      "choices": ["Sprichst du Albanisch?", "Bist du Albaner?", "Wohnst du in Albanien?", "Heisst du Arta?"],
+      "solutions": ["Sprichst du Albanisch?"],
+      "explanation": "„Flet“ heisst „du sprichst“, „shqip“ heisst „Albanisch“. Das „a“ macht daraus eine Frage.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_012",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_quhet", "item_ajo"],
+      "prompt": { "lang": "de", "text": "Wie fragst du, wie eine Frau heisst?" },
+      "choices": ["Si quhet ajo?", "Si quhesh ti?", "Kush jeton ajo?", "Si quhem unë?"],
+      "solutions": ["Si quhet ajo?"],
+      "explanation": "„Quhet“ heisst „(er/sie) heisst“: „Si quhet ajo?“ – „Wie heisst sie?“.",
+      "errorHints": [
+        { "pattern": "quhesh", "category": "grammar.verb_conjugation", "hint": "„Quhesh“ heisst „du heisst“. Für „sie heisst“ sagst du „quhet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_013",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_si_quhesh", "item_prej_ku_je", "item_jeton", "item_gezohem", "item_kush"],
+      "prompt": { "lang": "de", "text": "Ordne die Paare zu." },
+      "pairs": [
+        { "left": "Si quhesh?", "right": "Wie heisst du?" },
+        { "left": "Prej ku je?", "right": "Woher kommst du?" },
+        { "left": "Ku jeton?", "right": "Wo wohnst du?" },
+        { "left": "Gëzohem!", "right": "Freut mich!" },
+        { "left": "Kush je ti?", "right": "Wer bist du?" }
+      ],
+      "explanation": "Mit diesen Fragen lernst du jemanden kennen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_014",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.countries"],
+      "itemIds": ["item_zvicer", "item_gjermani", "item_austri", "item_kosove", "item_shqipni"],
+      "prompt": { "lang": "de", "text": "Ordne die Länder zu." },
+      "pairs": [
+        { "left": "Zvicër", "right": "Schweiz" },
+        { "left": "Gjermani", "right": "Deutschland" },
+        { "left": "Austri", "right": "Österreich" },
+        { "left": "Kosovë", "right": "Kosovo" },
+        { "left": "Shqipni", "right": "Albanien" }
+      ],
+      "explanation": "„Shqipni“ ist die Gheg-Form für Albanien (Standard: „Shqipëri“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_015",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_quhem", "item_quhesh", "item_quhet", "item_jetoj", "item_jeton"],
+      "prompt": { "lang": "de", "text": "Ordne die Verbformen zu." },
+      "pairs": [
+        { "left": "quhem", "right": "ich heisse" },
+        { "left": "quhesh", "right": "du heisst" },
+        { "left": "quhet", "right": "er/sie heisst" },
+        { "left": "jetoj", "right": "ich wohne" },
+        { "left": "jeton", "right": "du wohnst" }
+      ],
+      "explanation": "Die Endung zeigt die Person: quhem – quhesh – quhet, jetoj – jeton.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_016",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.countries", "grammar.adjective_agreement"],
+      "itemIds": ["item_zviceran", "item_gjerman", "item_shqiptar"],
+      "prompt": { "lang": "de", "text": "Ordne die Herkunftswörter zu." },
+      "pairs": [
+        { "left": "zviceran", "right": "Schweizer" },
+        { "left": "zvicerane", "right": "Schweizerin" },
+        { "left": "gjerman", "right": "Deutscher" },
+        { "left": "gjermane", "right": "Deutsche" },
+        { "left": "shqiptar", "right": "Albaner" }
+      ],
+      "explanation": "Die weibliche Form endet auf -e: zviceran → zvicerane, gjerman → gjermane.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_017",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_flas", "item_flet", "item_shqip", "item_gjermanisht", "item_pak"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "flas", "right": "ich spreche" },
+        { "left": "flet", "right": "du sprichst" },
+        { "left": "shqip", "right": "Albanisch" },
+        { "left": "gjermanisht", "right": "Deutsch" },
+        { "left": "pak", "right": "ein bisschen" }
+      ],
+      "explanation": "„Flas pak shqip.“ – „Ich spreche ein bisschen Albanisch.“ Sprachen schreibt man klein.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_018",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "grammar.definite_article.masc", "grammar.definite_article.fem"],
+      "itemIds": ["item_emen", "item_shok", "item_shoqe", "item_prej", "item_ne_prep"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "emni", "right": "der Name" },
+        { "left": "shoku", "right": "der Freund" },
+        { "left": "shoqja", "right": "die Freundin" },
+        { "left": "prej", "right": "aus" },
+        { "left": "në", "right": "in" }
+      ],
+      "explanation": "„Emni“, „shoku“ und „shoqja“ haben den bestimmten Artikel hinten: emën → emni, shok → shoku, shoqe → shoqja.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Gheg) statt „emri“ – im Kosovo ist „emri“ verbreitet; zu prüfen (Richtlinie 13.3)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_019",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_quhem"],
+      "prompt": { "lang": "de", "text": "Ich heisse Arta." },
+      "answerLang": "sq",
+      "text": "Unë ___ Arta.",
+      "solutions": ["quhem"],
+      "choices": ["quhem", "quhesh", "quhet", "jetoj"],
+      "explanation": "„Quhem“ heisst „ich heisse“.",
+      "errorHints": [
+        { "pattern": "^quhesh$", "category": "grammar.verb_conjugation", "hint": "„Quhesh“ heisst „du heisst“. Zu „unë“ gehört „quhem“." },
+        { "pattern": "^quhet$", "category": "grammar.verb_conjugation", "hint": "„Quhet“ heisst „er/sie heisst“. Zu „unë“ gehört „quhem“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_020",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_si_quhesh", "item_quhesh"],
+      "prompt": { "lang": "de", "text": "Wie heisst du?" },
+      "answerLang": "sq",
+      "text": "Si ___?",
+      "solutions": ["quhesh"],
+      "explanation": "Du fragst „du“ – darum „quhesh“: „Si quhesh?“.",
+      "errorHints": [
+        { "pattern": "^quhem$", "category": "grammar.verb_conjugation", "hint": "„Quhem“ heisst „ich heisse“. Für „du“: „quhesh“." },
+        { "pattern": "^quhet$", "category": "grammar.verb_conjugation", "hint": "„Quhet“ heisst „er/sie heisst“. Für „du“: „quhesh“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_021",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_prej_ku_je"],
+      "prompt": { "lang": "de", "text": "Woher kommst du?" },
+      "answerLang": "sq",
+      "text": "Prej ___ je?",
+      "solutions": ["ku", "kah"],
+      "choices": ["ku", "kush", "çka", "po"],
+      "explanation": "„Prej ku“ heisst „woher“, wörtlich „aus wo“.",
+      "errorHints": [
+        { "pattern": "^kush$", "category": "vocab.confused", "hint": "„Kush“ heisst „wer“. Für „woher“ sagst du „prej ku“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej kah je?“ als weitere Kosovo-Form akzeptiert – zu prüfen (Richtlinie 5.2)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_022",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_jetoj", "item_ne_prep"],
+      "prompt": { "lang": "de", "text": "Ich wohne in Prishtina." },
+      "answerLang": "sq",
+      "text": "Jetoj ___ Prishtinë.",
+      "solutions": ["në"],
+      "choices": ["në", "prej", "ku", "me"],
+      "explanation": "„Në“ heisst „in“. Nach „në“ bleibt der Ortsname unverändert: „në Prishtinë“.",
+      "errorHints": [
+        { "pattern": "^prej$", "category": "vocab.confused", "hint": "„Prej“ heisst „aus“. Für „in“ sagst du „në“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_023",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "vocab.countries", "grammar.verbs.jam"],
+      "itemIds": ["item_prej", "item_zvicer"],
+      "prompt": { "lang": "de", "text": "Ich komme aus der Schweiz." },
+      "answerLang": "sq",
+      "text": "Jam ___ Zvicre.",
+      "solutions": ["prej"],
+      "choices": ["prej", "në", "ku", "me"],
+      "explanation": "„Prej“ heisst „aus“. Danach bekommt der Ortsname eine Endung: Zvicër → prej Zvicre.",
+      "errorHints": [
+        { "pattern": "^n[eë]$", "category": "vocab.confused", "hint": "„Në“ heisst „in“. Für „aus“ sagst du „prej“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_024",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "grammar.possessive", "grammar.definite_article.masc"],
+      "itemIds": ["item_emen", "item_im"],
+      "prompt": { "lang": "de", "text": "Mein Name ist Arben." },
+      "answerLang": "sq",
+      "text": "___ im âsht Arben.",
+      "solutions": ["Emni"],
+      "standardForms": ["Emri"],
+      "explanation": "Vor „im“ (mein) steht das Nomen mit Artikel: emën → emni. Standard sagt „emri“.",
+      "errorHints": [
+        { "pattern": "^em[eë][nr]$", "category": "grammar.definite_article", "hint": "Mit „im“ braucht das Nomen den bestimmten Artikel: „emni“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Gheg) statt „emri“ – im Kosovo ist „emri“ verbreitet; zu prüfen (Richtlinie 13.3)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_025",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_ku", "item_jeton"],
+      "prompt": { "lang": "de", "text": "Wo wohnst du?" },
+      "answerLang": "sq",
+      "text": "Ku ___?",
+      "solutions": ["jeton"],
+      "choices": ["jeton", "jetoj", "quhesh", "je"],
+      "explanation": "„Jeton“ heisst „du wohnst“. „Jetoj“ ist „ich wohne“.",
+      "errorHints": [
+        { "pattern": "^jetoj$", "category": "grammar.verb_conjugation", "hint": "„Jetoj“ heisst „ich wohne“. Für „du“: „jeton“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_026",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_flet", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Sprichst du Albanisch?" },
+      "answerLang": "sq",
+      "text": "A ___ shqip?",
+      "solutions": ["flet"],
+      "explanation": "„Flet“ heisst „du sprichst“. „Flas“ ist „ich spreche“.",
+      "errorHints": [
+        { "pattern": "^flas$", "category": "grammar.verb_conjugation", "hint": "„Flas“ heisst „ich spreche“. Für „du“: „flet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_027",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_flas", "item_pak", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Ich spreche ein bisschen Albanisch." },
+      "answerLang": "sq",
+      "text": "Flas pak ___.",
+      "solutions": ["shqip"],
+      "choices": ["shqip", "gjermanisht", "Shqipni", "Zvicër"],
+      "explanation": "„Shqip“ ist die Sprache Albanisch. Das Land heisst „Shqipni“.",
+      "errorHints": [
+        { "pattern": "^shqipni$", "category": "vocab.confused", "hint": "„Shqipni“ ist das Land Albanien. Die Sprache heisst „shqip“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_028",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_prej", "item_kosove", "item_jetoj", "item_zvicer"],
+      "prompt": { "lang": "de", "text": "Ich komme aus dem Kosovo, aber ich wohne in der Schweiz." },
+      "answerLang": "sq",
+      "text": "Jam prej Kosove, ___ jetoj në Zvicër.",
+      "solutions": ["po"],
+      "standardForms": ["por"],
+      "explanation": "„Aber“ heisst im Gheg oft „po“ (Standard: „por“). Das „po“ kennst du auch aus „Mirë, po ti?“.",
+      "errorHints": [
+        { "pattern": "^(dhe|edhe|e)$", "category": "vocab.confused", "hint": "„Dhe“ heisst „und“. Für „aber“ sagst du im Gheg „po“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ (Standard: „por“) – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_029",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.countries", "grammar.adjective_agreement"],
+      "itemIds": ["item_ajo", "item_asht", "item_zviceran"],
+      "prompt": { "lang": "de", "text": "Sie ist Schweizerin." },
+      "answerLang": "sq",
+      "text": "Ajo âsht ___.",
+      "solutions": ["zvicerane"],
+      "choices": ["zvicerane", "zviceran", "Zvicër", "Zvicre"],
+      "explanation": "Für eine Frau: „zvicerane“ (mit -e). „Zvicër“ ist das Land.",
+      "errorHints": [
+        { "pattern": "^zviceran$", "category": "grammar.gender", "hint": "„Zviceran“ ist die Form für einen Mann. Für eine Frau: „zvicerane“." },
+        { "pattern": "^zvic([eë]r|re|ra)$", "category": "vocab.confused", "hint": "„Zvicër“ ist das Land. „Schweizerin“ heisst „zvicerane“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_030",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.countries", "phrase.introductions", "grammar.case.ablative"],
+      "itemIds": ["item_prej", "item_gjermani"],
+      "prompt": { "lang": "de", "text": "Ich komme aus Deutschland." },
+      "answerLang": "sq",
+      "text": "Jam prej ___.",
+      "solutions": ["Gjermanie", "Gjermanisë"],
+      "explanation": "Nach „prej“ bekommt der Ländername eine Endung: Gjermani → prej Gjermanie.",
+      "errorHints": [
+        { "pattern": "^gjermani$", "category": "grammar.case", "hint": "Nach „prej“ bekommt der Name eine Endung: prej Gjermanie." },
+        { "pattern": "^gjermania$", "category": "grammar.case", "hint": "„Gjermania“ steht zum Beispiel am Satzanfang. Nach „prej“ heisst es „Gjermanie“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_031",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_si_quhesh", "item_emen"],
+      "prompt": { "lang": "de", "text": "Wie heisst du?" },
+      "answerLang": "sq",
+      "solutions": ["Si quhesh?", "Qysh quhesh?", "Si e ke emnin?", "Qysh e ke emnin?"],
+      "standardForms": ["Si e ke emrin?", "Qysh e ke emrin?"],
+      "explanation": "„Si quhesh?“ ist die übliche Frage. Im Kosovo hört man auch „Qysh quhesh?“.",
+      "errorHints": [
+        { "pattern": "^(si|qysh) quhem", "category": "grammar.verb_conjugation", "hint": "„Quhem“ heisst „ich heisse“. Für „du“: „quhesh“." },
+        { "pattern": "^(si|qysh) quhet$", "category": "grammar.verb_conjugation", "hint": "„Quhet“ heisst „er/sie heisst“. Für „du“: „quhesh“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Gheg) statt „emri“ – im Kosovo ist „emri“ verbreitet; zu prüfen (Richtlinie 13.3)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_032",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_quhem"],
+      "prompt": { "lang": "de", "text": "Ich heisse Arben." },
+      "answerLang": "sq",
+      "solutions": ["Quhem Arben.", "Unë quhem Arben."],
+      "explanation": "„Quhem“ heisst „ich heisse“. „Unë“ darfst du weglassen.",
+      "errorHints": [
+        { "pattern": "^(un[eë] )?quhe(sh|t) ", "category": "grammar.verb_conjugation", "hint": "Du sprichst von dir: „quhem“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_033",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_prej_ku_je"],
+      "prompt": { "lang": "de", "text": "Woher kommst du?" },
+      "answerLang": "sq",
+      "solutions": ["Prej ku je?", "Prej kah je?", "Prej ku je ti?", "Ti prej ku je?"],
+      "standardForms": ["Nga je?", "Nga ku je?", "Nga je ti?", "Ti nga je?"],
+      "explanation": "Im Gheg fragt man „Prej ku je?“ – wörtlich „Aus wo bist du?“. Standard: „Nga je?“.",
+      "errorHints": [
+        { "pattern": "^ku jeton", "category": "vocab.confused", "hint": "„Ku jeton?“ heisst „Wo wohnst du?“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_034",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "vocab.countries", "grammar.verbs.jam"],
+      "itemIds": ["item_prej", "item_zvicer"],
+      "prompt": { "lang": "de", "text": "Ich komme aus der Schweiz." },
+      "answerLang": "sq",
+      "solutions": ["Jam prej Zvicre.", "Unë jam prej Zvicre.", "Jam prej Zvicrës.", "Unë jam prej Zvicrës."],
+      "standardForms": ["Jam nga Zvicra.", "Unë jam nga Zvicra."],
+      "explanation": "Nach „prej“ ändert sich die Endung: Zvicër → prej Zvicre. Standard sagt „Jam nga Zvicra“.",
+      "errorHints": [
+        { "pattern": "prej zvic([eë]r|ra)$", "category": "grammar.case", "hint": "Nach „prej“ ändert sich die Endung: Zvicër → prej Zvicre." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_035",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_ku", "item_jeton"],
+      "prompt": { "lang": "de", "text": "Wo wohnst du?" },
+      "answerLang": "sq",
+      "solutions": ["Ku jeton?", "Ku jeton ti?", "Ti ku jeton?"],
+      "explanation": "„Ku“ heisst „wo“, „jeton“ heisst „du wohnst“.",
+      "errorHints": [
+        { "pattern": "^ku jetoj", "category": "grammar.verb_conjugation", "hint": "„Jetoj“ heisst „ich wohne“. Für „du“: „jeton“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_036",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_jetoj", "item_ne_prep"],
+      "prompt": { "lang": "de", "text": "Ich wohne in Prizren." },
+      "answerLang": "sq",
+      "solutions": ["Jetoj në Prizren.", "Unë jetoj në Prizren."],
+      "explanation": "„Jetoj“ heisst „ich wohne“, „në“ heisst „in“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)prej prizren", "category": "vocab.confused", "hint": "„Prej“ heisst „aus“. Für „in“ sagst du „në“." },
+        { "pattern": "^(un[eë] )?jeton ", "category": "grammar.verb_conjugation", "hint": "„Jeton“ heisst „du wohnst“. Für „ich“: „jetoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_037",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions", "grammar.possessive"],
+      "itemIds": ["item_emen", "item_im", "item_asht"],
+      "prompt": { "lang": "de", "text": "Mein Name ist Besa." },
+      "answerLang": "sq",
+      "solutions": ["Emni im âsht Besa."],
+      "standardForms": ["Emri im është Besa.", "Emri im âsht Besa.", "Emni im është Besa."],
+      "explanation": "„Emni im“ heisst „mein Name“: zuerst das Nomen mit Artikel, dann „im“. Gheg sagt „emni“, Standard „emri“.",
+      "errorHints": [
+        { "pattern": "^em[eë][nr] im", "category": "grammar.definite_article", "hint": "Mit „im“ braucht das Nomen den bestimmten Artikel: „emni im“." },
+        { "pattern": "^em[nr]i ime", "category": "grammar.gender", "hint": "„Emni“ ist maskulin – darum „im“, nicht „ime“." },
+        { "pattern": "^im em", "category": "grammar.word_order", "hint": "„Im“ steht nach dem Nomen: „emni im“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Gheg) statt „emri“ – im Kosovo ist „emri“ verbreitet; zu prüfen (Richtlinie 13.3)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_038",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_flas", "item_pak", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Ich spreche ein bisschen Albanisch." },
+      "answerLang": "sq",
+      "solutions": ["Flas pak shqip.", "Unë flas pak shqip."],
+      "explanation": "„Flas“ heisst „ich spreche“, „pak“ heisst „ein bisschen“, „shqip“ ist Albanisch.",
+      "errorHints": [
+        { "pattern": "(^|\\s)flet(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Flet“ heisst „du sprichst“. Für „ich“: „flas“." },
+        { "pattern": "shqipni", "category": "vocab.confused", "hint": "„Shqipni“ ist das Land. Die Sprache heisst „shqip“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_039",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions", "vocab.countries", "grammar.verbs.jam"],
+      "itemIds": ["item_prej", "item_kosove", "item_jetoj", "item_gjermani"],
+      "prompt": { "lang": "de", "text": "Ich komme aus dem Kosovo, aber ich wohne in Deutschland." },
+      "answerLang": "sq",
+      "solutions": [
+        "Jam prej Kosove, po jetoj në Gjermani.",
+        "Unë jam prej Kosove, po jetoj në Gjermani.",
+        "Jam prej Kosovës, po jetoj në Gjermani.",
+        "Unë jam prej Kosovës, po jetoj në Gjermani."
+      ],
+      "standardForms": [
+        "Jam nga Kosova, por jetoj në Gjermani.",
+        "Unë jam nga Kosova, por jetoj në Gjermani.",
+        "Jam prej Kosove, por jetoj në Gjermani."
+      ],
+      "explanation": "„Prej Kosove“ – aus dem Kosovo, „në Gjermani“ – in Deutschland. „Aber“ heisst im Gheg „po“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)(dhe|edhe) jetoj", "category": "vocab.confused", "hint": "„Dhe“ heisst „und“. Für „aber“ sagst du im Gheg „po“." },
+        { "pattern": "prej kosov[aë](\\s|$)", "category": "grammar.case", "hint": "Nach „prej“: Kosovë → prej Kosove." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7). „po“ als „aber“ (Standard: „por“) – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_040",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_une", "item_quhem"],
+      "prompt": { "lang": "de", "text": "Ich heisse Drita." },
+      "answerLang": "sq",
+      "solutions": ["Unë quhem Drita.", "Quhem Drita."],
+      "wordBank": ["Unë", "quhem", "Drita", "quhesh", "jam"],
+      "explanation": "„Unë quhem …“ – „Ich heisse …“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)quhesh(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Quhesh“ heisst „du heisst“. Für „ich“: „quhem“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_041",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_si_quhesh"],
+      "prompt": { "lang": "sq", "text": "Si quhesh?" },
+      "answerLang": "de",
+      "solutions": ["Wie heisst du?"],
+      "wordBank": ["Wie", "heisst", "du", "wo", "wohnst"],
+      "explanation": "„Si“ heisst „wie“, „quhesh“ heisst „du heisst“.",
+      "errorHints": [
+        { "pattern": "wohnst", "category": "vocab.confused", "hint": "„Wo wohnst du?“ heisst „Ku jeton?“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_042",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "vocab.countries", "grammar.verbs.jam"],
+      "itemIds": ["item_prej", "item_kosove"],
+      "prompt": { "lang": "sq", "text": "Jam prej Kosove." },
+      "answerLang": "de",
+      "solutions": ["Ich komme aus dem Kosovo.", "Ich komme aus Kosovo.", "Ich bin aus dem Kosovo."],
+      "wordBank": ["Ich", "komme", "aus", "dem", "Kosovo", "wohne", "in"],
+      "explanation": "„Jam prej …“ heisst wörtlich „Ich bin aus …“. „Kosove“ ist „Kosovë“ mit der Endung nach „prej“.",
+      "errorHints": [
+        { "pattern": "wohne", "category": "vocab.confused", "hint": "„Jam prej …“ sagt, woher du kommst – nicht, wo du wohnst." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_043",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_ku", "item_jeton"],
+      "prompt": { "lang": "de", "text": "Wo wohnst du?" },
+      "answerLang": "sq",
+      "solutions": ["Ku jeton?", "Ku jeton ti?"],
+      "wordBank": ["Ku", "jeton", "jetoj", "prej"],
+      "explanation": "„Ku jeton?“ – „Wo wohnst du?“. „Jetoj“ wäre „ich wohne“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)jetoj(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jetoj“ heisst „ich wohne“. Für „du“: „jeton“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_044",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_jetoj", "item_ne_prep", "item_zvicer"],
+      "prompt": { "lang": "de", "text": "Ich wohne in der Schweiz." },
+      "answerLang": "sq",
+      "solutions": ["Jetoj në Zvicër.", "Unë jetoj në Zvicër."],
+      "wordBank": ["Jetoj", "në", "Zvicër", "prej", "Zvicre", "jeton"],
+      "explanation": "Nach „në“ (in) bleibt der Name, wie er ist: „në Zvicër“. Die Form „Zvicre“ brauchst du nach „prej“.",
+      "errorHints": [
+        { "pattern": "n[eë] zvicre$", "category": "grammar.case", "hint": "Nach „në“ bleibt „Zvicër“. Die Form „Zvicre“ steht nach „prej“." },
+        { "pattern": "(^|\\s)prej(\\s|$)", "category": "vocab.confused", "hint": "„Prej“ heisst „aus“. Für „in“: „në“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_045",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "grammar.possessive"],
+      "itemIds": ["item_emen", "item_im", "item_asht"],
+      "prompt": { "lang": "sq", "text": "Emni im âsht Blerim." },
+      "answerLang": "de",
+      "solutions": ["Mein Name ist Blerim.", "Ich heisse Blerim."],
+      "wordBank": ["Mein", "Name", "ist", "Blerim", "Ihr", "heisst"],
+      "explanation": "„Emni im“ heisst „mein Name“. Standard wäre „Emri im është …“.",
+      "errorHints": [
+        { "pattern": "^ihr ", "category": "vocab.confused", "hint": "„Im“ heisst „mein“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Gheg) statt „emri“ – im Kosovo ist „emri“ verbreitet; zu prüfen (Richtlinie 13.3)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_046",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_flet", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Sprichst du Albanisch?" },
+      "answerLang": "sq",
+      "solutions": ["A flet shqip?", "Flet shqip?"],
+      "wordBank": ["A", "flet", "shqip", "flas", "gjermanisht"],
+      "explanation": "„A“ am Anfang macht die Frage. „Flet“ heisst „du sprichst“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)flas(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Flas“ heisst „ich spreche“. Für „du“: „flet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_047",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_po", "item_flas", "item_shqip", "item_dhe", "item_gjermanisht"],
+      "prompt": { "lang": "sq", "text": "Po, flas shqip dhe gjermanisht." },
+      "answerLang": "de",
+      "solutions": ["Ja, ich spreche Albanisch und Deutsch.", "Ja, ich spreche Deutsch und Albanisch."],
+      "wordBank": ["Ja", "ich", "spreche", "Albanisch", "und", "Deutsch", "nein", "oder"],
+      "explanation": "„Shqip“ heisst „Albanisch“, „gjermanisht“ heisst „Deutsch“ – Sprachen schreibt man klein.",
+      "errorHints": [
+        { "pattern": "^nein", "category": "vocab.confused", "hint": "„Po“ heisst „ja“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_048",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "grammar.verbs.jam"],
+      "itemIds": ["item_gezohem", "item_une", "item_jam", "item_me_vjen_mire"],
+      "prompt": { "lang": "de", "text": "Freut mich, ich bin Arta." },
+      "answerLang": "sq",
+      "solutions": ["Gëzohem, unë jam Arta.", "Gëzohem, jam Arta.", "Më vjen mirë, unë jam Arta.", "Më vjen mirë, jam Arta."],
+      "wordBank": ["Gëzohem", "unë", "jam", "Arta", "je", "quhesh"],
+      "explanation": "„Gëzohem“ heisst „Freut mich“. Im Kosovo sagt man auch „Më vjen mirë“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)je arta", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. Für „ich bin“: „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_049",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions", "grammar.possessive"],
+      "itemIds": ["item_kjo", "item_asht", "item_shoqe", "item_ime"],
+      "prompt": { "lang": "sq", "text": "Kjo âsht Drita, shoqja ime." },
+      "answerLang": "de",
+      "solutions": ["Das ist Drita, meine Freundin.", "Das ist meine Freundin Drita."],
+      "wordBank": ["Das", "ist", "Drita", "meine", "Freundin", "mein", "Freund"],
+      "explanation": "„Shoqja ime“ heisst „meine Freundin“. Ein Freund ist „shoku im“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)freund(\\s|$)", "category": "grammar.gender", "hint": "„Shoqja“ ist eine Freundin. „Der Freund“ wäre „shoku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_050",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_prej", "item_kosove", "item_jeton", "item_ne_prep", "item_austri"],
+      "prompt": { "lang": "de", "text": "Arta ist aus dem Kosovo, aber sie wohnt in Österreich." },
+      "answerLang": "sq",
+      "solutions": ["Arta âsht prej Kosove, po jeton në Austri.", "Arta âsht prej Kosovës, po jeton në Austri."],
+      "wordBank": ["Arta", "âsht", "prej", "Kosove", "po", "jeton", "në", "Austri", "jetoj", "quhet"],
+      "explanation": "„Prej Kosove“ – aus dem Kosovo, „po“ – aber, „jeton“ – sie wohnt.",
+      "errorHints": [
+        { "pattern": "(^|\\s)jetoj(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jetoj“ heisst „ich wohne“. Für „sie wohnt“: „jeton“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7). „po“ als „aber“ (Standard: „por“) – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_051",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_ai", "item_asht", "item_gjerman", "item_flet", "item_shqip"],
+      "prompt": { "lang": "sq", "text": "Ai âsht gjerman, po flet shqip." },
+      "answerLang": "de",
+      "solutions": ["Er ist Deutscher, aber er spricht Albanisch.", "Er ist Deutscher, spricht aber Albanisch."],
+      "wordBank": ["Er", "ist", "Deutscher", "aber", "er", "spricht", "Albanisch", "und", "Deutsche"],
+      "explanation": "Hier heisst „po“ nicht „ja“, sondern „aber“. „Gjerman“ ist ein Deutscher, „gjermane“ eine Deutsche.",
+      "errorHints": [
+        { "pattern": "(^|\\s)deutsche(\\s|$)", "category": "grammar.gender", "hint": "„Gjerman“ ist die Form für einen Mann: „Deutscher“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ (Standard: „por“) – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_052",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_une", "item_quhem"],
+      "prompt": { "lang": "de", "text": "Ich heisse Besa." },
+      "answerLang": "sq",
+      "tokens": ["Unë", "quhem", "Besa"],
+      "solutions": ["Unë quhem Besa."],
+      "explanation": "Wie im Deutschen: „Unë quhem Besa.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_053",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_prej_ku_je"],
+      "prompt": { "lang": "de", "text": "Woher kommst du?" },
+      "answerLang": "sq",
+      "tokens": ["Prej", "ku", "je"],
+      "solutions": ["Prej ku je?"],
+      "explanation": "„Prej ku“ (woher) steht am Anfang, dann „je“ (bist du).",
+      "errorHints": [
+        { "pattern": "^ku prej", "category": "grammar.word_order", "hint": "Es heisst „prej ku“: zuerst „prej“, dann „ku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_054",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_jetoj", "item_ne_prep"],
+      "prompt": { "lang": "de", "text": "Ich wohne in Peja." },
+      "answerLang": "sq",
+      "tokens": ["Jetoj", "në", "Pejë"],
+      "solutions": ["Jetoj në Pejë."],
+      "explanation": "„Jetoj në …“ – „Ich wohne in …“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_055",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "grammar.possessive"],
+      "itemIds": ["item_emen", "item_im", "item_asht"],
+      "prompt": { "lang": "de", "text": "Mein Name ist Driton." },
+      "answerLang": "sq",
+      "tokens": ["Emni", "im", "âsht", "Driton"],
+      "solutions": ["Emni im âsht Driton."],
+      "explanation": "„Im“ (mein) steht nach dem Nomen: „emni im“.",
+      "errorHints": [
+        { "pattern": "^im emni", "category": "grammar.word_order", "hint": "„Im“ steht nach dem Nomen: „emni im“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Gheg) statt „emri“ – im Kosovo ist „emri“ verbreitet; zu prüfen (Richtlinie 13.3)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_056",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions", "vocab.countries", "grammar.verbs.jam"],
+      "itemIds": ["item_une", "item_jam", "item_prej", "item_zvicer"],
+      "prompt": { "lang": "de", "text": "Ich komme aus der Schweiz." },
+      "answerLang": "sq",
+      "tokens": ["Unë", "jam", "prej", "Zvicre"],
+      "solutions": ["Unë jam prej Zvicre."],
+      "explanation": "„Prej Zvicre“ bleibt zusammen und steht am Ende.",
+      "errorHints": [
+        { "pattern": "zvicre prej", "category": "grammar.word_order", "hint": "Es heisst „prej Zvicre“: „prej“ steht vor dem Ortsnamen." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_057",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.introductions", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_flet", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Sprichst du Albanisch?" },
+      "answerLang": "sq",
+      "tokens": ["A", "flet", "shqip"],
+      "solutions": ["A flet shqip?"],
+      "explanation": "Die Fragepartikel „a“ steht am Anfang.",
+      "errorHints": [
+        { "pattern": "^flet a", "category": "grammar.word_order", "hint": "Die Fragepartikel „a“ steht am Satzanfang." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_058",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.introductions"],
+      "itemIds": ["item_gezohem", "item_une", "item_quhem"],
+      "prompt": { "lang": "de", "text": "Freut mich, ich heisse Arben." },
+      "answerLang": "sq",
+      "tokens": ["Gëzohem", "unë", "quhem", "Arben"],
+      "solutions": ["Gëzohem, unë quhem Arben."],
+      "explanation": "Zuerst „Gëzohem“ (freut mich), dann stellst du dich vor.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u02_introductions_059",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions", "vocab.countries", "grammar.verbs.jam"],
+      "itemIds": ["item_prej", "item_kosove", "item_jetoj", "item_ne_prep", "item_zvicer"],
+      "prompt": { "lang": "de", "text": "Ich komme aus dem Kosovo, aber ich wohne in der Schweiz." },
+      "answerLang": "sq",
+      "tokens": ["Jam", "prej", "Kosove", "po", "jetoj", "në", "Zvicër"],
+      "solutions": ["Jam prej Kosove, po jetoj në Zvicër."],
+      "explanation": "„Po“ (aber) verbindet die beiden Satzteile.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej“ + Ortsname mit Ablativ-Endung (prej Kosove, prej Zvicre) als Gheg-Form; Standard „nga Kosova“ steht in standardForms – zu prüfen (Richtlinie 5.2 und 13.7). „po“ als „aber“ (Standard: „por“) – zu prüfen (Richtlinie 5.2 und 13.7)."
+    },
+    {
+      "id": "ex_a1_u02_introductions_060",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.introductions", "vocab.countries"],
+      "itemIds": ["item_ajo", "item_quhet", "item_dhe", "item_jeton", "item_ne_prep"],
+      "prompt": { "lang": "de", "text": "Sie heisst Drita und wohnt in Gjakova." },
+      "answerLang": "sq",
+      "tokens": ["Ajo", "quhet", "Drita", "dhe", "jeton", "në", "Gjakovë"],
+      "solutions": ["Ajo quhet Drita dhe jeton në Gjakovë."],
+      "explanation": "„Quhet“ – sie heisst, „jeton“ – sie wohnt. Beide Verben haben die Form der 3. Person.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

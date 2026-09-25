@@ -77,7 +77,25 @@
       "partOfSpeech": "phrase",
       "note": "„bân“ (Standard: bën) wird im Kosovo oft [bon] ausgesprochen – Schreibung zu prüfen.",
       "reviewed": false
-    }
+    },
+    { "id": "item_diten_e_mire", "kind": "phrase", "gheg": "ditën e mirë", "de": "schönen Tag (Wunsch beim Abschied)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_mire_se_erdhe", "kind": "phrase", "gheg": "mirë se erdhe", "de": "willkommen (wenn jemand ankommt)", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_mire_se_te_gjeta",
+      "kind": "phrase",
+      "gheg": "mirë se të gjeta",
+      "de": "schön, dich zu sehen (Antwort auf „mirë se erdhe“)",
+      "partOfSpeech": "phrase",
+      "note": "Antwort des Gastes, wörtlich „gut, dass ich dich angetroffen habe“; zu mehreren auch „mirë se ju gjeta“ – Gebrauch im Kosovo zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_kalofsh_mire", "kind": "phrase", "gheg": "kalofsh mirë", "de": "mach's gut", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_pafshim", "kind": "word", "gheg": "pafshim", "de": "tschüss (kurz für „mirupafshim“)", "partOfSpeech": "interjection", "reviewed": false },
+    { "id": "item_me_falni", "kind": "phrase", "gheg": "më falni", "de": "Entschuldigung (höflich, Sie)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_po_ju", "kind": "phrase", "gheg": "po ju?", "de": "und Sie?, und ihr?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_qysh_jeni", "kind": "phrase", "gheg": "qysh jeni?", "de": "wie geht es Ihnen / euch? (Kosovo)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_gjithashtu", "kind": "word", "gheg": "gjithashtu", "de": "gleichfalls, ebenfalls", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_jo_keq", "kind": "phrase", "gheg": "jo keq", "de": "nicht schlecht", "partOfSpeech": "phrase", "reviewed": false }
   ],
   "exercises": [
     {
@@ -430,6 +448,710 @@
       "tokens": ["Faleminderit", "shumë", "shihemi", "nesër"],
       "solutions": ["Faleminderit shumë, shihemi nesër!", "Shumë faleminderit, shihemi nesër!"],
       "explanation": "„Shihemi“ heisst „wir sehen uns“, „nesër“ ist „morgen“. „Shumë“ darf vor oder nach „faleminderit“ stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_021",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_miremengjes"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „guten Morgen“?" },
+      "choices": ["mirëmëngjes", "mirëmbrâma", "mirëdita", "natën e mirë"],
+      "solutions": ["mirëmëngjes"],
+      "explanation": "„Mirëmëngjes“ ist der Gruss am Morgen, wörtlich „guter Morgen“.",
+      "errorHints": [
+        { "pattern": "^mir[eë]mbr", "category": "vocab.confused", "hint": "„Mirëmbrâma“ heisst „guten Abend“." },
+        { "pattern": "^mir[eë]dita$", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „guten Tag“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_022",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_mirupafshim"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „mirupafshim“?" },
+      "choices": ["auf Wiedersehen", "guten Tag", "danke", "willkommen"],
+      "solutions": ["auf Wiedersehen"],
+      "explanation": "„Mirupafshim“ heisst „auf Wiedersehen“ – wörtlich „auf dass wir uns gut wiedersehen“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_023",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_naten_e_mire"],
+      "prompt": { "lang": "de", "text": "Du verabschiedest dich spät am Abend. Was sagst du?" },
+      "choices": ["Natën e mirë!", "Mirëmëngjes!", "Mirë se vjen!", "Ç'kemi?"],
+      "solutions": ["Natën e mirë!"],
+      "explanation": "„Natën e mirë!“ heisst „Gute Nacht!“ und passt zum Abschied am späten Abend.",
+      "errorHints": [
+        { "pattern": "^mir[eë] se vjen", "category": "vocab.confused", "hint": "„Mirë se vjen!“ heisst „Willkommen!“ – das sagt man bei der Ankunft." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_024",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.greetings", "phrase.wishes"],
+      "itemIds": ["item_diten_e_mire"],
+      "prompt": { "lang": "de", "text": "Du wünschst jemandem zum Abschied einen schönen Tag. Was sagst du?" },
+      "choices": ["Ditën e mirë!", "Natën e mirë!", "Mirë se erdhe!", "S'ka përse!"],
+      "solutions": ["Ditën e mirë!"],
+      "explanation": "„Ditën e mirë!“ heisst „Schönen Tag!“. Wie „natën e mirë“ steht der Wunsch im Akkusativ.",
+      "errorHints": [
+        { "pattern": "^nat[eë]n", "category": "vocab.confused", "hint": "„Natën e mirë“ heisst „gute Nacht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_025",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.greetings", "phrase.politeness"],
+      "itemIds": ["item_mire_se_erdhe", "item_mire_se_te_gjeta"],
+      "prompt": { "lang": "de", "text": "Du kommst bei Freunden an. Sie sagen „Mirë se erdhe!“. Was antwortest du?" },
+      "choices": ["Mirë se të gjeta!", "Mirë se vjen!", "Mirupafshim!", "S'ka përse."],
+      "solutions": ["Mirë se të gjeta!"],
+      "explanation": "Auf „Mirë se erdhe!“ (willkommen) antwortet der Gast „Mirë se të gjeta!“ – wörtlich „gut, dass ich dich angetroffen habe“.",
+      "errorHints": [
+        { "pattern": "^mir[eë] se vjen", "category": "vocab.confused", "hint": "„Mirë se vjen“ sagt der Gastgeber. Der Gast antwortet „Mirë se të gjeta!“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Antwortformel „mirë se të gjeta“ – Gebrauch im Kosovo zu prüfen."
+    },
+    {
+      "id": "ex_a1_u01_greetings_026",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.politeness", "phrase.small_talk"],
+      "itemIds": ["item_si_jeni", "item_si_je", "item_ckemi", "item_qysh_je"],
+      "prompt": { "lang": "de", "text": "Welche Frage ist höflich (Sie-Form)?" },
+      "choices": ["Si jeni?", "Si je?", "Ç'kemi?", "Qysh je?"],
+      "solutions": ["Si jeni?"],
+      "explanation": "„Si jeni?“ ist die Sie- oder Ihr-Form. „Si je?“, „Qysh je?“ und „Ç'kemi?“ sagst du zu Leuten, die du duzt.",
+      "errorHints": [
+        { "pattern": "^[cç]kemi$", "category": "vocab.confused", "hint": "„Ç'kemi?“ ist sehr locker – nur unter Freunden." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_027",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_pafshim"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „pafshim“?" },
+      "choices": ["tschüss", "bitte", "gute Nacht", "guten Morgen"],
+      "solutions": ["tschüss"],
+      "explanation": "„Pafshim“ ist die kurze, lockere Form von „mirupafshim“ (auf Wiedersehen).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_028",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_me_falni", "item_me_fal"],
+      "prompt": { "lang": "de", "text": "Du bittest eine ältere Frau um Entschuldigung. Was sagst du?" },
+      "choices": ["Më falni!", "Më fal!", "Rrofsh!", "Tung!"],
+      "solutions": ["Më falni!"],
+      "explanation": "„Më falni“ ist die höfliche Form (Sie). „Më fal“ sagst du zu Freunden.",
+      "errorHints": [
+        { "pattern": "^m[eë] fal$", "category": "grammar.verb_conjugation", "hint": "„Më fal“ ist die Du-Form. Höflich sagst du „Më falni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_029",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_miremengjes"],
+      "prompt": { "lang": "de", "text": "Guten Morgen, Arta!" },
+      "answerLang": "sq",
+      "solutions": ["Mirëmëngjes, Arta!"],
+      "wordBank": ["Mirëmëngjes", "Arta", "mirëdita", "natën"],
+      "explanation": "„Mirëmëngjes“ ist ein Wort: „mirë“ (gut) + „mëngjes“ (Morgen).",
+      "errorHints": [
+        { "pattern": "^mir[eë]dita", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „guten Tag“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_030",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings", "phrase.politeness"],
+      "itemIds": ["item_miredita", "item_si_jeni"],
+      "prompt": { "lang": "sq", "text": "Mirëdita, si jeni?" },
+      "answerLang": "de",
+      "solutions": ["Guten Tag, wie geht es Ihnen?", "Guten Tag, wie geht es euch?", "Guten Tag, wie geht's Ihnen?"],
+      "wordBank": ["Guten", "Tag", "wie", "geht", "es", "Ihnen", "dir", "Abend"],
+      "explanation": "„Si jeni?“ ist die Sie- oder Ihr-Form: „Wie geht es Ihnen/euch?“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)dir(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Si jeni?“ ist die Sie- oder Ihr-Form: „Ihnen“ oder „euch“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_031",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.small_talk", "phrase.politeness"],
+      "itemIds": ["item_mire", "item_faleminderit", "item_po_ju"],
+      "prompt": { "lang": "de", "text": "Gut, danke, und Sie?" },
+      "answerLang": "sq",
+      "solutions": ["Mirë, faleminderit, po ju?", "Mirë, falemnderit, po ju?"],
+      "wordBank": ["Mirë", "faleminderit", "po", "ju", "ti", "jo"],
+      "explanation": "„Po ju?“ ist die höfliche Gegenfrage „Und Sie?“. Zu Freunden sagst du „po ti?“.",
+      "errorHints": [
+        { "pattern": "po ti$", "category": "grammar.verb_conjugation", "hint": "Zu jemandem, den du siezt, sagst du „po ju?“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_032",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_mire_se_erdhe"],
+      "prompt": { "lang": "sq", "text": "Mirë se erdhe, Besa!" },
+      "answerLang": "de",
+      "solutions": ["Willkommen, Besa!", "Herzlich willkommen, Besa!"],
+      "wordBank": ["Willkommen", "Besa", "Tschüss", "Danke"],
+      "explanation": "„Mirë se erdhe“ heisst wörtlich „gut, dass du gekommen bist“ – also „Willkommen!“.",
+      "errorHints": [
+        { "pattern": "^tsch", "category": "vocab.confused", "hint": "„Mirë se erdhe“ sagt man bei der Ankunft, nicht beim Abschied." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_033",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.small_talk"],
+      "itemIds": ["item_jo_keq", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Nicht schlecht, danke." },
+      "answerLang": "sq",
+      "solutions": ["Jo keq, faleminderit.", "Jo keq, falemnderit."],
+      "wordBank": ["Jo", "keq", "faleminderit", "mirë", "po"],
+      "explanation": "„Jo keq“ heisst „nicht schlecht“ – eine häufige Antwort auf „Si je?“.",
+      "errorHints": [
+        { "pattern": "^po keq", "category": "vocab.confused", "hint": "„Nicht“ heisst hier „jo“: „Jo keq“." },
+        { "pattern": "^jo mir[eë]", "category": "vocab.confused", "hint": "„Jo mirë“ hiesse „nicht gut“. „Schlecht“ heisst „keq“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_034",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.small_talk"],
+      "itemIds": ["item_ckemi", "item_a", "item_je", "item_mire"],
+      "prompt": { "lang": "sq", "text": "Ç'kemi? A je mirë?" },
+      "answerLang": "de",
+      "solutions": ["Was gibt's? Geht es dir gut?", "Was gibt's? Geht's dir gut?", "Wie läuft's? Geht es dir gut?"],
+      "wordBank": ["Was", "gibt's", "Geht", "es", "dir", "gut", "Ihnen", "schlecht"],
+      "explanation": "„Ç'kemi?“ ist ein lockerer Gruss unter Freunden. „A je mirë?“ heisst „Geht es dir gut?“.",
+      "errorHints": [
+        { "pattern": "ihnen", "category": "grammar.verb_conjugation", "hint": "„A je mirë?“ ist die Du-Form: „dir“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_035",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_me_fal", "item_nuk_e_di"],
+      "prompt": { "lang": "de", "text": "Entschuldigung, ich weiss nicht." },
+      "answerLang": "sq",
+      "solutions": ["Më fal, nuk e di.", "Më fal, s'e di.", "Më falni, nuk e di."],
+      "wordBank": ["Më", "fal", "nuk", "e", "di", "jam", "po"],
+      "explanation": "„Më fal“ heisst „Entschuldigung“ (du), „nuk e di“ heisst „ich weiss (es) nicht“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)e nuk", "category": "grammar.word_order", "hint": "Es heisst „nuk e di“: zuerst „nuk“, dann „e“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_036",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.greetings", "phrase.politeness", "phrase.wishes"],
+      "itemIds": ["item_diten_e_mire", "item_faleminderit", "item_gjithashtu"],
+      "prompt": { "lang": "sq", "text": "Ditën e mirë! – Faleminderit, gjithashtu!" },
+      "answerLang": "de",
+      "solutions": ["Schönen Tag! – Danke, gleichfalls!", "Einen schönen Tag! – Danke, gleichfalls!", "Schönen Tag! – Danke, ebenfalls!"],
+      "wordBank": ["Schönen", "Tag", "Danke", "gleichfalls", "Nacht", "bitte"],
+      "explanation": "„Gjithashtu“ heisst „gleichfalls“. So erwiderst du einen guten Wunsch.",
+      "errorHints": [
+        { "pattern": "nacht", "category": "vocab.confused", "hint": "„Ditë“ ist der Tag, „natë“ die Nacht." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_037",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_miremengjes"],
+      "prompt": { "lang": "de", "text": "Guten Morgen!" },
+      "answerLang": "sq",
+      "solutions": ["Mirëmëngjes!"],
+      "explanation": "„Mirëmëngjes“ wird zusammengeschrieben: „mirë“ + „mëngjes“.",
+      "errorHints": [
+        { "pattern": "^mir[eë]dita$", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „guten Tag“. „Guten Morgen“ heisst „mirëmëngjes“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_038",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.politeness", "phrase.small_talk"],
+      "itemIds": ["item_si_jeni", "item_qysh_jeni"],
+      "prompt": { "lang": "de", "text": "Wie geht es Ihnen?" },
+      "answerLang": "sq",
+      "solutions": ["Si jeni?", "Qysh jeni?"],
+      "explanation": "Höflich fragst du „Si jeni?“ oder – typisch Kosovo – „Qysh jeni?“.",
+      "errorHints": [
+        { "pattern": "^(si|qysh) je$", "category": "grammar.verb_conjugation", "hint": "„Si je?“ ist die Du-Form. Höflich: „Si jeni?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_039",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_mirupafshim", "item_pafshim", "item_shihemi", "item_neser"],
+      "prompt": { "lang": "de", "text": "Auf Wiedersehen, bis morgen!" },
+      "answerLang": "sq",
+      "solutions": ["Mirupafshim, shihemi nesër!", "Pafshim, shihemi nesër!", "Mirupafshim, nesër shihemi!"],
+      "explanation": "„Shihemi nesër“ heisst wörtlich „wir sehen uns morgen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)sot(\\s|$)", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“. „Morgen“ heisst „nesër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_040",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.greetings", "phrase.politeness"],
+      "itemIds": ["item_mire_se_te_gjeta", "item_mire_se_erdhe"],
+      "prompt": { "lang": "de", "text": "Du kommst bei Freunden an. Sie sagen „Mirë se erdhe!“. Was antwortest du?" },
+      "answerLang": "sq",
+      "solutions": ["Mirë se të gjeta!", "Mirë se ju gjeta!"],
+      "explanation": "Der Gast antwortet „Mirë se të gjeta!“ – bei mehreren Gastgebern auch „Mirë se ju gjeta!“.",
+      "errorHints": [
+        { "pattern": "^mir[eë] se (vjen|erdhe)", "category": "vocab.confused", "hint": "„Mirë se vjen / erdhe“ sagt der Gastgeber. Der Gast antwortet „Mirë se të gjeta!“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Antwortformel „mirë se të gjeta / ju gjeta“ – Gebrauch im Kosovo zu prüfen."
+    },
+    {
+      "id": "ex_a1_u01_greetings_041",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.politeness", "vocab.drinks"],
+      "itemIds": ["item_me_falni", "item_nji", "item_caj", "item_ju_lutem"],
+      "prompt": { "lang": "de", "text": "Entschuldigen Sie, einen Tee, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Më falni, nji çaj, ju lutem.", "Më falni, ju lutem, nji çaj."],
+      "standardForms": ["Më falni, një çaj, ju lutem.", "Më falni, ju lutem, një çaj."],
+      "explanation": "Höflich sagst du „më falni“ und „ju lutem“. „Nji“ ist die Gheg-Form von „ein, eine“ (Standard: „një“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)t[eë] lutem", "category": "grammar.verb_conjugation", "hint": "Du sprichst höflich (Sie) – darum „ju lutem“." },
+        { "pattern": "^m[eë] fal ", "category": "grammar.verb_conjugation", "hint": "Höflich (Sie) heisst es „më falni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_042",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings", "phrase.small_talk"],
+      "itemIds": ["item_tung", "item_ckemi", "item_miredita"],
+      "prompt": { "lang": "de", "text": "Hallo! Was gibt's?" },
+      "answerLang": "sq",
+      "solutions": ["Tung! Ç'kemi?", "Mirëdita! Ç'kemi?"],
+      "explanation": "„Tung“ ist ein lockeres Hallo, „Ç'kemi?“ heisst „Was gibt's?“. Der Apostroph zählt bei der Prüfung nicht.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_043",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_miremengjes"],
+      "prompt": { "lang": "de", "text": "Guten Morgen, Arta!" },
+      "answerLang": "sq",
+      "text": "___, Arta!",
+      "solutions": ["Mirëmëngjes"],
+      "choices": ["Mirëmëngjes", "Mirëmbrâma", "Natën", "Tung"],
+      "explanation": "„Mirëmëngjes“ sagst du am Morgen.",
+      "errorHints": [
+        { "pattern": "^mir[eë]mbr", "category": "vocab.confused", "hint": "„Mirëmbrâma“ heisst „guten Abend“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_044",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_naten_e_mire"],
+      "prompt": { "lang": "de", "text": "Gute Nacht!" },
+      "answerLang": "sq",
+      "text": "Natën e ___!",
+      "solutions": ["mirë"],
+      "explanation": "„Natën e mirë“ – wörtlich „die gute Nacht“. „Mirë“ heisst „gut“.",
+      "errorHints": [
+        { "pattern": "^keq$", "category": "vocab.confused", "hint": "„Keq“ heisst „schlecht“. „Gut“ heisst „mirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_045",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.politeness", "phrase.small_talk"],
+      "itemIds": ["item_si_jeni"],
+      "prompt": { "lang": "de", "text": "Wie geht es Ihnen?" },
+      "answerLang": "sq",
+      "text": "Si ___?",
+      "solutions": ["jeni"],
+      "choices": ["jeni", "je", "jam", "jemi"],
+      "explanation": "„Jeni“ ist die Sie- oder Ihr-Form: „Si jeni?“",
+      "errorHints": [
+        { "pattern": "^je$", "category": "grammar.verb_conjugation", "hint": "„Si je?“ ist die Du-Form. Höflich: „Si jeni?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_046",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.politeness", "phrase.small_talk"],
+      "itemIds": ["item_po_ju"],
+      "prompt": { "lang": "de", "text": "Gut, danke, und Sie?" },
+      "answerLang": "sq",
+      "text": "Mirë, faleminderit, po ___?",
+      "solutions": ["ju"],
+      "choices": ["ju", "ti", "unë", "ne"],
+      "explanation": "„Po ju?“ ist die höfliche Gegenfrage „Und Sie?“.",
+      "errorHints": [
+        { "pattern": "^ti$", "category": "grammar.verb_conjugation", "hint": "„Po ti?“ sagst du zu Freunden. Höflich: „po ju?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_047",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_mire_se_erdhe", "item_mire_se_vjen"],
+      "prompt": { "lang": "de", "text": "Willkommen! (Begrüssung, wenn jemand ankommt)" },
+      "answerLang": "sq",
+      "text": "Mirë se ___!",
+      "solutions": ["erdhe", "vjen"],
+      "explanation": "„Mirë se erdhe!“ (gut, dass du gekommen bist) und „Mirë se vjen!“ (gut, dass du kommst) heissen beide „Willkommen!“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_048",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.greetings", "phrase.politeness"],
+      "itemIds": ["item_mire_se_te_gjeta"],
+      "prompt": { "lang": "de", "text": "Schön, dich zu sehen! (Antwort des Gastes auf „Mirë se erdhe!“)" },
+      "answerLang": "sq",
+      "text": "Mirë se të ___!",
+      "solutions": ["gjeta"],
+      "choices": ["gjeta", "erdhe", "vjen", "fal"],
+      "explanation": "„Mirë se të gjeta!“ heisst wörtlich „gut, dass ich dich angetroffen habe“.",
+      "errorHints": [
+        { "pattern": "^(erdhe|vjen)$", "category": "vocab.confused", "hint": "„Mirë se erdhe / vjen“ sagt der Gastgeber. Der Gast antwortet „mirë se të gjeta“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Antwortformel „mirë se të gjeta“ – Gebrauch im Kosovo zu prüfen."
+    },
+    {
+      "id": "ex_a1_u01_greetings_049",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_me_falni", "item_ju_lutem"],
+      "prompt": { "lang": "de", "text": "Entschuldigen Sie bitte!" },
+      "answerLang": "sq",
+      "text": "Më ___, ju lutem!",
+      "solutions": ["falni"],
+      "choices": ["falni", "fal", "lutem", "mirë"],
+      "explanation": "Zu „ju lutem“ (Sie) passt „më falni“. „Më fal“ ist die Du-Form.",
+      "errorHints": [
+        { "pattern": "^fal$", "category": "grammar.verb_conjugation", "hint": "„Më fal“ ist die Du-Form. Mit „ju lutem“ (Sie) passt „më falni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_050",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_faleminderit", "item_gjithashtu"],
+      "prompt": { "lang": "de", "text": "Danke, gleichfalls!" },
+      "answerLang": "sq",
+      "text": "Faleminderit, ___!",
+      "solutions": ["gjithashtu"],
+      "explanation": "„Gjithashtu“ heisst „gleichfalls, ebenfalls“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_051",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings", "phrase.wishes"],
+      "itemIds": ["item_diten_e_mire"],
+      "prompt": { "lang": "de", "text": "Schönen Tag!" },
+      "answerLang": "sq",
+      "text": "Ditën e ___!",
+      "solutions": ["mirë"],
+      "choices": ["mirë", "keq", "shumë", "pak"],
+      "explanation": "„Ditën e mirë!“ – wörtlich „den guten Tag (wünsche ich dir)“.",
+      "errorHints": [
+        { "pattern": "^keq$", "category": "vocab.confused", "hint": "„Keq“ heisst „schlecht“ – das wünscht man niemandem!" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_052",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_miremengjes", "item_miredita", "item_mirembrama", "item_naten_e_mire", "item_diten_e_mire"],
+      "prompt": { "lang": "de", "text": "Ordne die Grüsse zu." },
+      "pairs": [
+        { "left": "mirëmëngjes", "right": "guten Morgen" },
+        { "left": "mirëdita", "right": "guten Tag" },
+        { "left": "mirëmbrâma", "right": "guten Abend" },
+        { "left": "natën e mirë", "right": "gute Nacht" },
+        { "left": "ditën e mirë", "right": "schönen Tag" }
+      ],
+      "explanation": "Morgen, Tag, Abend, Nacht: Mit diesen Grüssen kommst du durch den ganzen Tag.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Schreibung „mirëmbrâma“ mit â zu prüfen (Standard: mirëmbrëma)."
+    },
+    {
+      "id": "ex_a1_u01_greetings_053",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_mire_se_erdhe", "item_mire_se_te_gjeta", "item_kalofsh_mire", "item_pafshim", "item_shihemi"],
+      "prompt": { "lang": "de", "text": "Ordne die Paare zu." },
+      "pairs": [
+        { "left": "mirë se erdhe", "right": "willkommen" },
+        { "left": "mirë se të gjeta", "right": "schön, dich zu sehen (Antwort)" },
+        { "left": "kalofsh mirë", "right": "mach's gut" },
+        { "left": "pafshim", "right": "tschüss" },
+        { "left": "shihemi", "right": "bis bald" }
+      ],
+      "explanation": "Ankommen und Verabschieden: „Mirë se erdhe!“ – „Mirë se të gjeta!“, und zum Schluss „Kalofsh mirë!“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Antwortformel „mirë se të gjeta“ – Gebrauch im Kosovo zu prüfen."
+    },
+    {
+      "id": "ex_a1_u01_greetings_054",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_si_jeni", "item_me_falni", "item_ju_lutem", "item_po_ju", "item_gjithashtu"],
+      "prompt": { "lang": "de", "text": "Ordne die höflichen Wendungen zu." },
+      "pairs": [
+        { "left": "si jeni?", "right": "wie geht es Ihnen?" },
+        { "left": "më falni", "right": "entschuldigen Sie" },
+        { "left": "ju lutem", "right": "bitte (Sie)" },
+        { "left": "po ju?", "right": "und Sie?" },
+        { "left": "gjithashtu", "right": "gleichfalls" }
+      ],
+      "explanation": "In der Sie-Form stehen „ju“ und die Endung „-ni“: si jeni, më falni, ju lutem.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_055",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.greetings", "phrase.small_talk"],
+      "itemIds": ["item_miremengjes", "item_si_je"],
+      "prompt": { "lang": "de", "text": "Guten Morgen, wie geht es dir?" },
+      "answerLang": "sq",
+      "tokens": ["Mirëmëngjes", "si", "je"],
+      "solutions": ["Mirëmëngjes, si je?"],
+      "explanation": "Zuerst der Gruss, dann die Frage „si je?“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_056",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.small_talk"],
+      "itemIds": ["item_jo_keq", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Nicht schlecht, danke." },
+      "answerLang": "sq",
+      "tokens": ["Jo", "keq", "faleminderit"],
+      "solutions": ["Jo keq, faleminderit.", "Faleminderit, jo keq."],
+      "explanation": "„Jo keq“ bleibt zusammen: „jo“ (nicht) vor „keq“ (schlecht).",
+      "errorHints": [
+        { "pattern": "keq jo", "category": "grammar.word_order", "hint": "Es heisst „jo keq“ – „jo“ steht vorne." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_057",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.small_talk", "phrase.politeness"],
+      "itemIds": ["item_mire", "item_faleminderit", "item_po_ju"],
+      "prompt": { "lang": "de", "text": "Gut, danke, und Sie?" },
+      "answerLang": "sq",
+      "tokens": ["Mirë", "faleminderit", "po", "ju"],
+      "solutions": ["Mirë, faleminderit, po ju?", "Faleminderit, mirë, po ju?"],
+      "explanation": "Die Gegenfrage „po ju?“ steht am Schluss.",
+      "errorHints": [
+        { "pattern": "ju po", "category": "grammar.word_order", "hint": "Es heisst „po ju?“ – „po“ steht vor „ju“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_058",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_me_fal", "item_nuk_e_di"],
+      "prompt": { "lang": "de", "text": "Entschuldigung, ich weiss nicht." },
+      "answerLang": "sq",
+      "tokens": ["Më", "fal", "nuk", "e", "di"],
+      "solutions": ["Më fal, nuk e di."],
+      "explanation": "„Më fal“ steht am Anfang, danach „nuk e di“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)e nuk", "category": "grammar.word_order", "hint": "Es heisst „nuk e di“: zuerst „nuk“, dann „e“." },
+        { "pattern": "^fal m", "category": "grammar.word_order", "hint": "Es heisst „më fal“: „më“ steht vor „fal“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_059",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.greetings"],
+      "itemIds": ["item_mirupafshim", "item_kalofsh_mire"],
+      "prompt": { "lang": "de", "text": "Auf Wiedersehen, mach's gut!" },
+      "answerLang": "sq",
+      "tokens": ["Mirupafshim", "kalofsh", "mirë"],
+      "solutions": ["Mirupafshim, kalofsh mirë!", "Kalofsh mirë, mirupafshim!"],
+      "explanation": "„Kalofsh mirë“ heisst wörtlich „mögest du es gut verbringen“ – ein freundlicher Abschiedswunsch.",
+      "errorHints": [
+        { "pattern": "mir[eë] kalofsh", "category": "grammar.word_order", "hint": "Es heisst „kalofsh mirë“ – „mirë“ steht nach dem Verb." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u01_greetings_060",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.greetings", "phrase.politeness"],
+      "itemIds": ["item_tungjatjeta", "item_si_jeni", "item_sot"],
+      "prompt": { "lang": "de", "text": "Guten Tag, wie geht es Ihnen heute?" },
+      "answerLang": "sq",
+      "tokens": ["Tungjatjeta", "si", "jeni", "sot"],
+      "solutions": ["Tungjatjeta, si jeni sot?"],
+      "explanation": "„Tungjatjeta“ ist ein traditioneller, eher förmlicher Gruss. „Sot“ (heute) steht am Ende.",
       "reviewed": false,
       "source": "manual"
     }

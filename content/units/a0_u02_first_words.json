@@ -1,0 +1,1114 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a0_u02_first_words",
+  "level": "A0",
+  "grammar": [
+    {
+      "title": "Ja und nein",
+      "explanation": "**Po** heisst „ja“, **jo** heisst „nein“. Für Deutschsprachige ist das am Anfang verwirrend – *po* klingt nach nichts, was wir kennen, *jo* fast wie „ja“.\n\nIn kurzen Antworten heisst **jo** auch „nicht“: *Tash jo.* – „Jetzt nicht.“"
+    },
+    {
+      "title": "Bitte und danke",
+      "explanation": "| Albanisch | Deutsch |\n|---|---|\n| të lutem | bitte (zu einer Person, die du duzt) |\n| ju lutem | bitte (höflich, Sie) |\n| faleminderit | danke (oft „falemnderit“ gesprochen) |\n| s'ka përse | gern geschehen |\n\nDie Bitte kann vorne oder hinten stehen: *Ujë, të lutem.* oder *Të lutem, ujë.*"
+    },
+    {
+      "title": "Gheg im Alltag",
+      "explanation": "Im Kosovo sagt man **tash** oder **tashti** für „jetzt“ (Standard: *tani*) und **nji** für „ein, eine“ (Standard: *një*).\n\nDer bestimmte Artikel hängt am Wort hinten dran: *ujë* → **uji** (das Wasser), *bukë* → **buka** (das Brot). Mehr dazu lernst du später."
+    }
+  ],
+  "items": [
+    { "id": "item_uje", "kind": "word", "gheg": "ujë", "de": "Wasser", "partOfSpeech": "noun", "gender": "m", "definite": "uji", "reviewed": false },
+    { "id": "item_buke", "kind": "word", "gheg": "bukë", "de": "Brot", "partOfSpeech": "noun", "gender": "f", "definite": "buka", "reviewed": false },
+    { "id": "item_caj", "kind": "word", "gheg": "çaj", "de": "Tee", "partOfSpeech": "noun", "gender": "m", "definite": "çaji", "reviewed": false },
+    {
+      "id": "item_qumesht",
+      "kind": "word",
+      "gheg": "qumësht",
+      "de": "Milch",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "qumështi",
+      "note": "Gleich wie Standard; „tamël“ ist Nordwest-Gheg und wird nicht verwendet (Richtlinie 5.3, zu prüfen).",
+      "reviewed": false
+    },
+    { "id": "item_keq", "kind": "word", "gheg": "keq", "de": "schlecht", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_pak", "kind": "word", "gheg": "pak", "de": "wenig, ein bisschen", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_ne_rregull", "kind": "phrase", "gheg": "në rregull", "de": "in Ordnung", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_ndoshta", "kind": "word", "gheg": "ndoshta", "de": "vielleicht", "partOfSpeech": "adverb", "reviewed": false },
+    {
+      "id": "item_nuk_e_di",
+      "kind": "phrase",
+      "gheg": "nuk e di",
+      "de": "ich weiss nicht",
+      "partOfSpeech": "phrase",
+      "alternatives": ["s'e di"],
+      "reviewed": false
+    },
+    { "id": "item_kush", "kind": "word", "gheg": "kush", "de": "wer", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_apo", "kind": "word", "gheg": "apo", "de": "oder (in Fragen)", "partOfSpeech": "conjunction", "reviewed": false },
+    {
+      "id": "item_tash",
+      "kind": "word",
+      "gheg": "tash",
+      "de": "jetzt",
+      "partOfSpeech": "adverb",
+      "alternatives": ["tashti"],
+      "reviewed": false
+    },
+    { "id": "item_sot", "kind": "word", "gheg": "sot", "de": "heute", "partOfSpeech": "adverb", "reviewed": false },
+    {
+      "id": "item_ketu",
+      "kind": "word",
+      "gheg": "këtu",
+      "de": "hier",
+      "partOfSpeech": "adverb",
+      "note": "Im Kosovo-Alltag auch „qitu“ – zu prüfen, ob als Alternative aufnehmen.",
+      "reviewed": false
+    },
+    { "id": "item_edhe", "kind": "word", "gheg": "edhe", "de": "auch; und", "partOfSpeech": "conjunction", "reviewed": false },
+    { "id": "item_hajde", "kind": "word", "gheg": "hajde", "de": "komm!, los!", "partOfSpeech": "interjection", "reviewed": false },
+    {
+      "id": "item_me_prep",
+      "kind": "word",
+      "gheg": "me",
+      "de": "mit",
+      "partOfSpeech": "preposition",
+      "note": "Präposition „mit“ – nicht zu verwechseln mit dem Infinitiv-„me“ (me punue). Eigene Id, damit es keinen Konflikt mit einem Item für das Infinitiv-„me“ gibt.",
+      "reviewed": false
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a0_u02_first_words_001",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_po"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ja“?" },
+      "choices": ["po", "jo", "pak", "apo"],
+      "solutions": ["po"],
+      "explanation": "„Po“ heisst „ja“. Merke: „jo“ klingt fast wie „ja“, heisst aber „nein“.",
+      "errorHints": [
+        { "pattern": "^jo$", "category": "vocab.confused", "hint": "„Jo“ heisst „nein“. „Ja“ heisst „po“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_002",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_jo"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „jo“?" },
+      "choices": ["nein", "ja", "oder", "jetzt"],
+      "solutions": ["nein"],
+      "explanation": "„Jo“ heisst „nein“ – auch wenn es für deutsche Ohren fast wie „ja“ klingt.",
+      "errorHints": [
+        { "pattern": "^ja$", "category": "vocab.confused", "hint": "„Ja“ heisst auf Albanisch „po“. „Jo“ ist „nein“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_003",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "vocab.drinks"],
+      "itemIds": ["item_uje"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „ujë“?" },
+      "choices": ["Wasser", "Brot", "Milch", "Tee"],
+      "solutions": ["Wasser"],
+      "explanation": "„Ujë“ heisst „Wasser“. Das End-ë hört man kaum: „uj“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_004",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "vocab.food"],
+      "itemIds": ["item_buke"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Brot“?" },
+      "choices": ["bukë", "ujë", "çaj", "qumësht"],
+      "solutions": ["bukë"],
+      "explanation": "„Bukë“ heisst „Brot“, mit Artikel „buka“ – „das Brot“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_005",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_apo"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „apo“?" },
+      "choices": ["oder", "und", "auch", "aber"],
+      "solutions": ["oder"],
+      "explanation": "„Apo“ heisst „oder“ und steht vor allem in Fragen: „Kafe apo çaj?“",
+      "errorHints": [
+        { "pattern": "^und$", "category": "vocab.confused", "hint": "„Und“ heisst „dhe“. „Apo“ ist „oder“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_006",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["phrase.politeness", "vocab.basics"],
+      "itemIds": ["item_jo", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Du möchtest keinen Kaffee. Was sagst du?" },
+      "choices": ["Jo, faleminderit.", "Po, faleminderit.", "Pak, të lutem.", "Hajde!"],
+      "solutions": ["Jo, faleminderit."],
+      "explanation": "„Jo, faleminderit“ heisst „Nein, danke“. Mit „Po, faleminderit“ würdest du „Ja, danke“ sagen.",
+      "errorHints": [
+        { "pattern": "^po ", "category": "vocab.confused", "hint": "„Po“ heisst „ja“. Für „nein“ sagst du „jo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_007",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_tash"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „jetzt“ im Kosovo-Gheg?" },
+      "choices": ["tash", "sot", "nesër", "pak"],
+      "solutions": ["tash"],
+      "explanation": "„Tash“ (auch „tashti“) heisst „jetzt“. Im Standardalbanischen sagt man „tani“.",
+      "errorHints": [
+        { "pattern": "^sot$", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“." },
+        { "pattern": "^nes[eë]r$", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_008",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_nuk_e_di"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „nuk e di“?" },
+      "choices": ["ich weiss nicht", "ich bin nicht da", "ich habe keine Zeit", "ich will nicht"],
+      "solutions": ["ich weiss nicht"],
+      "explanation": "„Nuk“ heisst „nicht“, „di“ heisst „ich weiss“. Das kleine „e“ bedeutet „es“: wörtlich „ich weiss es nicht“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_009",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_ndoshta"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „ndoshta“?" },
+      "choices": ["vielleicht", "heute", "hier", "wenig"],
+      "solutions": ["vielleicht"],
+      "explanation": "„Ndoshta“ heisst „vielleicht“: „Ndoshta nesër.“ – „Vielleicht morgen.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_010",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "vocab.drinks"],
+      "itemIds": ["item_qumesht"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Milch“?" },
+      "choices": ["qumësht", "çaj", "bukë", "kafe"],
+      "solutions": ["qumësht"],
+      "explanation": "„Qumësht“ heisst „Milch“. Das q klingt wie ein weiches „tj“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_011",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "vocab.drinks"],
+      "itemIds": ["item_buke", "item_uje", "item_caj", "item_qumesht"],
+      "prompt": { "lang": "de", "text": "Welches Wort ist KEIN Getränk?" },
+      "choices": ["bukë", "ujë", "çaj", "qumësht"],
+      "solutions": ["bukë"],
+      "explanation": "„Bukë“ ist Brot. „Ujë“ (Wasser), „çaj“ (Tee) und „qumësht“ (Milch) sind Getränke.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_012",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_faleminderit", "item_ska_perse"],
+      "prompt": { "lang": "de", "text": "Jemand sagt dir „Faleminderit!“. Was antwortest du?" },
+      "choices": ["S'ka përse.", "Po, faleminderit.", "Nuk e di.", "Hajde!"],
+      "solutions": ["S'ka përse."],
+      "explanation": "„S'ka përse“ heisst „gern geschehen“ – wörtlich „es gibt keinen Grund (zu danken)“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_013",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_po", "item_jo", "item_faleminderit", "item_te_lutem", "item_ndoshta"],
+      "prompt": { "lang": "de", "text": "Ordne die Paare zu." },
+      "pairs": [
+        { "left": "po", "right": "ja" },
+        { "left": "jo", "right": "nein" },
+        { "left": "faleminderit", "right": "danke" },
+        { "left": "të lutem", "right": "bitte" },
+        { "left": "ndoshta", "right": "vielleicht" }
+      ],
+      "explanation": "Mit diesen fünf Wörtern kommst du schon durch viele Gespräche.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_014",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "vocab.food", "vocab.drinks"],
+      "itemIds": ["item_uje", "item_buke", "item_kafe", "item_caj", "item_qumesht"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "ujë", "right": "Wasser" },
+        { "left": "bukë", "right": "Brot" },
+        { "left": "kafe", "right": "Kaffee" },
+        { "left": "çaj", "right": "Tee" },
+        { "left": "qumësht", "right": "Milch" }
+      ],
+      "explanation": "„Kafe“ und „çaj“ erkennst du leicht wieder. Das ç in „çaj“ klingt wie „tsch“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_015",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_tash", "item_sot", "item_neser", "item_ketu", "item_pak"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "tash", "right": "jetzt" },
+        { "left": "sot", "right": "heute" },
+        { "left": "nesër", "right": "morgen" },
+        { "left": "këtu", "right": "hier" },
+        { "left": "pak", "right": "ein bisschen" }
+      ],
+      "explanation": "„Tash“ ist die Kosovo-Form von „jetzt“ (Standard: „tani“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_016",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_mire", "item_keq", "item_shume", "item_apo", "item_edhe"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "mirë", "right": "gut" },
+        { "left": "keq", "right": "schlecht" },
+        { "left": "shumë", "right": "sehr, viel" },
+        { "left": "apo", "right": "oder" },
+        { "left": "edhe", "right": "auch" }
+      ],
+      "explanation": "„Mirë“ und „keq“ sind Gegenteile: „Jo keq!“ heisst „Nicht schlecht!“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_017",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_nuk_e_di", "item_ne_rregull", "item_hajde", "item_kush", "item_ku"],
+      "prompt": { "lang": "de", "text": "Ordne die Paare zu." },
+      "pairs": [
+        { "left": "nuk e di", "right": "ich weiss nicht" },
+        { "left": "në rregull", "right": "in Ordnung" },
+        { "left": "hajde", "right": "komm!" },
+        { "left": "kush", "right": "wer" },
+        { "left": "ku", "right": "wo" }
+      ],
+      "explanation": "Achtung: „kush“ heisst „wer“, „ku“ heisst „wo“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_018",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "grammar.definite_article.masc", "grammar.definite_article.fem"],
+      "itemIds": ["item_uje", "item_buke", "item_caj", "item_qumesht", "item_shpi"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter mit Artikel zu." },
+      "pairs": [
+        { "left": "uji", "right": "das Wasser" },
+        { "left": "buka", "right": "das Brot" },
+        { "left": "çaji", "right": "der Tee" },
+        { "left": "qumështi", "right": "die Milch" },
+        { "left": "shpija", "right": "das Haus" }
+      ],
+      "explanation": "Der Artikel hängt hinten dran: ujë → uji, bukë → buka, çaj → çaji, qumësht → qumështi, shpi → shpija.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_019",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_po", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Ja, danke." },
+      "answerLang": "sq",
+      "text": "___, faleminderit.",
+      "solutions": ["Po"],
+      "choices": ["Po", "Jo", "Pak", "Apo"],
+      "explanation": "„Po“ heisst „ja“.",
+      "errorHints": [
+        { "pattern": "^jo$", "category": "vocab.confused", "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_020",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_jo", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Nein, danke." },
+      "answerLang": "sq",
+      "text": "Jo, ___.",
+      "solutions": ["faleminderit", "falemnderit"],
+      "explanation": "„Faleminderit“ heisst „danke“. Im Alltag sagt man oft kürzer „falemnderit“.",
+      "errorHints": [
+        { "pattern": "^lutem$", "category": "vocab.confused", "hint": "„Lutem“ gehört zu „të lutem“ (bitte). „Danke“ heisst „faleminderit“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_021",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_uje", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Wasser, bitte." },
+      "answerLang": "sq",
+      "text": "Ujë, të ___.",
+      "solutions": ["lutem"],
+      "choices": ["lutem", "mirë", "pak", "po"],
+      "explanation": "„Të lutem“ heisst „bitte“ – zu jemandem, den du duzt.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_022",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_kafe", "item_apo", "item_caj"],
+      "prompt": { "lang": "de", "text": "Kaffee oder Tee?" },
+      "answerLang": "sq",
+      "text": "Kafe ___ çaj?",
+      "solutions": ["apo"],
+      "choices": ["apo", "dhe", "po", "jo"],
+      "explanation": "„Apo“ heisst „oder“ und passt gut in Fragen.",
+      "errorHints": [
+        { "pattern": "^dhe$", "category": "vocab.confused", "hint": "„Dhe“ heisst „und“. Für „oder“ sagst du „apo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_023",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_buke", "item_dhe", "item_uje"],
+      "prompt": { "lang": "de", "text": "Brot und Wasser." },
+      "answerLang": "sq",
+      "text": "Bukë ___ ujë.",
+      "solutions": ["dhe", "edhe", "e"],
+      "explanation": "„Und“ heisst „dhe“. Im Kosovo hört man auch „edhe“ oder einfach „e“.",
+      "errorHints": [
+        { "pattern": "^apo$", "category": "vocab.confused", "hint": "„Apo“ heisst „oder“. „Und“ heisst „dhe“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„dhe“, „edhe“ und „e“ als „und“ akzeptiert – Hauptform zu prüfen (Richtlinie 13.4)."
+    },
+    {
+      "id": "ex_a0_u02_first_words_024",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_nuk_e_di"],
+      "prompt": { "lang": "de", "text": "Ich weiss nicht." },
+      "answerLang": "sq",
+      "text": "Nuk e ___.",
+      "solutions": ["di"],
+      "choices": ["di", "jam", "po", "ka"],
+      "explanation": "„Di“ heisst „ich weiss“. „Nuk e di“ ist wörtlich „ich weiss es nicht“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_025",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_tash", "item_jo", "item_ndoshta", "item_neser"],
+      "prompt": { "lang": "de", "text": "Jetzt nicht, vielleicht morgen." },
+      "answerLang": "sq",
+      "text": "___ jo, ndoshta nesër.",
+      "solutions": ["Tash", "Tashti"],
+      "standardForms": ["Tani"],
+      "explanation": "„Tash“ oder „tashti“ heisst „jetzt“. „Tani“ ist die Standard-Form.",
+      "errorHints": [
+        { "pattern": "^sot$", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“. „Jetzt“ heisst „tash“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_026",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_nji", "item_kafe", "item_me_prep", "item_qumesht"],
+      "prompt": { "lang": "de", "text": "Einen Kaffee mit Milch, bitte." },
+      "answerLang": "sq",
+      "text": "Nji kafe ___ qumësht, të lutem.",
+      "solutions": ["me"],
+      "choices": ["me", "dhe", "apo", "pa"],
+      "explanation": "„Me“ heisst hier „mit“: „kafe me qumësht“ – Kaffee mit Milch.",
+      "errorHints": [
+        { "pattern": "^pa$", "category": "vocab.confused", "hint": "„Pa“ heisst „ohne“. „Mit“ heisst „me“." },
+        { "pattern": "^dhe$", "category": "vocab.confused", "hint": "„Dhe“ heisst „und“. „Mit“ heisst „me“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_027",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_pak", "item_uje"],
+      "prompt": { "lang": "de", "text": "Ein bisschen Wasser, bitte." },
+      "answerLang": "sq",
+      "text": "Pak ___, të lutem.",
+      "solutions": ["ujë"],
+      "choices": ["ujë", "bukë", "jo", "sot"],
+      "explanation": "„Ujë“ heisst „Wasser“, „pak“ heisst „ein bisschen“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_028",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_buke", "item_asht", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Das Brot ist hier." },
+      "answerLang": "sq",
+      "text": "Buka âsht ___.",
+      "solutions": ["këtu"],
+      "choices": ["këtu", "tash", "sot", "pak"],
+      "explanation": "„Këtu“ heisst „hier“. „Buka“ ist „das Brot“, „âsht“ heisst „ist“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_029",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_po", "item_pak"],
+      "prompt": { "lang": "de", "text": "Ja, ein bisschen." },
+      "answerLang": "sq",
+      "text": "Po, ___.",
+      "solutions": ["pak"],
+      "explanation": "„Pak“ heisst „wenig, ein bisschen“.",
+      "errorHints": [
+        { "pattern": "^shum[eë]$", "category": "vocab.confused", "hint": "„Shumë“ heisst „viel, sehr“. „Ein bisschen“ heisst „pak“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_030",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_kush", "item_asht"],
+      "prompt": { "lang": "de", "text": "Wer ist da?" },
+      "answerLang": "sq",
+      "text": "___ âsht?",
+      "solutions": ["Kush"],
+      "choices": ["Kush", "Çka", "Ku", "Po"],
+      "explanation": "„Kush“ heisst „wer“. „Kush âsht?“ fragst du zum Beispiel, wenn es an der Tür klopft.",
+      "errorHints": [
+        { "pattern": "^ku$", "category": "vocab.confused", "hint": "„Ku“ heisst „wo“. „Wer“ heisst „kush“." },
+        { "pattern": "^çka$", "category": "vocab.confused", "hint": "„Çka“ heisst „was“. „Wer“ heisst „kush“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_031",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_po", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Ja, danke." },
+      "answerLang": "sq",
+      "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+      "explanation": "„Po“ heisst „ja“, „faleminderit“ heisst „danke“.",
+      "errorHints": [
+        { "pattern": "^jo ", "category": "vocab.confused", "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_032",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_jo", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Nein, danke." },
+      "answerLang": "sq",
+      "solutions": ["Jo, faleminderit.", "Jo, falemnderit."],
+      "explanation": "„Jo“ heisst „nein“. So lehnst du höflich ab.",
+      "errorHints": [
+        { "pattern": "^po ", "category": "vocab.confused", "hint": "„Po“ heisst „ja“. Für „nein“ sagst du „jo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_033",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_uje", "item_te_lutem", "item_ju_lutem"],
+      "prompt": { "lang": "de", "text": "Wasser, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Ujë, të lutem.", "Ujë, ju lutem.", "Të lutem, ujë.", "Ju lutem, ujë."],
+      "explanation": "„Të lutem“ sagst du zu Freunden, „ju lutem“ ist höflich. Die Bitte darf vorne oder hinten stehen.",
+      "errorHints": [
+        { "pattern": "^(?!.*(ju|të|te) lutem).*lutem", "category": "vocab.unknown", "hint": "„Bitte“ hat zwei Wörter: „të lutem“ (du) oder „ju lutem“ (Sie)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_034",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_nuk_e_di"],
+      "prompt": { "lang": "de", "text": "Ich weiss nicht." },
+      "answerLang": "sq",
+      "solutions": ["Nuk e di.", "S'e di."],
+      "explanation": "Man sagt „Nuk e di“ – wörtlich „ich weiss es nicht“. Locker geht auch „S'e di“.",
+      "errorHints": [
+        { "pattern": "^nuk di$", "category": "grammar.clitics", "hint": "Das kleine „e“ (es) gehört dazu: „Nuk e di.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_035",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics", "vocab.drinks"],
+      "itemIds": ["item_kafe", "item_apo", "item_caj"],
+      "prompt": { "lang": "de", "text": "Kaffee oder Tee?" },
+      "answerLang": "sq",
+      "solutions": ["Kafe apo çaj?", "Kafe ose çaj?"],
+      "explanation": "„Apo“ heisst „oder“. „Çaj“ (Tee) schreibst du mit ç.",
+      "errorHints": [
+        { "pattern": "(^|\\s)dhe(\\s|$)", "category": "vocab.confused", "hint": "„Dhe“ heisst „und“. „Oder“ heisst „apo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_036",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_tash", "item_jo"],
+      "prompt": { "lang": "de", "text": "Jetzt nicht." },
+      "answerLang": "sq",
+      "solutions": ["Tash jo.", "Jo tash.", "Tashti jo.", "Jo tashti."],
+      "standardForms": ["Tani jo.", "Jo tani."],
+      "explanation": "In kurzen Antworten heisst „jo“ auch „nicht“. „Tash“ ist die Kosovo-Form von „jetzt“ (Standard: „tani“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)sot(\\s|$)", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“. „Jetzt“ heisst „tash“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_037",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics", "vocab.food"],
+      "itemIds": ["item_buke", "item_dhe", "item_uje"],
+      "prompt": { "lang": "de", "text": "Brot und Wasser." },
+      "answerLang": "sq",
+      "solutions": ["Bukë dhe ujë.", "Bukë edhe ujë.", "Bukë e ujë."],
+      "explanation": "„Bukë“ ist Brot, „ujë“ ist Wasser. „Und“ heisst „dhe“, im Kosovo oft auch „edhe“ oder „e“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)apo(\\s|$)", "category": "vocab.confused", "hint": "„Apo“ heisst „oder“. „Und“ heisst „dhe“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„dhe“, „edhe“ und „e“ als „und“ akzeptiert – Hauptform zu prüfen (Richtlinie 13.4)."
+    },
+    {
+      "id": "ex_a0_u02_first_words_038",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "phrase.politeness", "vocab.drinks"],
+      "itemIds": ["item_nji", "item_kafe", "item_me_prep", "item_qumesht", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Einen Kaffee mit Milch, bitte." },
+      "answerLang": "sq",
+      "solutions": [
+        "Nji kafe me qumësht, të lutem.",
+        "Nji kafe me qumësht, ju lutem.",
+        "Të lutem, nji kafe me qumësht.",
+        "Ju lutem, nji kafe me qumësht."
+      ],
+      "standardForms": [
+        "Një kafe me qumësht, të lutem.",
+        "Një kafe me qumësht, ju lutem.",
+        "Të lutem, një kafe me qumësht.",
+        "Ju lutem, një kafe me qumësht."
+      ],
+      "explanation": "„Nji“ ist die Gheg-Form von „ein, eine“ (Standard: „një“). „Me“ heisst „mit“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)pa qum", "category": "vocab.confused", "hint": "„Pa“ heisst „ohne“. „Mit“ heisst „me“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_039",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "grammar.definite_article.fem"],
+      "itemIds": ["item_buke", "item_asht", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Das Brot ist hier." },
+      "answerLang": "sq",
+      "solutions": ["Buka âsht këtu.", "Këtu âsht buka."],
+      "standardForms": ["Buka është këtu.", "Këtu është buka."],
+      "explanation": "„Das Brot“ heisst „buka“: Der Artikel hängt hinten dran (bukë → buka). „Âsht“ heisst „ist“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)buk[eë](\\s|$)", "category": "grammar.definite_article", "hint": "„Das Brot“ heisst „buka“ – der Artikel hängt hinten dran." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_040",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_po", "item_faleminderit"],
+      "prompt": { "lang": "sq", "text": "Po, faleminderit." },
+      "answerLang": "de",
+      "solutions": ["Ja, danke."],
+      "wordBank": ["Ja", "danke", "Nein", "bitte"],
+      "explanation": "„Po“ heisst „ja“ – nicht „nein“!",
+      "errorHints": [
+        { "pattern": "^nein", "category": "vocab.confused", "hint": "„Po“ heisst „ja“. „Nein“ wäre „jo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_041",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_jo", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Nein, danke." },
+      "answerLang": "sq",
+      "solutions": ["Jo, faleminderit.", "Jo, falemnderit."],
+      "wordBank": ["Jo", "faleminderit", "Po", "pak"],
+      "explanation": "„Jo“ heisst „nein“, „faleminderit“ heisst „danke“.",
+      "errorHints": [
+        { "pattern": "^po ", "category": "vocab.confused", "hint": "„Po“ heisst „ja“. Für „nein“ sagst du „jo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_042",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["phrase.politeness", "vocab.drinks"],
+      "itemIds": ["item_caj", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Tee, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Çaj, të lutem.", "Të lutem, çaj."],
+      "wordBank": ["Çaj", "të", "lutem", "ujë", "jo", "mirë"],
+      "explanation": "„Çaj“ heisst „Tee“. Das ç klingt wie „tsch“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_043",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "vocab.drinks"],
+      "itemIds": ["item_uje", "item_apo", "item_qumesht"],
+      "prompt": { "lang": "sq", "text": "Ujë apo qumësht?" },
+      "answerLang": "de",
+      "solutions": ["Wasser oder Milch?", "Milch oder Wasser?"],
+      "wordBank": ["Wasser", "oder", "Milch", "und", "Brot"],
+      "explanation": "„Ujë“ ist Wasser, „qumësht“ ist Milch, „apo“ heisst „oder“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)und(\\s|$)", "category": "vocab.confused", "hint": "„Apo“ heisst „oder“, nicht „und“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_044",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics", "phrase.politeness", "vocab.food"],
+      "itemIds": ["item_buke", "item_dhe", "item_uje", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Brot und Wasser, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Bukë dhe ujë, të lutem.", "Bukë edhe ujë, të lutem.", "Bukë e ujë, të lutem.", "Të lutem, bukë dhe ujë."],
+      "wordBank": ["Bukë", "dhe", "ujë", "të", "lutem", "apo", "çaj", "jo"],
+      "explanation": "„Dhe“ heisst „und“, „apo“ heisst „oder“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)apo(\\s|$)", "category": "vocab.confused", "hint": "„Apo“ heisst „oder“. „Und“ heisst „dhe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_045",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_nuk_e_di"],
+      "prompt": { "lang": "sq", "text": "Nuk e di." },
+      "answerLang": "de",
+      "solutions": ["Ich weiss nicht.", "Weiss ich nicht."],
+      "wordBank": ["Ich", "weiss", "nicht", "bin", "ja"],
+      "explanation": "„Nuk e di“ heisst „Ich weiss (es) nicht“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_046",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_ndoshta", "item_neser"],
+      "prompt": { "lang": "de", "text": "Vielleicht morgen." },
+      "answerLang": "sq",
+      "solutions": ["Ndoshta nesër."],
+      "wordBank": ["Ndoshta", "nesër", "sot", "tash"],
+      "explanation": "„Ndoshta“ heisst „vielleicht“, „nesër“ heisst „morgen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)sot$", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“. „Morgen“ heisst „nesër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_047",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_tash", "item_jo", "item_ndoshta", "item_neser"],
+      "prompt": { "lang": "sq", "text": "Tash jo, ndoshta nesër." },
+      "answerLang": "de",
+      "solutions": ["Jetzt nicht, vielleicht morgen.", "Nicht jetzt, vielleicht morgen."],
+      "wordBank": ["Jetzt", "nicht", "vielleicht", "morgen", "heute", "ja"],
+      "explanation": "„Tash“ heisst „jetzt“. Nach einem Wort wie „tash“ bedeutet „jo“ „nicht“.",
+      "errorHints": [
+        { "pattern": "heute", "category": "vocab.confused", "hint": "„Tash“ heisst „jetzt“. „Heute“ wäre „sot“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_048",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics", "phrase.politeness", "vocab.drinks"],
+      "itemIds": ["item_pak", "item_qumesht", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Ein bisschen Milch, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Pak qumësht, të lutem.", "Të lutem, pak qumësht."],
+      "wordBank": ["Pak", "qumësht", "të", "lutem", "shumë", "bukë"],
+      "explanation": "„Pak“ heisst „wenig, ein bisschen“. Das Gegenteil ist „shumë“ (viel).",
+      "errorHints": [
+        { "pattern": "^shum[eë] ", "category": "vocab.confused", "hint": "„Shumë“ heisst „viel“. „Ein bisschen“ heisst „pak“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_049",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_kush", "item_asht"],
+      "prompt": { "lang": "sq", "text": "Kush âsht?" },
+      "answerLang": "de",
+      "solutions": ["Wer ist da?", "Wer ist es?", "Wer ist das?"],
+      "wordBank": ["Wer", "ist", "da", "wo", "was"],
+      "explanation": "„Kush“ heisst „wer“. „Âsht“ heisst „ist“ – mit dem Gheg-Nasalvokal â.",
+      "errorHints": [
+        { "pattern": "^(wo|was) ", "category": "vocab.confused", "hint": "„Kush“ heisst „wer“. „Wo“ heisst „ku“, „was“ heisst „çka“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_050",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_ne_rregull", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "In Ordnung, danke!" },
+      "answerLang": "sq",
+      "solutions": ["Në rregull, faleminderit!", "Në rregull, falemnderit!"],
+      "wordBank": ["Në", "rregull", "faleminderit", "jo", "pak"],
+      "explanation": "„Në rregull“ heisst „in Ordnung“. Das rr ist kräftig gerollt.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_051",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "vocab.drinks"],
+      "itemIds": ["item_kafe", "item_me_prep", "item_qumesht", "item_jo", "item_caj"],
+      "prompt": { "lang": "sq", "text": "Kafe me qumësht, jo çaj." },
+      "answerLang": "de",
+      "solutions": ["Kaffee mit Milch, nicht Tee.", "Kaffee mit Milch, keinen Tee."],
+      "wordBank": ["Kaffee", "mit", "Milch", "nicht", "Tee", "Wasser", "oder"],
+      "explanation": "„Me“ heisst „mit“. Vor einem Nomen heisst „jo“ hier „nicht“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_052",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_jo", "item_faleminderit", "item_shume"],
+      "prompt": { "lang": "de", "text": "Nein, vielen Dank." },
+      "answerLang": "sq",
+      "tokens": ["Jo", "faleminderit", "shumë"],
+      "solutions": ["Jo, faleminderit shumë.", "Jo, shumë faleminderit."],
+      "explanation": "„Faleminderit shumë“ heisst „vielen Dank“. „Shumë“ darf vor oder nach „faleminderit“ stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_053",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["phrase.politeness"],
+      "itemIds": ["item_uje", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Wasser, bitte." },
+      "answerLang": "sq",
+      "tokens": ["Ujë", "të", "lutem"],
+      "solutions": ["Ujë, të lutem.", "Të lutem, ujë."],
+      "explanation": "„Të lutem“ bleibt zusammen: zuerst „të“, dann „lutem“.",
+      "errorHints": [
+        { "pattern": "lutem t[eë]", "category": "grammar.word_order", "hint": "Es heisst „të lutem“: „të“ steht vor „lutem“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_054",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_kafe", "item_apo", "item_caj"],
+      "prompt": { "lang": "de", "text": "Kaffee oder Tee?" },
+      "answerLang": "sq",
+      "tokens": ["Kafe", "apo", "çaj"],
+      "solutions": ["Kafe apo çaj?", "Çaj apo kafe?"],
+      "explanation": "„Apo“ steht zwischen den beiden Möglichkeiten.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_055",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_nuk_e_di"],
+      "prompt": { "lang": "de", "text": "Ich weiss nicht." },
+      "answerLang": "sq",
+      "tokens": ["Nuk", "e", "di"],
+      "solutions": ["Nuk e di."],
+      "explanation": "„Nuk“ (nicht) kommt zuerst, dann das kleine „e“ (es), dann „di“ (ich weiss).",
+      "errorHints": [
+        { "pattern": "^e nuk", "category": "grammar.word_order", "hint": "Das kleine „e“ steht direkt vor dem Verb: „Nuk e di.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_056",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_tash", "item_jo", "item_ndoshta", "item_neser"],
+      "prompt": { "lang": "de", "text": "Jetzt nicht, vielleicht morgen." },
+      "answerLang": "sq",
+      "tokens": ["Tash", "jo", "ndoshta", "nesër"],
+      "solutions": ["Tash jo, ndoshta nesër.", "Jo tash, ndoshta nesër."],
+      "explanation": "„Tash jo“ und „jo tash“ heissen beide „jetzt nicht“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_057",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_nji", "item_kafe", "item_me_prep", "item_qumesht", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Einen Kaffee mit Milch, bitte." },
+      "answerLang": "sq",
+      "tokens": ["Nji", "kafe", "me", "qumësht", "të", "lutem"],
+      "solutions": ["Nji kafe me qumësht, të lutem.", "Të lutem, nji kafe me qumësht."],
+      "explanation": "„Me qumësht“ (mit Milch) steht nach „kafe“ – wie im Deutschen.",
+      "errorHints": [
+        { "pattern": "^nji me", "category": "grammar.word_order", "hint": "Zuerst kommt „nji kafe“, dann „me qumësht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_058",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics"],
+      "itemIds": ["item_buke", "item_asht", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Das Brot ist hier." },
+      "answerLang": "sq",
+      "tokens": ["Buka", "âsht", "këtu"],
+      "solutions": ["Buka âsht këtu.", "Këtu âsht buka."],
+      "explanation": "Beide Reihenfolgen sind möglich: „Buka âsht këtu“ oder „Këtu âsht buka“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_059",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "phrase.politeness"],
+      "itemIds": ["item_pak", "item_uje", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Ein bisschen Wasser, bitte." },
+      "answerLang": "sq",
+      "tokens": ["Pak", "ujë", "të", "lutem"],
+      "solutions": ["Pak ujë, të lutem.", "Të lutem, pak ujë."],
+      "explanation": "„Pak“ (ein bisschen) steht vor dem Nomen: „pak ujë“.",
+      "errorHints": [
+        { "pattern": "^uj[eë] pak", "category": "grammar.word_order", "hint": "„Pak“ steht vor dem Nomen: „pak ujë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u02_first_words_060",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "vocab.food"],
+      "itemIds": ["item_po", "item_pak", "item_uje", "item_dhe", "item_buke"],
+      "prompt": { "lang": "de", "text": "Ja, ein bisschen Wasser und ein bisschen Brot." },
+      "answerLang": "sq",
+      "tokens": ["Po", "pak", "ujë", "dhe", "pak", "bukë"],
+      "solutions": ["Po, pak ujë dhe pak bukë.", "Po, pak bukë dhe pak ujë."],
+      "explanation": "„Pak“ steht jedes Mal vor dem Nomen: „pak ujë“, „pak bukë“.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a0_u01_sounds",
+  "level": "A0",
+  "grammar": [
+    {
+      "title": "Buchstaben, die anders klingen",
+      "explanation": "Die meisten albanischen Buchstaben klingen wie im Deutschen. Aufpassen musst du bei diesen:\n\n| Buchstabe | klingt wie | Beispiel |\n|---|---|---|\n| sh | „sch“ | *shpi* (Haus) |\n| ç | „tsch“ | *çka* (was) |\n| c | „z“ in „Zeit“ | *copë* (Stück) |\n| xh | „dsch“ | *xhep* (Hosentasche) |\n| zh | „j“ in „Journal“ | *zhurmë* (Lärm) |\n| y | „ü“ | *dy* (zwei) |\n| j | „j“ in „ja“ | *jam* (ich bin) |\n| z | „s“ in „Rose“ | *zemër* (Herz) |\n| q | weiches „tj“ | *qen* (Hund) |\n| gj | weiches „dj“ | *gjyshe* (Grossmutter) |\n| dh | englisch „th“ in „this“ | *dhe* (und) |\n| th | englisch „th“ in „think“ | *thikë* (Messer) |\n| rr | kräftig gerolltes r | *burrë* (Mann) |\n| ll | dunkles l wie in „well“ | *yll* (Stern) |\n| nj | „gn“ in „Champagner“ | *nji* (ein, eine) |\n\nDoppelbuchstaben wie **sh**, **dh** oder **gj** zählen als *ein* Buchstabe."
+    },
+    {
+      "title": "ë und ç",
+      "explanation": "**ë** ist ein kurzer Murmellaut wie das „e“ in „bitte“. Am Wortende hört man es kaum: *mirë* (gut) klingt fast wie „mir“. Geschrieben wird es trotzdem.\n\n**ç** klingt wie „tsch“: *çka* (was). Ohne Häkchen ist **c** ein „z“ wie in „Zeit“."
+    },
+    {
+      "title": "Nasalvokale mit Zirkumflex",
+      "explanation": "Gheg hat **Nasalvokale**: Die Luft geht auch durch die Nase. Lingora schreibt sie mit Zirkumflex, vor allem **â**: *âsht* (ist), *nânë* (Mutter), *kângë* (Lied), *zâ* (Stimme).\n\nIm Kosovo klingt **â** oft wie ein nasales „o“ (*nâna* ≈ „nona“) – geschrieben wird aber **â**. Das Standardalbanische hat an diesen Stellen ein **ë**: *është, nënë, këngë*.\n\nOhne Zirkumflex (*asht*) ist deine Antwort „fast richtig“. **ê, î, ô, û** gibt es auch, sie sind im Kosovo aber selten."
+    }
+  ],
+  "items": [
+    { "id": "item_shpi", "kind": "word", "gheg": "shpi", "de": "Haus", "partOfSpeech": "noun", "gender": "f", "definite": "shpija", "plural": "shpi", "reviewed": false },
+    { "id": "item_cka", "kind": "word", "gheg": "çka", "de": "was", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_zemer", "kind": "word", "gheg": "zemër", "de": "Herz", "partOfSpeech": "noun", "gender": "f", "definite": "zemra", "plural": "zemra", "reviewed": false },
+    { "id": "item_kange", "kind": "word", "gheg": "kângë", "de": "Lied", "partOfSpeech": "noun", "gender": "f", "definite": "kânga", "plural": "kângë", "reviewed": false },
+    {
+      "id": "item_za",
+      "kind": "word",
+      "gheg": "zâ",
+      "de": "Stimme",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "note": "Bestimmte Form im Gheg vermutlich „zâni“ (Standard: zëri) – zu prüfen, deshalb hier noch nicht angegeben.",
+      "reviewed": false
+    },
+    { "id": "item_hane", "kind": "word", "gheg": "hânë", "de": "Mond", "partOfSpeech": "noun", "gender": "f", "definite": "hâna", "reviewed": false },
+    { "id": "item_yll", "kind": "word", "gheg": "yll", "de": "Stern", "partOfSpeech": "noun", "gender": "m", "definite": "ylli", "plural": "yje", "reviewed": false },
+    { "id": "item_qen", "kind": "word", "gheg": "qen", "de": "Hund", "partOfSpeech": "noun", "gender": "m", "definite": "qeni", "plural": "qen", "reviewed": false },
+    { "id": "item_zhurme", "kind": "word", "gheg": "zhurmë", "de": "Lärm", "partOfSpeech": "noun", "gender": "f", "definite": "zhurma", "reviewed": false },
+    { "id": "item_xhep", "kind": "word", "gheg": "xhep", "de": "Hosentasche", "partOfSpeech": "noun", "gender": "m", "definite": "xhepi", "plural": "xhepa", "reviewed": false },
+    { "id": "item_cope", "kind": "word", "gheg": "copë", "de": "Stück", "partOfSpeech": "noun", "gender": "f", "definite": "copa", "plural": "copa", "reviewed": false },
+    { "id": "item_thike", "kind": "word", "gheg": "thikë", "de": "Messer", "partOfSpeech": "noun", "gender": "f", "definite": "thika", "plural": "thika", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a0_u01_sounds_001",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_shpi"],
+      "prompt": { "lang": "de", "text": "Welcher Buchstabe klingt wie „sch“ in „Schule“?" },
+      "choices": ["sh", "zh", "xh", "ç"],
+      "solutions": ["sh"],
+      "explanation": "„sh“ klingt wie „sch“: shpi (Haus). Doppelbuchstaben wie sh zählen als ein Buchstabe.",
+      "errorHints": [
+        { "pattern": "^zh$", "category": "spelling.other", "hint": "„zh“ klingt wie das „j“ in „Journal“." },
+        { "pattern": "^xh$", "category": "spelling.other", "hint": "„xh“ klingt wie „dsch“." },
+        { "pattern": "^ç$", "category": "spelling.other", "hint": "„ç“ klingt wie „tsch“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_002",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.special_letters"],
+      "itemIds": ["item_cka"],
+      "prompt": { "lang": "de", "text": "Welcher Buchstabe klingt wie „tsch“ in „Deutsch“?" },
+      "choices": ["ç", "c", "q", "xh"],
+      "solutions": ["ç"],
+      "explanation": "„ç“ klingt wie „tsch“: çka (was). Das c ohne Häkchen klingt wie „z“ in „Zeit“.",
+      "errorHints": [
+        { "pattern": "^c$", "category": "spelling.diacritics", "hint": "Ohne Häkchen klingt c wie „z“ in „Zeit“. Für „tsch“ brauchst du ç." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_003",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_dy"],
+      "prompt": { "lang": "de", "text": "Wie klingt das albanische „y“, zum Beispiel in „dy“ (zwei)?" },
+      "choices": ["wie „ü“ in „über“", "wie „i“ in „Igel“", "wie „j“ in „ja“", "wie „u“ in „gut“"],
+      "solutions": ["wie „ü“ in „über“"],
+      "explanation": "Das y klingt immer wie ein deutsches „ü“: dy (zwei), yll (Stern).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_004",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_shpi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „shpi“?" },
+      "choices": ["Haus", "Hund", "Herz", "Stern"],
+      "solutions": ["Haus"],
+      "explanation": "„Shpi“ heisst „Haus“ und klingt wie „schpi“. Im Standardalbanischen sagt man „shtëpi“, im Gheg „shpi“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_005",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_asht"],
+      "prompt": { "lang": "de", "text": "Welches Wort hat einen Nasalvokal?" },
+      "choices": ["âsht", "jam", "mirë", "dy"],
+      "solutions": ["âsht"],
+      "explanation": "Das â in „âsht“ (ist) ist ein Nasalvokal: Die Luft geht auch durch die Nase. Standard schreibt „është“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_006",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels", "spelling.special_letters"],
+      "itemIds": ["item_nane"],
+      "prompt": { "lang": "de", "text": "Wie schreibt man „Mutter“ auf Gheg?" },
+      "choices": ["nânë", "nonë", "nanë", "nâne"],
+      "solutions": ["nânë"],
+      "explanation": "Richtig ist „nânë“: mit dem Nasalvokal â und dem End-ë. Im Kosovo klingt es oft wie „nona“, geschrieben wird aber „nânë“.",
+      "errorHints": [
+        { "pattern": "^non[eë]$", "category": "spelling.nasal_vowel", "hint": "So klingt es im Kosovo oft. Geschrieben wird aber â: „nânë“." },
+        { "pattern": "^nâne$", "category": "spelling.diacritics", "hint": "Am Ende steht ein ë: „nânë“." },
+        { "pattern": "^nan[eë]$", "category": "spelling.nasal_vowel", "hint": "Hier fehlt der Zirkumflex: „nânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_007",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.nasal_vowels", "vocab.basics"],
+      "itemIds": ["item_kange", "item_zemer", "item_za", "item_yll"],
+      "prompt": { "lang": "de", "text": "Welches Wort bedeutet „Lied“?" },
+      "choices": ["kângë", "zemër", "zâ", "yll"],
+      "solutions": ["kângë"],
+      "explanation": "„Kângë“ heisst „Lied“. Auch hier steht der Nasalvokal â (Standard: „këngë“).",
+      "errorHints": [
+        { "pattern": "^z[aâ]$", "category": "vocab.confused", "hint": "„Zâ“ heisst „Stimme“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_008",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.special_letters", "vocab.basics"],
+      "itemIds": ["item_zemer"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „zemër“?" },
+      "choices": ["Herz", "Stimme", "Stern", "Lärm"],
+      "solutions": ["Herz"],
+      "explanation": "„Zemër“ heisst „Herz“. Das z klingt weich wie in „Rose“, das ë ist ein kurzer Murmellaut.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_009",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_jam"],
+      "prompt": { "lang": "de", "text": "Wie klingt das „j“ in „jam“ (ich bin)?" },
+      "choices": ["wie „j“ in „ja“", "wie „dsch“ in „Dschungel“", "wie „sch“ in „Schule“", "wie „ch“ in „ich“"],
+      "solutions": ["wie „j“ in „ja“"],
+      "explanation": "Das albanische j klingt wie im Deutschen: jam (ich bin), je (du bist).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_010",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_dhe"],
+      "prompt": { "lang": "de", "text": "Welcher Doppelbuchstabe klingt wie das englische „th“ in „this“?" },
+      "choices": ["dh", "th", "zh", "sh"],
+      "solutions": ["dh"],
+      "explanation": "„dh“ ist das weiche „th“ wie in „this“: dhe (und). „th“ ist das harte „th“ wie in „think“: thikë (Messer).",
+      "errorHints": [
+        { "pattern": "^th$", "category": "spelling.other", "hint": "„th“ ist das harte „th“ wie in „think“. Das weiche „th“ aus „this“ schreibt man dh." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_011",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_cope"],
+      "prompt": { "lang": "de", "text": "Wie klingt das „c“ in „copë“ (Stück)?" },
+      "choices": ["wie „z“ in „Zeit“", "wie „k“ in „Katze“", "wie „tsch“ in „Deutsch“", "wie „s“ in „Haus“"],
+      "solutions": ["wie „z“ in „Zeit“"],
+      "explanation": "Das albanische c klingt immer wie „z“ in „Zeit“: copë ≈ „zope“. Für „tsch“ schreibt man ç.",
+      "errorHints": [
+        { "pattern": "tsch", "category": "spelling.diacritics", "hint": "„tsch“ ist ç – mit Häkchen. Das c ohne Häkchen klingt wie „z“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_012",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_asht"],
+      "prompt": { "lang": "de", "text": "Welche Schreibung von „ist“ ist richtig?" },
+      "choices": ["âsht", "osht", "asht", "âshtë"],
+      "solutions": ["âsht"],
+      "explanation": "Lingora schreibt „âsht“ mit Zirkumflex. Im Kosovo klingt es oft wie „oscht“, geschrieben wird aber â.",
+      "errorHints": [
+        { "pattern": "^osht$", "category": "spelling.nasal_vowel", "hint": "So klingt es oft. Geschrieben wird aber „âsht“." },
+        { "pattern": "^asht$", "category": "spelling.nasal_vowel", "hint": "Hier fehlt der Zirkumflex: „âsht“." },
+        { "pattern": "^âsht[eë]$", "category": "spelling.other", "hint": "„Âsht“ hat kein End-ë." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_013",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.special_letters"],
+      "itemIds": ["item_mire"],
+      "prompt": { "lang": "de", "text": "In welchem Wort hört man das End-ë kaum, schreibt es aber trotzdem?" },
+      "choices": ["mirë", "dy", "shpi", "qen"],
+      "solutions": ["mirë"],
+      "explanation": "„Mirë“ (gut) klingt fast wie „mir“. Das End-ë schreibst du trotzdem immer.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_014",
+      "type": "multiple_choice",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_jam", "item_asht", "item_nane", "item_kange"],
+      "prompt": { "lang": "de", "text": "Welches Wort hat KEINEN Nasalvokal?" },
+      "choices": ["jam", "âsht", "nânë", "kângë"],
+      "solutions": ["jam"],
+      "explanation": "In „jam“ (ich bin) steht ein normales a. Den Zirkumflex schreibst du nur in Wörtern wie âsht, nânë und kângë.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_015",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_shpi"],
+      "prompt": { "lang": "de", "text": "Haus" },
+      "answerLang": "sq",
+      "text": "___pi",
+      "solutions": ["sh"],
+      "choices": ["sh", "s", "zh", "xh"],
+      "explanation": "„Shpi“ (Haus) beginnt mit sh wie „sch“.",
+      "errorHints": [
+        { "pattern": "^s$", "category": "spelling.other", "hint": "Ein einfaches s klingt wie in „Haus“. Für „sch“ schreibst du sh." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_016",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.special_letters"],
+      "itemIds": ["item_cka"],
+      "prompt": { "lang": "de", "text": "Was? (Tipp: Das Wort beginnt mit „tsch“.)" },
+      "answerLang": "sq",
+      "text": "___ka?",
+      "solutions": ["ç"],
+      "choices": ["ç", "c", "q", "s"],
+      "explanation": "„Çka“ heisst „was“. Das ç klingt wie „tsch“ (Standard: „çfarë“).",
+      "errorHints": [
+        { "pattern": "^c$", "category": "spelling.diacritics", "hint": "Ohne Häkchen wäre es ein „z“. Für „tsch“ brauchst du ç." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_017",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_dy"],
+      "prompt": { "lang": "de", "text": "zwei (Tipp: klingt wie „dü“)" },
+      "answerLang": "sq",
+      "text": "d___",
+      "solutions": ["y"],
+      "choices": ["y", "i", "u", "j"],
+      "explanation": "Das „ü“ schreibt man im Albanischen als y: dy (zwei).",
+      "errorHints": [
+        { "pattern": "^i$", "category": "spelling.other", "hint": "„di“ hiesse „ich weiss“. Für „zwei“ brauchst du das ü-y: dy." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_018",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.special_letters"],
+      "itemIds": ["item_mire"],
+      "prompt": { "lang": "de", "text": "gut" },
+      "answerLang": "sq",
+      "text": "mir___",
+      "solutions": ["ë"],
+      "choices": ["ë", "â", "a", "i"],
+      "explanation": "„Mirë“ endet auf ë. Man hört es kaum, schreibt es aber immer.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_019",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_nane"],
+      "prompt": { "lang": "de", "text": "Mutter" },
+      "answerLang": "sq",
+      "text": "n___në",
+      "solutions": ["â"],
+      "choices": ["â", "o", "e", "u"],
+      "explanation": "„Nânë“ hat den Nasalvokal â. Im Kosovo klingt es oft wie „nona“, geschrieben wird â.",
+      "errorHints": [
+        { "pattern": "^o$", "category": "spelling.nasal_vowel", "hint": "Es klingt oft wie o, geschrieben wird aber â: nânë." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_020",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_asht"],
+      "prompt": { "lang": "de", "text": "ist (Tipp: Nasalvokal mit Zirkumflex)" },
+      "answerLang": "sq",
+      "text": "___sht",
+      "solutions": ["â"],
+      "explanation": "„Âsht“ (ist) beginnt mit dem Nasalvokal â. Ohne Zirkumflex („asht“) ist es fast richtig.",
+      "errorHints": [
+        { "pattern": "^o$", "category": "spelling.nasal_vowel", "hint": "Es klingt oft wie „oscht“, geschrieben wird aber „âsht“." },
+        { "pattern": "^[eë]$", "category": "spelling.nasal_vowel", "hint": "Standard schreibt „është“. Im Gheg steht hier â: „âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_021",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.special_letters"],
+      "itemIds": ["item_zemer"],
+      "prompt": { "lang": "de", "text": "Herz" },
+      "answerLang": "sq",
+      "text": "zem___r",
+      "solutions": ["ë"],
+      "choices": ["ë", "a", "â", "o"],
+      "explanation": "In „zemër“ (Herz) steht ein kurzes ë. Einen Zirkumflex braucht es hier nicht.",
+      "errorHints": [
+        { "pattern": "^â$", "category": "spelling.nasal_vowel", "hint": "„Zemër“ hat keinen Nasalvokal – hier steht ein einfaches ë." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_022",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_dhe"],
+      "prompt": { "lang": "de", "text": "und (Tipp: weiches „th“ wie in „this“)" },
+      "answerLang": "sq",
+      "text": "___e",
+      "solutions": ["dh"],
+      "choices": ["dh", "th", "d", "zh"],
+      "explanation": "„Dhe“ heisst „und“. dh ist das weiche „th“ wie in „this“.",
+      "errorHints": [
+        { "pattern": "^th$", "category": "spelling.other", "hint": "„th“ ist das harte „th“ wie in „think“. Hier brauchst du dh." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_023",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_gjysh"],
+      "prompt": { "lang": "de", "text": "Grossvater (Tipp: weiches „dj“)" },
+      "answerLang": "sq",
+      "text": "___ysh",
+      "solutions": ["gj"],
+      "choices": ["gj", "xh", "zh", "j"],
+      "explanation": "„Gjysh“ heisst „Grossvater“. gj klingt wie ein weiches „dj“.",
+      "errorHints": [
+        { "pattern": "^xh$", "category": "spelling.other", "hint": "xh klingt wie „dsch“. Das weiche „dj“ schreibt man gj." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_024",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_burre"],
+      "prompt": { "lang": "de", "text": "Mann (Tipp: kräftig gerolltes r)" },
+      "answerLang": "sq",
+      "text": "bu___ë",
+      "solutions": ["rr"],
+      "choices": ["rr", "r", "ll", "l"],
+      "explanation": "„Burrë“ (Mann) hat ein kräftig gerolltes rr. Ein einfaches r ist nur kurz gerollt.",
+      "errorHints": [
+        { "pattern": "^r$", "category": "spelling.other", "hint": "Hier brauchst du das kräftige rr: burrë." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_025",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_nji"],
+      "prompt": { "lang": "de", "text": "ein, eine (Tipp: „gn“ wie in „Champagner“)" },
+      "answerLang": "sq",
+      "text": "___i",
+      "solutions": ["nj"],
+      "choices": ["nj", "n", "gj", "j"],
+      "explanation": "„Nji“ heisst „ein, eine“. nj klingt wie „gn“ in „Champagner“. Standard schreibt „një“.",
+      "errorHints": [
+        { "pattern": "^n$", "category": "spelling.other", "hint": "„ni“ fehlt das j. „Ein, eine“ heisst „nji“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_026",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_kange"],
+      "prompt": { "lang": "de", "text": "Lied (Tipp: Nasalvokal)" },
+      "answerLang": "sq",
+      "text": "k___ngë",
+      "solutions": ["â"],
+      "standardForms": ["ë"],
+      "explanation": "„Kângë“ (Lied) hat den Nasalvokal â. Mit ë („këngë“) ist es die Standard-Form.",
+      "errorHints": [
+        { "pattern": "^o$", "category": "spelling.nasal_vowel", "hint": "Es klingt oft wie o, geschrieben wird aber â: kângë." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_027",
+      "type": "fill_gap",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": ["item_qen"],
+      "prompt": { "lang": "de", "text": "Hund (Tipp: weiches „tj“)" },
+      "answerLang": "sq",
+      "text": "___en",
+      "solutions": ["q"],
+      "choices": ["q", "k", "ç", "gj"],
+      "explanation": "„Qen“ heisst „Hund“. q klingt wie ein weiches „tj“, fast wie „tjen“.",
+      "errorHints": [
+        { "pattern": "^ç$", "category": "spelling.other", "hint": "ç klingt wie „tsch“. Das weiche „tj“ schreibt man q." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_028",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_shpi"],
+      "prompt": { "lang": "de", "text": "Haus" },
+      "answerLang": "sq",
+      "solutions": ["shpi", "shpija"],
+      "standardForms": ["shtëpi", "shtëpia"],
+      "explanation": "„Haus“ heisst im Gheg „shpi“, mit Artikel „shpija“. Die Standard-Form ist „shtëpi“.",
+      "errorHints": [
+        { "pattern": "^schpi", "category": "spelling.other", "hint": "Den Laut „sch“ schreibt man im Albanischen sh: shpi." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_029",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_asht"],
+      "prompt": { "lang": "de", "text": "ist" },
+      "answerLang": "sq",
+      "solutions": ["âsht"],
+      "standardForms": ["është"],
+      "explanation": "„Ist“ heisst im Gheg „âsht“ – mit dem Nasalvokal â. Standard: „është“.",
+      "errorHints": [
+        { "pattern": "^osht$", "category": "spelling.nasal_vowel", "hint": "So klingt es oft. Geschrieben wird aber „âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_030",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels", "spelling.special_letters"],
+      "itemIds": ["item_nane"],
+      "prompt": { "lang": "de", "text": "Mutter" },
+      "answerLang": "sq",
+      "solutions": ["nânë", "nâna"],
+      "standardForms": ["nënë", "nëna"],
+      "explanation": "„Nânë“ heisst „Mutter“, „nâna“ ist „die Mutter“. Standard schreibt „nënë“.",
+      "errorHints": [
+        { "pattern": "^non", "category": "spelling.nasal_vowel", "hint": "Im Kosovo klingt es oft wie „nona“. Geschrieben wird aber „nânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_031",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_kange"],
+      "prompt": { "lang": "de", "text": "Lied" },
+      "answerLang": "sq",
+      "solutions": ["kângë", "kânga"],
+      "standardForms": ["këngë", "kënga"],
+      "explanation": "„Kângë“ heisst „Lied“, „kânga“ ist „das Lied“. Standard schreibt „këngë“.",
+      "errorHints": [
+        { "pattern": "^kong", "category": "spelling.nasal_vowel", "hint": "So klingt es oft. Geschrieben wird aber â: kângë." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_032",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.special_letters", "vocab.basics"],
+      "itemIds": ["item_zemer"],
+      "prompt": { "lang": "de", "text": "Herz" },
+      "answerLang": "sq",
+      "solutions": ["zemër", "zemra"],
+      "explanation": "„Zemër“ heisst „Herz“, „zemra“ ist „das Herz“. Das z klingt weich wie in „Rose“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_033",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.special_letters", "vocab.basics"],
+      "itemIds": ["item_shume", "item_mire"],
+      "prompt": { "lang": "de", "text": "Sehr gut!" },
+      "answerLang": "sq",
+      "solutions": ["Shumë mirë!"],
+      "explanation": "„Shumë“ heisst „sehr“, „mirë“ heisst „gut“. Beide Wörter enden auf ein fast stummes ë.",
+      "errorHints": [
+        { "pattern": "^mir[eë] shum[eë]$", "category": "grammar.word_order", "hint": "„Sehr“ steht vor „gut“: „Shumë mirë!“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_034",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_dy", "item_shpi"],
+      "prompt": { "lang": "de", "text": "zwei Häuser" },
+      "answerLang": "sq",
+      "solutions": ["dy shpi"],
+      "standardForms": ["dy shtëpi"],
+      "explanation": "„Dy“ heisst „zwei“. „Shpi“ bleibt in der Mehrzahl gleich: nji shpi, dy shpi.",
+      "errorHints": [
+        { "pattern": "^d[iu] ", "category": "spelling.other", "hint": "Das „ü“ in „zwei“ schreibt man y: dy." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_035",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.special_letters", "spelling.nasal_vowels", "vocab.basics"],
+      "itemIds": ["item_cka", "item_asht", "item_kjo"],
+      "prompt": { "lang": "de", "text": "Was ist das?" },
+      "answerLang": "sq",
+      "solutions": ["Çka âsht kjo?"],
+      "standardForms": ["Çfarë është kjo?", "Çfarë âsht kjo?", "Çka është kjo?"],
+      "explanation": "„Çka“ heisst „was“, „âsht“ heisst „ist“, „kjo“ heisst „das, diese“. Standard wäre „Çfarë është kjo?“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_036",
+      "type": "translate_free",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_yll"],
+      "prompt": { "lang": "de", "text": "Stern" },
+      "answerLang": "sq",
+      "solutions": ["yll", "ylli"],
+      "explanation": "„Yll“ heisst „Stern“: y klingt wie „ü“, ll ist ein dunkles l.",
+      "errorHints": [
+        { "pattern": "^il+i?$", "category": "spelling.other", "hint": "Das „ü“ schreibst du im Albanischen als y: yll." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_037",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics", "spelling.alphabet"],
+      "itemIds": ["item_kjo", "item_asht", "item_nji", "item_shpi"],
+      "prompt": { "lang": "de", "text": "Das ist ein Haus." },
+      "answerLang": "sq",
+      "solutions": ["Kjo âsht nji shpi."],
+      "wordBank": ["Kjo", "âsht", "nji", "shpi", "ky", "dy", "çka"],
+      "explanation": "„Kjo“ heisst „das, diese“, „nji“ heisst „ein, eine“ (Standard: „një“). „Shpi“ ist feminin, darum „kjo“.",
+      "errorHints": [
+        { "pattern": "^ky ", "category": "grammar.gender", "hint": "„Shpi“ ist feminin – darum „kjo“, nicht „ky“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_038",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.nasal_vowels", "vocab.basics"],
+      "itemIds": ["item_kjo", "item_asht", "item_nji", "item_kange"],
+      "prompt": { "lang": "sq", "text": "Kjo âsht nji kângë." },
+      "answerLang": "de",
+      "solutions": ["Das ist ein Lied.", "Dies ist ein Lied."],
+      "wordBank": ["Das", "ist", "ein", "Lied", "Herz", "zwei"],
+      "explanation": "„Kângë“ heisst „Lied“, „âsht“ heisst „ist“. Beide Wörter haben den Nasalvokal â.",
+      "errorHints": [
+        { "pattern": "herz", "category": "vocab.confused", "hint": "„Herz“ heisst „zemër“. „Kângë“ ist das Lied." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_039",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.special_letters", "vocab.basics"],
+      "itemIds": ["item_shume", "item_mire"],
+      "prompt": { "lang": "sq", "text": "Shumë mirë!" },
+      "answerLang": "de",
+      "solutions": ["Sehr gut!"],
+      "wordBank": ["Sehr", "gut", "schlecht", "zwei"],
+      "explanation": "„Shumë“ heisst „sehr“, „mirë“ heisst „gut“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_040",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.special_letters", "spelling.nasal_vowels", "vocab.basics"],
+      "itemIds": ["item_cka", "item_asht", "item_kjo"],
+      "prompt": { "lang": "de", "text": "Was ist das?" },
+      "answerLang": "sq",
+      "solutions": ["Çka âsht kjo?"],
+      "wordBank": ["Çka", "âsht", "kjo", "ku", "dy"],
+      "explanation": "„Çka“ heisst „was“. So fragt man im Kosovo (Standard: „Çfarë është kjo?“).",
+      "errorHints": [
+        { "pattern": "^ku ", "category": "vocab.confused", "hint": "„Ku“ heisst „wo“. Für „was“ sagst du „çka“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_041",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.nasal_vowels", "spelling.alphabet"],
+      "itemIds": ["item_dy", "item_kange"],
+      "prompt": { "lang": "de", "text": "zwei Lieder" },
+      "answerLang": "sq",
+      "solutions": ["dy kângë"],
+      "wordBank": ["dy", "kângë", "nji", "zemër"],
+      "explanation": "„Kângë“ bleibt in der Mehrzahl gleich: nji kângë, dy kângë.",
+      "errorHints": [
+        { "pattern": "^nji ", "category": "vocab.confused", "hint": "„Nji“ heisst „ein, eine“. „Zwei“ heisst „dy“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_042",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels", "spelling.alphabet"],
+      "itemIds": ["item_nane", "item_dhe", "item_baba"],
+      "prompt": { "lang": "sq", "text": "Nâna dhe babai." },
+      "answerLang": "de",
+      "solutions": ["Die Mutter und der Vater.", "Mutter und Vater."],
+      "wordBank": ["Die", "Mutter", "und", "der", "Vater", "Bruder", "Schwester"],
+      "explanation": "„Nâna“ ist „die Mutter“ (mit Nasalvokal â), „babai“ ist „der Vater“. „Dhe“ heisst „und“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_043",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels"],
+      "itemIds": ["item_asht", "item_mire"],
+      "prompt": { "lang": "de", "text": "Es ist gut." },
+      "answerLang": "sq",
+      "solutions": ["Âsht mirë."],
+      "wordBank": ["Âsht", "mirë", "jam", "dy"],
+      "explanation": "Am Satzanfang schreibst du das â gross und mit Zirkumflex: „Âsht mirë.“",
+      "errorHints": [
+        { "pattern": "^jam ", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“. Für „es ist“ sagst du „âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_044",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_nji", "item_shpi", "item_dhe", "item_qen"],
+      "prompt": { "lang": "de", "text": "Ein Haus und ein Hund." },
+      "answerLang": "sq",
+      "solutions": ["Nji shpi dhe nji qen.", "Nji shpi edhe nji qen.", "Nji shpi e nji qen."],
+      "wordBank": ["Nji", "shpi", "dhe", "nji", "qen", "dy", "yll"],
+      "explanation": "„Nji“ heisst „ein, eine“ und passt zu jedem Nomen. „Qen“ (Hund) beginnt mit dem weichen q.",
+      "errorHints": [
+        { "pattern": "(^|\\s)dy ", "category": "vocab.confused", "hint": "„Dy“ heisst „zwei“. Für „ein“ sagst du „nji“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_045",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_ky", "item_asht", "item_nji", "item_qen"],
+      "prompt": { "lang": "sq", "text": "Ky âsht nji qen." },
+      "answerLang": "de",
+      "solutions": ["Das ist ein Hund.", "Dies ist ein Hund."],
+      "wordBank": ["Das", "ist", "ein", "Hund", "Stern", "Haus"],
+      "explanation": "„Qen“ heisst „Hund“. „Ky“ sagst du bei maskulinen Nomen, „kjo“ bei femininen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_046",
+      "type": "translate_wordbank",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.nasal_vowels", "vocab.basics"],
+      "itemIds": ["item_kjo", "item_asht", "item_nane"],
+      "prompt": { "lang": "de", "text": "Das ist die Mutter." },
+      "answerLang": "sq",
+      "solutions": ["Kjo âsht nâna."],
+      "wordBank": ["Kjo", "âsht", "nâna", "ky", "nânë", "babai"],
+      "explanation": "„Nânë“ heisst „Mutter“, „nâna“ ist „die Mutter“: Der Artikel hängt hinten dran.",
+      "errorHints": [
+        { "pattern": "(^|\\s)n[aâ]n[eë]$", "category": "grammar.definite_article", "hint": "„Die Mutter“ heisst „nâna“ – der Artikel hängt hinten dran." },
+        { "pattern": "^ky ", "category": "grammar.gender", "hint": "Für eine Frau sagt man „kjo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_047",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.special_letters", "vocab.basics"],
+      "itemIds": ["item_kjo", "item_asht", "item_nji", "item_zemer"],
+      "prompt": { "lang": "de", "text": "Das ist ein Herz." },
+      "answerLang": "sq",
+      "tokens": ["Kjo", "âsht", "nji", "zemër"],
+      "solutions": ["Kjo âsht nji zemër."],
+      "explanation": "„Kjo âsht nji …“ heisst „Das ist ein/eine …“. „Zemër“ ist feminin, darum „kjo“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_048",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_ky", "item_asht", "item_nji", "item_yll"],
+      "prompt": { "lang": "de", "text": "Das ist ein Stern." },
+      "answerLang": "sq",
+      "tokens": ["Ky", "âsht", "nji", "yll"],
+      "solutions": ["Ky âsht nji yll."],
+      "explanation": "„Yll“ (Stern) ist maskulin, darum „ky“. Das y klingt wie „ü“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_049",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.special_letters", "spelling.nasal_vowels"],
+      "itemIds": ["item_cka", "item_asht", "item_kjo"],
+      "prompt": { "lang": "de", "text": "Was ist das?" },
+      "answerLang": "sq",
+      "tokens": ["Çka", "âsht", "kjo"],
+      "solutions": ["Çka âsht kjo?"],
+      "explanation": "Das Fragewort „çka“ steht am Anfang: „Çka âsht kjo?“",
+      "errorHints": [
+        { "pattern": "^kjo [aâ]sht", "category": "grammar.word_order", "hint": "Das Fragewort „çka“ (was) steht am Satzanfang." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_050",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.nasal_vowels", "spelling.special_letters"],
+      "itemIds": ["item_asht", "item_shume", "item_mire"],
+      "prompt": { "lang": "de", "text": "Es ist sehr gut." },
+      "answerLang": "sq",
+      "tokens": ["Âsht", "shumë", "mirë"],
+      "solutions": ["Âsht shumë mirë."],
+      "explanation": "„Shumë“ (sehr) steht vor „mirë“ (gut). Am Satzanfang schreibst du „Âsht“ mit Zirkumflex.",
+      "errorHints": [
+        { "pattern": "mir[eë] shum[eë]", "category": "grammar.word_order", "hint": "„Sehr gut“ heisst „shumë mirë“ – „shumë“ kommt zuerst." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_051",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["vocab.basics", "spelling.alphabet"],
+      "itemIds": ["item_ky", "item_asht", "item_baba"],
+      "prompt": { "lang": "de", "text": "Das ist der Vater." },
+      "answerLang": "sq",
+      "tokens": ["Ky", "âsht", "babai"],
+      "solutions": ["Ky âsht babai."],
+      "explanation": "„Baba“ heisst „Vater“, „babai“ ist „der Vater“. Für einen Mann sagst du „ky“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_052",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_nji", "item_shpi", "item_dhe", "item_dy", "item_qen"],
+      "prompt": { "lang": "de", "text": "Ein Haus und zwei Hunde." },
+      "answerLang": "sq",
+      "tokens": ["Nji", "shpi", "dhe", "dy", "qen"],
+      "solutions": ["Nji shpi dhe dy qen."],
+      "explanation": "„Qen“ bleibt in der Mehrzahl gleich: nji qen, dy qen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_053",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet", "vocab.basics"],
+      "itemIds": ["item_kjo", "item_asht", "item_nji", "item_thike"],
+      "prompt": { "lang": "de", "text": "Das ist ein Messer." },
+      "answerLang": "sq",
+      "tokens": ["Kjo", "âsht", "nji", "thikë"],
+      "solutions": ["Kjo âsht nji thikë."],
+      "explanation": "„Thikë“ (Messer) beginnt mit dem harten th wie im englischen „think“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_054",
+      "type": "word_order",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["spelling.nasal_vowels", "spelling.alphabet"],
+      "itemIds": ["item_kjo", "item_asht", "item_nji", "item_kange", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Das ist ein albanisches Lied." },
+      "answerLang": "sq",
+      "tokens": ["Kjo", "âsht", "nji", "kângë", "shqip"],
+      "solutions": ["Kjo âsht nji kângë shqip."],
+      "explanation": "„Shqip“ heisst „albanisch, auf Albanisch“ und steht nach dem Nomen: „nji kângë shqip“.",
+      "errorHints": [
+        { "pattern": "nji shqip k", "category": "grammar.word_order", "hint": "„Shqip“ steht nach dem Nomen: „nji kângë shqip“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_055",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["spelling.alphabet", "spelling.special_letters"],
+      "itemIds": [],
+      "prompt": { "lang": "de", "text": "Ordne jedem Buchstaben seinen Klang zu." },
+      "pairs": [
+        { "left": "sh", "right": "wie „sch“" },
+        { "left": "ç", "right": "wie „tsch“" },
+        { "left": "xh", "right": "wie „dsch“" },
+        { "left": "y", "right": "wie „ü“" },
+        { "left": "c", "right": "wie „z“ in „Zeit“" }
+      ],
+      "explanation": "Diese fünf Buchstaben klingen anders, als man auf Deutsch erwartet.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_056",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet"],
+      "itemIds": [],
+      "prompt": { "lang": "de", "text": "Ordne jedem Buchstaben seinen Klang zu." },
+      "pairs": [
+        { "left": "dh", "right": "wie „th“ in „this“" },
+        { "left": "th", "right": "wie „th“ in „think“" },
+        { "left": "zh", "right": "wie „j“ in „Journal“" },
+        { "left": "q", "right": "weiches „tj“" },
+        { "left": "gj", "right": "weiches „dj“" }
+      ],
+      "explanation": "dh ist weich, th ist hart. q und gj sind weiche Laute, die es im Deutschen nicht gibt.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_057",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "spelling.alphabet"],
+      "itemIds": ["item_shpi", "item_qen", "item_yll", "item_zemer", "item_kange"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "shpi", "right": "Haus" },
+        { "left": "qen", "right": "Hund" },
+        { "left": "yll", "right": "Stern" },
+        { "left": "zemër", "right": "Herz" },
+        { "left": "kângë", "right": "Lied" }
+      ],
+      "explanation": "Lies die Wörter laut: sh = „sch“, q = weiches „tj“, y = „ü“, ë = Murmellaut, â = Nasalvokal.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_058",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 1,
+      "skillTags": ["vocab.basics", "spelling.nasal_vowels"],
+      "itemIds": ["item_nane", "item_baba", "item_asht", "item_dy", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "nânë", "right": "Mutter" },
+        { "left": "baba", "right": "Vater" },
+        { "left": "âsht", "right": "ist" },
+        { "left": "dy", "right": "zwei" },
+        { "left": "dhe", "right": "und" }
+      ],
+      "explanation": "„Nânë“ und „âsht“ haben den Gheg-Nasalvokal â (Standard: „nënë“, „është“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_059",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 2,
+      "skillTags": ["spelling.alphabet", "spelling.special_letters"],
+      "itemIds": [],
+      "prompt": { "lang": "de", "text": "Ordne jedem Buchstaben seinen Klang zu." },
+      "pairs": [
+        { "left": "rr", "right": "kräftig gerolltes r" },
+        { "left": "ll", "right": "dunkles l wie in „well“" },
+        { "left": "nj", "right": "wie „gn“ in „Champagner“" },
+        { "left": "j", "right": "wie „j“ in „ja“" },
+        { "left": "ë", "right": "Murmellaut wie in „bitte“" }
+      ],
+      "explanation": "rr, ll und nj sind Doppelbuchstaben und zählen als ein Buchstabe.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a0_u01_sounds_060",
+      "type": "match_pairs",
+      "level": "A0",
+      "difficulty": 3,
+      "skillTags": ["vocab.basics", "spelling.nasal_vowels", "spelling.alphabet"],
+      "itemIds": ["item_hane", "item_za", "item_xhep", "item_cope", "item_zhurme"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "hânë", "right": "Mond" },
+        { "left": "zâ", "right": "Stimme" },
+        { "left": "xhep", "right": "Hosentasche" },
+        { "left": "copë", "right": "Stück" },
+        { "left": "zhurmë", "right": "Lärm" }
+      ],
+      "explanation": "„Hânë“ und „zâ“ haben den Nasalvokal â (Standard: „hënë“, „zë“). xh klingt wie „dsch“, zh wie das „j“ in „Journal“.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
