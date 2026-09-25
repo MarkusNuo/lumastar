@@ -14,14 +14,15 @@ export function TranslateFree({
   verdict,
   retry,
   onAnswerChange,
+  focusOnStart = true,
 }: ExerciseProps<TranslateFreeExercise>) {
   const [text, setText] = useState('');
   const fieldRef = useRef<HTMLTextAreaElement>(null);
   const locked = verdict !== undefined;
 
   useEffect(() => {
-    fieldRef.current?.focus({ preventScroll: true });
-  }, []);
+    if (focusOnStart) fieldRef.current?.focus({ preventScroll: true });
+  }, [focusOnStart]);
 
   const update = (value: string) => {
     setText(value);

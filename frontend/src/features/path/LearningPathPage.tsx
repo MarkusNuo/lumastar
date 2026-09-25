@@ -1,5 +1,6 @@
 import { ArrowClockwiseIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
+import { useEffect, useRef } from 'react';
 import { Button } from '../../components/ui/Button';
 import { Callout } from '../../components/ui/Callout';
 import { LoadingDots } from '../../components/ui/LoadingDots';
@@ -11,6 +12,7 @@ import { UnitPath } from './UnitPath';
 /** Home (Lernpfad): stages from A0 to C2 with their units and lessons (PRD 12.3). */
 export function LearningPathPage() {
   const curriculum = useQuery({ ...curriculumQuery, select: buildLearningPath });
+  useScrollToCurrentNode(curriculum.data !== undefined);
 
   return (
     <div className="flex flex-col gap-10 pt-5">
@@ -37,6 +39,16 @@ export function LearningPathPage() {
       )}
     </div>
   );
+}
+
+/** Opens the path at the next lesson instead of the first (locked) units. */
+function useScrollToCurrentNode(ready: boolean) {
+  const scrolled = useRef(false);
+  useEffect(() => {
+    if (!ready || scrolled.current) return;
+    scrolled.current = true;
+    document.querySelector('[aria-current="step"]')?.scrollIntoView({ block: 'center' });
+  }, [ready]);
 }
 
 function StageSection({ stage }: { stage: PathStage }) {

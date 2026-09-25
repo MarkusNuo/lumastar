@@ -77,6 +77,7 @@ export function LessonPlayer({ lesson, onQuit, onFinish }: LessonPlayerProps) {
         text={LESSON_COPY.quit.text}
         cancelLabel={LESSON_COPY.quit.stay}
         confirmLabel={LESSON_COPY.quit.leave}
+        confirmVariant="ghost"
         onCancel={() => setQuitOpen(false)}
         onConfirm={onQuit}
       />

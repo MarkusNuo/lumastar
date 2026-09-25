@@ -65,9 +65,18 @@ export function MatchPairs({
   return (
     <div className="flex flex-col gap-6">
       <ExerciseHeader title={exercise.prompt.text} retry={retry} reviewed={exercise.reviewed} />
-      <div className="grid grid-cols-2 gap-x-3">
+      {/* One grid with subgrid columns keeps both tiles of a row equally tall when one wraps. */}
+      <div
+        className="grid grid-cols-2 gap-3"
+        style={{ gridTemplateRows: `repeat(${pairs.length}, auto)` }}
+      >
         {SIDES.map(({ side, lang, label }) => (
-          <div key={side} role="group" aria-label={label} className="flex flex-col gap-3">
+          <div
+            key={side}
+            role="group"
+            aria-label={label}
+            className="row-span-full grid grid-rows-subgrid"
+          >
             {orders[side].map((pair) => {
               const word = side === 'left' ? pairs[pair]?.left : pairs[pair]?.right;
               const display = matchTileState(state, { side, pair });

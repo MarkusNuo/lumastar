@@ -73,6 +73,8 @@ export function ExerciseScreen({
     <>
       <motion.div
         ref={contentRef}
+        data-exercise-id={exercise.id}
+        data-exercise-type={exercise.type}
         initial={{ opacity: 0, x: 32 }}
         animate={{ opacity: 1, x: 0 }}
         transition={springs.snappy}

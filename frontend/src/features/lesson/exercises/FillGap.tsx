@@ -114,15 +114,20 @@ function GapWithChoices({
   );
 }
 
-function TypedGap({ exercise, verdict, onAnswerChange }: ExerciseProps<FillGapExercise>) {
+function TypedGap({
+  exercise,
+  verdict,
+  onAnswerChange,
+  focusOnStart = true,
+}: ExerciseProps<FillGapExercise>) {
   const [text, setText] = useState('');
   const fieldRef = useRef<HTMLInputElement>(null);
   const locked = verdict !== undefined;
   const status = textStatus(verdict);
 
   useEffect(() => {
-    fieldRef.current?.focus({ preventScroll: true });
-  }, []);
+    if (focusOnStart) fieldRef.current?.focus({ preventScroll: true });
+  }, [focusOnStart]);
 
   const update = (value: string) => {
     setText(value);

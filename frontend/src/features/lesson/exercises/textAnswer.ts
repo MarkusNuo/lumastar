@@ -1,6 +1,6 @@
 import type { KeyboardEvent } from 'react';
 import type { AnswerStatus } from '../../../components/ui/fieldStyles';
-import type { Answer, Verdict } from '../model';
+import type { Answer, Outcome, Verdict } from '../model';
 
 /** A blank field is no answer yet, so "Prüfen" stays disabled. */
 export function toTextAnswer(text: string): Answer | null {
@@ -12,8 +12,14 @@ export function preventLineBreak(event: KeyboardEvent) {
   if (event.key === 'Enter') event.preventDefault();
 }
 
-/** Colour of a typed answer after checking. */
+const STATUS: Record<Outcome, AnswerStatus> = {
+  correct: 'correct',
+  almost_correct: 'almost',
+  correct_standard_form: 'standard',
+  wrong: 'wrong',
+};
+
+/** Colour of a typed answer after checking, matching the feedback sheet. */
 export function textStatus(verdict: Verdict | undefined): AnswerStatus | undefined {
-  if (!verdict) return undefined;
-  return verdict.countsAsCorrect ? 'correct' : 'wrong';
+  return verdict && STATUS[verdict.outcome];
 }

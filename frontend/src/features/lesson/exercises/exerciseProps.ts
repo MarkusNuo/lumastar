@@ -11,6 +11,8 @@ export interface ExerciseProps<E extends LessonExercise> {
   onAnswerChange: (answer: Answer | null) => void;
   /** Checks right away, for exercises that finish by themselves (match_pairs). */
   onSubmit: (answer: Answer) => void;
+  /** Puts the cursor into a text field on start; off where several exercises share a page. */
+  focusOnStart?: boolean;
 }
 
 export type Reaction = 'idle' | 'success' | 'error';

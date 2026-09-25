@@ -71,6 +71,7 @@ function ExerciseDemo({ exercise }: { exercise: LessonExercise }) {
         verdict={verdict}
         onAnswerChange={setAnswer}
         onSubmit={check}
+        focusOnStart={false}
       />
       {verdict && <VerdictLine verdict={verdict} />}
       {verdict ? (
