@@ -2,21 +2,20 @@
 // "Answer normalisation and tokenisation" of docs/CONTENT_FORMAT.md exactly, so the validator agrees
 // with the backend evaluator and the frontend pre-check.
 
-/** Characters removed by normalisation step 2 and stripped from token edges (step 5). */
-export const STRIPPED_PUNCTUATION = ['.', ',', '!', '?', ';', ':', '"', '„', '“', '”', '«', '»', "'", '’', '‘', '(', ')', '-', '–', '—', '…'];
+/** Every character that normalisation step 2 removes: anything but a letter, a digit or whitespace. */
+export const REMOVED_BY_NORMALISATION = /[^\p{L}\p{N}\s]/u;
 
-const PUNCTUATION_CLASS = `[${STRIPPED_PUNCTUATION.map((character) => (/[\\\]\-^]/u.test(character) ? `\\${character}` : character)).join('')}]`;
-const ANY_PUNCTUATION = new RegExp(PUNCTUATION_CLASS, 'gu');
-const EDGE_PUNCTUATION = new RegExp(`^${PUNCTUATION_CLASS}+|${PUNCTUATION_CLASS}+$`, 'gu');
+const NEITHER_LETTER_DIGIT_NOR_SPACE = new RegExp(REMOVED_BY_NORMALISATION.source, 'gu');
+const EDGE_NON_ALPHANUMERICS = /^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu;
 const WHITESPACE = /\s+/gu;
 
 /**
- * Steps 1–2: Unicode NFC, trim, lower case, single spaces, then the listed punctuation stripped.
- * Diacritics are kept (step 3: error hints match this form). Whitespace is collapsed once more after
- * stripping, so "Mirë – po ti" and "Mirë, po ti" both become "mirë po ti".
+ * Steps 1–2: Unicode NFC, lower case, every character that is not a letter, a digit or whitespace
+ * removed (all punctuation and symbols, apostrophes included: "S'ka" → "ska"), then trimmed and
+ * collapsed to single spaces. Diacritics are kept (step 3: error hints match this form).
  */
 export function normalizeAnswer(text) {
-  return collapseWhitespace(collapseWhitespace(text.normalize('NFC').toLowerCase()).replace(ANY_PUNCTUATION, ''));
+  return text.normalize('NFC').toLowerCase().replace(NEITHER_LETTER_DIGIT_NOR_SPACE, '').replace(WHITESPACE, ' ').trim();
 }
 
 /** Step 5: split on whitespace and strip surrounding punctuation from each token (inner apostrophes stay: s'ka). */
@@ -24,7 +23,7 @@ export function tokenize(sentence) {
   return sentence
     .trim()
     .split(WHITESPACE)
-    .map((token) => token.replace(EDGE_PUNCTUATION, ''))
+    .map((token) => token.replace(EDGE_NON_ALPHANUMERICS, ''))
     .filter(Boolean);
 }
 
@@ -48,10 +47,6 @@ export function missingFromMultiset(needed, available) {
     else remaining.set(entry, count - 1);
   }
   return missing;
-}
-
-function collapseWhitespace(text) {
-  return text.replace(WHITESPACE, ' ').trim();
 }
 
 function countBy(values) {

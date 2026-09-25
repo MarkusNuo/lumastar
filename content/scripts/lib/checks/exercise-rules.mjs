@@ -1,13 +1,12 @@
 import { at } from '../report.mjs';
-import { STRIPPED_PUNCTUATION, missingFromMultiset, normalizeAnswer, sameToken, tokenize } from '../text.mjs';
+import { REMOVED_BY_NORMALISATION, missingFromMultiset, normalizeAnswer, sameToken, tokenize } from '../text.mjs';
 import { exercisesOf, isUnitDoc } from '../walk.mjs';
 
 const GAP = '___';
 const WORD_BANK_DISTRACTORS = { min: 2, max: 4 };
-// Punctuation that normalisation always removes and that has no meaning in a regex: a hint pattern
-// containing one of these can never match a normalised answer.
-const REGEX_SYNTAX = new Set(['.', ',', '!', '?', ':', '(', ')', '-']);
-const NEVER_IN_NORMALISED_ANSWER = STRIPPED_PUNCTUATION.filter((character) => !REGEX_SYNTAX.has(character));
+// Regex metacharacters plus the punctuation that quantifiers, groups and lookarounds use. Every other
+// character that normalisation removes is a literal that can never match a normalised answer.
+const REGEX_SYNTAX = new Set([...'\\^$.|?*+()[]{}-,:!=<>']);
 
 /** Per-type rules that JSON Schema cannot express, plus error-hint and standard-form sanity checks. */
 export function checkExerciseRules(content, report) {
@@ -100,7 +99,7 @@ function errorHintProblems(exercise) {
     } catch (error) {
       return [{ path, message: `Invalid regex: ${error.message}` }];
     }
-    const removed = NEVER_IN_NORMALISED_ANSWER.filter((character) => hint.pattern.includes(character));
+    const removed = literalsRemovedByNormalisation(hint.pattern);
     if (removed.length > 0) {
       return [{ path, message: `Pattern contains ${quoteAll(removed)}, which normalisation removes from every answer, so it can never match.` }];
     }
@@ -109,6 +108,10 @@ function errorHintProblems(exercise) {
       ? [{ path, message: `Pattern matches the solution "${matchedSolution}"; hints only apply to wrong answers.` }]
       : [];
   });
+}
+
+function literalsRemovedByNormalisation(pattern) {
+  return [...new Set([...pattern].filter((character) => REMOVED_BY_NORMALISATION.test(character) && !REGEX_SYNTAX.has(character)))];
 }
 
 function standardFormProblems(exercise) {

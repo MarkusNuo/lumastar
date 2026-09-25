@@ -117,7 +117,7 @@
       "solutions": ["die Schwester"],
       "explanation": "„Motër“ heisst „Schwester“, mit Artikel „motra“ – „die Schwester“.",
       "errorHints": [
-        { "pattern": "bruder", "category": "vocab.confused", "hint": "„Bruder“ heisst „vëlla“." },
+        { "pattern": "bruder", "category": "vocab.confused", "hint": "„Bruder“ heisst „vlla“." },
         { "pattern": "mutter", "category": "vocab.confused", "hint": "„Die Mutter“ heisst „nâna“." }
       ],
       "reviewed": false,
@@ -281,13 +281,14 @@
       "itemIds": [],
       "prompt": { "lang": "de", "text": "Hast du einen Bruder?" },
       "answerLang": "sq",
-      "text": "___ ke vëlla?",
+      "text": "___ ke vlla?",
       "solutions": ["A"],
       "choices": ["Çka", "A", "Ku", "Kush"],
-      "explanation": "Ja/Nein-Fragen beginnen mit „a“: „A ke vëlla?“ – „Hast du einen Bruder?“",
+      "explanation": "Ja/Nein-Fragen beginnen mit „a“: „A ke vlla?“ – „Hast du einen Bruder?“",
       "errorHints": [{ "pattern": "^[cç]ka$", "category": "vocab.confused", "hint": "„Çka“ heisst „was“. Für Ja/Nein-Fragen brauchst du „a“." }],
       "reviewed": false,
-      "source": "manual"
+      "source": "manual",
+      "note": "Kosovo-Form „vlla“ (Standard: vëlla) zu prüfen."
     },
     {
       "id": "pl_a1_2_005",

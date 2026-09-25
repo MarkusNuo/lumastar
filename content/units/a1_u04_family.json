@@ -5,7 +5,7 @@
   "grammar": [
     {
       "title": "Der Artikel hängt hinten dran",
-      "explanation": "Im Albanischen steht der bestimmte Artikel am Ende des Nomens:\n\n| unbestimmt | bestimmt | Deutsch |\n|---|---|---|\n| nânë | nâna | die Mutter |\n| motër | motra | die Schwester |\n| familje | familja | die Familie |\n| djalë | djali | der Sohn |\n| baba | babai | der Vater |\n| vëlla | vëllau | der Bruder |\n\nFeminine Nomen enden bestimmt meist auf **-a**, maskuline auf **-i** oder **-u**."
+      "explanation": "Im Albanischen steht der bestimmte Artikel am Ende des Nomens:\n\n| unbestimmt | bestimmt | Deutsch |\n|---|---|---|\n| nânë | nâna | die Mutter |\n| motër | motra | die Schwester |\n| familje | familja | die Familie |\n| djalë | djali | der Sohn |\n| baba | babai | der Vater |\n| vlla | vllau | der Bruder |\n\nFeminine Nomen enden bestimmt meist auf **-a**, maskuline auf **-i** oder **-u**."
     },
     {
       "title": "Mein und meine",
@@ -31,16 +31,16 @@
       "reviewed": false
     },
     {
-      "id": "item_vella",
+      "id": "item_vlla",
       "kind": "word",
-      "gheg": "vëlla",
+      "gheg": "vlla",
       "de": "Bruder",
       "partOfSpeech": "noun",
       "gender": "m",
-      "definite": "vëllau",
-      "plural": "vëllazën",
-      "alternatives": ["vlla"],
-      "note": "Zu prüfen: bestimmte Form „vëllau“ (Standard: vëllai), Plural „vëllazën“ (Standard: vëllezër), Kurzform „vlla“.",
+      "definite": "vllau",
+      "plural": "vllazën",
+      "alternatives": ["vëlla"],
+      "note": "Zu prüfen: Kosovo-Formen „vlla“, bestimmt „vllau“, Plural „vllazën“ (Standard: vëlla, vëllai, vëllezër). Die Schreibung „vëlla“ ist vorerst als Alternative akzeptiert; offen, ob sie als Gheg gilt oder zu den Standard-Formen gehört.",
       "reviewed": false
     },
     { "id": "item_moter", "kind": "word", "gheg": "motër", "de": "Schwester", "partOfSpeech": "noun", "gender": "f", "definite": "motra", "plural": "motra", "reviewed": false },
@@ -162,11 +162,11 @@
       "level": "A1.1",
       "difficulty": 1,
       "skillTags": ["vocab.family"],
-      "itemIds": ["item_vella", "item_moter", "item_djale", "item_gjysh"],
+      "itemIds": ["item_vlla", "item_moter", "item_djale", "item_gjysh"],
       "prompt": { "lang": "de", "text": "Wie sagt man „Bruder“?" },
-      "choices": ["vëlla", "motër", "djalë", "gjysh"],
-      "solutions": ["vëlla"],
-      "explanation": "„Vëlla“ heisst „Bruder“. Im Kosovo hört man oft die kurze Aussprache „vlla“.",
+      "choices": ["vlla", "motër", "djalë", "gjysh"],
+      "solutions": ["vlla"],
+      "explanation": "„Vlla“ heisst „Bruder“. So sagt man es im Kosovo; in der Standardsprache schreibt man „vëlla“.",
       "errorHints": [
         { "pattern": "^mot[eë]r$", "category": "vocab.confused", "hint": "„Motër“ ist die Schwester." },
         { "pattern": "^djal[eë]$", "category": "vocab.confused", "hint": "„Djalë“ ist der Sohn oder Junge." }
@@ -235,16 +235,16 @@
       "level": "A1.1",
       "difficulty": 2,
       "skillTags": ["vocab.family", "grammar.verbs.kam"],
-      "itemIds": ["item_kam", "item_nji", "item_vella", "item_dhe", "item_moter"],
+      "itemIds": ["item_kam", "item_nji", "item_vlla", "item_dhe", "item_moter"],
       "prompt": { "lang": "de", "text": "Ich habe einen Bruder und eine Schwester." },
       "answerLang": "sq",
       "solutions": [
-        "Kam nji vëlla dhe nji motër.",
-        "Kam nji vëlla edhe nji motër.",
-        "Kam nji vëlla e nji motër.",
-        "Kam nji vlla dhe nji motër."
+        "Kam nji vlla dhe nji motër.",
+        "Kam nji vlla edhe nji motër.",
+        "Kam nji vlla e nji motër.",
+        "Kam nji vëlla dhe nji motër."
       ],
-      "wordBank": ["Kam", "nji", "vëlla", "dhe", "nji", "motër", "ke", "motra", "dy"],
+      "wordBank": ["Kam", "nji", "vlla", "dhe", "nji", "motër", "ke", "motra", "dy"],
       "explanation": "„Kam“ heisst „ich habe“, „nji“ ist die Gheg-Form von „ein, eine“ (Standard: „një“). Nach „nji“ steht das Nomen ohne Artikel.",
       "errorHints": [
         { "pattern": "^ke ", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“. Für „ich habe“ sagst du „kam“." },
@@ -252,7 +252,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "„dhe“, „edhe“ und „e“ als „und“ akzeptiert; im Kosovo-Alltag sind „e“/„edhe“ häufig – zu prüfen."
+      "note": "„dhe“, „edhe“ und „e“ als „und“ akzeptiert; im Kosovo-Alltag sind „e“/„edhe“ häufig – zu prüfen. Kosovo-Form „vlla“ (Standard: vëlla) zu prüfen; „vëlla“ bleibt als weitere Lösung akzeptiert."
     },
     {
       "id": "ex_a1_u04_family_007",
@@ -267,7 +267,7 @@
       "wordBank": ["Das", "ist", "meine", "Schwester", "mein", "Bruder", "Mutter"],
       "explanation": "„Motra“ ist „die Schwester“, „ime“ heisst „meine“.",
       "errorHints": [
-        { "pattern": "bruder", "category": "vocab.confused", "hint": "„Motra“ ist die Schwester, der Bruder heisst „vëlla“." }
+        { "pattern": "bruder", "category": "vocab.confused", "hint": "„Motra“ ist die Schwester, der Bruder heisst „vlla“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -416,13 +416,13 @@
       "level": "A1.1",
       "difficulty": 1,
       "skillTags": ["vocab.family"],
-      "itemIds": ["item_nane", "item_baba", "item_moter", "item_vella", "item_djale"],
+      "itemIds": ["item_nane", "item_baba", "item_moter", "item_vlla", "item_djale"],
       "prompt": { "lang": "de", "text": "Ordne die Familienwörter zu." },
       "pairs": [
         { "left": "nânë", "right": "Mutter" },
         { "left": "baba", "right": "Vater" },
         { "left": "motër", "right": "Schwester" },
-        { "left": "vëlla", "right": "Bruder" },
+        { "left": "vlla", "right": "Bruder" },
         { "left": "djalë", "right": "Sohn" }
       ],
       "explanation": "Das sind die wichtigsten Wörter für die engste Familie.",
@@ -474,18 +474,18 @@
       "level": "A1.1",
       "difficulty": 2,
       "skillTags": ["vocab.family", "grammar.verbs.kam", "grammar.possessive"],
-      "itemIds": ["item_vella", "item_im", "item_ka", "item_nji", "item_vajze"],
+      "itemIds": ["item_vlla", "item_im", "item_ka", "item_nji", "item_vajze"],
       "prompt": { "lang": "de", "text": "Mein Bruder hat eine Tochter." },
       "answerLang": "sq",
-      "tokens": ["Vëllau", "im", "ka", "nji", "vajzë"],
-      "solutions": ["Vëllau im ka nji vajzë."],
-      "explanation": "„Vëllau im“ heisst „mein Bruder“ – im Gheg endet der Artikel hier auf -u (Standard: „vëllai“). „Ka“ heisst „hat“.",
+      "tokens": ["Vllau", "im", "ka", "nji", "vajzë"],
+      "solutions": ["Vllau im ka nji vajzë."],
+      "explanation": "„Vllau im“ heisst „mein Bruder“ – im Gheg endet der Artikel hier auf -u (Standard: „vëllai“). „Ka“ heisst „hat“.",
       "errorHints": [
-        { "pattern": "^im ", "category": "grammar.word_order", "hint": "Das Possessivpronomen steht nach dem Nomen: „vëllau im“." }
+        { "pattern": "^im ", "category": "grammar.word_order", "hint": "Das Possessivpronomen steht nach dem Nomen: „vllau im“." }
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Bestimmte Form „vëllau“ (Standard: vëllai) zu prüfen."
+      "note": "Kosovo-Form „vllau“ (Standard: vëllai) zu prüfen. Bei word_order ist nur eine Schreibung möglich; „vëllau“ ist deshalb hier keine Lösung."
     },
     {
       "id": "ex_a1_u04_family_019",

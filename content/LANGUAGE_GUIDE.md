@@ -58,7 +58,7 @@ Das albanische Alphabet hat 36 Buchstaben, darunter 9 Doppelbuchstaben (dh, gj, 
 | j | wie in „ja“ | *jam* (ich bin) |
 | k | wie im Deutschen | *kam* (ich habe) |
 | l | helles l | *lutem* (ich bitte) |
-| ll | dunkles l (wie englisch „well“) | *vëlla* (Bruder) |
+| ll | dunkles l (wie englisch „well“) | *vlla* (Bruder) |
 | m | wie im Deutschen | *motër* (Schwester) |
 | n | wie im Deutschen | *nesër* (morgen) |
 | nj | wie „gn“ in „Champagner“ | *nji* (ein, eine) |
@@ -84,7 +84,7 @@ Das albanische Alphabet hat 36 Buchstaben, darunter 9 Doppelbuchstaben (dh, gj, 
 ### 4.1 ë und ç
 
 - **ë** und **ç** werden immer geschrieben, auch wenn das End-ë stumm ist: *mirë, nânë, shumë, motër*.
-- Formen ohne End-ë (*mir, shum*) stehen nicht in `solutions`. Wie der Evaluator sie bewertet, ist offen (Abschnitt 13).
+- Formen ohne End-ë (*mir, shum*) stehen nicht in `solutions`. Der Evaluator wertet sie derzeit über die Tippfehler-Toleranz: ab 6 Buchstaben der Lösung „fast richtig“, bei kürzeren Wörtern falsch (Abschnitt 11; zu prüfen, Abschnitt 13).
 
 ### 4.2 Nasalvokale (Zirkumflex)
 
@@ -118,14 +118,14 @@ Der Zirkumflex markiert einen Nasalvokal. **Faustregel:** Wo Standardalbanisch e
 
 ### 4.3 Apostroph und Kurzformen
 
-- Apostroph immer als gerades Zeichen `'` schreiben: *s'ka, ç'kemi*. Der Evaluator behandelt ’ und ' gleich.
+- Apostroph immer als gerades Zeichen `'` schreiben: *s'ka, ç'kemi*. Der Evaluator entfernt beim Normalisieren jeden Apostroph (’ wie '), *s'ka* und *ska* gelten also als gleich (Abschnitt 11).
 - Umgangssprachliche Verkürzungen von Pronomen und Präpositionen (*m'fal, t'lutem, n'shpi*) stehen nicht in `solutions[0]`. Sie dürfen als weitere Lösung aufgenommen werden (zu prüfen).
 
 ### 4.4 Gross- und Kleinschreibung, Satzzeichen
 
 - Sätze beginnen gross und enden mit Satzzeichen: *Mirë, po ti?*
 - Items (Wörter und Wendungen) werden klein geschrieben, ausser Eigennamen: *mirëdita, si je?, Prishtinë*.
-- Der Evaluator ignoriert Gross-/Kleinschreibung und Satzzeichen (Abschnitt 11).
+- Der Evaluator ignoriert Gross-/Kleinschreibung, Satzzeichen und alle anderen Zeichen ausser Buchstaben und Ziffern (Abschnitt 11).
 
 ## 5. Gheg und Standard im Vergleich
 
@@ -183,8 +183,8 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 |---|---|---|---|
 | shpi, shpija | shtëpi, shtëpia | Haus, das Haus | |
 | nânë, nâna | nënë, nëna | Mutter, die Mutter | |
-| vëllau | vëllai | der Bruder | Kurzform *vlla/vllau* (zu prüfen) |
-| vëllazën | vëllezër | Brüder | (zu prüfen) |
+| vlla, vllau | vëlla, vëllai | Bruder, der Bruder | Kosovo-Form; *vëlla* (wie Standard) vorerst als weitere Schreibung akzeptiert, wo es nicht stört; *vëllau* mischt Standard-Stamm und Gheg-Endung und wird nicht verwendet (zu prüfen) |
+| vllazën | vëllezër | Brüder | (zu prüfen) |
 | gruja | gruaja | die Frau, die Ehefrau | (zu prüfen) |
 | axha | xhaxhai | der Onkel (Bruder des Vaters) | Kosovo (zu prüfen) |
 | çika | vajza | das Mädchen, die Tochter | *vajza* ist im Kosovo auch üblich (zu prüfen) |
@@ -201,7 +201,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | i/e âmbël | i/e ëmbël | süss | |
 | i martuem | i martuar | verheiratet | (zu prüfen) |
 | i lodhun | i lodhur | müde | (zu prüfen) |
-| tamël | qumësht | Milch | *qumësht* ist im Kosovo auch üblich (zu prüfen) |
+| qumësht | qumësht | Milch | gleich wie Standard; *tamël* ist Nordwest-Gheg (regional) und steht nicht in Lösungen (zu prüfen) |
 | duer | duar | Hände | (zu prüfen) |
 
 ### 5.4 Grüsse
@@ -312,14 +312,14 @@ Der bestimmte Artikel wird **ans Nomen angehängt**. Fehlt er, lautet die Fehler
 | m | djalë | djali | djalin | der Sohn |
 | m | mik | miku | mikun | der Freund (nach k, g, h: -u) |
 | m | baba | babai | babain | der Vater |
-| m | vëlla | vëllau | vëllaun | der Bruder (zu prüfen) |
+| m | vlla | vllau | vllaun | der Bruder (zu prüfen) |
 | f | motër | motra | motrën | die Schwester |
 | f | nânë | nâna | nânën | die Mutter |
 | f | familje | familja | familjen | die Familie |
 | f | gjyshe | gjyshja | gjyshen | die Grossmutter |
 | f | shpi | shpija | shpinë | das Haus (zu prüfen: Akkusativ) |
 
-- **Nach „nji“** steht die unbestimmte Form: *nji motër, nji vëlla*.
+- **Nach „nji“** steht die unbestimmte Form: *nji motër, nji vlla*.
 - **Mit Possessivpronomen** steht das Nomen bestimmt, das Pronomen folgt: *babai im* (mein Vater), *nâna ime* (meine Mutter). Im Kosovo hört man auch *jem/jeme* (zu prüfen).
 - **Plural bestimmt** meist auf *-t/-të*: *motrat* (die Schwestern), *djemtë* (die Söhne).
 - Auch **Wünsche** stehen im Akkusativ: *Natën e mirë!* (Fehlerkategorie `grammar.case`).
@@ -381,23 +381,37 @@ Vor Adjektiven und Genitiven steht ein **Verbindungsartikel**, der sich nach dem
 
 ## 11. Toleranzregeln der Antwortprüfung
 
-Diese Regeln gelten für Freitext (`translate_free`, `fill_gap` ohne Auswahl) und sinngemäss für die anderen Typen. Umgesetzt werden sie im Backend (`AnswerEvaluator`, PRD F5). Reihenfolge:
+Diese Regeln gelten für Text-Antworten: `translate_free` und `fill_gap` ohne Auswahl, sinngemäss auch für die zusammengesetzten Sätze bei `translate_wordbank` und `word_order` (dort ohne `standardForms`). Umgesetzt werden sie im Backend (`AnswerEvaluator`, PRD F5). Reihenfolge – die erste zutreffende Regel entscheidet:
 
-1. **Normalisieren** (verbindlich: `docs/CONTENT_FORMAT.md`, Abschnitt „Answer normalisation and tokenisation“): Unicode NFC, Kleinschreibung, einfache Leerzeichen; Satzzeichen und Apostrophe (`. , ! ? ; : " „ “ ” « » ' ’ ‘ ( ) - – — …`) werden entfernt, also *S'ka përse!* → *ska përse*. Sonderzeichen (ë, ç, â …) bleiben erhalten.
+1. **Normalisieren** (verbindlich: `docs/CONTENT_FORMAT.md`, Abschnitt „Answer normalisation and tokenisation“, DECISIONS.md #26): Unicode NFC, Kleinschreibung; dann wird **jedes Zeichen entfernt, das kein Buchstabe, keine Ziffer und kein Leerraum ist** – alle Satzzeichen, Symbole und Apostrophe, es gibt keine feste Zeichenliste. Danach werden Leerräume getrimmt und zu einfachen Leerzeichen zusammengefasst: *S'ka përse!* → *ska përse*, *Mirë – po ti?* → *mirë po ti*. Sonderzeichen (ë, ç, â …) bleiben erhalten.
 2. **Exakt gleich** einer Lösung aus `solutions` → **richtig**.
-3. **Nur Zirkumflex fehlt** (*asht* statt *âsht*) → **fast richtig**, Tag `spelling.nasal_vowel`.
-4. **ë oder ç fehlt** (*shume* statt *shumë*, *cka* statt *çka*) → **fast richtig**, Tag `spelling.diacritics`. Fehlen beide Arten, gilt `spelling.diacritics` (zu prüfen: beide Tags vergeben?).
-5. **Gleich einer Form aus `standardForms`** → **„richtig, aber Standard“**, Tag `variant.standard_form`, kein Punktabzug; der Hinweis zeigt die Gheg-Lösung. Fehlende Sonderzeichen werden dabei wie in 3 und 4 toleriert.
-   - Vorschlag für den Evaluator (zu prüfen): Standard-Wörter zusätzlich über `gheg_blocklist.json` erkennen (z. B. *është* → *âsht* ersetzen und erneut vergleichen).
-6. **Sonst falsch.** Die `errorHints` der Aufgabe (regulärer Ausdruck, ohne Beachtung der Gross-/Kleinschreibung, auf die normalisierte Antwort) bestimmen Fehlerkategorie und Hinweis. Ohne Treffer legt der Evaluator die Kategorie fest (z. B. `vocab.unknown`).
+3. **Standard-Form** → **„richtig, aber Standard“**, Tag `variant.standard_form`, kein Punktabzug; der Hinweis zeigt die Gheg-Lösung. Als Standard-Form gilt:
+   - eine Form aus `standardForms`, oder
+   - bei Antworten auf Albanisch: jedes Wort, das von der Lösung abweicht, ist laut `gheg_blocklist.json` die Standard-Form des Lösungsworts (z. B. *është* für *âsht*, *punuar* für *punue*, *shtëpia* für *shpija*; DECISIONS.md #32, zu prüfen).
+4. **Nur Sonderzeichen fehlen** (nach dem Weglassen der Sonderzeichen, `ë→e`, `ç→c`, `â→a`, `ê→e`, `î→i`, `ô→o`, `û→u`, gleich einer Lösung) → **fast richtig**:
+   - nur der Zirkumflex fehlt (*asht* statt *âsht*) → Tag `spelling.nasal_vowel`,
+   - ë oder ç fehlt (*shume* statt *shumë*, *cka* statt *çka*) → Tag `spelling.diacritics`,
+   - fehlen in derselben Antwort Zirkumflex **und** ë/ç (*asht shume* statt *âsht shumë*), gilt `spelling.diacritics` (DECISIONS.md #30, zu prüfen).
+5. **Standard-Form ohne Sonderzeichen** (*eshte* statt *është*, *nje* statt *një*) → trotzdem **„richtig, aber Standard“** wie in 3.
+6. **Bekannter Fehler:** Trifft ein Muster aus `errorHints` (regulärer Ausdruck, ohne Beachtung der Gross-/Kleinschreibung, auf die normalisierte Antwort mit Sonderzeichen) → **falsch** mit Fehlerkategorie und Hinweis des Musters.
+7. **Wortstellung:** dieselben Wörter wie eine Lösung (Sonderzeichen nicht beachtet), aber in anderer Reihenfolge → **falsch**, Tag `grammar.word_order`.
+8. **Tippfehler:** Nach dem Weglassen der Sonderzeichen ist die Damerau-Levenshtein-Distanz zu einer Lösung (Einfügen, Löschen, Ersetzen eines Zeichens oder Vertauschen zweier Nachbarzeichen kostet je 1)
+   - **≤ 1** bei Lösungen mit **mindestens 6 Buchstaben**,
+   - **≤ 2** bei Lösungen mit **mindestens 16 Buchstaben**
+   (Buchstaben und Ziffern der Lösung ohne Leerzeichen) → **fast richtig**, Tag `spelling.other`. Lösungen mit weniger als 6 Buchstaben haben keine Tippfehler-Toleranz: *mir* statt *mirë* (als ganze Antwort) ist falsch, *mirdita* statt *mirëdita* fast richtig.
+9. **Sonst falsch.** Die Fehlerkategorie leitet der Evaluator aus den `skillTags` der Aufgabe ab, sonst `vocab.unknown`.
+
+Wichtig für Content-Autoren: Weil 6 und 7 **vor** 8 geprüft werden, zählt ein vorhersehbarer Grammatikfehler nie als Tippfehler – *nâna im* statt *nâna ime* ist mit passendem `errorHint` falsch (`grammar.gender`), ohne Hint aber „fast richtig“ (Distanz 1). Vorhersehbare Fehler, die nur einen Buchstaben ausmachen, brauchen deshalb einen `errorHint` (DECISIONS.md #31).
+
+Andere Übungstypen: Bei `multiple_choice` und `fill_gap` mit `choices` zählt nur die gewählte Option (sonst falsch, Kategorie aus `errorHints`, den `skillTags` oder `vocab.confused`). Bei `match_pairs` ist ein falsch zugeordnetes Paar „fast richtig“, mehrere sind falsch (`vocab.confused`).
 
 „Fast richtig“ zählt als richtig, aber mit Hinweis (FSRS-Bewertung *Hard*, PRD F8). Mehrere Gheg-Schreibweisen können als Lösung hinterlegt sein.
 
 **errorHints schreiben:**
 
 - `\b` funktioniert in JavaScript nicht zuverlässig neben ë, ç oder â. Stattdessen `(^|\s)` und `(\s|$)` verwenden.
-- Muster laufen auf die normalisierte Antwort **mit** Sonderzeichen, aber **ohne** Satzzeichen und Apostrophe: `^ska p[eë]rse` statt `^s'ka përse`. Weil Lernende Sonderzeichen oft weglassen, trotzdem beide Varianten abdecken, z. B. `n[aâ]n[eë]`.
-- Ein Muster darf keine Lösung aus `solutions` treffen (sonst ist es zu breit); `npm run validate` prüft das.
+- Muster laufen auf die normalisierte Antwort **mit** Sonderzeichen, aber **ohne** jedes Zeichen ausser Buchstaben, Ziffern und Leerzeichen: `^ska p[eë]rse` statt `^s'ka përse`. Ein Muster mit Apostroph, Anführungszeichen oder anderen Satzzeichen als Literal kann nie treffen; `npm run validate` meldet das. Weil Lernende Sonderzeichen oft weglassen, trotzdem beide Varianten abdecken, z. B. `n[aâ]n[eë]`.
+- Ein Muster darf keine Lösung aus `solutions` treffen (sonst ist es zu breit); `npm run validate` prüft das. Es sollte auch keine blossen Tippfehler der Lösung treffen, sonst wird aus „fast richtig“ ein Fehler.
 - Nur Syntax verwenden, die in JavaScript und Java gleich funktioniert (Zeichenklassen, Gruppen, `^`, `$`, `(?!…)`).
 - Standard-Formen gehören nicht in `errorHints`, sondern in `standardForms` (sie sind kein Fehler).
 
@@ -416,7 +430,7 @@ Diese Regeln gelten für Freitext (`translate_free`, `fill_gap` ohne Auswahl) un
 - **`solutions[0]`** ist die kanonische, natürlichste Gheg-Form. Sie wird als Lösung angezeigt; aus ihr entstehen Wortbank und Satzbausteine.
 - **Weitere `solutions`:** andere Gheg-Schreibweisen (*faleminderit / falemnderit*), Synonyme (*Si je? / Qysh je?*) und andere natürliche Wortstellungen (*Mirë jam / Jam mirë*). **Nicht** aufnehmen: Varianten, die sich nur durch fehlende Sonderzeichen unterscheiden (das erledigt der Evaluator) und Standard-Formen.
 - **`standardForms`** (bei `translate_free` und `fill_gap`): die wahrscheinlichen Standard-Varianten, vollständig wie eine Lösung geschrieben (*Një kafe, ju lutem.*).
-- **Item-`alternatives`:** weitere akzeptierte Gheg-Schreibweisen desselben Wortes (*vlla* zu *vëlla*), keine Synonyme.
+- **Item-`alternatives`:** weitere akzeptierte Schreibweisen desselben Wortes (*vëlla* zu *vlla*), keine Synonyme.
 
 **Übungstypen**
 
@@ -443,12 +457,13 @@ Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 1. Referenzvarietät Kosovo-Gheg und Zirkumflex-Schreibung bestätigen (`QUESTIONS.md` 1 und 2).
 2. Schreibungen mit â: *mbrâmje, mirëmbrâma, lânë*; Verwendung von ê, î, ô, û.
 3. Rhotazismus-Formen, die im Kosovo oft durch Standard-Formen ersetzt werden: *emni/emri, emnin/emrin*.
-4. Formen der Familien-Einheit: *vëllau* (Standard *vëllai*), *vëllazën* (Standard *vëllezër*), *gruja* (Standard *gruaja*), *axhë/axha* (Standard *xhaxhai*), *babai* oder *baba* als bestimmte Form, *jem/jeme* als Alternative zu *im/ime*, *dhe / edhe / e* für „und“, *çikë* neben *vajzë*.
+4. Formen der Familien-Einheit: *vlla, vllau, vllazën* als Kosovo-Formen (Standard *vëlla, vëllai, vëllezër*) und ob *vëlla* als weitere Schreibung akzeptiert bleibt oder als Standard-Form gilt, *gruja* (Standard *gruaja*), *axhë/axha* (Standard *xhaxhai*), *babai* oder *baba* als bestimmte Form, *jem/jeme* als Alternative zu *im/ime*, *dhe / edhe / e* für „und“, *çikë* neben *vajzë*.
 5. Verben: *du* oder *due* (wollen), *muj* (können), *hangra* (ich ass), *çohem* (aufstehen), *folë* oder *fol* (gesprochen), *pi* und *ditë* als Partizipien, *tue/tu/tuj* als Gerundium.
 6. Plural „sein/haben“ im Kosovo-Alltag: *jemi/jena*, *kemi/kena*.
 7. Funktionswörter: *po* als „aber“, *prej* für „von/aus“, *kah*, *veç*, *gja/gjâ*.
 8. Ob *të* + Konjunktiv (*du të punoj*) und *do të* + Konjunktiv (Zukunft) als Gheg-Lösung oder als Standard-Form gelten.
 9. Ausnahmen der Blockliste: *gëzuar* (Prost) und *duar* (Hände); Muster *-ënë*.
-10. Evaluator: Bewertung von Formen ohne End-ë (*mir*) und von lautnahen Schreibungen (*osht, nona*); Tags, wenn Zirkumflex und ë/ç zugleich fehlen; automatische Erkennung von Standard-Formen über die Blockliste.
+10. Evaluator: Bewertung von Formen ohne End-ë (*mir*) und von lautnahen Schreibungen (*osht, nona*), die derzeit je nach Länge falsch oder Tippfehler sind; Schwellen der Tippfehler-Toleranz (6 und 16 Buchstaben); Tag `spelling.diacritics`, wenn Zirkumflex und ë/ç zugleich fehlen (DECISIONS.md #30); automatische Erkennung von Standard-Formen über die Blockliste (DECISIONS.md #32).
 11. Kurzformen mit Apostroph (*m'fal, t'lutem*) als zusätzliche Lösungen zulassen?
 12. Formen aus der Einstufungsbank (`placement.json`, vor allem B2–C2): Konditional *kisha me* + Partizip (*kisha me ardhë*), Bedingung mit *me pasë / me e pasë ditë*, Partizipien *ra* (von *bie*), *ble*, *vozitë*, *mbrojtë*, *ndezë*, *hedhë*, *gjetë*, *mërzitë*, *rritë*, *vendosë*, *qëndrue*, Passiv mit *prej* als Agens, *i lumtun*, *pare* (Geld), *veturë*, *me bâ muhabet*, Klitikon-Stellung in *për me të pa*, ironisches *Punë e madhe!*, Sprichwort *Gjuha kockë s'ka, po kockë thyen*. Die betroffenen Aufgaben haben eine `note`.
+13. Regionale Formen: *qumësht* (Milch) als Kosovo-Form; *tamël* ist Nordwest-Gheg und wird nicht verwendet.
