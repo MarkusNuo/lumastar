@@ -169,6 +169,86 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/profile/documents/{name}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * One learner profile document (PRD 8.3)
+         * @description Generated from the current learning state. The JSON documents are learner_profile.json, skill_mastery.json, recent_errors.json (last 50 errors) and learning_plan.json; learner_summary.md is Markdown.
+         */
+        get: operations["getProfileDocument"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/profile/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Download the complete learning state as ZIP
+         * @description manifest.json, the profile documents under documents/ and all learner data under data/. The file name is lingora-export-<yyyy-MM-dd>.zip.
+         */
+        get: operations["exportProfile"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/profile/import": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Restore an export
+         * @description Replaces all learning data of the signed-in account with the content of the file in one transaction; the account and its password stay. Exports of older versions are upgraded.
+         */
+        post: operations["importProfile"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/profile/summary": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Compact Markdown summary for an AI chat
+         * @description learner_summary.md, for the button "KI-Zusammenfassung kopieren" (PRD F11).
+         */
+        get: operations["getLearnerSummary"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -213,6 +293,37 @@ export interface components {
             /** @description No account exists yet; the app shows the first-start setup */
             setupRequired: boolean;
         };
+        /** @description Rows per learner table */
+        BackupCounts: {
+            /**
+             * Format: int32
+             * @description Answers
+             */
+            attempts: number;
+            /** Format: int32 */
+            fsrsParams: number;
+            /** Format: int32 */
+            learningPlans: number;
+            /** Format: int32 */
+            placementAnswers: number;
+            /** Format: int32 */
+            placementTests: number;
+            /** Format: int32 */
+            planChanges: number;
+            /** Format: int32 */
+            reviewLog: number;
+            /**
+             * Format: int32
+             * @description Lessons
+             */
+            sessions: number;
+            /** Format: int32 */
+            skillMastery: number;
+            /** Format: int32 */
+            srsCards: number;
+            /** Format: int32 */
+            streaks: number;
+        };
         CurriculumResponse: {
             stages: components["schemas"]["CurriculumStage"][];
         };
@@ -248,6 +359,19 @@ export interface components {
         };
         /** @enum {string} */
         ExerciseType: "multiple_choice" | "translate_wordbank" | "translate_free" | "fill_gap" | "match_pairs" | "word_order" | "conjugation_drill" | "declension_drill" | "reading" | "free_writing" | "listen_select";
+        ImportResult: {
+            /**
+             * Format: date-time
+             * @description When the file was exported
+             */
+            exportedAt: string;
+            imported: components["schemas"]["BackupCounts"];
+            /**
+             * Format: int32
+             * @description Export format version of the file
+             */
+            schemaVersion: number;
+        };
         LearnedItem: {
             de: string;
             gheg: string;
@@ -352,6 +476,13 @@ export interface components {
             title: string;
             /** Format: uri */
             type?: string;
+            /** @description Content ids an import refers to but this instance lacks (code unknown_content_references) */
+            unknownReferences?: {
+                exercises: string[];
+                items: string[];
+                skillTags: string[];
+                units: string[];
+            };
         };
         ProfileResponse: {
             /** @description Absent until the placement test (or its skip) has set a level */
@@ -735,7 +866,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Lesson completed, exercise already answered or retried before its first answer (codes lesson_completed, exercise_already_answered, retry_before_first_attempt) */
+            /** @description Lesson completed, exercise already answered, retried before its first answer or retried after a correct answer (codes lesson_completed, exercise_already_answered, retry_before_first_attempt, exercise_already_correct) */
             409: {
                 headers: {
                     [name: string]: unknown;
@@ -829,6 +960,177 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ProfileResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getProfileDocument: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                name: "learner_profile.json" | "skill_mastery.json" | "recent_errors.json" | "learning_plan.json" | "learner_summary.md";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The document */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": Record<string, never> | unknown[];
+                    "text/markdown": string;
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Unknown document (code document_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    exportProfile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The export */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/zip": string;
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    importProfile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "multipart/form-data": {
+                    /** Format: binary */
+                    file: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The rows restored per table */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ImportResult"];
+                };
+            };
+            /** @description No file part (code bad_request) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description File or unpacked content too large (code upload_too_large) */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not importable: invalid_backup_archive, unsupported_schema_version, invalid_backup_data (with errors) or unknown_content_references (with unknownReferences) */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getLearnerSummary: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The summary in German */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/markdown": string;
                 };
             };
             /** @description Not signed in */
