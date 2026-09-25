@@ -1,0 +1,1178 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u06_home",
+  "level": "A1.2",
+  "grammar": [
+    {
+      "title": "Shpi – das Gheg-Wort für „Haus“",
+      "explanation": "Im Kosovo sagt man **shpi** (Standard: shtëpi): *nji shpi* – ein Haus, *shpija* – das Haus. **Në shpi** heisst „zu Hause“ oder „nach Hause“: *Jam në shpi.* – Ich bin zu Hause. Eine Wohnung heisst im Kosovo **banesë**, bestimmt **banesa**."
+    },
+    {
+      "title": "Wo ist …? – Präpositionen",
+      "explanation": "| Gheg | Deutsch | Beispiel |\n|---|---|---|\n| në | in | *në kuzhinë* – in der Küche |\n| mbi | auf | *mbi tavolinë* – auf dem Tisch |\n| nën | unter | *nën shtrat* – unter dem Bett |\n| te | bei, an | *te dera* – an der Tür |\n| afër | in der Nähe | *Banesa âsht afër.* |\n\nNach **në, mbi, nën** steht das Nomen hier meist ohne Artikel: *Nâna âsht në kuzhinë.* Nach **te** steht die bestimmte Form: *Arta âsht te dera.*"
+    },
+    {
+      "title": "Ka – es gibt",
+      "explanation": "**Ka** heisst nicht nur „er/sie hat“, sondern auch „es gibt“: *Në kuzhinë ka nji tavolinë.* – In der Küche gibt es einen Tisch. *Shpija ka nji kopsht.* – Das Haus hat einen Garten."
+    }
+  ],
+  "items": [
+    {
+      "id": "item_banese",
+      "kind": "word",
+      "gheg": "banesë",
+      "de": "Wohnung",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "banesa",
+      "note": "Im Kosovo übliches Wort für „Wohnung“ (in Albanien oft „apartament“) – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_dhome", "kind": "word", "gheg": "dhomë", "de": "Zimmer", "partOfSpeech": "noun", "gender": "f", "definite": "dhoma", "plural": "dhoma", "reviewed": false },
+    { "id": "item_dhoma_e_gjumit", "kind": "phrase", "gheg": "dhoma e gjumit", "de": "das Schlafzimmer", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_kuzhine", "kind": "word", "gheg": "kuzhinë", "de": "Küche", "partOfSpeech": "noun", "gender": "f", "definite": "kuzhina", "reviewed": false },
+    { "id": "item_banje", "kind": "word", "gheg": "banjë", "de": "Badezimmer, Bad", "partOfSpeech": "noun", "gender": "f", "definite": "banja", "reviewed": false },
+    { "id": "item_dere", "kind": "word", "gheg": "derë", "de": "Tür", "partOfSpeech": "noun", "gender": "f", "definite": "dera", "plural": "dyer", "reviewed": false },
+    { "id": "item_dritare", "kind": "word", "gheg": "dritare", "de": "Fenster", "partOfSpeech": "noun", "gender": "f", "definite": "dritarja", "reviewed": false },
+    { "id": "item_tavoline", "kind": "word", "gheg": "tavolinë", "de": "Tisch", "partOfSpeech": "noun", "gender": "f", "definite": "tavolina", "reviewed": false },
+    {
+      "id": "item_karrige",
+      "kind": "word",
+      "gheg": "karrige",
+      "de": "Stuhl",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "note": "Bestimmte Form (karrigia/karrigja) zu prüfen; darum hier nur unbestimmt verwendet.",
+      "reviewed": false
+    },
+    { "id": "item_shtrat", "kind": "word", "gheg": "shtrat", "de": "Bett", "partOfSpeech": "noun", "gender": "m", "definite": "shtrati", "reviewed": false },
+    { "id": "item_oborr", "kind": "word", "gheg": "oborr", "de": "Hof", "partOfSpeech": "noun", "gender": "m", "definite": "oborri", "reviewed": false },
+    {
+      "id": "item_kopsht",
+      "kind": "word",
+      "gheg": "kopsht",
+      "de": "Garten",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "kopshti",
+      "note": "Im Kosovo heisst „kopsht“ auch „Kindergarten“.",
+      "reviewed": false
+    },
+    { "id": "item_celes", "kind": "word", "gheg": "çelës", "de": "Schlüssel", "partOfSpeech": "noun", "gender": "m", "definite": "çelësi", "reviewed": false },
+    { "id": "item_liber", "kind": "word", "gheg": "libër", "de": "Buch", "partOfSpeech": "noun", "gender": "m", "definite": "libri", "plural": "libra", "reviewed": false },
+    { "id": "item_mace", "kind": "word", "gheg": "mace", "de": "Katze", "partOfSpeech": "noun", "gender": "f", "definite": "macja", "reviewed": false },
+    { "id": "item_mbi", "kind": "word", "gheg": "mbi", "de": "auf, über", "partOfSpeech": "preposition", "reviewed": false },
+    { "id": "item_nen", "kind": "word", "gheg": "nën", "de": "unter", "partOfSpeech": "preposition", "reviewed": false },
+    {
+      "id": "item_te_bei",
+      "kind": "word",
+      "gheg": "te",
+      "de": "bei, an, zu (mit Nominativ)",
+      "partOfSpeech": "preposition",
+      "note": "Auch „tek“ – zu prüfen, ob als Alternative aufnehmen.",
+      "reviewed": false
+    },
+    { "id": "item_afer", "kind": "word", "gheg": "afër", "de": "in der Nähe, nahe", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_atje", "kind": "word", "gheg": "atje", "de": "dort", "partOfSpeech": "adverb", "reviewed": false },
+    {
+      "id": "item_i_hapun",
+      "kind": "phrase",
+      "gheg": "i hapun, e hapun",
+      "de": "offen, geöffnet",
+      "partOfSpeech": "adjective",
+      "note": "Gheg-Partizip auf -un (Standard: i hapur) nach Sprachrichtlinie 7.3 – zu prüfen.",
+      "reviewed": false
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u06_home_001",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_shpi", "item_dhome", "item_dere", "item_banje"],
+      "prompt": { "lang": "de", "text": "Wie sagt man im Kosovo „Haus“?" },
+      "choices": ["dhomë", "shpi", "derë", "banjë"],
+      "solutions": ["shpi"],
+      "explanation": "„Shpi“ ist die Gheg-Form (Standard: „shtëpi“). Mit Artikel: „shpija“ – das Haus.",
+      "errorHints": [
+        { "pattern": "^dhom[eë]$", "category": "vocab.confused", "hint": "„Dhomë“ ist das Zimmer." },
+        { "pattern": "^der[eë]$", "category": "vocab.confused", "hint": "„Derë“ ist die Tür." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_002",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_kuzhine"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „kuzhinë“?" },
+      "choices": ["Küche", "Zimmer", "Bad", "Garten"],
+      "solutions": ["Küche"],
+      "explanation": "„Kuzhinë“ heisst „Küche“, „kuzhina“ ist „die Küche“.",
+      "errorHints": [
+        { "pattern": "^bad$", "category": "vocab.confused", "hint": "„Bad“ heisst „banjë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_003",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_dhome"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „dhomë“?" },
+      "choices": ["Tür", "Fenster", "Tisch", "Zimmer"],
+      "solutions": ["Zimmer"],
+      "explanation": "„Dhomë“ heisst „Zimmer“. Die Mehrzahl ist gleich: „dy dhoma“ – zwei Zimmer.",
+      "errorHints": [
+        { "pattern": "^t[uü]r$", "category": "vocab.confused", "hint": "„Tür“ heisst „derë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_004",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_dritare", "item_dere", "item_dhome", "item_tavoline"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Fenster“?" },
+      "choices": ["derë", "dhomë", "dritare", "tavolinë"],
+      "solutions": ["dritare"],
+      "explanation": "„Dritare“ heisst „Fenster“, „dritarja“ ist „das Fenster“.",
+      "errorHints": [
+        { "pattern": "^der[eë]$", "category": "vocab.confused", "hint": "„Derë“ ist die Tür." },
+        { "pattern": "^tavolin[eë]$", "category": "vocab.confused", "hint": "„Tavolinë“ ist der Tisch." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_005",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions"],
+      "itemIds": ["item_nen"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „nën“?" },
+      "choices": ["auf", "unter", "in", "bei"],
+      "solutions": ["unter"],
+      "explanation": "„Nën“ heisst „unter“: „nën shtrat“ – unter dem Bett.",
+      "errorHints": [
+        { "pattern": "^auf$", "category": "vocab.confused", "hint": "„Auf“ heisst „mbi“." },
+        { "pattern": "^in$", "category": "vocab.confused", "hint": "„In“ heisst „në“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_006",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_oborr"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „oborr“?" },
+      "choices": ["Hof", "Garten", "Keller", "Dach"],
+      "solutions": ["Hof"],
+      "explanation": "„Oborr“ ist der Hof beim Haus – im Kosovo haben viele Häuser einen oborr.",
+      "errorHints": [
+        { "pattern": "^garten$", "category": "vocab.confused", "hint": "„Garten“ heisst „kopsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_007",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_ne_shpi", "item_jam"],
+      "prompt": { "lang": "de", "text": "Was heisst „Jam në shpi.“?" },
+      "choices": ["Ich habe ein Haus.", "Das Haus ist gross.", "Wo ist das Haus?", "Ich bin zu Hause."],
+      "solutions": ["Ich bin zu Hause."],
+      "explanation": "„Në shpi“ heisst „zu Hause“. „Jam“ heisst „ich bin“. Standard wäre „në shtëpi“.",
+      "errorHints": [
+        { "pattern": "^ich habe", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“. „Ich habe“ wäre „kam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_008",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_celes", "item_mbi", "item_tavoline"],
+      "prompt": { "lang": "de", "text": "Was heisst „Çelësi âsht mbi tavolinë.“?" },
+      "choices": ["Der Schlüssel ist unter dem Tisch.", "Der Tisch ist in der Küche.", "Der Schlüssel ist auf dem Tisch.", "Wo ist der Schlüssel?"],
+      "solutions": ["Der Schlüssel ist auf dem Tisch."],
+      "explanation": "„Mbi“ heisst „auf“, „nën“ heisst „unter“. „Çelësi“ ist der Schlüssel.",
+      "errorHints": [
+        { "pattern": "unter", "category": "vocab.confused", "hint": "„Unter“ hiesse „nën“: „nën tavolinë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_009",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_banese"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „banesa“?" },
+      "choices": ["das Zimmer", "die Wohnung", "der Hof", "die Küche"],
+      "solutions": ["die Wohnung"],
+      "explanation": "„Banesë“ ist das Kosovo-Wort für „Wohnung“; „banesa“ heisst „die Wohnung“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„banesë“ als Kosovo-Wort zu prüfen."
+    },
+    {
+      "id": "ex_a1_u06_home_010",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_ka", "item_kuzhine", "item_tavoline"],
+      "prompt": { "lang": "de", "text": "Was heisst „Në kuzhinë ka nji tavolinë.“?" },
+      "choices": ["In der Küche gibt es einen Tisch.", "In der Küche gibt es einen Stuhl.", "Der Tisch ist gross.", "Die Küche ist gross."],
+      "solutions": ["In der Küche gibt es einen Tisch."],
+      "explanation": "„Ka“ heisst hier „es gibt“. „Tavolinë“ ist der Tisch.",
+      "errorHints": [
+        { "pattern": "stuhl", "category": "vocab.confused", "hint": "„Stuhl“ heisst „karrige“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_011",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.prepositions", "grammar.definite_article.fem"],
+      "itemIds": ["item_te_bei", "item_dere"],
+      "prompt": { "lang": "de", "text": "Welcher Satz heisst „Arta ist an der Tür.“?" },
+      "choices": ["Arta âsht te dritarja.", "Arta âsht në kuzhinë.", "Arta âsht në oborr.", "Arta âsht te dera."],
+      "solutions": ["Arta âsht te dera."],
+      "explanation": "„Te“ heisst „bei, an“ und steht mit der bestimmten Form: „te dera“ – an der Tür.",
+      "errorHints": [
+        { "pattern": "dritarja", "category": "vocab.confused", "hint": "„Dritarja“ ist das Fenster. Die Tür heisst „dera“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_012",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_dritare", "item_i_hapun"],
+      "prompt": { "lang": "de", "text": "Was heisst „Dritarja âsht e hapun.“?" },
+      "choices": ["Das Fenster ist zu.", "Die Tür ist offen.", "Das Fenster ist offen.", "Das Fenster ist gross."],
+      "solutions": ["Das Fenster ist offen."],
+      "explanation": "„E hapun“ heisst „offen“. Gheg sagt „hapun“, Standard „hapur“.",
+      "errorHints": [
+        { "pattern": "t[uü]r", "category": "vocab.confused", "hint": "„Dritarja“ ist das Fenster. Die Tür heisst „dera“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e hapun“ (Standard: hapur) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u06_home_013",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_ne_shpi", "item_jam"],
+      "prompt": { "lang": "de", "text": "Ich bin zu Hause." },
+      "answerLang": "sq",
+      "solutions": ["Jam në shpi.", "Unë jam në shpi.", "Në shpi jam."],
+      "wordBank": ["Jam", "në", "shpi", "kuzhinë", "je", "shpija"],
+      "explanation": "„Në shpi“ heisst „zu Hause“ (Standard: „në shtëpi“).",
+      "errorHints": [
+        { "pattern": "n[eë] shpija", "category": "grammar.definite_article", "hint": "„Zu Hause“ ist eine feste Wendung ohne Artikel: „në shpi“." },
+        { "pattern": "^(un[eë] )?je ", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. „Ich bin“ heisst „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_014",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.definite_article.fem"],
+      "itemIds": ["item_ku", "item_asht", "item_kuzhine"],
+      "prompt": { "lang": "de", "text": "Wo ist die Küche?" },
+      "answerLang": "sq",
+      "solutions": ["Ku âsht kuzhina?", "Kuzhina ku âsht?"],
+      "wordBank": ["Ku", "âsht", "kuzhina", "kuzhinë", "dhoma", "je"],
+      "explanation": "„Die Küche“ braucht den Artikel: kuzhinë → kuzhina.",
+      "errorHints": [
+        { "pattern": "kuzhin[eë]$", "category": "grammar.definite_article", "hint": "„Die Küche“ braucht den Artikel: kuzhinë → kuzhina." },
+        { "pattern": "dhoma", "category": "vocab.confused", "hint": "„Dhoma“ ist das Zimmer." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_015",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_mace", "item_nen", "item_shtrat"],
+      "prompt": { "lang": "de", "text": "Die Katze ist unter dem Bett." },
+      "answerLang": "sq",
+      "solutions": ["Macja âsht nën shtrat."],
+      "wordBank": ["Macja", "âsht", "nën", "shtrat", "mbi", "shtrati", "mace"],
+      "explanation": "„Nën“ heisst „unter“. Danach steht das Nomen hier ohne Artikel: „nën shtrat“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)mbi ", "category": "vocab.confused", "hint": "„Mbi“ heisst „auf“. „Unter“ heisst „nën“." },
+        { "pattern": "^mace ", "category": "grammar.definite_article", "hint": "„Die Katze“: mace → macja." },
+        { "pattern": "n[eë]n shtrati", "category": "grammar.case", "hint": "Nach „nën“ steht hier „shtrat“ ohne Artikel." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_016",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_ka", "item_kuzhine", "item_nji", "item_tavoline"],
+      "prompt": { "lang": "de", "text": "In der Küche gibt es einen Tisch." },
+      "answerLang": "sq",
+      "solutions": ["Në kuzhinë ka nji tavolinë.", "Ka nji tavolinë në kuzhinë."],
+      "wordBank": ["Në", "kuzhinë", "ka", "nji", "tavolinë", "âsht", "kam", "tavolina"],
+      "explanation": "„Ka“ heisst hier „es gibt“. Nach „nji“ steht „tavolinë“ ohne Artikel.",
+      "errorHints": [
+        { "pattern": "(^|\\s)[aâ]sht ", "category": "vocab.confused", "hint": "Für „es gibt“ sagt man „ka“." },
+        { "pattern": "nji tavolina", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji tavolinë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_017",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.possessive"],
+      "itemIds": ["item_shpi", "item_ime", "item_ka", "item_kopsht"],
+      "prompt": { "lang": "de", "text": "Mein Haus hat einen Garten." },
+      "answerLang": "sq",
+      "solutions": ["Shpija ime ka nji kopsht."],
+      "wordBank": ["Shpija", "ime", "ka", "nji", "kopsht", "im", "oborr", "kam"],
+      "explanation": "„Shpija“ ist feminin – darum „shpija ime“. „Ka“ heisst „hat“.",
+      "errorHints": [
+        { "pattern": "shpija im(\\s|$)", "category": "grammar.gender", "hint": "„Shpija“ ist feminin – darum „ime“." },
+        { "pattern": "oborr", "category": "vocab.confused", "hint": "„Oborr“ ist der Hof. Garten heisst „kopsht“." },
+        { "pattern": "(^|\\s)kam ", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Das Haus „hat“: „ka“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_018",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_celes", "item_mbi", "item_tavoline", "item_ne_prep", "item_kuzhine"],
+      "prompt": { "lang": "de", "text": "Der Schlüssel ist auf dem Tisch in der Küche." },
+      "answerLang": "sq",
+      "solutions": ["Çelësi âsht mbi tavolinë në kuzhinë.", "Çelësi âsht në kuzhinë mbi tavolinë."],
+      "wordBank": ["Çelësi", "âsht", "mbi", "tavolinë", "në", "kuzhinë", "nën", "çelës", "tavolina"],
+      "explanation": "„Mbi tavolinë“ – auf dem Tisch, „në kuzhinë“ – in der Küche.",
+      "errorHints": [
+        { "pattern": "(^|\\s)n[eë]n ", "category": "vocab.confused", "hint": "„Nën“ heisst „unter“. „Auf“ heisst „mbi“." },
+        { "pattern": "^[cç]el[eë]s [aâ]sht", "category": "grammar.definite_article", "hint": "„Der Schlüssel“: çelës → çelësi." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_019",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_nane", "item_asht", "item_kuzhine"],
+      "prompt": { "lang": "sq", "text": "Nâna âsht në kuzhinë." },
+      "answerLang": "de",
+      "solutions": ["Die Mutter ist in der Küche.", "Mutter ist in der Küche.", "Mama ist in der Küche.", "In der Küche ist die Mutter."],
+      "wordBank": ["Die", "Mutter", "ist", "in", "der", "Küche", "im", "Bad", "Vater"],
+      "explanation": "„Në kuzhinë“ heisst „in der Küche“. „Nâna“ ist die Mutter.",
+      "errorHints": [
+        { "pattern": "bad", "category": "vocab.confused", "hint": "„Bad“ hiesse „banjë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_020",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_jam", "item_banje"],
+      "prompt": { "lang": "sq", "text": "Jam në banjë." },
+      "answerLang": "de",
+      "solutions": ["Ich bin im Bad.", "Ich bin im Badezimmer."],
+      "wordBank": ["Ich", "bin", "im", "Bad", "Küche", "bist", "Zimmer"],
+      "explanation": "„Banjë“ heisst „Bad“. „Në banjë“ – im Bad.",
+      "errorHints": [
+        { "pattern": "k[uü]che", "category": "vocab.confused", "hint": "„Küche“ hiesse „kuzhinë“." },
+        { "pattern": "bist", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_021",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_baba", "item_asht", "item_oborr"],
+      "prompt": { "lang": "sq", "text": "Babai âsht në oborr." },
+      "answerLang": "de",
+      "solutions": ["Der Vater ist im Hof.", "Vater ist im Hof.", "Papa ist im Hof."],
+      "wordBank": ["Der", "Vater", "ist", "im", "Hof", "Garten", "Mutter", "Haus"],
+      "explanation": "„Oborr“ ist der Hof. „Babai“ ist der Vater.",
+      "errorHints": [
+        { "pattern": "garten", "category": "vocab.confused", "hint": "„Garten“ hiesse „kopsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_022",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_liber", "item_nen", "item_tavoline"],
+      "prompt": { "lang": "sq", "text": "Libri âsht nën tavolinë." },
+      "answerLang": "de",
+      "solutions": ["Das Buch ist unter dem Tisch."],
+      "wordBank": ["Das", "Buch", "ist", "unter", "dem", "Tisch", "auf", "Bett", "der"],
+      "explanation": "„Libri“ ist das Buch, „nën“ heisst „unter“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)auf ", "category": "vocab.confused", "hint": "„Nën“ heisst „unter“. „Auf“ wäre „mbi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_023",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.possessive"],
+      "itemIds": ["item_banese", "item_ime", "item_ka", "item_dhome"],
+      "prompt": { "lang": "sq", "text": "Banesa ime ka tri dhoma." },
+      "answerLang": "de",
+      "solutions": ["Meine Wohnung hat drei Zimmer."],
+      "wordBank": ["Meine", "Wohnung", "hat", "drei", "Zimmer", "zwei", "Haus", "ist"],
+      "explanation": "„Banesa ime“ heisst „meine Wohnung“. „Tri“ ist die feminine Form von „drei“.",
+      "errorHints": [
+        { "pattern": "zwei", "category": "vocab.confused", "hint": "„Zwei“ heisst „dy“. „Tri“ heisst „drei“." },
+        { "pattern": "haus", "category": "vocab.confused", "hint": "„Banesa“ ist die Wohnung, das Haus heisst „shpija“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_024",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_afer", "item_shpi", "item_ka", "item_kopsht"],
+      "prompt": { "lang": "sq", "text": "Afër shpisë ka nji kopsht." },
+      "answerLang": "de",
+      "solutions": [
+        "In der Nähe des Hauses gibt es einen Garten.",
+        "Beim Haus gibt es einen Garten.",
+        "Nahe beim Haus gibt es einen Garten.",
+        "Es gibt einen Garten in der Nähe des Hauses."
+      ],
+      "wordBank": ["In", "der", "Nähe", "des", "Hauses", "gibt", "es", "einen", "Garten", "Hof", "Zimmer", "ist"],
+      "explanation": "Nach „afër“ (in der Nähe) steht der Ablativ: „afër shpisë“ – in der Nähe des Hauses. Diesen Fall lernst du später genauer.",
+      "errorHints": [
+        { "pattern": "hof", "category": "vocab.confused", "hint": "„Hof“ hiesse „oborr“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_025",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.definite_article.fem"],
+      "itemIds": ["item_shpi", "item_asht", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Das Haus ist gross." },
+      "answerLang": "sq",
+      "solutions": ["Shpija âsht e madhe."],
+      "standardForms": ["Shtëpia është e madhe."],
+      "explanation": "Der bestimmte Artikel wird angehängt: shpi → shpija. „Ist“ heisst auf Gheg „âsht“ (Standard: „është“).",
+      "errorHints": [
+        { "pattern": "^shpi [aâe]", "category": "grammar.definite_article", "hint": "Der bestimmte Artikel wird angehängt: shpi → shpija." },
+        { "pattern": "(^|\\s)i madh(\\s|$)", "category": "grammar.linking_article", "hint": "„Shpija“ ist feminin – darum „e madhe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_026",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.definite_article.fem"],
+      "itemIds": ["item_kuzhine", "item_asht", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Die Küche ist klein." },
+      "answerLang": "sq",
+      "solutions": ["Kuzhina âsht e vogël."],
+      "standardForms": ["Kuzhina është e vogël."],
+      "explanation": "„Kuzhina“ ist feminin – darum „e vogël“.",
+      "errorHints": [
+        { "pattern": "^kuzhin[eë] ", "category": "grammar.definite_article", "hint": "„Die Küche“ braucht den Artikel: kuzhinë → kuzhina." },
+        { "pattern": "(^|\\s)i vog", "category": "grammar.linking_article", "hint": "„Kuzhina“ ist feminin – darum „e vogël“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_027",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_jam", "item_ne_prep", "item_kuzhine"],
+      "prompt": { "lang": "de", "text": "Ich bin in der Küche." },
+      "answerLang": "sq",
+      "solutions": ["Jam në kuzhinë.", "Unë jam në kuzhinë."],
+      "explanation": "Nach „në“ steht hier „kuzhinë“ ohne Artikel: „Jam në kuzhinë.“",
+      "errorHints": [
+        { "pattern": "n[eë] kuzhina", "category": "grammar.case", "hint": "Nach „në“ steht hier „kuzhinë“: „Jam në kuzhinë.“" },
+        { "pattern": "^(un[eë] )?je ", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. „Ich bin“ heisst „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_028",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_mace", "item_mbi", "item_karrige"],
+      "prompt": { "lang": "de", "text": "Die Katze ist auf dem Stuhl." },
+      "answerLang": "sq",
+      "solutions": ["Macja âsht mbi karrige."],
+      "standardForms": ["Macja është mbi karrige."],
+      "explanation": "„Mbi“ heisst „auf“, „karrige“ ist der Stuhl.",
+      "errorHints": [
+        { "pattern": "(^|\\s)n[eë]n ", "category": "vocab.confused", "hint": "„Nën“ heisst „unter“. „Auf“ heisst „mbi“." },
+        { "pattern": "^mace ", "category": "grammar.definite_article", "hint": "„Die Katze“: mace → macja." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_029",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_dere", "item_asht", "item_i_hapun"],
+      "prompt": { "lang": "de", "text": "Die Tür ist offen." },
+      "answerLang": "sq",
+      "solutions": ["Dera âsht e hapun."],
+      "standardForms": ["Dera është e hapur.", "Dera âsht e hapur."],
+      "explanation": "„E hapun“ heisst „offen“ – im Gheg mit -un (Standard: „e hapur“).",
+      "errorHints": [
+        { "pattern": "^der[eë] ", "category": "grammar.definite_article", "hint": "„Die Tür“: derë → dera." },
+        { "pattern": "(^|\\s)i hap", "category": "grammar.linking_article", "hint": "„Dera“ ist feminin – darum „e hapun“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „e hapun“ (Standard: hapur) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u06_home_030",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.definite_article.masc"],
+      "itemIds": ["item_ku", "item_asht", "item_celes"],
+      "prompt": { "lang": "de", "text": "Wo ist der Schlüssel?" },
+      "answerLang": "sq",
+      "solutions": ["Ku âsht çelësi?", "Çelësi ku âsht?"],
+      "standardForms": ["Ku është çelësi?"],
+      "explanation": "„Der Schlüssel“ braucht den Artikel: çelës → çelësi.",
+      "errorHints": [
+        { "pattern": "[cç]el[eë]s$", "category": "grammar.definite_article", "hint": "„Der Schlüssel“ braucht den Artikel: çelës → çelësi." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_031",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.verbs.kam"],
+      "itemIds": ["item_kam", "item_nji", "item_banese"],
+      "prompt": { "lang": "de", "text": "Ich habe eine Wohnung in Prishtina." },
+      "answerLang": "sq",
+      "solutions": ["Kam nji banesë në Prishtinë.", "Unë kam nji banesë në Prishtinë.", "Në Prishtinë kam nji banesë."],
+      "standardForms": ["Kam një banesë në Prishtinë.", "Unë kam një banesë në Prishtinë."],
+      "explanation": "„Banesë“ ist die Wohnung. Nach „nji“ steht die unbestimmte Form.",
+      "errorHints": [
+        { "pattern": "nji banesa", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji banesë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_032",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.prepositions", "grammar.case.accusative"],
+      "itemIds": ["item_liber", "item_nen", "item_shtrat", "item_dhoma_e_gjumit"],
+      "prompt": { "lang": "de", "text": "Das Buch ist unter dem Bett im Schlafzimmer." },
+      "answerLang": "sq",
+      "solutions": ["Libri âsht nën shtrat në dhomën e gjumit.", "Libri âsht në dhomën e gjumit nën shtrat."],
+      "standardForms": ["Libri është nën shtrat në dhomën e gjumit."],
+      "explanation": "Nach „në“ steht hier der Akkusativ: „në dhomën e gjumit“ – im Schlafzimmer.",
+      "errorHints": [
+        { "pattern": "dhoma e gjumit", "category": "grammar.case", "hint": "Nach „në“ steht der Akkusativ: „në dhomën e gjumit“." },
+        { "pattern": "^lib[eë]r ", "category": "grammar.definite_article", "hint": "„Das Buch“: libër → libri." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_033",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.possessive"],
+      "itemIds": ["item_gjyshe", "item_ime", "item_jetoj", "item_afer"],
+      "prompt": { "lang": "de", "text": "Meine Grossmutter wohnt in der Nähe." },
+      "answerLang": "sq",
+      "solutions": ["Gjyshja ime jeton afër.", "Gjyshja ime jeton këtu afër."],
+      "explanation": "„Afër“ heisst „in der Nähe“. „Jeton“ heisst „wohnt, lebt“.",
+      "errorHints": [
+        { "pattern": "gjyshja im(\\s|$)", "category": "grammar.gender", "hint": "„Gjyshja“ ist feminin – darum „ime“." },
+        { "pattern": "gjyshe ime", "category": "grammar.definite_article", "hint": "Mit „ime“ braucht das Nomen den Artikel: gjyshe → gjyshja." },
+        { "pattern": "(^|\\s)jetoj(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jetoj“ heisst „ich wohne“. „Sie wohnt“ heisst „jeton“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_034",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_ne_shpi", "item_jam"],
+      "prompt": { "lang": "de", "text": "Ich bin zu Hause." },
+      "answerLang": "sq",
+      "text": "Jam në ___.",
+      "solutions": ["shpi"],
+      "choices": ["shpi", "shpija", "dhoma", "derë"],
+      "explanation": "„Në shpi“ ist eine feste Wendung ohne Artikel: „zu Hause“.",
+      "errorHints": [
+        { "pattern": "^shpija$", "category": "grammar.definite_article", "hint": "„Në shpi“ ist eine feste Wendung ohne Artikel." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_035",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions"],
+      "itemIds": ["item_mace", "item_nen", "item_tavoline"],
+      "prompt": { "lang": "de", "text": "Die Katze ist unter dem Tisch." },
+      "answerLang": "sq",
+      "text": "Macja âsht ___ tavolinë.",
+      "solutions": ["nën"],
+      "choices": ["mbi", "te", "me", "nën"],
+      "explanation": "„Nën“ heisst „unter“, „mbi“ heisst „auf“.",
+      "errorHints": [
+        { "pattern": "^mbi$", "category": "vocab.confused", "hint": "„Mbi“ heisst „auf“. „Unter“ heisst „nën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_036",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions"],
+      "itemIds": ["item_liber", "item_mbi", "item_shtrat"],
+      "prompt": { "lang": "de", "text": "Das Buch ist auf dem Bett." },
+      "answerLang": "sq",
+      "text": "Libri âsht ___ shtrat.",
+      "solutions": ["mbi"],
+      "choices": ["nën", "pa", "mbi", "me"],
+      "explanation": "„Mbi“ heisst „auf“: „mbi shtrat“ – auf dem Bett.",
+      "errorHints": [
+        { "pattern": "^n[eë]n$", "category": "vocab.confused", "hint": "„Nën“ heisst „unter“. „Auf“ heisst „mbi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_037",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.definite_article.fem"],
+      "itemIds": ["item_ku", "item_banje"],
+      "prompt": { "lang": "de", "text": "Wo ist das Badezimmer?" },
+      "answerLang": "sq",
+      "text": "Ku âsht ___?",
+      "solutions": ["banja"],
+      "choices": ["banjë", "banja", "kuzhinë", "derë"],
+      "explanation": "„Das Badezimmer“ braucht den Artikel: banjë → banja.",
+      "errorHints": [
+        { "pattern": "^banj[eë]$", "category": "grammar.definite_article", "hint": "„Das Bad“ braucht den Artikel: banjë → banja." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_038",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_oborr", "item_ka", "item_kopsht"],
+      "prompt": { "lang": "de", "text": "Im Hof gibt es einen Garten." },
+      "answerLang": "sq",
+      "text": "Në oborr ___ nji kopsht.",
+      "solutions": ["ka"],
+      "choices": ["ka", "âsht", "kam", "je"],
+      "explanation": "„Ka“ heisst hier „es gibt“.",
+      "errorHints": [
+        { "pattern": "^[aâ]sht$", "category": "vocab.confused", "hint": "Für „es gibt“ sagt man „ka“." },
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. „Es gibt“ heisst „ka“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_039",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.prepositions", "grammar.definite_article.fem"],
+      "itemIds": ["item_te_bei", "item_dere"],
+      "prompt": { "lang": "de", "text": "Arta ist an der Tür." },
+      "answerLang": "sq",
+      "text": "Arta âsht te ___.",
+      "solutions": ["dera"],
+      "choices": ["derë", "dritare", "shpi", "dera"],
+      "explanation": "Nach „te“ (bei, an) steht die bestimmte Form: „te dera“.",
+      "errorHints": [
+        { "pattern": "^der[eë]$", "category": "grammar.definite_article", "hint": "Nach „te“ steht die bestimmte Form: „te dera“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_040",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_dritare", "item_i_hapun"],
+      "prompt": { "lang": "de", "text": "Das Fenster ist offen." },
+      "answerLang": "sq",
+      "text": "Dritarja âsht e ___.",
+      "solutions": ["hapun"],
+      "choices": ["madhe", "vogël", "hapun", "mirë"],
+      "standardForms": ["hapur"],
+      "explanation": "„E hapun“ heisst „offen“ (Standard: „e hapur“).",
+      "errorHints": [
+        { "pattern": "^madhe$", "category": "vocab.confused", "hint": "„E madhe“ heisst „gross“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „e hapun“ (Standard: hapur) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u06_home_041",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.definite_article.fem"],
+      "itemIds": ["item_shpi", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Das Haus ist klein." },
+      "answerLang": "sq",
+      "text": "___ âsht e vogël.",
+      "solutions": ["Shpija"],
+      "standardForms": ["Shtëpia"],
+      "explanation": "shpi → shpija: Der Artikel wird angehängt. Standard wäre „shtëpia“.",
+      "errorHints": [
+        { "pattern": "^shpi$", "category": "grammar.definite_article", "hint": "„Das Haus“ braucht den Artikel: shpi → shpija." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_042",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_jam", "item_ne_prep", "item_dhome"],
+      "prompt": { "lang": "de", "text": "Ich bin im Zimmer." },
+      "answerLang": "sq",
+      "text": "Jam në ___.",
+      "solutions": ["dhomë"],
+      "explanation": "Nach „në“ steht hier „dhomë“ ohne Artikel: „Jam në dhomë.“",
+      "errorHints": [
+        { "pattern": "^dhoma$", "category": "grammar.case", "hint": "Nach „në“ steht hier „dhomë“, nicht „dhoma“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_043",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_tavoline", "item_ne_prep", "item_kuzhine"],
+      "prompt": { "lang": "de", "text": "Der Tisch ist in der Küche." },
+      "answerLang": "sq",
+      "text": "Tavolina âsht në ___.",
+      "solutions": ["kuzhinë"],
+      "explanation": "Nach „në“ steht hier „kuzhinë“ ohne Artikel.",
+      "errorHints": [
+        { "pattern": "^kuzhina$", "category": "grammar.case", "hint": "Nach „në“ steht hier „kuzhinë“, nicht „kuzhina“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_044",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_baba", "item_ne_prep", "item_oborr"],
+      "prompt": { "lang": "de", "text": "Der Vater ist im Hof." },
+      "answerLang": "sq",
+      "text": "Babai âsht në ___.",
+      "solutions": ["oborr"],
+      "explanation": "„Oborr“ ist der Hof: „në oborr“ – im Hof.",
+      "errorHints": [
+        { "pattern": "^oborri$", "category": "grammar.case", "hint": "Nach „në“ steht hier „oborr“ ohne Artikel." },
+        { "pattern": "^kopsht$", "category": "vocab.confused", "hint": "„Kopsht“ ist der Garten. Hof heisst „oborr“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_045",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_banese", "item_afer", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Die Wohnung ist hier in der Nähe." },
+      "answerLang": "sq",
+      "text": "Banesa âsht këtu ___.",
+      "solutions": ["afër"],
+      "explanation": "„Këtu afër“ heisst „hier in der Nähe“.",
+      "errorHints": [
+        { "pattern": "^atje$", "category": "vocab.confused", "hint": "„Atje“ heisst „dort“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_046",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_dhome", "item_kuzhine", "item_banje", "item_oborr", "item_kopsht"],
+      "prompt": { "lang": "de", "text": "Ordne die Räume zu." },
+      "pairs": [
+        { "left": "dhomë", "right": "Zimmer" },
+        { "left": "kuzhinë", "right": "Küche" },
+        { "left": "banjë", "right": "Bad" },
+        { "left": "oborr", "right": "Hof" },
+        { "left": "kopsht", "right": "Garten" }
+      ],
+      "explanation": "Das sind die wichtigsten Räume und Orte rund ums Haus.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_047",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_dere", "item_dritare", "item_tavoline", "item_karrige", "item_shtrat"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "derë", "right": "Tür" },
+        { "left": "dritare", "right": "Fenster" },
+        { "left": "tavolinë", "right": "Tisch" },
+        { "left": "karrige", "right": "Stuhl" },
+        { "left": "shtrat", "right": "Bett" }
+      ],
+      "explanation": "Achtung: „tavolinë“ (Tisch) und „karrige“ (Stuhl) sind auf Albanisch feminin.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_048",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.prepositions"],
+      "itemIds": ["item_ne_prep", "item_mbi", "item_nen", "item_te_bei", "item_afer"],
+      "prompt": { "lang": "de", "text": "Ordne die Präpositionen zu." },
+      "pairs": [
+        { "left": "në", "right": "in" },
+        { "left": "mbi", "right": "auf" },
+        { "left": "nën", "right": "unter" },
+        { "left": "te", "right": "bei" },
+        { "left": "afër", "right": "in der Nähe" }
+      ],
+      "explanation": "Mit diesen Wörtern sagst du, wo etwas ist: „në kuzhinë, mbi tavolinë, nën shtrat“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_049",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_shpi", "item_banese", "item_celes", "item_liber", "item_mace"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "shpi", "right": "Haus" },
+        { "left": "banesë", "right": "Wohnung" },
+        { "left": "çelës", "right": "Schlüssel" },
+        { "left": "libër", "right": "Buch" },
+        { "left": "mace", "right": "Katze" }
+      ],
+      "explanation": "„Shpi“ ist die Gheg-Form (Standard: „shtëpi“), „banesë“ das Kosovo-Wort für „Wohnung“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_050",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_ne_shpi", "item_ketu", "item_atje", "item_ka", "item_dhoma_e_gjumit"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "në shpi", "right": "zu Hause" },
+        { "left": "këtu", "right": "hier" },
+        { "left": "atje", "right": "dort" },
+        { "left": "ka", "right": "es gibt" },
+        { "left": "dhoma e gjumit", "right": "das Schlafzimmer" }
+      ],
+      "explanation": "„Dhoma e gjumit“ heisst wörtlich „das Zimmer des Schlafes“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_051",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.definite_article.fem", "grammar.definite_article.masc"],
+      "itemIds": ["item_shpi", "item_dere", "item_shtrat", "item_dritare", "item_celes"],
+      "prompt": { "lang": "de", "text": "Ordne die bestimmten Formen zu." },
+      "pairs": [
+        { "left": "shpija", "right": "das Haus" },
+        { "left": "dera", "right": "die Tür" },
+        { "left": "shtrati", "right": "das Bett" },
+        { "left": "dritarja", "right": "das Fenster" },
+        { "left": "çelësi", "right": "der Schlüssel" }
+      ],
+      "explanation": "Feminin: shpi → shpija, derë → dera, dritare → dritarja. Maskulin: shtrat → shtrati, çelës → çelësi.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_052",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_nane", "item_asht", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Die Mutter ist zu Hause." },
+      "answerLang": "sq",
+      "tokens": ["Nâna", "âsht", "në", "shpi"],
+      "solutions": ["Nâna âsht në shpi."],
+      "explanation": "„Në shpi“ heisst „zu Hause“ – im Standard „në shtëpi“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_053",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_ku", "item_asht", "item_mace"],
+      "prompt": { "lang": "de", "text": "Wo ist die Katze?" },
+      "answerLang": "sq",
+      "tokens": ["Ku", "âsht", "macja"],
+      "solutions": ["Ku âsht macja?", "Macja ku âsht?"],
+      "explanation": "Das Fragewort „ku“ (wo) steht meist am Satzanfang.",
+      "errorHints": [
+        { "pattern": "^[aâ]sht ku", "category": "grammar.word_order", "hint": "Das Fragewort „ku“ steht vor dem Verb: „Ku âsht macja?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_054",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.home"],
+      "itemIds": ["item_liber", "item_asht", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Das Buch ist hier." },
+      "answerLang": "sq",
+      "tokens": ["Libri", "âsht", "këtu"],
+      "solutions": ["Libri âsht këtu.", "Këtu âsht libri."],
+      "explanation": "„Këtu“ heisst „hier“. Es kann am Anfang oder am Ende stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_055",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_tavoline", "item_asht", "item_nen", "item_dritare"],
+      "prompt": { "lang": "de", "text": "Der Tisch ist unter dem Fenster." },
+      "answerLang": "sq",
+      "tokens": ["Tavolina", "âsht", "nën", "dritare"],
+      "solutions": ["Tavolina âsht nën dritare."],
+      "explanation": "„Nën dritare“ – unter dem Fenster. Nach „nën“ steht das Nomen hier ohne Artikel.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_056",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_ne_prep", "item_banese", "item_ka", "item_dhome"],
+      "prompt": { "lang": "de", "text": "In der Wohnung gibt es zwei Zimmer." },
+      "answerLang": "sq",
+      "tokens": ["Në", "banesë", "ka", "dy", "dhoma"],
+      "solutions": ["Në banesë ka dy dhoma.", "Ka dy dhoma në banesë."],
+      "explanation": "„Ka“ heisst „es gibt“. Die Mehrzahl von „dhomë“ ist „dhoma“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_057",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.prepositions"],
+      "itemIds": ["item_celes", "item_asht", "item_atje", "item_mbi", "item_tavoline"],
+      "prompt": { "lang": "de", "text": "Der Schlüssel ist dort auf dem Tisch." },
+      "answerLang": "sq",
+      "tokens": ["Çelësi", "âsht", "atje", "mbi", "tavolinë"],
+      "solutions": ["Çelësi âsht atje mbi tavolinë."],
+      "explanation": "„Atje“ heisst „dort“, „mbi tavolinë“ – auf dem Tisch.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_058",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.home", "grammar.possessive"],
+      "itemIds": ["item_shpi", "item_ime", "item_asht"],
+      "prompt": { "lang": "de", "text": "Mein Haus ist in Peja." },
+      "answerLang": "sq",
+      "tokens": ["Shpija", "ime", "âsht", "në", "Pejë"],
+      "solutions": ["Shpija ime âsht në Pejë."],
+      "explanation": "„Shpija ime“ – mein Haus. Der Ortsname steht nach „në“ ohne Artikel: „në Pejë“.",
+      "errorHints": [
+        { "pattern": "^ime ", "category": "grammar.word_order", "hint": "Das Possessivpronomen steht nach dem Nomen: „shpija ime“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_059",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.prepositions", "grammar.verbs.present"],
+      "itemIds": ["item_tash", "item_shkoj", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Ich gehe jetzt nach Hause." },
+      "answerLang": "sq",
+      "tokens": ["Tash", "po", "shkoj", "në", "shpi"],
+      "solutions": ["Tash po shkoj në shpi.", "Po shkoj në shpi tash."],
+      "explanation": "„Tash“ ist Gheg für „jetzt“ (Standard: „tani“). „Në shpi“ heisst auch „nach Hause“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_060",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.home", "grammar.prepositions", "grammar.linking_article"],
+      "itemIds": ["item_dhoma_e_gjumit", "item_ka", "item_shtrat", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Im Schlafzimmer gibt es ein grosses Bett." },
+      "answerLang": "sq",
+      "tokens": ["Në", "dhomën", "e", "gjumit", "ka", "nji", "shtrat", "të", "madh"],
+      "solutions": ["Në dhomën e gjumit ka nji shtrat të madh.", "Ka nji shtrat të madh në dhomën e gjumit."],
+      "explanation": "Nach „ka“ (es gibt) steht das Objekt im Akkusativ – darum „nji shtrat të madh“ mit „të“.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

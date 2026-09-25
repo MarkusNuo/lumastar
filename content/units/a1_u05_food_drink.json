@@ -1,0 +1,1211 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u05_food_drink",
+  "level": "A1.2",
+  "grammar": [
+    {
+      "title": "Bestellen im Café",
+      "explanation": "**Nji kafe, të lutem.** – Einen Kaffee, bitte. Nach **nji** (Gheg für „ein, eine“, Standard: një) steht das Nomen ohne Artikel.\n\nMit **me** (mit) und **pa** (ohne) bestellst du genauer: *çaj me qumësht* (Tee mit Milch), *kafe pa sheqer* (Kaffee ohne Zucker). Mit **A keni …?** fragst du, ob es etwas gibt: *A keni peshk?* – Habt ihr Fisch? Zum Schluss: **Llogarinë, të lutem.** – Die Rechnung, bitte."
+    },
+    {
+      "title": "Essen und trinken: ha und pi",
+      "explanation": "Die Verben **ha** (essen) und **pi** (trinken) haben in der Einzahl nur eine Form:\n\n| | essen | trinken |\n|---|---|---|\n| unë (ich) | ha | pi |\n| ti (du) | ha | pi |\n| ai, ajo (er, sie) | ha | pi |\n\nMit **po** davor heisst es „gerade“: *Po pi nji çaj.* – Ich trinke gerade einen Tee. Hunger und Durst *hat* man: **kam uri** (ich habe Hunger), **kam etje** (ich habe Durst)."
+    },
+    {
+      "title": "Gheg-Wörter am Tisch",
+      "explanation": "**Vena** ist im Gheg „der Wein“ (Standard: vera) – denn **vera** heisst im Gheg „der Sommer“. **I âmbël / e âmbël** (süss) schreibt man mit dem Nasalvokal â (Standard: i ëmbël). Vor dem Essen wünscht man **Të bâftë mirë!** (Standard: Të bëftë mirë!), beim Anstossen sagt man **Gëzuar!**"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_leng",
+      "kind": "word",
+      "gheg": "lëng",
+      "de": "Saft",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "lëngu",
+      "note": "Im Kosovo-Alltag auch „sok“ – zu prüfen, ob als eigenes Item aufnehmen.",
+      "reviewed": false
+    },
+    { "id": "item_birre", "kind": "word", "gheg": "birrë", "de": "Bier", "partOfSpeech": "noun", "gender": "f", "definite": "birra", "reviewed": false },
+    {
+      "id": "item_vene",
+      "kind": "word",
+      "gheg": "venë",
+      "de": "Wein",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "vena",
+      "note": "Gheg „venë/vena“ (Standard: verë/vera); „vera“ heisst im Gheg „der Sommer“. Unbestimmte Form „venë“ zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_mish", "kind": "word", "gheg": "mish", "de": "Fleisch", "partOfSpeech": "noun", "gender": "m", "definite": "mishi", "reviewed": false },
+    { "id": "item_peshk", "kind": "word", "gheg": "peshk", "de": "Fisch", "partOfSpeech": "noun", "gender": "m", "definite": "peshku", "reviewed": false },
+    { "id": "item_djathe", "kind": "word", "gheg": "djathë", "de": "Käse", "partOfSpeech": "noun", "gender": "m", "definite": "djathi", "reviewed": false },
+    { "id": "item_veze", "kind": "word", "gheg": "vezë", "de": "Ei", "partOfSpeech": "noun", "gender": "f", "definite": "veza", "plural": "vezë", "reviewed": false },
+    { "id": "item_sallate", "kind": "word", "gheg": "sallatë", "de": "Salat", "partOfSpeech": "noun", "gender": "f", "definite": "sallata", "reviewed": false },
+    { "id": "item_molle", "kind": "word", "gheg": "mollë", "de": "Apfel", "partOfSpeech": "noun", "gender": "f", "definite": "molla", "plural": "mollë", "reviewed": false },
+    { "id": "item_sheqer", "kind": "word", "gheg": "sheqer", "de": "Zucker", "partOfSpeech": "noun", "gender": "m", "definite": "sheqeri", "reviewed": false },
+    {
+      "id": "item_makiato",
+      "kind": "word",
+      "gheg": "makiato",
+      "de": "Macchiato (Espresso mit Milchschaum)",
+      "partOfSpeech": "noun",
+      "note": "Das typische Kaffeegetränk im Kosovo. Genus und bestimmte Form zu prüfen; darum nur unbestimmt verwendet.",
+      "reviewed": false
+    },
+    { "id": "item_mengjes", "kind": "word", "gheg": "mëngjes", "de": "Frühstück; Morgen", "partOfSpeech": "noun", "gender": "m", "definite": "mëngjesi", "reviewed": false },
+    { "id": "item_dreke", "kind": "word", "gheg": "drekë", "de": "Mittagessen", "partOfSpeech": "noun", "gender": "f", "definite": "dreka", "reviewed": false },
+    { "id": "item_darke", "kind": "word", "gheg": "darkë", "de": "Abendessen", "partOfSpeech": "noun", "gender": "f", "definite": "darka", "reviewed": false },
+    { "id": "item_ha", "kind": "word", "gheg": "ha", "de": "essen (ich esse, du isst, er/sie isst)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_pi", "kind": "word", "gheg": "pi", "de": "trinken (ich trinke, du trinkst, er/sie trinkt)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_kam_uri", "kind": "phrase", "gheg": "kam uri", "de": "ich habe Hunger", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_kam_etje", "kind": "phrase", "gheg": "kam etje", "de": "ich habe Durst", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_te_bafte_mire",
+      "kind": "phrase",
+      "gheg": "të bâftë mirë",
+      "de": "en Guete, guten Appetit",
+      "partOfSpeech": "phrase",
+      "note": "Gheg-Form mit â laut Sprachrichtlinie (Standard: të bëftë mirë) – zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_gezuar",
+      "kind": "word",
+      "gheg": "gëzuar",
+      "de": "Prost!, zum Wohl!",
+      "partOfSpeech": "interjection",
+      "note": "Wie im Standard; auf der Blockliste als Ausnahme zum Muster -uar geführt – zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_llogari",
+      "kind": "word",
+      "gheg": "llogari",
+      "de": "Rechnung",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "llogaria",
+      "note": "Im Kosovo-Café hört man oft auch „hesap“ (Akkusativ „hesapin“) – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_pa_ohne", "kind": "word", "gheg": "pa", "de": "ohne", "partOfSpeech": "preposition", "reviewed": false },
+    { "id": "item_i_ftohte", "kind": "phrase", "gheg": "i ftohtë, e ftohtë", "de": "kalt", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_nxehte", "kind": "phrase", "gheg": "i nxehtë, e nxehtë", "de": "heiss", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_ambel", "kind": "phrase", "gheg": "i âmbël, e âmbël", "de": "süss", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_a_keni", "kind": "phrase", "gheg": "a keni …?", "de": "habt ihr …?, haben Sie …?", "partOfSpeech": "phrase", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u05_food_drink_001",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_buke"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „bukë“?" },
+      "choices": ["Wasser", "Brot", "Käse", "Fleisch"],
+      "solutions": ["Brot"],
+      "explanation": "„Bukë“ heisst „Brot“. Mit angehängtem Artikel: „buka“ – das Brot.",
+      "errorHints": [
+        { "pattern": "^wasser$", "category": "vocab.confused", "hint": "„Wasser“ heisst „ujë“." },
+        { "pattern": "^k[aä]se$", "category": "vocab.confused", "hint": "„Käse“ heisst „djathë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_002",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks"],
+      "itemIds": ["item_uje", "item_qumesht", "item_caj", "item_birre"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Wasser“?" },
+      "choices": ["ujë", "qumësht", "çaj", "birrë"],
+      "solutions": ["ujë"],
+      "explanation": "„Ujë“ heisst „Wasser“, „uji“ ist „das Wasser“. Im Kosovo klingt es oft wie „uj“.",
+      "errorHints": [
+        { "pattern": "^qum[eë]sht$", "category": "vocab.confused", "hint": "„Qumësht“ ist die Milch." },
+        { "pattern": "^[cç]aj$", "category": "vocab.confused", "hint": "„Çaj“ ist der Tee." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_003",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks"],
+      "itemIds": ["item_qumesht"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „qumësht“?" },
+      "choices": ["Tee", "Saft", "Zucker", "Milch"],
+      "solutions": ["Milch"],
+      "explanation": "„Qumësht“ heisst „Milch“. „Kafe me qumësht“ ist also Kaffee mit Milch.",
+      "errorHints": [
+        { "pattern": "^zucker$", "category": "vocab.confused", "hint": "„Zucker“ heisst „sheqer“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_004",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_molle"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „mollë“?" },
+      "choices": ["Ei", "Salat", "Apfel", "Käse"],
+      "solutions": ["Apfel"],
+      "explanation": "„Mollë“ heisst „Apfel“, „molla“ ist „der Apfel“. Auf Albanisch ist das Wort feminin.",
+      "errorHints": [
+        { "pattern": "^ei$", "category": "vocab.confused", "hint": "„Ei“ heisst „vezë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_005",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_djathe", "item_mish", "item_peshk", "item_veze"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Käse“?" },
+      "choices": ["mish", "djathë", "peshk", "vezë"],
+      "solutions": ["djathë"],
+      "explanation": "„Djathë“ heisst „Käse“. Im Kosovo isst man ihn oft zum Frühstück mit Brot.",
+      "errorHints": [
+        { "pattern": "^mish$", "category": "vocab.confused", "hint": "„Mish“ ist das Fleisch." },
+        { "pattern": "^peshk$", "category": "vocab.confused", "hint": "„Peshk“ ist der Fisch." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_006",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks"],
+      "itemIds": ["item_vene"],
+      "prompt": { "lang": "de", "text": "Wie sagt man im Gheg „der Wein“?" },
+      "choices": ["vena", "birra", "uji", "buka"],
+      "solutions": ["vena"],
+      "explanation": "„Vena“ ist „der Wein“ (Standard: „vera“). Achtung: „vera“ heisst im Gheg „der Sommer“.",
+      "errorHints": [
+        { "pattern": "^birra$", "category": "vocab.confused", "hint": "„Birra“ ist das Bier." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „vena“ (Standard: vera) laut Sprachrichtlinie; unbestimmte Form „venë“ zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_007",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.ordering"],
+      "itemIds": ["item_te_bafte_mire", "item_gezuar"],
+      "prompt": { "lang": "de", "text": "Was wünschst du, bevor alle zu essen beginnen?" },
+      "choices": ["Gëzuar!", "Mirupafshim!", "S'ka përse.", "Të bâftë mirë!"],
+      "solutions": ["Të bâftë mirë!"],
+      "explanation": "„Të bâftë mirë!“ heisst „En Guete!“ – wörtlich „Möge es dir guttun“. Standard: „Të bëftë mirë!“.",
+      "errorHints": [
+        { "pattern": "^g[eë]zuar$", "category": "vocab.confused", "hint": "„Gëzuar!“ sagt man beim Anstossen: „Prost!“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „të bâftë mirë“ laut Sprachrichtlinie – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_008",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.ordering"],
+      "itemIds": ["item_gezuar", "item_te_bafte_mire"],
+      "prompt": { "lang": "de", "text": "Ihr stosst mit den Gläsern an. Was sagst du?" },
+      "choices": ["Të bâftë mirë!", "Faleminderit!", "Gëzuar!", "Mirëdita!"],
+      "solutions": ["Gëzuar!"],
+      "explanation": "„Gëzuar!“ heisst „Prost!“ oder „Zum Wohl!“. Man hört es auch als Glückwunsch.",
+      "errorHints": [
+        { "pattern": "^t[eë] b[aâ]ft[eë] mir", "category": "vocab.confused", "hint": "„Të bâftë mirë!“ wünscht man vor dem Essen: „En Guete!“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_009",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.ordering", "vocab.drinks"],
+      "itemIds": ["item_kafe", "item_me_prep", "item_qumesht"],
+      "prompt": { "lang": "de", "text": "Was heisst „kafe me qumësht“?" },
+      "choices": ["Kaffee ohne Milch", "Kaffee mit Milch", "Tee mit Milch", "Kaffee mit Zucker"],
+      "solutions": ["Kaffee mit Milch"],
+      "explanation": "„Me“ heisst „mit“, „pa“ heisst „ohne“. „Kafe me qumësht“ ist Kaffee mit Milch.",
+      "errorHints": [
+        { "pattern": "ohne", "category": "vocab.confused", "hint": "„Ohne“ hiesse „pa“: „kafe pa qumësht“." },
+        { "pattern": "zucker", "category": "vocab.confused", "hint": "„Zucker“ heisst „sheqer“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_010",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food", "grammar.verbs.kam"],
+      "itemIds": ["item_kam_uri", "item_kam_etje"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kam uri.“?" },
+      "choices": ["Ich habe Hunger.", "Ich habe Durst.", "Ich habe Zeit.", "Ich esse Brot."],
+      "solutions": ["Ich habe Hunger."],
+      "explanation": "Auf Albanisch „hat“ man Hunger: „kam uri“. Durst heisst „etje“: „kam etje“.",
+      "errorHints": [
+        { "pattern": "durst", "category": "vocab.confused", "hint": "„Durst“ heisst „etje“: „Kam etje.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_011",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["phrase.ordering", "grammar.case.accusative"],
+      "itemIds": ["item_llogari", "item_ju_lutem"],
+      "prompt": { "lang": "de", "text": "Du möchtest im Café bezahlen. Was sagst du?" },
+      "choices": ["Nji ujë, ju lutem.", "Të bâftë mirë!", "Gëzuar!", "Llogarinë, ju lutem."],
+      "solutions": ["Llogarinë, ju lutem."],
+      "explanation": "„Llogarinë, ju lutem.“ heisst „Die Rechnung, bitte.“ „Llogarinë“ ist der Akkusativ von „llogaria“ (die Rechnung).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Im Kosovo auch „Hesapin, ju lutem.“ – zu prüfen, ob als Variante zeigen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_012",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.food", "grammar.linking_article", "spelling.nasal_vowels"],
+      "itemIds": ["item_molle", "item_i_ambel", "item_asht"],
+      "prompt": { "lang": "de", "text": "Welcher Satz heisst „Der Apfel ist süss.“?" },
+      "choices": ["Molla âsht i âmbël.", "Molla âsht e ftohtë.", "Molla âsht e âmbël.", "Buka âsht e âmbël."],
+      "solutions": ["Molla âsht e âmbël."],
+      "explanation": "„Molla“ ist feminin – darum „e âmbël“. „Âmbël“ schreibt man im Gheg mit â (Standard: „ëmbël“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)i [aâ]mb[eë]l", "category": "grammar.linking_article", "hint": "„Molla“ ist feminin – darum „e âmbël“, nicht „i âmbël“." },
+        { "pattern": "^buka ", "category": "vocab.confused", "hint": "„Buka“ ist das Brot, der Apfel heisst „molla“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_013",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_nji", "item_caj", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Einen Tee, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Nji çaj, të lutem.", "Të lutem, nji çaj."],
+      "wordBank": ["Nji", "çaj", "të", "lutem", "kafe", "ujë", "jo"],
+      "explanation": "„Nji“ ist die Gheg-Form von „ein, eine“ (Standard: „një“). „Çaj“ heisst „Tee“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kafe", "category": "vocab.confused", "hint": "„Kafe“ ist der Kaffee. Tee heisst „çaj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_014",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food", "grammar.verbs.kam"],
+      "itemIds": ["item_kam_uri", "item_kam"],
+      "prompt": { "lang": "de", "text": "Ich habe Hunger." },
+      "answerLang": "sq",
+      "solutions": ["Kam uri.", "Unë kam uri."],
+      "wordBank": ["Kam", "uri", "etje", "ke", "jam"],
+      "explanation": "Hunger „hat“ man auf Albanisch: „kam uri“ – wörtlich „ich habe Hunger“.",
+      "errorHints": [
+        { "pattern": "^ke ", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“. Für „ich habe“ sagst du „kam“." },
+        { "pattern": "^(un[eë] )?jam uri", "category": "vocab.confused", "hint": "Hunger „hat“ man: „kam uri“, nicht „jam“." },
+        { "pattern": "etje", "category": "vocab.confused", "hint": "„Etje“ ist der Durst. Hunger heisst „uri“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_015",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_uje", "item_leng", "item_dhe", "item_nji", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Ein Wasser und einen Saft, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Nji ujë dhe nji lëng, të lutem.", "Të lutem, nji ujë dhe nji lëng.", "Nji lëng dhe nji ujë, të lutem."],
+      "wordBank": ["Nji", "ujë", "dhe", "nji", "lëng", "të", "lutem", "birrë", "qumësht", "ke"],
+      "explanation": "„Lëng“ heisst „Saft“. Für „und“ sagst du „dhe“, im Kosovo auch „edhe“ oder „e“.",
+      "errorHints": [
+        { "pattern": "birr", "category": "vocab.confused", "hint": "„Birrë“ ist das Bier. Saft heisst „lëng“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_016",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.ordering", "vocab.drinks"],
+      "itemIds": ["item_kafe", "item_me_prep", "item_qumesht", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Kaffee mit Milch, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Kafe me qumësht, të lutem.", "Të lutem, kafe me qumësht."],
+      "wordBank": ["Kafe", "me", "qumësht", "të", "lutem", "pa", "çaj", "sheqer"],
+      "explanation": "„Me“ heisst „mit“. So bestellst du im Kosovo deinen Kaffee genau so, wie du ihn magst.",
+      "errorHints": [
+        { "pattern": "(^|\\s)pa ", "category": "vocab.confused", "hint": "„Pa“ heisst „ohne“. „Mit“ heisst „me“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_017",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks", "grammar.definite_article.masc", "grammar.linking_article"],
+      "itemIds": ["item_caj", "item_asht", "item_i_nxehte"],
+      "prompt": { "lang": "de", "text": "Der Tee ist heiss." },
+      "answerLang": "sq",
+      "solutions": ["Çaji âsht i nxehtë."],
+      "wordBank": ["Çaji", "âsht", "i", "nxehtë", "e", "ftohtë", "çaj"],
+      "explanation": "„Çaji“ ist „der Tee“ (maskulin), darum „i nxehtë“. „Âsht“ ist die Gheg-Form von „ist“ (Standard: „është“).",
+      "errorHints": [
+        { "pattern": "^[cç]aj [aâ]sht", "category": "grammar.definite_article", "hint": "„Der Tee“ braucht den Artikel: çaj → çaji." },
+        { "pattern": "(^|\\s)e nxeht", "category": "grammar.linking_article", "hint": "„Çaji“ ist maskulin – darum „i nxehtë“." },
+        { "pattern": "ftoht", "category": "vocab.confused", "hint": "„Ftohtë“ heisst „kalt“. Heiss heisst „nxehtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_018",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.food", "vocab.drinks"],
+      "itemIds": ["item_pi", "item_ha", "item_vene", "item_djathe", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Arta trinkt Wein und isst Käse." },
+      "answerLang": "sq",
+      "solutions": ["Arta pi venë dhe ha djathë."],
+      "wordBank": ["Arta", "pi", "venë", "dhe", "ha", "djathë", "birrë", "mish", "jam"],
+      "explanation": "„Pi“ heisst „trinkt“, „ha“ heisst „isst“. „Venë“ ist Gheg für „Wein“ (Standard: „verë“).",
+      "errorHints": [
+        { "pattern": "^arta ha ven", "category": "vocab.confused", "hint": "„Ha“ heisst „essen“, „pi“ heisst „trinken“: „Arta pi venë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Unbestimmte Form „venë“ (Wein) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_019",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_nji", "item_uje", "item_te_lutem"],
+      "prompt": { "lang": "sq", "text": "Nji ujë, të lutem." },
+      "answerLang": "de",
+      "solutions": ["Ein Wasser, bitte.", "Wasser, bitte.", "Bitte ein Wasser."],
+      "wordBank": ["Ein", "Wasser", "bitte", "Tee", "danke", "Milch"],
+      "explanation": "„Ujë“ heisst „Wasser“, „të lutem“ ist „bitte“ – zu einer Person, die du duzt.",
+      "errorHints": [
+        { "pattern": "tee", "category": "vocab.confused", "hint": "„Tee“ hiesse „çaj“." },
+        { "pattern": "milch", "category": "vocab.confused", "hint": "„Milch“ hiesse „qumësht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_020",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks", "grammar.verbs.kam"],
+      "itemIds": ["item_kam_etje"],
+      "prompt": { "lang": "sq", "text": "Kam etje." },
+      "answerLang": "de",
+      "solutions": ["Ich habe Durst.", "Ich bin durstig."],
+      "wordBank": ["Ich", "habe", "Durst", "Hunger", "bin", "du"],
+      "explanation": "„Etje“ ist der Durst. „Kam etje“ heisst wörtlich „ich habe Durst“.",
+      "errorHints": [
+        { "pattern": "hunger", "category": "vocab.confused", "hint": "„Hunger“ heisst „uri“. „Etje“ ist der Durst." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_021",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks"],
+      "itemIds": ["item_pi", "item_nji", "item_caj"],
+      "prompt": { "lang": "sq", "text": "Unë po pi nji çaj." },
+      "answerLang": "de",
+      "solutions": ["Ich trinke gerade einen Tee.", "Ich trinke gerade Tee.", "Ich trinke einen Tee."],
+      "wordBank": ["Ich", "trinke", "gerade", "einen", "Tee", "Kaffee", "esse", "trinkst"],
+      "explanation": "„Po“ vor dem Verb heisst „gerade“: „po pi“ – ich trinke gerade.",
+      "errorHints": [
+        { "pattern": "esse", "category": "vocab.confused", "hint": "„Pi“ heisst „trinken“. „Essen“ heisst „ha“." },
+        { "pattern": "trinkst", "category": "grammar.verb_conjugation", "hint": "„Unë“ heisst „ich“: „ich trinke“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_022",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food", "grammar.definite_article.fem"],
+      "itemIds": ["item_buke", "item_asht", "item_mire"],
+      "prompt": { "lang": "sq", "text": "Buka âsht e mirë." },
+      "answerLang": "de",
+      "solutions": ["Das Brot ist gut.", "Das Brot ist fein."],
+      "wordBank": ["Das", "Brot", "ist", "gut", "Wasser", "Käse", "ein"],
+      "explanation": "„Buka“ ist „das Brot“: Der Artikel -a hängt hinten an „bukë“.",
+      "errorHints": [
+        { "pattern": "^ein ", "category": "grammar.definite_article", "hint": "„Buka“ ist bestimmt: „das Brot“. „Ein Brot“ wäre „nji bukë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_023",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_a_keni", "item_vene"],
+      "prompt": { "lang": "sq", "text": "A keni venë?" },
+      "answerLang": "de",
+      "solutions": ["Habt ihr Wein?", "Haben Sie Wein?"],
+      "wordBank": ["Habt", "ihr", "Wein", "Bier", "Wasser", "hast"],
+      "explanation": "Mit „A keni …?“ fragst du eine Gruppe oder höflich eine Person: „Habt ihr …? / Haben Sie …?“. „Venë“ ist Gheg für „Wein“.",
+      "errorHints": [
+        { "pattern": "bier", "category": "vocab.confused", "hint": "„Bier“ heisst „birrë“." },
+        { "pattern": "hast", "category": "grammar.verb_conjugation", "hint": "„Keni“ heisst „ihr habt / Sie haben“. „Du hast“ wäre „ke“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Unbestimmte Form „venë“ (Wein) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_024",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.drinks", "grammar.linking_article"],
+      "itemIds": ["item_uje", "item_i_ftohte", "item_caj", "item_i_nxehte", "item_dhe"],
+      "prompt": { "lang": "sq", "text": "Uji âsht i ftohtë dhe çaji âsht i nxehtë." },
+      "answerLang": "de",
+      "solutions": ["Das Wasser ist kalt und der Tee ist heiss."],
+      "wordBank": ["Das", "Wasser", "ist", "kalt", "und", "der", "Tee", "ist", "heiss", "warm", "Milch", "Kaffee"],
+      "explanation": "„I ftohtë“ heisst „kalt“, „i nxehtë“ heisst „heiss“. Beide Nomen sind maskulin, darum steht „i“ vor dem Adjektiv.",
+      "errorHints": [
+        { "pattern": "wasser ist heiss", "category": "vocab.confused", "hint": "„Ftohtë“ heisst „kalt“, „nxehtë“ heisst „heiss“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_025",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_nji", "item_birre", "item_te_lutem", "item_ju_lutem"],
+      "prompt": { "lang": "de", "text": "Ein Bier, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Nji birrë, të lutem.", "Nji birrë, ju lutem.", "Të lutem, nji birrë.", "Ju lutem, nji birrë."],
+      "standardForms": ["Një birrë, të lutem.", "Një birrë, ju lutem.", "Të lutem, një birrë.", "Ju lutem, një birrë."],
+      "explanation": "Nach „nji“ (Gheg für „ein, eine“, Standard: „një“) steht die unbestimmte Form: „nji birrë“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)birra(\\s|$)", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji birrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_026",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks", "grammar.verbs.kam"],
+      "itemIds": ["item_kam_etje"],
+      "prompt": { "lang": "de", "text": "Ich habe Durst." },
+      "answerLang": "sq",
+      "solutions": ["Kam etje.", "Unë kam etje."],
+      "explanation": "Durst „hat“ man auf Albanisch: „kam etje“.",
+      "errorHints": [
+        { "pattern": "^(un[eë] )?ke etje", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“. Für „ich habe“ sagst du „kam“." },
+        { "pattern": "uri", "category": "vocab.confused", "hint": "„Uri“ ist der Hunger. Durst heisst „etje“." },
+        { "pattern": "^(un[eë] )?jam etje", "category": "vocab.confused", "hint": "Durst „hat“ man: „kam etje“, nicht „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_027",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_caj", "item_pa_ohne", "item_sheqer", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Tee ohne Zucker, bitte." },
+      "answerLang": "sq",
+      "solutions": [
+        "Çaj pa sheqer, të lutem.",
+        "Çaj pa sheqer, ju lutem.",
+        "Nji çaj pa sheqer, të lutem.",
+        "Nji çaj pa sheqer, ju lutem.",
+        "Të lutem, nji çaj pa sheqer.",
+        "Ju lutem, nji çaj pa sheqer.",
+        "Të lutem, çaj pa sheqer.",
+        "Ju lutem, çaj pa sheqer."
+      ],
+      "standardForms": ["Një çaj pa sheqer, të lutem.", "Një çaj pa sheqer, ju lutem."],
+      "explanation": "„Pa“ heisst „ohne“, „sheqer“ ist der Zucker.",
+      "errorHints": [
+        { "pattern": "(^|\\s)me sheqer", "category": "vocab.confused", "hint": "„Me“ heisst „mit“. „Ohne“ heisst „pa“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_028",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.ordering", "spelling.nasal_vowels"],
+      "itemIds": ["item_te_bafte_mire"],
+      "prompt": { "lang": "de", "text": "En Guete! (Guten Appetit!)" },
+      "answerLang": "sq",
+      "solutions": ["Të bâftë mirë!"],
+      "standardForms": ["Të bëftë mirë!"],
+      "explanation": "Vor dem Essen wünscht man „Të bâftë mirë!“ – mit dem Gheg-Nasalvokal â (Standard: „Të bëftë mirë!“).",
+      "errorHints": [
+        { "pattern": "^g[eë]zuar", "category": "vocab.confused", "hint": "„Gëzuar!“ sagt man beim Anstossen. Vor dem Essen: „Të bâftë mirë!“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „të bâftë mirë“ laut Sprachrichtlinie – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_029",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food", "grammar.definite_article.masc", "grammar.linking_article"],
+      "itemIds": ["item_djathe", "item_asht", "item_mire"],
+      "prompt": { "lang": "de", "text": "Der Käse ist gut." },
+      "answerLang": "sq",
+      "solutions": ["Djathi âsht i mirë."],
+      "standardForms": ["Djathi është i mirë."],
+      "explanation": "„Djathë“ wird mit Artikel zu „djathi“ (maskulin) – darum „i mirë“.",
+      "errorHints": [
+        { "pattern": "^djath[eë] ", "category": "grammar.definite_article", "hint": "„Der Käse“ braucht den Artikel: djathë → djathi." },
+        { "pattern": "(^|\\s)e mir", "category": "grammar.linking_article", "hint": "„Djathi“ ist maskulin – darum „i mirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_030",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_ha", "item_buke", "item_djathe", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Ich esse Brot und Käse." },
+      "answerLang": "sq",
+      "solutions": [
+        "Unë ha bukë dhe djathë.",
+        "Unë ha bukë edhe djathë.",
+        "Unë ha bukë e djathë.",
+        "Ha bukë dhe djathë.",
+        "Ha bukë edhe djathë.",
+        "Ha bukë e djathë.",
+        "Unë ha djathë dhe bukë.",
+        "Ha djathë dhe bukë."
+      ],
+      "explanation": "„Ha“ heisst „essen“. Brot und Käse stehen hier ohne Artikel, wie im Deutschen.",
+      "errorHints": [
+        { "pattern": "(^|\\s)pi ", "category": "vocab.confused", "hint": "„Pi“ heisst „trinken“. „Essen“ heisst „ha“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_031",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food", "phrase.ordering", "grammar.verbs.kam"],
+      "itemIds": ["item_a_keni", "item_peshk"],
+      "prompt": { "lang": "de", "text": "Habt ihr Fisch?" },
+      "answerLang": "sq",
+      "solutions": ["A keni peshk?", "Keni peshk?"],
+      "explanation": "„A keni …?“ heisst „Habt ihr …? / Haben Sie …?“. „Peshk“ ist der Fisch.",
+      "errorHints": [
+        { "pattern": "^(a )?ke peshk", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“. Für „ihr habt“ sagst du „keni“." },
+        { "pattern": "^(a )?kemi ", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“. Für „ihr habt“ sagst du „keni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_032",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.drinks", "grammar.definite_article.masc", "grammar.linking_article"],
+      "itemIds": ["item_qumesht", "item_asht", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Die Milch ist kalt." },
+      "answerLang": "sq",
+      "solutions": ["Qumështi âsht i ftohtë."],
+      "standardForms": ["Qumështi është i ftohtë."],
+      "explanation": "Auf Albanisch ist die Milch maskulin: „qumështi“ – darum „i ftohtë“.",
+      "errorHints": [
+        { "pattern": "^qum[eë]sht [aâe]", "category": "grammar.definite_article", "hint": "„Die Milch“ braucht den Artikel: qumësht → qumështi." },
+        { "pattern": "(^|\\s)e ftoht", "category": "grammar.linking_article", "hint": "„Qumështi“ ist maskulin (anders als im Deutschen) – darum „i ftohtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_033",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["phrase.ordering", "grammar.case.accusative"],
+      "itemIds": ["item_llogari", "item_te_lutem", "item_ju_lutem"],
+      "prompt": { "lang": "de", "text": "Die Rechnung, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Llogarinë, të lutem.", "Llogarinë, ju lutem.", "Të lutem, llogarinë.", "Ju lutem, llogarinë.", "Hesapin, të lutem.", "Hesapin, ju lutem."],
+      "explanation": "Hier steht der Akkusativ: „llogarinë“ – wörtlich „(Bringt) die Rechnung“. Im Kosovo sagt man auch „hesapin“.",
+      "errorHints": [
+        { "pattern": "^llogaria", "category": "grammar.case", "hint": "Hier steht der Akkusativ: „llogarinë“, nicht „llogaria“." },
+        { "pattern": "^llogari t", "category": "grammar.definite_article", "hint": "„Die Rechnung“ braucht den Artikel im Akkusativ: „llogarinë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Hesapin“ (Kosovo-Alltag, türkisches Lehnwort) als weitere Lösung akzeptiert – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_034",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks"],
+      "itemIds": ["item_pi", "item_uje"],
+      "prompt": { "lang": "de", "text": "Ich trinke Wasser." },
+      "answerLang": "sq",
+      "text": "Unë ___ ujë.",
+      "solutions": ["pi"],
+      "choices": ["pi", "ha", "jam", "kam"],
+      "explanation": "„Pi“ heisst „trinken“: „Unë pi ujë.“",
+      "errorHints": [
+        { "pattern": "^ha$", "category": "vocab.confused", "hint": "„Ha“ heisst „essen“. „Trinken“ heisst „pi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_035",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food", "grammar.verbs.kam"],
+      "itemIds": ["item_kam_uri"],
+      "prompt": { "lang": "de", "text": "Ich habe Hunger." },
+      "answerLang": "sq",
+      "text": "Kam ___.",
+      "solutions": ["uri"],
+      "choices": ["etje", "bukë", "mirë", "uri"],
+      "explanation": "„Uri“ ist der Hunger, „etje“ der Durst.",
+      "errorHints": [
+        { "pattern": "^etje$", "category": "vocab.confused", "hint": "„Etje“ ist der Durst. Hunger heisst „uri“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_036",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food", "grammar.definite_article.fem"],
+      "itemIds": ["item_ha", "item_nji", "item_molle"],
+      "prompt": { "lang": "de", "text": "Ich esse einen Apfel." },
+      "answerLang": "sq",
+      "text": "Unë ha nji ___.",
+      "solutions": ["mollë"],
+      "choices": ["molla", "ujë", "mollë", "çaj"],
+      "explanation": "Nach „nji“ steht die unbestimmte Form: „nji mollë“ (ein Apfel).",
+      "errorHints": [
+        { "pattern": "^molla$", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji mollë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_037",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks", "grammar.definite_article.masc"],
+      "itemIds": ["item_uje", "item_i_ftohte", "item_shume"],
+      "prompt": { "lang": "de", "text": "Das Wasser ist sehr kalt." },
+      "answerLang": "sq",
+      "text": "___ âsht shumë i ftohtë.",
+      "solutions": ["Uji"],
+      "choices": ["Ujë", "Uji", "Buka", "Kafe"],
+      "explanation": "„Das Wasser“ braucht den Artikel: ujë → uji. Uji ist maskulin, darum „i ftohtë“.",
+      "errorHints": [
+        { "pattern": "^uj[eë]$", "category": "grammar.definite_article", "hint": "„Das Wasser“ braucht den Artikel: ujë → uji." },
+        { "pattern": "^buka$", "category": "vocab.confused", "hint": "„Buka“ ist das Brot." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_038",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks", "spelling.nasal_vowels"],
+      "itemIds": ["item_caj", "item_i_ambel"],
+      "prompt": { "lang": "de", "text": "Der Tee ist süss." },
+      "answerLang": "sq",
+      "text": "Çaji âsht i ___.",
+      "solutions": ["âmbël"],
+      "choices": ["âmbël", "ftohtë", "madh", "vogël"],
+      "explanation": "„I âmbël“ heisst „süss“ – im Gheg mit â (Standard: „i ëmbël“).",
+      "errorHints": [
+        { "pattern": "^ftoht[eë]$", "category": "vocab.confused", "hint": "„Ftohtë“ heisst „kalt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_039",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.ordering", "grammar.verbs.kam"],
+      "itemIds": ["item_a_keni", "item_djathe"],
+      "prompt": { "lang": "de", "text": "Habt ihr Käse?" },
+      "answerLang": "sq",
+      "text": "A ___ djathë?",
+      "solutions": ["keni"],
+      "choices": ["ke", "kam", "ka", "keni"],
+      "explanation": "„Keni“ heisst „ihr habt / Sie haben“. So fragst du im Laden oder im Restaurant.",
+      "errorHints": [
+        { "pattern": "^ke$", "category": "grammar.verb_conjugation", "hint": "„Ke“ ist „du hast“. „Ihr habt“ heisst „keni“." },
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„Kam“ ist „ich habe“. „Ihr habt“ heisst „keni“." },
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Ka“ ist „er/sie hat“. „Ihr habt“ heisst „keni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_040",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["phrase.ordering", "spelling.nasal_vowels"],
+      "itemIds": ["item_te_bafte_mire"],
+      "prompt": { "lang": "de", "text": "En Guete!" },
+      "answerLang": "sq",
+      "text": "Të ___ mirë!",
+      "solutions": ["bâftë"],
+      "choices": ["bân", "lutem", "bâftë", "fal"],
+      "explanation": "„Të bâftë mirë!“ – wörtlich „Möge es dir guttun!“. Standard: „Të bëftë mirë!“.",
+      "errorHints": [
+        { "pattern": "^b[aâ]n$", "category": "grammar.verb_conjugation", "hint": "„Bân“ heisst „du machst“. Im Wunsch steht „bâftë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „bâftë“ laut Sprachrichtlinie – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_041",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_nji", "item_caj", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Einen Tee, bitte." },
+      "answerLang": "sq",
+      "text": "___ çaj, të lutem.",
+      "solutions": ["Nji"],
+      "standardForms": ["Një"],
+      "explanation": "„Nji“ ist Gheg für „ein, eine“ (Standard: „një“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_042",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_pa_ohne", "item_kafe", "item_sheqer"],
+      "prompt": { "lang": "de", "text": "Ich trinke Kaffee ohne Zucker." },
+      "answerLang": "sq",
+      "text": "Unë pi kafe ___ sheqer.",
+      "solutions": ["pa"],
+      "explanation": "„Pa“ heisst „ohne“, „me“ heisst „mit“.",
+      "errorHints": [
+        { "pattern": "^me$", "category": "vocab.confused", "hint": "„Me“ heisst „mit“. „Ohne“ heisst „pa“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_043",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_ha", "item_peshk"],
+      "prompt": { "lang": "de", "text": "Arta isst Fisch." },
+      "answerLang": "sq",
+      "text": "Arta ___ peshk.",
+      "solutions": ["ha"],
+      "explanation": "„Ha“ heisst „essen“ und hat in der Einzahl nur eine Form: unë ha, ti ha, ajo ha.",
+      "errorHints": [
+        { "pattern": "^pi$", "category": "vocab.confused", "hint": "„Pi“ heisst „trinken“. „Essen“ heisst „ha“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_044",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.drinks", "grammar.definite_article.fem"],
+      "itemIds": ["item_vene", "item_mire"],
+      "prompt": { "lang": "de", "text": "Der Wein ist gut." },
+      "answerLang": "sq",
+      "text": "___ âsht e mirë.",
+      "solutions": ["Vena"],
+      "standardForms": ["Vera"],
+      "explanation": "„Vena“ ist Gheg für „der Wein“ (Standard: „vera“). Im Gheg heisst „vera“ „der Sommer“.",
+      "errorHints": [
+        { "pattern": "^ven[eë]$", "category": "grammar.definite_article", "hint": "„Der Wein“ braucht den Artikel: venë → vena." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „vena“ (Standard: vera) laut Sprachrichtlinie; „vera“ bewusst als Standard-Form eingetragen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_045",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.food", "spelling.nasal_vowels"],
+      "itemIds": ["item_molle", "item_i_ambel"],
+      "prompt": { "lang": "de", "text": "Der Apfel ist süss." },
+      "answerLang": "sq",
+      "text": "Molla âsht e ___.",
+      "solutions": ["âmbël"],
+      "standardForms": ["ëmbël"],
+      "explanation": "„E âmbël“ heisst „süss“ – mit dem Gheg-Nasalvokal â (Standard: „e ëmbël“).",
+      "errorHints": [
+        { "pattern": "^mir[eë]$", "category": "vocab.confused", "hint": "„Mirë“ heisst „gut“. Süss heisst „âmbël“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_046",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks"],
+      "itemIds": ["item_uje", "item_qumesht", "item_caj", "item_birre", "item_leng"],
+      "prompt": { "lang": "de", "text": "Ordne die Getränke zu." },
+      "pairs": [
+        { "left": "ujë", "right": "Wasser" },
+        { "left": "qumësht", "right": "Milch" },
+        { "left": "çaj", "right": "Tee" },
+        { "left": "birrë", "right": "Bier" },
+        { "left": "lëng", "right": "Saft" }
+      ],
+      "explanation": "Das sind die wichtigsten Getränke im Café und zu Hause.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_047",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_buke", "item_djathe", "item_mish", "item_peshk", "item_veze"],
+      "prompt": { "lang": "de", "text": "Ordne die Lebensmittel zu." },
+      "pairs": [
+        { "left": "bukë", "right": "Brot" },
+        { "left": "djathë", "right": "Käse" },
+        { "left": "mish", "right": "Fleisch" },
+        { "left": "peshk", "right": "Fisch" },
+        { "left": "vezë", "right": "Ei" }
+      ],
+      "explanation": "Brot gehört im Kosovo zu fast jeder Mahlzeit.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_048",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_mengjes", "item_dreke", "item_darke", "item_sallate", "item_molle"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "mëngjes", "right": "Frühstück" },
+        { "left": "drekë", "right": "Mittagessen" },
+        { "left": "darkë", "right": "Abendessen" },
+        { "left": "sallatë", "right": "Salat" },
+        { "left": "mollë", "right": "Apfel" }
+      ],
+      "explanation": "„Mëngjes“ heisst auch „Morgen“ – wie in „mirëmëngjes“ (guten Morgen).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_049",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food", "vocab.drinks"],
+      "itemIds": ["item_i_ftohte", "item_i_nxehte", "item_i_ambel", "item_me_prep", "item_pa_ohne"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "i ftohtë", "right": "kalt" },
+        { "left": "i nxehtë", "right": "heiss" },
+        { "left": "i âmbël", "right": "süss" },
+        { "left": "me", "right": "mit" },
+        { "left": "pa", "right": "ohne" }
+      ],
+      "explanation": "Mit „me“ und „pa“ bestellst du genauer: „kafe me qumësht“, „çaj pa sheqer“. „Âmbël“ schreibt man im Gheg mit â.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_050",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.ordering"],
+      "itemIds": ["item_kam_uri", "item_kam_etje", "item_gezuar", "item_te_bafte_mire", "item_makiato"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "kam uri", "right": "ich habe Hunger" },
+        { "left": "kam etje", "right": "ich habe Durst" },
+        { "left": "gëzuar", "right": "Prost" },
+        { "left": "të bâftë mirë", "right": "en Guete" },
+        { "left": "nji makiato", "right": "ein Macchiato" }
+      ],
+      "explanation": "Im Kosovo bestellt man im Café sehr oft „nji makiato“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„të bâftë mirë“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_051",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.food", "vocab.drinks", "grammar.definite_article.fem", "grammar.definite_article.masc"],
+      "itemIds": ["item_buke", "item_uje", "item_vene", "item_djathe", "item_molle"],
+      "prompt": { "lang": "de", "text": "Ordne die bestimmten Formen zu." },
+      "pairs": [
+        { "left": "buka", "right": "das Brot" },
+        { "left": "uji", "right": "das Wasser" },
+        { "left": "vena", "right": "der Wein" },
+        { "left": "djathi", "right": "der Käse" },
+        { "left": "molla", "right": "der Apfel" }
+      ],
+      "explanation": "Feminine Nomen enden bestimmt auf -a (buka, vena, molla), maskuline auf -i (uji, djathi). Achtung: Das Genus ist oft anders als im Deutschen.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „vena“ (Standard: vera) laut Sprachrichtlinie."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_052",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_nji", "item_makiato", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Einen Macchiato, bitte." },
+      "answerLang": "sq",
+      "tokens": ["Nji", "makiato", "të", "lutem"],
+      "solutions": ["Nji makiato, të lutem.", "Të lutem, nji makiato."],
+      "explanation": "Im Kosovo trinkt man gern „makiato“ – Espresso mit Milchschaum.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Genus von „makiato“ zu prüfen (hier nur unbestimmt)."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_053",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.drinks"],
+      "itemIds": ["item_pi", "item_caj"],
+      "prompt": { "lang": "de", "text": "Ich trinke Tee." },
+      "answerLang": "sq",
+      "tokens": ["Unë", "pi", "çaj"],
+      "solutions": ["Unë pi çaj."],
+      "explanation": "Die Satzstellung ist wie im Deutschen: „Unë pi çaj.“ – Ich trinke Tee.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_054",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.food", "grammar.linking_article"],
+      "itemIds": ["item_sallate", "item_asht", "item_mire"],
+      "prompt": { "lang": "de", "text": "Der Salat ist gut." },
+      "answerLang": "sq",
+      "tokens": ["Sallata", "âsht", "e", "mirë"],
+      "solutions": ["Sallata âsht e mirë."],
+      "explanation": "„Sallata“ ist feminin – darum „e mirë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_055",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_ha", "item_nji", "item_molle"],
+      "prompt": { "lang": "de", "text": "Ich esse gerade einen Apfel." },
+      "answerLang": "sq",
+      "tokens": ["Unë", "po", "ha", "nji", "mollë"],
+      "solutions": ["Unë po ha nji mollë."],
+      "explanation": "„Po“ steht direkt vor dem Verb: „po ha“ – ich esse gerade.",
+      "errorHints": [
+        { "pattern": "^po un[eë]", "category": "grammar.word_order", "hint": "„Po“ steht direkt vor dem Verb: „Unë po ha …“." },
+        { "pattern": "(^|\\s)ha po", "category": "grammar.word_order", "hint": "„Po“ steht vor dem Verb, nicht danach: „po ha“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_056",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.drinks", "phrase.ordering", "grammar.question_particle"],
+      "itemIds": ["item_a_keni", "item_caj", "item_me_prep", "item_qumesht"],
+      "prompt": { "lang": "de", "text": "Habt ihr Tee mit Milch?" },
+      "answerLang": "sq",
+      "tokens": ["A", "keni", "çaj", "me", "qumësht"],
+      "solutions": ["A keni çaj me qumësht?"],
+      "explanation": "Das Fragewort „a“ steht am Satzanfang und macht aus der Aussage eine Ja/Nein-Frage.",
+      "errorHints": [
+        { "pattern": "^keni a", "category": "grammar.word_order", "hint": "Das Fragewort „a“ steht am Satzanfang: „A keni …?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_057",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food", "grammar.linking_article"],
+      "itemIds": ["item_peshk", "item_asht", "item_shume", "item_mire"],
+      "prompt": { "lang": "de", "text": "Der Fisch ist sehr gut." },
+      "answerLang": "sq",
+      "tokens": ["Peshku", "âsht", "shumë", "i", "mirë"],
+      "solutions": ["Peshku âsht shumë i mirë."],
+      "explanation": "„Shumë“ (sehr) steht vor dem Adjektiv: „shumë i mirë“. „Peshku“ ist der Fisch.",
+      "errorHints": [
+        { "pattern": "(^|\\s)i shum[eë] mir", "category": "grammar.word_order", "hint": "„Shumë“ (sehr) steht vor „i mirë“: „shumë i mirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_058",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.food", "vocab.drinks"],
+      "itemIds": ["item_kam_uri", "item_kam_etje", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Ich habe Hunger und Durst." },
+      "answerLang": "sq",
+      "tokens": ["Kam", "uri", "dhe", "etje"],
+      "solutions": ["Kam uri dhe etje.", "Kam etje dhe uri."],
+      "explanation": "Ein „kam“ reicht für beides: „Kam uri dhe etje.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_059",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.drinks", "phrase.ordering"],
+      "itemIds": ["item_pi", "item_kafe", "item_pa_ohne", "item_sheqer"],
+      "prompt": { "lang": "de", "text": "Arta trinkt Kaffee ohne Zucker." },
+      "answerLang": "sq",
+      "tokens": ["Arta", "pi", "kafe", "pa", "sheqer"],
+      "solutions": ["Arta pi kafe pa sheqer."],
+      "explanation": "„Pa sheqer“ – ohne Zucker – steht nach dem Getränk.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_060",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.food"],
+      "itemIds": ["item_mengjes", "item_ha", "item_buke", "item_djathe", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Zum Frühstück esse ich Brot und Käse." },
+      "answerLang": "sq",
+      "tokens": ["Për", "mëngjes", "ha", "bukë", "dhe", "djathë"],
+      "solutions": ["Për mëngjes ha bukë dhe djathë.", "Ha bukë dhe djathë për mëngjes.", "Për mëngjes ha djathë dhe bukë.", "Ha djathë dhe bukë për mëngjes."],
+      "explanation": "„Për mëngjes“ heisst „zum Frühstück“. Die Zeitangabe kann am Anfang oder am Ende stehen.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

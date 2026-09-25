@@ -14,6 +14,10 @@
     {
       "title": "Ky und kjo",
       "explanation": "**Ky âsht …** sagst du für einen Mann oder ein maskulines Nomen, **kjo âsht …** für eine Frau oder ein feminines Nomen: *Ky âsht djali im. Kjo âsht motra ime.* „Âsht“ ist die Gheg-Form von „ist“ (Standard: është)."
+    },
+    {
+      "title": "Wie viele? – sa",
+      "explanation": "Mit **sa** fragst du nach der Anzahl: *Sa fëmijë ke?* – Wie viele Kinder hast du?\n\nNach einer Zahl steht die Mehrzahl ohne Artikel:\n\n| Einzahl | Mehrzahl | Beispiel |\n|---|---|---|\n| djalë | djem | *dy djem* – zwei Söhne |\n| vajzë | vajza | *dy vajza* – zwei Töchter |\n| motër | motra | *dy motra* – zwei Schwestern |\n| vlla | vllazën | *dy vllazën* – zwei Brüder (Standard: vëllezër) |\n| fëmijë | fëmijë | *dy fëmijë* – zwei Kinder |"
     }
   ],
   "items": [
@@ -136,7 +140,30 @@
       "partOfSpeech": "conjunction",
       "note": "Im Kosovo-Alltag oft „e“ oder „edhe“ – zu prüfen, welche Form als Hauptform gelten soll.",
       "reviewed": false
-    }
+    },
+    {
+      "id": "item_prind",
+      "kind": "word",
+      "gheg": "prind",
+      "de": "Elternteil",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "prindi",
+      "plural": "prindër",
+      "note": "Bestimmter Plural „prindërit“ (die Eltern); im Kosovo oft kurz „prindt“ gesprochen – zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_i_martuem",
+      "kind": "phrase",
+      "gheg": "i martuem",
+      "de": "verheiratet (maskulin)",
+      "partOfSpeech": "adjective",
+      "note": "Gheg-Form (Standard: i martuar) laut Sprachrichtlinie 5.3 – zu prüfen; feminine Form deshalb noch nicht verwendet.",
+      "reviewed": false
+    },
+    { "id": "item_nip", "kind": "word", "gheg": "nip", "de": "Enkel; Neffe", "partOfSpeech": "noun", "gender": "m", "definite": "nipi", "plural": "nipa", "reviewed": false },
+    { "id": "item_mbese", "kind": "word", "gheg": "mbesë", "de": "Enkelin; Nichte", "partOfSpeech": "noun", "gender": "f", "definite": "mbesa", "plural": "mbesa", "reviewed": false }
   ],
   "exercises": [
     {
@@ -523,6 +550,764 @@
       "reviewed": false,
       "source": "manual",
       "note": "Bestimmte Form „gruja“ (Standard: gruaja) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_021",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.definite_article.masc"],
+      "itemIds": ["item_gjysh"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „gjyshi“?" },
+      "choices": ["die Grossmutter", "der Grossvater", "der Onkel", "der Vater"],
+      "solutions": ["der Grossvater"],
+      "explanation": "„Gjysh“ ist der Grossvater, mit Artikel „gjyshi“. Die Grossmutter heisst „gjyshja“.",
+      "errorHints": [
+        { "pattern": "grossmutter", "category": "vocab.confused", "hint": "„Die Grossmutter“ heisst „gjyshja“." },
+        { "pattern": "^der vater$", "category": "vocab.confused", "hint": "„Der Vater“ heisst „babai“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_022",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family"],
+      "itemIds": ["item_vajze", "item_djale", "item_moter", "item_grua"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Tochter“?" },
+      "choices": ["vajzë", "djalë", "motër", "grua"],
+      "solutions": ["vajzë"],
+      "explanation": "„Vajzë“ heisst „Tochter“ oder „Mädchen“.",
+      "errorHints": [
+        { "pattern": "^djal[eë]$", "category": "vocab.confused", "hint": "„Djalë“ ist der Sohn." },
+        { "pattern": "^mot[eë]r$", "category": "vocab.confused", "hint": "„Motër“ ist die Schwester." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_023",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.definite_article.masc"],
+      "itemIds": ["item_burre"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „burri“?" },
+      "choices": ["der Bruder", "der Sohn", "der Grossvater", "der Ehemann"],
+      "solutions": ["der Ehemann"],
+      "explanation": "„Burrë“ heisst „Mann“ oder „Ehemann“, bestimmt „burri“.",
+      "errorHints": [
+        { "pattern": "bruder", "category": "vocab.confused", "hint": "„Der Bruder“ heisst „vllau“." },
+        { "pattern": "sohn", "category": "vocab.confused", "hint": "„Der Sohn“ heisst „djali“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_024",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.demonstratives", "grammar.possessive"],
+      "itemIds": ["item_kjo", "item_asht", "item_gjyshe", "item_ime"],
+      "prompt": { "lang": "de", "text": "Was heisst „Kjo âsht gjyshja ime.“?" },
+      "choices": ["Das ist mein Grossvater.", "Das ist meine Mutter.", "Das ist meine Grossmutter.", "Wo ist meine Grossmutter?"],
+      "solutions": ["Das ist meine Grossmutter."],
+      "explanation": "„Kjo“ – das (für eine Frau), „gjyshja ime“ – meine Grossmutter.",
+      "errorHints": [
+        { "pattern": "grossvater", "category": "vocab.confused", "hint": "„Gjyshja“ ist die Grossmutter." },
+        { "pattern": "^wo ", "category": "vocab.confused", "hint": "„Wo“ hiesse „ku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_025",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.definite_article.masc"],
+      "itemIds": ["item_vlla", "item_im"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „mein Bruder“?" },
+      "choices": ["vllau ime", "vllau im", "vlla im", "im vllau"],
+      "solutions": ["vllau im"],
+      "explanation": "Zuerst das Nomen mit Artikel (vlla → vllau), dann „im“ für maskuline Nomen.",
+      "errorHints": [
+        { "pattern": "^vllau ime$", "category": "grammar.gender", "hint": "„Vllau“ ist maskulin – darum „im“." },
+        { "pattern": "^vlla im$", "category": "grammar.definite_article", "hint": "Vor „im“ braucht das Nomen den Artikel: vlla → vllau." },
+        { "pattern": "^im ", "category": "grammar.word_order", "hint": "„Im“ steht nach dem Nomen: „vllau im“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllau“ (Standard: vëllai) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_026",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.possessive"],
+      "itemIds": ["item_ime", "item_moter"],
+      "prompt": { "lang": "de", "text": "Welches Nomen passt zu „ime“ (meine)?" },
+      "choices": ["motra", "djali", "babai", "burri"],
+      "solutions": ["motra"],
+      "explanation": "„Ime“ passt nur zu femininen Nomen: „motra ime“ – meine Schwester.",
+      "errorHints": [
+        { "pattern": "^(djali|babai|burri)$", "category": "grammar.gender", "hint": "Dieses Nomen ist maskulin – dazu passt „im“, nicht „ime“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_027",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.verbs.kam"],
+      "itemIds": ["item_sa", "item_femije", "item_ke"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Sa fëmijë ke?“" },
+      "choices": ["Hast du Kinder?", "Wo sind deine Kinder?", "Wie heisst dein Kind?", "Wie viele Kinder hast du?"],
+      "solutions": ["Wie viele Kinder hast du?"],
+      "explanation": "„Sa“ fragt nach der Anzahl: „wie viele“.",
+      "errorHints": [
+        { "pattern": "^hast du", "category": "vocab.confused", "hint": "„Hast du Kinder?“ wäre „A ke fëmijë?“. „Sa“ heisst „wie viele“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_028",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family"],
+      "itemIds": ["item_daje", "item_axhe", "item_halle", "item_gjysh"],
+      "prompt": { "lang": "de", "text": "Deine Mutter hat einen Bruder. Wie nennst du ihn?" },
+      "choices": ["axha", "halla", "daja", "gjyshi"],
+      "solutions": ["daja"],
+      "explanation": "Der Bruder der Mutter ist „daja“, der Bruder des Vaters „axha“.",
+      "errorHints": [
+        { "pattern": "^axha$", "category": "vocab.confused", "hint": "„Axha“ ist der Bruder des Vaters." },
+        { "pattern": "^halla$", "category": "vocab.confused", "hint": "„Halla“ ist die Schwester des Vaters." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_029",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.demonstratives", "grammar.possessive"],
+      "itemIds": ["item_ky", "item_asht", "item_baba", "item_im"],
+      "prompt": { "lang": "de", "text": "Das ist mein Vater." },
+      "answerLang": "sq",
+      "solutions": ["Ky âsht babai im."],
+      "wordBank": ["Ky", "âsht", "babai", "im", "kjo", "ime", "nâna"],
+      "explanation": "Für einen Mann sagst du „ky“, dazu „babai im“ – mein Vater.",
+      "errorHints": [
+        { "pattern": "^kjo ", "category": "grammar.gender", "hint": "Für einen Mann sagt man „ky“." },
+        { "pattern": "babai ime", "category": "grammar.gender", "hint": "„Babai“ ist maskulin – darum „im“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_030",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.verbs.kam"],
+      "itemIds": ["item_kam", "item_djale"],
+      "prompt": { "lang": "de", "text": "Ich habe zwei Söhne." },
+      "answerLang": "sq",
+      "solutions": ["Kam dy djem.", "Unë kam dy djem."],
+      "wordBank": ["Kam", "dy", "djem", "djali", "vajza", "ke"],
+      "explanation": "Die Mehrzahl von „djalë“ ist „djem“: „dy djem“ – zwei Söhne.",
+      "errorHints": [
+        { "pattern": "dy djali", "category": "grammar.definite_article", "hint": "Nach einer Zahl steht die Mehrzahl ohne Artikel: „dy djem“." },
+        { "pattern": "^ke ", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“. „Ich habe“: „kam“." },
+        { "pattern": "vajza", "category": "vocab.confused", "hint": "„Vajza“ sind Töchter. Söhne heisst „djem“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_031",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.definite_article.masc"],
+      "itemIds": ["item_gjysh", "item_im", "item_jetoj"],
+      "prompt": { "lang": "de", "text": "Mein Grossvater lebt in Gjakova." },
+      "answerLang": "sq",
+      "solutions": ["Gjyshi im jeton në Gjakovë."],
+      "wordBank": ["Gjyshi", "im", "jeton", "në", "Gjakovë", "gjyshja", "ime", "jetoj"],
+      "explanation": "„Gjyshi im“ – mein Grossvater. „Jeton“ heisst „er lebt, wohnt“.",
+      "errorHints": [
+        { "pattern": "gjyshi ime", "category": "grammar.gender", "hint": "„Gjyshi“ ist maskulin – darum „im“." },
+        { "pattern": "^gjyshja", "category": "vocab.confused", "hint": "„Gjyshja“ ist die Grossmutter." },
+        { "pattern": "(^|\\s)jetoj(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jetoj“ heisst „ich lebe“. „Er lebt“: „jeton“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_032",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family", "grammar.verbs.kam"],
+      "itemIds": ["item_a", "item_ke", "item_vlla", "item_moter"],
+      "prompt": { "lang": "de", "text": "Hast du Brüder und Schwestern?" },
+      "answerLang": "sq",
+      "solutions": ["A ke vllazën e motra?", "A ke vllazën dhe motra?", "A ke vllazën edhe motra?", "Ke vllazën e motra?"],
+      "wordBank": ["A", "ke", "vllazën", "e", "motra", "kam", "vlla", "motër"],
+      "explanation": "„Vllazën e motra“ heisst „Brüder und Schwestern“ – so fragt man im Kosovo nach den Geschwistern. Standard: „vëllezër“.",
+      "errorHints": [
+        { "pattern": "^(a )?kam ", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. „Hast du“: „a ke“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Plural „vllazën“ (Standard: vëllezër) laut Sprachrichtlinie zu prüfen. „e“ als „und“ in dieser festen Verbindung zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_033",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.definite_article.fem"],
+      "itemIds": ["item_nane", "item_ime", "item_quhet"],
+      "prompt": { "lang": "sq", "text": "Nâna ime quhet Besa." },
+      "answerLang": "de",
+      "solutions": ["Meine Mutter heisst Besa.", "Meine Mama heisst Besa."],
+      "wordBank": ["Meine", "Mutter", "heisst", "Besa", "Mein", "Vater", "ist"],
+      "explanation": "„Nâna ime“ – meine Mutter. „Quhet“ heisst „heisst“.",
+      "errorHints": [
+        { "pattern": "vater", "category": "vocab.confused", "hint": "„Nâna“ ist die Mutter." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_034",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.verbs.kam", "grammar.possessive"],
+      "itemIds": ["item_moter", "item_ime", "item_ka", "item_nji", "item_djale"],
+      "prompt": { "lang": "sq", "text": "Motra ime ka nji djalë." },
+      "answerLang": "de",
+      "solutions": ["Meine Schwester hat einen Sohn."],
+      "wordBank": ["Meine", "Schwester", "hat", "einen", "Sohn", "Tochter", "mein", "ist"],
+      "explanation": "„Ka“ heisst „hat“. Nach „nji“ steht „djalë“ ohne Artikel.",
+      "errorHints": [
+        { "pattern": "tochter", "category": "vocab.confused", "hint": "„Djalë“ ist der Sohn, die Tochter heisst „vajzë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_035",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.demonstratives", "grammar.possessive"],
+      "itemIds": ["item_ky", "item_asht", "item_burre", "item_im"],
+      "prompt": { "lang": "sq", "text": "Ky âsht burri im, Arbeni." },
+      "answerLang": "de",
+      "solutions": ["Das ist mein Mann, Arben.", "Das ist mein Ehemann, Arben."],
+      "wordBank": ["Das", "ist", "mein", "Mann", "Arben", "meine", "Sohn", "Frau"],
+      "explanation": "„Burri im“ – mein Mann. Auch Namen bekommen oft den Artikel: Arben → Arbeni.",
+      "errorHints": [
+        { "pattern": "sohn", "category": "vocab.confused", "hint": "„Burri“ ist der Ehemann. Der Sohn heisst „djali“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_036",
+      "type": "translate_wordbank",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family", "grammar.possessive"],
+      "itemIds": ["item_prind", "item_jetoj"],
+      "prompt": { "lang": "sq", "text": "Prindërit e mi jetojnë në Zvicër." },
+      "answerLang": "de",
+      "solutions": ["Meine Eltern leben in der Schweiz.", "Meine Eltern wohnen in der Schweiz."],
+      "wordBank": ["Meine", "Eltern", "leben", "in", "der", "Schweiz", "Mein", "Grosseltern", "lebt"],
+      "explanation": "„Prindërit“ – die Eltern. In der Mehrzahl heisst „mein“: „e mi“.",
+      "errorHints": [
+        { "pattern": "grosseltern", "category": "vocab.confused", "hint": "„Prindërit“ sind die Eltern." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prindërit e mi“ (Kosovo oft „prindt e mi“) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_037",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.demonstratives", "grammar.possessive", "grammar.definite_article.fem"],
+      "itemIds": ["item_kjo", "item_asht", "item_moter", "item_ime"],
+      "prompt": { "lang": "de", "text": "Das ist meine Schwester." },
+      "answerLang": "sq",
+      "solutions": ["Kjo âsht motra ime."],
+      "standardForms": ["Kjo është motra ime."],
+      "explanation": "„Kjo“ für eine Frau, „motra ime“ – meine Schwester.",
+      "errorHints": [
+        { "pattern": "^ky ", "category": "grammar.gender", "hint": "Für eine Frau sagt man „kjo“." },
+        { "pattern": "motra im$", "category": "grammar.gender", "hint": "„Motra“ ist feminin – darum „ime“." },
+        { "pattern": "mot[eë]r ime", "category": "grammar.definite_article", "hint": "Vor „ime“ braucht das Nomen den Artikel: motër → motra." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_038",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.definite_article.masc"],
+      "itemIds": ["item_djale", "item_im", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Mein Sohn heisst Driton." },
+      "answerLang": "sq",
+      "solutions": ["Djali im quhet Driton."],
+      "explanation": "„Djali im“ – mein Sohn: zuerst das Nomen mit Artikel, dann „im“.",
+      "errorHints": [
+        { "pattern": "^djal[eë] im", "category": "grammar.definite_article", "hint": "Vor „im“ braucht das Nomen den Artikel: djalë → djali." },
+        { "pattern": "^djali ime", "category": "grammar.gender", "hint": "„Djali“ ist maskulin – darum „im“." },
+        { "pattern": "^im ", "category": "grammar.word_order", "hint": "„Im“ steht nach dem Nomen: „djali im“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_039",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.verbs.kam"],
+      "itemIds": ["item_sa", "item_femije", "item_ke"],
+      "prompt": { "lang": "de", "text": "Wie viele Kinder hast du?" },
+      "answerLang": "sq",
+      "solutions": ["Sa fëmijë ke?", "Sa fëmijë ke ti?"],
+      "explanation": "„Sa“ heisst „wie viele“, „ke“ – du hast.",
+      "errorHints": [
+        { "pattern": "^sa f[eë]mij[eë] kam", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. „Du hast“: „ke“." },
+        { "pattern": "^sa f[eë]mij[eë] ka(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Ka“ heisst „er/sie hat“. „Du hast“: „ke“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_040",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.verbs.kam"],
+      "itemIds": ["item_baba", "item_im", "item_ka", "item_vlla"],
+      "prompt": { "lang": "de", "text": "Mein Vater hat zwei Brüder." },
+      "answerLang": "sq",
+      "solutions": ["Babai im ka dy vllazën."],
+      "standardForms": ["Babai im ka dy vëllezër."],
+      "explanation": "„Vllazën“ ist die Kosovo-Mehrzahl von „vlla“ (Standard: „vëllezër“).",
+      "errorHints": [
+        { "pattern": "babai ime", "category": "grammar.gender", "hint": "„Babai“ ist maskulin – darum „im“." },
+        { "pattern": "dy vlla(u)?$", "category": "vocab.unknown", "hint": "Nach „dy“ steht die Mehrzahl: „dy vllazën“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Plural „vllazën“ (Standard: vëllezër) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_041",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.definite_article.fem"],
+      "itemIds": ["item_teze", "item_ime", "item_jetoj"],
+      "prompt": { "lang": "de", "text": "Meine Tante (Schwester der Mutter) lebt in Ferizaj." },
+      "answerLang": "sq",
+      "solutions": ["Tezja ime jeton në Ferizaj."],
+      "explanation": "Die Schwester der Mutter ist „tezja“, die des Vaters „halla“.",
+      "errorHints": [
+        { "pattern": "^tez[eë] ime", "category": "grammar.definite_article", "hint": "Vor „ime“ braucht das Nomen den Artikel: tezë → tezja." },
+        { "pattern": "^tezja im(\\s|$)", "category": "grammar.gender", "hint": "„Tezja“ ist feminin – darum „ime“." },
+        { "pattern": "^halla", "category": "vocab.confused", "hint": "„Halla“ ist die Schwester des Vaters." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_042",
+      "type": "translate_free",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.verbs.kam"],
+      "itemIds": ["item_burre", "item_im", "item_ka", "item_nji", "item_moter", "item_dhe", "item_vlla"],
+      "prompt": { "lang": "de", "text": "Mein Mann hat eine Schwester und einen Bruder." },
+      "answerLang": "sq",
+      "solutions": [
+        "Burri im ka nji motër dhe nji vlla.",
+        "Burri im ka nji motër edhe nji vlla.",
+        "Burri im ka nji motër e nji vlla.",
+        "Burri im ka nji vlla dhe nji motër.",
+        "Burri im ka nji vlla edhe nji motër.",
+        "Burri im ka nji vlla e nji motër.",
+        "Burri im ka nji motër dhe nji vëlla.",
+        "Burri im ka nji vëlla dhe nji motër."
+      ],
+      "standardForms": ["Burri im ka një motër dhe një vëlla.", "Burri im ka një vëlla dhe një motër."],
+      "explanation": "Nach „nji“ (Gheg für „ein, eine“, Standard: „një“) steht die unbestimmte Form: „nji motër, nji vlla“.",
+      "errorHints": [
+        { "pattern": "^burri ime", "category": "grammar.gender", "hint": "„Burri“ ist maskulin – darum „im“." },
+        { "pattern": "nji motra", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji motër“." },
+        { "pattern": "nji vllau", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji vlla“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„vëlla“ als weitere Schreibung akzeptiert (DECISIONS #42) – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_043",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.possessive"],
+      "itemIds": ["item_kjo", "item_gjyshe", "item_ime"],
+      "prompt": { "lang": "de", "text": "Das ist meine Grossmutter." },
+      "answerLang": "sq",
+      "text": "Kjo âsht gjyshja ___.",
+      "solutions": ["ime"],
+      "choices": ["im", "ky", "kjo", "ime"],
+      "explanation": "„Gjyshja“ ist feminin – darum „ime“.",
+      "errorHints": [
+        { "pattern": "^im$", "category": "grammar.gender", "hint": "„Gjyshja“ ist feminin – darum „ime“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_044",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.demonstratives"],
+      "itemIds": ["item_ky", "item_daje", "item_im"],
+      "prompt": { "lang": "de", "text": "Das ist mein Onkel (Bruder der Mutter)." },
+      "answerLang": "sq",
+      "text": "___ âsht daja im.",
+      "solutions": ["Ky"],
+      "choices": ["Kjo", "Im", "Ky", "Ku"],
+      "explanation": "„Daja“ endet zwar auf -a, ist aber ein Mann – darum „ky“.",
+      "errorHints": [
+        { "pattern": "^kjo$", "category": "grammar.gender", "hint": "„Daja“ ist maskulin (ein Mann) – darum „ky“." },
+        { "pattern": "^ku$", "category": "vocab.confused", "hint": "„Ku“ heisst „wo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_045",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.definite_article.fem"],
+      "itemIds": ["item_vajze", "item_ime", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Meine Tochter ist klein." },
+      "answerLang": "sq",
+      "text": "___ ime âsht e vogël.",
+      "solutions": ["Vajza"],
+      "choices": ["Vajzë", "Vajza", "Djali", "Motër"],
+      "explanation": "Vor „ime“ steht das Nomen mit Artikel: vajzë → vajza.",
+      "errorHints": [
+        { "pattern": "^vajz[eë]$", "category": "grammar.definite_article", "hint": "Vor „ime“ braucht das Nomen den Artikel: vajzë → vajza." },
+        { "pattern": "^djali$", "category": "grammar.gender", "hint": "„Djali“ ist maskulin und passt nicht zu „ime … e vogël“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_046",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.verbs.kam"],
+      "itemIds": ["item_a", "item_ke", "item_djale"],
+      "prompt": { "lang": "de", "text": "Hast du einen Sohn?" },
+      "answerLang": "sq",
+      "text": "A ___ djalë?",
+      "solutions": ["ke"],
+      "choices": ["ke", "kam", "ka", "âsht"],
+      "explanation": "„Ke“ heisst „du hast“.",
+      "errorHints": [
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“." },
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Ka“ heisst „er/sie hat“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_047",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.verbs.kam"],
+      "itemIds": ["item_vlla", "item_im", "item_ka", "item_vajze"],
+      "prompt": { "lang": "de", "text": "Mein Bruder hat zwei Töchter." },
+      "answerLang": "sq",
+      "text": "Vllau im ka dy ___.",
+      "solutions": ["vajza"],
+      "choices": ["vajzë", "djem", "vajzat", "vajza"],
+      "explanation": "Nach „dy“ steht die Mehrzahl ohne Artikel: „dy vajza“.",
+      "errorHints": [
+        { "pattern": "^vajzat$", "category": "grammar.definite_article", "hint": "Nach einer Zahl steht die Mehrzahl ohne Artikel: „dy vajza“." },
+        { "pattern": "^vajz[eë]$", "category": "vocab.unknown", "hint": "Nach „dy“ steht die Mehrzahl: „vajza“." },
+        { "pattern": "^djem$", "category": "vocab.confused", "hint": "„Djem“ sind Söhne." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllau“ (Standard: vëllai) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_048",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.definite_article.masc", "grammar.possessive"],
+      "itemIds": ["item_baba", "item_im", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Mein Vater heisst Blerim." },
+      "answerLang": "sq",
+      "text": "___ im quhet Blerim.",
+      "solutions": ["Babai"],
+      "explanation": "Vor „im“ steht das Nomen mit Artikel: baba → babai.",
+      "errorHints": [
+        { "pattern": "^baba$", "category": "grammar.definite_article", "hint": "Vor „im“ braucht das Nomen den Artikel: baba → babai." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„baba“ als bestimmte Form im Kosovo (vgl. item_baba) zu prüfen; derzeit mit Hinweis als falsch gewertet."
+    },
+    {
+      "id": "ex_a1_u04_family_049",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.possessive"],
+      "itemIds": ["item_familje", "item_ime", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Meine Familie ist klein." },
+      "answerLang": "sq",
+      "text": "Familja ___ âsht e vogël.",
+      "solutions": ["ime"],
+      "explanation": "„Familja“ ist feminin – darum „ime“.",
+      "errorHints": [
+        { "pattern": "^im$", "category": "grammar.gender", "hint": "„Familja“ ist feminin – darum „ime“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_050",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.definite_article.fem"],
+      "itemIds": ["item_ku", "item_jetoj", "item_gjyshe"],
+      "prompt": { "lang": "de", "text": "Wo wohnt die Grossmutter?" },
+      "answerLang": "sq",
+      "text": "Ku ___ gjyshja?",
+      "solutions": ["jeton"],
+      "explanation": "„Jeton“ heisst „sie wohnt, lebt“.",
+      "errorHints": [
+        { "pattern": "^jetoj$", "category": "grammar.verb_conjugation", "hint": "„Jetoj“ heisst „ich wohne“. „Sie wohnt“: „jeton“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_051",
+      "type": "fill_gap",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family", "grammar.verbs.kam"],
+      "itemIds": ["item_kam", "item_vlla"],
+      "prompt": { "lang": "de", "text": "Ich habe zwei Brüder." },
+      "answerLang": "sq",
+      "text": "Kam dy ___.",
+      "solutions": ["vllazën"],
+      "standardForms": ["vëllezër"],
+      "explanation": "„Vllazën“ ist die Kosovo-Mehrzahl von „vlla“ (Standard: „vëllezër“).",
+      "errorHints": [
+        { "pattern": "^vlla(u)?$", "category": "vocab.unknown", "hint": "Nach „dy“ steht die Mehrzahl: „vllazën“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Plural „vllazën“ (Standard: vëllezër) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_052",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.possessive"],
+      "itemIds": ["item_baba", "item_nane", "item_moter", "item_vlla", "item_djale", "item_im", "item_ime"],
+      "prompt": { "lang": "de", "text": "Ordne zu: mein oder meine?" },
+      "pairs": [
+        { "left": "babai im", "right": "mein Vater" },
+        { "left": "nâna ime", "right": "meine Mutter" },
+        { "left": "motra ime", "right": "meine Schwester" },
+        { "left": "vllau im", "right": "mein Bruder" },
+        { "left": "djali im", "right": "mein Sohn" }
+      ],
+      "explanation": "„Im“ steht bei maskulinen, „ime“ bei femininen Nomen – immer nach dem Nomen mit Artikel.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllau“ (Standard: vëllai) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_053",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family"],
+      "itemIds": ["item_djale", "item_vajze", "item_moter", "item_vlla", "item_prind"],
+      "prompt": { "lang": "de", "text": "Ordne die Mehrzahlformen zu." },
+      "pairs": [
+        { "left": "djem", "right": "Söhne" },
+        { "left": "vajza", "right": "Töchter" },
+        { "left": "motra", "right": "Schwestern" },
+        { "left": "vllazën", "right": "Brüder" },
+        { "left": "prindër", "right": "Eltern" }
+      ],
+      "explanation": "Die Mehrzahl ist oft unregelmässig: djalë → djem, vlla → vllazën (Standard: vëllezër).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Plural „vllazën“ (Standard: vëllezër) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_054",
+      "type": "match_pairs",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family"],
+      "itemIds": ["item_prind", "item_nip", "item_mbese", "item_i_martuem", "item_femije"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "prind", "right": "Elternteil" },
+        { "left": "nip", "right": "Enkel" },
+        { "left": "mbesë", "right": "Enkelin" },
+        { "left": "i martuem", "right": "verheiratet" },
+        { "left": "fëmijë", "right": "Kind" }
+      ],
+      "explanation": "„Nip“ und „mbesë“ heissen auch „Neffe“ und „Nichte“. „I martuem“ ist Gheg (Standard: „i martuar“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i martuem“ zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_055",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.demonstratives", "grammar.possessive"],
+      "itemIds": ["item_ky", "item_asht", "item_gjysh", "item_im"],
+      "prompt": { "lang": "de", "text": "Das ist mein Grossvater." },
+      "answerLang": "sq",
+      "tokens": ["Ky", "âsht", "gjyshi", "im"],
+      "solutions": ["Ky âsht gjyshi im."],
+      "explanation": "„Ky“ für einen Mann, „gjyshi im“ – mein Grossvater.",
+      "errorHints": [
+        { "pattern": "^kjo ", "category": "grammar.gender", "hint": "Für einen Mann sagt man „ky“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_056",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.possessive"],
+      "itemIds": ["item_moter", "item_ime", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Meine Schwester heisst Arta." },
+      "answerLang": "sq",
+      "tokens": ["Motra", "ime", "quhet", "Arta"],
+      "solutions": ["Motra ime quhet Arta."],
+      "explanation": "„Motra ime“ – meine Schwester. „Quhet“ heisst „heisst“.",
+      "errorHints": [
+        { "pattern": "^ime ", "category": "grammar.word_order", "hint": "„Ime“ steht nach dem Nomen: „motra ime“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_057",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.family", "grammar.verbs.kam"],
+      "itemIds": ["item_kam", "item_nji", "item_vajze"],
+      "prompt": { "lang": "de", "text": "Ich habe eine Tochter." },
+      "answerLang": "sq",
+      "tokens": ["Kam", "nji", "vajzë"],
+      "solutions": ["Kam nji vajzë."],
+      "explanation": "„Kam“ – ich habe. Nach „nji“ steht „vajzë“ ohne Artikel.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_058",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.family", "grammar.possessive"],
+      "itemIds": ["item_ku", "item_asht", "item_vajze", "item_ime"],
+      "prompt": { "lang": "de", "text": "Wo ist meine Tochter?" },
+      "answerLang": "sq",
+      "tokens": ["Ku", "âsht", "vajza", "ime"],
+      "solutions": ["Ku âsht vajza ime?", "Vajza ime ku âsht?"],
+      "explanation": "„Ku“ (wo) steht meist am Anfang der Frage.",
+      "errorHints": [
+        { "pattern": "^[aâ]sht ku", "category": "grammar.word_order", "hint": "Das Fragewort „ku“ steht vor dem Verb: „Ku âsht …?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u04_family_059",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.verbs.kam"],
+      "itemIds": ["item_axhe", "item_im", "item_ka", "item_nji", "item_djale", "item_dhe", "item_vajze"],
+      "prompt": { "lang": "de", "text": "Mein Onkel (Bruder des Vaters) hat einen Sohn und zwei Töchter." },
+      "answerLang": "sq",
+      "tokens": ["Axha", "im", "ka", "nji", "djalë", "dhe", "dy", "vajza"],
+      "solutions": ["Axha im ka nji djalë dhe dy vajza.", "Axha im ka dy vajza dhe nji djalë."],
+      "explanation": "„Axha“ ist der Bruder des Vaters (Kosovo-Form, Standard: „xhaxhai“). „Dy vajza“ – zwei Töchter.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„axha“ als Kosovo-Form (Standard: xhaxhai) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u04_family_060",
+      "type": "word_order",
+      "level": "A1.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.family", "grammar.possessive", "grammar.verbs.kam"],
+      "itemIds": ["item_vlla", "item_im", "item_asht", "item_i_martuem", "item_dhe", "item_ka", "item_femije"],
+      "prompt": { "lang": "de", "text": "Mein Bruder ist verheiratet und hat zwei Kinder." },
+      "answerLang": "sq",
+      "tokens": ["Vllau", "im", "âsht", "i", "martuem", "dhe", "ka", "dy", "fëmijë"],
+      "solutions": ["Vllau im âsht i martuem dhe ka dy fëmijë."],
+      "explanation": "„I martuem“ heisst „verheiratet“ – im Gheg mit -uem (Standard: „i martuar“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllau“ (Standard: vëllai) zu prüfen. Gheg-Form „i martuem“ zu prüfen."
     }
   ]
 }

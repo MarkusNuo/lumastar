@@ -1,0 +1,1172 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u07_definite_article",
+  "level": "A1.2",
+  "grammar": [
+    {
+      "title": "Der Artikel hängt hinten an",
+      "explanation": "Im Albanischen steht der bestimmte Artikel als Endung am Nomen.\n\n**Maskulin:** meist **-i**, nach k, g, h aber **-u**. Ein -ë am Ende fällt weg.\n\n| unbestimmt | bestimmt | Deutsch |\n|---|---|---|\n| djalë | djali | der Sohn |\n| libër | libri | das Buch |\n| qen | qeni | der Hund |\n| mik | miku | der Freund |\n| peshk | peshku | der Fisch |\n| baba | babai | der Vater |\n\n**Feminin:** **-a**; Nomen auf -e bekommen **-ja**.\n\n| unbestimmt | bestimmt | Deutsch |\n|---|---|---|\n| motër | motra | die Schwester |\n| shkollë | shkolla | die Schule |\n| gjyshe | gjyshja | die Grossmutter |\n| dritare | dritarja | das Fenster |\n| shpi | shpija | das Haus (Standard: shtëpia) |"
+    },
+    {
+      "title": "Ein Hund – der Hund",
+      "explanation": "Was neu ist, steht unbestimmt mit **nji**; was schon bekannt ist, bestimmt: *Kam nji qen. Qeni âsht i vogël.* – Ich habe einen Hund. Der Hund ist klein. Achtung: Das Genus ist oft anders als im Deutschen, z. B. *shpija* (feminin) – das Haus."
+    },
+    {
+      "title": "Akkusativ: -n dazu",
+      "explanation": "Für das Objekt und nach **për** (für) und **me** (mit) steht der Akkusativ:\n\n| Nominativ | Akkusativ | Beispiel |\n|---|---|---|\n| djali | djalin | *për djalin* – für den Sohn |\n| miku | mikun | *me mikun* – mit dem Freund |\n| motra | motrën | *për motrën* – für die Schwester |\n| dera | derën | *Hap derën!* – Öffne die Tür! |\n| gjyshja | gjyshen | *me gjyshen* – mit der Grossmutter |\n| shpija | shpinë | das Haus (Standard: shtëpinë) |\n\nMaskulin: **-in** bzw. **-un** (nach -u). Feminin: **-n** bzw. **-ën**; bei -ja fällt das j weg: gjyshja → gjyshen."
+    }
+  ],
+  "items": [
+    { "id": "item_mik", "kind": "word", "gheg": "mik", "de": "Freund", "partOfSpeech": "noun", "gender": "m", "definite": "miku", "plural": "miq", "reviewed": false },
+    { "id": "item_shkolle", "kind": "word", "gheg": "shkollë", "de": "Schule", "partOfSpeech": "noun", "gender": "f", "definite": "shkolla", "reviewed": false },
+    { "id": "item_rruge", "kind": "word", "gheg": "rrugë", "de": "Strasse, Weg", "partOfSpeech": "noun", "gender": "f", "definite": "rruga", "reviewed": false },
+    { "id": "item_qytet", "kind": "word", "gheg": "qytet", "de": "Stadt", "partOfSpeech": "noun", "gender": "m", "definite": "qyteti", "reviewed": false },
+    { "id": "item_telefon", "kind": "word", "gheg": "telefon", "de": "Telefon, Handy", "partOfSpeech": "noun", "gender": "m", "definite": "telefoni", "reviewed": false },
+    { "id": "item_cante", "kind": "word", "gheg": "çantë", "de": "Tasche", "partOfSpeech": "noun", "gender": "f", "definite": "çanta", "reviewed": false },
+    { "id": "item_per", "kind": "word", "gheg": "për", "de": "für (mit Akkusativ)", "partOfSpeech": "preposition", "reviewed": false },
+    {
+      "id": "item_hap",
+      "kind": "word",
+      "gheg": "hap",
+      "de": "öffne!; ich öffne",
+      "partOfSpeech": "verb",
+      "note": "Im Kosovo auch „çel“ (çele derën) – zu prüfen, ob als Variante aufnehmen.",
+      "reviewed": false
+    },
+    { "id": "item_mbyll", "kind": "word", "gheg": "mbyll", "de": "schliess!; ich schliesse", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_njoh", "kind": "word", "gheg": "njoh", "de": "ich kenne (jemanden)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_i_gjate", "kind": "phrase", "gheg": "i gjatë, e gjatë", "de": "lang; gross (Person)", "partOfSpeech": "adjective", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u07_definite_article_001",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_djale"],
+      "prompt": { "lang": "de", "text": "Welche Form heisst „der Sohn“?" },
+      "choices": ["djalë", "djali", "djalin", "djem"],
+      "solutions": ["djali"],
+      "explanation": "„Djalë“ heisst „ein Sohn“. Mit angehängtem Artikel wird daraus „djali“ – der Sohn.",
+      "errorHints": [
+        { "pattern": "^djal[eë]$", "category": "grammar.definite_article", "hint": "„Djalë“ ist unbestimmt: „ein Sohn“. Mit Artikel: „djali“." },
+        { "pattern": "^djalin$", "category": "grammar.case", "hint": "„Djalin“ ist der Akkusativ: „den Sohn“." },
+        { "pattern": "^djem$", "category": "vocab.confused", "hint": "„Djem“ ist die Mehrzahl: „Söhne“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_002",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_shkolle"],
+      "prompt": { "lang": "de", "text": "Welche Form heisst „die Schule“?" },
+      "choices": ["shkolla", "shkollë", "shkollën", "shkolli"],
+      "solutions": ["shkolla"],
+      "explanation": "Feminine Nomen auf -ë bekommen bestimmt -a: shkollë → shkolla.",
+      "errorHints": [
+        { "pattern": "^shkoll[eë]$", "category": "grammar.definite_article", "hint": "„Shkollë“ ist unbestimmt. Mit Artikel: „shkolla“." },
+        { "pattern": "^shkoll[eë]n$", "category": "grammar.case", "hint": "„Shkollën“ ist der Akkusativ." },
+        { "pattern": "^shkolli$", "category": "grammar.gender", "hint": "„Shkollë“ ist feminin – darum -a: „shkolla“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_003",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_mik"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „miku“?" },
+      "choices": ["ein Freund", "den Freund", "die Freundin", "der Freund"],
+      "solutions": ["der Freund"],
+      "explanation": "„Mik“ heisst „ein Freund“. Nach k endet der Artikel auf -u: „miku“ – der Freund.",
+      "errorHints": [
+        { "pattern": "^ein freund$", "category": "grammar.definite_article", "hint": "„Mik“ ist „ein Freund“. „Miku“ mit -u ist „der Freund“." },
+        { "pattern": "^den freund$", "category": "grammar.case", "hint": "„Den Freund“ (Akkusativ) wäre „mikun“." },
+        { "pattern": "freundin", "category": "vocab.confused", "hint": "„Die Freundin“ heisst „shoqja“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_004",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_cante"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „çanta“?" },
+      "choices": ["eine Tasche", "die Strasse", "die Tasche", "das Buch"],
+      "solutions": ["die Tasche"],
+      "explanation": "„Çantë“ ist „eine Tasche“, „çanta“ ist „die Tasche“.",
+      "errorHints": [
+        { "pattern": "^eine tasche$", "category": "grammar.definite_article", "hint": "„Çanta“ ist bestimmt: „die Tasche“. „Eine Tasche“ wäre „nji çantë“." },
+        { "pattern": "strasse", "category": "vocab.confused", "hint": "„Die Strasse“ heisst „rruga“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_005",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_mik"],
+      "prompt": { "lang": "de", "text": "Wie heisst „der Freund“?" },
+      "choices": ["miki", "miku", "mika", "mikun"],
+      "solutions": ["miku"],
+      "explanation": "Nach k, g und h endet der Artikel auf -u: miku, shoku, peshku.",
+      "errorHints": [
+        { "pattern": "^miki$", "category": "grammar.definite_article", "hint": "Nach k, g und h endet der Artikel auf -u: „miku“." },
+        { "pattern": "^mika$", "category": "grammar.gender", "hint": "„Mik“ ist maskulin – darum „miku“." },
+        { "pattern": "^mikun$", "category": "grammar.case", "hint": "„Mikun“ ist der Akkusativ: „den Freund“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_006",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_gjyshe"],
+      "prompt": { "lang": "de", "text": "Wie heisst „die Grossmutter“?" },
+      "choices": ["gjyshja", "gjyshe", "gjyshen", "gjyshi"],
+      "solutions": ["gjyshja"],
+      "explanation": "Feminine Nomen auf -e bekommen bestimmt -ja: gjyshe → gjyshja.",
+      "errorHints": [
+        { "pattern": "^gjyshe$", "category": "grammar.definite_article", "hint": "„Gjyshe“ ist unbestimmt. Mit Artikel: „gjyshja“." },
+        { "pattern": "^gjyshen$", "category": "grammar.case", "hint": "„Gjyshen“ ist der Akkusativ." },
+        { "pattern": "^gjyshi$", "category": "vocab.confused", "hint": "„Gjyshi“ ist der Grossvater." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_007",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_qen", "item_nji", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Was heisst „Kam nji qen. Qeni âsht i vogël.“?" },
+      "choices": [
+        "Ich habe den Hund. Ein Hund ist klein.",
+        "Ich habe einen Hund. Der Hund ist gross.",
+        "Ich habe eine Katze. Die Katze ist klein.",
+        "Ich habe einen Hund. Der Hund ist klein."
+      ],
+      "solutions": ["Ich habe einen Hund. Der Hund ist klein."],
+      "explanation": "Beim ersten Mal: „nji qen“ (ein Hund). Danach ist er bekannt: „qeni“ (der Hund).",
+      "errorHints": [
+        { "pattern": "katze", "category": "vocab.confused", "hint": "„Qen“ ist der Hund, die Katze heisst „mace“." },
+        { "pattern": "gross", "category": "vocab.confused", "hint": "„I vogël“ heisst „klein“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_008",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_per", "item_nane"],
+      "prompt": { "lang": "de", "text": "Welcher Satz heisst „Das ist für die Mutter.“?" },
+      "choices": ["Kjo âsht për nâna.", "Kjo âsht për nânë.", "Kjo âsht për nânën.", "Kjo âsht nânën për."],
+      "solutions": ["Kjo âsht për nânën."],
+      "explanation": "Nach „për“ (für) steht der Akkusativ: nâna → nânën.",
+      "errorHints": [
+        { "pattern": "p[eë]r n[aâ]na$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „për nânën“." },
+        { "pattern": "p[eë]r n[aâ]n[eë]$", "category": "grammar.definite_article", "hint": "„Die Mutter“ braucht den Artikel – im Akkusativ „nânën“." },
+        { "pattern": "n[aâ]n[eë]n p[eë]r", "category": "grammar.word_order", "hint": "„Për“ steht vor dem Nomen: „për nânën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_009",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_moter"],
+      "prompt": { "lang": "de", "text": "Welche Form ist der Akkusativ von „motra“ (die Schwester)?" },
+      "choices": ["motra", "motrën", "motër", "motrin"],
+      "solutions": ["motrën"],
+      "explanation": "Feminine Nomen bekommen im Akkusativ -n bzw. -ën: motra → motrën.",
+      "errorHints": [
+        { "pattern": "^motrin$", "category": "grammar.gender", "hint": "„Motra“ ist feminin: Akkusativ „motrën“. -in ist maskulin." },
+        { "pattern": "^motra$", "category": "grammar.case", "hint": "„Motra“ ist der Nominativ. Akkusativ: „motrën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_010",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_hap", "item_dere", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Welcher Satz heisst „Öffne bitte die Tür.“?" },
+      "choices": ["Hap derën, të lutem.", "Hap dera, të lutem.", "Hap derë, të lutem.", "Dera hap, të lutem."],
+      "solutions": ["Hap derën, të lutem."],
+      "explanation": "Die Tür ist hier das Objekt – darum Akkusativ: dera → derën.",
+      "errorHints": [
+        { "pattern": "^hap dera", "category": "grammar.case", "hint": "Die Tür ist das Objekt – Akkusativ: „derën“." },
+        { "pattern": "^hap der[eë](\\s|$)", "category": "grammar.definite_article", "hint": "„Die Tür“ braucht den Artikel: „derën“." },
+        { "pattern": "^dera hap", "category": "grammar.word_order", "hint": "Das Verb steht am Anfang: „Hap derën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_011",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.masc", "grammar.case.accusative"],
+      "itemIds": ["item_shok", "item_me_prep"],
+      "prompt": { "lang": "de", "text": "Welche Form passt? „Jam me …“ (Ich bin mit dem Freund.)" },
+      "choices": ["shoku", "shok", "shokën", "shokun"],
+      "solutions": ["shokun"],
+      "explanation": "Nach „me“ (mit) steht der Akkusativ: shoku → shokun.",
+      "errorHints": [
+        { "pattern": "^shoku$", "category": "grammar.case", "hint": "Nach „me“ steht der Akkusativ: „me shokun“." },
+        { "pattern": "^shok[eë]n$", "category": "grammar.gender", "hint": "„Shok“ ist maskulin: Akkusativ „shokun“." },
+        { "pattern": "^shok$", "category": "grammar.definite_article", "hint": "„Dem Freund“ braucht den Artikel: „shokun“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_012",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_shpi"],
+      "prompt": { "lang": "de", "text": "Welche Form ist der Akkusativ von „shpija“ (das Haus)?" },
+      "choices": ["shpija", "shpijën", "shpinë", "shpi"],
+      "solutions": ["shpinë"],
+      "explanation": "Im Gheg: shpi – shpija – shpinë (Standard: shtëpi – shtëpia – shtëpinë).",
+      "errorHints": [
+        { "pattern": "^shpij[eë]n$", "category": "grammar.case", "hint": "Der Akkusativ von „shpija“ ist „shpinë“." },
+        { "pattern": "^shpija$", "category": "grammar.case", "hint": "„Shpija“ ist der Nominativ. Akkusativ: „shpinë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Akkusativ „shpinë“ laut Sprachrichtlinie 8.1 zu prüfen."
+    },
+    {
+      "id": "ex_a1_u07_definite_article_013",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_qen", "item_asht", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Der Hund ist klein." },
+      "answerLang": "sq",
+      "solutions": ["Qeni âsht i vogël."],
+      "wordBank": ["Qeni", "âsht", "i", "vogël", "qen", "e", "madh"],
+      "explanation": "„Der Hund“: qen → qeni. Qeni ist maskulin, darum „i vogël“.",
+      "errorHints": [
+        { "pattern": "^qen [aâ]sht", "category": "grammar.definite_article", "hint": "„Der Hund“ braucht den Artikel: qen → qeni." },
+        { "pattern": "(^|\\s)e vog", "category": "grammar.linking_article", "hint": "„Qeni“ ist maskulin – darum „i vogël“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_014",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_rruge", "item_asht", "item_i_gjate"],
+      "prompt": { "lang": "de", "text": "Die Strasse ist lang." },
+      "answerLang": "sq",
+      "solutions": ["Rruga âsht e gjatë."],
+      "wordBank": ["Rruga", "âsht", "e", "gjatë", "rrugë", "i", "vogël"],
+      "explanation": "„Die Strasse“: rrugë → rruga. Rruga ist feminin, darum „e gjatë“.",
+      "errorHints": [
+        { "pattern": "^rrug[eë] ", "category": "grammar.definite_article", "hint": "„Die Strasse“ braucht den Artikel: rrugë → rruga." },
+        { "pattern": "(^|\\s)i gjat", "category": "grammar.linking_article", "hint": "„Rruga“ ist feminin – darum „e gjatë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_015",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.verbs.kam"],
+      "itemIds": ["item_kam", "item_nji", "item_mace", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Ich habe eine Katze. Die Katze heisst Mimi." },
+      "answerLang": "sq",
+      "solutions": ["Kam nji mace. Macja quhet Mimi."],
+      "wordBank": ["Kam", "nji", "mace", "Macja", "quhet", "Mimi", "macen", "qeni", "ka"],
+      "explanation": "Beim ersten Mal „nji mace“ (eine Katze), danach ist sie bekannt: „macja“ (die Katze).",
+      "errorHints": [
+        { "pattern": "mace quhet", "category": "grammar.definite_article", "hint": "Beim zweiten Mal ist die Katze bekannt: „macja“." },
+        { "pattern": "nji macja", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji mace“." },
+        { "pattern": "macen quhet", "category": "grammar.case", "hint": "Die Katze ist hier Subjekt – Nominativ: „macja“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_016",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.masc", "grammar.case.accusative"],
+      "itemIds": ["item_liber", "item_per", "item_djale"],
+      "prompt": { "lang": "de", "text": "Das Buch ist für den Sohn." },
+      "answerLang": "sq",
+      "solutions": ["Libri âsht për djalin."],
+      "wordBank": ["Libri", "âsht", "për", "djalin", "djali", "djalë", "im"],
+      "explanation": "Nach „për“ (für) steht der Akkusativ: djali → djalin.",
+      "errorHints": [
+        { "pattern": "p[eë]r djali$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „për djalin“." },
+        { "pattern": "p[eë]r djal[eë]$", "category": "grammar.definite_article", "hint": "„Den Sohn“ braucht den Artikel: „djalin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_017",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_hap", "item_dritare", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Öffne bitte das Fenster." },
+      "answerLang": "sq",
+      "solutions": ["Hap dritaren, të lutem.", "Të lutem, hap dritaren."],
+      "wordBank": ["Hap", "dritaren", "të", "lutem", "dritarja", "mbyll", "derën"],
+      "explanation": "Das Fenster ist das Objekt – Akkusativ: dritarja → dritaren (das j fällt weg).",
+      "errorHints": [
+        { "pattern": "hap dritarja", "category": "grammar.case", "hint": "Das Fenster ist das Objekt – Akkusativ: „dritaren“." },
+        { "pattern": "(^|\\s)mbyll", "category": "vocab.confused", "hint": "„Mbyll“ heisst „schliessen“. „Öffnen“ heisst „hap“." },
+        { "pattern": "der[eë]n", "category": "vocab.confused", "hint": "„Derën“ ist die Tür. Das Fenster heisst „dritaren“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_018",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_me_prep", "item_shoqe", "item_qytet"],
+      "prompt": { "lang": "de", "text": "Ich bin mit der Freundin in der Stadt." },
+      "answerLang": "sq",
+      "solutions": ["Jam me shoqen në qytet.", "Jam në qytet me shoqen."],
+      "wordBank": ["Jam", "me", "shoqen", "në", "qytet", "shoqja", "shokun", "qyteti"],
+      "explanation": "Nach „me“ (mit) steht der Akkusativ: shoqja → shoqen.",
+      "errorHints": [
+        { "pattern": "me shoqja", "category": "grammar.case", "hint": "Nach „me“ steht der Akkusativ: „me shoqen“." },
+        { "pattern": "shokun", "category": "grammar.gender", "hint": "„Shokun“ ist der Freund. Die Freundin: „shoqen“." },
+        { "pattern": "n[eë] qyteti", "category": "grammar.case", "hint": "Nach „në“ steht hier „qytet“ ohne Artikel." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_019",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_shkolle", "item_asht", "item_afer"],
+      "prompt": { "lang": "sq", "text": "Shkolla âsht afër." },
+      "answerLang": "de",
+      "solutions": ["Die Schule ist in der Nähe.", "Die Schule ist nah.", "Die Schule ist nahe."],
+      "wordBank": ["Die", "Schule", "ist", "in", "der", "Nähe", "Eine", "Stadt", "weit"],
+      "explanation": "„Shkolla“ ist bestimmt: „die Schule“.",
+      "errorHints": [
+        { "pattern": "^eine ", "category": "grammar.definite_article", "hint": "„Shkolla“ ist bestimmt: „die Schule“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_020",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_telefon", "item_asht", "item_cante"],
+      "prompt": { "lang": "sq", "text": "Telefoni âsht në çantë." },
+      "answerLang": "de",
+      "solutions": ["Das Telefon ist in der Tasche.", "Das Handy ist in der Tasche."],
+      "wordBank": ["Das", "Telefon", "ist", "in", "der", "Tasche", "Ein", "auf", "Buch"],
+      "explanation": "„Telefoni“ ist bestimmt: „das Telefon“. „Në çantë“ – in der Tasche.",
+      "errorHints": [
+        { "pattern": "^ein ", "category": "grammar.definite_article", "hint": "„Telefoni“ ist bestimmt: „das Telefon“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_021",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_kjo", "item_kafe", "item_per", "item_gjyshe"],
+      "prompt": { "lang": "sq", "text": "Kjo kafe âsht për gjyshen." },
+      "answerLang": "de",
+      "solutions": [
+        "Dieser Kaffee ist für die Grossmutter.",
+        "Der Kaffee ist für die Grossmutter.",
+        "Dieser Kaffee ist für die Oma.",
+        "Der Kaffee ist für die Oma."
+      ],
+      "wordBank": ["Dieser", "Kaffee", "ist", "für", "die", "Grossmutter", "den", "Grossvater", "Tee"],
+      "explanation": "„Gjyshen“ ist der Akkusativ von „gjyshja“ – nach „për“ (für) steht immer der Akkusativ.",
+      "errorHints": [
+        { "pattern": "grossvater", "category": "vocab.confused", "hint": "„Gjyshen“ ist die Grossmutter. Der Grossvater wäre „gjyshin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_022",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_ha", "item_molle"],
+      "prompt": { "lang": "sq", "text": "Unë po ha mollën." },
+      "answerLang": "de",
+      "solutions": ["Ich esse gerade den Apfel.", "Ich esse den Apfel."],
+      "wordBank": ["Ich", "esse", "gerade", "den", "Apfel", "einen", "trinke", "Äpfel"],
+      "explanation": "„Mollën“ ist bestimmt und Akkusativ: „den Apfel“. „Einen Apfel“ wäre „nji mollë“.",
+      "errorHints": [
+        { "pattern": "einen apfel", "category": "grammar.definite_article", "hint": "„Mollën“ ist bestimmt: „den Apfel“." },
+        { "pattern": "trinke", "category": "vocab.confused", "hint": "„Ha“ heisst „essen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_023",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.masc", "grammar.possessive"],
+      "itemIds": ["item_mik", "item_im", "item_jetoj"],
+      "prompt": { "lang": "sq", "text": "Miku im jeton në Zvicër." },
+      "answerLang": "de",
+      "solutions": ["Mein Freund lebt in der Schweiz.", "Mein Freund wohnt in der Schweiz."],
+      "wordBank": ["Mein", "Freund", "lebt", "in", "der", "Schweiz", "Meine", "Freundin", "ist"],
+      "explanation": "„Miku im“ heisst „mein Freund“: das Nomen mit Artikel, danach „im“.",
+      "errorHints": [
+        { "pattern": "freundin", "category": "grammar.gender", "hint": "„Miku im“ ist maskulin: „mein Freund“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_024",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.masc", "grammar.possessive"],
+      "itemIds": ["item_kam", "item_nji", "item_shok", "item_im", "item_quhet"],
+      "prompt": { "lang": "sq", "text": "Kam nji shok. Shoku im quhet Driton." },
+      "answerLang": "de",
+      "solutions": ["Ich habe einen Freund. Mein Freund heisst Driton."],
+      "wordBank": ["Ich", "habe", "einen", "Freund", "Mein", "Freund", "heisst", "Driton", "den", "Freundin", "ist"],
+      "explanation": "Zuerst unbestimmt „nji shok“ (einen Freund), dann bestimmt „shoku im“ (mein Freund).",
+      "errorHints": [
+        { "pattern": "freundin", "category": "grammar.gender", "hint": "„Shok“ ist maskulin: „ein Freund“. Die Freundin heisst „shoqe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_025",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_shkolle", "item_asht", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Die Schule ist gross." },
+      "answerLang": "sq",
+      "solutions": ["Shkolla âsht e madhe."],
+      "standardForms": ["Shkolla është e madhe."],
+      "explanation": "shkollë → shkolla. Sie ist feminin, darum „e madhe“.",
+      "errorHints": [
+        { "pattern": "^shkoll[eë] ", "category": "grammar.definite_article", "hint": "„Die Schule“ braucht den Artikel: shkollë → shkolla." },
+        { "pattern": "(^|\\s)i madh(\\s|$)", "category": "grammar.linking_article", "hint": "„Shkolla“ ist feminin – darum „e madhe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_026",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_mik", "item_shok", "item_asht", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Der Freund ist hier." },
+      "answerLang": "sq",
+      "solutions": ["Miku âsht këtu.", "Shoku âsht këtu.", "Këtu âsht miku.", "Këtu âsht shoku."],
+      "standardForms": ["Miku është këtu.", "Shoku është këtu."],
+      "explanation": "Nach k endet der Artikel auf -u: mik → miku, shok → shoku.",
+      "errorHints": [
+        { "pattern": "^(miki|shoki) ", "category": "grammar.definite_article", "hint": "Nach k endet der Artikel auf -u: „miku“, „shoku“." },
+        { "pattern": "^(mik|shok) ", "category": "grammar.definite_article", "hint": "„Der Freund“ braucht den Artikel: mik → miku." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_027",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_per", "item_moter"],
+      "prompt": { "lang": "de", "text": "Das ist für die Schwester." },
+      "answerLang": "sq",
+      "solutions": ["Kjo âsht për motrën.", "Ky âsht për motrën."],
+      "standardForms": ["Kjo është për motrën.", "Ky është për motrën."],
+      "explanation": "Nach „për“ (für) steht der Akkusativ: motra → motrën.",
+      "errorHints": [
+        { "pattern": "p[eë]r motra$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „për motrën“." },
+        { "pattern": "p[eë]r mot[eë]r$", "category": "grammar.definite_article", "hint": "„Die Schwester“ braucht den Artikel: „motrën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_028",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.masc", "grammar.verbs.kam"],
+      "itemIds": ["item_kam", "item_nji", "item_qen", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Ich habe einen Hund. Der Hund ist gross." },
+      "answerLang": "sq",
+      "solutions": ["Kam nji qen. Qeni âsht i madh.", "Unë kam nji qen. Qeni âsht i madh."],
+      "standardForms": ["Kam një qen. Qeni është i madh.", "Unë kam një qen. Qeni është i madh."],
+      "explanation": "Beim ersten Mal „nji qen“, danach „qeni“ – der Hund ist jetzt bekannt.",
+      "errorHints": [
+        { "pattern": "qen [aâe]sht", "category": "grammar.definite_article", "hint": "Beim zweiten Mal ist der Hund bekannt: „qeni“." },
+        { "pattern": "nji qeni", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji qen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_029",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_hap", "item_dere", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Öffne bitte die Tür." },
+      "answerLang": "sq",
+      "solutions": ["Hap derën, të lutem.", "Të lutem, hap derën.", "Hap derën, ju lutem.", "Ju lutem, hap derën.", "Hape derën, të lutem."],
+      "explanation": "Die Tür ist das Objekt – Akkusativ: dera → derën.",
+      "errorHints": [
+        { "pattern": "hap dera", "category": "grammar.case", "hint": "Die Tür ist das Objekt – Akkusativ: „derën“." },
+        { "pattern": "hap der[eë](\\s|$)", "category": "grammar.definite_article", "hint": "„Die Tür“ braucht den Artikel im Akkusativ: „derën“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Hape derën“ (mit angehängtem -e) als natürliche Variante akzeptiert; Kosovo auch „Çele derën“ – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u07_definite_article_030",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_me_prep", "item_gjyshe", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Ich bin mit der Grossmutter zu Hause." },
+      "answerLang": "sq",
+      "solutions": ["Jam me gjyshen në shpi.", "Jam në shpi me gjyshen.", "Unë jam me gjyshen në shpi.", "Unë jam në shpi me gjyshen."],
+      "standardForms": ["Jam me gjyshen në shtëpi.", "Jam në shtëpi me gjyshen."],
+      "explanation": "Nach „me“ (mit) steht der Akkusativ: gjyshja → gjyshen (das j fällt weg).",
+      "errorHints": [
+        { "pattern": "me gjyshja", "category": "grammar.case", "hint": "Nach „me“ steht der Akkusativ: „me gjyshen“." },
+        { "pattern": "me gjyshe(\\s|$)", "category": "grammar.definite_article", "hint": "„Mit der Grossmutter“: „me gjyshen“." },
+        { "pattern": "me gjyshjen", "category": "grammar.definite_article", "hint": "Im Akkusativ fällt das j weg: „gjyshen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_031",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.masc", "grammar.case.accusative"],
+      "itemIds": ["item_telefon", "item_per", "item_mik", "item_shok"],
+      "prompt": { "lang": "de", "text": "Das Handy ist für den Freund." },
+      "answerLang": "sq",
+      "solutions": ["Telefoni âsht për mikun.", "Telefoni âsht për shokun."],
+      "standardForms": ["Telefoni është për mikun.", "Telefoni është për shokun."],
+      "explanation": "Nach „për“ steht der Akkusativ. Nach -u kommt -n dazu: miku → mikun.",
+      "errorHints": [
+        { "pattern": "p[eë]r (miku|shoku)$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „për mikun“." },
+        { "pattern": "p[eë]r (mikin|shokin)$", "category": "grammar.definite_article", "hint": "Nach k: Akkusativ auf -un: „mikun“, „shokun“." },
+        { "pattern": "^telefon [aâe]", "category": "grammar.definite_article", "hint": "„Das Handy“: telefon → telefoni." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_032",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_mbyll", "item_dritare", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Schliess bitte das Fenster." },
+      "answerLang": "sq",
+      "solutions": [
+        "Mbyll dritaren, të lutem.",
+        "Të lutem, mbyll dritaren.",
+        "Mbyll dritaren, ju lutem.",
+        "Ju lutem, mbyll dritaren.",
+        "Mbylle dritaren, të lutem."
+      ],
+      "explanation": "dritarja → dritaren: Im Akkusativ fällt das j weg.",
+      "errorHints": [
+        { "pattern": "mbyll dritarja", "category": "grammar.case", "hint": "Das Fenster ist das Objekt – Akkusativ: „dritaren“." },
+        { "pattern": "mbyll dritare(\\s|$)", "category": "grammar.definite_article", "hint": "„Das Fenster“ braucht den Artikel: „dritaren“." },
+        { "pattern": "dritarjen", "category": "grammar.definite_article", "hint": "Im Akkusativ fällt das j weg: „dritaren“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_033",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative", "grammar.clitics"],
+      "itemIds": ["item_njoh"],
+      "prompt": { "lang": "de", "text": "Ich kenne Arta." },
+      "answerLang": "sq",
+      "solutions": ["E njoh Artën.", "Unë e njoh Artën."],
+      "explanation": "Auch Namen stehen als Objekt im Akkusativ: Arta → Artën. Das kleine „e“ vor dem Verb wiederholt das Objekt – das ist im Albanischen üblich.",
+      "errorHints": [
+        { "pattern": "art[aë]$", "category": "grammar.case", "hint": "Arta ist hier das Objekt – Akkusativ: „Artën“." },
+        { "pattern": "^(un[eë] )?njoh", "category": "grammar.clitics", "hint": "Vor dem Verb steht hier ein kleines „e“: „E njoh Artën.“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Klitikon-Verdopplung („e njoh“) wird erst in A2 erklärt; hier als feste Wendung eingeführt."
+    },
+    {
+      "id": "ex_a1_u07_definite_article_034",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_djale", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Der Sohn ist klein." },
+      "answerLang": "sq",
+      "text": "___ âsht i vogël.",
+      "solutions": ["Djali"],
+      "choices": ["Djali", "Djalë", "Djalin", "Djem"],
+      "explanation": "djalë → djali: Das -ë fällt weg, der Artikel -i kommt dazu.",
+      "errorHints": [
+        { "pattern": "^djal[eë]$", "category": "grammar.definite_article", "hint": "„Der Sohn“ braucht den Artikel: djalë → djali." },
+        { "pattern": "^djalin$", "category": "grammar.case", "hint": "„Djalin“ ist der Akkusativ. Hier ist der Sohn Subjekt: „djali“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_035",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_cante", "item_mbi", "item_karrige"],
+      "prompt": { "lang": "de", "text": "Die Tasche ist auf dem Stuhl." },
+      "answerLang": "sq",
+      "text": "___ âsht mbi karrige.",
+      "solutions": ["Çanta"],
+      "choices": ["Çantë", "Çantën", "Çanti", "Çanta"],
+      "explanation": "çantë → çanta: Feminine Nomen bekommen -a.",
+      "errorHints": [
+        { "pattern": "^[cç]ant[eë]$", "category": "grammar.definite_article", "hint": "„Die Tasche“ braucht den Artikel: çantë → çanta." },
+        { "pattern": "^[cç]anti$", "category": "grammar.gender", "hint": "„Çantë“ ist feminin – darum „çanta“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_036",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_shok", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Der Freund heisst Blerim." },
+      "answerLang": "sq",
+      "text": "___ quhet Blerim.",
+      "solutions": ["Shoku"],
+      "choices": ["Shoki", "Shok", "Shoku", "Shokun"],
+      "explanation": "Nach k endet der Artikel auf -u: shok → shoku.",
+      "errorHints": [
+        { "pattern": "^shoki$", "category": "grammar.definite_article", "hint": "Nach k endet der Artikel auf -u: „shoku“." },
+        { "pattern": "^shok$", "category": "grammar.definite_article", "hint": "„Der Freund“ braucht den Artikel: „shoku“." },
+        { "pattern": "^shokun$", "category": "grammar.case", "hint": "„Shokun“ ist der Akkusativ. Hier: „shoku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_037",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_per", "item_nane"],
+      "prompt": { "lang": "de", "text": "Das ist für die Mutter." },
+      "answerLang": "sq",
+      "text": "Kjo âsht për ___.",
+      "solutions": ["nânën"],
+      "choices": ["nâna", "nânën", "nânë", "nânin"],
+      "explanation": "Nach „për“ steht der Akkusativ: nâna → nânën.",
+      "errorHints": [
+        { "pattern": "^n[aâ]na$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „nânën“." },
+        { "pattern": "^n[aâ]nin$", "category": "grammar.gender", "hint": "„Nâna“ ist feminin: Akkusativ „nânën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_038",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.masc", "grammar.case.accusative"],
+      "itemIds": ["item_me_prep", "item_mik"],
+      "prompt": { "lang": "de", "text": "Ich bin mit dem Freund." },
+      "answerLang": "sq",
+      "text": "Jam me ___.",
+      "solutions": ["mikun"],
+      "choices": ["mikun", "miku", "mikin", "mik"],
+      "explanation": "Nach „me“ (mit) steht der Akkusativ: miku → mikun.",
+      "errorHints": [
+        { "pattern": "^miku$", "category": "grammar.case", "hint": "Nach „me“ steht der Akkusativ: „mikun“." },
+        { "pattern": "^mikin$", "category": "grammar.definite_article", "hint": "Nach k: „mikun“, nicht „mikin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_039",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_hap", "item_dritare"],
+      "prompt": { "lang": "de", "text": "Öffne bitte das Fenster." },
+      "answerLang": "sq",
+      "text": "Hap ___, të lutem.",
+      "solutions": ["dritaren"],
+      "choices": ["dritarja", "dritare", "dritarjen", "dritaren"],
+      "explanation": "Im Akkusativ fällt das j weg: dritarja → dritaren.",
+      "errorHints": [
+        { "pattern": "^dritarjen$", "category": "grammar.definite_article", "hint": "Im Akkusativ fällt das j weg: „dritaren“." },
+        { "pattern": "^dritarja$", "category": "grammar.case", "hint": "Das Fenster ist das Objekt – Akkusativ: „dritaren“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_040",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_ha", "item_buke"],
+      "prompt": { "lang": "de", "text": "Ich esse das Brot." },
+      "answerLang": "sq",
+      "text": "Unë ha ___.",
+      "solutions": ["bukën"],
+      "choices": ["buka", "bukë", "bukën", "bukin"],
+      "explanation": "„Das Brot“ als Objekt: buka → bukën.",
+      "errorHints": [
+        { "pattern": "^buk[eë]$", "category": "grammar.definite_article", "hint": "„Das Brot“ ist bestimmt: „bukën“. „Bukë“ hiesse einfach „Brot“." },
+        { "pattern": "^buka$", "category": "grammar.case", "hint": "Das Brot ist das Objekt – Akkusativ: „bukën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_041",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_qytet", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Die Stadt ist gross." },
+      "answerLang": "sq",
+      "text": "___ âsht i madh.",
+      "solutions": ["Qyteti"],
+      "explanation": "„Qytet“ ist maskulin: qytet → qyteti – darum auch „i madh“.",
+      "errorHints": [
+        { "pattern": "^qytet$", "category": "grammar.definite_article", "hint": "„Die Stadt“ braucht den Artikel: qytet → qyteti." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_042",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_familje", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Die Familie ist hier." },
+      "answerLang": "sq",
+      "text": "___ âsht këtu.",
+      "solutions": ["Familja"],
+      "explanation": "Nomen auf -e bekommen -ja: familje → familja.",
+      "errorHints": [
+        { "pattern": "^familje$", "category": "grammar.definite_article", "hint": "„Die Familie“ braucht den Artikel: familje → familja." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_043",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.masc", "grammar.case.accusative"],
+      "itemIds": ["item_liber", "item_per", "item_djale"],
+      "prompt": { "lang": "de", "text": "Das Buch ist für den Sohn." },
+      "answerLang": "sq",
+      "text": "Libri âsht për ___.",
+      "solutions": ["djalin"],
+      "explanation": "Nach „për“ steht der Akkusativ: djali → djalin.",
+      "errorHints": [
+        { "pattern": "^djali$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „djalin“." },
+        { "pattern": "^djal[eë]$", "category": "grammar.definite_article", "hint": "„Den Sohn“ braucht den Artikel: „djalin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_044",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_mbyll", "item_dere"],
+      "prompt": { "lang": "de", "text": "Schliess die Tür!" },
+      "answerLang": "sq",
+      "text": "Mbyll ___!",
+      "solutions": ["derën"],
+      "explanation": "Die Tür ist das Objekt: dera → derën.",
+      "errorHints": [
+        { "pattern": "^dera$", "category": "grammar.case", "hint": "Die Tür ist das Objekt – Akkusativ: „derën“." },
+        { "pattern": "^der[eë]$", "category": "grammar.definite_article", "hint": "„Die Tür“ braucht den Artikel: „derën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_045",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_me_prep", "item_moter", "item_shkolle"],
+      "prompt": { "lang": "de", "text": "Ich bin mit der Schwester in der Schule." },
+      "answerLang": "sq",
+      "text": "Jam me ___ në shkollë.",
+      "solutions": ["motrën"],
+      "explanation": "Nach „me“ steht der Akkusativ: motra → motrën.",
+      "errorHints": [
+        { "pattern": "^motra$", "category": "grammar.case", "hint": "Nach „me“ steht der Akkusativ: „motrën“." },
+        { "pattern": "^mot[eë]r$", "category": "grammar.definite_article", "hint": "„Der Schwester“ braucht den Artikel: „motrën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_046",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_djale", "item_qen", "item_liber", "item_mik", "item_qytet"],
+      "prompt": { "lang": "de", "text": "Ordne die bestimmten Formen zu." },
+      "pairs": [
+        { "left": "djali", "right": "der Sohn" },
+        { "left": "qeni", "right": "der Hund" },
+        { "left": "libri", "right": "das Buch" },
+        { "left": "miku", "right": "der Freund" },
+        { "left": "qyteti", "right": "die Stadt" }
+      ],
+      "explanation": "Maskulin: meist -i, nach k aber -u (miku). Achtung: „qyteti“ ist maskulin, „die Stadt“ im Deutschen feminin.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_047",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_moter", "item_shkolle", "item_cante", "item_rruge", "item_shoqe"],
+      "prompt": { "lang": "de", "text": "Ordne die bestimmten Formen zu." },
+      "pairs": [
+        { "left": "motra", "right": "die Schwester" },
+        { "left": "shkolla", "right": "die Schule" },
+        { "left": "çanta", "right": "die Tasche" },
+        { "left": "rruga", "right": "die Strasse" },
+        { "left": "shoqja", "right": "die Freundin" }
+      ],
+      "explanation": "Feminin: -a, bei Nomen auf -e: -ja (shoqe → shoqja).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_048",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc", "grammar.definite_article.fem"],
+      "itemIds": ["item_qen", "item_mace", "item_nji"],
+      "prompt": { "lang": "de", "text": "Ordne zu: unbestimmt oder bestimmt?" },
+      "pairs": [
+        { "left": "nji qen", "right": "ein Hund" },
+        { "left": "qeni", "right": "der Hund" },
+        { "left": "nji mace", "right": "eine Katze" },
+        { "left": "macja", "right": "die Katze" },
+        { "left": "qenin", "right": "den Hund" }
+      ],
+      "explanation": "Mit „nji“ steht das Nomen unbestimmt, sonst hängt der Artikel hinten an. „Qenin“ ist der Akkusativ.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_049",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.accusative"],
+      "itemIds": ["item_per", "item_me_prep", "item_djale", "item_moter", "item_mik", "item_nane", "item_gjyshe"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "për djalin", "right": "für den Sohn" },
+        { "left": "për motrën", "right": "für die Schwester" },
+        { "left": "me mikun", "right": "mit dem Freund" },
+        { "left": "me nânën", "right": "mit der Mutter" },
+        { "left": "për gjyshen", "right": "für die Grossmutter" }
+      ],
+      "explanation": "Nach „për“ und „me“ steht immer der Akkusativ: -in/-un bei maskulinen, -n/-ën bei femininen Nomen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_050",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_mik", "item_peshk", "item_leng", "item_vlla", "item_baba"],
+      "prompt": { "lang": "de", "text": "Ordne die bestimmten Formen zu." },
+      "pairs": [
+        { "left": "miku", "right": "der Freund" },
+        { "left": "peshku", "right": "der Fisch" },
+        { "left": "lëngu", "right": "der Saft" },
+        { "left": "vllau", "right": "der Bruder" },
+        { "left": "babai", "right": "der Vater" }
+      ],
+      "explanation": "Nach k, g und h endet der Artikel auf -u: miku, peshku, lëngu. „Vllau“ ist die Kosovo-Form (Standard: „vëllai“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllau“ (Standard: vëllai) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u07_definite_article_051",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_gjyshe", "item_familje", "item_dritare", "item_mace", "item_shpi"],
+      "prompt": { "lang": "de", "text": "Ordne die bestimmten Formen zu." },
+      "pairs": [
+        { "left": "gjyshja", "right": "die Grossmutter" },
+        { "left": "familja", "right": "die Familie" },
+        { "left": "dritarja", "right": "das Fenster" },
+        { "left": "macja", "right": "die Katze" },
+        { "left": "shpija", "right": "das Haus" }
+      ],
+      "explanation": "Nomen auf -e bekommen -ja. Auch „shpi“ wird zu „shpija“ (Standard: „shtëpia“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_052",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc"],
+      "itemIds": ["item_qen", "item_asht", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Der Hund ist hier." },
+      "answerLang": "sq",
+      "tokens": ["Qeni", "âsht", "këtu"],
+      "solutions": ["Qeni âsht këtu.", "Këtu âsht qeni."],
+      "explanation": "„Qeni“ – der Hund. „Këtu“ (hier) kann am Anfang oder am Ende stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_053",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_cante", "item_asht", "item_mbi", "item_tavoline"],
+      "prompt": { "lang": "de", "text": "Die Tasche ist auf dem Tisch." },
+      "answerLang": "sq",
+      "tokens": ["Çanta", "âsht", "mbi", "tavolinë"],
+      "solutions": ["Çanta âsht mbi tavolinë."],
+      "explanation": "„Çanta“ – die Tasche, „mbi tavolinë“ – auf dem Tisch.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_054",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.definite_article.masc", "grammar.possessive"],
+      "itemIds": ["item_shok", "item_im", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Mein Freund heisst Arben." },
+      "answerLang": "sq",
+      "tokens": ["Shoku", "im", "quhet", "Arben"],
+      "solutions": ["Shoku im quhet Arben."],
+      "explanation": "Das Nomen steht mit Artikel vorne, „im“ (mein) danach: „shoku im“.",
+      "errorHints": [
+        { "pattern": "^im ", "category": "grammar.word_order", "hint": "Das Possessivpronomen steht nach dem Nomen: „shoku im“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_055",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_caj", "item_per", "item_nane"],
+      "prompt": { "lang": "de", "text": "Der Tee ist für die Mutter." },
+      "answerLang": "sq",
+      "tokens": ["Çaji", "âsht", "për", "nânën"],
+      "solutions": ["Çaji âsht për nânën."],
+      "explanation": "„Për nânën“ – für die Mutter: nach „për“ steht der Akkusativ.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_056",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.masc", "grammar.case.accusative"],
+      "itemIds": ["item_me_prep", "item_qen", "item_oborr"],
+      "prompt": { "lang": "de", "text": "Ich bin mit dem Hund im Hof." },
+      "answerLang": "sq",
+      "tokens": ["Jam", "me", "qenin", "në", "oborr"],
+      "solutions": ["Jam me qenin në oborr.", "Jam në oborr me qenin."],
+      "explanation": "„Me qenin“ – mit dem Hund: nach „me“ steht der Akkusativ.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_057",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_liber", "item_per", "item_shoqe"],
+      "prompt": { "lang": "de", "text": "Das Buch ist für die Freundin." },
+      "answerLang": "sq",
+      "tokens": ["Libri", "âsht", "për", "shoqen"],
+      "solutions": ["Libri âsht për shoqen."],
+      "explanation": "shoqja → shoqen: Im Akkusativ fällt das j weg.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_058",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem"],
+      "itemIds": ["item_kam", "item_nji", "item_vajze", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Ich habe eine Tochter. Die Tochter heisst Besa." },
+      "answerLang": "sq",
+      "tokens": ["Kam", "nji", "vajzë", "Vajza", "quhet", "Besa"],
+      "solutions": ["Kam nji vajzë. Vajza quhet Besa."],
+      "explanation": "Zuerst unbestimmt „nji vajzë“, dann bestimmt „vajza“.",
+      "errorHints": [
+        { "pattern": "^kam nji vajza", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji vajzë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_059",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_me_prep", "item_shoqe", "item_shkolle"],
+      "prompt": { "lang": "de", "text": "Arta ist mit der Freundin in der Schule." },
+      "answerLang": "sq",
+      "tokens": ["Arta", "âsht", "me", "shoqen", "në", "shkollë"],
+      "solutions": ["Arta âsht me shoqen në shkollë.", "Arta âsht në shkollë me shoqen."],
+      "explanation": "„Me shoqen“ (mit der Freundin) steht im Akkusativ, „në shkollë“ ohne Artikel.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u07_definite_article_060",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.definite_article.fem", "grammar.case.accusative"],
+      "itemIds": ["item_hap", "item_dritare", "item_mbyll", "item_dere"],
+      "prompt": { "lang": "de", "text": "Öffne das Fenster und schliess die Tür." },
+      "answerLang": "sq",
+      "tokens": ["Hap", "dritaren", "dhe", "mbyll", "derën"],
+      "solutions": ["Hap dritaren dhe mbyll derën."],
+      "explanation": "Beide Objekte stehen im Akkusativ: dritaren, derën.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

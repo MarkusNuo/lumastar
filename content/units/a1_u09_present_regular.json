@@ -1,0 +1,1168 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u09_present_regular",
+  "level": "A1.3",
+  "grammar": [
+    {
+      "title": "Verben auf -oj",
+      "explanation": "Viele Alltagsverben enden auf **-oj** und werden gleich konjugiert:\n\n| | punoj (arbeiten) | jetoj (leben) |\n|---|---|---|\n| unë (ich) | punoj | jetoj |\n| ti (du) | punon | jeton |\n| ai, ajo (er, sie) | punon | jeton |\n| ne (wir) | punojmë | jetojmë |\n| ju (ihr, Sie) | punoni | jetoni |\n| ata, ato (sie) | punojnë | jetojnë |\n\nGenauso: *mësoj* (lernen), *shkoj* (gehen), *lexoj* (lesen), *banoj* (wohnen), *pastroj* (putzen). Im Kosovo hört man die Endungen oft kurz (*punojm, punojn*); geschrieben wird *-ojmë, -ojnë*."
+    },
+    {
+      "title": "Gerade jetzt: po + Verb",
+      "explanation": "Mit **po** vor dem Verb sagst du, was gerade passiert: *Po punoj.* – Ich arbeite gerade. *Çka po bân?* – Was machst du gerade? Dazu passt **tash** (Gheg für „jetzt“, Standard: tani): *Tash po mësoj shqip.*\n\nVerneint wird wie immer mit **nuk**: *Sot nuk punoj.* Gefragt mit **a**: *A punon sot?*"
+    },
+    {
+      "title": "Vorschau: der Gheg-Infinitiv",
+      "explanation": "Im Wörterbuch steht „punoj“ (ich arbeite). Den Infinitiv „arbeiten“ bildet Gheg mit **me** + Partizip: *me punue, me mësue, me shkue* (Standard: të punoj). Das lernst du in der nächsten Einheit."
+    }
+  ],
+  "items": [
+    { "id": "item_punoj", "kind": "word", "gheg": "punoj", "de": "ich arbeite", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_mesoj", "kind": "word", "gheg": "mësoj", "de": "ich lerne", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_shkoj", "kind": "word", "gheg": "shkoj", "de": "ich gehe", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_lexoj", "kind": "word", "gheg": "lexoj", "de": "ich lese", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_shikoj", "kind": "word", "gheg": "shikoj", "de": "ich schaue (an)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_banoj", "kind": "word", "gheg": "banoj", "de": "ich wohne", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_pastroj", "kind": "word", "gheg": "pastroj", "de": "ich putze", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_ndihmoj", "kind": "word", "gheg": "ndihmoj", "de": "ich helfe", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_telefonoj", "kind": "word", "gheg": "telefonoj", "de": "ich rufe an", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_udhetoj", "kind": "word", "gheg": "udhëtoj", "de": "ich reise", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_pushoj", "kind": "word", "gheg": "pushoj", "de": "ich ruhe mich aus, ich mache Pause", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_po_punoj",
+      "kind": "phrase",
+      "gheg": "po punoj",
+      "de": "ich arbeite gerade",
+      "partOfSpeech": "phrase",
+      "note": "„po“ + Präsens als Verlaufsform laut Sprachrichtlinie 7.1 – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_cdo_dite", "kind": "phrase", "gheg": "çdo ditë", "de": "jeden Tag", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_bashke", "kind": "word", "gheg": "bashkë", "de": "zusammen", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_shpesh", "kind": "word", "gheg": "shpesh", "de": "oft", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_televizor", "kind": "word", "gheg": "televizor", "de": "Fernseher", "partOfSpeech": "noun", "gender": "m", "definite": "televizori", "reviewed": false },
+    { "id": "item_spital", "kind": "word", "gheg": "spital", "de": "Spital, Krankenhaus", "partOfSpeech": "noun", "gender": "m", "definite": "spitali", "reviewed": false },
+    { "id": "item_banke", "kind": "word", "gheg": "bankë", "de": "Bank", "partOfSpeech": "noun", "gender": "f", "definite": "banka", "reviewed": false },
+    { "id": "item_zyre", "kind": "word", "gheg": "zyrë", "de": "Büro", "partOfSpeech": "noun", "gender": "f", "definite": "zyra", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u09_present_regular_001",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „punoj“?" },
+      "choices": ["ich lerne", "ich arbeite", "ich lese", "ich wohne"],
+      "solutions": ["ich arbeite"],
+      "explanation": "„Punoj“ heisst „ich arbeite“. Die Endung -oj zeigt: ich.",
+      "errorHints": [
+        { "pattern": "lerne", "category": "vocab.confused", "hint": "„Ich lerne“ heisst „mësoj“." },
+        { "pattern": "lese", "category": "vocab.confused", "hint": "„Ich lese“ heisst „lexoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_002",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_mesoj", "item_lexoj", "item_punoj", "item_shkoj"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ich lerne“?" },
+      "choices": ["mësoj", "lexoj", "punoj", "shkoj"],
+      "solutions": ["mësoj"],
+      "explanation": "„Mësoj“ heisst „ich lerne“: „Mësoj shqip.“ – Ich lerne Albanisch.",
+      "errorHints": [
+        { "pattern": "^lexoj$", "category": "vocab.confused", "hint": "„Lexoj“ heisst „ich lese“." },
+        { "pattern": "^shkoj$", "category": "vocab.confused", "hint": "„Shkoj“ heisst „ich gehe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_003",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_lexoj"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „lexoj“?" },
+      "choices": ["ich lerne", "ich gehe", "ich schaue", "ich lese"],
+      "solutions": ["ich lese"],
+      "explanation": "„Lexoj“ heisst „ich lese“: „Lexoj nji libër.“",
+      "errorHints": [
+        { "pattern": "lerne", "category": "vocab.confused", "hint": "„Ich lerne“ heisst „mësoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_004",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_punoj"],
+      "prompt": { "lang": "de", "text": "Welche Form passt zu „ti“ (du)?" },
+      "choices": ["ti punoj", "ti punojmë", "ti punon", "ti punoni"],
+      "solutions": ["ti punon"],
+      "explanation": "Bei „ti“ endet das Verb auf -on: ti punon, ti jeton, ti mëson.",
+      "errorHints": [
+        { "pattern": "punoj$", "category": "grammar.verb_conjugation", "hint": "„Punoj“ ist „ich arbeite“. Für „du“: „punon“." },
+        { "pattern": "punoni$", "category": "grammar.verb_conjugation", "hint": "„Punoni“ ist „ihr arbeitet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_005",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_tash"],
+      "prompt": { "lang": "de", "text": "Wie sagt man im Kosovo „jetzt“?" },
+      "choices": ["sot", "tash", "nesër", "këtu"],
+      "solutions": ["tash"],
+      "explanation": "„Tash“ (auch „tashti“) ist Gheg für „jetzt“ (Standard: „tani“).",
+      "errorHints": [
+        { "pattern": "^sot$", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“." },
+        { "pattern": "^n[eë]s[eë]r$", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_006",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_jetoj"],
+      "prompt": { "lang": "de", "text": "Welche Form passt zu „ne“ (wir)?" },
+      "choices": ["ne jetojmë", "ne jetoni", "ne jetojnë", "ne jeton"],
+      "solutions": ["ne jetojmë"],
+      "explanation": "Bei „ne“ endet das Verb auf -ojmë: ne jetojmë, ne punojmë.",
+      "errorHints": [
+        { "pattern": "jetoni$", "category": "grammar.verb_conjugation", "hint": "„Jetoni“ ist „ihr lebt“." },
+        { "pattern": "jetojn[eë]$", "category": "grammar.verb_conjugation", "hint": "„Jetojnë“ ist „sie leben“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_007",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_po_punoj", "item_mesoj", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Was heisst „Po mësoj shqip.“?" },
+      "choices": ["Ich lerne kein Albanisch.", "Ich spreche Albanisch.", "Du lernst Albanisch.", "Ich lerne gerade Albanisch."],
+      "solutions": ["Ich lerne gerade Albanisch."],
+      "explanation": "„Po“ vor dem Verb heisst „gerade“. „Mësoj“ – ich lerne.",
+      "errorHints": [
+        { "pattern": "kein", "category": "grammar.verb_tense", "hint": "„Po“ heisst hier „gerade“, nicht „nicht“. Verneint wäre „nuk mësoj“." },
+        { "pattern": "^du ", "category": "grammar.verb_conjugation", "hint": "„Mësoj“ ist „ich lerne“. „Du lernst“ wäre „mëson“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_008",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_ku", "item_punoj"],
+      "prompt": { "lang": "de", "text": "Was heisst „Ku punon?“" },
+      "choices": ["Wo wohnst du?", "Wann arbeitest du?", "Wo arbeitest du?", "Wo arbeite ich?"],
+      "solutions": ["Wo arbeitest du?"],
+      "explanation": "„Ku“ heisst „wo“, „punon“ – du arbeitest.",
+      "errorHints": [
+        { "pattern": "wohnst", "category": "vocab.confused", "hint": "„Wo wohnst du?“ wäre „Ku jeton?“." },
+        { "pattern": "^wann", "category": "vocab.confused", "hint": "„Ku“ heisst „wo“, nicht „wann“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_009",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_shkoj"],
+      "prompt": { "lang": "de", "text": "Welche Form passt zu „ata“ (sie, Mehrzahl)?" },
+      "choices": ["ata shkon", "ata shkojnë", "ata shkojmë", "ata shkoni"],
+      "solutions": ["ata shkojnë"],
+      "explanation": "Bei „ata“ und „ato“ endet das Verb auf -ojnë: ata shkojnë.",
+      "errorHints": [
+        { "pattern": "shkon$", "category": "grammar.verb_conjugation", "hint": "„Shkon“ ist die Einzahl (du gehst / er geht)." },
+        { "pattern": "shkojm[eë]$", "category": "grammar.verb_conjugation", "hint": "„Shkojmë“ ist „wir gehen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_010",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "grammar.verbs.jam"],
+      "itemIds": ["item_cka_po_ban", "item_tash"],
+      "prompt": { "lang": "de", "text": "Was heisst „Çka po bân tash?“" },
+      "choices": ["Was machst du gerade?", "Wo bist du gerade?", "Was machst du morgen?", "Wann kommst du?"],
+      "solutions": ["Was machst du gerade?"],
+      "explanation": "„Çka“ heisst „was“ (Standard: „çfarë“), „po bân“ – du machst gerade, „tash“ – jetzt.",
+      "errorHints": [
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "„Tash“ heisst „jetzt“. „Morgen“ wäre „nesër“." },
+        { "pattern": "^wo ", "category": "vocab.confused", "hint": "„Çka“ heisst „was“. „Wo“ wäre „ku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_011",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_jetoj"],
+      "prompt": { "lang": "de", "text": "Welcher Satz heisst „Wir wohnen in der Schweiz.“?" },
+      "choices": ["Ne jetoni në Zvicër.", "Ne jetojnë në Zvicër.", "Ju jetojmë në Zvicër.", "Ne jetojmë në Zvicër."],
+      "solutions": ["Ne jetojmë në Zvicër."],
+      "explanation": "„Ne“ (wir) + „jetojmë“: Das Verb endet auf -ojmë.",
+      "errorHints": [
+        { "pattern": "^ne jetoni", "category": "grammar.verb_conjugation", "hint": "„Jetoni“ gehört zu „ju“ (ihr)." },
+        { "pattern": "^ne jetojn", "category": "grammar.verb_conjugation", "hint": "„Jetojnë“ gehört zu „ata“ (sie)." },
+        { "pattern": "^ju ", "category": "grammar.verb_conjugation", "hint": "„Ju“ heisst „ihr“. „Wir“ heisst „ne“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_012",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present", "grammar.question_particle"],
+      "itemIds": ["item_punoj", "item_a"],
+      "prompt": { "lang": "de", "text": "Welche Antwort passt auf „A punoni sot?“" },
+      "choices": ["Po, punoni.", "Po, punojnë.", "Po, punojmë.", "Po, punon."],
+      "solutions": ["Po, punojmë."],
+      "explanation": "Auf „punoni“ (arbeitet ihr) antwortet man mit „punojmë“ (wir arbeiten).",
+      "errorHints": [
+        { "pattern": "^po punoni", "category": "grammar.verb_conjugation", "hint": "In der Antwort sprichst du von „wir“: „punojmë“." },
+        { "pattern": "^po punojn", "category": "grammar.verb_conjugation", "hint": "„Punojnë“ heisst „sie arbeiten“. „Wir“: „punojmë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_013",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj"],
+      "prompt": { "lang": "de", "text": "Ich arbeite in Prishtina." },
+      "answerLang": "sq",
+      "solutions": ["Punoj në Prishtinë.", "Unë punoj në Prishtinë.", "Në Prishtinë punoj."],
+      "wordBank": ["Punoj", "në", "Prishtinë", "punon", "jetoj", "jam"],
+      "explanation": "„Punoj“ – ich arbeite. Das Pronomen „unë“ kann man weglassen.",
+      "errorHints": [
+        { "pattern": "^(un[eë] )?punon", "category": "grammar.verb_conjugation", "hint": "„Punon“ heisst „du arbeitest“. „Ich arbeite“: „punoj“." },
+        { "pattern": "jetoj", "category": "vocab.confused", "hint": "„Jetoj“ heisst „ich lebe, wohne“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_014",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_mesoj", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Du lernst Albanisch." },
+      "answerLang": "sq",
+      "solutions": ["Ti mëson shqip.", "Mëson shqip."],
+      "wordBank": ["Ti", "mëson", "shqip", "mësoj", "lexon", "je"],
+      "explanation": "Bei „ti“ endet das Verb auf -on: „ti mëson“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)m[eë]soj", "category": "grammar.verb_conjugation", "hint": "„Mësoj“ heisst „ich lerne“. „Du lernst“: „mëson“." },
+        { "pattern": "lexon", "category": "vocab.confused", "hint": "„Lexon“ heisst „du liest“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_015",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_jetoj", "item_banoj"],
+      "prompt": { "lang": "de", "text": "Wir wohnen in Prizren." },
+      "answerLang": "sq",
+      "solutions": ["Ne jetojmë në Prizren.", "Jetojmë në Prizren.", "Ne banojmë në Prizren.", "Banojmë në Prizren.", "Në Prizren jetojmë."],
+      "wordBank": ["Ne", "jetojmë", "në", "Prizren", "jetoni", "jetojnë", "jemi"],
+      "explanation": "Bei „ne“ (wir) endet das Verb auf -ojmë: „jetojmë“.",
+      "errorHints": [
+        { "pattern": "jetoni", "category": "grammar.verb_conjugation", "hint": "„Jetoni“ heisst „ihr wohnt“. „Wir wohnen“: „jetojmë“." },
+        { "pattern": "jetojn[eë]", "category": "grammar.verb_conjugation", "hint": "„Jetojnë“ heisst „sie wohnen“. „Wir wohnen“: „jetojmë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_016",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_lexoj", "item_liber", "item_nji"],
+      "prompt": { "lang": "de", "text": "Ich lese gerade ein Buch." },
+      "answerLang": "sq",
+      "solutions": ["Po lexoj nji libër.", "Unë po lexoj nji libër."],
+      "wordBank": ["Po", "lexoj", "nji", "libër", "lexon", "libri", "shikoj"],
+      "explanation": "„Po lexoj“ – ich lese gerade. Nach „nji“ steht „libër“ ohne Artikel.",
+      "errorHints": [
+        { "pattern": "nji libri", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „nji libër“." },
+        { "pattern": "po lexon", "category": "grammar.verb_conjugation", "hint": "„Lexon“ heisst „du liest“. „Ich lese“: „lexoj“." },
+        { "pattern": "lexoj po", "category": "grammar.word_order", "hint": "„Po“ steht vor dem Verb: „po lexoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_017",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj", "item_bashke"],
+      "prompt": { "lang": "de", "text": "Sie (Mehrzahl) arbeiten zusammen." },
+      "answerLang": "sq",
+      "solutions": ["Ata punojnë bashkë.", "Ato punojnë bashkë.", "Punojnë bashkë."],
+      "wordBank": ["Ata", "punojnë", "bashkë", "punojmë", "punon", "jemi"],
+      "explanation": "Bei „ata/ato“ endet das Verb auf -ojnë. „Bashkë“ heisst „zusammen“.",
+      "errorHints": [
+        { "pattern": "punojm[eë]", "category": "grammar.verb_conjugation", "hint": "„Punojmë“ heisst „wir arbeiten“. „Sie arbeiten“: „punojnë“." },
+        { "pattern": "(^|\\s)punon(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Punon“ ist die Einzahl. „Sie arbeiten“: „punojnë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_018",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_tash", "item_mesoj", "item_neser", "item_punoj"],
+      "prompt": { "lang": "de", "text": "Jetzt lerne ich, morgen arbeite ich." },
+      "answerLang": "sq",
+      "solutions": ["Tash mësoj, nesër punoj.", "Nesër punoj, tash mësoj."],
+      "wordBank": ["Tash", "mësoj", "nesër", "punoj", "mëson", "punon", "sot"],
+      "explanation": "„Tash“ (jetzt) ist Gheg (Standard: „tani“). Mit Zeitangaben am Anfang bleibt das Verb gleich: „tash mësoj“.",
+      "errorHints": [
+        { "pattern": "m[eë]son", "category": "grammar.verb_conjugation", "hint": "„Mëson“ heisst „du lernst“. „Ich lerne“: „mësoj“." },
+        { "pattern": "(^|\\s)sot ", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“. „Jetzt“ heisst „tash“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_019",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_ku", "item_jetoj"],
+      "prompt": { "lang": "sq", "text": "Ku jeton?" },
+      "answerLang": "de",
+      "solutions": ["Wo lebst du?", "Wo wohnst du?"],
+      "wordBank": ["Wo", "lebst", "du", "lebe", "arbeitest", "ich"],
+      "explanation": "„Jeton“ heisst „du lebst, du wohnst“.",
+      "errorHints": [
+        { "pattern": "arbeitest", "category": "vocab.confused", "hint": "„Arbeitest“ hiesse „punon“." },
+        { "pattern": "lebe", "category": "grammar.verb_conjugation", "hint": "„Jeton“ ist die Du-Form: „lebst“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_020",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj", "item_banke"],
+      "prompt": { "lang": "sq", "text": "Arta punon në nji bankë." },
+      "answerLang": "de",
+      "solutions": ["Arta arbeitet in einer Bank.", "Arta arbeitet bei einer Bank."],
+      "wordBank": ["Arta", "arbeitet", "in", "einer", "Bank", "Schule", "wohnt", "der"],
+      "explanation": "„Punon“ heisst „sie arbeitet“. „Bankë“ ist die Bank.",
+      "errorHints": [
+        { "pattern": "wohnt", "category": "vocab.confused", "hint": "„Wohnt“ hiesse „jeton“." },
+        { "pattern": "schule", "category": "vocab.confused", "hint": "„Schule“ hiesse „shkollë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_021",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_cdo_dite", "item_mesoj", "item_shqip"],
+      "prompt": { "lang": "sq", "text": "Çdo ditë mësoj shqip." },
+      "answerLang": "de",
+      "solutions": ["Jeden Tag lerne ich Albanisch.", "Ich lerne jeden Tag Albanisch."],
+      "wordBank": ["Jeden", "Tag", "lerne", "ich", "Albanisch", "Heute", "lernst", "Deutsch"],
+      "explanation": "„Çdo ditë“ heisst „jeden Tag“, „shqip“ – Albanisch.",
+      "errorHints": [
+        { "pattern": "heute", "category": "vocab.confused", "hint": "„Heute“ hiesse „sot“. „Çdo ditë“: jeden Tag." },
+        { "pattern": "lernst", "category": "grammar.verb_conjugation", "hint": "„Mësoj“ heisst „ich lerne“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_022",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_baba", "item_shikoj", "item_televizor"],
+      "prompt": { "lang": "sq", "text": "Babai po shikon televizor." },
+      "answerLang": "de",
+      "solutions": ["Der Vater schaut gerade fern.", "Vater schaut gerade fern.", "Papa schaut gerade fern.", "Der Vater sieht gerade fern."],
+      "wordBank": ["Der", "Vater", "schaut", "gerade", "fern", "Die", "Mutter", "liest"],
+      "explanation": "„Po shikon“ – er schaut gerade. „Shikoj televizor“ heisst „fernsehen“.",
+      "errorHints": [
+        { "pattern": "liest", "category": "vocab.confused", "hint": "„Liest“ hiesse „lexon“." },
+        { "pattern": "mutter", "category": "vocab.confused", "hint": "„Babai“ ist der Vater." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_023",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_udhetoj", "item_shpesh", "item_a"],
+      "prompt": { "lang": "sq", "text": "A udhëtoni shpesh?" },
+      "answerLang": "de",
+      "solutions": ["Reist ihr oft?", "Reisen Sie oft?"],
+      "wordBank": ["Reist", "ihr", "oft", "du", "nie", "wir"],
+      "explanation": "„Udhëtoni“ heisst „ihr reist“ oder höflich „Sie reisen“. „Shpesh“ heisst „oft“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)du(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Udhëtoni“ ist die Ihr- oder Sie-Form." },
+        { "pattern": "(^|\\s)wir(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Wir reisen“ wäre „udhëtojmë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_024",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present", "vocab.activities", "grammar.negation"],
+      "itemIds": ["item_sot", "item_nuk", "item_punoj", "item_pushoj", "item_ne_shpi"],
+      "prompt": { "lang": "sq", "text": "Sot nuk punojmë, pushojmë në shpi." },
+      "answerLang": "de",
+      "solutions": ["Heute arbeiten wir nicht, wir ruhen uns zu Hause aus.", "Heute arbeiten wir nicht, wir erholen uns zu Hause."],
+      "wordBank": ["Heute", "arbeiten", "wir", "nicht", "wir", "ruhen", "uns", "zu", "Hause", "aus", "ihr", "Arbeit", "morgen"],
+      "explanation": "„Nuk punojmë“ – wir arbeiten nicht. „Pushojmë“ – wir ruhen uns aus.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ihr(\\s|$)", "category": "grammar.verb_conjugation", "hint": "Die Endung -ojmë zeigt „wir“." },
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_025",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj"],
+      "prompt": { "lang": "de", "text": "Ich arbeite." },
+      "answerLang": "sq",
+      "solutions": ["Punoj.", "Unë punoj."],
+      "explanation": "„Punoj“ – ich arbeite. Die Endung -oj zeigt schon „ich“.",
+      "errorHints": [
+        { "pattern": "^(un[eë] )?punon$", "category": "grammar.verb_conjugation", "hint": "„Punon“ heisst „du arbeitest“. „Ich arbeite“: „punoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_026",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_ku", "item_punoj"],
+      "prompt": { "lang": "de", "text": "Wo arbeitest du?" },
+      "answerLang": "sq",
+      "solutions": ["Ku punon?", "Ku punon ti?"],
+      "explanation": "„Ku“ heisst „wo“. Bei „ti“ (du) endet das Verb auf -on: „punon“.",
+      "errorHints": [
+        { "pattern": "^ku punoj(s|$)", "category": "grammar.verb_conjugation", "hint": "„Punoj“ heisst „ich arbeite“. „Du arbeitest“: „punon“." },
+        { "pattern": "^ku punoni", "category": "grammar.verb_conjugation", "hint": "„Punoni“ ist die Ihr-Form. „Du arbeitest“: „punon“." },
+        { "pattern": "^ku (jeton|banon)", "category": "vocab.confused", "hint": "„Jeton“ heisst „du wohnst“. „Du arbeitest“: „punon“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_027",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_mesoj", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Wir lernen Albanisch." },
+      "answerLang": "sq",
+      "solutions": ["Mësojmë shqip.", "Ne mësojmë shqip."],
+      "explanation": "„Mësojmë“ – wir lernen. „Shqip“ ist die albanische Sprache.",
+      "errorHints": [
+        { "pattern": "m[eë]soni", "category": "grammar.verb_conjugation", "hint": "„Mësoni“ heisst „ihr lernt“. „Wir lernen“: „mësojmë“." },
+        { "pattern": "m[eë]sojn", "category": "grammar.verb_conjugation", "hint": "„Mësojnë“ heisst „sie lernen“. „Wir lernen“: „mësojmë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_028",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_po_punoj"],
+      "prompt": { "lang": "de", "text": "Ich arbeite gerade." },
+      "answerLang": "sq",
+      "solutions": ["Po punoj.", "Unë po punoj."],
+      "explanation": "„Po“ vor dem Verb zeigt, dass etwas gerade passiert.",
+      "errorHints": [
+        { "pattern": "po punon$", "category": "grammar.verb_conjugation", "hint": "„Punon“ heisst „du arbeitest“. „Ich“: „po punoj“." },
+        { "pattern": "^punoj po", "category": "grammar.word_order", "hint": "„Po“ steht vor dem Verb: „Po punoj.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_029",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_cka", "item_cka_po_ban", "item_tash"],
+      "prompt": { "lang": "de", "text": "Was machst du jetzt?" },
+      "answerLang": "sq",
+      "solutions": ["Çka po bân tash?", "Çka bân tash?", "Tash çka po bân?", "Çka po bân tashti?"],
+      "standardForms": ["Çfarë po bën tani?", "Çfarë bën tani?"],
+      "explanation": "Im Kosovo fragt man „Çka po bân tash?“ (Standard: „Çfarë po bën tani?“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)b[aâ]j(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Bâj“ heisst „ich mache“. „Du machst“: „bân“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „bân“ (Kosovo-Aussprache oft [bon]) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u09_present_regular_030",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_punoj", "item_sot"],
+      "prompt": { "lang": "de", "text": "Arbeitet ihr heute?" },
+      "answerLang": "sq",
+      "solutions": ["A punoni sot?", "Punoni sot?", "A punoni ju sot?"],
+      "explanation": "Bei „ju“ (ihr) endet das Verb auf -oni: „punoni“.",
+      "errorHints": [
+        { "pattern": "^(a )?punojm", "category": "grammar.verb_conjugation", "hint": "„Punojmë“ heisst „wir arbeiten“. „Ihr arbeitet“: „punoni“." },
+        { "pattern": "^(a )?punon sot", "category": "grammar.verb_conjugation", "hint": "„Punon“ ist die Du-Form. „Ihr arbeitet“: „punoni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_031",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_jetoj", "item_banoj"],
+      "prompt": { "lang": "de", "text": "Sie (Mehrzahl) wohnen in der Schweiz." },
+      "answerLang": "sq",
+      "solutions": [
+        "Ata jetojnë në Zvicër.",
+        "Ato jetojnë në Zvicër.",
+        "Jetojnë në Zvicër.",
+        "Ata banojnë në Zvicër.",
+        "Ato banojnë në Zvicër.",
+        "Banojnë në Zvicër."
+      ],
+      "explanation": "Bei „ata/ato“ endet das Verb auf -ojnë. „Zvicër“ ist die Schweiz.",
+      "errorHints": [
+        { "pattern": "(jetojm|banojm)", "category": "grammar.verb_conjugation", "hint": "„-ojmë“ zeigt „wir“. „Sie wohnen“: „jetojnë“." },
+        { "pattern": "(^|\\s)(jeton|banon)(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Jeton“ ist die Einzahl. „Sie wohnen“: „jetojnë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_032",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present", "vocab.activities", "grammar.case.accusative"],
+      "itemIds": ["item_pastroj", "item_kuzhine"],
+      "prompt": { "lang": "de", "text": "Arta putzt gerade die Küche." },
+      "answerLang": "sq",
+      "solutions": ["Arta po pastron kuzhinën.", "Arta po e pastron kuzhinën."],
+      "explanation": "„Po pastron“ – sie putzt gerade. Die Küche ist das Objekt: kuzhina → kuzhinën.",
+      "errorHints": [
+        { "pattern": "kuzhina$", "category": "grammar.case", "hint": "Die Küche ist das Objekt – Akkusativ: „kuzhinën“." },
+        { "pattern": "po pastroj(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Pastroj“ heisst „ich putze“. „Sie putzt“: „pastron“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Po e pastron“ mit Klitikon als natürliche Variante akzeptiert."
+    },
+    {
+      "id": "ex_a1_u09_present_regular_033",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_neser", "item_shkoj"],
+      "prompt": { "lang": "de", "text": "Morgen gehen wir nach Prizren." },
+      "answerLang": "sq",
+      "solutions": [
+        "Nesër shkojmë në Prizren.",
+        "Nesër ne shkojmë në Prizren.",
+        "Shkojmë në Prizren nesër.",
+        "Ne shkojmë në Prizren nesër.",
+        "Shkojmë nesër në Prizren.",
+        "Ne shkojmë nesër në Prizren."
+      ],
+      "explanation": "Auch für Pläne nimmt man oft das Präsens: „Nesër shkojmë …“ – morgen gehen wir …",
+      "errorHints": [
+        { "pattern": "shkoni", "category": "grammar.verb_conjugation", "hint": "„Shkoni“ heisst „ihr geht“. „Wir gehen“: „shkojmë“." },
+        { "pattern": "shkojn", "category": "grammar.verb_conjugation", "hint": "„Shkojnë“ heisst „sie gehen“. „Wir gehen“: „shkojmë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_034",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj", "item_zyre"],
+      "prompt": { "lang": "de", "text": "Ich arbeite in einem Büro." },
+      "answerLang": "sq",
+      "text": "Unë ___ në nji zyrë.",
+      "solutions": ["punoj"],
+      "choices": ["punoj", "punon", "punojmë", "punojnë"],
+      "explanation": "Bei „unë“ (ich) endet das Verb auf -oj.",
+      "errorHints": [
+        { "pattern": "^punon$", "category": "grammar.verb_conjugation", "hint": "„Punon“ ist „du arbeitest“ oder „er arbeitet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_035",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_lexoj", "item_liber"],
+      "prompt": { "lang": "de", "text": "Du liest ein Buch." },
+      "answerLang": "sq",
+      "text": "Ti ___ nji libër.",
+      "solutions": ["lexon"],
+      "choices": ["lexoj", "lexoni", "lexojnë", "lexon"],
+      "explanation": "Bei „ti“ (du) endet das Verb auf -on.",
+      "errorHints": [
+        { "pattern": "^lexoj$", "category": "grammar.verb_conjugation", "hint": "„Lexoj“ ist „ich lese“. „Du liest“: „lexon“." },
+        { "pattern": "^lexoni$", "category": "grammar.verb_conjugation", "hint": "„Lexoni“ ist „ihr lest“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_036",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_shkoj", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Er geht nach Hause." },
+      "answerLang": "sq",
+      "text": "Ai ___ në shpi.",
+      "solutions": ["shkon"],
+      "choices": ["shkoj", "shkojmë", "shkon", "shkoni"],
+      "explanation": "Bei „ai/ajo“ (er, sie) endet das Verb auf -on – gleich wie bei „ti“.",
+      "errorHints": [
+        { "pattern": "^shkoj$", "category": "grammar.verb_conjugation", "hint": "„Shkoj“ ist „ich gehe“. „Er geht“: „shkon“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_037",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_mesoj", "item_cdo_dite"],
+      "prompt": { "lang": "de", "text": "Wir lernen jeden Tag." },
+      "answerLang": "sq",
+      "text": "Ne ___ çdo ditë.",
+      "solutions": ["mësojmë"],
+      "choices": ["mësoni", "mësojmë", "mësojnë", "mësoj"],
+      "explanation": "Bei „ne“ (wir) endet das Verb auf -ojmë.",
+      "errorHints": [
+        { "pattern": "^m[eë]soni$", "category": "grammar.verb_conjugation", "hint": "„Mësoni“ ist „ihr lernt“." },
+        { "pattern": "^m[eë]sojn[eë]$", "category": "grammar.verb_conjugation", "hint": "„Mësojnë“ ist „sie lernen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_038",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_pastroj", "item_kuzhine"],
+      "prompt": { "lang": "de", "text": "Ihr putzt die Küche." },
+      "answerLang": "sq",
+      "text": "Ju ___ kuzhinën.",
+      "solutions": ["pastroni"],
+      "choices": ["pastroni", "pastrojmë", "pastron", "pastrojnë"],
+      "explanation": "Bei „ju“ (ihr, Sie) endet das Verb auf -oni.",
+      "errorHints": [
+        { "pattern": "^pastrojm[eë]$", "category": "grammar.verb_conjugation", "hint": "„Pastrojmë“ ist „wir putzen“." },
+        { "pattern": "^pastron$", "category": "grammar.verb_conjugation", "hint": "„Pastron“ ist die Einzahl." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_039",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_femije", "item_shikoj", "item_televizor"],
+      "prompt": { "lang": "de", "text": "Die Kinder schauen gerade fern." },
+      "answerLang": "sq",
+      "text": "Fëmijët ___ shikojnë televizor.",
+      "solutions": ["po"],
+      "choices": ["nuk", "a", "jo", "po"],
+      "explanation": "„Po“ vor dem Verb heisst „gerade“.",
+      "errorHints": [
+        { "pattern": "^nuk$", "category": "grammar.verb_tense", "hint": "„Nuk“ verneint. Für „gerade“ steht „po“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_040",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_tash", "item_mesoj", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Ich lerne jetzt Albanisch." },
+      "answerLang": "sq",
+      "text": "___ mësoj shqip.",
+      "solutions": ["Tash"],
+      "choices": ["Nesër", "Sot", "Tash", "Këtu"],
+      "explanation": "„Tash“ ist Gheg für „jetzt“ (Standard: „tani“).",
+      "errorHints": [
+        { "pattern": "^sot$", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“." },
+        { "pattern": "^n[eë]s[eë]r$", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_041",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj", "item_shume"],
+      "prompt": { "lang": "de", "text": "Sie (Mehrzahl) arbeiten viel." },
+      "answerLang": "sq",
+      "text": "Ata ___ shumë.",
+      "solutions": ["punojnë"],
+      "explanation": "Bei „ata/ato“ endet das Verb auf -ojnë.",
+      "errorHints": [
+        { "pattern": "^punon$", "category": "grammar.verb_conjugation", "hint": "Für „ata“ (sie, Mehrzahl) endet das Verb auf -ojnë." },
+        { "pattern": "^punoj(m[eë])?$", "category": "grammar.verb_conjugation", "hint": "Für „ata“ (sie, Mehrzahl) endet das Verb auf -ojnë." },
+        { "pattern": "^punoni$", "category": "grammar.verb_conjugation", "hint": "„Punoni“ ist „ihr arbeitet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_042",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_ku", "item_jetoj", "item_banoj"],
+      "prompt": { "lang": "de", "text": "Wo wohnt ihr?" },
+      "answerLang": "sq",
+      "text": "Ku ___?",
+      "solutions": ["jetoni", "banoni"],
+      "explanation": "Bei „ju“ (ihr) endet das Verb auf -oni: „jetoni“ oder „banoni“.",
+      "errorHints": [
+        { "pattern": "^(jetojm|banojm)", "category": "grammar.verb_conjugation", "hint": "„-ojmë“ zeigt „wir“. „Ihr wohnt“: „jetoni“." },
+        { "pattern": "^(jeton|banon)$", "category": "grammar.verb_conjugation", "hint": "„Jeton“ ist die Du-Form. „Ihr wohnt“: „jetoni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_043",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_lexoj"],
+      "prompt": { "lang": "de", "text": "Ich lese gerade." },
+      "answerLang": "sq",
+      "text": "___ lexoj.",
+      "solutions": ["Po"],
+      "explanation": "„Po“ steht direkt vor dem Verb und heisst „gerade“.",
+      "errorHints": [
+        { "pattern": "^tash$", "category": "grammar.verb_tense", "hint": "Für „gerade“ (im Moment) steht „po“ direkt vor dem Verb." },
+        { "pattern": "^nuk$", "category": "grammar.verb_tense", "hint": "„Nuk“ verneint. Für „gerade“ steht „po“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_044",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present", "vocab.activities", "grammar.case.accusative"],
+      "itemIds": ["item_ndihmoj", "item_gjyshe", "item_cdo_dite"],
+      "prompt": { "lang": "de", "text": "Wir helfen der Grossmutter jeden Tag." },
+      "answerLang": "sq",
+      "text": "Ne ___ gjyshen çdo ditë.",
+      "solutions": ["ndihmojmë"],
+      "explanation": "„Ndihmojmë“ – wir helfen. Auf Albanisch steht nach „ndihmoj“ der Akkusativ: „gjyshen“.",
+      "errorHints": [
+        { "pattern": "^ndihmoni$", "category": "grammar.verb_conjugation", "hint": "„Ndihmoni“ ist „ihr helft“." },
+        { "pattern": "^ndihmojn[eë]$", "category": "grammar.verb_conjugation", "hint": "„Ndihmojnë“ ist „sie helfen“." },
+        { "pattern": "^ndihmoj$", "category": "grammar.verb_conjugation", "hint": "„Ndihmoj“ ist „ich helfe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_045",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_cka", "item_mesoj", "item_tash"],
+      "prompt": { "lang": "de", "text": "Was lernst du jetzt?" },
+      "answerLang": "sq",
+      "text": "Çka ___ tash?",
+      "solutions": ["mëson", "po mëson"],
+      "explanation": "„Mëson“ – du lernst. Mit „po“ davor: du lernst gerade.",
+      "errorHints": [
+        { "pattern": "^(po )?m[eë]soj$", "category": "grammar.verb_conjugation", "hint": "„Mësoj“ ist „ich lerne“. „Du lernst“: „mëson“." },
+        { "pattern": "^(po )?m[eë]soni$", "category": "grammar.verb_conjugation", "hint": "„Mësoni“ ist „ihr lernt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_046",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj", "item_mesoj", "item_lexoj", "item_shkoj", "item_jetoj"],
+      "prompt": { "lang": "de", "text": "Ordne die Verben zu." },
+      "pairs": [
+        { "left": "punoj", "right": "ich arbeite" },
+        { "left": "mësoj", "right": "ich lerne" },
+        { "left": "lexoj", "right": "ich lese" },
+        { "left": "shkoj", "right": "ich gehe" },
+        { "left": "jetoj", "right": "ich lebe" }
+      ],
+      "explanation": "Alle diese Verben enden auf -oj und werden gleich konjugiert.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_047",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_pastroj", "item_ndihmoj", "item_udhetoj", "item_pushoj", "item_telefonoj"],
+      "prompt": { "lang": "de", "text": "Ordne die Verben zu." },
+      "pairs": [
+        { "left": "pastroj", "right": "ich putze" },
+        { "left": "ndihmoj", "right": "ich helfe" },
+        { "left": "udhëtoj", "right": "ich reise" },
+        { "left": "pushoj", "right": "ich ruhe mich aus" },
+        { "left": "telefonoj", "right": "ich rufe an" }
+      ],
+      "explanation": "Noch mehr Verben auf -oj für den Alltag.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_048",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_punoj"],
+      "prompt": { "lang": "de", "text": "Ordne die Formen von „punoj“ zu." },
+      "pairs": [
+        { "left": "punoj", "right": "ich arbeite" },
+        { "left": "punon", "right": "du arbeitest" },
+        { "left": "punojmë", "right": "wir arbeiten" },
+        { "left": "punoni", "right": "ihr arbeitet" },
+        { "left": "punojnë", "right": "sie arbeiten" }
+      ],
+      "explanation": "Endungen: -oj, -on, -on, -ojmë, -oni, -ojnë.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_049",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.activities"],
+      "itemIds": ["item_spital", "item_banke", "item_zyre", "item_shkolle", "item_shpi"],
+      "prompt": { "lang": "de", "text": "Ordne die Orte zu." },
+      "pairs": [
+        { "left": "spital", "right": "Spital" },
+        { "left": "bankë", "right": "Bank" },
+        { "left": "zyrë", "right": "Büro" },
+        { "left": "shkollë", "right": "Schule" },
+        { "left": "shpi", "right": "Haus" }
+      ],
+      "explanation": "„Punoj në nji spital“ – ich arbeite in einem Spital.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_050",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_tash", "item_sot", "item_neser", "item_cdo_dite", "item_bashke"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "tash", "right": "jetzt" },
+        { "left": "sot", "right": "heute" },
+        { "left": "nesër", "right": "morgen" },
+        { "left": "çdo ditë", "right": "jeden Tag" },
+        { "left": "bashkë", "right": "zusammen" }
+      ],
+      "explanation": "„Tash“ ist Gheg für „jetzt“ (Standard: „tani“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_051",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_po_punoj", "item_shkoj", "item_lexoj", "item_pastroj", "item_mesoj"],
+      "prompt": { "lang": "de", "text": "Ordne die Verlaufsformen zu." },
+      "pairs": [
+        { "left": "po punoj", "right": "ich arbeite gerade" },
+        { "left": "po shkojmë", "right": "wir gehen gerade" },
+        { "left": "po lexoni", "right": "ihr lest gerade" },
+        { "left": "po pastrojnë", "right": "sie putzen gerade" },
+        { "left": "po mëson", "right": "du lernst gerade" }
+      ],
+      "explanation": "Die Endung zeigt die Person, „po“ zeigt „gerade“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_052",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_punoj", "item_shkolle"],
+      "prompt": { "lang": "de", "text": "Ich arbeite in einer Schule." },
+      "answerLang": "sq",
+      "tokens": ["Punoj", "në", "nji", "shkollë"],
+      "solutions": ["Punoj në nji shkollë."],
+      "explanation": "„Në nji shkollë“ – in einer Schule.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_053",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_jetoj"],
+      "prompt": { "lang": "de", "text": "Du wohnst in Peja." },
+      "answerLang": "sq",
+      "tokens": ["Ti", "jeton", "në", "Pejë"],
+      "solutions": ["Ti jeton në Pejë."],
+      "explanation": "„Ti jeton“ – du wohnst. Nach „në“ steht der Ortsname ohne Artikel: „në Pejë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_054",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_mesoj", "item_bashke"],
+      "prompt": { "lang": "de", "text": "Wir lernen zusammen." },
+      "answerLang": "sq",
+      "tokens": ["Ne", "mësojmë", "bashkë"],
+      "solutions": ["Ne mësojmë bashkë."],
+      "explanation": "„Bashkë“ (zusammen) steht meist nach dem Verb.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_055",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities"],
+      "itemIds": ["item_lexoj", "item_nji", "item_liber"],
+      "prompt": { "lang": "de", "text": "Arta liest gerade ein Buch." },
+      "answerLang": "sq",
+      "tokens": ["Arta", "po", "lexon", "nji", "libër"],
+      "solutions": ["Arta po lexon nji libër."],
+      "explanation": "„Po“ steht direkt vor dem Verb: „po lexon“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)lexon po", "category": "grammar.word_order", "hint": "„Po“ steht direkt vor dem Verb: „po lexon“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_056",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_punoj", "item_sot"],
+      "prompt": { "lang": "de", "text": "Arbeitest du heute?" },
+      "answerLang": "sq",
+      "tokens": ["A", "punon", "sot"],
+      "solutions": ["A punon sot?"],
+      "explanation": "Die Frage beginnt mit „a“: „A punon sot?“",
+      "errorHints": [
+        { "pattern": "^punon a", "category": "grammar.word_order", "hint": "„A“ steht am Satzanfang." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_057",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_tash", "item_shkoj", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Wir gehen jetzt nach Hause." },
+      "answerLang": "sq",
+      "tokens": ["Tash", "po", "shkojmë", "në", "shpi"],
+      "solutions": ["Tash po shkojmë në shpi.", "Po shkojmë në shpi tash."],
+      "explanation": "„Tash po shkojmë“ – jetzt gehen wir (gerade). „Në shpi“ heisst hier „nach Hause“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_058",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.activities", "grammar.possessive"],
+      "itemIds": ["item_moter", "item_ime", "item_punoj", "item_spital"],
+      "prompt": { "lang": "de", "text": "Meine Schwester arbeitet in einem Spital." },
+      "answerLang": "sq",
+      "tokens": ["Motra", "ime", "punon", "në", "nji", "spital"],
+      "solutions": ["Motra ime punon në nji spital."],
+      "explanation": "„Motra ime punon“ – meine Schwester arbeitet. „Spital“ ist das Krankenhaus.",
+      "errorHints": [
+        { "pattern": "^ime ", "category": "grammar.word_order", "hint": "Das Possessivpronomen steht nach dem Nomen: „motra ime“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_059",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_jetoj"],
+      "prompt": { "lang": "de", "text": "Sie (Mehrzahl) wohnen nicht in Prishtina." },
+      "answerLang": "sq",
+      "tokens": ["Ata", "nuk", "jetojnë", "në", "Prishtinë"],
+      "solutions": ["Ata nuk jetojnë në Prishtinë."],
+      "explanation": "„Nuk“ steht direkt vor dem Verb: „nuk jetojnë“.",
+      "errorHints": [
+        { "pattern": "jetojn[eë] nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk jetojnë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u09_present_regular_060",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present", "vocab.activities", "grammar.case.accusative"],
+      "itemIds": ["item_sot", "item_pastroj", "item_banese", "item_bashke"],
+      "prompt": { "lang": "de", "text": "Heute putzen wir die Wohnung zusammen." },
+      "answerLang": "sq",
+      "tokens": ["Sot", "pastrojmë", "banesën", "bashkë"],
+      "solutions": ["Sot pastrojmë banesën bashkë.", "Sot pastrojmë bashkë banesën."],
+      "explanation": "„Banesën“ ist der Akkusativ von „banesa“ – die Wohnung ist das Objekt.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

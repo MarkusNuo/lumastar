@@ -1,0 +1,1184 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u08_verbs_jam_kam",
+  "level": "A1.2",
+  "grammar": [
+    {
+      "title": "jam – sein",
+      "explanation": "| | sein |\n|---|---|\n| unë (ich) | **jam** |\n| ti (du) | **je** |\n| ai, ajo (er, sie) | **âsht** |\n| ne (wir) | **jemi** |\n| ju (ihr, Sie) | **jeni** |\n| ata, ato (sie) | **janë** |\n\n„Âsht“ ist die Gheg-Form von „ist“ (Standard: është). Im Kosovo-Alltag hört man für „wir sind“ oft auch *jena*. Das Pronomen lässt man meist weg: *Jam në shpi.* – Ich bin zu Hause."
+    },
+    {
+      "title": "kam – haben",
+      "explanation": "| | haben |\n|---|---|\n| unë (ich) | **kam** |\n| ti (du) | **ke** |\n| ai, ajo (er, sie) | **ka** |\n| ne (wir) | **kemi** |\n| ju (ihr, Sie) | **keni** |\n| ata, ato (sie) | **kanë** |\n\nAuch Zeit, Hunger und Arbeit „hat“ man: *kam kohë* (ich habe Zeit), *kam punë* (ich habe zu tun). Im Kosovo-Alltag hört man für „wir haben“ auch *kena*."
+    },
+    {
+      "title": "Fragen und verneinen",
+      "explanation": "**A** am Satzanfang macht aus einer Aussage eine Ja/Nein-Frage: *A ke kohë?* – Hast du Zeit?\n\nVerneint wird mit **nuk** oder kurz **s'** direkt vor dem Verb: *Nuk kam kohë.* = *S'kam kohë.* – Ich habe keine Zeit.\n\nAntworten: *Po, kam.* – Ja, habe ich. *Jo, s'kam.* – Nein, habe ich nicht. Achtung: **jo** (nein) steht allein, **nuk** vor dem Verb."
+    }
+  ],
+  "items": [
+    {
+      "id": "item_kemi",
+      "kind": "word",
+      "gheg": "kemi",
+      "de": "wir haben",
+      "partOfSpeech": "verb",
+      "note": "Im Kosovo-Alltag auch „kena“ – zu prüfen (Sprachrichtlinie 13.6).",
+      "reviewed": false
+    },
+    { "id": "item_keni", "kind": "word", "gheg": "keni", "de": "ihr habt, Sie haben", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_kane",
+      "kind": "word",
+      "gheg": "kanë",
+      "de": "sie haben",
+      "partOfSpeech": "verb",
+      "note": "Ohne Zirkumflex; nicht verwechseln mit dem Partizip „kânë“ (gewesen). Aussprache im Kosovo zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_s", "kind": "word", "gheg": "s'", "de": "nicht (Kurzform)", "partOfSpeech": "particle", "reviewed": false },
+    { "id": "item_kohe", "kind": "word", "gheg": "kohë", "de": "Zeit", "partOfSpeech": "noun", "gender": "f", "definite": "koha", "reviewed": false },
+    { "id": "item_pune", "kind": "word", "gheg": "punë", "de": "Arbeit", "partOfSpeech": "noun", "gender": "f", "definite": "puna", "reviewed": false },
+    { "id": "item_ska_problem", "kind": "phrase", "gheg": "s'ka problem", "de": "kein Problem", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_gati", "kind": "word", "gheg": "gati", "de": "bereit, fertig", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_vone", "kind": "word", "gheg": "vonë", "de": "spät", "partOfSpeech": "adverb", "reviewed": false },
+    {
+      "id": "item_i_lodhun",
+      "kind": "phrase",
+      "gheg": "i lodhun, e lodhun",
+      "de": "müde",
+      "partOfSpeech": "adjective",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_001",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_je", "item_jam", "item_asht", "item_jeni"],
+      "prompt": { "lang": "de", "text": "Wie heisst „du bist“?" },
+      "choices": ["jam", "je", "âsht", "jeni"],
+      "solutions": ["je"],
+      "explanation": "„Je“ heisst „du bist“: „Ku je?“ – Wo bist du?",
+      "errorHints": [
+        { "pattern": "^jam$", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“." },
+        { "pattern": "^jeni$", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid / Sie sind“." },
+        { "pattern": "^[aâ]sht$", "category": "grammar.verb_conjugation", "hint": "„Âsht“ heisst „er/sie ist“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_002",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam"],
+      "itemIds": ["item_kemi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „kemi“?" },
+      "choices": ["wir haben", "ihr habt", "sie haben", "wir sind"],
+      "solutions": ["wir haben"],
+      "explanation": "„Kemi“ heisst „wir haben“. „Wir sind“ heisst „jemi“.",
+      "errorHints": [
+        { "pattern": "wir sind", "category": "vocab.confused", "hint": "„Wir sind“ heisst „jemi“." },
+        { "pattern": "ihr habt", "category": "grammar.verb_conjugation", "hint": "„Ihr habt“ heisst „keni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_003",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.negation"],
+      "itemIds": ["item_nuk"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „nuk“?" },
+      "choices": ["nein", "ja", "auch", "nicht"],
+      "solutions": ["nicht"],
+      "explanation": "„Nuk“ verneint das Verb: „Nuk kam.“ – Ich habe nicht. „Nein“ heisst „jo“.",
+      "errorHints": [
+        { "pattern": "^nein$", "category": "vocab.confused", "hint": "„Nein“ heisst „jo“. „Nuk“ steht vor dem Verb und heisst „nicht“." },
+        { "pattern": "^ja$", "category": "vocab.confused", "hint": "„Ja“ heisst „po“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_004",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jane", "item_jemi", "item_jeni", "item_asht"],
+      "prompt": { "lang": "de", "text": "Wie heisst „sie sind“ (Mehrzahl)?" },
+      "choices": ["jemi", "jeni", "janë", "âsht"],
+      "solutions": ["janë"],
+      "explanation": "„Janë“ heisst „sie sind“: „Ata janë në shpi.“",
+      "errorHints": [
+        { "pattern": "^jemi$", "category": "grammar.verb_conjugation", "hint": "„Jemi“ heisst „wir sind“." },
+        { "pattern": "^jeni$", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_005",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_vone", "item_asht"],
+      "prompt": { "lang": "de", "text": "Was heisst „Âsht vonë.“?" },
+      "choices": ["Es ist früh.", "Es ist spät.", "Er ist müde.", "Es ist kalt."],
+      "solutions": ["Es ist spät."],
+      "explanation": "„Vonë“ heisst „spät“. „Âsht“ braucht man auch für „es ist“.",
+      "errorHints": [
+        { "pattern": "kalt", "category": "vocab.confused", "hint": "„Kalt“ hiesse „ftohtë“." },
+        { "pattern": "m[uü]de", "category": "vocab.confused", "hint": "„Müde“ hiesse „i lodhun“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_006",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam", "grammar.negation"],
+      "itemIds": ["item_s", "item_kam", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Was heisst „S'kam kohë.“?" },
+      "choices": ["Ich habe keine Zeit.", "Ich habe Zeit.", "Hast du Zeit?", "Er hat keine Zeit."],
+      "solutions": ["Ich habe keine Zeit."],
+      "explanation": "„S'“ ist die Kurzform von „nuk“: „S'kam kohë“ = „Nuk kam kohë“ – Ich habe keine Zeit.",
+      "errorHints": [
+        { "pattern": "^ich habe zeit$", "category": "grammar.verb_conjugation", "hint": "„S'“ verneint: „keine Zeit“." },
+        { "pattern": "^er ", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. „Er hat“ wäre „ka“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_007",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_je", "item_gati"],
+      "prompt": { "lang": "de", "text": "Was heisst „A je gati?“" },
+      "choices": ["Du bist bereit.", "Seid ihr bereit?", "Ich bin bereit.", "Bist du bereit?"],
+      "solutions": ["Bist du bereit?"],
+      "explanation": "„A“ am Satzanfang macht eine Ja/Nein-Frage. „Gati“ heisst „bereit, fertig“.",
+      "errorHints": [
+        { "pattern": "^du bist", "category": "grammar.word_order", "hint": "„A“ am Anfang zeigt: Das ist eine Frage." },
+        { "pattern": "^seid ihr", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. „Ihr seid“ wäre „jeni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_008",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jemi", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Wir sind zu Hause.“?" },
+      "choices": ["Jeni në shpi.", "Janë në shpi.", "Jemi në shpi.", "Kemi në shpi."],
+      "solutions": ["Jemi në shpi."],
+      "explanation": "„Jemi“ heisst „wir sind“, „në shpi“ – zu Hause.",
+      "errorHints": [
+        { "pattern": "^jeni ", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid“." },
+        { "pattern": "^jan[eë] ", "category": "grammar.verb_conjugation", "hint": "„Janë“ heisst „sie sind“." },
+        { "pattern": "^kemi ", "category": "vocab.confused", "hint": "„Kemi“ heisst „wir haben“. „Wir sind“ heisst „jemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_009",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_ke", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Wie fragst du „Hast du Zeit?“" },
+      "choices": ["A kam kohë?", "A ke kohë?", "A ka kohë?", "Ke a kohë?"],
+      "solutions": ["A ke kohë?"],
+      "explanation": "„A“ steht am Satzanfang, danach „ke“ (du hast).",
+      "errorHints": [
+        { "pattern": "^a kam", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. „Du hast“: „ke“." },
+        { "pattern": "^a ka ", "category": "grammar.verb_conjugation", "hint": "„Ka“ heisst „er/sie hat“. „Du hast“: „ke“." },
+        { "pattern": "^ke a", "category": "grammar.word_order", "hint": "„A“ steht am Satzanfang: „A ke kohë?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_010",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_asht", "item_nuk", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Was heisst „Arta s'âsht e lodhun.“?" },
+      "choices": ["Arta ist nicht müde.", "Arta ist müde.", "Arta hat keine Zeit.", "Ist Arta müde?"],
+      "solutions": ["Arta ist nicht müde."],
+      "explanation": "„S'“ vor dem Verb verneint: „s'âsht“ – ist nicht. „E lodhun“ heisst „müde“.",
+      "errorHints": [
+        { "pattern": "^arta ist m[uü]de$", "category": "grammar.verb_conjugation", "hint": "„S'“ verneint den Satz: „nicht müde“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_011",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.kam", "grammar.question_particle"],
+      "itemIds": ["item_a_keni", "item_kemi"],
+      "prompt": { "lang": "de", "text": "Welche Antwort passt auf „A keni fëmijë?“" },
+      "choices": ["Po, keni dy fëmijë.", "Po, kanë dy fëmijë.", "Po, jemi dy fëmijë.", "Po, kemi dy fëmijë."],
+      "solutions": ["Po, kemi dy fëmijë."],
+      "explanation": "Auf „keni“ (habt ihr) antwortet man mit „kemi“ (wir haben).",
+      "errorHints": [
+        { "pattern": "^po keni", "category": "grammar.verb_conjugation", "hint": "Auf „keni“ (habt ihr) antwortet man mit „kemi“ (wir haben)." },
+        { "pattern": "^po jemi", "category": "vocab.confused", "hint": "„Jemi“ heisst „wir sind“. „Wir haben“ heisst „kemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_012",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.negation", "grammar.verbs.kam"],
+      "itemIds": ["item_nuk", "item_kam", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Welcher Satz ist richtig verneint?" },
+      "choices": ["Kam nuk kohë.", "Kohë kam nuk.", "Nuk kam kohë.", "Kam kohë nuk."],
+      "solutions": ["Nuk kam kohë."],
+      "explanation": "„Nuk“ steht direkt vor dem Verb: „Nuk kam kohë.“",
+      "errorHints": [
+        { "pattern": "^kam nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „Nuk kam …“" },
+        { "pattern": "nuk$", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb, nicht am Satzende." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_013",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jam", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Ich bin müde." },
+      "answerLang": "sq",
+      "solutions": ["Jam i lodhun.", "Jam e lodhun.", "Unë jam i lodhun.", "Unë jam e lodhun."],
+      "wordBank": ["Jam", "i", "lodhun", "je", "âsht", "mirë"],
+      "explanation": "„I lodhun“ sagt ein Mann, „e lodhun“ eine Frau. Standard wäre „i lodhur“.",
+      "errorHints": [
+        { "pattern": "^je ", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. „Ich bin“: „jam“." },
+        { "pattern": "^[aâ]sht ", "category": "grammar.verb_conjugation", "hint": "„Âsht“ heisst „er/sie ist“. „Ich bin“: „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_014",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_ke", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Hast du Zeit?" },
+      "answerLang": "sq",
+      "solutions": ["A ke kohë?", "Ke kohë?"],
+      "wordBank": ["A", "ke", "kohë", "kam", "ka", "jo"],
+      "explanation": "„A“ am Anfang macht die Frage. „Ke“ heisst „du hast“.",
+      "errorHints": [
+        { "pattern": "^(a )?kam ", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. „Du hast“: „ke“." },
+        { "pattern": "^(a )?ka ", "category": "grammar.verb_conjugation", "hint": "„Ka“ heisst „er/sie hat“. „Du hast“: „ke“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_015",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jemi"],
+      "prompt": { "lang": "de", "text": "Wir sind in Prishtina." },
+      "answerLang": "sq",
+      "solutions": ["Jemi në Prishtinë.", "Ne jemi në Prishtinë.", "Në Prishtinë jemi."],
+      "wordBank": ["Jemi", "në", "Prishtinë", "jeni", "janë", "kemi"],
+      "explanation": "„Jemi“ heisst „wir sind“. Das Pronomen „ne“ (wir) kann man weglassen.",
+      "errorHints": [
+        { "pattern": "^(ne )?jeni ", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid“. „Wir sind“: „jemi“." },
+        { "pattern": "^(ne )?jan[eë] ", "category": "grammar.verb_conjugation", "hint": "„Janë“ heisst „sie sind“. „Wir sind“: „jemi“." },
+        { "pattern": "^(ne )?kemi ", "category": "vocab.confused", "hint": "„Kemi“ heisst „wir haben“. „Wir sind“: „jemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_016",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_kam", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Ich habe keine Zeit." },
+      "answerLang": "sq",
+      "solutions": ["Nuk kam kohë.", "S'kam kohë.", "Unë nuk kam kohë."],
+      "wordBank": ["Nuk", "kam", "kohë", "ke", "jo", "jam"],
+      "explanation": "„Nuk“ steht direkt vor dem Verb. Auf Deutsch sagt man „keine Zeit“, auf Albanisch „nicht habe ich Zeit“.",
+      "errorHints": [
+        { "pattern": "^kam nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „Nuk kam kohë.“" },
+        { "pattern": "^jo kam", "category": "vocab.confused", "hint": "„Jo“ heisst „nein“. Vor dem Verb verneint „nuk“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_017",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam"],
+      "itemIds": ["item_kane", "item_nji", "item_shpi"],
+      "prompt": { "lang": "de", "text": "Sie haben ein Haus in Peja. (sie = mehrere Personen)" },
+      "answerLang": "sq",
+      "solutions": ["Ata kanë nji shpi në Pejë.", "Ato kanë nji shpi në Pejë.", "Kanë nji shpi në Pejë."],
+      "wordBank": ["Ata", "kanë", "nji", "shpi", "në", "Pejë", "kemi", "janë", "keni"],
+      "explanation": "„Kanë“ heisst „sie haben“ (Mehrzahl). „Ata“ steht für Männer oder gemischte Gruppen, „ato“ nur für Frauen.",
+      "errorHints": [
+        { "pattern": "^(ata |ato )?keni ", "category": "grammar.verb_conjugation", "hint": "„Keni“ heisst „ihr habt“. „Sie haben“: „kanë“." },
+        { "pattern": "^(ata |ato )?kemi ", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“. „Sie haben“: „kanë“." },
+        { "pattern": "^(ata |ato )?jan[eë] ", "category": "vocab.confused", "hint": "„Janë“ heisst „sie sind“. „Sie haben“: „kanë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_018",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_jeni", "item_gati", "item_jo", "item_nuk", "item_jemi"],
+      "prompt": { "lang": "de", "text": "Seid ihr bereit? – Nein, wir sind nicht bereit." },
+      "answerLang": "sq",
+      "solutions": ["A jeni gati? Jo, nuk jemi gati.", "A jeni gati? Jo, s'jemi gati."],
+      "wordBank": ["A", "jeni", "gati", "Jo", "nuk", "jemi", "gati", "janë", "kemi", "po"],
+      "explanation": "Auf „jeni“ (seid ihr) antwortet man mit „jemi“ (wir sind). „Jo“ heisst „nein“, „nuk“ verneint das Verb.",
+      "errorHints": [
+        { "pattern": "^a jan[eë]", "category": "grammar.verb_conjugation", "hint": "„Janë“ heisst „sie sind“. „Seid ihr“: „jeni“." },
+        { "pattern": "nuk jeni", "category": "grammar.verb_conjugation", "hint": "In der Antwort sprichst du von „wir“: „nuk jemi“." },
+        { "pattern": "(^|\\s)po nuk", "category": "vocab.confused", "hint": "„Po“ heisst „ja“. „Nein“ heisst „jo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_019",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_ku", "item_je"],
+      "prompt": { "lang": "sq", "text": "Ku je?" },
+      "answerLang": "de",
+      "solutions": ["Wo bist du?"],
+      "wordBank": ["Wo", "bist", "du", "bin", "ist", "wer"],
+      "explanation": "„Ku“ heisst „wo“, „je“ heisst „du bist“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ist ", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_020",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_jam", "item_i_lodhun"],
+      "prompt": { "lang": "sq", "text": "Nuk jam i lodhun." },
+      "answerLang": "de",
+      "solutions": ["Ich bin nicht müde."],
+      "wordBank": ["Ich", "bin", "nicht", "müde", "du", "bist", "sehr"],
+      "explanation": "„Nuk“ vor dem Verb heisst „nicht“: „Nuk jam“ – ich bin nicht.",
+      "errorHints": [
+        { "pattern": "bist", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_021",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_asht", "item_ne_shpi"],
+      "prompt": { "lang": "sq", "text": "A âsht Arta në shpi?" },
+      "answerLang": "de",
+      "solutions": ["Ist Arta zu Hause?", "Ist Arta daheim?"],
+      "wordBank": ["Ist", "Arta", "zu", "Hause", "im", "Haus", "hat"],
+      "explanation": "„A“ macht die Frage, „âsht“ heisst „ist“, „në shpi“ – zu Hause.",
+      "errorHints": [
+        { "pattern": "^arta ist", "category": "grammar.word_order", "hint": "Das ist eine Frage: „Ist Arta zu Hause?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_022",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.negation", "grammar.verbs.kam"],
+      "itemIds": ["item_ska_problem"],
+      "prompt": { "lang": "sq", "text": "S'ka problem." },
+      "answerLang": "de",
+      "solutions": ["Kein Problem.", "Das ist kein Problem.", "Es gibt kein Problem."],
+      "wordBank": ["Kein", "Problem", "Danke", "Zeit", "gibt"],
+      "explanation": "„S'ka problem“ – wörtlich „es gibt kein Problem“ – hört man im Kosovo sehr oft.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_023",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jane"],
+      "prompt": { "lang": "sq", "text": "Ata janë në Zvicër." },
+      "answerLang": "de",
+      "solutions": ["Sie sind in der Schweiz."],
+      "wordBank": ["Sie", "sind", "in", "der", "Schweiz", "haben", "wir", "ist"],
+      "explanation": "„Janë“ heisst „sie sind“. „Zvicër“ ist die Schweiz.",
+      "errorHints": [
+        { "pattern": "^wir ", "category": "grammar.verb_conjugation", "hint": "„Ata janë“ heisst „sie sind“. „Wir sind“ wäre „jemi“." },
+        { "pattern": "haben", "category": "vocab.confused", "hint": "„Janë“ heisst „sind“. „Haben“ wäre „kanë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_024",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.kam", "grammar.question_particle"],
+      "itemIds": ["item_a_keni", "item_kemi", "item_kohe", "item_sot", "item_pune"],
+      "prompt": { "lang": "sq", "text": "A keni kohë sot? Jo, kemi punë." },
+      "answerLang": "de",
+      "solutions": [
+        "Habt ihr heute Zeit? Nein, wir haben Arbeit.",
+        "Haben Sie heute Zeit? Nein, wir haben Arbeit.",
+        "Habt ihr heute Zeit? Nein, wir haben zu tun."
+      ],
+      "wordBank": ["Habt", "ihr", "heute", "Zeit", "Nein", "wir", "haben", "Arbeit", "hast", "du", "keine"],
+      "explanation": "„Kemi punë“ heisst wörtlich „wir haben Arbeit“ – also „wir haben zu tun“.",
+      "errorHints": [
+        { "pattern": "hast du", "category": "grammar.verb_conjugation", "hint": "„Keni“ heisst „habt ihr / haben Sie“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_025",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_je", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Du bist hier." },
+      "answerLang": "sq",
+      "solutions": ["Je këtu.", "Ti je këtu.", "Këtu je."],
+      "explanation": "„Je“ heisst „du bist“, „këtu“ heisst „hier“.",
+      "errorHints": [
+        { "pattern": "^(ti )?jam ", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“. „Du bist“: „je“." },
+        { "pattern": "^(ti )?[aâ]sht ", "category": "grammar.verb_conjugation", "hint": "„Âsht“ heisst „er/sie ist“. „Du bist“: „je“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_026",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam"],
+      "itemIds": ["item_kemi", "item_nji"],
+      "prompt": { "lang": "de", "text": "Wir haben ein Problem." },
+      "answerLang": "sq",
+      "solutions": ["Kemi nji problem.", "Ne kemi nji problem.", "Kena nji problem.", "Ne kena nji problem."],
+      "standardForms": ["Kemi një problem.", "Ne kemi një problem."],
+      "explanation": "„Kemi“ heisst „wir haben“. „Nji“ ist Gheg für „ein, eine“ (Standard: „një“).",
+      "errorHints": [
+        { "pattern": "^(ne )?keni ", "category": "grammar.verb_conjugation", "hint": "„Keni“ heisst „ihr habt“. „Wir haben“: „kemi“." },
+        { "pattern": "^(ne )?jemi ", "category": "vocab.confused", "hint": "„Jemi“ heisst „wir sind“. „Wir haben“: „kemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kena“ (wir haben) als Kosovo-Alltagsform zusätzlich akzeptiert – zu prüfen (Sprachrichtlinie 13.6)."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_027",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_asht", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Er ist nicht zu Hause." },
+      "answerLang": "sq",
+      "solutions": ["Nuk âsht në shpi.", "S'âsht në shpi.", "Ai nuk âsht në shpi.", "Ai s'âsht në shpi."],
+      "standardForms": ["Nuk është në shtëpi.", "Ai nuk është në shtëpi.", "S'është në shtëpi.", "Ai s'është në shtëpi."],
+      "explanation": "„Nuk“ oder „s'“ steht direkt vor dem Verb: „nuk âsht“ – ist nicht.",
+      "errorHints": [
+        { "pattern": "^(ai )?[aâ]sht nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk âsht“." },
+        { "pattern": "^(ai )?jo [aâ]sht", "category": "vocab.confused", "hint": "„Jo“ heisst „nein“. Vor dem Verb verneint „nuk“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_028",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_je", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Bist du müde?" },
+      "answerLang": "sq",
+      "solutions": ["A je i lodhun?", "A je e lodhun?", "Je i lodhun?", "Je e lodhun?"],
+      "standardForms": ["A je i lodhur?", "A je e lodhur?", "Je i lodhur?", "Je e lodhur?"],
+      "explanation": "„A“ am Anfang macht die Frage. Zu einem Mann: „i lodhun“, zu einer Frau: „e lodhun“.",
+      "errorHints": [
+        { "pattern": "^(a )?jam ", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“. „Du bist“: „je“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_029",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jemi", "item_gati"],
+      "prompt": { "lang": "de", "text": "Wir sind bereit." },
+      "answerLang": "sq",
+      "solutions": ["Jemi gati.", "Ne jemi gati.", "Jena gati.", "Ne jena gati."],
+      "explanation": "„Jemi“ heisst „wir sind“, „gati“ heisst „bereit“.",
+      "errorHints": [
+        { "pattern": "^(ne )?jeni", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid“. „Wir sind“: „jemi“." },
+        { "pattern": "^(ne )?jan[eë]", "category": "grammar.verb_conjugation", "hint": "„Janë“ heisst „sie sind“. „Wir sind“: „jemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„jena“ (wir sind) als Kosovo-Alltagsform zusätzlich akzeptiert – zu prüfen (Sprachrichtlinie 13.6)."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_030",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam", "grammar.question_particle"],
+      "itemIds": ["item_a_keni", "item_femije"],
+      "prompt": { "lang": "de", "text": "Habt ihr Kinder?" },
+      "answerLang": "sq",
+      "solutions": ["A keni fëmijë?", "Keni fëmijë?"],
+      "explanation": "„A keni …?“ – habt ihr …? oder höflich: haben Sie …?",
+      "errorHints": [
+        { "pattern": "^(a )?ke f", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“. „Ihr habt“: „keni“." },
+        { "pattern": "^(a )?kemi ", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“. „Ihr habt“: „keni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_031",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.kam", "grammar.negation"],
+      "itemIds": ["item_jo", "item_nuk", "item_kam", "item_vlla"],
+      "prompt": { "lang": "de", "text": "Nein, ich habe keinen Bruder." },
+      "answerLang": "sq",
+      "solutions": ["Jo, nuk kam vlla.", "Jo, s'kam vlla.", "Jo, nuk kam vëlla.", "Jo, s'kam vëlla."],
+      "explanation": "„Jo“ heisst „nein“, „nuk kam“ – ich habe nicht. Ein Wort für „kein“ braucht es nicht.",
+      "errorHints": [
+        { "pattern": "^jo kam nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk kam“." },
+        { "pattern": "^po ", "category": "vocab.confused", "hint": "„Po“ heisst „ja“. „Nein“ heisst „jo“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vlla“ (Standard: vëlla); „vëlla“ bleibt als weitere Lösung akzeptiert – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_032",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_jane", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Sie sind nicht hier. (sie = mehrere Personen)" },
+      "answerLang": "sq",
+      "solutions": ["Nuk janë këtu.", "S'janë këtu.", "Ata nuk janë këtu.", "Ato nuk janë këtu.", "Ata s'janë këtu.", "Ato s'janë këtu."],
+      "explanation": "„Janë“ heisst „sie sind“. „Nuk“ steht direkt davor.",
+      "errorHints": [
+        { "pattern": "(^|\\s)(nuk |s)?jemi", "category": "grammar.verb_conjugation", "hint": "„Jemi“ heisst „wir sind“. „Sie sind“: „janë“." },
+        { "pattern": "(^|\\s)(nuk |s)?jeni", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid“. „Sie sind“: „janë“." },
+        { "pattern": "jan[eë] nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk janë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_033",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.kam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_ke", "item_kohe", "item_sot", "item_po", "item_kam"],
+      "prompt": { "lang": "de", "text": "Hast du heute Zeit? – Ja, ich habe Zeit." },
+      "answerLang": "sq",
+      "solutions": [
+        "A ke kohë sot? Po, kam kohë.",
+        "A ke sot kohë? Po, kam kohë.",
+        "Ke kohë sot? Po, kam kohë.",
+        "A ke kohë sot? Po, kam.",
+        "A ke sot kohë? Po, kam."
+      ],
+      "explanation": "Frage mit „a“ und „ke“ (du hast), Antwort mit „po“ (ja) und „kam“ (ich habe).",
+      "errorHints": [
+        { "pattern": "(^|\\s)jo kam", "category": "vocab.confused", "hint": "„Jo“ heisst „nein“. „Ja“ heisst „po“." },
+        { "pattern": "po ke", "category": "grammar.verb_conjugation", "hint": "In der Antwort sprichst du von dir: „kam“ (ich habe)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_034",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jam"],
+      "prompt": { "lang": "de", "text": "Ich bin Arben." },
+      "answerLang": "sq",
+      "text": "Unë ___ Arben.",
+      "solutions": ["jam"],
+      "choices": ["jam", "je", "âsht", "kam"],
+      "explanation": "„Jam“ heisst „ich bin“.",
+      "errorHints": [
+        { "pattern": "^je$", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“." },
+        { "pattern": "^kam$", "category": "vocab.confused", "hint": "„Kam“ heisst „ich habe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_035",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam"],
+      "itemIds": ["item_ka", "item_moter"],
+      "prompt": { "lang": "de", "text": "Er hat zwei Schwestern." },
+      "answerLang": "sq",
+      "text": "Ai ___ dy motra.",
+      "solutions": ["ka"],
+      "choices": ["kam", "ke", "âsht", "ka"],
+      "explanation": "„Ka“ heisst „er/sie hat“.",
+      "errorHints": [
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. „Er hat“: „ka“." },
+        { "pattern": "^ke$", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“. „Er hat“: „ka“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_036",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_je", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Bist du müde?" },
+      "answerLang": "sq",
+      "text": "___ je i lodhun?",
+      "solutions": ["A"],
+      "choices": ["Po", "Nuk", "A", "Jo"],
+      "explanation": "„A“ am Satzanfang macht aus der Aussage eine Ja/Nein-Frage.",
+      "errorHints": [
+        { "pattern": "^po$", "category": "vocab.confused", "hint": "„Po“ heisst „ja“. Die Frage beginnt mit „a“." },
+        { "pattern": "^nuk$", "category": "grammar.word_order", "hint": "„Nuk“ verneint. Für die Frage steht „a“ am Anfang." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_037",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_kemi", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Wir haben keine Zeit." },
+      "answerLang": "sq",
+      "text": "Ne ___ kemi kohë.",
+      "solutions": ["nuk"],
+      "choices": ["jo", "nuk", "po", "a"],
+      "explanation": "Vor dem Verb verneinst du mit „nuk“. „Jo“ (nein) steht allein.",
+      "errorHints": [
+        { "pattern": "^jo$", "category": "vocab.confused", "hint": "„Jo“ heisst „nein“ und steht allein. Vor dem Verb verneinst du mit „nuk“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_038",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jeni", "item_kuzhine"],
+      "prompt": { "lang": "de", "text": "Ihr seid in der Küche." },
+      "answerLang": "sq",
+      "text": "Ju ___ në kuzhinë.",
+      "solutions": ["jeni"],
+      "choices": ["jeni", "jemi", "janë", "je"],
+      "explanation": "„Jeni“ heisst „ihr seid“ oder höflich „Sie sind“.",
+      "errorHints": [
+        { "pattern": "^jemi$", "category": "grammar.verb_conjugation", "hint": "„Jemi“ heisst „wir sind“." },
+        { "pattern": "^je$", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_039",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam"],
+      "itemIds": ["item_kane", "item_banese"],
+      "prompt": { "lang": "de", "text": "Sie (Mehrzahl) haben eine Wohnung." },
+      "answerLang": "sq",
+      "text": "Ata ___ nji banesë.",
+      "solutions": ["kanë"],
+      "choices": ["kemi", "keni", "ka", "kanë"],
+      "explanation": "„Kanë“ heisst „sie haben“ (Mehrzahl) – ohne Zirkumflex.",
+      "errorHints": [
+        { "pattern": "^kemi$", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“." },
+        { "pattern": "^keni$", "category": "grammar.verb_conjugation", "hint": "„Keni“ heisst „ihr habt“." },
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Ka“ heisst „er/sie hat“ (Einzahl)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_040",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.kam", "grammar.negation"],
+      "itemIds": ["item_s", "item_ka", "item_buke"],
+      "prompt": { "lang": "de", "text": "Es gibt kein Brot." },
+      "answerLang": "sq",
+      "text": "S'___ bukë.",
+      "solutions": ["ka"],
+      "choices": ["kam", "âsht", "ka", "ke"],
+      "explanation": "„Ka“ heisst auch „es gibt“; verneint: „s'ka“ – es gibt nicht.",
+      "errorHints": [
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„S'kam bukë“ hiesse „Ich habe kein Brot“. „Es gibt“: „ka“." },
+        { "pattern": "^[aâ]sht$", "category": "vocab.confused", "hint": "Für „es gibt“ sagt man „ka“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_041",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam"],
+      "itemIds": ["item_ke", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Du hast Zeit." },
+      "answerLang": "sq",
+      "text": "Ti ___ kohë.",
+      "solutions": ["ke"],
+      "explanation": "„Ke“ heisst „du hast“.",
+      "errorHints": [
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. „Du hast“: „ke“." },
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Ka“ heisst „er/sie hat“. „Du hast“: „ke“." },
+        { "pattern": "^keni$", "category": "grammar.verb_conjugation", "hint": "„Keni“ heisst „ihr habt“. „Du hast“: „ke“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_042",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_asht", "item_nuk", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Arta ist nicht müde." },
+      "answerLang": "sq",
+      "text": "Arta nuk ___ e lodhun.",
+      "solutions": ["âsht"],
+      "standardForms": ["është"],
+      "explanation": "„Âsht“ ist die Gheg-Form von „ist“ (Standard: „është“).",
+      "errorHints": [
+        { "pattern": "^(je|jam|jemi|jeni|jan[eë])$", "category": "grammar.verb_conjugation", "hint": "Es geht um Arta (sie) – also „âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_043",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jemi", "item_shok"],
+      "prompt": { "lang": "de", "text": "Wir sind Freunde." },
+      "answerLang": "sq",
+      "text": "Ne ___ shokë.",
+      "solutions": ["jemi", "jena"],
+      "explanation": "„Jemi“ heisst „wir sind“. „Shokë“ ist die Mehrzahl von „shok“ (Freund).",
+      "errorHints": [
+        { "pattern": "^jeni$", "category": "grammar.verb_conjugation", "hint": "„Jeni“ heisst „ihr seid“. „Wir sind“: „jemi“." },
+        { "pattern": "^jan[eë]$", "category": "grammar.verb_conjugation", "hint": "„Janë“ heisst „sie sind“. „Wir sind“: „jemi“." },
+        { "pattern": "^kemi$", "category": "vocab.confused", "hint": "„Kemi“ heisst „wir haben“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„jena“ (wir sind) als Kosovo-Alltagsform zusätzlich akzeptiert – zu prüfen (Sprachrichtlinie 13.6)."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_044",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.kam", "grammar.question_particle"],
+      "itemIds": ["item_a_keni", "item_femije"],
+      "prompt": { "lang": "de", "text": "Haben Sie Kinder? (höflich)" },
+      "answerLang": "sq",
+      "text": "A ___ fëmijë?",
+      "solutions": ["keni"],
+      "explanation": "Höflich zu einer Person sagt man „keni“ (Sie haben) – gleich wie „ihr habt“.",
+      "errorHints": [
+        { "pattern": "^ke$", "category": "grammar.verb_conjugation", "hint": "Höflich sagt man „keni“ (Sie haben). „Ke“ ist die Du-Form." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_045",
+      "type": "fill_gap",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_jam", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Ich bin nicht zu Hause." },
+      "answerLang": "sq",
+      "text": "___ jam në shpi.",
+      "solutions": ["Nuk"],
+      "explanation": "„Nuk“ steht direkt vor dem Verb: „Nuk jam“ – ich bin nicht.",
+      "errorHints": [
+        { "pattern": "^jo$", "category": "vocab.confused", "hint": "„Jo“ heisst „nein“. Vor dem Verb verneinst du mit „nuk“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_046",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jam", "item_je", "item_asht", "item_jemi", "item_jeni"],
+      "prompt": { "lang": "de", "text": "Ordne die Formen von „jam“ zu." },
+      "pairs": [
+        { "left": "jam", "right": "ich bin" },
+        { "left": "je", "right": "du bist" },
+        { "left": "âsht", "right": "er ist" },
+        { "left": "jemi", "right": "wir sind" },
+        { "left": "jeni", "right": "ihr seid" }
+      ],
+      "explanation": "„Âsht“ ist die Gheg-Form von „ist“ (Standard: „është“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_047",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam"],
+      "itemIds": ["item_kam", "item_ke", "item_ka", "item_kemi", "item_kane"],
+      "prompt": { "lang": "de", "text": "Ordne die Formen von „kam“ zu." },
+      "pairs": [
+        { "left": "kam", "right": "ich habe" },
+        { "left": "ke", "right": "du hast" },
+        { "left": "ka", "right": "er hat" },
+        { "left": "kemi", "right": "wir haben" },
+        { "left": "kanë", "right": "sie haben" }
+      ],
+      "explanation": "„Ka“ heisst auch „es gibt“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_048",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.verbs.kam", "grammar.negation", "grammar.question_particle"],
+      "itemIds": ["item_jane", "item_keni", "item_nuk", "item_a", "item_jo"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "janë", "right": "sie sind" },
+        { "left": "keni", "right": "ihr habt" },
+        { "left": "nuk", "right": "nicht" },
+        { "left": "a", "right": "Fragewort (Ja/Nein-Frage)" },
+        { "left": "jo", "right": "nein" }
+      ],
+      "explanation": "„Nuk“ steht vor dem Verb, „jo“ allein als Antwort.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_049",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam", "grammar.negation", "grammar.question_particle"],
+      "itemIds": ["item_kam", "item_kohe", "item_s", "item_ska_problem", "item_pune"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "kam kohë", "right": "ich habe Zeit" },
+        { "left": "s'kam kohë", "right": "ich habe keine Zeit" },
+        { "left": "a ke kohë?", "right": "hast du Zeit?" },
+        { "left": "s'ka problem", "right": "kein Problem" },
+        { "left": "kam punë", "right": "ich habe zu tun" }
+      ],
+      "explanation": "Mit „kam“ drückst du vieles aus: Zeit, Arbeit, Hunger.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_050",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_gati", "item_vone", "item_ketu", "item_atje", "item_sot"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "gati", "right": "bereit" },
+        { "left": "vonë", "right": "spät" },
+        { "left": "këtu", "right": "hier" },
+        { "left": "atje", "right": "dort" },
+        { "left": "sot", "right": "heute" }
+      ],
+      "explanation": "Diese Wörter passen gut zu „jam“: „Jam gati.“, „Âsht vonë.“, „Jemi këtu.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_051",
+      "type": "match_pairs",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.negation", "grammar.verbs.jam", "grammar.verbs.kam"],
+      "itemIds": ["item_nuk", "item_s", "item_jam", "item_ke", "item_asht", "item_kemi", "item_jane"],
+      "prompt": { "lang": "de", "text": "Ordne die verneinten Formen zu." },
+      "pairs": [
+        { "left": "nuk jam", "right": "ich bin nicht" },
+        { "left": "s'ke", "right": "du hast nicht" },
+        { "left": "nuk âsht", "right": "er ist nicht" },
+        { "left": "s'kemi", "right": "wir haben nicht" },
+        { "left": "nuk janë", "right": "sie sind nicht" }
+      ],
+      "explanation": "„Nuk“ und „s'“ bedeuten dasselbe. „S'“ ist kürzer und im Alltag sehr häufig.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_052",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam"],
+      "itemIds": ["item_jemi", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Wir sind hier." },
+      "answerLang": "sq",
+      "tokens": ["Jemi", "këtu"],
+      "solutions": ["Jemi këtu.", "Këtu jemi."],
+      "explanation": "„Jemi“ heisst „wir sind“, „këtu“ heisst „hier“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_053",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_asht", "item_ketu"],
+      "prompt": { "lang": "de", "text": "Ist Arta hier?" },
+      "answerLang": "sq",
+      "tokens": ["A", "âsht", "Arta", "këtu"],
+      "solutions": ["A âsht Arta këtu?", "A âsht këtu Arta?"],
+      "explanation": "Die Frage beginnt mit „a“, dann folgt das Verb.",
+      "errorHints": [
+        { "pattern": "^arta a", "category": "grammar.word_order", "hint": "„A“ steht am Satzanfang: „A âsht Arta këtu?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_054",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam", "grammar.question_particle"],
+      "itemIds": ["item_a_keni", "item_shpi"],
+      "prompt": { "lang": "de", "text": "Habt ihr ein Haus?" },
+      "answerLang": "sq",
+      "tokens": ["A", "keni", "shpi"],
+      "solutions": ["A keni shpi?"],
+      "explanation": "In Fragen wie dieser lässt man „nji“ meist weg: „A keni shpi?“",
+      "errorHints": [
+        { "pattern": "^keni a", "category": "grammar.word_order", "hint": "„A“ steht am Satzanfang." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_055",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_asht", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Er ist nicht müde." },
+      "answerLang": "sq",
+      "tokens": ["Ai", "nuk", "âsht", "i", "lodhun"],
+      "solutions": ["Ai nuk âsht i lodhun."],
+      "explanation": "„Nuk“ steht direkt vor dem Verb: „nuk âsht“.",
+      "errorHints": [
+        { "pattern": "^ai [aâ]sht nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „Ai nuk âsht …“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_056",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.jam", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_jane", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Sie (Mehrzahl) sind nicht zu Hause." },
+      "answerLang": "sq",
+      "tokens": ["Ata", "nuk", "janë", "në", "shpi"],
+      "solutions": ["Ata nuk janë në shpi."],
+      "explanation": "„Ata nuk janë“ – sie sind nicht.",
+      "errorHints": [
+        { "pattern": "^ata jan[eë] nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk janë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_057",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.kam", "grammar.negation"],
+      "itemIds": ["item_jo", "item_nuk", "item_kam", "item_femije"],
+      "prompt": { "lang": "de", "text": "Nein, ich habe keine Kinder." },
+      "answerLang": "sq",
+      "tokens": ["Jo", "nuk", "kam", "fëmijë"],
+      "solutions": ["Jo, nuk kam fëmijë."],
+      "explanation": "„Jo“ steht allein am Anfang, „nuk“ direkt vor dem Verb.",
+      "errorHints": [
+        { "pattern": "^nuk jo", "category": "grammar.word_order", "hint": "„Jo“ (nein) steht am Anfang, „nuk“ vor dem Verb." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_058",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam", "grammar.negation"],
+      "itemIds": ["item_sot", "item_nuk", "item_kam", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Heute habe ich keine Zeit." },
+      "answerLang": "sq",
+      "tokens": ["Sot", "nuk", "kam", "kohë"],
+      "solutions": ["Sot nuk kam kohë.", "Nuk kam kohë sot."],
+      "explanation": "„Sot“ (heute) kann am Anfang oder am Ende stehen, „nuk“ immer vor dem Verb.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_059",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.question_particle"],
+      "itemIds": ["item_a", "item_jeni", "item_i_lodhun", "item_po", "item_jemi"],
+      "prompt": { "lang": "de", "text": "Seid ihr müde? – Ja, wir sind müde." },
+      "answerLang": "sq",
+      "tokens": ["A", "jeni", "të", "lodhun", "Po", "jemi", "të", "lodhun"],
+      "solutions": ["A jeni të lodhun? Po, jemi të lodhun."],
+      "explanation": "In der Mehrzahl steht „të“ vor dem Adjektiv: „të lodhun“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen. Plural „të lodhun“ ebenfalls zu prüfen."
+    },
+    {
+      "id": "ex_a1_u08_verbs_jam_kam_060",
+      "type": "word_order",
+      "level": "A1.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.jam", "grammar.verbs.kam", "grammar.negation"],
+      "itemIds": ["item_asht", "item_vone", "item_nuk", "item_kemi", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Es ist spät und wir haben keine Zeit." },
+      "answerLang": "sq",
+      "tokens": ["Âsht", "vonë", "dhe", "nuk", "kemi", "kohë"],
+      "solutions": ["Âsht vonë dhe nuk kemi kohë."],
+      "explanation": "„Âsht vonë“ – es ist spät. „Nuk kemi kohë“ – wir haben keine Zeit.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
