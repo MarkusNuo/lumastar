@@ -92,7 +92,7 @@ class RuleBasedAnswerEvaluatorTest {
             assertThat(result.countsAsCorrect()).isTrue();
             assertThat(result.errorCategory()).isEqualTo(ErrorCategory.SPELLING_NASAL_VOWEL);
             assertThat(result.rating()).isEqualTo(Rating.HARD);
-            assertThat(result.hint()).isEqualTo("Fast richtig – achte auf den Zirkumflex: **âsht**");
+            assertThat(result.hint()).isEqualTo("Achte auf den Zirkumflex: **âsht**");
             assertThat(result.solution()).isEqualTo("Shpija âsht e madhe.");
         }
 
@@ -102,7 +102,7 @@ class RuleBasedAnswerEvaluatorTest {
 
             assertThat(result.outcome()).isEqualTo(Outcome.ALMOST_CORRECT);
             assertThat(result.errorCategory()).isEqualTo(ErrorCategory.SPELLING_DIACRITICS);
-            assertThat(result.hint()).isEqualTo("Fast richtig – achte auf die Sonderzeichen: **Çka**");
+            assertThat(result.hint()).isEqualTo("Achte auf die Sonderzeichen: **Çka**");
         }
 
         @Test
@@ -113,7 +113,7 @@ class RuleBasedAnswerEvaluatorTest {
 
             assertThat(result.outcome()).isEqualTo(Outcome.ALMOST_CORRECT);
             assertThat(result.errorCategory()).isEqualTo(ErrorCategory.SPELLING_DIACRITICS);
-            assertThat(result.hint()).isEqualTo("Fast richtig – achte auf die Sonderzeichen: **Mirë**");
+            assertThat(result.hint()).isEqualTo("Achte auf die Sonderzeichen: **Mirë**");
         }
 
         @Test
@@ -121,7 +121,7 @@ class RuleBasedAnswerEvaluatorTest {
             EvaluationResult result = typed(WHAT_ARE_YOU_DOING, "Cka po ban?");
 
             assertThat(result.errorCategory()).isEqualTo(ErrorCategory.SPELLING_DIACRITICS);
-            assertThat(result.hint()).isEqualTo("Fast richtig – achte auf die Sonderzeichen: **Çka**, **bân**");
+            assertThat(result.hint()).isEqualTo("Achte auf die Sonderzeichen: **Çka**, **bân**");
         }
 
         @Test
@@ -145,7 +145,7 @@ class RuleBasedAnswerEvaluatorTest {
             assertThat(result.errorCategory()).isEqualTo(ErrorCategory.VARIANT_STANDARD_FORM);
             assertThat(result.rating()).isEqualTo(Rating.GOOD);
             assertThat(result.solution()).isEqualTo("Shpija âsht e madhe.");
-            assertThat(result.hint()).isEqualTo("Richtig! Auf Gheg sagt man eher „shpija“ statt „shtëpia“ und „âsht“ statt „është“.");
+            assertThat(result.hint()).isEqualTo("Auf Gheg sagt man eher **shpija** statt **shtëpia** und **âsht** statt **është**.");
         }
 
         @Test
@@ -153,7 +153,7 @@ class RuleBasedAnswerEvaluatorTest {
             EvaluationResult result = typed(TestExercises.typedGap(List.of("âsht"), List.of()), "është");
 
             assertThat(result.outcome()).isEqualTo(Outcome.CORRECT_STANDARD_FORM);
-            assertThat(result.hint()).isEqualTo("Richtig! Auf Gheg sagt man eher „âsht“ statt „është“.");
+            assertThat(result.hint()).isEqualTo("Auf Gheg sagt man eher **âsht** statt **është**.");
         }
 
         @Test
@@ -163,7 +163,7 @@ class RuleBasedAnswerEvaluatorTest {
             EvaluationResult result = typed(mother, "Nëna është në shpi.");
 
             assertThat(result.outcome()).isEqualTo(Outcome.CORRECT_STANDARD_FORM);
-            assertThat(result.hint()).isEqualTo("Richtig! Auf Gheg sagt man eher „nâna“ statt „nëna“ und „âsht“ statt „është“.");
+            assertThat(result.hint()).isEqualTo("Auf Gheg sagt man eher **nâna** statt **nëna** und **âsht** statt **është**.");
         }
 
         @Test
@@ -172,7 +172,7 @@ class RuleBasedAnswerEvaluatorTest {
 
             assertThat(typed(worked, "Kam punuar sot.").outcome()).isEqualTo(Outcome.CORRECT_STANDARD_FORM);
             assertThat(typed(HOUSE_WITHOUT_STANDARD_FORMS, "Shtëpia âsht e madhe.").hint())
-                    .isEqualTo("Richtig! Auf Gheg sagt man eher „shpija“ statt „shtëpia“.");
+                    .isEqualTo("Auf Gheg sagt man eher **shpija** statt **shtëpia**.");
         }
 
         @Test
@@ -188,7 +188,7 @@ class RuleBasedAnswerEvaluatorTest {
             EvaluationResult result = typed(WHAT_ARE_YOU_DOING, "Çfarë bën?");
 
             assertThat(result.solution()).isEqualTo("Çka bân?");
-            assertThat(result.hint()).isEqualTo("Richtig! Auf Gheg sagt man eher „çka“ statt „çfarë“ und „bân“ statt „bën“.");
+            assertThat(result.hint()).isEqualTo("Auf Gheg sagt man eher **çka** statt **çfarë** und **bân** statt **bën**.");
         }
 
         @Test
@@ -300,7 +300,7 @@ class RuleBasedAnswerEvaluatorTest {
             assertThat(result.outcome()).isEqualTo(Outcome.ALMOST_CORRECT);
             assertThat(result.errorCategory()).isEqualTo(ErrorCategory.SPELLING_OTHER);
             assertThat(result.rating()).isEqualTo(Rating.HARD);
-            assertThat(result.hint()).isEqualTo("Fast richtig – achte auf die Schreibweise: **madhe**");
+            assertThat(result.hint()).isEqualTo("Achte auf die Schreibweise: **madhe**");
         }
 
         @Test

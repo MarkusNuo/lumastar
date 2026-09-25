@@ -17,24 +17,24 @@ final class FeedbackHints {
 
     static String standardForm(List<WordSwap> swaps, String solution) {
         if (swaps.isEmpty() || swaps.size() > MAX_LISTED_SWAPS) {
-            return "Richtig! Auf Gheg sagt man eher: „%s“".formatted(solution);
+            return "Auf Gheg sagt man eher: „%s“".formatted(solution);
         }
         List<String> phrases = swaps.stream()
-                .map(swap -> "„%s“ statt „%s“".formatted(swap.gheg(), swap.standard()))
+                .map(swap -> "**%s** statt **%s**".formatted(swap.gheg(), swap.standard()))
                 .toList();
-        return "Richtig! Auf Gheg sagt man eher %s.".formatted(enumerate(phrases));
+        return "Auf Gheg sagt man eher %s.".formatted(enumerate(phrases));
     }
 
     static String missingCircumflex(List<String> words) {
-        return "Fast richtig – achte auf den Zirkumflex: " + bold(words);
+        return "Achte auf den Zirkumflex: " + bold(words);
     }
 
     static String missingDiacritics(List<String> words) {
-        return "Fast richtig – achte auf die Sonderzeichen: " + bold(words);
+        return "Achte auf die Sonderzeichen: " + bold(words);
     }
 
     static String typo(List<String> words) {
-        return "Fast richtig – achte auf die Schreibweise: " + bold(words);
+        return "Achte auf die Schreibweise: " + bold(words);
     }
 
     static String wordOrder() {
@@ -42,7 +42,7 @@ final class FeedbackHints {
     }
 
     static String onePairMismatched() {
-        return "Fast richtig – ein Paar hast du zuerst falsch zugeordnet.";
+        return "Ein Paar hast du zuerst falsch zugeordnet.";
     }
 
     static String pairsMismatched(int mistakes) {

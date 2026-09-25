@@ -189,7 +189,7 @@ class LessonApiTest extends IntegrationTest {
             assertThat(attempt).hasStatusOk().bodyJson().isStrictlyEqualTo("""
                     {"exerciseId": "ex_a1_u02_002", "outcome": "correct_standard_form", "countsAsCorrect": true,
                      "errorCategory": "variant.standard_form",
-                     "hint": "Richtig! Auf Gheg sagt man eher „shpija“ statt „shtëpia“ und „âsht“ statt „është“.",
+                     "hint": "Auf Gheg sagt man eher **shpija** statt **shtëpia** und **âsht** statt **është**.",
                      "explanation": "Der bestimmte Artikel wird angehängt: shpi → shpija. „Ist“ heisst auf Gheg „âsht“.",
                      "solution": "Shpija âsht e madhe.", "rating": "good"}""");
         }
