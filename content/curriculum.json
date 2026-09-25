@@ -118,7 +118,8 @@
           "skillTags": ["vocab.food", "vocab.drinks", "phrase.ordering"],
           "color": "amber",
           "icon": "utensils",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a1_u05_food_drink.json"
         },
         {
           "id": "a1_u06_home",
@@ -128,7 +129,8 @@
           "skillTags": ["vocab.home", "grammar.prepositions"],
           "color": "lime",
           "icon": "house",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a1_u06_home.json"
         },
         {
           "id": "a1_u07_definite_article",
@@ -138,7 +140,8 @@
           "skillTags": ["grammar.definite_article.masc", "grammar.definite_article.fem", "grammar.case.accusative"],
           "color": "indigo",
           "icon": "tag",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a1_u07_definite_article.json"
         },
         {
           "id": "a1_u08_verbs_jam_kam",
@@ -148,7 +151,8 @@
           "skillTags": ["grammar.verbs.jam", "grammar.verbs.kam", "grammar.negation", "grammar.question_particle"],
           "color": "coral",
           "icon": "puzzle",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a1_u08_verbs_jam_kam.json"
         }
       ]
     },
@@ -164,7 +168,8 @@
           "skillTags": ["grammar.verbs.present", "vocab.activities"],
           "color": "violet",
           "icon": "zap",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a1_u09_present_regular.json"
         },
         {
           "id": "a1_u10_infinitive_me",
