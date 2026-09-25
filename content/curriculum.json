@@ -240,7 +240,8 @@
           "skillTags": ["grammar.verbs.past_simple", "vocab.time"],
           "color": "indigo",
           "icon": "history",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u02_past_simple.json"
         },
         {
           "id": "a2_u03_body_health",
@@ -250,7 +251,8 @@
           "skillTags": ["vocab.body", "vocab.health", "phrase.health"],
           "color": "coral",
           "icon": "heart-pulse",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u03_body_health.json"
         }
       ]
     },
@@ -266,7 +268,8 @@
           "skillTags": ["grammar.verbs.future", "phrase.plans"],
           "color": "violet",
           "icon": "rocket",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u04_future.json"
         },
         {
           "id": "a2_u05_modal_verbs",
@@ -276,7 +279,8 @@
           "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
           "color": "teal",
           "icon": "key",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u05_modal_verbs.json"
         },
         {
           "id": "a2_u06_clitics",
@@ -286,7 +290,8 @@
           "skillTags": ["grammar.clitics"],
           "color": "sky",
           "icon": "at-sign",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u06_clitics.json"
         },
         {
           "id": "a2_u07_weather_seasons",
