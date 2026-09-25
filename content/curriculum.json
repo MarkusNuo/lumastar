@@ -174,7 +174,8 @@
           "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.participle", "grammar.verbs.modal"],
           "color": "teal",
           "icon": "link",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a1_u10_infinitive_me.json"
         },
         {
           "id": "a1_u11_colours_adjectives",
@@ -184,7 +185,8 @@
           "skillTags": ["vocab.colours", "grammar.linking_article", "grammar.adjective_agreement"],
           "color": "sky",
           "icon": "palette",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a1_u11_colours_adjectives.json"
         },
         {
           "id": "a1_u12_time_days",
@@ -194,7 +196,8 @@
           "skillTags": ["vocab.time", "vocab.days", "phrase.time_telling"],
           "color": "rose",
           "icon": "clock",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a1_u12_time_days.json"
         },
         {
           "id": "a1_u13_shopping",
@@ -204,7 +207,8 @@
           "skillTags": ["vocab.shopping", "phrase.shopping", "vocab.numbers"],
           "color": "amber",
           "icon": "shopping-bag",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a1_u13_shopping.json"
         }
       ]
     },
@@ -220,7 +224,8 @@
           "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
           "color": "lime",
           "icon": "sunrise",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u01_daily_routine.json"
         },
         {
           "id": "a2_u02_past_simple",
