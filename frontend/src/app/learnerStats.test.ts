@@ -5,7 +5,9 @@ import { parseLevel, topBarStats } from './learnerStats';
 const PROFILE: Profile = {
   displayName: 'Erza',
   dailyGoalMinutes: 10,
+  motivations: [],
   onboardingCompleted: true,
+  onboardingStep: 'done',
   xpTotal: 420,
 };
 

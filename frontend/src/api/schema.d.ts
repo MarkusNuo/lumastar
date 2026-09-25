@@ -169,6 +169,120 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/onboarding": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Save the answers of the onboarding questions
+         * @description Can be sent again later, e.g. to change the daily goal. The onboarding is done once the first placement test is completed or skipped.
+         */
+        put: operations["answerOnboarding"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/onboarding/options": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Answer options of the onboarding questions with German labels */
+        get: operations["getOnboardingOptions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/placement": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Start a placement test
+         * @description Starts at the current level, or at the self-assessed level before the first placement. An unfinished test is abandoned. Also used for "Neu einstufen" at any time later (PRD F2).
+         */
+        post: operations["startPlacement"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/placement/skip": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Skip the first placement test and start at A0
+         * @description Only for the self-assessment "Ich kann kein Wort" before the first placement (PRD F1).
+         */
+        post: operations["skipPlacement"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/placement/{testId}/answers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Answer the current item and get the next one
+         * @description No verdict and no solution: the test gives no feedback. When the test is over the learner is placed: level, initial mastery, onboarding completed.
+         */
+        post: operations["answerPlacementItem"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/placement/{testId}/result": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Result of a completed or skipped test */
+        get: operations["getPlacementResult"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/profile/documents/{name}": {
         parameters: {
             query?: never;
@@ -324,6 +438,18 @@ export interface components {
             /** Format: int32 */
             streaks: number;
         };
+        /** @enum {string} */
+        Competence: "vocabulary" | "grammar" | "reading" | "translation";
+        CompetenceResult: {
+            /**
+             * Format: int32
+             * @description 0 if the test had no item of it
+             */
+            answered: number;
+            competence: components["schemas"]["Competence"];
+            /** Format: int32 */
+            correct: number;
+        };
         CurriculumResponse: {
             stages: components["schemas"]["CurriculumStage"][];
         };
@@ -453,7 +579,106 @@ export interface components {
             password: string;
         };
         /** @enum {string} */
+        Motivation: "family" | "travel" | "work" | "heritage" | "interest";
+        MotivationOption: {
+            /** @example Familie/Partner */
+            label: string;
+            value: components["schemas"]["Motivation"];
+        };
+        /** @description The answer options of the onboarding questions with their German labels, in display order */
+        OnboardingOptionsResponse: {
+            dailyGoalMinutes: number[];
+            motivations: components["schemas"]["MotivationOption"][];
+            /** @description From "Ich kann kein Wort" to "Ich verstehe viel, will aber besser schreiben" */
+            selfAssessments: components["schemas"]["SelfAssessmentOption"][];
+        };
+        /** @description The onboarding questions (PRD F1); the options and their German labels come from GET /api/onboarding/options. */
+        OnboardingRequest: {
+            /**
+             * Format: int32
+             * @description 5, 10, 15 or 20
+             */
+            dailyGoalMinutes: number;
+            motivations: components["schemas"]["Motivation"][];
+            selfAssessment: components["schemas"]["SelfAssessment"];
+        };
+        OnboardingResponse: {
+            /** @description true if POST /api/placement/skip may be used instead of the test ("Ich kann kein Wort", before the first placement) */
+            placementSkippable: boolean;
+            /** @description The level POST /api/placement starts at */
+            startLevel: components["schemas"]["Level"];
+        };
+        /** @enum {string} */
+        OnboardingStep: "profile" | "placement" | "done";
+        /** @enum {string} */
         Outcome: "correct" | "almost_correct" | "correct_standard_form" | "wrong";
+        PlacementAnswerRequest: {
+            answer: components["schemas"]["SubmittedAnswer"];
+            /** @description Id of the item shown */
+            exerciseId: string;
+            /**
+             * Format: int32
+             * @description Time from showing the item to the answer
+             */
+            responseTimeMs: number;
+        };
+        /** @description The test goes on with the next item or is finished; like a real placement test it gives no verdict on single answers */
+        PlacementAnswerResponse: {
+            /** @description true when the test is over; the result is at GET /api/placement/{testId}/result */
+            finished: boolean;
+            /** @description The item to show next; absent when finished */
+            nextItem?: components["schemas"]["PlacementItem"];
+            /**
+             * Format: int32
+             * @description 1-based position of the next item; when finished, the number of answered items
+             */
+            position: number;
+        };
+        /** @description A placement item without solutions or explanation; choices, word chips and tokens are shuffled. Fields that do not apply to the type are absent. The answer is sent like a lesson answer (SubmittedAnswer). */
+        PlacementItem: {
+            /** @description Language of the answer; all types except multiple_choice */
+            answerLang?: components["schemas"]["AnswerLang"];
+            /** @description multiple_choice (4 options) and fill_gap answered by picking a chip */
+            choices?: string[];
+            competence: components["schemas"]["Competence"];
+            id: string;
+            prompt: components["schemas"]["ExercisePrompt"];
+            /** @description false until the author has checked the content */
+            reviewed: boolean;
+            /** @description fill_gap: sentence with exactly one ___ gap */
+            text?: string;
+            /** @description word_order: the words to put in order */
+            tokens?: string[];
+            /** @description multiple_choice, fill_gap, translate_wordbank, translate_free or word_order */
+            type: components["schemas"]["ExerciseType"];
+            /** @description translate_wordbank: word chips including distractors */
+            wordBank?: string[];
+        };
+        /** @description Result of a completed or skipped placement test (PRD F2), for the animated level reveal */
+        PlacementResultResponse: {
+            /** Format: int32 */
+            answeredCount: number;
+            /** @description All four competences in the order vocabulary, grammar, reading, translation */
+            competences: components["schemas"]["CompetenceResult"][];
+            /** Format: date-time */
+            finishedAt: string;
+            /** @example A1.2 */
+            level: components["schemas"]["Level"];
+            /**
+             * @description Title of the stage
+             * @example Alltag zu Hause
+             */
+            levelTitle: string;
+            /** @description true if the test was skipped (start at A0) */
+            skipped: boolean;
+            startLevel: components["schemas"]["Level"];
+            /** @description Top 3 strengths, strongest first */
+            strengths: components["schemas"]["SkillEstimate"][];
+            /** Format: uuid */
+            testId: string;
+            /** @description Top 3 weaknesses, weakest first */
+            weaknesses: components["schemas"]["SkillEstimate"][];
+        };
         /** @description RFC 9457 problem details */
         ProblemDetail: {
             /** @description Stable, machine-readable error code, e.g. invalid_credentials */
@@ -493,12 +718,29 @@ export interface components {
              */
             dailyGoalMinutes: number;
             displayName: string;
+            /** @description Empty until the onboarding questions are answered */
+            motivations: components["schemas"]["Motivation"][];
             onboardingCompleted: boolean;
+            /** @description profile: the onboarding questions are open (PUT /api/onboarding); placement: the placement test or its skip is open; done: onboarding done */
+            onboardingStep: components["schemas"]["OnboardingStep"];
+            /** @description Absent until the onboarding questions are answered */
+            selfAssessment?: components["schemas"]["SelfAssessment"];
             /** Format: int32 */
             xpTotal: number;
         };
         /** @enum {string} */
         Rating: "again" | "hard" | "good" | "easy";
+        /** @enum {string} */
+        SelfAssessment: "nothing" | "few_words" | "simple_sentences" | "everyday_conversation" | "understand_much";
+        SelfAssessmentOption: {
+            /** @example Ich kann kein Wort */
+            label: string;
+            /** @description Whether the first placement test may be skipped (start at A0) */
+            placementSkippable: boolean;
+            /** @description Level the first placement test starts at */
+            startLevel: components["schemas"]["Level"];
+            value: components["schemas"]["SelfAssessment"];
+        };
         /** @description Creates the only account of this instance. */
         SetupRequest: {
             /**
@@ -509,9 +751,36 @@ export interface components {
             /** @description Protects the instance; at least 8 characters */
             password: string;
         };
+        SkillEstimate: {
+            /** @description German label */
+            label: string;
+            /**
+             * Format: double
+             * @description Initial mastery estimate, 0 to 1
+             */
+            mastery: number;
+            skillTag: string;
+        };
         StartLessonRequest: {
             /** @example a1_u01_greetings */
             unitId: string;
+        };
+        /** @description A started placement test with its first item */
+        StartPlacementResponse: {
+            item: components["schemas"]["PlacementItem"];
+            /**
+             * Format: int32
+             * @description The most items the test can take; it usually ends earlier
+             */
+            maxItems: number;
+            /**
+             * Format: int32
+             * @description 1-based position of the item
+             */
+            position: number;
+            startLevel: components["schemas"]["Level"];
+            /** Format: uuid */
+            testId: string;
         };
         /** @description Exactly one field, depending on the exercise type: text for translate_free and fill_gap without choices, choice for multiple_choice and fill_gap with choices, tokens for translate_wordbank and word_order, mistakes for match_pairs. */
         SubmittedAnswer: {
@@ -964,6 +1233,309 @@ export interface operations {
             };
             /** @description Not signed in */
             401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    answerOnboarding: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["OnboardingRequest"];
+            };
+        };
+        responses: {
+            /** @description Where the placement test starts and whether it may be skipped */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OnboardingResponse"];
+                };
+            };
+            /** @description Invalid answers (code validation_failed or bad_request) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getOnboardingOptions: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The options */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OnboardingOptionsResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    startPlacement: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The test with its first item */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StartPlacementResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Onboarding questions not answered yet or no placement items (codes onboarding_incomplete, placement_unavailable) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    skipPlacement: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The result of the skipped test (level A0) */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlacementResultResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Skipping is not allowed (code placement_not_skippable) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    answerPlacementItem: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                testId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PlacementAnswerRequest"];
+            };
+        };
+        responses: {
+            /** @description The next item, or finished */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlacementAnswerResponse"];
+                };
+            };
+            /** @description Invalid request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Unknown test (code placement_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description The test is over or was abandoned (code placement_finished) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not the item shown or answer field not fitting its type (codes unexpected_placement_item, answer_type_mismatch) */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getPlacementResult: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                testId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Level, strengths, weaknesses and competences */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlacementResultResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Unknown test (code placement_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Still running or abandoned (code placement_not_finished) */
+            409: {
                 headers: {
                     [name: string]: unknown;
                 };

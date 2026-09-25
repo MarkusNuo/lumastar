@@ -11,7 +11,9 @@ vi.mock('../../lib/celebrate', () => ({ celebrate: vi.fn() }));
 const PROFILE: Profile = {
   displayName: 'Erza',
   dailyGoalMinutes: 10,
+  motivations: [],
   onboardingCompleted: false,
+  onboardingStep: 'profile',
   xpTotal: 0,
 };
 
