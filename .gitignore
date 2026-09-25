@@ -49,5 +49,6 @@ desktop.ini
 
 # Local data
 /data/
+/.tmp/
 *.dump
 
