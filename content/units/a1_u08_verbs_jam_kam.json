@@ -37,8 +37,20 @@
       "reviewed": false
     },
     { "id": "item_s", "kind": "word", "gheg": "s'", "de": "nicht (Kurzform)", "partOfSpeech": "particle", "reviewed": false },
+    { "id": "item_kohe", "kind": "word", "gheg": "kohë", "de": "Zeit", "partOfSpeech": "noun", "gender": "f", "definite": "koha", "reviewed": false },
+    { "id": "item_pune", "kind": "word", "gheg": "punë", "de": "Arbeit", "partOfSpeech": "noun", "gender": "f", "definite": "puna", "reviewed": false },
     { "id": "item_ska_problem", "kind": "phrase", "gheg": "s'ka problem", "de": "kein Problem", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_gati", "kind": "word", "gheg": "gati", "de": "bereit, fertig", "partOfSpeech": "adverb", "reviewed": false }
+    { "id": "item_gati", "kind": "word", "gheg": "gati", "de": "bereit, fertig", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_vone", "kind": "word", "gheg": "vonë", "de": "spät", "partOfSpeech": "adverb", "reviewed": false },
+    {
+      "id": "item_i_lodhun",
+      "kind": "phrase",
+      "gheg": "i lodhun, e lodhun",
+      "de": "müde",
+      "partOfSpeech": "adjective",
+      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    }
   ],
   "exercises": [
     {
