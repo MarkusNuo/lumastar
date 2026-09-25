@@ -4,6 +4,7 @@ import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
 import java.time.Clock;
 import java.util.Optional;
+import java.util.UUID;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,14 +21,16 @@ public class AccountService {
     private final UserRepository users;
     private final PasswordEncoder passwordEncoder;
     private final LoginThrottle loginThrottle;
+    private final PasswordCheckLimit passwordCheckLimit;
     private final JdbcClient jdbcClient;
     private final Clock clock;
 
-    AccountService(UserRepository users, PasswordEncoder passwordEncoder, LoginThrottle loginThrottle, JdbcClient jdbcClient,
-                   Clock clock) {
+    AccountService(UserRepository users, PasswordEncoder passwordEncoder, LoginThrottle loginThrottle,
+                   PasswordCheckLimit passwordCheckLimit, JdbcClient jdbcClient, Clock clock) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
         this.loginThrottle = loginThrottle;
+        this.passwordCheckLimit = passwordCheckLimit;
         this.jdbcClient = jdbcClient;
         this.clock = clock;
     }
@@ -57,16 +60,19 @@ public class AccountService {
         return users.save(new UserEntity(displayName.strip(), passwordEncoder.encode(password), clock.instant()));
     }
 
+    /** The attempt is counted as failed before the password is checked (see {@link LoginThrottle}). */
     @Transactional(readOnly = true)
     UserEntity authenticate(String password, String client) {
-        loginThrottle.checkAllowed(client);
-        Optional<UserEntity> account = users.findFirstByOrderByCreatedAtAsc()
-                .filter(user -> passwordEncoder.matches(password, user.getPasswordHash()));
-        if (account.isEmpty()) {
-            loginThrottle.recordFailure(client);
+        Optional<UserEntity> account = users.findFirstByOrderByCreatedAtAsc();
+        UUID accountId = account.map(UserEntity::getId).orElse(null);
+        boolean matches = passwordCheckLimit.check(() -> {
+            loginThrottle.admit(client, accountId);
+            return account.filter(user -> passwordEncoder.matches(password, user.getPasswordHash())).isPresent();
+        });
+        if (!matches) {
             throw new InvalidCredentialsException();
         }
-        loginThrottle.recordSuccess(client);
+        loginThrottle.recordSuccess(client, accountId);
         return account.get();
     }
 }

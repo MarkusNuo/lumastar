@@ -10,6 +10,14 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 @ConfigurationProperties("lingora")
 public record EngineProperties(@DefaultValue("rule-based") Engine engine) {
 
+    /** Fails the startup with a clear message instead of a missing bean further down. */
+    public EngineProperties {
+        if (engine == Engine.AI) {
+            throw new IllegalArgumentException("lingora.engine=ai is not available: the AI engines are Phase 2 (milestone M7). "
+                    + "Use lingora.engine=rule-based.");
+        }
+    }
+
     public enum Engine {
         RULE_BASED("rule_based_v1"),
         AI("ai_v1");

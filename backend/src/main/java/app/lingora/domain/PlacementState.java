@@ -12,11 +12,18 @@ public record PlacementState(Level startLevel, Level currentLevel, List<Step> st
         steps = List.copyOf(steps);
     }
 
-    public record Step(String exerciseId, Level level, Outcome outcome) {
+    /**
+     * One answered placement item. Skill tags and competence let the evaluation derive the initial mastery per skill
+     * tag and check that every competence has been covered.
+     */
+    public record Step(String exerciseId, Level level, Competence competence, List<SkillTag> skillTags, Outcome outcome) {
 
         public Step {
             Require.notBlank(exerciseId, "exerciseId");
             Objects.requireNonNull(level, "level");
+            Objects.requireNonNull(competence, "competence of placement item " + exerciseId);
+            skillTags = Require.listOrEmpty(skillTags);
+            Require.notEmpty(skillTags, "skillTags");
             Objects.requireNonNull(outcome, "outcome");
         }
     }
