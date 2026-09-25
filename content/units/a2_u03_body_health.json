@@ -79,7 +79,6 @@
     },
     { "id": "item_bark", "kind": "word", "gheg": "bark", "de": "Bauch", "partOfSpeech": "noun", "gender": "m", "definite": "barku", "reviewed": false },
     { "id": "item_shpine", "kind": "word", "gheg": "shpinë", "de": "Rücken", "partOfSpeech": "noun", "gender": "f", "definite": "shpina", "reviewed": false },
-    { "id": "item_zemer", "kind": "word", "gheg": "zemër", "de": "Herz", "partOfSpeech": "noun", "gender": "f", "definite": "zemra", "reviewed": false },
     {
       "id": "item_krah",
       "kind": "word",
@@ -104,15 +103,6 @@
       "reviewed": false
     },
     { "id": "item_i_semure", "kind": "phrase", "gheg": "i sëmurë, e sëmurë", "de": "krank", "partOfSpeech": "adjective", "reviewed": false },
-    {
-      "id": "item_i_lodhun",
-      "kind": "phrase",
-      "gheg": "i lodhun, e lodhun",
-      "de": "müde",
-      "partOfSpeech": "adjective",
-      "note": "Gheg-Form „i/e lodhun“ (Standard: i/e lodhur) laut Sprachrichtlinie zu prüfen.",
-      "reviewed": false
-    },
     {
       "id": "item_temperature",
       "kind": "word",
@@ -158,20 +148,8 @@
       "plural": "ilaçe",
       "reviewed": false
     },
-    {
-      "id": "item_spital",
-      "kind": "word",
-      "gheg": "spital",
-      "de": "Spital, Krankenhaus",
-      "partOfSpeech": "noun",
-      "gender": "m",
-      "definite": "spitali",
-      "reviewed": false
-    },
     { "id": "item_ndihem", "kind": "word", "gheg": "ndihem", "de": "ich fühle mich (ndihesh: du fühlst dich)", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_keq", "kind": "word", "gheg": "keq", "de": "schlecht", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_ma_mire", "kind": "phrase", "gheg": "ma mirë", "de": "besser", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_pushoj", "kind": "word", "gheg": "pushoj", "de": "ich ruhe mich aus (Infinitiv: me pushue)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_sherim_te_shpejte", "kind": "phrase", "gheg": "shërim të shpejtë", "de": "gute Besserung", "partOfSpeech": "phrase", "reviewed": false }
   ],
   "exercises": [

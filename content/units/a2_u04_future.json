@@ -77,16 +77,6 @@
     { "id": "item_te_shtunen", "kind": "phrase", "gheg": "të shtunën", "de": "am Samstag", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_te_dielen", "kind": "phrase", "gheg": "të dielën", "de": "am Sonntag", "partOfSpeech": "phrase", "reviewed": false },
     {
-      "id": "item_fundjave",
-      "kind": "word",
-      "gheg": "fundjavë",
-      "de": "Wochenende",
-      "partOfSpeech": "noun",
-      "gender": "f",
-      "definite": "fundjava",
-      "reviewed": false
-    },
-    {
       "id": "item_pushime",
       "kind": "word",
       "gheg": "pushime",
@@ -106,8 +96,7 @@
       "definite": "plani",
       "plural": "plane",
       "reviewed": false
-    },
-    { "id": "item_bashke", "kind": "word", "gheg": "bashkë", "de": "zusammen", "partOfSpeech": "adverb", "reviewed": false }
+    }
   ],
   "exercises": [
     {

@@ -35,7 +35,6 @@
     { "id": "item_clitic_ta", "kind": "word", "gheg": "ta", "de": "dir es (të + e)", "partOfSpeech": "pronoun", "reviewed": false },
     { "id": "item_clitic_ia", "kind": "word", "gheg": "ia", "de": "ihm/ihr es (i + e)", "partOfSpeech": "pronoun", "reviewed": false },
     { "id": "item_clitic_jua", "kind": "word", "gheg": "jua", "de": "euch/Ihnen es (ju + e)", "partOfSpeech": "pronoun", "reviewed": false },
-    { "id": "item_njoh", "kind": "word", "gheg": "njoh", "de": "ich kenne (njeh: du kennst, er/sie kennt)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_jap", "kind": "word", "gheg": "jap", "de": "ich gebe", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_jep", "kind": "word", "gheg": "jep", "de": "gib!; du gibst, er/sie gibt", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_dhashe", "kind": "word", "gheg": "dhashë", "de": "ich gab (von jap)", "partOfSpeech": "verb", "reviewed": false },

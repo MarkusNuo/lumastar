@@ -18,43 +18,6 @@
   ],
   "items": [
     {
-      "id": "item_du",
-      "kind": "word",
-      "gheg": "du",
-      "de": "ich will; ich liebe",
-      "partOfSpeech": "verb",
-      "alternatives": ["due"],
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen.",
-      "reviewed": false
-    },
-    {
-      "id": "item_don",
-      "kind": "word",
-      "gheg": "don",
-      "de": "du willst; er/sie will",
-      "partOfSpeech": "verb",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert.",
-      "reviewed": false
-    },
-    {
-      "id": "item_muj",
-      "kind": "word",
-      "gheg": "muj",
-      "de": "ich kann",
-      "partOfSpeech": "verb",
-      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen.",
-      "reviewed": false
-    },
-    {
-      "id": "item_mundesh",
-      "kind": "word",
-      "gheg": "mundesh",
-      "de": "du kannst",
-      "partOfSpeech": "verb",
-      "note": "Form „mundesh“ (du kannst) im Kosovo-Gheg zu prüfen; im Alltag auch „mun“ gehört.",
-      "reviewed": false
-    },
-    {
       "id": "item_s_muj",
       "kind": "phrase",
       "gheg": "s'muj",
@@ -63,20 +26,8 @@
       "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen.",
       "reviewed": false
     },
-    { "id": "item_duhet", "kind": "word", "gheg": "duhet", "de": "man muss, es ist nötig", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_duhet", "kind": "phrase", "gheg": "më duhet", "de": "ich muss", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_di", "kind": "word", "gheg": "di", "de": "ich weiss; ich kann (gelernt)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_me_notue", "kind": "phrase", "gheg": "me notue", "de": "schwimmen", "partOfSpeech": "verb", "reviewed": false },
-    {
-      "id": "item_me_gatue",
-      "kind": "phrase",
-      "gheg": "me gatue",
-      "de": "kochen",
-      "partOfSpeech": "verb",
-      "note": "Partizip „gatue“ (von gatuej, Standard: gatuar) zu prüfen.",
-      "reviewed": false
-    },
-    { "id": "item_me_dale", "kind": "phrase", "gheg": "me dalë", "de": "hinausgehen, ausgehen", "partOfSpeech": "verb", "reviewed": false },
     {
       "id": "item_me_prite",
       "kind": "phrase",
@@ -84,17 +35,6 @@
       "de": "warten",
       "partOfSpeech": "verb",
       "note": "Partizip „pritë“ (von pres, Standard: pritur) zu prüfen.",
-      "reviewed": false
-    },
-    { "id": "item_me_ndihmue", "kind": "phrase", "gheg": "me ndihmue", "de": "helfen", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_fjete", "kind": "phrase", "gheg": "me fjetë", "de": "schlafen", "partOfSpeech": "verb", "reviewed": false },
-    {
-      "id": "item_me_pi",
-      "kind": "phrase",
-      "gheg": "me pi",
-      "de": "trinken",
-      "partOfSpeech": "verb",
-      "note": "Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen.",
       "reviewed": false
     },
     {
@@ -106,27 +46,7 @@
       "note": "Partizip „vozitë“ (Standard: vozitur) laut Sprachrichtlinie (offener Punkt 12) zu prüfen.",
       "reviewed": false
     },
-    {
-      "id": "item_me_fole",
-      "kind": "phrase",
-      "gheg": "me folë",
-      "de": "sprechen",
-      "partOfSpeech": "verb",
-      "note": "Partizip „folë“ (Standard: folur; Kosovo auch „fol“) laut Sprachrichtlinie zu prüfen.",
-      "reviewed": false
-    },
-    {
-      "id": "item_me_ble",
-      "kind": "phrase",
-      "gheg": "me ble",
-      "de": "kaufen",
-      "partOfSpeech": "verb",
-      "note": "Partizip „ble“ (Standard: blerë) laut Sprachrichtlinie (offener Punkt 12) zu prüfen.",
-      "reviewed": false
-    },
-    { "id": "item_kohe", "kind": "word", "gheg": "kohë", "de": "Zeit", "partOfSpeech": "noun", "gender": "f", "definite": "koha", "reviewed": false },
     { "id": "item_ngadale", "kind": "word", "gheg": "ngadalë", "de": "langsam", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_pak", "kind": "word", "gheg": "pak", "de": "ein bisschen, wenig", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_asht_mire_me", "kind": "phrase", "gheg": "âsht mirë me …", "de": "es ist gut, … zu …", "partOfSpeech": "phrase", "reviewed": false }
   ],
   "exercises": [

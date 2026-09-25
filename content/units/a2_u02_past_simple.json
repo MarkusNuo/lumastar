@@ -17,14 +17,8 @@
     }
   ],
   "items": [
-    { "id": "item_dje", "kind": "word", "gheg": "dje", "de": "gestern", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_pardje", "kind": "word", "gheg": "pardje", "de": "vorgestern", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_vjet", "kind": "word", "gheg": "vjet", "de": "letztes Jahr", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_sot", "kind": "word", "gheg": "sot", "de": "heute", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_heret", "kind": "word", "gheg": "herët", "de": "früh", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_vone", "kind": "word", "gheg": "vonë", "de": "spät", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_pastaj", "kind": "word", "gheg": "pastaj", "de": "dann, danach", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_kur", "kind": "word", "gheg": "kur", "de": "wann; als", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_punova", "kind": "word", "gheg": "punova", "de": "ich arbeitete (von punoj)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_shkova", "kind": "word", "gheg": "shkova", "de": "ich ging (von shkoj)", "partOfSpeech": "verb", "reviewed": false },
     {
@@ -74,28 +68,6 @@
       "gender": "m",
       "definite": "filmi",
       "plural": "filma",
-      "reviewed": false
-    },
-    {
-      "id": "item_liber",
-      "kind": "word",
-      "gheg": "libër",
-      "de": "Buch",
-      "partOfSpeech": "noun",
-      "gender": "m",
-      "definite": "libri",
-      "plural": "libra",
-      "reviewed": false
-    },
-    {
-      "id": "item_mbramje",
-      "kind": "word",
-      "gheg": "mbrâmje",
-      "de": "Abend",
-      "partOfSpeech": "noun",
-      "gender": "f",
-      "definite": "mbrâmja",
-      "note": "„mbrâmje“ mit â laut Sprachrichtlinie zu prüfen (Standard: mbrëmje).",
       "reviewed": false
     }
   ],
