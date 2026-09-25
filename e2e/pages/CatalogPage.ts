@@ -1,7 +1,19 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
+/** A catalog section as listed in the section navigation: anchor id (e.g. "buttons") and title. */
+export interface CatalogSectionLink {
+  id: string;
+  title: string;
+}
+
 /** Public component catalog (/dev/ui) of the design system (PRD 12.5). */
 export class CatalogPage {
+  /**
+   * Screenshot-only CSS: the sticky catalog header would otherwise cover the top of a section that is
+   * taller than the viewport. Sticky and static take the same space, so the layout does not change.
+   */
+  static readonly UNSTICK_HEADER = 'header:has(nav[aria-label="Abschnitte"]) { position: static !important; }';
+
   readonly page: Page;
   readonly heading: Locator;
   readonly sectionNav: Locator;
@@ -15,6 +27,17 @@ export class CatalogPage {
   async goto(): Promise<void> {
     await this.page.goto('/dev/ui');
     await expect(this.heading).toBeVisible();
+  }
+
+  /** Every section of the navigation, in order; the id comes from the link target "#<id>". */
+  async sectionLinks(): Promise<CatalogSectionLink[]> {
+    const links = await this.sectionNav.getByRole('link').all();
+    return Promise.all(
+      links.map(async (link) => ({
+        id: ((await link.getAttribute('href')) ?? '').replace(/^#/, ''),
+        title: ((await link.textContent()) ?? '').trim(),
+      })),
+    );
   }
 
   section(title: string): Locator {

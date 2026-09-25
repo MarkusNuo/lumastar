@@ -8,6 +8,8 @@ export interface SnapOptions {
   fullPage?: boolean;
   /** Capture only this element instead of the page. */
   element?: Locator;
+  /** Extra CSS applied only while capturing, e.g. to keep a sticky header out of an element shot. */
+  style?: string;
 }
 
 /**
@@ -23,7 +25,12 @@ export async function snap(page: Page, name: string, options: SnapOptions = {}):
   // Self-hosted fonts load lazily; without this the first capture may show the fallback font.
   await page.evaluate(() => document.fonts.ready.then(() => undefined));
 
-  const settings = { path: file, animations: 'disabled', caret: 'hide' } as const;
+  const settings = {
+    path: file,
+    animations: 'disabled',
+    caret: 'hide',
+    ...(options.style ? { style: options.style } : {}),
+  } as const;
   if (options.element) {
     await options.element.screenshot(settings);
   } else {
