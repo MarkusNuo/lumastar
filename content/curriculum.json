@@ -301,7 +301,8 @@
           "skillTags": ["vocab.weather", "vocab.seasons"],
           "color": "rose",
           "icon": "cloud-sun",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a2_u07_weather_seasons.json"
         }
       ]
     },
@@ -317,17 +318,19 @@
           "skillTags": ["vocab.travel", "phrase.directions", "grammar.prepositions", "reading.dialogues"],
           "color": "amber",
           "icon": "map",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u08_travel_directions.json"
         },
         {
           "id": "a2_u09_perfect",
           "title": "Perfekt & Partizipien",
-          "description": "Was ich schon erlebt habe: kam punue, jam kânë.",
+          "description": "Was ich schon erlebt habe: kam punue, kam kânë.",
           "goals": ["Ich kann das Perfekt mit kam/jam + Partizip bilden.", "Ich kenne die kurzen Gheg-Partizipien wie bâ, pa und ardhë."],
           "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
           "color": "lime",
           "icon": "badge-check",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u09_perfect.json"
         },
         {
           "id": "a2_u10_cases",
@@ -337,7 +340,8 @@
           "skillTags": ["grammar.case.dative", "grammar.case.genitive", "grammar.case.ablative", "grammar.linking_article"],
           "color": "indigo",
           "icon": "layers",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u10_cases.json"
         },
         {
           "id": "a2_u11_work_leisure",
@@ -347,7 +351,8 @@
           "skillTags": ["vocab.work", "vocab.leisure", "reading.short_texts"],
           "color": "coral",
           "icon": "briefcase",
-          "estimatedLessons": 5
+          "estimatedLessons": 5,
+          "file": "units/a2_u11_work_leisure.json"
         }
       ]
     },
