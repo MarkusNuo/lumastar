@@ -14,7 +14,8 @@
           "skillTags": ["spelling.alphabet", "spelling.special_letters", "spelling.nasal_vowels"],
           "color": "violet",
           "icon": "letters",
-          "estimatedLessons": 3
+          "estimatedLessons": 3,
+          "file": "units/a0_u01_sounds.json"
         },
         {
           "id": "a0_u02_first_words",
@@ -24,7 +25,8 @@
           "skillTags": ["vocab.basics", "phrase.politeness"],
           "color": "teal",
           "icon": "sparkles",
-          "estimatedLessons": 3
+          "estimatedLessons": 3,
+          "file": "units/a0_u02_first_words.json"
         },
         {
           "id": "a0_u03_me_and_you",
@@ -34,7 +36,8 @@
           "skillTags": ["grammar.pronouns.personal", "grammar.verbs.jam"],
           "color": "sky",
           "icon": "user",
-          "estimatedLessons": 3
+          "estimatedLessons": 3,
+          "file": "units/a0_u03_me_and_you.json"
         }
       ]
     },
@@ -65,7 +68,8 @@
           "skillTags": ["phrase.introductions", "vocab.countries", "grammar.verbs.jam"],
           "color": "teal",
           "icon": "id-card",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a1_u02_introductions.json"
         },
         {
           "id": "a1_u03_numbers",
@@ -75,7 +79,8 @@
           "skillTags": ["vocab.numbers", "phrase.age"],
           "color": "sky",
           "icon": "hash",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a1_u03_numbers.json"
         },
         {
           "id": "a1_u04_family",
