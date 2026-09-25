@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Mascot, type MascotExpression } from '../../../components/ui/Mascot';
+import { MascotMessage } from '../../../components/ui/MascotMessage';
 import { OptionCard } from '../../../components/ui/OptionCard';
+import { Wordmark } from '../../../components/ui/Wordmark';
 import { Specimen } from '../CatalogSection';
 
 const EXPRESSIONS: { expression: MascotExpression; label: string }[] = [
@@ -43,6 +45,17 @@ export function MascotSection() {
             </figure>
           ))}
         </div>
+      </Specimen>
+      <Specimen label="Sprechblase" layout="stack">
+        <MascotMessage>Wie sollen wir dich nennen?</MascotMessage>
+        <MascotMessage expression="encouraging">
+          Freut mich! Wähle jetzt ein Passwort, das nur du kennst.
+        </MascotMessage>
+      </Specimen>
+      <Specimen label="Schriftzug">
+        <Wordmark size="sm" />
+        <Wordmark />
+        <Wordmark size="lg" />
       </Specimen>
       <Specimen label="Wechsel animiert" layout="stack">
         <ExpressionPicker />

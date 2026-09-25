@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { AnswerTextArea, type AnswerStatus } from '../../../components/ui/AnswerTextArea';
 import { Button } from '../../../components/ui/Button';
+import { PasswordField } from '../../../components/ui/PasswordField';
 import { SpecialCharBar } from '../../../components/ui/SpecialCharBar';
 import { TextField } from '../../../components/ui/TextField';
 import { Toggle } from '../../../components/ui/Toggle';
@@ -77,12 +78,12 @@ export function InputsSection() {
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
-        <TextField label="Passwort" type="password" hint="Mindestens 12 Zeichen" />
-        <TextField
-          label="Passwort wiederholen"
-          type="password"
-          error="Die Passwörter stimmen nicht überein."
-        />
+        <TextField label="Wohnort" hint="Freiwillig" />
+        <TextField label="Deaktiviert" value="Nicht änderbar" disabled readOnly />
+      </Specimen>
+      <Specimen label="Passwort: sichtbar schaltbar · Hinweis · Fehler" layout="stack">
+        <PasswordField label="Passwort" hint="Mindestens 8 Zeichen" />
+        <PasswordField label="Passwort wiederholen" error="Die Passwörter stimmen nicht überein." />
       </Specimen>
       <Specimen label="Freitext mit Sonderzeichen-Leiste" layout="stack">
         <FreeAnswerDemo />

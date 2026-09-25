@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Button } from '../../../components/ui/Button';
+import { Callout } from '../../../components/ui/Callout';
 import type { ButtonVariant } from '../../../components/ui/buttonStyles';
 import { FeedbackSheet, type FeedbackVariant } from '../../../components/ui/FeedbackSheet';
+import { TextField } from '../../../components/ui/TextField';
+import { useShake } from '../../../lib/useShake';
 import { Specimen } from '../CatalogSection';
 
 interface FeedbackExample {
@@ -44,6 +47,21 @@ const EXAMPLES: FeedbackExample[] = [
   },
 ];
 
+function ShakeDemo() {
+  const [scope, shake] = useShake();
+
+  return (
+    <div className="flex flex-col gap-3">
+      <div ref={scope}>
+        <TextField label="Passwort" type="password" error="Das Passwort stimmt nicht." />
+      </div>
+      <Button variant="danger" onClick={shake}>
+        Schütteln
+      </Button>
+    </div>
+  );
+}
+
 export function FeedbackSection() {
   // The example stays set after closing so the sheet keeps its content during the exit animation.
   const [example, setExample] = useState<FeedbackExample | null>(null);
@@ -62,6 +80,13 @@ export function FeedbackSection() {
             {item.trigger}
           </Button>
         ))}
+      </Specimen>
+      <Specimen label="Hinweise: Fehler · Warten" layout="stack">
+        <Callout tone="danger">Das hat nicht geklappt. Prüfe deine Verbindung.</Callout>
+        <Callout tone="warning">Zu viele Fehlversuche. Mach kurz Pause.</Callout>
+      </Specimen>
+      <Specimen label="Falsche Eingabe schütteln" layout="stack">
+        <ShakeDemo />
       </Specimen>
       {example && (
         <FeedbackSheet

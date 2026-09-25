@@ -1,13 +1,16 @@
 import { Outlet } from 'react-router';
 import { BottomNav } from '../components/ui/BottomNav';
-import { SAMPLE_LEARNER } from '../features/path/sampleData';
+import { useMe } from '../features/auth/authHooks';
+import { topBarStats } from './learnerStats';
 import { NAV_ITEMS } from './navigation';
 import { TopBar } from './TopBar';
 
 export function AppShell() {
+  const me = useMe();
+
   return (
     <div className="mx-auto flex min-h-dvh max-w-app flex-col">
-      <TopBar {...SAMPLE_LEARNER} />
+      <TopBar {...topBarStats(me.data)} />
       <main className="flex-1 px-gutter pb-[calc(var(--spacing-nav)+var(--safe-bottom)+2rem)]">
         <Outlet />
       </main>

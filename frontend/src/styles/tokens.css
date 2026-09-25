@@ -14,6 +14,7 @@
   --font-*: initial;
   --ease-*: initial;
   --animate-*: initial;
+  --blur-*: initial;
 
   /* Surfaces and text */
   --color-bg: #131f24;
@@ -122,6 +123,9 @@
   --shadow-float: 0 10px 24px rgb(0 0 0 / 0.35);
   --shadow-sheet: 0 -12px 32px rgb(0 0 0 / 0.4);
   --shadow-knob: 0 2px 0 rgb(0 0 0 / 0.25);
+
+  /* Soft glows behind standalone screens */
+  --blur-glow: 4rem;
 
   /* Spacing: 4 px grid plus named layout values */
   --spacing: 0.25rem;

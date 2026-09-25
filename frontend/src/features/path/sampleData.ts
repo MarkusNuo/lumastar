@@ -1,4 +1,3 @@
-import type { TopBarProps } from '../../app/TopBar';
 import type { PathNodeKind, PathNodeStatus } from '../../components/ui/PathNode';
 import type { UnitColor } from '../../components/ui/tones';
 
@@ -22,15 +21,6 @@ export interface SampleUnit {
   subtitle: string;
   nodes: SamplePathNode[];
 }
-
-export const SAMPLE_LEARNER: TopBarProps = {
-  level: 'A1',
-  sublevel: 2,
-  streakDays: 12,
-  streakActive: true,
-  xp: 1240,
-  dailyGoalProgress: 0.6,
-};
 
 export const SAMPLE_UNITS: SampleUnit[] = [
   {
