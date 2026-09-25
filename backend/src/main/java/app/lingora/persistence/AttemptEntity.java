@@ -61,6 +61,8 @@ public class AttemptEntity {
 
     private Instant answeredAt;
 
+    private String expected;
+
     protected AttemptEntity() {
     }
 
@@ -82,6 +84,7 @@ public class AttemptEntity {
         this.responseMs = Math.toIntExact(responseTime.toMillis());
         this.evaluatedBy = evaluatedBy;
         this.answeredAt = answeredAt;
+        this.expected = result.solution();
     }
 
     public String getExerciseId() {

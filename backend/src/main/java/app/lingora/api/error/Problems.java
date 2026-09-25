@@ -10,6 +10,7 @@ import org.springframework.http.ProblemDetail;
 public final class Problems {
 
     public static final String CODE = "code";
+    public static final String UPLOAD_TOO_LARGE = "upload_too_large";
 
     private Problems() {
     }

@@ -101,6 +101,71 @@
         ],
         "type": "object"
       },
+      "BackupCounts": {
+        "description": "Rows per learner table",
+        "properties": {
+          "attempts": {
+            "description": "Answers",
+            "format": "int32",
+            "type": "integer"
+          },
+          "fsrsParams": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "learningPlans": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "placementAnswers": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "placementTests": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "planChanges": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "reviewLog": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "sessions": {
+            "description": "Lessons",
+            "format": "int32",
+            "type": "integer"
+          },
+          "skillMastery": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "srsCards": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "streaks": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attempts",
+          "fsrsParams",
+          "learningPlans",
+          "placementAnswers",
+          "placementTests",
+          "planChanges",
+          "reviewLog",
+          "sessions",
+          "skillMastery",
+          "srsCards",
+          "streaks"
+        ],
+        "type": "object"
+      },
       "CurriculumResponse": {
         "properties": {
           "stages": {
@@ -246,6 +311,29 @@
           "listen_select"
         ],
         "type": "string"
+      },
+      "ImportResult": {
+        "properties": {
+          "exportedAt": {
+            "description": "When the file was exported",
+            "format": "date-time",
+            "type": "string"
+          },
+          "imported": {
+            "$ref": "#/components/schemas/BackupCounts"
+          },
+          "schemaVersion": {
+            "description": "Export format version of the file",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "exportedAt",
+          "imported",
+          "schemaVersion"
+        ],
+        "type": "object"
       },
       "LearnedItem": {
         "properties": {
@@ -541,6 +629,42 @@
           "type": {
             "format": "uri",
             "type": "string"
+          },
+          "unknownReferences": {
+            "description": "Content ids an import refers to but this instance lacks (code unknown_content_references)",
+            "properties": {
+              "exercises": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "items": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "skillTags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "units": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "exercises",
+              "items",
+              "skillTags",
+              "units"
+            ],
+            "type": "object"
           }
         },
         "required": [
@@ -1113,7 +1237,7 @@
                 }
               }
             },
-            "description": "Lesson completed, exercise already answered or retried before its first answer (codes lesson_completed, exercise_already_answered, retry_before_first_attempt)"
+            "description": "Lesson completed, exercise already answered, retried before its first answer or retried after a correct answer (codes lesson_completed, exercise_already_answered, retry_before_first_attempt, exercise_already_correct)"
           },
           "422": {
             "content": {
@@ -1243,6 +1367,235 @@
           }
         },
         "summary": "Basic profile of the signed-in learner",
+        "tags": [
+          "profile"
+        ]
+      }
+    },
+    "/api/profile/documents/{name}": {
+      "get": {
+        "description": "Generated from the current learning state. The JSON documents are learner_profile.json, skill_mastery.json, recent_errors.json (last 50 errors) and learning_plan.json; learner_summary.md is Markdown.",
+        "operationId": "getProfileDocument",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "enum": [
+                "learner_profile.json",
+                "skill_mastery.json",
+                "recent_errors.json",
+                "learning_plan.json",
+                "learner_summary.md"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "JSON document as in PRD 8.3; recent_errors.json is an array",
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              },
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "The document"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Unknown document (code document_not_found)"
+          }
+        },
+        "summary": "One learner profile document (PRD 8.3)",
+        "tags": [
+          "profile"
+        ]
+      }
+    },
+    "/api/profile/export": {
+      "get": {
+        "description": "manifest.json, the profile documents under documents/ and all learner data under data/. The file name is lingora-export-<yyyy-MM-dd>.zip.",
+        "operationId": "exportProfile",
+        "responses": {
+          "200": {
+            "content": {
+              "application/zip": {
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "The export"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "Download the complete learning state as ZIP",
+        "tags": [
+          "profile"
+        ]
+      }
+    },
+    "/api/profile/import": {
+      "post": {
+        "description": "Replaces all learning data of the signed-in account with the content of the file in one transaction; the account and its password stay. Exports of older versions are upgraded.",
+        "operationId": "importProfile",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "file": {
+                    "format": "binary",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "file"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportResult"
+                }
+              }
+            },
+            "description": "The rows restored per table"
+          },
+          "400": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "No file part (code bad_request)"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "413": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "File or unpacked content too large (code upload_too_large)"
+          },
+          "422": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not importable: invalid_backup_archive, unsupported_schema_version, invalid_backup_data (with errors) or unknown_content_references (with unknownReferences)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Restore an export",
+        "tags": [
+          "profile"
+        ]
+      }
+    },
+    "/api/profile/summary": {
+      "get": {
+        "description": "learner_summary.md, for the button \"KI-Zusammenfassung kopieren\" (PRD F11).",
+        "operationId": "getLearnerSummary",
+        "responses": {
+          "200": {
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "The summary in German"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "Compact Markdown summary for an AI chat",
         "tags": [
           "profile"
         ]

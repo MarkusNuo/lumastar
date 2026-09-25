@@ -62,8 +62,9 @@ public class LessonController {
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "404", description = "Unknown lesson (code lesson_not_found)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "409", description = "Lesson completed, exercise already answered or retried before its "
-            + "first answer (codes lesson_completed, exercise_already_answered, retry_before_first_attempt)", content = @Content(
+    @ApiResponse(responseCode = "409", description = "Lesson completed, exercise already answered, retried before its "
+            + "first answer or retried after a correct answer (codes lesson_completed, exercise_already_answered, "
+            + "retry_before_first_attempt, exercise_already_correct)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "422", description = "Exercise not in the lesson or answer field not fitting its type "
             + "(codes exercise_not_in_lesson, answer_type_mismatch)", content = @Content(

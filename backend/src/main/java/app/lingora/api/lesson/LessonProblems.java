@@ -48,6 +48,11 @@ final class LessonProblems {
                 "Exercise '%s' has not been answered yet, so it cannot be retried.".formatted(exerciseId));
     }
 
+    static ApiProblemException retryAfterCorrectAnswer(String exerciseId) {
+        return new ApiProblemException(HttpStatus.CONFLICT, "exercise_already_correct",
+                "Exercise '%s' has already been answered correctly in this lesson.".formatted(exerciseId));
+    }
+
     static ApiProblemException answerTypeMismatch(String detail) {
         return new ApiProblemException(HttpStatus.UNPROCESSABLE_CONTENT, "answer_type_mismatch", detail + ".");
     }

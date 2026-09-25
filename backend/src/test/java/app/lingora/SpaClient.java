@@ -5,11 +5,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Supplier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
+import org.springframework.test.web.servlet.assertj.MockMvcTester.MockMultipartMvcRequestBuilder;
 import org.springframework.test.web.servlet.assertj.MockMvcTester.MockMvcRequestBuilder;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
+import org.springframework.test.web.servlet.request.AbstractMockHttpServletRequestBuilder;
 
 /**
  * Calls the API like the browser SPA: it keeps the cookies (the session cookie and {@code XSRF-TOKEN}) and echoes the
@@ -53,6 +57,20 @@ public final class SpaClient {
         return exchange(jsonPost(uri, json));
     }
 
+    /** A multipart POST with one file part, as a browser form upload sends it. */
+    public MvcTestResult upload(String uri, String part, byte[] content) {
+        MockMultipartMvcRequestBuilder request = multipartPost(uri, part, content);
+        if (csrfToken() != null) {
+            request.header(CSRF_HEADER, csrfToken());
+        }
+        return exchange(request, request::exchange);
+    }
+
+    public MvcTestResult uploadWithoutCsrfHeader(String uri, String part, byte[] content) {
+        MockMultipartMvcRequestBuilder request = multipartPost(uri, part, content);
+        return exchange(request, request::exchange);
+    }
+
     /** Continues a session of another client, as a browser holding that session cookie would. */
     public void useSession(String sessionCookie) {
         cookies.put(SESSION_COOKIE, sessionCookie);
@@ -76,7 +94,15 @@ public final class SpaClient {
         return mvc.post().uri(uri).contentType(MediaType.APPLICATION_JSON).content(json);
     }
 
+    private MockMultipartMvcRequestBuilder multipartPost(String uri, String part, byte[] content) {
+        return mvc.post().uri(uri).multipart().file(new MockMultipartFile(part, "upload.zip", "application/zip", content));
+    }
+
     private MvcTestResult exchange(MockMvcRequestBuilder request) {
+        return exchange(request, request::exchange);
+    }
+
+    private MvcTestResult exchange(AbstractMockHttpServletRequestBuilder<?> request, Supplier<MvcTestResult> send) {
         request.with(servletRequest -> {
             servletRequest.setRemoteAddr(remoteAddress);
             return servletRequest;
@@ -85,7 +111,7 @@ public final class SpaClient {
             request.cookie(cookies.entrySet().stream().map(cookie -> new Cookie(cookie.getKey(), cookie.getValue()))
                     .toArray(Cookie[]::new));
         }
-        MvcTestResult result = request.exchange();
+        MvcTestResult result = send.get();
         for (String name : List.of(SESSION_COOKIE, CSRF_COOKIE)) {
             List<String> updates = setCookieHeaders(result, name);
             if (!updates.isEmpty()) {

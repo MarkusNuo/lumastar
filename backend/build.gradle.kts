@@ -17,6 +17,13 @@ repositories {
     mavenCentral()
 }
 
+springBoot {
+    // The app version for manifest.json of the export; without the build time, so that builds stay up to date.
+    buildInfo {
+        excludes = setOf("time")
+    }
+}
+
 val springdocVersion = "3.1.1"
 val bouncyCastleVersion = "1.86"
 val archUnitVersion = "1.5.0"

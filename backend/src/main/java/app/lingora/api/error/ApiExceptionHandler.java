@@ -17,6 +17,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 /**
@@ -52,6 +53,15 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .map(error -> Map.of("field", error.getField(), "message", String.valueOf(error.getDefaultMessage())))
                 .toList();
         problem.setProperty("errors", errors);
+        return handleExceptionInternal(exception, problem, headers, status, request);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleMaxUploadSizeExceededException(MaxUploadSizeExceededException exception,
+                                                                          HttpHeaders headers, HttpStatusCode status,
+                                                                          WebRequest request) {
+        ProblemDetail problem = Problems.of(HttpStatus.CONTENT_TOO_LARGE, Problems.UPLOAD_TOO_LARGE,
+                "The uploaded file is too large.");
         return handleExceptionInternal(exception, problem, headers, status, request);
     }
 

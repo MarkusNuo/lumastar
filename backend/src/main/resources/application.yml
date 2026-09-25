@@ -8,6 +8,11 @@ spring:
     url: ${LINGORA_DB_URL:jdbc:postgresql://localhost:5433/lingora}
     username: ${LINGORA_DB_USER:lingora}
     password: ${LINGORA_DB_PASSWORD:lingora}
+  servlet:
+    multipart:
+      # Backup imports (POST /api/profile/import); the importer checks lingora.backup limits as well.
+      max-file-size: ${lingora.backup.max-archive-size}
+      max-request-size: 21MB
   session:
     jdbc:
       # The tables are created by Flyway (V2__spring_session.sql).
@@ -54,6 +59,9 @@ springdoc:
 
 lingora:
   engine: rule-based
+  backup:
+    max-archive-size: 20MB
+    max-unpacked-size: 100MB
   content:
     path: ${LINGORA_CONTENT_PATH:../content}
     seed-on-startup: true

@@ -245,6 +245,30 @@ class LessonApiTest extends IntegrationTest {
         }
 
         @Test
+        void acceptsRetriesUntilTheExerciseIsAnsweredCorrectly() {
+            String lesson = start(GREETINGS);
+            answer(lesson, "ex_a1_u01_002", """
+                    {"text": "si jeni"}""", FAST_MS, false);
+
+            assertThat(answer(lesson, "ex_a1_u01_002", """
+                    {"text": "si jeni"}""", FAST_MS, true)).hasStatusOk();
+            assertThat(answer(lesson, "ex_a1_u01_002", """
+                    {"text": "si je"}""", FAST_MS, true)).hasStatusOk();
+            assertProblem(answer(lesson, "ex_a1_u01_002", """
+                    {"text": "si je"}""", FAST_MS, true), HttpStatus.CONFLICT, "exercise_already_correct");
+        }
+
+        @Test
+        void rejectsARetryOfAnExerciseAnsweredCorrectlyAtTheFirstAttempt() {
+            String lesson = start(GREETINGS);
+            answer(lesson, "ex_a1_u01_002", """
+                    {"text": "si je"}""", FAST_MS, false);
+
+            assertProblem(answer(lesson, "ex_a1_u01_002", """
+                    {"text": "si je"}""", FAST_MS, true), HttpStatus.CONFLICT, "exercise_already_correct");
+        }
+
+        @Test
         void validatesTheAnswer() {
             String lesson = start(GREETINGS);
 
@@ -284,6 +308,57 @@ class LessonApiTest extends IntegrationTest {
 
             assertProblem(answer(lesson, "ex_a1_u01_002", """
                     {"text": "si je"}""", FAST_MS, true), HttpStatus.CONFLICT, "lesson_completed");
+        }
+    }
+
+    @Nested
+    class Mastery {
+
+        @Test
+        void updatesTheMasteryOfEverySkillTagOfTheAnsweredExercise() {
+            String lesson = start(FAMILY);
+
+            answer(lesson, "ex_a1_u02_003", """
+                    {"choice": "die Mutter"}""", FAST_MS, false);
+
+            assertThat(mastery()).containsExactly(
+                    "grammar.definite_article.fem|0.5|1|1|true",
+                    "vocab.family|0.5|1|1|true");
+        }
+
+        @Test
+        void countsRetriesWithLessWeightAndNotAsAttempts() {
+            String lesson = start(FAMILY);
+
+            answer(lesson, "ex_a1_u02_002", """
+                    {"text": "Shpi âsht e madhe."}""", FAST_MS, false);
+            answer(lesson, "ex_a1_u02_002", """
+                    {"text": "Shpija âsht e madhe."}""", FAST_MS, true);
+
+            // wrong first answer: 0 → 0; retry: 0.3 · max(0.15, 1/3) · 1 = 0.1
+            assertThat(mastery()).containsExactly(
+                    "grammar.definite_article.fem|0.1|1|0|true",
+                    "vocab.home|0.1|1|0|true");
+        }
+
+        @Test
+        void storesTheSolutionShownWithTheFeedback() {
+            String lesson = start(FAMILY);
+
+            answer(lesson, "ex_a1_u02_002", """
+                    {"text": "Shpi âsht e madhe."}""", FAST_MS, false);
+
+            assertThat(jdbc.sql("SELECT expected FROM attempts").query(String.class).single()).isEqualTo("Shpija âsht e madhe.");
+        }
+
+        private List<String> mastery() {
+            return jdbc.sql("""
+                            SELECT m.skill_tag || '|' || round(m.mastery::numeric, 4)::float8 || '|' || m.attempts || '|'
+                                   || m.correct || '|' || (m.last_practiced_at = a.answered_at)
+                            FROM skill_mastery m
+                            JOIN LATERAL (SELECT max(answered_at) AS answered_at FROM attempts) a ON true
+                            ORDER BY m.skill_tag""")
+                    .query(String.class).list();
         }
     }
 

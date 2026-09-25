@@ -11,6 +11,7 @@ import app.lingora.domain.EvaluationResult;
 import app.lingora.domain.Exercise;
 import app.lingora.domain.Item;
 import app.lingora.domain.LearnerProfile;
+import app.lingora.domain.Outcome;
 import app.lingora.domain.SkillMastery;
 import app.lingora.domain.Unit;
 import app.lingora.persistence.AttemptEntity;
@@ -18,11 +19,13 @@ import app.lingora.persistence.AttemptRepository;
 import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.LessonSessionEntity;
 import app.lingora.persistence.LessonSessionRepository;
+import app.lingora.persistence.SkillMasteryStore;
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Clock;
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -32,30 +35,32 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer, finish with XP (F9). Mastery,
- * FSRS reviews and profile documents build on the recorded attempts in later milestones.
+ * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer together with the mastery of its
+ * skill tags (PRD 8.2), finish with XP (F9). FSRS reviews follow with the adaptivity milestone.
  */
 @Service
 class LessonService {
 
     private static final int ACCURACY_SCALE = 3;
-    private static final SkillMastery NOT_TRACKED_YET = new SkillMastery(Map.of());
 
     private final ContentCatalog catalog;
     private final LessonSessionRepository sessions;
     private final AttemptRepository attempts;
     private final UserRepository users;
+    private final SkillMasteryStore mastery;
     private final LessonComposer composer;
     private final AnswerEvaluator evaluator;
     private final String engineId;
     private final Clock clock;
 
     LessonService(ContentCatalog catalog, LessonSessionRepository sessions, AttemptRepository attempts, UserRepository users,
-                  LessonComposer composer, AnswerEvaluator evaluator, EngineProperties engineProperties, Clock clock) {
+                  SkillMasteryStore mastery, LessonComposer composer, AnswerEvaluator evaluator,
+                  EngineProperties engineProperties, Clock clock) {
         this.catalog = catalog;
         this.sessions = sessions;
         this.attempts = attempts;
         this.users = users;
+        this.mastery = mastery;
         this.composer = composer;
         this.evaluator = evaluator;
         this.engineId = engineProperties.engine().id();
@@ -68,9 +73,11 @@ class LessonService {
         if (unit.isSkeleton()) {
             throw LessonProblems.unitWithoutContent(unitId);
         }
-        List<Exercise> exercises = composer.compose(unit, profileOf(learner), NOT_TRACKED_YET, List.of(), List.of());
+        Instant now = clock.instant();
+        SkillMastery current = mastery.effective(learner.getId(), now);
+        List<Exercise> exercises = composer.compose(unit, profileOf(learner), current, List.of(), List.of());
         LessonSessionEntity session = sessions.save(new LessonSessionEntity(learner.getId(), unit.id(), unit.level(),
-                exercises.stream().map(Exercise::id).toList(), engineId, clock.instant()));
+                exercises.stream().map(Exercise::id).toList(), engineId, now));
         return new LessonResponse(session.getId(), unit.id(), exercises.stream().map(LessonExercise::of).toList());
     }
 
@@ -91,11 +98,17 @@ class LessonService {
         if (!answeredBefore && request.isRetry()) {
             throw LessonProblems.retryBeforeFirstAttempt(exerciseId);
         }
+        // The app repeats a wrong exercise until it is answered correctly; more retries would inflate the mastery.
+        if (request.isRetry() && attempts.existsBySessionIdAndExerciseIdAndOutcomeNot(sessionId, exerciseId, Outcome.WRONG)) {
+            throw LessonProblems.retryAfterCorrectAnswer(exerciseId);
+        }
         Exercise exercise = catalog.exercises(List.of(exerciseId)).get(exerciseId);
         EvaluationResult result = evaluate(exercise, request);
         int position = Math.toIntExact(attempts.countBySessionId(sessionId)) + 1;
+        Instant answeredAt = clock.instant();
         attempts.save(new AttemptEntity(userId, sessionId, position, exercise, request.isRetry(), request.answer().toJson(),
-                request.responseTime(), result, engineId, clock.instant()));
+                request.responseTime(), result, engineId, answeredAt));
+        mastery.recordAnswer(userId, exercise.skillTags(), result.outcome(), request.isRetry(), answeredAt);
         return AttemptResponse.of(exerciseId, result);
     }
 

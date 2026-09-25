@@ -96,6 +96,15 @@ public class OpenApiConfig {
                         new MediaType().schema(new Schema<>().$ref("#/components/schemas/" + PROBLEM_SCHEMA)))));
     }
 
+    private static Schema<?> unknownReferencesSchema() {
+        ObjectSchema references = new ObjectSchema();
+        references.setDescription("Content ids an import refers to but this instance lacks (code unknown_content_references)");
+        List.of("exercises", "items", "units", "skillTags")
+                .forEach(kind -> references.addProperty(kind, new ArraySchema().items(new StringSchema())));
+        references.setRequired(List.of("exercises", "items", "units", "skillTags"));
+        return references;
+    }
+
     /** RFC 9457 problem as rendered by the API: extension members are top-level fields, not a nested map. */
     private static Schema<?> problemSchema() {
         ObjectSchema fieldError = new ObjectSchema();
@@ -114,6 +123,7 @@ public class OpenApiConfig {
         problem.addProperty("errors", new ArraySchema().items(fieldError).description("Invalid fields (code validation_failed)"));
         problem.addProperty("retryAfterSeconds",
                 new IntegerSchema().description("Seconds until the next login attempt (code login_throttled)"));
+        problem.addProperty("unknownReferences", unknownReferencesSchema());
         problem.setRequired(List.of("code", "status", "title"));
         return problem;
     }
