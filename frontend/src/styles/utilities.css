@@ -52,3 +52,15 @@
   background-color: var(--tone-surface);
   color: var(--tone-text);
 }
+
+/* Ruled lines of the answer area in word-bank exercises; one line per row of word tiles. */
+@utility answer-lines {
+  --answer-line-height: 3.75rem;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--answer-line-height) - 2px),
+    var(--color-border) calc(var(--answer-line-height) - 2px),
+    var(--color-border) var(--answer-line-height)
+  );
+}

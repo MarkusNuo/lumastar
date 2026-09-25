@@ -1,0 +1,105 @@
+import type { ExerciseType } from './model';
+
+/** Quotes a word the German way, as the backend's hint texts do. */
+const quote = (text: string) => `„${text}“`;
+
+const bold = (words: string[]) => words.map((word) => `**${word}**`).join(', ');
+
+function enumerate(phrases: string[]): string {
+  if (phrases.length <= 1) return phrases.join('');
+  return `${phrases.slice(0, -1).join(', ')} und ${phrases.at(-1) ?? ''}`;
+}
+
+const MAX_LISTED_SWAPS = 3;
+
+/** UI copy of the lesson player (German, Swiss orthography). */
+export const LESSON_COPY = {
+  loading: 'Lektion wird vorbereitet',
+  progressLabel: 'Lektionsfortschritt',
+  progressValue: (done: number, total: number) => `${done} von ${total} Übungen geschafft`,
+  close: 'Lektion schliessen',
+  check: 'Prüfen',
+  continue: 'Weiter',
+  retryBadge: 'Nochmals',
+  quit: {
+    title: 'Lektion wirklich beenden?',
+    text: 'Dein Fortschritt in dieser Lektion geht verloren.',
+    stay: 'Weiterlernen',
+    leave: 'Beenden',
+  },
+  failure: {
+    title: 'Die Lektion konnte nicht starten',
+    network: 'Lingora erreicht den Server gerade nicht. Prüfe deine Verbindung.',
+    noContent: 'Für diese Einheit gibt es noch keine Übungen.',
+    unknownUnit: 'Diese Einheit gibt es nicht.',
+    retry: 'Nochmals versuchen',
+    back: 'Zum Lernpfad',
+  },
+  saving: 'Ergebnis wird gespeichert',
+  result: {
+    title: 'Lektion geschafft!',
+    perfectTitle: 'Fehlerfrei!',
+    summary: (correct: number, total: number) =>
+      `${correct} von ${total} Übungen hast du auf Anhieb richtig gelöst.`,
+    xp: 'XP',
+    accuracy: 'Genauigkeit',
+    time: 'Zeit',
+    xpValue: (xp: number) => `${xp} XP verdient`,
+    xpUnknown: 'XP noch offen',
+    breakdown: {
+      base: 'Basis',
+      perfectBonus: 'Fehlerfrei',
+      speedBonus: 'Tempo',
+    },
+    learnedTitle: 'Geübte Wörter',
+    notSaved:
+      'Dein Ergebnis konnte noch nicht gespeichert werden. XP und geübte Wörter erscheinen, sobald es geklappt hat.',
+    retrySave: 'Nochmals speichern',
+    continue: 'Weiter',
+  },
+  /** Exercises whose prompt is not a question show this as their title. */
+  instructions: {
+    translate_wordbank: 'Übersetze diesen Satz',
+    translate_free: 'Übersetze diesen Satz',
+    fill_gap: 'Fülle die Lücke',
+    word_order: 'Bilde den Satz',
+  } satisfies Partial<Record<ExerciseType, string>>,
+  unreviewed: {
+    label: 'Ungeprüft',
+    explanation: 'Diese Übung wurde noch nicht von einer Fachperson geprüft.',
+  },
+  answerLabel: {
+    sq: 'Deine Antwort auf Gheg',
+    de: 'Deine Antwort auf Deutsch',
+  },
+  answerPlaceholder: {
+    sq: 'Schreib auf Gheg',
+    de: 'Schreib auf Deutsch',
+  },
+  answerLine: 'Deine Antwort',
+  wordBank: 'Wortbausteine',
+  gapLabel: 'Lücke',
+  gapChoices: 'Antwortmöglichkeiten',
+  pairs: {
+    gheg: 'Gheg',
+    german: 'Deutsch',
+    matched: 'zugeordnet',
+  },
+  /** Mirrors the hint texts of the backend so the instant pre-check reads the same. */
+  hints: {
+    standardForm: (swaps: { gheg: string; standard: string }[], solution: string) =>
+      swaps.length === 0 || swaps.length > MAX_LISTED_SWAPS
+        ? `Richtig! Auf Gheg sagt man eher: ${quote(solution)}`
+        : `Richtig! Auf Gheg sagt man eher ${enumerate(
+            swaps.map((swap) => `${quote(swap.gheg)} statt ${quote(swap.standard)}`),
+          )}.`,
+    missingCircumflex: (words: string[]) =>
+      `Fast richtig – achte auf den Zirkumflex: ${bold(words)}`,
+    missingDiacritics: (words: string[]) =>
+      `Fast richtig – achte auf die Sonderzeichen: ${bold(words)}`,
+    typo: (words: string[]) => `Fast richtig – achte auf die Schreibweise: ${bold(words)}`,
+    wordOrder: 'Die Wörter stimmen, aber die Reihenfolge noch nicht.',
+    onePairMismatched: 'Fast richtig – ein Paar hast du zuerst falsch zugeordnet.',
+    pairsMismatched: (mistakes: number) => `Du hast ${mistakes} Paare zuerst falsch zugeordnet.`,
+  },
+} as const;

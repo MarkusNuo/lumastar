@@ -75,6 +75,83 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/curriculum": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** All stages from A0 to C2.3 with their units */
+        get: operations["getCurriculum"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/lessons": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Compose and start a lesson of a unit
+         * @description The exercises include their solutions and accepted variants so that the app can pre-check answers instantly (PRD 11.2).
+         */
+        post: operations["startLesson"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/lessons/{sessionId}/attempts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Evaluate and record an answer
+         * @description The binding evaluation with error category, hint and FSRS rating. Wrong exercises repeated at the end of the lesson are sent with retry = true.
+         */
+        post: operations["submitAttempt"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/lessons/{sessionId}/complete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Finish the lesson and award its XP
+         * @description Idempotent: completing a finished lesson again returns the same result without awarding XP twice.
+         */
+        post: operations["completeLesson"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/me": {
         parameters: {
             query?: never;
@@ -96,6 +173,39 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** @enum {string} */
+        AnswerLang: "sq" | "de";
+        AttemptRequest: {
+            answer: components["schemas"]["SubmittedAnswer"];
+            exerciseId: string;
+            /**
+             * Format: int32
+             * @description Time from showing the exercise to the answer
+             */
+            responseTimeMs: number;
+            /**
+             * @description true for a wrong exercise repeated at the end of the lesson (PRD F5)
+             * @default false
+             */
+            retry: boolean;
+        };
+        /** @description Binding evaluation of an answer; it replaces the pre-check of the app if the two differ (PRD 11.2) */
+        AttemptResponse: {
+            /** @description true for correct, almost correct and standard-form answers */
+            countsAsCorrect: boolean;
+            /** @description Absent for a correct answer */
+            errorCategory?: components["schemas"]["ErrorCategory"];
+            exerciseId: string;
+            /** @description German explanation of the exercise */
+            explanation: string;
+            /** @description Short German hint; words to look at are marked as **bold** */
+            hint?: string;
+            outcome: components["schemas"]["Outcome"];
+            /** @description Provisional FSRS rating of the answer */
+            rating: components["schemas"]["Rating"];
+            /** @description The accepted solution closest to the answer; absent for match_pairs */
+            solution?: string;
+        };
         AuthStatusResponse: {
             authenticated: boolean;
             /** @description Only present when authenticated */
@@ -103,11 +213,123 @@ export interface components {
             /** @description No account exists yet; the app shows the first-start setup */
             setupRequired: boolean;
         };
+        CurriculumResponse: {
+            stages: components["schemas"]["CurriculumStage"][];
+        };
+        CurriculumStage: {
+            level: components["schemas"]["Level"];
+            title: string;
+            units: components["schemas"]["CurriculumUnit"][];
+        };
+        CurriculumUnit: {
+            /** @description Banner colour; the frontend maps it to a design token */
+            color?: components["schemas"]["UnitColor"];
+            description?: string;
+            /** Format: int32 */
+            estimatedLessons?: number;
+            /** @description false for skeleton units whose exercises are not written yet; they cannot be started */
+            hasContent: boolean;
+            /** @description Free icon key; the frontend falls back to a default icon */
+            icon?: string;
+            id: string;
+            skillTags: string[];
+            title: string;
+        };
+        /** @enum {string} */
+        ErrorCategory: "vocab.unknown" | "vocab.confused" | "spelling.diacritics" | "spelling.nasal_vowel" | "spelling.other" | "variant.standard_form" | "grammar.definite_article" | "grammar.case" | "grammar.linking_article" | "grammar.gender" | "grammar.infinitive" | "grammar.participle" | "grammar.verb_conjugation" | "grammar.verb_tense" | "grammar.word_order" | "grammar.clitics";
+        /** @description A Gheg expression and its German meaning */
+        ExercisePair: {
+            left: string;
+            right: string;
+        };
+        ExercisePrompt: {
+            lang: components["schemas"]["AnswerLang"];
+            text: string;
+        };
+        /** @enum {string} */
+        ExerciseType: "multiple_choice" | "translate_wordbank" | "translate_free" | "fill_gap" | "match_pairs" | "word_order" | "conjugation_drill" | "declension_drill" | "reading" | "free_writing" | "listen_select";
+        LearnedItem: {
+            de: string;
+            gheg: string;
+            id: string;
+        };
+        LessonExercise: {
+            /** @description Language of the answer; all types except multiple_choice and match_pairs */
+            answerLang?: components["schemas"]["AnswerLang"];
+            /** @description multiple_choice (4 options) and fill_gap answered by picking a chip */
+            choices?: string[];
+            /**
+             * Format: int32
+             * @description 1 (easy) to 3 (hard)
+             */
+            difficulty: number;
+            /** @description German explanation for the feedback sheet */
+            explanation: string;
+            id: string;
+            itemIds: string[];
+            level: components["schemas"]["Level"];
+            /** @description match_pairs: 5 pairs; the app shuffles both sides */
+            pairs?: components["schemas"]["ExercisePair"][];
+            prompt: components["schemas"]["ExercisePrompt"];
+            /** @description false until the author has checked the content */
+            reviewed: boolean;
+            skillTags: string[];
+            /** @description Accepted solutions, the first one is canonical; absent for match_pairs */
+            solutions?: string[];
+            /** @description Standard Albanian variants that count as correct with a hint (variant.standard_form) */
+            standardForms?: string[];
+            /** @description fill_gap: sentence with exactly one ___ gap */
+            text?: string;
+            /** @description word_order: the words of the first solution in the correct order; the app shuffles them */
+            tokens?: string[];
+            type: components["schemas"]["ExerciseType"];
+            /** @description translate_wordbank: word chips including distractors */
+            wordBank?: string[];
+        };
+        /** @description A started lesson; its exercises are in the order they are played */
+        LessonResponse: {
+            exercises: components["schemas"]["LessonExercise"][];
+            /** Format: uuid */
+            sessionId: string;
+            unitId: string;
+        };
+        /** @description Result of a finished lesson; completing it again returns the same result */
+        LessonResultResponse: {
+            /**
+             * Format: double
+             * @description Share of exercises answered correctly at the first attempt, 0 to 1
+             */
+            accuracy: number;
+            /**
+             * Format: int32
+             * @description Exercises answered correctly at the first attempt
+             */
+            correctCount: number;
+            /**
+             * Format: int64
+             * @description From the lesson start to its completion
+             */
+            durationMs: number;
+            /** Format: int32 */
+            exerciseCount: number;
+            /** @description Items practised in the lesson */
+            learnedItems: components["schemas"]["LearnedItem"][];
+            xpBreakdown: components["schemas"]["XpBreakdown"];
+            /** Format: int32 */
+            xpEarned: number;
+            /**
+             * Format: int32
+             * @description XP of the learner including this lesson
+             */
+            xpTotal: number;
+        };
         /** @enum {string} */
         Level: "A0" | "A1.1" | "A1.2" | "A1.3" | "A2.1" | "A2.2" | "A2.3" | "B1.1" | "B1.2" | "B1.3" | "B2.1" | "B2.2" | "B2.3" | "C1.1" | "C1.2" | "C1.3" | "C2.1" | "C2.2" | "C2.3";
         LoginRequest: {
             password: string;
         };
+        /** @enum {string} */
+        Outcome: "correct" | "almost_correct" | "correct_standard_form" | "wrong";
         /** @description RFC 9457 problem details */
         ProblemDetail: {
             /** @description Stable, machine-readable error code, e.g. invalid_credentials */
@@ -144,6 +366,8 @@ export interface components {
             /** Format: int32 */
             xpTotal: number;
         };
+        /** @enum {string} */
+        Rating: "again" | "hard" | "good" | "easy";
         /** @description Creates the only account of this instance. */
         SetupRequest: {
             /**
@@ -153,6 +377,40 @@ export interface components {
             displayName: string;
             /** @description Protects the instance; at least 8 characters */
             password: string;
+        };
+        StartLessonRequest: {
+            /** @example a1_u01_greetings */
+            unitId: string;
+        };
+        /** @description Exactly one field, depending on the exercise type: text for translate_free and fill_gap without choices, choice for multiple_choice and fill_gap with choices, tokens for translate_wordbank and word_order, mistakes for match_pairs. */
+        SubmittedAnswer: {
+            /** @description The picked option, as offered */
+            choice?: string;
+            /**
+             * Format: int32
+             * @description Wrong matches before all pairs were matched
+             */
+            mistakes?: number;
+            /** @description Typed answer */
+            text?: string;
+            /** @description Word chips in the chosen order */
+            tokens?: string[];
+        };
+        /** @enum {string} */
+        UnitColor: "violet" | "teal" | "sky" | "rose" | "amber" | "lime" | "indigo" | "coral";
+        XpBreakdown: {
+            /** Format: int32 */
+            base: number;
+            /**
+             * Format: int32
+             * @description No mistake at the first attempts
+             */
+            perfectBonus: number;
+            /**
+             * Format: int32
+             * @description Median first-attempt response time of at most 8 seconds
+             */
+            speedBonus: number;
         };
     };
     responses: never;
@@ -315,6 +573,242 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuthStatusResponse"];
+                };
+            };
+        };
+    };
+    getCurriculum: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The curriculum */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CurriculumResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    startLesson: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StartLessonRequest"];
+            };
+        };
+        responses: {
+            /** @description The lesson with its exercises */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LessonResponse"];
+                };
+            };
+            /** @description Invalid request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Unknown unit (code unit_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description The unit has no exercises yet (code unit_without_content) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    submitAttempt: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                sessionId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AttemptRequest"];
+            };
+        };
+        responses: {
+            /** @description The evaluation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AttemptResponse"];
+                };
+            };
+            /** @description Invalid request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Unknown lesson (code lesson_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Lesson completed, exercise already answered or retried before its first answer (codes lesson_completed, exercise_already_answered, retry_before_first_attempt) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Exercise not in the lesson or answer field not fitting its type (codes exercise_not_in_lesson, answer_type_mismatch) */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    completeLesson: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                sessionId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The lesson result */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LessonResultResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Unknown lesson (code lesson_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not every exercise has been answered (code lesson_incomplete) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
         };

@@ -5,6 +5,7 @@ import { CatalogSection } from './CatalogSection';
 import { ButtonsSection } from './sections/ButtonsSection';
 import { ChoicesSection } from './sections/ChoicesSection';
 import { ColorsSection } from './sections/ColorsSection';
+import { ExercisesSection } from './sections/ExercisesSection';
 import { FeedbackSection } from './sections/FeedbackSection';
 import { GamificationSection } from './sections/GamificationSection';
 import { InputsSection } from './sections/InputsSection';
@@ -12,6 +13,7 @@ import { MascotSection } from './sections/MascotSection';
 import { NavigationSection } from './sections/NavigationSection';
 import { PathSection } from './sections/PathSection';
 import { ProgressSection } from './sections/ProgressSection';
+import { ResultSection } from './sections/ResultSection';
 import { SurfacesSection } from './sections/SurfacesSection';
 import { WordTilesSection } from './sections/WordTilesSection';
 
@@ -24,6 +26,8 @@ const SECTIONS = [
   { id: 'eingabe', title: 'Eingabe', Content: InputsSection },
   { id: 'fortschritt', title: 'Fortschritt', Content: ProgressSection },
   { id: 'feedback', title: 'Feedback', Content: FeedbackSection },
+  { id: 'uebungen', title: 'Übungen', Content: ExercisesSection },
+  { id: 'lektionsende', title: 'Lektionsende', Content: ResultSection },
   { id: 'lernpfad', title: 'Lernpfad', Content: PathSection },
   { id: 'belohnung', title: 'Streak, XP & Niveau', Content: GamificationSection },
   { id: 'navigation', title: 'Navigation', Content: NavigationSection },

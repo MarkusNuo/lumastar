@@ -29,14 +29,14 @@ const EXAMPLES: FeedbackExample[] = [
     trigger: 'Fast richtig',
     button: 'warning',
     solution: 'Shpija âsht e madhe.',
-    hint: 'Achte auf den Zirkumflex: «âsht» statt «asht».',
+    hint: 'Fast richtig – achte auf den Zirkumflex: **âsht**',
   },
   {
     variant: 'standard',
     trigger: 'Standard',
     button: 'secondary',
     solution: 'Shpija âsht e madhe.',
-    hint: '«është» ist Standard-Albanisch. Auf Gheg sagt man «âsht».',
+    hint: 'Richtig! Auf Gheg sagt man eher „âsht“ statt „është“.',
   },
   {
     variant: 'wrong',

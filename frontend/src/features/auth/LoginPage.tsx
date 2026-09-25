@@ -10,7 +10,8 @@ import { Wordmark } from '../../components/ui/Wordmark';
 import { useShake } from '../../lib/useShake';
 import { useLogin } from './authHooks';
 import { AUTH_COPY } from './copy';
-import { formatCountdown, useCountdown } from './useCountdown';
+import { formatClock } from '../../lib/formatClock';
+import { useCountdown } from './useCountdown';
 
 const copy = AUTH_COPY.login;
 
@@ -80,7 +81,7 @@ export function LoginPage() {
           loading={login.isPending}
           disabled={locked}
         >
-          {locked ? copy.wait(formatCountdown(lockSeconds)) : copy.submit}
+          {locked ? copy.wait(formatClock(lockSeconds)) : copy.submit}
         </Button>
       }
     >

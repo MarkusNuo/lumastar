@@ -10,6 +10,8 @@ export interface UnitBannerProps {
   subtitle?: string;
   onGuidebookClick?: () => void;
   guidebookLabel?: string;
+  /** Heading level of the title within the page outline. */
+  titleAs?: 'h2' | 'h3';
   className?: string;
 }
 
@@ -20,6 +22,7 @@ export function UnitBanner({
   subtitle,
   onGuidebookClick,
   guidebookLabel = 'Lernhilfe öffnen',
+  titleAs: Title = 'h2',
   className,
 }: UnitBannerProps) {
   return (
@@ -36,7 +39,7 @@ export function UnitBanner({
       />
       <div className="relative min-w-0 flex-1">
         <p className="text-caption font-extrabold tracking-wider uppercase opacity-80">{eyebrow}</p>
-        <h2 className="text-lead font-black">{title}</h2>
+        <Title className="text-lead font-black">{title}</Title>
         {subtitle && <p className="mt-0.5 text-label font-bold opacity-85">{subtitle}</p>}
       </div>
       {onGuidebookClick && (

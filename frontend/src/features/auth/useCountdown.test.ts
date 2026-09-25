@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { formatCountdown, useCountdown } from './useCountdown';
+import { useCountdown } from './useCountdown';
 
 describe('useCountdown', () => {
   beforeEach(() => {
@@ -29,16 +29,5 @@ describe('useCountdown', () => {
     act(() => void vi.advanceTimersByTime(2_000));
     expect(result.current[0]).toBe(0);
     expect(vi.getTimerCount()).toBe(0);
-  });
-});
-
-describe('formatCountdown', () => {
-  it.each([
-    [0, '0:00'],
-    [9, '0:09'],
-    [75, '1:15'],
-    [900, '15:00'],
-  ])('formats %i seconds as %s', (seconds, expected) => {
-    expect(formatCountdown(seconds)).toBe(expected);
   });
 });

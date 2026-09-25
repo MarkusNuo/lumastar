@@ -1,0 +1,81 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
+import { celebrate } from '../../../lib/celebrate';
+import type { LessonResult } from '../model';
+import { LessonResultScreen } from './LessonResultScreen';
+
+vi.mock('../../../lib/celebrate', () => ({ celebrate: vi.fn() }));
+
+const SAVED: LessonResult = {
+  xp: { earned: 20, breakdown: { base: 10, perfectBonus: 5, speedBonus: 5 }, total: 140 },
+  accuracy: 1,
+  correctCount: 12,
+  exerciseCount: 12,
+  durationMs: 134_500,
+  learnedItems: [
+    { id: 'item_miredita', gheg: 'mirëdita', de: 'guten Tag, hallo' },
+    { id: 'item_faleminderit', gheg: 'faleminderit', de: 'danke' },
+  ],
+  saved: true,
+};
+
+function renderResult(result: LessonResult) {
+  const handlers = { onContinue: vi.fn(), onRetrySave: vi.fn() };
+  render(<LessonResultScreen result={result} retrying={false} {...handlers} />);
+  return { user: userEvent.setup(), ...handlers };
+}
+
+describe('LessonResultScreen', () => {
+  it('celebrates with XP, accuracy, time and the practised words', () => {
+    renderResult(SAVED);
+
+    expect(screen.getByRole('heading', { name: 'Fehlerfrei!' })).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: 'Maskottchen feiert' })).toBeInTheDocument();
+    expect(screen.getByText('20 XP verdient')).toBeInTheDocument();
+    expect(screen.getByText('100%')).toBeInTheDocument();
+    expect(screen.getByText('2:15')).toBeInTheDocument();
+    expect(screen.getByText('mirëdita')).toHaveAttribute('lang', 'sq');
+    expect(screen.getByText('danke')).toBeInTheDocument();
+    expect(celebrate).toHaveBeenCalledOnce();
+  });
+
+  it('lists only the XP bonuses that were earned', () => {
+    renderResult({
+      ...SAVED,
+      xp: { earned: 15, breakdown: { base: 10, perfectBonus: 0, speedBonus: 5 }, total: 135 },
+      accuracy: 0.75,
+      correctCount: 9,
+    });
+
+    expect(screen.getByRole('heading', { name: 'Lektion geschafft!' })).toBeInTheDocument();
+    expect(screen.getByText('75%')).toBeInTheDocument();
+    expect(screen.getByText('Tempo')).toBeInTheDocument();
+    expect(screen.queryByText('Fehlerfrei')).not.toBeInTheDocument();
+  });
+
+  it('continues to the path', async () => {
+    const { user, onContinue } = renderResult(SAVED);
+
+    await user.click(screen.getByRole('button', { name: 'Weiter' }));
+
+    expect(onContinue).toHaveBeenCalledOnce();
+  });
+
+  it('offers to save again when the result could not be saved', async () => {
+    const { user, onRetrySave } = renderResult({
+      accuracy: 0.5,
+      correctCount: 6,
+      exerciseCount: 12,
+      durationMs: 60_000,
+      learnedItems: [],
+      saved: false,
+    });
+
+    expect(screen.getByRole('alert')).toHaveTextContent('noch nicht gespeichert');
+    expect(screen.getByText('XP noch offen')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Nochmals speichern' }));
+
+    expect(onRetrySave).toHaveBeenCalledOnce();
+  });
+});

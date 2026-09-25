@@ -3,12 +3,14 @@ import { cx } from '../../lib/cx';
 import { durations, springs } from '../../styles/motion';
 import type { Tone } from './tones';
 
-export type WordTileState = 'idle' | 'placed' | 'disabled' | 'correct' | 'wrong';
+export type WordTileState = 'idle' | 'selected' | 'placed' | 'disabled' | 'correct' | 'wrong';
 
 export interface WordTileProps {
   children: string;
   state?: WordTileState;
   onClick?: () => void;
+  /** For tiles that toggle a selection, e.g. when matching pairs. */
+  pressed?: boolean;
   /** Shared layout id so the tile flies between word bank and answer line. */
   layoutId?: string;
   lang?: string;
@@ -19,6 +21,7 @@ type ActiveState = Exclude<WordTileState, 'placed'>;
 
 const stateTone: Record<ActiveState, Tone> = {
   idle: 'neutral',
+  selected: 'primary',
   disabled: 'neutral',
   correct: 'success',
   wrong: 'danger',
@@ -26,6 +29,7 @@ const stateTone: Record<ActiveState, Tone> = {
 
 const stateMotion: Record<ActiveState, TargetAndTransition> = {
   idle: { x: 0, y: 0 },
+  selected: { x: 0, y: 0 },
   disabled: { x: 0, y: 0 },
   correct: { y: [0, -8, 0], transition: { duration: durations.slow } },
   wrong: { x: [0, -8, 8, -5, 5, 0], transition: { duration: durations.slow } },
@@ -40,6 +44,7 @@ export function WordTile({
   children,
   state = 'idle',
   onClick,
+  pressed,
   layoutId,
   lang,
   className,
@@ -65,6 +70,7 @@ export function WordTile({
       transition={springs.bouncy}
       animate={stateMotion[state]}
       disabled={state === 'disabled'}
+      aria-pressed={pressed}
       data-tone={stateTone[state]}
       onClick={onClick}
       lang={lang}

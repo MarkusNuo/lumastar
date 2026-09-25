@@ -1,19 +1,14 @@
 import type { ComponentPropsWithRef } from 'react';
 import { cx } from '../../lib/cx';
-import { fieldClass } from './fieldStyles';
+import { answerStatusClass, fieldClass, type AnswerStatus } from './fieldStyles';
 
-export type AnswerStatus = 'correct' | 'wrong';
+export type { AnswerStatus } from './fieldStyles';
 
 export interface AnswerTextAreaProps extends ComponentPropsWithRef<'textarea'> {
   /** Accessible name; the exercise prompt is usually the visible label. */
   label: string;
   status?: AnswerStatus;
 }
-
-const statusClass: Record<AnswerStatus, string> = {
-  correct: 'border-success text-success focus:border-success focus:ring-success/25',
-  wrong: 'border-danger text-danger focus:border-danger focus:ring-danger/25',
-};
 
 export function AnswerTextArea({
   label,
@@ -34,7 +29,7 @@ export function AnswerTextArea({
       className={cx(
         fieldClass,
         'min-h-40 resize-none rounded-card p-4 text-lead',
-        status && statusClass[status],
+        status && answerStatusClass[status],
         className,
       )}
     />

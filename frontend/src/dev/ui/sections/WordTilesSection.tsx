@@ -7,9 +7,10 @@ import { Specimen } from '../CatalogSection';
 
 const STATES: { state: WordTileState; label: string }[] = [
   { state: 'idle', label: 'shpija' },
+  { state: 'selected', label: 'nâna' },
   { state: 'placed', label: 'âsht' },
   { state: 'disabled', label: 'vena' },
-  { state: 'correct', label: 'nâna' },
+  { state: 'correct', label: 'mirë' },
   { state: 'wrong', label: 'shpi' },
 ];
 
@@ -84,7 +85,7 @@ function WordBankDemo() {
 export function WordTilesSection() {
   return (
     <>
-      <Specimen label="Zustände: normal · platziert (Lücke) · deaktiviert · richtig · falsch">
+      <Specimen label="Zustände: normal · gewählt · platziert (Lücke) · deaktiviert · richtig · falsch">
         {STATES.map(({ state, label }) => (
           <WordTile key={state} state={state} lang="sq">
             {label}
