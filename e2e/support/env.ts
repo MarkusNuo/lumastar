@@ -13,15 +13,32 @@ export const BACKEND_URL = `http://${HOST}:${BACKEND_PORT}`;
 export const FRONTEND_URL = `http://${HOST}:${FRONTEND_PORT}`;
 
 /** Screenshots land in screenshots/<milestone>/; bump per milestone or override via env. */
-export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm0';
+export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm1';
+
+/**
+ * Which code the servers run: the working tree (default) or the last commit (E2E_SOURCE=head), which
+ * stays stable while edits continue in backend/, frontend/ and content/ in the shared working tree.
+ */
+export type Source = 'worktree' | 'head';
+
+function sourceFromEnv(value: string | undefined): Source {
+  if (value === undefined || value === '' || value === 'worktree') return 'worktree';
+  if (value === 'head') return 'head';
+  throw new Error(`E2E_SOURCE must be "worktree" or "head", not "${value}"`);
+}
+
+export const SOURCE: Source = sourceFromEnv(process.env.E2E_SOURCE);
 
 const fromE2eRoot = (relative: string) => fileURLToPath(new URL(`../${relative}`, import.meta.url));
 
 export const PATHS = {
+  repoRoot: fromE2eRoot('..'),
   backend: fromE2eRoot('../backend'),
   frontend: fromE2eRoot('../frontend'),
   /** Project-local temp dir; the JDK on the Windows dev machine cannot use the user temp dir. */
   gradleTemp: fromE2eRoot('../.tmp'),
+  /** Export of HEAD for E2E_SOURCE=head (inside the gitignored .tmp). */
+  headExport: fromE2eRoot('../.tmp/e2e-head'),
   /** Own build output, so e2e never overwrites frontend/dist while the frontend is being worked on. */
   frontendDist: fromE2eRoot('.frontend-dist'),
   authState: fromE2eRoot('.auth/learner.json'),

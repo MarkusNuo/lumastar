@@ -10,6 +10,8 @@ export class AppShell {
   readonly bottomNav: Locator;
   readonly profileHeading: Locator;
   readonly logoutButton: Locator;
+  /** Screen-reader text of the XP counter in the top bar, e.g. "120 XP". */
+  readonly xpLabel: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,6 +19,7 @@ export class AppShell {
     this.bottomNav = page.getByRole('navigation', { name: 'Hauptnavigation' });
     this.profileHeading = page.getByRole('heading', { name: 'Profil', level: 1 });
     this.logoutButton = page.getByRole('button', { name: 'Abmelden' });
+    this.xpLabel = this.topBar.getByText(/^\d+ XP$/);
   }
 
   navLink(label: NavLabel): Locator {
