@@ -13,6 +13,7 @@ import { Button } from './Button';
 import { EmphasisText } from './EmphasisText';
 import type { ButtonVariant } from './buttonStyles';
 import type { Tone } from './tones';
+import { UI_COPY } from './copy';
 
 /** correct · almost (typo, still counts) · standard (Standard Albanian form) · wrong */
 export type FeedbackVariant = 'correct' | 'almost' | 'standard' | 'wrong';
@@ -30,29 +31,25 @@ const VARIANTS: Record<FeedbackVariant, VariantConfig> = {
     tone: 'success',
     button: 'success',
     icon: CheckIcon,
-    title: 'Richtig!',
-    solutionLabel: 'Lösung',
+    ...UI_COPY.feedback.correct,
   },
   almost: {
     tone: 'warning',
     button: 'warning',
     icon: PencilSimpleLineIcon,
-    title: 'Fast richtig!',
-    solutionLabel: 'Richtige Schreibweise',
+    ...UI_COPY.feedback.almost,
   },
   standard: {
     tone: 'secondary',
     button: 'secondary',
     icon: TranslateIcon,
-    title: 'Richtig, aber Standard',
-    solutionLabel: 'Auf Gheg',
+    ...UI_COPY.feedback.standard,
   },
   wrong: {
     tone: 'danger',
     button: 'danger',
     icon: XIcon,
-    title: 'Nicht ganz',
-    solutionLabel: 'Richtige Lösung',
+    ...UI_COPY.feedback.wrong,
   },
 };
 
@@ -84,7 +81,7 @@ function FeedbackPanel({
   solutionLang,
   explanation,
   hint,
-  continueLabel = 'Weiter',
+  continueLabel = UI_COPY.feedback.continue,
   onContinue,
 }: Omit<FeedbackSheetProps, 'open'>) {
   const config = VARIANTS[variant];

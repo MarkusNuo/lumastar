@@ -1,5 +1,6 @@
 import { cx } from '../../lib/cx';
 import { PopNumber } from './PopNumber';
+import { UI_COPY } from './copy';
 
 export interface StreakCounterProps {
   days: number;
@@ -9,11 +10,6 @@ export interface StreakCounterProps {
 }
 
 export function StreakCounter({ days, active, className }: StreakCounterProps) {
-  const dayWord = days === 1 ? 'Tag' : 'Tage';
-  const srText = active
-    ? `Streak: ${days} ${dayWord}`
-    : `Streak: ${days} ${dayWord}, heute noch nicht gelernt`;
-
   return (
     <span className={cx('inline-flex items-center gap-1.5', className)}>
       <FlameGlyph lit={active} />
@@ -24,7 +20,7 @@ export function StreakCounter({ days, active, className }: StreakCounterProps) {
           active ? 'text-streak' : 'text-fg-subtle',
         )}
       />
-      <span className="sr-only">{srText}</span>
+      <span className="sr-only">{UI_COPY.streak(days, active)}</span>
     </span>
   );
 }

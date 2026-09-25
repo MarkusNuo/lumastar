@@ -1,5 +1,6 @@
 import { cx } from '../../lib/cx';
 import { levelTone, type CefrLevel } from './levels';
+import { UI_COPY } from './copy';
 
 export type LevelSublevel = 1 | 2 | 3;
 
@@ -35,7 +36,7 @@ export function LevelBadge({
   return (
     <span
       role="img"
-      aria-label={`Niveau ${name}${locked ? ', noch nicht erreicht' : ''}`}
+      aria-label={UI_COPY.levelBadge(name, locked)}
       data-tone={locked ? 'locked' : levelTone[level]}
       className={cx('relative inline-grid aspect-[48/56] shrink-0', sizeClass[size], className)}
     >

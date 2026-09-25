@@ -40,7 +40,7 @@ export const SETUP_COPY = {
   },
   failure: {
     accountExists:
-      'Für diese Lingora gibt es schon ein Konto. Du wirst gleich zur Anmeldung weitergeleitet.',
+      'Für diese Lingora-Instanz gibt es schon ein Konto. Du wirst gleich zur Anmeldung weitergeleitet.',
     invalid: 'Deine Angaben wurden nicht angenommen. Prüfe bitte Name und Passwort.',
     failed:
       'Das Konto konnte nicht erstellt werden. Prüfe deine Verbindung und versuch es nochmals.',

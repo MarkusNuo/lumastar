@@ -4,6 +4,7 @@ import { useId } from 'react';
 import { clamp } from '../../lib/clamp';
 import { cx } from '../../lib/cx';
 import { springs } from '../../styles/motion';
+import { UI_COPY } from './copy';
 
 export interface DailyGoalRingProps {
   /** Share of the daily goal reached, 0..1; values outside are clamped. */
@@ -24,7 +25,7 @@ const RADIUS = CENTER - STROKE / 2 - 1;
 export function DailyGoalRing({
   progress,
   size = 'sm',
-  label = 'Tagesziel',
+  label = UI_COPY.dailyGoal,
   className,
 }: DailyGoalRingProps) {
   const share = clamp(progress, 0, 1);

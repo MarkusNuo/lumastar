@@ -9,6 +9,7 @@ import {
 } from '@phosphor-icons/react';
 import { cx } from '../../lib/cx';
 import { unitTone, type Tone, type UnitColor } from './tones';
+import { UI_COPY } from './copy';
 
 export type PathNodeStatus = 'locked' | 'available' | 'current' | 'completed';
 export type PathNodeKind = 'lesson' | 'focus' | 'checkpoint' | 'review';
@@ -31,13 +32,6 @@ const kindIcon: Record<PathNodeKind, Icon> = {
   review: ArrowsClockwiseIcon,
 };
 
-const statusLabel: Record<PathNodeStatus, string> = {
-  locked: 'gesperrt',
-  available: 'verfügbar',
-  current: 'als Nächstes',
-  completed: 'abgeschlossen',
-};
-
 function nodeTone(status: PathNodeStatus, kind: PathNodeKind, color: UnitColor): Tone {
   if (status === 'locked') return 'locked';
   if (status === 'completed' && kind === 'checkpoint') return 'xp';
@@ -49,7 +43,7 @@ export function PathNode({
   kind = 'lesson',
   color,
   label,
-  bubbleLabel = 'Start',
+  bubbleLabel = UI_COPY.pathNode.start,
   onClick,
   className,
 }: PathNodeProps) {
@@ -91,7 +85,7 @@ export function PathNode({
       <button
         type="button"
         onClick={onClick}
-        aria-label={`${label}, ${statusLabel[status]}`}
+        aria-label={`${label}, ${UI_COPY.pathNode.status[status]}`}
         aria-current={isCurrent ? 'step' : undefined}
         className={cx(
           'relative grid pressable place-items-center rounded-full tone-solid [--press-depth:var(--spacing-edge-node)]',

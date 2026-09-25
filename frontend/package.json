@@ -11,12 +11,13 @@
     "build": "vite build",
     "preview": "vite preview",
     "gen:api": "openapi-typescript ../backend/openapi/openapi.json -o src/api/schema.d.ts",
+    "check:api": "node scripts/check-api.js",
     "typecheck": "tsc -b",
     "lint": "eslint . --max-warnings 0 && prettier --check .",
     "format": "prettier --write .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify": "npm run typecheck && npm run lint && npm run test && npm run build"
+    "verify": "npm run check:api && npm run typecheck && npm run lint && npm run test && npm run build"
   },
   "dependencies": {
     "@fontsource-variable/nunito": "^5.3.0",

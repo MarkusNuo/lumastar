@@ -2,6 +2,7 @@ import { motion, type TargetAndTransition } from 'motion/react';
 import { useId } from 'react';
 import { cx } from '../../lib/cx';
 import { springs } from '../../styles/motion';
+import { UI_COPY } from './copy';
 
 /*
  * Placeholder mascot: an original, chubby aurora star (PRD 12.2 leaves the final character open).
@@ -19,14 +20,6 @@ export interface MascotProps {
 }
 
 const sizeClass = { sm: 'size-16', md: 'size-24', lg: 'size-32', xl: 'size-44' } as const;
-
-const expressionLabel: Record<MascotExpression, string> = {
-  happy: 'freut sich',
-  encouraging: 'ermutigt dich',
-  thinking: 'denkt nach',
-  celebrating: 'feiert',
-  sad: 'ist traurig',
-};
 
 const bodyMotion: Record<MascotExpression, TargetAndTransition> = {
   happy: { rotate: 0, y: 0, scaleY: 1 },
@@ -52,7 +45,7 @@ export function Mascot({ expression = 'happy', size = 'md', label, className }: 
   return (
     <span
       role="img"
-      aria-label={label ?? `Maskottchen ${expressionLabel[expression]}`}
+      aria-label={label ?? UI_COPY.mascot.label(expression)}
       className={cx('inline-block shrink-0 motion-safe:animate-float', sizeClass[size], className)}
     >
       <svg aria-hidden="true" viewBox="0 0 120 120" className="size-full overflow-visible">

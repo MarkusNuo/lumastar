@@ -3,6 +3,7 @@ import { useState, type MouseEvent, type ReactNode, type RefObject } from 'react
 import { flushSync } from 'react-dom';
 import { cx } from '../../lib/cx';
 import { insertAtSelection } from './insertText';
+import { UI_COPY } from './copy';
 
 const GHEG_SPECIAL_CHARS = ['ë', 'ç', 'â', 'ê', 'î', 'ô', 'û'] as const;
 
@@ -37,11 +38,11 @@ export function SpecialCharBar({ inputRef, onChange, className }: SpecialCharBar
   return (
     <div
       role="group"
-      aria-label="Sonderzeichen"
+      aria-label={UI_COPY.specialChars.group}
       className={cx('grid grid-cols-8 gap-1.5', className)}
     >
       <CharKey
-        label="Grossbuchstaben"
+        label={UI_COPY.specialChars.shift}
         pressed={uppercase}
         onPress={() => setUppercase((current) => !current)}
       >
@@ -50,7 +51,11 @@ export function SpecialCharBar({ inputRef, onChange, className }: SpecialCharBar
       {GHEG_SPECIAL_CHARS.map((lower) => {
         const char = uppercase ? lower.toLocaleUpperCase('sq') : lower;
         return (
-          <CharKey key={lower} label={`${char} einfügen`} onPress={() => insert(char)}>
+          <CharKey
+            key={lower}
+            label={UI_COPY.specialChars.insert(char)}
+            onPress={() => insert(char)}
+          >
             {char}
           </CharKey>
         );

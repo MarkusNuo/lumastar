@@ -18,14 +18,14 @@
 
   /* Surfaces and text */
   --color-bg: #131f24;
-  --color-bg-deep: #0d171b;
+  --color-bg-deep: #0c151c;
   --color-surface: #1c2b33;
-  --color-surface-raised: #25363f;
-  --color-border: #2f4450;
-  --color-border-strong: #3d5664;
-  --color-fg: #f2f7f9;
-  --color-fg-muted: #9db2bd;
-  --color-fg-subtle: #6e8793;
+  --color-surface-raised: #263647;
+  --color-border: #31415a;
+  --color-border-strong: #435373;
+  --color-fg: #f3f5fc;
+  --color-fg-muted: #a4b1cc;
+  --color-fg-subtle: #8391b2;
   --color-focus: #8ee8ff;
   --color-highlight: rgb(255 255 255 / 0.2);
   --color-shine: rgb(255 255 255 / 0.5);
@@ -68,9 +68,9 @@
   --color-on-xp: #2d1f00;
 
   /* Locked and disabled */
-  --color-locked: #37464f;
-  --color-locked-edge: #27343b;
-  --color-on-locked: #7d909a;
+  --color-locked: #384461;
+  --color-locked-edge: #283149;
+  --color-on-locked: #8794b3;
 
   /* Unit colours: face, darker 3D edge, readable text on the face */
   --color-unit-violet: var(--color-primary);

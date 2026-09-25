@@ -1,6 +1,7 @@
 import { BookOpenTextIcon } from '@phosphor-icons/react';
 import { cx } from '../../lib/cx';
 import { unitTone, type UnitColor } from './tones';
+import { UI_COPY } from './copy';
 
 export interface UnitBannerProps {
   color: UnitColor;
@@ -21,7 +22,7 @@ export function UnitBanner({
   title,
   subtitle,
   onGuidebookClick,
-  guidebookLabel = 'Lernhilfe öffnen',
+  guidebookLabel = UI_COPY.unitBanner.guidebook,
   titleAs: Title = 'h2',
   className,
 }: UnitBannerProps) {

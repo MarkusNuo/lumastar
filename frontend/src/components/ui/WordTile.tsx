@@ -2,6 +2,7 @@ import { motion, type TargetAndTransition } from 'motion/react';
 import { cx } from '../../lib/cx';
 import { durations, springs } from '../../styles/motion';
 import type { Tone } from './tones';
+import { UI_COPY } from './copy';
 
 export type WordTileState = 'idle' | 'selected' | 'placed' | 'disabled' | 'correct' | 'wrong';
 
@@ -35,7 +36,7 @@ const stateMotion: Record<ActiveState, TargetAndTransition> = {
   wrong: { x: [0, -8, 8, -5, 5, 0], transition: { duration: durations.slow } },
 };
 
-const stateLabel: Partial<Record<ActiveState, string>> = { correct: 'richtig', wrong: 'falsch' };
+const stateLabel: Partial<Record<ActiveState, string>> = UI_COPY.wordTile;
 
 const tileShape =
   'inline-flex min-h-12 items-center rounded-chip border-2 px-4 py-2 text-body font-bold';

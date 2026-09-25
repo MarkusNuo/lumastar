@@ -1,6 +1,7 @@
 import type { Icon } from '@phosphor-icons/react';
 import { NavLink } from 'react-router';
 import { cx } from '../../lib/cx';
+import { UI_COPY } from './copy';
 
 export interface NavItem {
   to: string;
@@ -16,7 +17,7 @@ export interface BottomNavProps {
   className?: string;
 }
 
-export function BottomNav({ items, label = 'Hauptnavigation', className }: BottomNavProps) {
+export function BottomNav({ items, label = UI_COPY.bottomNav, className }: BottomNavProps) {
   return (
     <nav aria-label={label} className={cx('border-t-2 border-border bg-bg', className)}>
       <ul className="flex h-(--spacing-nav) items-stretch px-2">

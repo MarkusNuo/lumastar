@@ -2,6 +2,7 @@ import { EyeIcon, EyeSlashIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 import { IconButton } from './IconButton';
 import { TextField, type TextFieldProps } from './TextField';
+import { UI_COPY } from './copy';
 
 export type PasswordFieldProps = Omit<TextFieldProps, 'type' | 'trailing'>;
 
@@ -19,7 +20,7 @@ export function PasswordField(props: PasswordFieldProps) {
       trailing={
         <IconButton
           icon={visible ? EyeSlashIcon : EyeIcon}
-          label="Passwort anzeigen"
+          label={UI_COPY.password.show}
           aria-pressed={visible}
           variant="ghost"
           size="sm"
