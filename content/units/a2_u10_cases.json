@@ -1,0 +1,1171 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u10_cases",
+  "level": "A2.3",
+  "grammar": [
+    {
+      "title": "Eine Endung für drei Fälle",
+      "explanation": "Im Singular mit bestimmtem Artikel haben **Dativ, Genitiv und Ablativ dieselbe Endung**:\n\n| Nominativ | Dativ / Genitiv / Ablativ | |\n|---|---|---|\n| babai | babait | m: -it |\n| djali | djalit | |\n| vllau | vllaut | m: -ut |\n| nâna | nânës | f: -s / -ës |\n| motra | motrës | |\n| gjyshja | gjyshes | |\n| shpija | shpisë | |\n\nWelcher Fall gemeint ist, zeigt der Satz: *I jap **nânës** nji lule.* (Dativ: der Mutter) – *shpija e **nânës*** (Genitiv: der Mutter) – *prej **punës*** (Ablativ: von der Arbeit)."
+    },
+    {
+      "title": "Genitiv: der Verbindungsartikel",
+      "explanation": "Vor dem Genitiv steht ein **Verbindungsartikel**. Er richtet sich nach dem **Besitz**, nicht nach dem Besitzer:\n\n- maskulin Singular: **i** – *libri **i** Artës* (Artas Buch), *emni **i** nânës*\n- feminin Singular und Plural: **e** – *shpija **e** babait*, *vetura **e** vllaut*, *fëmijët **e** motrës*\n\nSo fragst du: **I kujt âsht ky libër?** – **E kujt âsht kjo veturë?** („Wessen …?“). Nach einem Dativ oder Genitiv wird der Artikel zu **të** (m) bzw. **së** (f): *djalit **të** vogël*, *motrës **së** madhe*."
+    },
+    {
+      "title": "Dativ mit „i“, Ablativ mit „prej“",
+      "explanation": "Den Dativ begleitet fast immer die Kurzform **i**: *I jap nânës nji lule.* – *I telefonoj babait.* – *Artës i pëlqen dimni.* (Arta gefällt der Winter.) Die Frage lautet **kujt?** (wem?).\n\nDen Ablativ brauchst du nach **prej** (von, aus), **afër, pranë, larg**: *Vij prej punës.* – *afër shpisë*. Im Kosovo sagt man meist *prej* + Ablativ; *nga puna* (nga + Nominativ) ist die Standard-Variante."
+    }
+  ],
+  "items": [
+    {
+      "id": "item_case_endings",
+      "kind": "grammar",
+      "gheg": "-it / -ut, -s / -ës",
+      "de": "Endungen für Dativ, Genitiv und Ablativ (bestimmt, Singular)",
+      "partOfSpeech": "other",
+      "reviewed": false
+    },
+    {
+      "id": "item_linking_article",
+      "kind": "grammar",
+      "gheg": "i, e, të, së",
+      "de": "Verbindungsartikel vor Genitiv und Adjektiv",
+      "partOfSpeech": "particle",
+      "reviewed": false
+    },
+    { "id": "item_kujt", "kind": "word", "gheg": "kujt", "de": "wem", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_i_kujt", "kind": "word", "gheg": "i kujt, e kujt", "de": "wessen", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_tim", "kind": "word", "gheg": "tim", "de": "meines, meinem (maskulin, im Dativ/Genitiv)", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_sime", "kind": "word", "gheg": "sime", "de": "meiner (feminin, im Dativ/Genitiv)", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_dergoj", "kind": "word", "gheg": "dërgoj", "de": "ich schicke", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_dergue",
+      "kind": "word",
+      "gheg": "dërgue",
+      "de": "geschickt",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „dërgoj“ (Standard: dërguar).",
+      "reviewed": false
+    },
+    { "id": "item_fshat", "kind": "word", "gheg": "fshat", "de": "Dorf", "partOfSpeech": "noun", "gender": "m", "definite": "fshati", "reviewed": false },
+    {
+      "id": "item_mesues",
+      "kind": "word",
+      "gheg": "mësues, mësuese",
+      "de": "Lehrer, Lehrerin",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "mësuesi",
+      "note": "Feminin: mësuese, bestimmt mësuesja.",
+      "reviewed": false
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u10_cases_001",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article", "vocab.family"],
+      "itemIds": ["item_case_endings", "item_linking_article", "item_baba"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „das Haus des Vaters“?" },
+      "choices": ["shpija i babait", "shpija e babait", "shpija e baba", "babai e shpija"],
+      "solutions": ["shpija e babait"],
+      "explanation": "„Shpija“ ist feminin – darum „e“. „Des Vaters“ heisst „babait“ (Endung -it).",
+      "errorHints": [
+        { "pattern": "^shpija i ", "category": "grammar.linking_article", "hint": "„Shpija“ ist feminin – darum „e“." },
+        { "pattern": "e baba$", "category": "grammar.case", "hint": "„Des Vaters“ heisst „babait“." },
+        { "pattern": "^babai", "category": "grammar.word_order", "hint": "Zuerst kommt der Besitz: „shpija e babait“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_002",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_liber", "item_linking_article"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „libri i Artës“?" },
+      "choices": ["ein Buch für Arta", "Artas Buch", "Arta liest ein Buch", "Arta und das Buch"],
+      "solutions": ["Artas Buch"],
+      "explanation": "„Artës“ ist der Genitiv von „Arta“. „I“ verbindet „libri“ (maskulin) mit dem Besitzer.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_003",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.dative", "vocab.family"],
+      "itemIds": ["item_nane", "item_case_endings", "item_jap"],
+      "prompt": { "lang": "de", "text": "Welche Form passt? „I jap ___ nji lule.“ (der Mutter)" },
+      "choices": ["nâna", "nânës", "nânën", "nânë"],
+      "solutions": ["nânës"],
+      "explanation": "Für „der Mutter“ brauchst du den Dativ: nâna → „nânës“.",
+      "errorHints": [
+        { "pattern": "^n[aâ]na$", "category": "grammar.case", "hint": "Für „der Mutter“ brauchst du den Dativ: „nânës“." },
+        { "pattern": "^n[aâ]n[eë]n$", "category": "grammar.case", "hint": "„Nânën“ ist der Akkusativ. Dativ: „nânës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_004",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions"],
+      "itemIds": ["item_prej", "item_pune"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Vij prej punës.“?" },
+      "choices": ["Ich gehe zur Arbeit.", "Ich komme von der Arbeit.", "Ich komme zur Arbeit.", "Ich arbeite viel."],
+      "solutions": ["Ich komme von der Arbeit."],
+      "explanation": "„Prej“ heisst „von, aus“; danach steht der Ablativ: puna → „punës“.",
+      "errorHints": [
+        { "pattern": "zur", "category": "vocab.confused", "hint": "„Prej“ heisst „von, aus“ – nicht „zu“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_005",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "vocab.family"],
+      "itemIds": ["item_vlla", "item_case_endings"],
+      "prompt": { "lang": "de", "text": "Wie heisst „des Bruders“?" },
+      "choices": ["vllau", "vllaun", "vllaut", "vlla"],
+      "solutions": ["vllaut"],
+      "explanation": "„Vllau“ (der Bruder) bekommt im Genitiv ein -t: „vllaut“.",
+      "errorHints": [
+        { "pattern": "^vllaun$", "category": "grammar.case", "hint": "„Vllaun“ ist der Akkusativ." },
+        { "pattern": "^vllau$", "category": "grammar.case", "hint": "„Vllau“ ist der Nominativ. Genitiv: „vllaut“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_006",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article", "vocab.family"],
+      "itemIds": ["item_linking_article", "item_djale", "item_moter"],
+      "prompt": { "lang": "de", "text": "Welcher Verbindungsartikel passt? „djali ___ motrës“ (der Sohn der Schwester)" },
+      "choices": ["e", "i", "të", "së"],
+      "solutions": ["i"],
+      "explanation": "Der Artikel richtet sich nach dem Besitz: „djali“ ist maskulin – darum „i“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„Djali“ ist maskulin – darum „i“." },
+        { "pattern": "^s[eë]$", "category": "grammar.linking_article", "hint": "„Së“ steht nach einem Genitiv/Dativ. Hier: „djali i motrës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_007",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_i_kujt", "item_veture"],
+      "prompt": { "lang": "de", "text": "Wie fragst du „Wessen Auto ist das?“" },
+      "choices": ["I kujt âsht kjo veturë?", "E kujt âsht kjo veturë?", "Kush âsht kjo veturë?", "Ku âsht kjo veturë?"],
+      "solutions": ["E kujt âsht kjo veturë?"],
+      "explanation": "„Veturë“ ist feminin – darum „e kujt?“ (wessen?).",
+      "errorHints": [
+        { "pattern": "^i kujt", "category": "grammar.linking_article", "hint": "„Veturë“ ist feminin – darum „e kujt“." },
+        { "pattern": "^kush", "category": "vocab.confused", "hint": "„Kush“ heisst „wer“. „Wessen“: „e kujt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_008",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics"],
+      "itemIds": ["item_pelqen", "item_dimen"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Artës i pëlqen dimni.“?" },
+      "choices": ["Der Winter mag Arta.", "Arta mag den Winter.", "Arta mag den Sommer.", "Ich mag Arta im Winter."],
+      "solutions": ["Arta mag den Winter."],
+      "explanation": "Wörtlich: „Arta (Dativ) gefällt der Winter.“ Wer etwas mag, steht im Dativ: „Artës“.",
+      "errorHints": [
+        { "pattern": "sommer", "category": "vocab.confused", "hint": "„Dimni“ ist der Winter." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_009",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions"],
+      "itemIds": ["item_afer", "item_shkolle"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „in der Nähe der Schule“?" },
+      "choices": ["afër shkolla", "afër shkollën", "afër shkollës", "afër shkollë"],
+      "solutions": ["afër shkollës"],
+      "explanation": "Nach „afër“ steht der Ablativ: shkolla → „shkollës“.",
+      "errorHints": [
+        { "pattern": "shkolla$", "category": "grammar.case", "hint": "Nach „afër“ steht der Ablativ: „shkollës“." },
+        { "pattern": "shkoll[eë]n$", "category": "grammar.case", "hint": "„Shkollën“ ist der Akkusativ." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_010",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics", "vocab.family"],
+      "itemIds": ["item_telefonoj", "item_moter"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ich rufe die Schwester an.“?" },
+      "choices": ["I telefonoj motrën.", "I telefonoj motrës.", "Telefonoj motra.", "E telefonoj motrës."],
+      "solutions": ["I telefonoj motrës."],
+      "explanation": "Nach „telefonoj“ steht der Dativ („motrës“), dazu die Kurzform „i“.",
+      "errorHints": [
+        { "pattern": "motr[eë]n$", "category": "grammar.case", "hint": "Nach „telefonoj“ steht der Dativ: „motrës“." },
+        { "pattern": "^e telefonoj", "category": "grammar.clitics", "hint": "Für den Dativ steht „i“, nicht „e“." },
+        { "pattern": "motra$", "category": "grammar.case", "hint": "Hier brauchst du den Dativ: „motrës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_011",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.genitive", "grammar.case.ablative", "reading.short_texts"],
+      "itemIds": ["item_gjysh", "item_tim", "item_afer", "item_shkolle", "item_mesues", "item_halle"],
+      "prompt": { "lang": "sq", "text": "Kjo âsht shpija e gjyshit tim. Afër shpisë âsht nji shkollë. Mësuesja e shkollës âsht halla ime.\n\nFrage: Wer ist die Lehrerin der Schule?" },
+      "choices": ["Meine Grossmutter.", "Meine Tante.", "Meine Schwester.", "Meine Mutter."],
+      "solutions": ["Meine Tante."],
+      "explanation": "„Mësuesja e shkollës âsht halla ime“ – „Die Lehrerin der Schule ist meine Tante.“",
+      "errorHints": [
+        { "pattern": "grossmutter", "category": "vocab.confused", "hint": "Die Grossmutter heisst „gjyshja“. „Halla“ ist die Tante." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_012",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.case.ablative", "reading.short_texts", "grammar.clitics"],
+      "itemIds": ["item_prej", "item_pune", "item_telefonoj", "item_blej", "item_vlla", "item_liber"],
+      "prompt": { "lang": "sq", "text": "Drita vjen prej punës në orën pesë. Pastaj i telefonon nânës dhe i blen vllaut nji libër.\n\nFrage: Wem kauft Drita ein Buch?" },
+      "choices": ["Ihrer Mutter.", "Ihrem Bruder.", "Ihrem Vater.", "Ihrer Freundin."],
+      "solutions": ["Ihrem Bruder."],
+      "explanation": "„I blen vllaut nji libër“ – „sie kauft dem Bruder ein Buch“. Der Mutter („nânës“) telefoniert sie nur.",
+      "errorHints": [
+        { "pattern": "mutter", "category": "vocab.confused", "hint": "Die Mutter („nânës“) ruft sie nur an. Das Buch bekommt „vllaut“, der Bruder." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_013",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_veture", "item_vlla", "item_linking_article"],
+      "prompt": { "lang": "de", "text": "Das ist das Auto des Bruders." },
+      "answerLang": "sq",
+      "solutions": ["Kjo âsht vetura e vllaut."],
+      "wordBank": ["Kjo", "âsht", "vetura", "e", "vllaut", "i", "vllau", "ky"],
+      "explanation": "„Vetura“ ist feminin – darum „e“. „Des Bruders“: „vllaut“.",
+      "errorHints": [
+        { "pattern": "vetura i ", "category": "grammar.linking_article", "hint": "„Vetura“ ist feminin – darum „e“." },
+        { "pattern": "vllau$", "category": "grammar.case", "hint": "„Des Bruders“ heisst „vllaut“." },
+        { "pattern": "^ky ", "category": "grammar.gender", "hint": "„Vetura“ ist feminin – darum „kjo“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_014",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_emen", "item_nane", "item_linking_article"],
+      "prompt": { "lang": "de", "text": "der Name der Mutter" },
+      "answerLang": "sq",
+      "solutions": ["emni i nânës"],
+      "wordBank": ["emni", "i", "nânës", "e", "nâna", "babait"],
+      "explanation": "„Emni“ ist maskulin – darum „i“. „Der Mutter“: „nânës“.",
+      "errorHints": [
+        { "pattern": "^emni e ", "category": "grammar.linking_article", "hint": "„Emni“ ist maskulin – darum „i“." },
+        { "pattern": "n[aâ]na$", "category": "grammar.case", "hint": "„Der Mutter“ im Genitiv: „nânës“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Standard: emri) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_015",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics"],
+      "itemIds": ["item_jap", "item_nane", "item_lule"],
+      "prompt": { "lang": "de", "text": "Ich gebe der Mutter eine Blume." },
+      "answerLang": "sq",
+      "solutions": ["I jap nânës nji lule.", "I jap nji lule nânës."],
+      "wordBank": ["I", "jap", "nânës", "nji", "lule", "nâna", "e", "jep"],
+      "explanation": "Der Dativ („nânës“) wird von der Kurzform „i“ begleitet: „I jap nânës …“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)n[aâ]na(\\s|$)", "category": "grammar.case", "hint": "„Der Mutter“ ist Dativ: „nânës“." },
+        { "pattern": "^e jap", "category": "grammar.clitics", "hint": "Für den Dativ steht „i“ (ihr): „I jap nânës …“." },
+        { "pattern": "^(i )?jep", "category": "grammar.verb_conjugation", "hint": "„Jep“ heisst „du gibst“. Ich gebe: „jap“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_016",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions"],
+      "itemIds": ["item_prej", "item_shkolle"],
+      "prompt": { "lang": "de", "text": "Ich komme von der Schule." },
+      "answerLang": "sq",
+      "solutions": ["Vij prej shkollës.", "Po vij prej shkollës."],
+      "wordBank": ["Vij", "prej", "shkollës", "shkolla", "në", "shkoj"],
+      "explanation": "Nach „prej“ steht der Ablativ: shkolla → „shkollës“.",
+      "errorHints": [
+        { "pattern": "prej shkolla", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „shkollës“." },
+        { "pattern": "shkoj", "category": "vocab.confused", "hint": "„Shkoj“ heisst „ich gehe“. Ich komme: „vij“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_017",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_shoqe", "item_linking_article", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Die Freundin von Arben heisst Besa." },
+      "answerLang": "sq",
+      "solutions": ["Shoqja e Arbenit quhet Besa."],
+      "wordBank": ["Shoqja", "e", "Arbenit", "quhet", "Besa", "i", "Arben", "shoku"],
+      "explanation": "„Shoqja“ ist feminin – darum „e“. Namen bekommen im Genitiv eine Endung: Arben → „Arbenit“.",
+      "errorHints": [
+        { "pattern": "shoqja i ", "category": "grammar.linking_article", "hint": "„Shoqja“ ist feminin – darum „e“." },
+        { "pattern": "e arben(\\s|$)", "category": "grammar.case", "hint": "„Von Arben“ im Genitiv: „Arbenit“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_018",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_i_kujt", "item_liber", "item_ky"],
+      "prompt": { "lang": "de", "text": "Wessen Buch ist das?" },
+      "answerLang": "sq",
+      "solutions": ["I kujt âsht ky libër?", "Ky libër i kujt âsht?"],
+      "wordBank": ["I", "kujt", "âsht", "ky", "libër", "e", "kush", "kjo"],
+      "explanation": "„Libër“ ist maskulin – darum „i kujt?“.",
+      "errorHints": [
+        { "pattern": "^e kujt", "category": "grammar.linking_article", "hint": "„Libër“ ist maskulin – darum „i kujt“." },
+        { "pattern": "kush", "category": "vocab.confused", "hint": "„Kush“ heisst „wer“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_019",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "vocab.family"],
+      "itemIds": ["item_gjyshe", "item_case_endings"],
+      "prompt": { "lang": "sq", "text": "Kjo âsht shpija e gjyshes." },
+      "answerLang": "de",
+      "solutions": ["Das ist das Haus der Grossmutter.", "Das ist das Haus der Oma.", "Dies ist das Haus der Grossmutter."],
+      "wordBank": ["Das", "ist", "das", "Haus", "der", "Grossmutter", "Grossvaters", "des", "Schule"],
+      "explanation": "„Gjyshes“ ist der Genitiv von „gjyshja“ (die Grossmutter).",
+      "errorHints": [
+        { "pattern": "grossvater", "category": "vocab.confused", "hint": "„Gjyshes“ gehört zu „gjyshja“, der Grossmutter. Grossvater: „gjyshi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_020",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.ablative", "vocab.family"],
+      "itemIds": ["item_baba", "item_prej", "item_pune"],
+      "prompt": { "lang": "sq", "text": "Babai vjen prej punës." },
+      "answerLang": "de",
+      "solutions": ["Der Vater kommt von der Arbeit.", "Vater kommt von der Arbeit."],
+      "wordBank": ["Der", "Vater", "kommt", "von", "der", "Arbeit", "geht", "zur", "Mutter"],
+      "explanation": "„Vjen prej punës“ heisst „kommt von der Arbeit“.",
+      "errorHints": [
+        { "pattern": "geht", "category": "vocab.confused", "hint": "„Vjen“ heisst „kommt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_021",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.dative", "grammar.clitics"],
+      "itemIds": ["item_nane", "item_pelqen", "item_muzike"],
+      "prompt": { "lang": "sq", "text": "Nânës i pëlqen muzika." },
+      "answerLang": "de",
+      "solutions": ["Die Mutter mag Musik.", "Der Mutter gefällt die Musik.", "Mutter mag Musik."],
+      "wordBank": ["Die", "Mutter", "mag", "Musik", "Vater", "Schwester", "spielt"],
+      "explanation": "Wörtlich: „Der Mutter gefällt die Musik.“ – „nânës“ ist Dativ.",
+      "errorHints": [
+        { "pattern": "vater", "category": "vocab.confused", "hint": "„Nânës“ gehört zu „nâna“, der Mutter." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_022",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics"],
+      "itemIds": ["item_dergoj", "item_mesazh", "item_shok"],
+      "prompt": { "lang": "sq", "text": "I dërgoj nji mesazh shokut." },
+      "answerLang": "de",
+      "solutions": [
+        "Ich schicke dem Freund eine Nachricht.",
+        "Ich schicke meinem Freund eine Nachricht.",
+        "Ich sende dem Freund eine Nachricht."
+      ],
+      "wordBank": ["Ich", "schicke", "dem", "Freund", "eine", "Nachricht", "der", "Freundin"],
+      "explanation": "„Shokut“ ist der Dativ von „shoku“ (der Freund).",
+      "errorHints": [
+        { "pattern": "freundin", "category": "vocab.confused", "hint": "„Shokut“ ist maskulin: dem Freund. Der Freundin wäre „shoqes“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_023",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.ablative", "phrase.directions"],
+      "itemIds": ["item_larg", "item_qender"],
+      "prompt": { "lang": "sq", "text": "Posta âsht larg qendrës." },
+      "answerLang": "de",
+      "solutions": [
+        "Die Post ist weit vom Zentrum entfernt.",
+        "Die Post ist weit weg vom Zentrum.",
+        "Die Post ist weit vom Zentrum."
+      ],
+      "wordBank": ["Die", "Post", "ist", "weit", "vom", "Zentrum", "entfernt", "nah", "Bahnhof"],
+      "explanation": "Nach „larg“ (weit von) steht der Ablativ: qendra → „qendrës“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)nah", "category": "vocab.confused", "hint": "„Larg“ heisst „weit“. Nah wäre „afër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_024",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.genitive", "grammar.possessive"],
+      "itemIds": ["item_emen", "item_nane", "item_sime"],
+      "prompt": { "lang": "sq", "text": "Emni i nânës sime âsht Drita." },
+      "answerLang": "de",
+      "solutions": ["Der Name meiner Mutter ist Drita.", "Meine Mutter heisst Drita."],
+      "wordBank": ["Der", "Name", "meiner", "Mutter", "ist", "Drita", "meines", "Vaters"],
+      "explanation": "Im Genitiv wird „ime“ zu „sime“: „nâna ime“ → „e nânës sime“ (meiner Mutter).",
+      "errorHints": [
+        { "pattern": "vaters", "category": "vocab.confused", "hint": "„Nânës“ gehört zu „nâna“, der Mutter." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Standard: emri) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_025",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article", "vocab.family"],
+      "itemIds": ["item_nane", "item_linking_article"],
+      "prompt": { "lang": "de", "text": "das Haus der Mutter" },
+      "answerLang": "sq",
+      "solutions": ["shpija e nânës"],
+      "explanation": "„Shpija“ ist feminin – darum „e“. „Der Mutter“: „nânës“.",
+      "errorHints": [
+        { "pattern": "^shpija i ", "category": "grammar.linking_article", "hint": "„Shpija“ ist feminin – darum „e“." },
+        { "pattern": "e n[aâ]na$", "category": "grammar.case", "hint": "„Der Mutter“ im Genitiv: „nânës“." },
+        { "pattern": "^shpi e ", "category": "grammar.definite_article", "hint": "Das Haus ist bestimmt: „shpija“." }
+      ],
+      "standardForms": ["shtëpia e nënës"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_026",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions"],
+      "itemIds": ["item_prej", "item_pune"],
+      "prompt": { "lang": "de", "text": "Ich komme von der Arbeit." },
+      "answerLang": "sq",
+      "solutions": ["Vij prej punës.", "Po vij prej punës.", "Unë vij prej punës."],
+      "explanation": "Nach „prej“ (von) steht der Ablativ: puna → „punës“.",
+      "errorHints": [
+        { "pattern": "prej puna", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „punës“." }
+      ],
+      "standardForms": ["Vij nga puna.", "Po vij nga puna.", "Unë vij nga puna."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nga“ + Nominativ (auch im Kosovo verbreitet) als Standard-Form eingetragen – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_027",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article", "vocab.family"],
+      "itemIds": ["item_djale", "item_moter", "item_quhet"],
+      "prompt": { "lang": "de", "text": "Der Sohn der Schwester heisst Arben." },
+      "answerLang": "sq",
+      "solutions": ["Djali i motrës quhet Arben."],
+      "explanation": "„Djali“ ist maskulin – darum „i“. „Der Schwester“: „motrës“.",
+      "errorHints": [
+        { "pattern": "^djali e ", "category": "grammar.linking_article", "hint": "„Djali“ ist maskulin – darum „i“." },
+        { "pattern": "i motra(\\s|$)", "category": "grammar.case", "hint": "„Der Schwester“ im Genitiv: „motrës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_028",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_i_kujt"],
+      "prompt": { "lang": "de", "text": "Wessen Haus ist das?" },
+      "answerLang": "sq",
+      "solutions": ["E kujt âsht kjo shpi?", "Kjo shpi e kujt âsht?", "E kujt âsht shpija?"],
+      "explanation": "„Shpi“ ist feminin – darum „e kujt?“.",
+      "errorHints": [
+        { "pattern": "^i kujt", "category": "grammar.linking_article", "hint": "„Shpi“ ist feminin – darum „e kujt“." }
+      ],
+      "standardForms": ["E kujt është kjo shtëpi?", "Kjo shtëpi e kujt është?"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_029",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics", "vocab.family"],
+      "itemIds": ["item_telefonoj", "item_gjysh"],
+      "prompt": { "lang": "de", "text": "Ich rufe den Grossvater an." },
+      "answerLang": "sq",
+      "solutions": ["I telefonoj gjyshit.", "Unë i telefonoj gjyshit."],
+      "explanation": "Nach „telefonoj“ steht der Dativ („gjyshit“) mit der Kurzform „i“.",
+      "errorHints": [
+        { "pattern": "gjyshin", "category": "grammar.case", "hint": "Nach „telefonoj“ steht der Dativ: „gjyshit“." },
+        { "pattern": "^(un[eë] )?e telefonoj", "category": "grammar.clitics", "hint": "Für den Dativ steht „i“, nicht „e“." },
+        { "pattern": "^telefonoj", "category": "grammar.clitics", "hint": "Vergiss die Kurzform „i“ nicht: „I telefonoj gjyshit.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_030",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions"],
+      "itemIds": ["item_banke", "item_afer", "item_stacion"],
+      "prompt": { "lang": "de", "text": "Die Bank ist in der Nähe des Bahnhofs." },
+      "answerLang": "sq",
+      "solutions": ["Banka âsht afër stacionit.", "Banka âsht pranë stacionit."],
+      "explanation": "Nach „afër“ steht der Ablativ: stacioni → „stacionit“.",
+      "errorHints": [
+        { "pattern": "stacioni$", "category": "grammar.case", "hint": "Nach „afër“ steht der Ablativ: „stacionit“." }
+      ],
+      "standardForms": ["Banka është afër stacionit.", "Banka është pranë stacionit."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_031",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.clitics", "vocab.family"],
+      "itemIds": ["item_blej", "item_vlla", "item_liber"],
+      "prompt": { "lang": "de", "text": "Ich kaufe dem Bruder ein Buch." },
+      "answerLang": "sq",
+      "solutions": ["I blej vllaut nji libër.", "I blej nji libër vllaut."],
+      "explanation": "„Dem Bruder“ ist Dativ: vllau → „vllaut“, dazu „i“ vor dem Verb.",
+      "errorHints": [
+        { "pattern": "vllaun", "category": "grammar.case", "hint": "„Dem Bruder“ ist Dativ: „vllaut“." },
+        { "pattern": "^blej", "category": "grammar.clitics", "hint": "Vergiss die Kurzform „i“ nicht: „I blej vllaut …“." }
+      ],
+      "standardForms": ["I blej vëllait një libër.", "I blej një libër vëllait."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_032",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.ablative", "vocab.family"],
+      "itemIds": ["item_leter", "item_prej", "item_gjyshe"],
+      "prompt": { "lang": "de", "text": "Der Brief ist von der Grossmutter." },
+      "answerLang": "sq",
+      "solutions": ["Letra âsht prej gjyshes."],
+      "explanation": "Nach „prej“ steht der Ablativ: gjyshja → „gjyshes“.",
+      "errorHints": [
+        { "pattern": "prej gjyshja", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „gjyshes“." }
+      ],
+      "standardForms": ["Letra është nga gjyshja.", "Letra âsht nga gjyshja."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_033",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.linking_article", "grammar.clitics"],
+      "itemIds": ["item_jap", "item_djale", "item_linking_article"],
+      "prompt": { "lang": "de", "text": "Ich gebe dem kleinen Sohn Wasser." },
+      "answerLang": "sq",
+      "solutions": ["I jap ujë djalit të vogël.", "I jap djalit të vogël ujë."],
+      "explanation": "Nach einem Dativ wird der Verbindungsartikel zu „të“: „djalit të vogël“.",
+      "errorHints": [
+        { "pattern": "djalit i vog", "category": "grammar.linking_article", "hint": "Nach „djalit“ (Dativ) steht „të“: „djalit të vogël“." },
+        { "pattern": "djali (i|t[eë]) vog", "category": "grammar.case", "hint": "„Dem Sohn“ ist Dativ: „djalit“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Verbindungsartikel „të/së“ nach Dativ/Genitiv – Gheg-Gebrauch zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_034",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_linking_article", "item_baba"],
+      "prompt": { "lang": "de", "text": "das Haus des Vaters" },
+      "answerLang": "sq",
+      "text": "shpija ___ babait",
+      "solutions": ["e"],
+      "choices": ["i", "e", "të", "së"],
+      "explanation": "„Shpija“ ist feminin – darum „e“.",
+      "errorHints": [
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "„Shpija“ ist feminin – darum „e“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_035",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_linking_article", "item_emen", "item_nane"],
+      "prompt": { "lang": "de", "text": "der Name der Mutter" },
+      "answerLang": "sq",
+      "text": "emni ___ nânës",
+      "solutions": ["i"],
+      "choices": ["i", "e", "të", "së"],
+      "explanation": "„Emni“ ist maskulin – darum „i“, auch wenn der Besitzer (die Mutter) feminin ist.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„Emni“ ist maskulin – darum „i“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Standard: emri) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_036",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.dative", "vocab.family"],
+      "itemIds": ["item_jap", "item_nane", "item_lule"],
+      "prompt": { "lang": "de", "text": "Ich gebe der Mutter eine Blume." },
+      "answerLang": "sq",
+      "text": "I jap ___ nji lule.",
+      "solutions": ["nânës"],
+      "choices": ["nâna", "nânës", "nânën", "nânë"],
+      "explanation": "Für „der Mutter“ brauchst du den Dativ: „nânës“.",
+      "errorHints": [
+        { "pattern": "^n[aâ]na$", "category": "grammar.case", "hint": "Hier brauchst du den Dativ: „nânës“." },
+        { "pattern": "^n[aâ]n[eë]n$", "category": "grammar.case", "hint": "„Nânën“ ist Akkusativ. Dativ: „nânës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_037",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.ablative"],
+      "itemIds": ["item_prej", "item_fshat"],
+      "prompt": { "lang": "de", "text": "Ich komme aus dem Dorf." },
+      "answerLang": "sq",
+      "text": "Vij prej ___.",
+      "solutions": ["fshatit"],
+      "choices": ["fshati", "fshatin", "fshatit", "fshat"],
+      "explanation": "Nach „prej“ steht der Ablativ: fshati → „fshatit“.",
+      "errorHints": [
+        { "pattern": "^fshati$", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „fshatit“." },
+        { "pattern": "^fshatin$", "category": "grammar.case", "hint": "„Fshatin“ ist Akkusativ." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_038",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive", "vocab.family"],
+      "itemIds": ["item_veture", "item_vlla"],
+      "prompt": { "lang": "de", "text": "Das Auto des Bruders ist neu." },
+      "answerLang": "sq",
+      "text": "Vetura e ___ âsht e re.",
+      "solutions": ["vllaut"],
+      "explanation": "Im Genitiv bekommt „vllau“ ein -t: „vllaut“.",
+      "errorHints": [
+        { "pattern": "^vllau$", "category": "grammar.case", "hint": "Im Genitiv endet „vllau“ auf -t: „vllaut“." },
+        { "pattern": "^vllaun$", "category": "grammar.case", "hint": "„Vllaun“ ist Akkusativ." }
+      ],
+      "standardForms": ["vëllait"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_039",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive"],
+      "itemIds": ["item_shoqe"],
+      "prompt": { "lang": "de", "text": "Artas Freundin wohnt in Peja." },
+      "answerLang": "sq",
+      "text": "Shoqja e ___ jeton në Pejë.",
+      "solutions": ["Artës"],
+      "explanation": "Im Genitiv wird „Arta“ zu „Artës“.",
+      "errorHints": [
+        { "pattern": "^arta$", "category": "grammar.case", "hint": "Im Genitiv: „Artës“." },
+        { "pattern": "^art[eë]n$", "category": "grammar.case", "hint": "„Artën“ ist Akkusativ. Genitiv: „Artës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_040",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.ablative"],
+      "itemIds": ["item_afer", "item_poste"],
+      "prompt": { "lang": "de", "text": "Die Post ist in der Nähe des Hauses." },
+      "answerLang": "sq",
+      "text": "Posta âsht afër ___.",
+      "solutions": ["shpisë"],
+      "explanation": "Nach „afër“ steht der Ablativ: shpija → „shpisë“ (Standard: „shtëpisë“).",
+      "errorHints": [
+        { "pattern": "^shpija$", "category": "grammar.case", "hint": "Nach „afër“ steht der Ablativ: „shpisë“." },
+        { "pattern": "^shpin[eë]$", "category": "grammar.case", "hint": "„Shpinë“ ist Akkusativ. Ablativ: „shpisë“." }
+      ],
+      "standardForms": ["shtëpisë"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_041",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative"],
+      "itemIds": ["item_kujt"],
+      "prompt": { "lang": "de", "text": "Wem schreibst du?" },
+      "answerLang": "sq",
+      "text": "___ i shkruan?",
+      "solutions": ["Kujt"],
+      "explanation": "„Kujt?“ heisst „wem?“ – die Frage nach dem Dativ.",
+      "errorHints": [
+        { "pattern": "^kush$", "category": "grammar.case", "hint": "„Kush“ heisst „wer“. „Wem“ ist „kujt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_042",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.dative", "grammar.clitics", "vocab.family"],
+      "itemIds": ["item_baba", "item_pelqen"],
+      "prompt": { "lang": "de", "text": "Dem Vater gefällt Fussball." },
+      "answerLang": "sq",
+      "text": "___ i pëlqen futbolli.",
+      "solutions": ["Babait"],
+      "choices": ["Babai", "Babait", "Babain", "Baba"],
+      "explanation": "Wem etwas gefällt, steht im Dativ: „Babait i pëlqen …“.",
+      "errorHints": [
+        { "pattern": "^babai$", "category": "grammar.case", "hint": "„Dem Vater“ ist Dativ: „babait“." },
+        { "pattern": "^babain$", "category": "grammar.case", "hint": "„Babain“ ist Akkusativ." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_043",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_i_kujt", "item_liber"],
+      "prompt": { "lang": "de", "text": "Wessen Buch ist das?" },
+      "answerLang": "sq",
+      "text": "___ kujt âsht ky libër?",
+      "solutions": ["I"],
+      "choices": ["I", "E", "Të", "Së"],
+      "explanation": "„Libër“ ist maskulin – darum „i kujt?“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„Libër“ ist maskulin – darum „i kujt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_044",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article", "vocab.family"],
+      "itemIds": ["item_linking_article", "item_moter"],
+      "prompt": { "lang": "de", "text": "das Haus der grossen Schwester" },
+      "answerLang": "sq",
+      "text": "shpija e motrës ___ madhe",
+      "solutions": ["së"],
+      "choices": ["e", "së", "të", "i"],
+      "explanation": "Nach einem femininen Genitiv („motrës“) steht „së“: „motrës së madhe“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "Nach „motrës“ (Genitiv, feminin) steht „së“." },
+        { "pattern": "^t[eë]$", "category": "grammar.linking_article", "hint": "„Të“ steht nach maskulinen Nomen. „Motrës“ ist feminin: „së“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Verbindungsartikel „të/së“ nach Dativ/Genitiv – Gheg-Gebrauch zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_045",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.linking_article"],
+      "itemIds": ["item_linking_article", "item_djale", "item_jap"],
+      "prompt": { "lang": "de", "text": "Ich gebe dem kleinen Sohn Wasser." },
+      "answerLang": "sq",
+      "text": "I jap ujë djalit ___ vogël.",
+      "solutions": ["të"],
+      "choices": ["i", "e", "të", "së"],
+      "explanation": "Nach einem maskulinen Dativ („djalit“) steht „të“: „djalit të vogël“.",
+      "errorHints": [
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "Nach „djalit“ (Dativ) steht „të“." },
+        { "pattern": "^s[eë]$", "category": "grammar.linking_article", "hint": "„Së“ steht nach femininen Nomen. „Djalit“ ist maskulin: „të“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Verbindungsartikel „të/së“ nach Dativ/Genitiv – Gheg-Gebrauch zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_046",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "vocab.family"],
+      "itemIds": ["item_case_endings", "item_baba", "item_nane", "item_vlla", "item_moter", "item_djale"],
+      "prompt": { "lang": "de", "text": "Ordne die Formen zu." },
+      "pairs": [
+        { "left": "babait", "right": "des Vaters" },
+        { "left": "nânës", "right": "der Mutter" },
+        { "left": "vllaut", "right": "des Bruders" },
+        { "left": "motrës", "right": "der Schwester" },
+        { "left": "djalit", "right": "des Sohnes" }
+      ],
+      "explanation": "Maskulin endet auf -it/-ut, feminin auf -s/-ës.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_047",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_linking_article", "item_emen", "item_veture", "item_liber"],
+      "prompt": { "lang": "de", "text": "Ordne zu." },
+      "pairs": [
+        { "left": "shpija e babait", "right": "das Haus des Vaters" },
+        { "left": "emni i nânës", "right": "der Name der Mutter" },
+        { "left": "vetura e vllaut", "right": "das Auto des Bruders" },
+        { "left": "libri i Artës", "right": "Artas Buch" },
+        { "left": "djali i motrës", "right": "der Sohn der Schwester" }
+      ],
+      "explanation": "„I“ bei maskulinem Besitz (emni, libri, djali), „e“ bei femininem (shpija, vetura).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_048",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions"],
+      "itemIds": ["item_prej", "item_afer", "item_larg", "item_prane"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "prej punës", "right": "von der Arbeit" },
+        { "left": "prej shkollës", "right": "von der Schule" },
+        { "left": "afër shpisë", "right": "in der Nähe des Hauses" },
+        { "left": "larg qytetit", "right": "weit von der Stadt" },
+        { "left": "pranë postës", "right": "neben der Post" }
+      ],
+      "explanation": "Nach „prej, afër, larg, pranë“ steht immer der Ablativ.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_049",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.dative"],
+      "itemIds": ["item_jap", "item_dergoj", "item_blej", "item_telefonoj", "item_kujt"],
+      "prompt": { "lang": "de", "text": "Ordne zu." },
+      "pairs": [
+        { "left": "jap", "right": "ich gebe" },
+        { "left": "dërgoj", "right": "ich schicke" },
+        { "left": "blej", "right": "ich kaufe" },
+        { "left": "telefonoj", "right": "ich rufe an" },
+        { "left": "kujt", "right": "wem" }
+      ],
+      "explanation": "Nach diesen Verben steht die Person im Dativ: „I jap nânës …“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_050",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics"],
+      "itemIds": ["item_jap", "item_telefonoj", "item_pelqen", "item_blej", "item_kujt"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "I jap nânës.", "right": "Ich gebe der Mutter." },
+        { "left": "I telefonoj babait.", "right": "Ich rufe den Vater an." },
+        { "left": "Artës i pëlqen dimni.", "right": "Arta mag den Winter." },
+        { "left": "I blej vllaut nji libër.", "right": "Ich kaufe dem Bruder ein Buch." },
+        { "left": "Kujt i shkruan?", "right": "Wem schreibst du?" }
+      ],
+      "explanation": "Die Kurzform „i“ begleitet den Dativ.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_051",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.genitive", "grammar.case.dative", "vocab.family"],
+      "itemIds": ["item_gjyshe", "item_teze", "item_familje", "item_shoqe", "item_case_endings"],
+      "prompt": { "lang": "de", "text": "Ordne die femininen Formen zu." },
+      "pairs": [
+        { "left": "gjyshes", "right": "der Grossmutter" },
+        { "left": "shpisë", "right": "des Hauses" },
+        { "left": "familjes", "right": "der Familie" },
+        { "left": "tezes", "right": "der Tante" },
+        { "left": "shoqes", "right": "der Freundin" }
+      ],
+      "explanation": "Feminine Nomen auf -e bekommen nur -s: gjyshja → gjyshes, familja → familjes. „Shpija“ wird zu „shpisë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_052",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_baba", "item_linking_article"],
+      "prompt": { "lang": "de", "text": "Das ist das Haus des Vaters." },
+      "answerLang": "sq",
+      "tokens": ["Kjo", "âsht", "shpija", "e", "babait"],
+      "solutions": ["Kjo âsht shpija e babait."],
+      "explanation": "Zuerst der Besitz („shpija“), dann „e“ und der Besitzer („babait“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_053",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.ablative"],
+      "itemIds": ["item_tash", "item_prej", "item_pune"],
+      "prompt": { "lang": "de", "text": "Ich komme jetzt von der Arbeit." },
+      "answerLang": "sq",
+      "tokens": ["Tash", "vij", "prej", "punës"],
+      "solutions": ["Tash vij prej punës.", "Vij prej punës tash."],
+      "explanation": "„Tash“ (jetzt) kann am Anfang oder am Ende stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_054",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_emen", "item_vlla"],
+      "prompt": { "lang": "de", "text": "Der Name des Bruders ist Driton." },
+      "answerLang": "sq",
+      "tokens": ["Emni", "i", "vllaut", "âsht", "Driton"],
+      "solutions": ["Emni i vllaut âsht Driton."],
+      "explanation": "„Emni i vllaut“ – „der Name des Bruders“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„emni“ (Standard: emri) laut Sprachrichtlinie zu prüfen. Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u10_cases_055",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics"],
+      "itemIds": ["item_jap", "item_nane", "item_lule"],
+      "prompt": { "lang": "de", "text": "Ich gebe der Mutter eine Blume." },
+      "answerLang": "sq",
+      "tokens": ["I", "jap", "nânës", "nji", "lule"],
+      "solutions": ["I jap nânës nji lule.", "I jap nji lule nânës."],
+      "explanation": "Die Kurzform „i“ steht direkt vor dem Verb.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_056",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.genitive", "grammar.linking_article"],
+      "itemIds": ["item_i_kujt", "item_veture"],
+      "prompt": { "lang": "de", "text": "Wessen Auto ist das?" },
+      "answerLang": "sq",
+      "tokens": ["E", "kujt", "âsht", "kjo", "veturë"],
+      "solutions": ["E kujt âsht kjo veturë?", "Kjo veturë e kujt âsht?"],
+      "explanation": "„E kujt“ bleibt zusammen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_057",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics"],
+      "itemIds": ["item_pelqen", "item_muzike"],
+      "prompt": { "lang": "de", "text": "Arta mag die Musik." },
+      "answerLang": "sq",
+      "tokens": ["Artës", "i", "pëlqen", "muzika"],
+      "solutions": ["Artës i pëlqen muzika.", "Muzika i pëlqen Artës."],
+      "explanation": "Wörtlich: „Arta (Dativ) gefällt die Musik.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_058",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.ablative"],
+      "itemIds": ["item_shkolle", "item_larg", "item_qytet"],
+      "prompt": { "lang": "de", "text": "Die Schule ist weit von der Stadt." },
+      "answerLang": "sq",
+      "tokens": ["Shkolla", "âsht", "larg", "qytetit"],
+      "solutions": ["Shkolla âsht larg qytetit."],
+      "explanation": "Nach „larg“ steht der Ablativ: „qytetit“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_059",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.clitics", "grammar.verbs.perfect"],
+      "itemIds": ["item_dergue", "item_mesazh", "item_shok"],
+      "prompt": { "lang": "de", "text": "Ich habe dem Freund eine Nachricht geschickt." },
+      "answerLang": "sq",
+      "tokens": ["I", "kam", "dërgue", "nji", "mesazh", "shokut"],
+      "solutions": ["I kam dërgue nji mesazh shokut.", "I kam dërgue shokut nji mesazh."],
+      "explanation": "Perfekt mit Dativ: „i“ steht vor „kam“. „Dërgue“ ist das Partizip von „dërgoj“ (Standard: „dërguar“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u10_cases_060",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.genitive", "grammar.case.ablative", "grammar.possessive"],
+      "itemIds": ["item_djale", "item_moter", "item_sime", "item_afer", "item_shkolle"],
+      "prompt": { "lang": "de", "text": "Der Sohn meiner Schwester wohnt in der Nähe der Schule." },
+      "answerLang": "sq",
+      "tokens": ["Djali", "i", "motrës", "sime", "jeton", "afër", "shkollës"],
+      "solutions": ["Djali i motrës sime jeton afër shkollës."],
+      "explanation": "„Motrës sime“ heisst „meiner Schwester“ (Genitiv), „afër shkollës“ „in der Nähe der Schule“.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

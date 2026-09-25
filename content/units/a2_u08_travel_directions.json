@@ -1,0 +1,1162 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u08_travel_directions",
+  "level": "A2.3",
+  "grammar": [
+    {
+      "title": "Nach dem Weg fragen",
+      "explanation": "**Më fal, ku âsht posta?** – „Entschuldigung, wo ist die Post?“\n\n**Qysh me shkue në qendër?** – „Wie komme ich ins Zentrum?“ Gheg nimmt hier den Infinitiv *me + Partizip* (Standard: *si të shkoj*).\n\nAntworten: **Shko drejt!** (Geh geradeaus!) **Kthehu djathtas / majtas!** (Bieg rechts / links ab!) **Âsht afër.** (Es ist nah.) **Âsht larg.** (Es ist weit.)\n\nIm Kosovo fragt man oft **Kah po shkon?** – „Wohin gehst du?“"
+    },
+    {
+      "title": "Kleine Wörter für unterwegs",
+      "explanation": "| Gheg | Deutsch |\n|---|---|\n| me autobus, me tren, me veturë | mit dem Bus, Zug, Auto (ohne Artikel) |\n| në kâmbë | zu Fuss (Standard: *në këmbë*) |\n| nji biletë për Prizren | eine Fahrkarte nach Prizren |\n| në Pejë | in Peja, nach Peja |\n| te posta | bei der Post, zur Post (mit Artikel) |\n\n**Veturë** ist das Kosovo-Wort für „Auto“ (in Albanien: *makinë*)."
+    },
+    {
+      "title": "In der Nähe von …",
+      "explanation": "Nach **afër** (nahe), **pranë** (neben) und **larg** (weit von) ändert sich die Endung: maskulin **-it** (*afër stacionit* – beim Bahnhof), feminin **-s / -ës** (*afër postës, pranë bankës*). Mehr dazu in der Einheit *Dativ, Genitiv & Ablativ*."
+    }
+  ],
+  "items": [
+    { "id": "item_autobus", "kind": "word", "gheg": "autobus", "de": "Bus", "partOfSpeech": "noun", "gender": "m", "definite": "autobusi", "reviewed": false },
+    { "id": "item_tren", "kind": "word", "gheg": "tren", "de": "Zug", "partOfSpeech": "noun", "gender": "m", "definite": "treni", "reviewed": false },
+    { "id": "item_aeroplan", "kind": "word", "gheg": "aeroplan", "de": "Flugzeug", "partOfSpeech": "noun", "gender": "m", "definite": "aeroplani", "reviewed": false },
+    {
+      "id": "item_bilete",
+      "kind": "word",
+      "gheg": "biletë",
+      "de": "Fahrkarte, Ticket",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "bileta",
+      "plural": "bileta",
+      "reviewed": false
+    },
+    { "id": "item_stacion", "kind": "word", "gheg": "stacion", "de": "Bahnhof, Station", "partOfSpeech": "noun", "gender": "m", "definite": "stacioni", "reviewed": false },
+    { "id": "item_aeroport", "kind": "word", "gheg": "aeroport", "de": "Flughafen", "partOfSpeech": "noun", "gender": "m", "definite": "aeroporti", "reviewed": false },
+    { "id": "item_qender", "kind": "word", "gheg": "qendër", "de": "Zentrum", "partOfSpeech": "noun", "gender": "f", "definite": "qendra", "reviewed": false },
+    { "id": "item_poste", "kind": "word", "gheg": "postë", "de": "Post", "partOfSpeech": "noun", "gender": "f", "definite": "posta", "reviewed": false },
+    { "id": "item_djathtas", "kind": "word", "gheg": "djathtas", "de": "rechts", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_majtas", "kind": "word", "gheg": "majtas", "de": "links", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_drejt", "kind": "word", "gheg": "drejt", "de": "geradeaus", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_larg", "kind": "word", "gheg": "larg", "de": "weit, weit weg", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_prane", "kind": "word", "gheg": "pranë", "de": "neben, bei", "partOfSpeech": "preposition", "reviewed": false },
+    { "id": "item_aty", "kind": "word", "gheg": "aty", "de": "dort", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_niset", "kind": "word", "gheg": "niset", "de": "(er/sie/es) fährt ab", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_arrin", "kind": "word", "gheg": "arrin", "de": "(er/sie/es) kommt an", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_kthehu", "kind": "word", "gheg": "kthehu", "de": "bieg ab!, dreh um!", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_shko", "kind": "word", "gheg": "shko", "de": "geh!, fahr!", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_kah",
+      "kind": "word",
+      "gheg": "kah",
+      "de": "wohin, in welche Richtung",
+      "partOfSpeech": "adverb",
+      "note": "Kosovo-Form („Kah po shkon?“) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_qysh_me_shkue",
+      "kind": "phrase",
+      "gheg": "qysh me shkue …?",
+      "de": "wie komme ich …?, wie kommt man …?",
+      "partOfSpeech": "phrase",
+      "note": "Gheg-Infinitiv in der Frage nach dem Weg (Standard: si të shkoj) – Wendung zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_ne_kambe", "kind": "phrase", "gheg": "në kâmbë", "de": "zu Fuss", "partOfSpeech": "phrase", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u08_travel_directions_001",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_tren"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „treni“?" },
+      "choices": ["der Bus", "der Zug", "das Auto", "das Flugzeug"],
+      "solutions": ["der Zug"],
+      "explanation": "„Tren“ ist der Zug, mit Artikel „treni“.",
+      "errorHints": [
+        { "pattern": "bus", "category": "vocab.confused", "hint": "Der Bus heisst „autobus“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_002",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_majtas", "item_djathtas", "item_drejt", "item_larg"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „links“?" },
+      "choices": ["djathtas", "majtas", "drejt", "larg"],
+      "solutions": ["majtas"],
+      "explanation": "„Majtas“ heisst „links“, „djathtas“ heisst „rechts“.",
+      "errorHints": [
+        { "pattern": "^djathtas$", "category": "vocab.confused", "hint": "„Djathtas“ heisst „rechts“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_003",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_drejt"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „drejt“?" },
+      "choices": ["links", "rechts", "geradeaus", "zurück"],
+      "solutions": ["geradeaus"],
+      "explanation": "„Shko drejt!“ heisst „Geh geradeaus!“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_004",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel", "vocab.regional_variants"],
+      "itemIds": ["item_veture", "item_tren", "item_bilete", "item_rruge"],
+      "prompt": { "lang": "de", "text": "Wie sagt man im Kosovo „das Auto“?" },
+      "choices": ["treni", "bileta", "vetura", "rruga"],
+      "solutions": ["vetura"],
+      "explanation": "„Veturë“ ist das Kosovo-Wort für „Auto“, mit Artikel „vetura“. In Albanien sagt man meist „makinë“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„veturë“ als Kosovo-Wort zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_005",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions", "grammar.prepositions"],
+      "itemIds": ["item_stacion", "item_afer"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Stacioni âsht afër.“?" },
+      "choices": [
+        "Der Bahnhof ist weit weg.",
+        "Der Bahnhof ist in der Nähe.",
+        "Der Bahnhof ist rechts.",
+        "Wo ist der Bahnhof?"
+      ],
+      "solutions": ["Der Bahnhof ist in der Nähe."],
+      "explanation": "„Afër“ heisst „nah, in der Nähe“. Das Gegenteil ist „larg“ (weit).",
+      "errorHints": [
+        { "pattern": "weit", "category": "vocab.confused", "hint": "„Weit“ heisst „larg“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_006",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_kur", "item_niset", "item_autobus"],
+      "prompt": { "lang": "de", "text": "Was fragst du mit „Kur niset autobusi?“?" },
+      "choices": ["Wann der Bus ankommt.", "Wann der Bus abfährt.", "Wo der Bus hält.", "Was die Fahrkarte kostet."],
+      "solutions": ["Wann der Bus abfährt."],
+      "explanation": "„Kur“ heisst „wann“, „niset“ heisst „fährt ab“.",
+      "errorHints": [
+        { "pattern": "ankommt", "category": "vocab.confused", "hint": "„Ankommen“ heisst „arrin“. „Niset“ heisst „fährt ab“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_007",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.prepositions"],
+      "itemIds": ["item_autobus", "item_ne_kambe", "item_veture"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ich fahre mit dem Bus zur Arbeit.“?" },
+      "choices": ["Shkoj në punë me veturë.", "Shkoj në punë me autobus.", "Shkoj në punë në kâmbë.", "Punoj në autobus."],
+      "solutions": ["Shkoj në punë me autobus."],
+      "explanation": "„Me autobus“ heisst „mit dem Bus“ – nach „me“ steht das Verkehrsmittel ohne Artikel.",
+      "errorHints": [
+        { "pattern": "k[aâ]mb", "category": "vocab.confused", "hint": "„Në kâmbë“ heisst „zu Fuss“." },
+        { "pattern": "vetur", "category": "vocab.confused", "hint": "„Me veturë“ heisst „mit dem Auto“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_008",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.directions", "vocab.regional_variants"],
+      "itemIds": ["item_kah"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kah po shkon?“?" },
+      "choices": ["Woher kommst du?", "Wohin gehst du?", "Wann gehst du?", "Wie geht es dir?"],
+      "solutions": ["Wohin gehst du?"],
+      "explanation": "„Kah“ fragt nach der Richtung: „Kah po shkon?“ – „Wohin gehst du (gerade)?“",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kah“ (wohin) als Kosovo-Form zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_009",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "reading.dialogues"],
+      "itemIds": ["item_bilete", "item_per", "item_niset", "item_kur"],
+      "prompt": { "lang": "sq", "text": "– Nji biletë për Pejë, të lutem.\n– Tre euro.\n– Kur niset autobusi?\n– Në orën dhjetë.\n\nFrage: Wann fährt der Bus ab?" },
+      "choices": ["Um drei Uhr.", "Um zehn Uhr.", "Um acht Uhr.", "Er fährt nicht."],
+      "solutions": ["Um zehn Uhr."],
+      "explanation": "„Në orën dhjetë“ heisst „um zehn Uhr“. „Tre euro“ ist der Preis der Fahrkarte.",
+      "errorHints": [
+        { "pattern": "drei", "category": "vocab.confused", "hint": "„Tre euro“ ist der Preis. Der Bus fährt „në orën dhjetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_010",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.directions", "reading.dialogues"],
+      "itemIds": ["item_poste", "item_drejt", "item_pastaj", "item_kthehu", "item_majtas", "item_afer", "item_stacion"],
+      "prompt": { "lang": "sq", "text": "– Më fal, ku âsht posta?\n– Shko drejt, pastaj kthehu majtas. Posta âsht afër stacionit.\n\nFrage: Wo ist die Post?" },
+      "choices": [
+        "Rechts, neben der Bank.",
+        "Geradeaus, beim Flughafen.",
+        "Links, in der Nähe des Bahnhofs.",
+        "Weit weg vom Zentrum."
+      ],
+      "solutions": ["Links, in der Nähe des Bahnhofs."],
+      "explanation": "„Kthehu majtas“ heisst „bieg links ab“, „afër stacionit“ heisst „in der Nähe des Bahnhofs“.",
+      "errorHints": [
+        { "pattern": "^rechts", "category": "vocab.confused", "hint": "„Majtas“ heisst „links“, „rechts“ wäre „djathtas“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_011",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.directions", "reading.dialogues", "vocab.regional_variants"],
+      "itemIds": ["item_kah", "item_qender", "item_stacion", "item_tren"],
+      "prompt": { "lang": "sq", "text": "– Kah po shkon, Besa?\n– Po shkoj në qendër. Po ti?\n– Unë po shkoj në stacion. Kam tren në orën tetë.\n\nFrage: Wohin geht Besa?" },
+      "choices": ["Zum Bahnhof.", "Ins Zentrum.", "Nach Hause.", "Zum Flughafen."],
+      "solutions": ["Ins Zentrum."],
+      "explanation": "Besa sagt „Po shkoj në qendër“ – „Ich gehe ins Zentrum“. Zum Bahnhof geht die andere Person.",
+      "errorHints": [
+        { "pattern": "bahnhof", "category": "vocab.confused", "hint": "Zum Bahnhof (në stacion) geht die andere Person. Besa geht „në qendër“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kah“ (wohin) als Kosovo-Form zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_012",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.directions", "reading.dialogues", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_qysh_me_shkue", "item_banke", "item_larg", "item_drejt", "item_poste", "item_djathtas", "item_aty"],
+      "prompt": { "lang": "sq", "text": "– Qysh me shkue te banka?\n– Nuk âsht larg. Shko drejt dhe te posta kthehu djathtas. Banka âsht aty.\n\nFrage: Wie kommt man zur Bank?" },
+      "choices": [
+        "Geradeaus und bei der Post links.",
+        "Geradeaus und bei der Post rechts.",
+        "Rechts und dann weit geradeaus.",
+        "Mit dem Bus ins Zentrum."
+      ],
+      "solutions": ["Geradeaus und bei der Post rechts."],
+      "explanation": "„Te posta kthehu djathtas“ heisst „bei der Post bieg rechts ab“. „Aty“ heisst „dort“.",
+      "errorHints": [
+        { "pattern": "links", "category": "vocab.confused", "hint": "„Djathtas“ heisst „rechts“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendung „qysh me shkue …?“ (Standard: si të shkoj) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_013",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_ku", "item_stacion"],
+      "prompt": { "lang": "de", "text": "Wo ist der Bahnhof?" },
+      "answerLang": "sq",
+      "solutions": ["Ku âsht stacioni?", "Stacioni ku âsht?"],
+      "wordBank": ["Ku", "âsht", "stacioni", "treni", "kur", "jam"],
+      "explanation": "„Ku“ heisst „wo“. „Stacioni“ ist „der Bahnhof“ mit Artikel.",
+      "errorHints": [
+        { "pattern": "^kur ", "category": "vocab.confused", "hint": "„Kur“ heisst „wann“. „Wo“ ist „ku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_014",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_shko", "item_drejt"],
+      "prompt": { "lang": "de", "text": "Geh geradeaus!" },
+      "answerLang": "sq",
+      "solutions": ["Shko drejt!"],
+      "wordBank": ["Shko", "drejt", "majtas", "kthehu", "larg"],
+      "explanation": "„Shko“ heisst „geh!“, „drejt“ heisst „geradeaus“.",
+      "errorHints": [
+        { "pattern": "majtas", "category": "vocab.confused", "hint": "„Majtas“ heisst „links“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_015",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.prepositions"],
+      "itemIds": ["item_bilete", "item_per", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Eine Fahrkarte nach Prizren, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Nji biletë për Prizren, të lutem.", "Nji biletë për Prizren, ju lutem."],
+      "wordBank": ["Nji", "biletë", "për", "Prizren", "të", "lutem", "bileta", "në", "sa"],
+      "explanation": "„Për“ zeigt das Ziel: „nji biletë për Prizren“. Nach „nji“ steht „biletë“ ohne Artikel.",
+      "errorHints": [
+        { "pattern": "nji bileta", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die Form ohne Artikel: „nji biletë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_016",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_udhetoj", "item_tren"],
+      "prompt": { "lang": "de", "text": "Ich reise mit dem Zug." },
+      "answerLang": "sq",
+      "solutions": ["Udhëtoj me tren."],
+      "wordBank": ["Udhëtoj", "me", "tren", "autobus", "udhëton", "në"],
+      "explanation": "„Udhëtoj“ heisst „ich reise“, „me tren“ „mit dem Zug“.",
+      "errorHints": [
+        { "pattern": "^udh[eë]ton", "category": "grammar.verb_conjugation", "hint": "„Udhëton“ heisst „du reist, er reist“. Für „ich“: „udhëtoj“." },
+        { "pattern": "autobus", "category": "vocab.confused", "hint": "„Autobus“ ist der Bus. Der Zug heisst „tren“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_017",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.prepositions", "spelling.nasal_vowels"],
+      "itemIds": ["item_ne_kambe"],
+      "prompt": { "lang": "de", "text": "Ich gehe zu Fuss." },
+      "answerLang": "sq",
+      "solutions": ["Shkoj në kâmbë."],
+      "wordBank": ["Shkoj", "në", "kâmbë", "me", "veturë", "kâmba"],
+      "explanation": "„Në kâmbë“ heisst „zu Fuss“. Gheg schreibt „kâmbë“ mit Nasalvokal (Standard: „këmbë“).",
+      "errorHints": [
+        { "pattern": "k[aâ]mba", "category": "grammar.definite_article", "hint": "Man sagt „në kâmbë“ – ohne Artikel." },
+        { "pattern": "vetur", "category": "vocab.confused", "hint": "„Me veturë“ heisst „mit dem Auto“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_018",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.travel", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_autobus"],
+      "prompt": { "lang": "de", "text": "Du musst den Bus wechseln." },
+      "answerLang": "sq",
+      "solutions": ["Duhet me ndërrue autobusin.", "Të duhet me ndërrue autobusin."],
+      "wordBank": ["Duhet", "me", "ndërrue", "autobusin", "ndërroj", "autobusi", "trenin"],
+      "explanation": "„Duhet me ndërrue“ – nach „duhet“ steht im Gheg der Infinitiv „me“ + Partizip. „Autobusin“ ist der Akkusativ.",
+      "errorHints": [
+        { "pattern": "me nd[eë]rroj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ndërrue“." },
+        { "pattern": "autobusi$", "category": "grammar.case", "hint": "Das Objekt steht im Akkusativ: „autobusin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_019",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_poste", "item_djathtas"],
+      "prompt": { "lang": "sq", "text": "Posta âsht djathtas." },
+      "answerLang": "de",
+      "solutions": ["Die Post ist rechts."],
+      "wordBank": ["Die", "Post", "ist", "rechts", "links", "Bank", "weit"],
+      "explanation": "„Djathtas“ heisst „rechts“.",
+      "errorHints": [
+        { "pattern": "links", "category": "vocab.confused", "hint": "„Djathtas“ heisst „rechts“. Links ist „majtas“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_020",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions", "vocab.travel"],
+      "itemIds": ["item_aeroport", "item_larg"],
+      "prompt": { "lang": "sq", "text": "Aeroporti âsht larg." },
+      "answerLang": "de",
+      "solutions": ["Der Flughafen ist weit weg.", "Der Flughafen ist weit."],
+      "wordBank": ["Der", "Flughafen", "ist", "weit", "weg", "nah", "Bahnhof", "links"],
+      "explanation": "„Larg“ heisst „weit, weit weg“. Das Gegenteil ist „afër“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)nah", "category": "vocab.confused", "hint": "„Nah“ wäre „afër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_021",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_kur", "item_arrin", "item_tren"],
+      "prompt": { "lang": "sq", "text": "Kur arrin treni në Pejë?" },
+      "answerLang": "de",
+      "solutions": ["Wann kommt der Zug in Peja an?", "Wann kommt der Zug in Pejë an?"],
+      "wordBank": ["Wann", "kommt", "der", "Zug", "in", "Peja", "an", "fährt", "Bus", "wo"],
+      "explanation": "„Arrin“ heisst „kommt an“, „niset“ hiesse „fährt ab“.",
+      "errorHints": [
+        { "pattern": "f[aä]hrt", "category": "vocab.confused", "hint": "„Arrin“ heisst „kommt an“. „Fährt ab“ wäre „niset“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_022",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_sa_kushton", "item_bilete", "item_per"],
+      "prompt": { "lang": "sq", "text": "Sa kushton bileta për Gjakovë?" },
+      "answerLang": "de",
+      "solutions": [
+        "Wie viel kostet die Fahrkarte nach Gjakova?",
+        "Was kostet die Fahrkarte nach Gjakova?",
+        "Wie viel kostet das Ticket nach Gjakova?",
+        "Was kostet das Ticket nach Gjakova?"
+      ],
+      "wordBank": ["Wie", "viel", "kostet", "die", "Fahrkarte", "nach", "Gjakova", "wann", "Zug", "von"],
+      "explanation": "„Sa kushton …?“ heisst „Wie viel kostet …?“, „për Gjakovë“ heisst „nach Gjakova“.",
+      "errorHints": [
+        { "pattern": "^wann", "category": "vocab.confused", "hint": "„Sa“ heisst „wie viel“. „Wann“ wäre „kur“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_023",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_shko", "item_drejt", "item_pastaj", "item_kthehu", "item_majtas"],
+      "prompt": { "lang": "sq", "text": "Shko drejt, pastaj kthehu majtas." },
+      "answerLang": "de",
+      "solutions": ["Geh geradeaus, dann biege links ab.", "Geh geradeaus, dann bieg links ab.", "Geh geradeaus und dann links."],
+      "wordBank": ["Geh", "geradeaus", "dann", "biege", "links", "ab", "rechts", "zurück"],
+      "explanation": "„Pastaj“ heisst „dann“, „kthehu majtas“ „bieg links ab“.",
+      "errorHints": [
+        { "pattern": "rechts", "category": "vocab.confused", "hint": "„Majtas“ heisst „links“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_024",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.directions", "grammar.verbs.infinitive_me", "grammar.linking_article"],
+      "itemIds": ["item_qysh_me_shkue", "item_qender", "item_qytet"],
+      "prompt": { "lang": "sq", "text": "Qysh me shkue në qendër të qytetit?" },
+      "answerLang": "de",
+      "solutions": ["Wie komme ich ins Stadtzentrum?", "Wie kommt man ins Stadtzentrum?", "Wie komme ich ins Zentrum der Stadt?"],
+      "wordBank": ["Wie", "komme", "ich", "ins", "Stadtzentrum", "Bahnhof", "wann", "woher"],
+      "explanation": "„Qysh me shkue …?“ heisst wörtlich „wie hingehen …?“ – mit dem Gheg-Infinitiv. „Qendër të qytetit“ ist das Stadtzentrum.",
+      "errorHints": [
+        { "pattern": "bahnhof", "category": "vocab.confused", "hint": "„Qendër“ ist das Zentrum. Der Bahnhof heisst „stacion“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendung „qysh me shkue …?“ (Standard: si të shkoj) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_025",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_djathtas"],
+      "prompt": { "lang": "de", "text": "rechts" },
+      "answerLang": "sq",
+      "solutions": ["djathtas"],
+      "explanation": "„Djathtas“ heisst „rechts“, „majtas“ heisst „links“.",
+      "errorHints": [
+        { "pattern": "^majtas$", "category": "vocab.confused", "hint": "„Majtas“ heisst „links“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_026",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_ku", "item_banke"],
+      "prompt": { "lang": "de", "text": "Wo ist die Bank?" },
+      "answerLang": "sq",
+      "solutions": ["Ku âsht banka?", "Banka ku âsht?"],
+      "explanation": "„Ku âsht …?“ heisst „Wo ist …?“. „Banka“ ist „die Bank“ mit Artikel.",
+      "errorHints": [
+        { "pattern": "bank[eë]$", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „banka“ (die Bank)." }
+      ],
+      "standardForms": ["Ku është banka?", "Banka ku është?"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_027",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.prepositions", "vocab.regional_variants"],
+      "itemIds": ["item_veture", "item_ne_prep"],
+      "prompt": { "lang": "de", "text": "Ich fahre mit dem Auto nach Prizren." },
+      "answerLang": "sq",
+      "solutions": [
+        "Shkoj me veturë në Prizren.",
+        "Shkoj në Prizren me veturë.",
+        "Udhëtoj me veturë në Prizren.",
+        "Udhëtoj në Prizren me veturë."
+      ],
+      "explanation": "„Me veturë“ heisst „mit dem Auto“ – „veturë“ ist das Kosovo-Wort. „Në Prizren“ heisst hier „nach Prizren“.",
+      "errorHints": [
+        { "pattern": "me vetura", "category": "grammar.definite_article", "hint": "Nach „me“ steht das Verkehrsmittel ohne Artikel: „me veturë“." }
+      ],
+      "standardForms": ["Shkoj me makinë në Prizren.", "Shkoj në Prizren me makinë."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„makinë“ als Standard-/Albanien-Wort in standardForms – zu prüfen, ob es im Kosovo als Gheg gilt."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_028",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_kur", "item_niset", "item_tren"],
+      "prompt": { "lang": "de", "text": "Wann fährt der Zug ab?" },
+      "answerLang": "sq",
+      "solutions": ["Kur niset treni?", "Treni kur niset?"],
+      "explanation": "„Kur“ heisst „wann“, „niset“ heisst „fährt ab“.",
+      "errorHints": [
+        { "pattern": "arrin", "category": "vocab.confused", "hint": "„Arrin“ heisst „kommt an“. Abfahren: „niset“." },
+        { "pattern": "(^|\\s)tren(\\s|$)", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „treni“ (der Zug)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_029",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.directions", "grammar.question_particle"],
+      "itemIds": ["item_larg"],
+      "prompt": { "lang": "de", "text": "Ist es weit?" },
+      "answerLang": "sq",
+      "solutions": ["A âsht larg?", "Âsht larg?"],
+      "explanation": "„A“ macht die Ja/Nein-Frage, „larg“ heisst „weit“.",
+      "errorHints": [
+        { "pattern": "af[eë]r", "category": "vocab.confused", "hint": "„Afër“ heisst „nah“. Weit ist „larg“." }
+      ],
+      "standardForms": ["A është larg?", "Është larg?"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_030",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_ne_prep"],
+      "prompt": { "lang": "de", "text": "Ich will nach Peja fahren." },
+      "answerLang": "sq",
+      "solutions": ["Du me shkue në Pejë.", "Due me shkue në Pejë.", "Unë du me shkue në Pejë.", "Unë due me shkue në Pejë."],
+      "explanation": "Gheg sagt „du me shkue“ – „wollen“ + Infinitiv mit „me“ (Standard: „dua të shkoj“).",
+      "errorHints": [
+        { "pattern": "me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." }
+      ],
+      "standardForms": ["Dua të shkoj në Pejë.", "Unë dua të shkoj në Pejë."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „du“ / „due“ (ich will) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_031",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.directions", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_qysh_me_shkue", "item_stacion"],
+      "prompt": { "lang": "de", "text": "Entschuldige, wie komme ich zum Bahnhof?" },
+      "answerLang": "sq",
+      "solutions": [
+        "Më fal, qysh me shkue në stacion?",
+        "Më fal, si me shkue në stacion?",
+        "Më fal, qysh me shkue te stacioni?",
+        "Më fal, si me shkue te stacioni?"
+      ],
+      "explanation": "„Qysh me shkue …?“ ist die Gheg-Frage nach dem Weg, mit dem Infinitiv „me shkue“.",
+      "errorHints": [
+        { "pattern": "me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." }
+      ],
+      "standardForms": ["Më fal, si të shkoj në stacion?", "Më fal, si të shkoj te stacioni?"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendung „qysh me shkue …?“ (Standard: si të shkoj) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_032",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.directions", "grammar.prepositions"],
+      "itemIds": ["item_kthehu", "item_djathtas", "item_te_bei", "item_poste"],
+      "prompt": { "lang": "de", "text": "Bieg bei der Post rechts ab." },
+      "answerLang": "sq",
+      "solutions": ["Kthehu djathtas te posta.", "Te posta kthehu djathtas."],
+      "explanation": "„Te posta“ heisst „bei der Post“ – nach „te“ steht das Nomen mit Artikel.",
+      "errorHints": [
+        { "pattern": "majtas", "category": "vocab.confused", "hint": "„Majtas“ heisst „links“. Rechts ist „djathtas“." },
+        { "pattern": "te post[eë](\\s|$)", "category": "grammar.definite_article", "hint": "Nach „te“ steht das Nomen mit Artikel: „te posta“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_033",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.travel", "grammar.prepositions"],
+      "itemIds": ["item_autobus", "item_per", "item_niset", "item_ore"],
+      "prompt": { "lang": "de", "text": "Der Bus nach Gjakova fährt um acht Uhr ab." },
+      "answerLang": "sq",
+      "solutions": ["Autobusi për Gjakovë niset në orën tetë.", "Autobusi niset për Gjakovë në orën tetë."],
+      "explanation": "„Autobusi për Gjakovë“ ist „der Bus nach Gjakova“, „në orën tetë“ heisst „um acht Uhr“.",
+      "errorHints": [
+        { "pattern": "arrin", "category": "vocab.confused", "hint": "„Arrin“ heisst „kommt an“. Abfahren: „niset“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„në ora tetë“ (Kosovo-Alltag) ist nicht als Lösung aufgenommen – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_034",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_shko", "item_drejt"],
+      "prompt": { "lang": "de", "text": "Geh geradeaus!" },
+      "answerLang": "sq",
+      "text": "Shko ___!",
+      "solutions": ["drejt"],
+      "choices": ["majtas", "drejt", "larg", "afër"],
+      "explanation": "„Shko drejt!“ heisst „Geh geradeaus!“",
+      "errorHints": [
+        { "pattern": "^majtas$", "category": "vocab.confused", "hint": "„Majtas“ heisst „links“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_035",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_banke", "item_majtas"],
+      "prompt": { "lang": "de", "text": "Die Bank ist links." },
+      "answerLang": "sq",
+      "text": "Banka âsht ___.",
+      "solutions": ["majtas"],
+      "choices": ["djathtas", "majtas", "drejt", "larg"],
+      "explanation": "„Majtas“ heisst „links“.",
+      "errorHints": [
+        { "pattern": "^djathtas$", "category": "vocab.confused", "hint": "„Djathtas“ heisst „rechts“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_036",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel", "grammar.prepositions"],
+      "itemIds": ["item_autobus"],
+      "prompt": { "lang": "de", "text": "Ich fahre mit dem Bus." },
+      "answerLang": "sq",
+      "text": "Shkoj me ___.",
+      "solutions": ["autobus"],
+      "choices": ["autobusi", "autobus", "biletë", "rrugë"],
+      "explanation": "Nach „me“ (mit) steht das Verkehrsmittel ohne Artikel: „me autobus“.",
+      "errorHints": [
+        { "pattern": "^autobusi$", "category": "grammar.definite_article", "hint": "Nach „me“ steht das Verkehrsmittel ohne Artikel: „me autobus“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_037",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel", "spelling.nasal_vowels"],
+      "itemIds": ["item_ne_kambe"],
+      "prompt": { "lang": "de", "text": "Ich gehe zu Fuss." },
+      "answerLang": "sq",
+      "text": "Shkoj në ___.",
+      "solutions": ["kâmbë"],
+      "explanation": "„Në kâmbë“ heisst „zu Fuss“. Gheg schreibt â (Standard: „këmbë“).",
+      "errorHints": [
+        { "pattern": "^k[aâ]mba$", "category": "grammar.definite_article", "hint": "Man sagt „në kâmbë“ – ohne Artikel." }
+      ],
+      "standardForms": ["këmbë"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_038",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_bilete", "item_per"],
+      "prompt": { "lang": "de", "text": "Eine Fahrkarte nach Peja, bitte." },
+      "answerLang": "sq",
+      "text": "Nji ___ për Pejë, të lutem.",
+      "solutions": ["biletë"],
+      "choices": ["bileta", "biletë", "biletën", "tren"],
+      "explanation": "Nach „nji“ steht die Form ohne Artikel: „nji biletë“.",
+      "errorHints": [
+        { "pattern": "^bilet(a|[eë]n)$", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die Form ohne Artikel: „nji biletë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_039",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_arrin", "item_kur", "item_tren"],
+      "prompt": { "lang": "de", "text": "Wann kommt der Zug an?" },
+      "answerLang": "sq",
+      "text": "Kur ___ treni?",
+      "solutions": ["arrin"],
+      "choices": ["niset", "arrin", "shkon", "udhëtoj"],
+      "explanation": "„Arrin“ heisst „kommt an“, „niset“ heisst „fährt ab“.",
+      "errorHints": [
+        { "pattern": "^niset$", "category": "vocab.confused", "hint": "„Niset“ heisst „fährt ab“. „Kommt an“ ist „arrin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_040",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.directions", "grammar.prepositions"],
+      "itemIds": ["item_afer", "item_poste", "item_stacion"],
+      "prompt": { "lang": "de", "text": "Die Post ist in der Nähe des Bahnhofs." },
+      "answerLang": "sq",
+      "text": "Posta âsht ___ stacionit.",
+      "solutions": ["afër", "pranë"],
+      "explanation": "„Afër“ heisst „nahe bei“; danach endet das Nomen auf -it: „afër stacionit“.",
+      "errorHints": [
+        { "pattern": "^larg$", "category": "vocab.confused", "hint": "„Larg“ heisst „weit weg“. In der Nähe: „afër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_041",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.directions", "vocab.regional_variants"],
+      "itemIds": ["item_kah"],
+      "prompt": { "lang": "de", "text": "Wohin gehst du?" },
+      "answerLang": "sq",
+      "text": "___ po shkon?",
+      "solutions": ["Kah", "Ku"],
+      "explanation": "Im Kosovo fragt man „Kah po shkon?“. „Ku po shkon?“ ist auch richtig.",
+      "errorHints": [
+        { "pattern": "^kur$", "category": "vocab.confused", "hint": "„Kur“ heisst „wann“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kah“ als Kosovo-Form zu prüfen; „ku“ als weitere Lösung akzeptiert."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_042",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_udhetoj", "item_pelqen"],
+      "prompt": { "lang": "de", "text": "Ich reise gern. (wörtlich: Mir gefällt es zu reisen.)" },
+      "answerLang": "sq",
+      "text": "Më pëlqen me ___.",
+      "solutions": ["udhëtue"],
+      "explanation": "Nach „me“ steht das kurze Gheg-Partizip: udhëtoj → „me udhëtue“ (Standard: „të udhëtoj“).",
+      "errorHints": [
+        { "pattern": "^udh[eë]to(j|sh)$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Gheg-Partizip: „me udhëtue“." }
+      ],
+      "standardForms": ["udhëtuar"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_043",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.prepositions"],
+      "itemIds": ["item_autobus", "item_per", "item_niset"],
+      "prompt": { "lang": "de", "text": "Der Bus fährt nach Prishtina." },
+      "answerLang": "sq",
+      "text": "Autobusi niset ___ Prishtinë.",
+      "solutions": ["për"],
+      "choices": ["për", "prej", "me", "te"],
+      "explanation": "„Për“ zeigt das Ziel der Fahrt: „niset për Prishtinë“ – „fährt nach Prishtina“.",
+      "errorHints": [
+        { "pattern": "^prej$", "category": "vocab.confused", "hint": "„Prej“ heisst „von, aus“. Das Ziel zeigt „për“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_044",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.directions", "grammar.prepositions", "grammar.case.ablative"],
+      "itemIds": ["item_prane", "item_stacion", "item_banke"],
+      "prompt": { "lang": "de", "text": "Der Bahnhof ist neben der Bank." },
+      "answerLang": "sq",
+      "text": "Stacioni âsht pranë ___.",
+      "solutions": ["bankës"],
+      "choices": ["banka", "bankës", "bankë", "bankën"],
+      "explanation": "Nach „pranë“ (neben) endet ein feminines Nomen auf -s/-ës: „pranë bankës“.",
+      "errorHints": [
+        { "pattern": "^bank(a|[eë]|[eë]n)$", "category": "grammar.case", "hint": "Nach „pranë“ endet das Nomen auf -ës: „pranë bankës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_045",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.travel", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_autobus"],
+      "prompt": { "lang": "de", "text": "Du musst den Bus wechseln." },
+      "answerLang": "sq",
+      "text": "Duhet me ___ autobusin.",
+      "solutions": ["ndërrue"],
+      "explanation": "Nach „duhet me“ steht das Gheg-Partizip: ndërroj → „ndërrue“ (Standard: „të ndërrosh“).",
+      "errorHints": [
+        { "pattern": "^nd[eë]rro(j|sh)$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „ndërrue“." }
+      ],
+      "standardForms": ["ndërruar"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_046",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_tren", "item_autobus", "item_veture", "item_aeroplan", "item_bilete"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "tren", "right": "Zug" },
+        { "left": "autobus", "right": "Bus" },
+        { "left": "veturë", "right": "Auto" },
+        { "left": "aeroplan", "right": "Flugzeug" },
+        { "left": "biletë", "right": "Fahrkarte" }
+      ],
+      "explanation": "Für jedes Verkehrsmittel brauchst du eine „biletë“ – ausser für die „veturë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_047",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_djathtas", "item_majtas", "item_drejt", "item_afer", "item_larg"],
+      "prompt": { "lang": "de", "text": "Ordne die Richtungen zu." },
+      "pairs": [
+        { "left": "djathtas", "right": "rechts" },
+        { "left": "majtas", "right": "links" },
+        { "left": "drejt", "right": "geradeaus" },
+        { "left": "afër", "right": "nah" },
+        { "left": "larg", "right": "weit" }
+      ],
+      "explanation": "Mit diesen fünf Wörtern verstehst du fast jede Wegbeschreibung.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_048",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_stacion", "item_aeroport", "item_rruge", "item_qender", "item_qytet"],
+      "prompt": { "lang": "de", "text": "Ordne die Orte zu." },
+      "pairs": [
+        { "left": "stacion", "right": "Bahnhof" },
+        { "left": "aeroport", "right": "Flughafen" },
+        { "left": "rrugë", "right": "Strasse" },
+        { "left": "qendër", "right": "Zentrum" },
+        { "left": "qytet", "right": "Stadt" }
+      ],
+      "explanation": "Mit Artikel: stacioni, aeroporti, rruga, qendra, qyteti.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_049",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "phrase.directions"],
+      "itemIds": ["item_niset", "item_arrin", "item_udhetoj", "item_kthehu", "item_shko"],
+      "prompt": { "lang": "de", "text": "Ordne die Verben zu." },
+      "pairs": [
+        { "left": "niset", "right": "fährt ab" },
+        { "left": "arrin", "right": "kommt an" },
+        { "left": "udhëtoj", "right": "ich reise" },
+        { "left": "kthehu", "right": "bieg ab" },
+        { "left": "shko", "right": "geh" }
+      ],
+      "explanation": "„Shko!“ und „Kthehu!“ sind Befehlsformen – so klingen Wegbeschreibungen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_050",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.directions", "vocab.travel"],
+      "itemIds": ["item_ku", "item_sa_kushton", "item_kur", "item_larg", "item_drejt"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Ku âsht posta?", "right": "Wo ist die Post?" },
+        { "left": "Sa kushton bileta?", "right": "Was kostet die Fahrkarte?" },
+        { "left": "Kur niset treni?", "right": "Wann fährt der Zug ab?" },
+        { "left": "A âsht larg?", "right": "Ist es weit?" },
+        { "left": "Shko drejt!", "right": "Geh geradeaus!" }
+      ],
+      "explanation": "Diese Fragen und Antworten brauchst du auf jeder Reise.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_051",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.prepositions", "vocab.travel", "spelling.nasal_vowels"],
+      "itemIds": ["item_ne_kambe", "item_per", "item_te_bei", "item_afer", "item_autobus"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "me autobus", "right": "mit dem Bus" },
+        { "left": "në kâmbë", "right": "zu Fuss" },
+        { "left": "për Prizren", "right": "nach Prizren" },
+        { "left": "te posta", "right": "bei der Post" },
+        { "left": "afër bankës", "right": "in der Nähe der Bank" }
+      ],
+      "explanation": "„Me“ und „për“ stehen mit dem Nomen ohne Artikel, „te“ mit Artikel, und nach „afër“ endet das Nomen auf -ës.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_052",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_ku", "item_poste"],
+      "prompt": { "lang": "de", "text": "Wo ist die Post?" },
+      "answerLang": "sq",
+      "tokens": ["Ku", "âsht", "posta"],
+      "solutions": ["Ku âsht posta?", "Posta ku âsht?"],
+      "explanation": "„Ku“ (wo) steht meist am Anfang.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_053",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions"],
+      "itemIds": ["item_shko", "item_drejt", "item_pastaj", "item_djathtas"],
+      "prompt": { "lang": "de", "text": "Geh geradeaus und dann nach rechts." },
+      "answerLang": "sq",
+      "tokens": ["Shko", "drejt", "dhe", "pastaj", "djathtas"],
+      "solutions": ["Shko drejt dhe pastaj djathtas."],
+      "explanation": "Zuerst „shko drejt“, dann „pastaj djathtas“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_054",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel"],
+      "itemIds": ["item_tren"],
+      "prompt": { "lang": "de", "text": "Ich fahre mit dem Zug." },
+      "answerLang": "sq",
+      "tokens": ["Shkoj", "me", "tren"],
+      "solutions": ["Shkoj me tren."],
+      "explanation": "„Me tren“ heisst „mit dem Zug“ – ohne Artikel.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_055",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.prepositions"],
+      "itemIds": ["item_kur", "item_niset", "item_autobus", "item_per"],
+      "prompt": { "lang": "de", "text": "Wann fährt der Bus nach Prizren ab?" },
+      "answerLang": "sq",
+      "tokens": ["Kur", "niset", "autobusi", "për", "Prizren"],
+      "solutions": ["Kur niset autobusi për Prizren?"],
+      "explanation": "Das Fragewort „kur“ steht am Anfang, dann Verb und Subjekt.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_056",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.directions", "grammar.negation"],
+      "itemIds": ["item_stacion", "item_larg"],
+      "prompt": { "lang": "de", "text": "Der Bahnhof ist nicht weit." },
+      "answerLang": "sq",
+      "tokens": ["Stacioni", "nuk", "âsht", "larg"],
+      "solutions": ["Stacioni nuk âsht larg."],
+      "explanation": "„Nuk“ steht direkt vor dem Verb: „nuk âsht“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_057",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.prepositions"],
+      "itemIds": ["item_bilete", "item_per", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Eine Fahrkarte nach Ferizaj, bitte." },
+      "answerLang": "sq",
+      "tokens": ["Nji", "biletë", "për", "Ferizaj", "të", "lutem"],
+      "solutions": ["Nji biletë për Ferizaj, të lutem."],
+      "explanation": "„Nji biletë për …“ – so kaufst du eine Fahrkarte.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_058",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "grammar.verbs.modal", "grammar.verbs.infinitive_me", "vocab.regional_variants"],
+      "itemIds": ["item_udhetoj", "item_veture"],
+      "prompt": { "lang": "de", "text": "Ich will mit dem Auto reisen." },
+      "answerLang": "sq",
+      "tokens": ["Du", "me", "udhëtue", "me", "veturë"],
+      "solutions": ["Du me udhëtue me veturë."],
+      "explanation": "„Du me udhëtue“ heisst „ich will reisen“ – mit dem Gheg-Infinitiv.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „du“ / „due“ (ich will) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_059",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.directions", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_qysh_me_shkue", "item_qender"],
+      "prompt": { "lang": "de", "text": "Entschuldige, wie komme ich ins Zentrum?" },
+      "answerLang": "sq",
+      "tokens": ["Më", "fal", "qysh", "me", "shkue", "në", "qendër"],
+      "solutions": ["Më fal, qysh me shkue në qendër?"],
+      "explanation": "„Më fal“ steht am Anfang, dann die Frage „qysh me shkue …?“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendung „qysh me shkue …?“ (Standard: si të shkoj) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_060",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.directions", "grammar.prepositions"],
+      "itemIds": ["item_te_bei", "item_banke", "item_kthehu", "item_majtas", "item_poste", "item_aty"],
+      "prompt": { "lang": "de", "text": "Bieg bei der Bank links ab, die Post ist dort." },
+      "answerLang": "sq",
+      "tokens": ["Te", "banka", "kthehu", "majtas", "posta", "âsht", "aty"],
+      "solutions": ["Te banka kthehu majtas, posta âsht aty.", "Kthehu majtas te banka, posta âsht aty."],
+      "explanation": "„Te banka“ kann vor oder nach „kthehu majtas“ stehen. „Aty“ heisst „dort“.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

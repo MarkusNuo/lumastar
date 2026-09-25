@@ -1,0 +1,1231 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u11_work_leisure",
+  "level": "A2.3",
+  "grammar": [
+    {
+      "title": "Den Beruf nennen",
+      "explanation": "Beim Beruf steht **kein Artikel**: *Jam mësues.* (Ich bin Lehrer.) *Jam mjeke.* (Ich bin Ärztin.) Oder mit **si** (als): *Punoj si shofer.*\n\nViele Berufe haben eine feminine Form auf **-e**: *mësues → mësuese, shitës → shitëse, student → studente, mjek → mjeke, koleg → kolege*.\n\nIm Kosovo fragt man **Çka punon?** – „Was arbeitest du, was bist du von Beruf?“ – und **Ku punon?** – „Wo arbeitest du?“"
+    },
+    {
+      "title": "Freizeit: më pëlqen me …",
+      "explanation": "Was du gern machst, sagst du mit **më pëlqen me** + Partizip – dem Gheg-Infinitiv: *Më pëlqen me lexue.* (Ich lese gern.) *Më pëlqen me notue.* (Ich schwimme gern.) Standard wäre *më pëlqen të lexoj*.\n\n„Sport treiben“ heisst **bâj sport** (Standard: *bëj sport*). „In der Freizeit“: **në kohën e lirë**. „Am Samstag“: **të shtunën**, „am Wochenende“: **në fundjavë**."
+    }
+  ],
+  "items": [
+    { "id": "item_shofer", "kind": "word", "gheg": "shofer", "de": "Fahrer, Chauffeur", "partOfSpeech": "noun", "gender": "m", "definite": "shoferi", "reviewed": false },
+    {
+      "id": "item_shites",
+      "kind": "word",
+      "gheg": "shitës, shitëse",
+      "de": "Verkäufer, Verkäuferin",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "shitësi",
+      "reviewed": false
+    },
+    {
+      "id": "item_infermiere",
+      "kind": "word",
+      "gheg": "infermiere",
+      "de": "Pflegefachfrau",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "infermierja",
+      "note": "Maskulin: infermier.",
+      "reviewed": false
+    },
+    { "id": "item_inxhinier", "kind": "word", "gheg": "inxhinier", "de": "Ingenieur", "partOfSpeech": "noun", "gender": "m", "definite": "inxhinieri", "reviewed": false },
+    {
+      "id": "item_student",
+      "kind": "word",
+      "gheg": "student, studente",
+      "de": "Student, Studentin",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "studenti",
+      "reviewed": false
+    },
+    { "id": "item_mjeke", "kind": "word", "gheg": "mjeke", "de": "Ärztin", "partOfSpeech": "noun", "gender": "f", "definite": "mjekja", "reviewed": false },
+    {
+      "id": "item_kamarier",
+      "kind": "word",
+      "gheg": "kamarier, kamariere",
+      "de": "Kellner, Kellnerin",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "kamarieri",
+      "reviewed": false
+    },
+    {
+      "id": "item_koleg",
+      "kind": "word",
+      "gheg": "koleg, kolege",
+      "de": "Arbeitskollege, Arbeitskollegin",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "kolegu",
+      "reviewed": false
+    },
+    { "id": "item_shef", "kind": "word", "gheg": "shef", "de": "Chef", "partOfSpeech": "noun", "gender": "m", "definite": "shefi", "reviewed": false },
+    { "id": "item_rroge", "kind": "word", "gheg": "rrogë", "de": "Lohn", "partOfSpeech": "noun", "gender": "f", "definite": "rroga", "reviewed": false },
+    { "id": "item_fabrike", "kind": "word", "gheg": "fabrikë", "de": "Fabrik", "partOfSpeech": "noun", "gender": "f", "definite": "fabrika", "reviewed": false },
+    { "id": "item_pushim", "kind": "word", "gheg": "pushim", "de": "Pause", "partOfSpeech": "noun", "gender": "m", "definite": "pushimi", "reviewed": false },
+    {
+      "id": "item_cka_punon",
+      "kind": "phrase",
+      "gheg": "çka punon?",
+      "de": "was arbeitest du?, was bist du von Beruf?",
+      "partOfSpeech": "phrase",
+      "note": "Kosovo-Alltagsfrage nach dem Beruf – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_punoj_si", "kind": "phrase", "gheg": "punoj si …", "de": "ich arbeite als …", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_koha_e_lire", "kind": "phrase", "gheg": "koha e lirë", "de": "Freizeit", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_luaj",
+      "kind": "word",
+      "gheg": "luaj",
+      "de": "ich spiele",
+      "partOfSpeech": "verb",
+      "note": "Gheg-Form zu prüfen: im Kosovo oft „luj“ gesprochen, Infinitiv „me luejtë / me lujtë“.",
+      "reviewed": false
+    },
+    { "id": "item_futboll", "kind": "word", "gheg": "futboll", "de": "Fussball", "partOfSpeech": "noun", "gender": "m", "definite": "futbolli", "reviewed": false },
+    { "id": "item_degjoj", "kind": "word", "gheg": "dëgjoj", "de": "ich höre (zu)", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_me_degjue",
+      "kind": "phrase",
+      "gheg": "me dëgjue",
+      "de": "hören, zuhören",
+      "partOfSpeech": "phrase",
+      "note": "Gheg-Infinitiv (Standard: të dëgjoj).",
+      "reviewed": false
+    },
+    {
+      "id": "item_me_shetite",
+      "kind": "phrase",
+      "gheg": "me shëtitë",
+      "de": "spazieren gehen",
+      "partOfSpeech": "phrase",
+      "note": "Partizip „shëtitë“ nach der Regel -ur → -ë (Standard: shëtitur) – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_baj_sport", "kind": "phrase", "gheg": "bâj sport", "de": "ich treibe Sport", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_sport", "kind": "word", "gheg": "sport", "de": "Sport", "partOfSpeech": "noun", "gender": "m", "definite": "sporti", "reviewed": false },
+    { "id": "item_kinema", "kind": "word", "gheg": "kinema", "de": "Kino", "partOfSpeech": "noun", "gender": "f", "definite": "kinemaja", "reviewed": false },
+    { "id": "item_palester", "kind": "word", "gheg": "palestër", "de": "Fitnessstudio", "partOfSpeech": "noun", "gender": "f", "definite": "palestra", "reviewed": false },
+    { "id": "item_kafene", "kind": "word", "gheg": "kafene", "de": "Café", "partOfSpeech": "noun", "gender": "f", "definite": "kafeneja", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u11_work_leisure_001",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_mesues"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „mësuese“?" },
+      "choices": ["Ärztin", "Lehrerin", "Verkäuferin", "Studentin"],
+      "solutions": ["Lehrerin"],
+      "explanation": "„Mësues“ ist der Lehrer, „mësuese“ die Lehrerin.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_002",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_zyre", "item_spital", "item_dyqan", "item_fabrike"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Büro“?" },
+      "choices": ["dyqan", "zyrë", "spital", "fabrikë"],
+      "solutions": ["zyrë"],
+      "explanation": "„Zyrë“ ist das Büro, mit Artikel „zyra“.",
+      "errorHints": [
+        { "pattern": "^dyqan$", "category": "vocab.confused", "hint": "„Dyqan“ ist der Laden." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_003",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_fundjave"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „fundjavë“?" },
+      "choices": ["Freizeit", "Ferien", "Wochenende", "Woche"],
+      "solutions": ["Wochenende"],
+      "explanation": "„Fundjavë“ heisst wörtlich „Ende der Woche“: das Wochenende.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_004",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_punoj", "item_spital"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Punoj në spital.“?" },
+      "choices": ["Ich gehe ins Spital.", "Ich arbeite im Spital.", "Ich bin Arzt.", "Ich arbeite in der Schule."],
+      "solutions": ["Ich arbeite im Spital."],
+      "explanation": "„Punoj“ heisst „ich arbeite“, „spital“ ist das Spital.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_005",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_futboll"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Fussball“?" },
+      "choices": ["muzikë", "futboll", "film", "sport"],
+      "solutions": ["futboll"],
+      "explanation": "„Futboll“ ist Fussball – im Kosovo sehr beliebt.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_006",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_cka_punon"],
+      "prompt": { "lang": "de", "text": "Wie fragst du im Kosovo „Was bist du von Beruf?“" },
+      "choices": ["Ku punon?", "Çka punon?", "Çka po bân?", "Kur punon?"],
+      "solutions": ["Çka punon?"],
+      "explanation": "„Çka punon?“ fragt nach dem Beruf, „Ku punon?“ nach dem Arbeitsort.",
+      "errorHints": [
+        { "pattern": "^ku ", "category": "vocab.confused", "hint": "„Ku punon?“ fragt, wo du arbeitest." },
+        { "pattern": "po b[aâ]n", "category": "vocab.confused", "hint": "„Çka po bân?“ heisst „Was machst du gerade?“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Çka punon?“ als Kosovo-Frage nach dem Beruf zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_007",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_pelqen", "item_me_lexue"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ich lese gern.“ im Gheg?" },
+      "choices": ["Më pëlqen me lexoj.", "Më pëlqen me lexue.", "Më pëlqen lexue.", "Lexoj më pëlqen."],
+      "solutions": ["Më pëlqen me lexue."],
+      "explanation": "Gheg: „më pëlqen me“ + Partizip (Standard: „më pëlqen të lexoj“).",
+      "errorHints": [
+        { "pattern": "me lexoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me lexue“." },
+        { "pattern": "^m[eë] p[eë]lqen lexue", "category": "grammar.infinitive", "hint": "Der Gheg-Infinitiv braucht „me“: „me lexue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_008",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_shites"],
+      "prompt": { "lang": "de", "text": "Wie sagt eine Frau „Ich bin Verkäuferin.“?" },
+      "choices": ["Jam shitës.", "Jam shitëse.", "Jam shitësja.", "Ke shitëse."],
+      "solutions": ["Jam shitëse."],
+      "explanation": "Beim Beruf steht kein Artikel. Die feminine Form endet auf -e: „shitëse“.",
+      "errorHints": [
+        { "pattern": "shit[eë]s$", "category": "grammar.gender", "hint": "Für eine Frau: „shitëse“." },
+        { "pattern": "shit[eë]sja", "category": "grammar.definite_article", "hint": "Beim Beruf steht kein Artikel: „Jam shitëse.“" },
+        { "pattern": "^ke ", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_009",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["reading.short_texts", "vocab.work", "vocab.leisure"],
+      "itemIds": ["item_shofer", "item_punoj_si", "item_koha_e_lire", "item_luaj", "item_futboll", "item_shok", "item_cohem"],
+      "prompt": {
+        "lang": "sq",
+        "text": "Blerimi punon si shofer në Prishtinë. Çdo ditë çohet herët. Në kohën e lirë luan futboll me shokët.\n\nFrage: Was macht Blerim in seiner Freizeit?"
+      },
+      "choices": ["Er fährt Auto.", "Er arbeitet in Prishtina.", "Er spielt mit Freunden Fussball.", "Er schläft lange."],
+      "solutions": ["Er spielt mit Freunden Fussball."],
+      "explanation": "„Në kohën e lirë luan futboll me shokët“ – „In der Freizeit spielt er mit den Freunden Fussball.“",
+      "errorHints": [
+        { "pattern": "arbeitet", "category": "vocab.confused", "hint": "Arbeiten ist sein Beruf. Gefragt ist die Freizeit: „në kohën e lirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohet“ (Kosovo) und Gheg-Form von „luaj“ (spielen; Kosovo oft „luj“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_010",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["reading.short_texts", "vocab.work"],
+      "itemIds": ["item_infermiere", "item_spital", "item_prej", "item_ore", "item_me_shetite"],
+      "prompt": {
+        "lang": "sq",
+        "text": "Drita âsht infermiere në spital. Punon prej orës shtatë deri në orën tre. Pas punës i pëlqen me shëtitë në park.\n\nFrage: Bis wann arbeitet Drita?"
+      },
+      "choices": ["Bis sieben Uhr.", "Bis drei Uhr.", "Von drei bis sieben Uhr.", "Bis am Abend."],
+      "solutions": ["Bis drei Uhr."],
+      "explanation": "„Prej orës shtatë deri në orën tre“ heisst „von sieben bis drei Uhr“.",
+      "errorHints": [
+        { "pattern": "sieben uhr$", "category": "vocab.confused", "hint": "Um sieben fängt Drita an („prej orës shtatë“). Sie arbeitet „deri në orën tre“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „shëtitë“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_011",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "vocab.work", "vocab.leisure"],
+      "itemIds": ["item_student", "item_kafene", "item_e_shtune", "item_e_diel", "item_mal"],
+      "prompt": {
+        "lang": "sq",
+        "text": "Arben âsht student. Gjatë javës mëson shumë, po të shtunën punon në nji kafene. Të dielën shkon me familjen në mal.\n\nFrage: Wann arbeitet Arben im Café?"
+      },
+      "choices": ["Am Sonntag.", "Am Samstag.", "Unter der Woche.", "Jeden Tag."],
+      "solutions": ["Am Samstag."],
+      "explanation": "„Të shtunën punon në nji kafene“ – „am Samstag arbeitet er in einem Café“. Am Sonntag („të dielën“) geht er in die Berge.",
+      "errorHints": [
+        { "pattern": "sonntag", "category": "vocab.confused", "hint": "„Të dielën“ (am Sonntag) geht Arben in die Berge." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_012",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "vocab.work"],
+      "itemIds": ["item_banke", "item_shef", "item_rroge", "item_pushime", "item_det"],
+      "prompt": {
+        "lang": "sq",
+        "text": "Besa punon në nji bankë. Shefi i saj âsht i mirë, po rroga nuk âsht e madhe. Në pushime ka me shkue në det.\n\nFrage: Was stimmt über Besas Lohn?"
+      },
+      "choices": ["Er ist sehr hoch.", "Er ist nicht hoch.", "Sie bekommt keinen Lohn.", "Der Chef bezahlt ihn nicht."],
+      "solutions": ["Er ist nicht hoch."],
+      "explanation": "„Rroga nuk âsht e madhe“ heisst wörtlich „der Lohn ist nicht gross“ – also nicht hoch.",
+      "errorHints": [
+        { "pattern": "sehr hoch", "category": "vocab.confused", "hint": "Im Text steht „nuk âsht e madhe“ – „ist nicht gross“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_013",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_punoj", "item_zyre"],
+      "prompt": { "lang": "de", "text": "Ich arbeite im Büro." },
+      "answerLang": "sq",
+      "solutions": ["Punoj në zyrë."],
+      "wordBank": ["Punoj", "në", "zyrë", "shkoj", "spital", "zyra"],
+      "explanation": "„Punoj“ heisst „ich arbeite“, „në zyrë“ „im Büro“.",
+      "errorHints": [
+        { "pattern": "zyra", "category": "grammar.definite_article", "hint": "Nach „në“ steht hier „zyrë“ ohne Artikel." },
+        { "pattern": "spital", "category": "vocab.confused", "hint": "„Spital“ ist das Spital. Büro heisst „zyrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_014",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_mesues"],
+      "prompt": { "lang": "de", "text": "Ich bin Lehrer." },
+      "answerLang": "sq",
+      "solutions": ["Jam mësues.", "Unë jam mësues."],
+      "wordBank": ["Jam", "mësues", "mësuesi", "je", "mjek"],
+      "explanation": "Beim Beruf steht kein Artikel: „Jam mësues.“",
+      "errorHints": [
+        { "pattern": "m[eë]suesi$", "category": "grammar.definite_article", "hint": "Beim Beruf steht kein Artikel: „Jam mësues.“" },
+        { "pattern": "^je ", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. Ich bin: „jam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_015",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.present"],
+      "itemIds": ["item_fundjave", "item_luaj", "item_futboll"],
+      "prompt": { "lang": "de", "text": "Am Wochenende spiele ich Fussball." },
+      "answerLang": "sq",
+      "solutions": ["Në fundjavë luaj futboll.", "Luaj futboll në fundjavë.", "Fundjavën luaj futboll."],
+      "wordBank": ["Në", "fundjavë", "luaj", "futboll", "luan", "futbolli", "shikoj"],
+      "explanation": "„Në fundjavë“ heisst „am Wochenende“, „luaj“ „ich spiele“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)luan(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Luan“ heisst „du spielst / er spielt“. Ich spiele: „luaj“." },
+        { "pattern": "futbolli", "category": "grammar.definite_article", "hint": "Hier steht „futboll“ ohne Artikel." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form von „luaj“ (spielen; Kosovo oft „luj“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_016",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_pelqen", "item_me_degjue"],
+      "prompt": { "lang": "de", "text": "Ich höre gern Musik." },
+      "answerLang": "sq",
+      "solutions": ["Më pëlqen me dëgjue muzikë."],
+      "wordBank": ["Më", "pëlqen", "me", "dëgjue", "muzikë", "dëgjoj", "film", "lexue"],
+      "explanation": "Gheg: „më pëlqen me dëgjue“ – der Infinitiv mit „me“ und dem Partizip „dëgjue“.",
+      "errorHints": [
+        { "pattern": "me d[eë]gjoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me dëgjue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_017",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_shef", "item_zyre", "item_sot"],
+      "prompt": { "lang": "de", "text": "Der Chef ist heute nicht im Büro." },
+      "answerLang": "sq",
+      "solutions": ["Shefi sot nuk âsht në zyrë.", "Sot shefi nuk âsht në zyrë.", "Shefi nuk âsht sot në zyrë."],
+      "wordBank": ["Shefi", "sot", "nuk", "âsht", "në", "zyrë", "shef", "jam", "spital"],
+      "explanation": "„Shefi“ ist „der Chef“ mit Artikel. „Nuk“ steht vor dem Verb.",
+      "errorHints": [
+        { "pattern": "^shef ", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „shefi“ (der Chef)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_018",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_koha_e_lire", "item_me_dale", "item_shok"],
+      "prompt": { "lang": "de", "text": "In der Freizeit gehe ich mit Freunden aus." },
+      "answerLang": "sq",
+      "solutions": ["Në kohën e lirë dal me shokë.", "Në kohën e lirë dal me shokët.", "Dal me shokë në kohën e lirë."],
+      "wordBank": ["Në", "kohën", "e", "lirë", "dal", "me", "shokë", "koha", "dalë", "punë"],
+      "explanation": "„Në kohën e lirë“ heisst „in der Freizeit“, „dal me shokë“ „ich gehe mit Freunden aus“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)dal[eë](\\s|$)", "category": "grammar.participle", "hint": "„Dalë“ ist das Partizip. Ich gehe aus: „dal“." },
+        { "pattern": "n[eë] koha", "category": "grammar.case", "hint": "Nach „në“ steht hier „kohën“: „në kohën e lirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_019",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_baba", "item_shofer"],
+      "prompt": { "lang": "sq", "text": "Babai im âsht shofer." },
+      "answerLang": "de",
+      "solutions": ["Mein Vater ist Fahrer.", "Mein Vater ist Chauffeur."],
+      "wordBank": ["Mein", "Vater", "ist", "Fahrer", "Lehrer", "Mutter", "war"],
+      "explanation": "„Shofer“ heisst „Fahrer, Chauffeur“.",
+      "errorHints": [
+        { "pattern": "lehrer", "category": "vocab.confused", "hint": "Der Lehrer heisst „mësues“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_020",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_e_shtune", "item_kinema"],
+      "prompt": { "lang": "sq", "text": "Të shtunën shkoj në kinema." },
+      "answerLang": "de",
+      "solutions": ["Am Samstag gehe ich ins Kino."],
+      "wordBank": ["Am", "Samstag", "gehe", "ich", "ins", "Kino", "Sonntag", "Café", "arbeite"],
+      "explanation": "„Të shtunën“ heisst „am Samstag“, „kinema“ ist das Kino.",
+      "errorHints": [
+        { "pattern": "sonntag", "category": "vocab.confused", "hint": "„Të dielën“ wäre „am Sonntag“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_021",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.work", "vocab.time"],
+      "itemIds": ["item_punoj", "item_prej", "item_ore"],
+      "prompt": { "lang": "sq", "text": "Punoj prej orës tetë deri në orën katër." },
+      "answerLang": "de",
+      "solutions": ["Ich arbeite von acht bis vier Uhr.", "Ich arbeite von acht Uhr bis vier Uhr."],
+      "wordBank": ["Ich", "arbeite", "von", "acht", "bis", "vier", "Uhr", "neun", "lerne"],
+      "explanation": "„Prej orës tetë“ heisst „ab acht Uhr“, „deri në orën katër“ „bis vier Uhr“.",
+      "errorHints": [
+        { "pattern": "neun", "category": "vocab.confused", "hint": "„Tetë“ heisst „acht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_022",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_baj_sport", "item_jave"],
+      "prompt": { "lang": "sq", "text": "Bâj sport tri herë në javë." },
+      "answerLang": "de",
+      "solutions": [
+        "Ich treibe dreimal pro Woche Sport.",
+        "Ich mache dreimal pro Woche Sport.",
+        "Ich treibe dreimal in der Woche Sport.",
+        "Ich mache dreimal in der Woche Sport."
+      ],
+      "wordBank": ["Ich", "treibe", "dreimal", "pro", "Woche", "Sport", "zweimal", "Tag"],
+      "explanation": "„Bâj sport“ heisst „ich treibe Sport“ (Standard: „bëj sport“), „tri herë në javë“ „dreimal pro Woche“.",
+      "errorHints": [
+        { "pattern": "zweimal", "category": "vocab.confused", "hint": "„Tri herë“ heisst „dreimal“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_023",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.work", "grammar.clitics"],
+      "itemIds": ["item_pelqen", "item_pune"],
+      "prompt": { "lang": "sq", "text": "A të pëlqen puna jote?" },
+      "answerLang": "de",
+      "solutions": ["Gefällt dir deine Arbeit?", "Magst du deine Arbeit?"],
+      "wordBank": ["Gefällt", "dir", "deine", "Arbeit", "mir", "meine", "Schule"],
+      "explanation": "„Të pëlqen“ heisst „dir gefällt“, „puna jote“ „deine Arbeit“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)mir(\\s|$)", "category": "grammar.clitics", "hint": "„Të“ heisst „dir“." },
+        { "pattern": "meine", "category": "vocab.confused", "hint": "„Jote“ heisst „deine“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_024",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.work", "reading.short_texts"],
+      "itemIds": ["item_moter", "item_kamarier", "item_kafene"],
+      "prompt": { "lang": "sq", "text": "Motra ime studion në Prishtinë dhe punon si kamariere në nji kafene." },
+      "answerLang": "de",
+      "solutions": [
+        "Meine Schwester studiert in Prishtina und arbeitet als Kellnerin in einem Café.",
+        "Meine Schwester studiert in Prishtina und arbeitet in einem Café als Kellnerin."
+      ],
+      "wordBank": [
+        "Meine",
+        "Schwester",
+        "studiert",
+        "in",
+        "Prishtina",
+        "und",
+        "arbeitet",
+        "als",
+        "Kellnerin",
+        "in",
+        "einem",
+        "Café",
+        "Bruder",
+        "Bank"
+      ],
+      "explanation": "„Studion“ heisst „studiert“, „punon si kamariere“ „arbeitet als Kellnerin“.",
+      "errorHints": [
+        { "pattern": "bruder", "category": "vocab.confused", "hint": "„Motra“ ist die Schwester." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_025",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work", "grammar.verbs.present"],
+      "itemIds": ["item_ku", "item_punoj"],
+      "prompt": { "lang": "de", "text": "Wo arbeitest du?" },
+      "answerLang": "sq",
+      "solutions": ["Ku punon?", "Ti ku punon?", "Ku punon ti?"],
+      "explanation": "„Punon“ heisst „du arbeitest“, „ku“ heisst „wo“.",
+      "errorHints": [
+        { "pattern": "punoj", "category": "grammar.verb_conjugation", "hint": "„Punoj“ heisst „ich arbeite“. Du arbeitest: „punon“." },
+        { "pattern": "^kur ", "category": "vocab.confused", "hint": "„Kur“ heisst „wann“. Wo: „ku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_026",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_mjeke"],
+      "prompt": { "lang": "de", "text": "Ich bin Ärztin." },
+      "answerLang": "sq",
+      "solutions": ["Jam mjeke.", "Unë jam mjeke."],
+      "explanation": "Die feminine Form von „mjek“ (Arzt) ist „mjeke“. Beim Beruf steht kein Artikel.",
+      "errorHints": [
+        { "pattern": "mjek$", "category": "grammar.gender", "hint": "Für eine Frau: „mjeke“." },
+        { "pattern": "mjekja$", "category": "grammar.definite_article", "hint": "Beim Beruf steht kein Artikel: „Jam mjeke.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_027",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_baj_sport", "item_sport"],
+      "prompt": { "lang": "de", "text": "Ich treibe Sport." },
+      "answerLang": "sq",
+      "solutions": ["Bâj sport.", "Unë bâj sport."],
+      "explanation": "„Bâj“ ist die Gheg-Form von „ich mache“ (Standard: „bëj“).",
+      "errorHints": [
+        { "pattern": "b[aâ]n sport", "category": "grammar.verb_conjugation", "hint": "„Bân“ heisst „du machst / er macht“. Ich: „bâj“." }
+      ],
+      "standardForms": ["Bëj sport.", "Unë bëj sport."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_028",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_pelqen", "item_me_notue"],
+      "prompt": { "lang": "de", "text": "Ich schwimme gern." },
+      "answerLang": "sq",
+      "solutions": ["Më pëlqen me notue."],
+      "explanation": "Gheg: „më pëlqen me notue“ (Standard: „më pëlqen të notoj“).",
+      "errorHints": [
+        { "pattern": "me notoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me notue“." },
+        { "pattern": "^m[eë] p[eë]lqen notue", "category": "grammar.infinitive", "hint": "Der Gheg-Infinitiv braucht „me“: „me notue“." }
+      ],
+      "standardForms": ["Më pëlqen të notoj."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_029",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work", "grammar.negation"],
+      "itemIds": ["item_e_diel", "item_punoj"],
+      "prompt": { "lang": "de", "text": "Am Sonntag arbeite ich nicht." },
+      "answerLang": "sq",
+      "solutions": ["Të dielën nuk punoj.", "Nuk punoj të dielën.", "Të dielën s'punoj."],
+      "explanation": "„Të dielën“ heisst „am Sonntag“. „Nuk“ steht direkt vor dem Verb.",
+      "errorHints": [
+        { "pattern": "(^|\\s)punon(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Punon“ heisst „du arbeitest“. Ich arbeite: „punoj“." },
+        { "pattern": "sht[uy]n", "category": "vocab.confused", "hint": "„Të shtunën“ ist Samstag. Sonntag: „të dielën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_030",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_koha_e_lire"],
+      "prompt": { "lang": "de", "text": "Was machst du in deiner Freizeit?" },
+      "answerLang": "sq",
+      "solutions": ["Çka bân në kohën e lirë?", "Çka bân ti në kohën e lirë?"],
+      "explanation": "„Çka bân?“ heisst „Was machst du?“ (Standard: „Çfarë bën?“), „në kohën e lirë“ „in der Freizeit“.",
+      "errorHints": [
+        { "pattern": "b[aâ]j ", "category": "grammar.verb_conjugation", "hint": "„Bâj“ heisst „ich mache“. Du machst: „bân“." }
+      ],
+      "standardForms": ["Çfarë bën në kohën e lirë?", "Çfarë bën ti në kohën e lirë?"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_031",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.work", "grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_punoj", "item_banke"],
+      "prompt": { "lang": "de", "text": "Ich möchte in einer Bank arbeiten." },
+      "answerLang": "sq",
+      "solutions": ["Du me punue në nji bankë.", "Due me punue në nji bankë.", "Unë du me punue në nji bankë."],
+      "explanation": "Gheg: „du me punue“ – „wollen“ + Infinitiv mit „me“ (Standard: „dua të punoj“).",
+      "errorHints": [
+        { "pattern": "me punoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me punue“." },
+        { "pattern": "nji bank[aë]n", "category": "grammar.definite_article", "hint": "Nach „nji“ steht „bankë“ ohne Artikel." }
+      ],
+      "standardForms": ["Dua të punoj në një bankë.", "Unë dua të punoj në një bankë."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „du“ / „due“ (ich will) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_032",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.work", "vocab.family"],
+      "itemIds": ["item_vlla", "item_fabrike"],
+      "prompt": { "lang": "de", "text": "Mein Bruder arbeitet in einer Fabrik in Ferizaj." },
+      "answerLang": "sq",
+      "solutions": ["Vllau im punon në nji fabrikë në Ferizaj."],
+      "explanation": "„Vllau im“ heisst „mein Bruder“ (Standard: „vëllai im“), „në nji fabrikë“ „in einer Fabrik“.",
+      "errorHints": [
+        { "pattern": "^im ", "category": "grammar.word_order", "hint": "Das Possessivpronomen steht nach dem Nomen: „vllau im“." },
+        { "pattern": "nji fabrika", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die Form ohne Artikel: „nji fabrikë“." }
+      ],
+      "standardForms": ["Vëllai im punon në një fabrikë në Ferizaj."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllau“ (Standard: vëllai) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_033",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_shetite", "item_pelqen", "item_pune"],
+      "prompt": { "lang": "de", "text": "Nach der Arbeit gehe ich gern spazieren." },
+      "answerLang": "sq",
+      "solutions": ["Pas punës më pëlqen me shëtitë.", "Më pëlqen me shëtitë pas punës."],
+      "explanation": "„Pas punës“ heisst „nach der Arbeit“, „me shëtitë“ „spazieren gehen“ (Gheg-Infinitiv).",
+      "errorHints": [
+        { "pattern": "me sh[eë]tis", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shëtitë“." }
+      ],
+      "standardForms": ["Pas punës më pëlqen të shëtis.", "Më pëlqen të shëtis pas punës."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „shëtitë“ (Standard: shëtitur) nach der Regel -ur → -ë – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_034",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_dyqan"],
+      "prompt": { "lang": "de", "text": "Ich arbeite in einem Laden." },
+      "answerLang": "sq",
+      "text": "Punoj në nji ___.",
+      "solutions": ["dyqan"],
+      "choices": ["dyqani", "dyqan", "zyra", "punë"],
+      "explanation": "Nach „nji“ steht das Nomen ohne Artikel: „nji dyqan“.",
+      "errorHints": [
+        { "pattern": "^dyqani$", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die Form ohne Artikel: „dyqan“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_035",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_student"],
+      "prompt": { "lang": "de", "text": "Ich bin Student." },
+      "answerLang": "sq",
+      "text": "Jam ___.",
+      "solutions": ["student"],
+      "choices": ["studenti", "student", "studente", "mësuesi"],
+      "explanation": "Beim Beruf steht kein Artikel: „Jam student.“",
+      "errorHints": [
+        { "pattern": "^studenti$", "category": "grammar.definite_article", "hint": "Beim Beruf steht kein Artikel: „student“." },
+        { "pattern": "^studente$", "category": "grammar.gender", "hint": "„Studente“ ist die Studentin." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_036",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work", "grammar.verbs.present"],
+      "itemIds": ["item_punoj", "item_ku"],
+      "prompt": { "lang": "de", "text": "Wo arbeitest du?" },
+      "answerLang": "sq",
+      "text": "Ku ___?",
+      "solutions": ["punon"],
+      "choices": ["punoj", "punon", "punojnë", "punue"],
+      "explanation": "„Punon“ heisst „du arbeitest“.",
+      "errorHints": [
+        { "pattern": "^punoj$", "category": "grammar.verb_conjugation", "hint": "„Punoj“ heisst „ich arbeite“." },
+        { "pattern": "^punue$", "category": "grammar.participle", "hint": "„Punue“ ist das Partizip." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_037",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure", "grammar.verbs.present"],
+      "itemIds": ["item_degjoj", "item_muzike"],
+      "prompt": { "lang": "de", "text": "Ich höre Musik." },
+      "answerLang": "sq",
+      "text": "___ muzikë.",
+      "solutions": ["Dëgjoj"],
+      "explanation": "„Dëgjoj“ heisst „ich höre (zu)“.",
+      "errorHints": [
+        { "pattern": "^d[eë]gjon$", "category": "grammar.verb_conjugation", "hint": "„Dëgjon“ heisst „du hörst“. Ich höre: „dëgjoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_038",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_lexue", "item_pelqen"],
+      "prompt": { "lang": "de", "text": "Ich lese gern. (wörtlich: Mir gefällt es zu lesen.)" },
+      "answerLang": "sq",
+      "text": "Më pëlqen me ___.",
+      "solutions": ["lexue"],
+      "explanation": "Nach „me“ steht das Gheg-Partizip: lexoj → „lexue“ (Standard: „të lexoj“).",
+      "errorHints": [
+        { "pattern": "^lexo(j|sh)$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „lexue“." }
+      ],
+      "standardForms": ["lexuar"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_039",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_baj_sport"],
+      "prompt": { "lang": "de", "text": "Ich treibe Sport." },
+      "answerLang": "sq",
+      "text": "___ sport.",
+      "solutions": ["Bâj"],
+      "explanation": "„Bâj“ ist die Gheg-Form von „ich mache“ (Standard: „bëj“).",
+      "errorHints": [
+        { "pattern": "^b[aâ]n$", "category": "grammar.verb_conjugation", "hint": "„Bân“ heisst „du machst“. Ich mache: „bâj“." }
+      ],
+      "standardForms": ["Bëj"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_040",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_punoj_si", "item_shofer"],
+      "prompt": { "lang": "de", "text": "Ich arbeite als Fahrer." },
+      "answerLang": "sq",
+      "text": "Punoj ___ shofer.",
+      "solutions": ["si"],
+      "choices": ["si", "për", "me", "në"],
+      "explanation": "„Si“ heisst hier „als“: „punoj si shofer“.",
+      "errorHints": [
+        { "pattern": "^me$", "category": "vocab.confused", "hint": "„Me“ heisst „mit“. „Als“: „si“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_041",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "vocab.days"],
+      "itemIds": ["item_e_shtune", "item_kafene"],
+      "prompt": { "lang": "de", "text": "Am Samstag gehe ich ins Café." },
+      "answerLang": "sq",
+      "text": "Të ___ shkoj në kafene.",
+      "solutions": ["shtunën"],
+      "choices": ["shtunë", "shtunën", "shtuna", "dielën"],
+      "explanation": "„Am Samstag“ heisst „të shtunën“.",
+      "errorHints": [
+        { "pattern": "^dielën$", "category": "vocab.confused", "hint": "„Të dielën“ heisst „am Sonntag“." },
+        { "pattern": "^shtun(a|[eë])$", "category": "grammar.case", "hint": "„Am Samstag“ heisst „të shtunën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_042",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.work", "grammar.possessive"],
+      "itemIds": ["item_rroge"],
+      "prompt": { "lang": "de", "text": "Mein Lohn ist nicht hoch." },
+      "answerLang": "sq",
+      "text": "___ ime nuk âsht e madhe.",
+      "solutions": ["Rroga"],
+      "explanation": "Mit „ime“ braucht das Nomen den Artikel: rrogë → „rroga“.",
+      "errorHints": [
+        { "pattern": "^rrog[eë]$", "category": "grammar.definite_article", "hint": "Mit „ime“ braucht das Nomen den Artikel: „rroga“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_043",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.present"],
+      "itemIds": ["item_me_dale", "item_mbramje", "item_shok"],
+      "prompt": { "lang": "de", "text": "Am Abend gehe ich mit Freunden aus." },
+      "answerLang": "sq",
+      "text": "Në mbrâmje ___ me shokë.",
+      "solutions": ["dal"],
+      "choices": ["dal", "dalë", "del", "dalim"],
+      "explanation": "„Dal“ heisst „ich gehe hinaus / aus“.",
+      "errorHints": [
+        { "pattern": "^dal[eë]$", "category": "grammar.participle", "hint": "„Dalë“ ist das Partizip. Ich gehe aus: „dal“." },
+        { "pattern": "^del$", "category": "grammar.verb_conjugation", "hint": "„Del“ heisst „du gehst aus / er geht aus“." },
+        { "pattern": "^dalim$", "category": "grammar.verb_conjugation", "hint": "„Dalim“ heisst „wir gehen aus“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_044",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_koha_e_lire", "item_me_gatue", "item_pelqen"],
+      "prompt": { "lang": "de", "text": "In meiner Freizeit koche ich gern." },
+      "answerLang": "sq",
+      "text": "Në kohën e lirë më pëlqen me ___.",
+      "solutions": ["gatue"],
+      "explanation": "Nach „me“ steht das Gheg-Partizip: gatuaj → „gatue“ (Standard: „të gatuaj“).",
+      "errorHints": [
+        { "pattern": "^gatuaj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „gatue“." }
+      ],
+      "standardForms": ["gatuar"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_045",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.work", "grammar.verbs.perfect"],
+      "itemIds": ["item_punue", "item_pushoj"],
+      "prompt": { "lang": "de", "text": "Ich habe heute viel gearbeitet, jetzt ruhe ich mich aus." },
+      "answerLang": "sq",
+      "text": "Sot kam ___ shumë, tash po pushoj.",
+      "solutions": ["punue"],
+      "explanation": "Perfekt: „kam“ + Partizip „punue“ (Standard: „punuar“).",
+      "errorHints": [
+        { "pattern": "^punoj$", "category": "grammar.participle", "hint": "Nach „kam“ steht das Partizip: „punue“." },
+        { "pattern": "^punova$", "category": "grammar.verb_tense", "hint": "„Punova“ ist der Aorist. Nach „kam“ steht „punue“." }
+      ],
+      "standardForms": ["punuar"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_046",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_mesues", "item_mjek", "item_shofer", "item_shites", "item_inxhinier"],
+      "prompt": { "lang": "de", "text": "Ordne die Berufe zu." },
+      "pairs": [
+        { "left": "mësues", "right": "Lehrer" },
+        { "left": "mjek", "right": "Arzt" },
+        { "left": "shofer", "right": "Fahrer" },
+        { "left": "shitës", "right": "Verkäufer" },
+        { "left": "inxhinier", "right": "Ingenieur" }
+      ],
+      "explanation": "Beim Beruf steht kein Artikel: „Jam mjek.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_047",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_zyre", "item_spital", "item_fabrike", "item_dyqan", "item_shkolle"],
+      "prompt": { "lang": "de", "text": "Ordne die Arbeitsorte zu." },
+      "pairs": [
+        { "left": "zyrë", "right": "Büro" },
+        { "left": "spital", "right": "Spital" },
+        { "left": "fabrikë", "right": "Fabrik" },
+        { "left": "dyqan", "right": "Laden" },
+        { "left": "shkollë", "right": "Schule" }
+      ],
+      "explanation": "„Punoj në …“ – „Ich arbeite im/in der …“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_048",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_futboll", "item_kinema", "item_muzike", "item_palester", "item_sport"],
+      "prompt": { "lang": "de", "text": "Ordne die Freizeitwörter zu." },
+      "pairs": [
+        { "left": "futboll", "right": "Fussball" },
+        { "left": "kinema", "right": "Kino" },
+        { "left": "muzikë", "right": "Musik" },
+        { "left": "palestër", "right": "Fitnessstudio" },
+        { "left": "sport", "right": "Sport" }
+      ],
+      "explanation": "Im Kosovo trifft man sich in der Freizeit oft auch in der „kafene“ (im Café).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_049",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_mesues", "item_mjeke", "item_shites", "item_student", "item_infermiere"],
+      "prompt": { "lang": "de", "text": "Ordne die femininen Berufe zu." },
+      "pairs": [
+        { "left": "mësuese", "right": "Lehrerin" },
+        { "left": "mjeke", "right": "Ärztin" },
+        { "left": "shitëse", "right": "Verkäuferin" },
+        { "left": "studente", "right": "Studentin" },
+        { "left": "infermiere", "right": "Pflegefachfrau" }
+      ],
+      "explanation": "Viele feminine Berufe enden auf -e.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_050",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_lexue", "item_me_notue", "item_me_gatue", "item_me_degjue", "item_me_shetite"],
+      "prompt": { "lang": "de", "text": "Ordne die Infinitive zu." },
+      "pairs": [
+        { "left": "me lexue", "right": "lesen" },
+        { "left": "me notue", "right": "schwimmen" },
+        { "left": "me gatue", "right": "kochen" },
+        { "left": "me dëgjue", "right": "zuhören" },
+        { "left": "me shëtitë", "right": "spazieren gehen" }
+      ],
+      "explanation": "Der Gheg-Infinitiv: „me“ + Partizip. Mit „më pëlqen“ sagst du, was du gern machst.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „shëtitë“ (Standard: shëtitur) nach der Regel -ur → -ë – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_051",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_cka_punon", "item_ku", "item_punoj_si", "item_pushim", "item_rroge"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Çka punon?", "right": "Was bist du von Beruf?" },
+        { "left": "Ku punon?", "right": "Wo arbeitest du?" },
+        { "left": "Punoj si shofer.", "right": "Ich arbeite als Fahrer." },
+        { "left": "Kam pushim.", "right": "Ich habe Pause." },
+        { "left": "Rroga âsht e mirë.", "right": "Der Lohn ist gut." }
+      ],
+      "explanation": "Mit diesen Sätzen kannst du über deine Arbeit reden.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Çka punon?“ als Kosovo-Frage nach dem Beruf zu prüfen."
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_052",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_punoj", "item_spital"],
+      "prompt": { "lang": "de", "text": "Ich arbeite im Spital." },
+      "answerLang": "sq",
+      "tokens": ["Punoj", "në", "spital"],
+      "solutions": ["Punoj në spital."],
+      "explanation": "„Në spital“ heisst „im Spital“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_053",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work", "vocab.family"],
+      "itemIds": ["item_baba", "item_mesues"],
+      "prompt": { "lang": "de", "text": "Mein Vater ist Lehrer." },
+      "answerLang": "sq",
+      "tokens": ["Babai", "im", "âsht", "mësues"],
+      "solutions": ["Babai im âsht mësues."],
+      "explanation": "„Babai im“ – das Possessivpronomen steht nach dem Nomen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_054",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_e_diel", "item_mal"],
+      "prompt": { "lang": "de", "text": "Am Sonntag gehe ich in die Berge." },
+      "answerLang": "sq",
+      "tokens": ["Të", "dielën", "shkoj", "në", "mal"],
+      "solutions": ["Të dielën shkoj në mal.", "Shkoj në mal të dielën."],
+      "explanation": "„Të dielën“ kann am Anfang oder am Ende stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_055",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_pelqen", "item_me_lexue", "item_liber"],
+      "prompt": { "lang": "de", "text": "Ich lese gern Bücher." },
+      "answerLang": "sq",
+      "tokens": ["Më", "pëlqen", "me", "lexue", "libra"],
+      "solutions": ["Më pëlqen me lexue libra."],
+      "explanation": "„Më pëlqen me lexue“ – „ich lese gern“, wörtlich „mir gefällt zu lesen“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_056",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_koha_e_lire"],
+      "prompt": { "lang": "de", "text": "Was machst du in deiner Freizeit?" },
+      "answerLang": "sq",
+      "tokens": ["Çka", "bân", "në", "kohën", "e", "lirë"],
+      "solutions": ["Çka bân në kohën e lirë?"],
+      "explanation": "Das Fragewort „çka“ steht am Anfang.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_057",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.work", "vocab.time"],
+      "itemIds": ["item_punoj", "item_prej", "item_ore"],
+      "prompt": { "lang": "de", "text": "Ich arbeite von acht bis vier Uhr." },
+      "answerLang": "sq",
+      "tokens": ["Punoj", "prej", "orës", "tetë", "deri", "në", "orën", "katër"],
+      "solutions": ["Punoj prej orës tetë deri në orën katër."],
+      "explanation": "„Prej orës …“ (ab …) kommt vor „deri në orën …“ (bis …).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_058",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.work"],
+      "itemIds": ["item_moter", "item_punoj_si", "item_infermiere"],
+      "prompt": { "lang": "de", "text": "Meine Schwester arbeitet als Pflegefachfrau." },
+      "answerLang": "sq",
+      "tokens": ["Motra", "ime", "punon", "si", "infermiere"],
+      "solutions": ["Motra ime punon si infermiere."],
+      "explanation": "„Si“ heisst „als“: „punon si infermiere“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_059",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.leisure", "vocab.work"],
+      "itemIds": ["item_pune", "item_baj_sport", "item_koleg"],
+      "prompt": { "lang": "de", "text": "Nach der Arbeit treibe ich mit einem Kollegen Sport." },
+      "answerLang": "sq",
+      "tokens": ["Pas", "punës", "bâj", "sport", "me", "nji", "koleg"],
+      "solutions": ["Pas punës bâj sport me nji koleg.", "Bâj sport me nji koleg pas punës."],
+      "explanation": "„Pas punës“ (nach der Arbeit) kann am Anfang oder am Ende stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_060",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_fundjave", "item_pelqen", "item_me_dale", "item_shok"],
+      "prompt": { "lang": "de", "text": "Am Wochenende gehe ich gern mit Freunden aus." },
+      "answerLang": "sq",
+      "tokens": ["Në", "fundjavë", "më", "pëlqen", "me", "dalë", "me", "shokë"],
+      "solutions": ["Në fundjavë më pëlqen me dalë me shokë.", "Më pëlqen me dalë me shokë në fundjavë."],
+      "explanation": "„Me dalë“ heisst „ausgehen“ – der Gheg-Infinitiv.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

@@ -1,0 +1,1258 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u09_perfect",
+  "level": "A2.3",
+  "grammar": [
+    {
+      "title": "Perfekt = kam + Partizip",
+      "explanation": "| Gheg | Deutsch |\n|---|---|\n| kam punue | ich habe gearbeitet |\n| ke punue | du hast gearbeitet |\n| ka punue | er/sie hat gearbeitet |\n| kemi punue | wir haben gearbeitet |\n| keni punue | ihr habt gearbeitet |\n| kanë punue | sie haben gearbeitet |\n\nAnders als im Deutschen steht fast immer **kam**, auch bei „gehen“, „kommen“ und „sein“: *Kam shkue.* (Ich bin gegangen.) *Ka ardhë.* (Er ist gekommen.) *Kam kânë në Prizren.* (Ich bin in Prizren gewesen.)"
+    },
+    {
+      "title": "Die kurzen Gheg-Partizipien",
+      "explanation": "- Verben auf **-oj**: Partizip auf **-ue** (Standard: -uar): *punoj → punue, mësoj → mësue, lexoj → lexue, shkoj → shkue*; ebenso *shkruaj → shkrue*.\n- Standard-Partizipien auf **-ur** enden im Gheg auf **-ë**: *ardhë* (ardhur), *fjetë* (fjetur), *pasë* (pasur), *pritë* (pritur).\n- Unregelmässig: **bâ** (gemacht, Standard: bërë), **kânë** (gewesen, Standard: qenë), **pa** (gesehen, Standard: parë), **dhânë, thânë, ngrânë** (gegeben, gesagt, gegessen; Standard: dhënë, thënë, ngrënë).\n\nAchtung: **kanë** (sie haben) und **kânë** (gewesen) sind zwei Wörter: *Ata kanë kânë në Pejë.* – „Sie sind in Peja gewesen.“"
+    },
+    {
+      "title": "Verneinen, „noch nicht“ und „nie“",
+      "explanation": "*Nuk kam ngrânë.* oder *S'kam ngrânë.* – „Ich habe nicht gegessen.“ **Hala s'kam ngrânë.** – „Ich habe noch nicht gegessen.“ **Nuk kam kânë kurrë në Shqipni.** – „Ich bin noch nie in Albanien gewesen.“\n\nDie Objekt-Kurzform steht vor *kam*: **E kam bâ.** (Ich habe es gemacht.) Reflexive Verben bilden das Perfekt mit **jam**: *Jam lodhë.* (Ich bin müde geworden.)"
+    }
+  ],
+  "items": [
+    { "id": "item_punue", "kind": "word", "gheg": "punue", "de": "gearbeitet", "partOfSpeech": "verb", "note": "Partizip von „punoj“ (Standard: punuar).", "reviewed": false },
+    { "id": "item_shkue", "kind": "word", "gheg": "shkue", "de": "gegangen", "partOfSpeech": "verb", "note": "Partizip von „shkoj“ (Standard: shkuar).", "reviewed": false },
+    { "id": "item_mesue", "kind": "word", "gheg": "mësue", "de": "gelernt", "partOfSpeech": "verb", "note": "Partizip von „mësoj“ (Standard: mësuar).", "reviewed": false },
+    { "id": "item_lexue", "kind": "word", "gheg": "lexue", "de": "gelesen", "partOfSpeech": "verb", "note": "Partizip von „lexoj“ (Standard: lexuar).", "reviewed": false },
+    {
+      "id": "item_shkrue",
+      "kind": "word",
+      "gheg": "shkrue",
+      "de": "geschrieben",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „shkruaj“ (Standard: shkruar).",
+      "reviewed": false
+    },
+    { "id": "item_ba", "kind": "word", "gheg": "bâ", "de": "gemacht", "partOfSpeech": "verb", "note": "Partizip von „bâj“ (Standard: bërë).", "reviewed": false },
+    {
+      "id": "item_kane_partizip",
+      "kind": "word",
+      "gheg": "kânë",
+      "de": "gewesen",
+      "partOfSpeech": "verb",
+      "alternatives": ["kjenë"],
+      "note": "Partizip von „jam“ (Standard: qenë). „kjenë“ als weitere Schreibung zu prüfen. Nicht verwechseln mit „kanë“ (sie haben).",
+      "reviewed": false
+    },
+    {
+      "id": "item_pa_partizip",
+      "kind": "word",
+      "gheg": "pa",
+      "de": "gesehen",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „shoh“ (Standard: parë). „pa“ heisst auch „ohne“.",
+      "reviewed": false
+    },
+    { "id": "item_dhane", "kind": "word", "gheg": "dhânë", "de": "gegeben", "partOfSpeech": "verb", "note": "Partizip von „jap“ (Standard: dhënë).", "reviewed": false },
+    { "id": "item_thane", "kind": "word", "gheg": "thânë", "de": "gesagt", "partOfSpeech": "verb", "note": "Partizip von „them“ (Standard: thënë).", "reviewed": false },
+    {
+      "id": "item_ngrane",
+      "kind": "word",
+      "gheg": "ngrânë",
+      "de": "gegessen",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „ha“ (Standard: ngrënë). Im Kosovo-Alltag auch „hangër“ – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_ardhe", "kind": "word", "gheg": "ardhë", "de": "gekommen", "partOfSpeech": "verb", "note": "Partizip von „vij“ (Standard: ardhur).", "reviewed": false },
+    { "id": "item_fjete", "kind": "word", "gheg": "fjetë", "de": "geschlafen", "partOfSpeech": "verb", "note": "Partizip von „fle“ (Standard: fjetur).", "reviewed": false },
+    { "id": "item_pase", "kind": "word", "gheg": "pasë", "de": "gehabt", "partOfSpeech": "verb", "note": "Partizip von „kam“ (Standard: pasur).", "reviewed": false },
+    {
+      "id": "item_fole",
+      "kind": "word",
+      "gheg": "folë",
+      "de": "gesprochen",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „flas“ (Standard: folur); Kosovo auch „fol“ – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_marre", "kind": "word", "gheg": "marrë", "de": "genommen", "partOfSpeech": "verb", "note": "Partizip von „marr“ (gleich wie Standard).", "reviewed": false },
+    {
+      "id": "item_dale",
+      "kind": "word",
+      "gheg": "dalë",
+      "de": "hinausgegangen",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „dal“ (gleich wie Standard).",
+      "reviewed": false
+    },
+    {
+      "id": "item_prite",
+      "kind": "word",
+      "gheg": "pritë",
+      "de": "gewartet",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „pres“ (Standard: pritur); nach der Regel -ur → -ë gebildet, zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_hape",
+      "kind": "word",
+      "gheg": "hapë",
+      "de": "geöffnet",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „hap“ (Standard: hapur); nach der Regel -ur → -ë gebildet, zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_harrue",
+      "kind": "word",
+      "gheg": "harrue",
+      "de": "vergessen",
+      "partOfSpeech": "verb",
+      "note": "Partizip von „harroj“ (Standard: harruar).",
+      "reviewed": false
+    },
+    { "id": "item_takue", "kind": "word", "gheg": "takue", "de": "getroffen", "partOfSpeech": "verb", "note": "Partizip von „takoj“ (Standard: takuar).", "reviewed": false },
+    { "id": "item_gatue", "kind": "word", "gheg": "gatue", "de": "gekocht", "partOfSpeech": "verb", "note": "Partizip von „gatuaj“ (Standard: gatuar).", "reviewed": false },
+    { "id": "item_kurre", "kind": "word", "gheg": "kurrë", "de": "nie", "partOfSpeech": "adverb", "reviewed": false },
+    {
+      "id": "item_hala",
+      "kind": "word",
+      "gheg": "hala",
+      "de": "noch (nicht)",
+      "partOfSpeech": "adverb",
+      "note": "Kosovo-Wort (Standard: ende, akoma) – zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_jam_lodhe",
+      "kind": "phrase",
+      "gheg": "jam lodhë",
+      "de": "ich bin müde geworden",
+      "partOfSpeech": "phrase",
+      "note": "Perfekt eines reflexiven Verbs mit „jam“ (Standard: jam lodhur) – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_leter", "kind": "word", "gheg": "letër", "de": "Brief", "partOfSpeech": "noun", "gender": "f", "definite": "letra", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u09_perfect_001",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect"],
+      "itemIds": ["item_punue", "item_kam"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kam punue.“?" },
+      "choices": ["Ich arbeite.", "Ich habe gearbeitet.", "Ich werde arbeiten.", "Ich will arbeiten."],
+      "solutions": ["Ich habe gearbeitet."],
+      "explanation": "„Kam“ + Partizip ist das Perfekt: „Kam punue.“ – „Ich habe gearbeitet.“",
+      "errorHints": [
+        { "pattern": "werde", "category": "grammar.verb_tense", "hint": "Die Zukunft wäre „kam me punue“. Ohne „me“ ist es das Perfekt." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_002",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle"],
+      "itemIds": ["item_punue"],
+      "prompt": { "lang": "de", "text": "Welches ist das Gheg-Partizip von „punoj“ (arbeiten)?" },
+      "choices": ["punon", "punoj", "punue", "punova"],
+      "solutions": ["punue"],
+      "explanation": "Verben auf -oj haben im Gheg das Partizip auf -ue: punoj → „punue“ (Standard: „punuar“).",
+      "errorHints": [
+        { "pattern": "^punova$", "category": "grammar.verb_tense", "hint": "„Punova“ ist der Aorist (ich arbeitete)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_003",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_ba"],
+      "prompt": { "lang": "de", "text": "Wie heisst „gemacht“ im Gheg?" },
+      "choices": ["bâj", "bâ", "bâjnë", "bân"],
+      "solutions": ["bâ"],
+      "explanation": "Das Partizip von „bâj“ (machen) ist kurz: „bâ“ (Standard: „bërë“).",
+      "errorHints": [
+        { "pattern": "^b[aâ]j$", "category": "grammar.participle", "hint": "„Bâj“ heisst „ich mache“. Das Partizip ist „bâ“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_004",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_kane_partizip"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „kânë“?" },
+      "choices": ["sie haben", "gewesen", "gegessen", "gesagt"],
+      "solutions": ["gewesen"],
+      "explanation": "„Kânë“ mit Zirkumflex ist das Partizip von „jam“ (sein). „Kanë“ ohne Zirkumflex heisst „sie haben“.",
+      "errorHints": [
+        { "pattern": "haben", "category": "vocab.confused", "hint": "„Sie haben“ heisst „kanë“ – ohne Zirkumflex. „Kânë“ heisst „gewesen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_005",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle"],
+      "itemIds": ["item_pa_partizip"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kam pa filmin.“?" },
+      "choices": ["Ich sehe den Film.", "Ich habe den Film gesehen.", "Ich habe keinen Film.", "Ich habe den Film gemacht."],
+      "solutions": ["Ich habe den Film gesehen."],
+      "explanation": "„Pa“ ist das kurze Gheg-Partizip von „shoh“ (sehen), Standard: „parë“.",
+      "errorHints": [
+        { "pattern": "gemacht", "category": "vocab.confused", "hint": "„Gemacht“ wäre „bâ“. „Pa“ heisst „gesehen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_006",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_ngrane"],
+      "prompt": { "lang": "de", "text": "Welches Partizip gehört zu „ha“ (essen)?" },
+      "choices": ["hangra", "ha", "ngrânë", "hanë"],
+      "solutions": ["ngrânë"],
+      "explanation": "Das Partizip von „ha“ ist „ngrânë“ (Standard: „ngrënë“): „Kam ngrânë.“",
+      "errorHints": [
+        { "pattern": "^hangra$", "category": "grammar.verb_tense", "hint": "„Hangra“ ist der Aorist (ich ass)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_007",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.kam"],
+      "itemIds": ["item_mesue", "item_kemi"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Wir haben gelernt.“?" },
+      "choices": ["Kanë mësue.", "Kemi mësue.", "Kam mësue.", "Keni mësue."],
+      "solutions": ["Kemi mësue."],
+      "explanation": "„Kemi“ heisst „wir haben“, „mësue“ ist das Partizip von „mësoj“.",
+      "errorHints": [
+        { "pattern": "^kan[eë] ", "category": "grammar.verb_conjugation", "hint": "„Kanë“ heisst „sie haben“." },
+        { "pattern": "^keni ", "category": "grammar.verb_conjugation", "hint": "„Keni“ heisst „ihr habt“." },
+        { "pattern": "^kam ", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_008",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_ardhe"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Er ist gekommen.“?" },
+      "choices": ["Âsht ardhë.", "Ka ardhë.", "Kam ardhë.", "Ka shkue."],
+      "solutions": ["Ka ardhë."],
+      "explanation": "Im Gheg bildet auch „kommen“ das Perfekt mit „kam“: „Ka ardhë.“ (Standard: „ka ardhur“).",
+      "errorHints": [
+        { "pattern": "^[aâ]sht ", "category": "grammar.verb_tense", "hint": "Das Perfekt von „kommen“ bildest du mit „ka“: „Ka ardhë.“" },
+        { "pattern": "shkue", "category": "vocab.confused", "hint": "„Shkue“ heisst „gegangen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_009",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.negation"],
+      "itemIds": ["item_kurre", "item_kane_partizip"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Nuk kam kânë kurrë në Shqipni.“?" },
+      "choices": [
+        "Ich war gestern in Albanien.",
+        "Ich bin oft in Albanien.",
+        "Ich bin noch nie in Albanien gewesen.",
+        "Ich will nach Albanien."
+      ],
+      "solutions": ["Ich bin noch nie in Albanien gewesen."],
+      "explanation": "„Kurrë“ heisst „nie“, „kam kânë“ „ich bin gewesen“. „Shqipni“ ist die Gheg-Form von „Albanien“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_010",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics"],
+      "itemIds": ["item_ba"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „E kam bâ.“?" },
+      "choices": ["Ich habe es gesehen.", "Ich habe es gemacht.", "Ich mache es.", "Ich werde es machen."],
+      "solutions": ["Ich habe es gemacht."],
+      "explanation": "„E“ heisst „es“, „kam bâ“ „ich habe gemacht“.",
+      "errorHints": [
+        { "pattern": "gesehen", "category": "vocab.confused", "hint": "„Gesehen“ wäre „pa“: „E kam pa.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_011",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "reading.short_texts"],
+      "itemIds": ["item_punue", "item_gatue", "item_darke", "item_fole", "item_i_lodhun"],
+      "prompt": {
+        "lang": "sq",
+        "text": "Sot Arta ka punue shumë. Në mbrâmje ka gatue darkë dhe ka folë me nânën në telefon. Tash âsht e lodhun.\n\nFrage: Was hat Arta am Abend gemacht?"
+      },
+      "choices": [
+        "Sie hat viel gearbeitet und geschlafen.",
+        "Sie hat gekocht und mit ihrer Mutter telefoniert.",
+        "Sie ist ins Café gegangen.",
+        "Sie hat einen Film gesehen."
+      ],
+      "solutions": ["Sie hat gekocht und mit ihrer Mutter telefoniert."],
+      "explanation": "„Në mbrâmje“ heisst „am Abend“: „ka gatue darkë“ (hat Abendessen gekocht) und „ka folë me nânën“ (hat mit der Mutter gesprochen).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„mbrâmje“ und „e lodhun“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_012",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "reading.short_texts"],
+      "itemIds": ["item_kane_partizip", "item_punue", "item_mesue", "item_gjermani", "item_gjermanisht"],
+      "prompt": {
+        "lang": "sq",
+        "text": "Blerimi ka kânë në Gjermani. Aty ka punue dy vjet dhe ka mësue gjermanisht. Tash jeton prapë në Prizren.\n\nFrage: Was hat Blerim in Deutschland gemacht?"
+      },
+      "choices": [
+        "Er hat studiert und geheiratet.",
+        "Er hat Ferien gemacht.",
+        "Er hat gearbeitet und Deutsch gelernt.",
+        "Er hat seine Familie besucht."
+      ],
+      "solutions": ["Er hat gearbeitet und Deutsch gelernt."],
+      "explanation": "„Ka punue dy vjet“ heisst „er hat zwei Jahre gearbeitet“, „ka mësue gjermanisht“ „er hat Deutsch gelernt“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_013",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_ngrane", "item_kam"],
+      "prompt": { "lang": "de", "text": "Ich habe gegessen." },
+      "answerLang": "sq",
+      "solutions": ["Kam ngrânë."],
+      "wordBank": ["Kam", "ngrânë", "ha", "ke", "hangra"],
+      "explanation": "„Ngrânë“ ist das Partizip von „ha“ (essen), Standard: „ngrënë“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ha$", "category": "grammar.participle", "hint": "Das Partizip von „ha“ ist „ngrânë“: „Kam ngrânë.“" },
+        { "pattern": "^ke ", "category": "grammar.verb_conjugation", "hint": "„Ke“ heisst „du hast“. Für „ich habe“: „kam“." },
+        { "pattern": "hangra", "category": "grammar.verb_tense", "hint": "„Hangra“ ist der Aorist. Perfekt: „Kam ngrânë.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_014",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_punue", "item_kam"],
+      "prompt": { "lang": "de", "text": "Ich habe gearbeitet." },
+      "answerLang": "sq",
+      "solutions": ["Kam punue."],
+      "wordBank": ["Kam", "punue", "punoj", "me", "ka"],
+      "explanation": "Perfekt = „kam“ + Partizip: „Kam punue.“",
+      "errorHints": [
+        { "pattern": "punoj", "category": "grammar.participle", "hint": "Im Perfekt steht das Partizip: „kam punue“." },
+        { "pattern": "me punue", "category": "grammar.verb_tense", "hint": "„Kam me punue“ wäre die Zukunft. Perfekt: „Kam punue.“" },
+        { "pattern": "^ka punue", "category": "grammar.verb_conjugation", "hint": "„Ka“ heisst „er/sie hat“. Für „ich habe“: „kam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_015",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_kane_partizip", "item_kam"],
+      "prompt": { "lang": "de", "text": "Ich bin in Prizren gewesen." },
+      "answerLang": "sq",
+      "solutions": ["Kam kânë në Prizren.", "Unë kam kânë në Prizren.", "Kam kjenë në Prizren."],
+      "wordBank": ["Kam", "kânë", "në", "Prizren", "jam", "kanë", "je"],
+      "explanation": "Auch „sein“ bildet das Perfekt mit „kam“: „Kam kânë“ – „ich bin gewesen“ (Standard: „kam qenë“).",
+      "errorHints": [
+        { "pattern": "^(un[eë] )?jam ", "category": "grammar.verb_tense", "hint": "Auch „sein“ bildet das Perfekt mit „kam“: „Kam kânë …“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kjenë“ als weitere Schreibung von „kânë“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_016",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "grammar.question_particle"],
+      "itemIds": ["item_pa_partizip", "item_ke"],
+      "prompt": { "lang": "de", "text": "Hast du den Film gesehen?" },
+      "answerLang": "sq",
+      "solutions": ["A e ke pa filmin?", "E ke pa filmin?", "A ke pa filmin?"],
+      "wordBank": ["A", "e", "ke", "pa", "filmin", "kam", "filmi", "shoh"],
+      "explanation": "„A e ke pa …?“ – das „e“ nimmt den bestimmten Film vorweg. „Pa“ heisst „gesehen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam pa", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Für „du hast“: „ke“." },
+        { "pattern": "filmi$", "category": "grammar.case", "hint": "Das Objekt steht im Akkusativ: „filmin“." },
+        { "pattern": "shoh", "category": "grammar.participle", "hint": "„Shoh“ heisst „ich sehe“. Das Partizip ist „pa“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_017",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.kam"],
+      "itemIds": ["item_mesue", "item_kane"],
+      "prompt": { "lang": "de", "text": "Sie haben viel gelernt. (sie = Plural)" },
+      "answerLang": "sq",
+      "solutions": ["Kanë mësue shumë.", "Ata kanë mësue shumë."],
+      "wordBank": ["Kanë", "mësue", "shumë", "kemi", "mësoj", "pak"],
+      "explanation": "„Kanë“ heisst „sie haben“ – ohne Zirkumflex. „Mësue“ ist das Partizip von „mësoj“.",
+      "errorHints": [
+        { "pattern": "^kemi", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“. „Sie haben“ ist „kanë“." },
+        { "pattern": "m[eë]soj", "category": "grammar.participle", "hint": "Im Perfekt steht das Partizip: „mësue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_018",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.negation"],
+      "itemIds": ["item_hala", "item_ngrane"],
+      "prompt": { "lang": "de", "text": "Ich habe noch nicht gegessen." },
+      "answerLang": "sq",
+      "solutions": ["Hala s'kam ngrânë.", "Hala nuk kam ngrânë.", "S'kam ngrânë hala.", "Nuk kam ngrânë hala."],
+      "wordBank": ["Hala", "s'kam", "ngrânë", "ha", "kurrë", "kam"],
+      "explanation": "„Hala s'kam …“ heisst „ich habe noch nicht …“. „S'kam“ ist die Kurzform von „nuk kam“.",
+      "errorHints": [
+        { "pattern": "kurr", "category": "vocab.confused", "hint": "„Kurrë“ heisst „nie“. „Noch nicht“: „hala s'…“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„hala“ (noch nicht) als Kosovo-Wort zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_019",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_lexue", "item_liber"],
+      "prompt": { "lang": "sq", "text": "Kam lexue librin." },
+      "answerLang": "de",
+      "solutions": ["Ich habe das Buch gelesen."],
+      "wordBank": ["Ich", "habe", "das", "Buch", "gelesen", "geschrieben", "lese", "ein"],
+      "explanation": "„Lexue“ ist das Partizip von „lexoj“ (lesen), Standard: „lexuar“.",
+      "errorHints": [
+        { "pattern": "geschrieben", "category": "vocab.confused", "hint": "„Geschrieben“ wäre „shkrue“." },
+        { "pattern": "(^|\\s)lese", "category": "grammar.verb_tense", "hint": "„Kam lexue“ ist Perfekt: „ich habe gelesen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_020",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_shkue", "item_shkolle"],
+      "prompt": { "lang": "sq", "text": "Ka shkue në shkollë." },
+      "answerLang": "de",
+      "solutions": [
+        "Er ist in die Schule gegangen.",
+        "Sie ist in die Schule gegangen.",
+        "Er ist zur Schule gegangen.",
+        "Sie ist zur Schule gegangen."
+      ],
+      "wordBank": ["Er", "ist", "in", "die", "Schule", "gegangen", "geht", "Arbeit", "hat"],
+      "explanation": "Im Deutschen „ist gegangen“, im Gheg „ka shkue“ – mit „kam“.",
+      "errorHints": [
+        { "pattern": "geht", "category": "grammar.verb_tense", "hint": "„Ka shkue“ ist Perfekt: „ist gegangen“." },
+        { "pattern": "arbeit", "category": "vocab.confused", "hint": "„Shkollë“ ist die Schule. Die Arbeit heisst „punë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_021",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_ngrane", "item_darke"],
+      "prompt": { "lang": "sq", "text": "Kemi ngrânë darkë." },
+      "answerLang": "de",
+      "solutions": ["Wir haben zu Abend gegessen.", "Wir haben das Abendessen gegessen."],
+      "wordBank": ["Wir", "haben", "zu", "Abend", "gegessen", "essen", "sie", "getrunken"],
+      "explanation": "„Kemi“ heisst „wir haben“, „darkë“ ist das Abendessen.",
+      "errorHints": [
+        { "pattern": "^sie ", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“." },
+        { "pattern": "getrunken", "category": "vocab.confused", "hint": "„Ngrânë“ heisst „gegessen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_022",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_ba", "item_sot"],
+      "prompt": { "lang": "sq", "text": "Çka ke bâ sot?" },
+      "answerLang": "de",
+      "solutions": ["Was hast du heute gemacht?"],
+      "wordBank": ["Was", "hast", "du", "heute", "gemacht", "machst", "morgen", "wo"],
+      "explanation": "„Çka“ heisst „was“ (Standard: „çfarë“), „ke bâ“ „du hast gemacht“.",
+      "errorHints": [
+        { "pattern": "machst", "category": "grammar.verb_tense", "hint": "„Ke bâ“ ist Perfekt: „hast gemacht“." },
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_023",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.negation", "grammar.verbs.participle"],
+      "itemIds": ["item_fole"],
+      "prompt": { "lang": "sq", "text": "Nuk kam folë me të." },
+      "answerLang": "de",
+      "solutions": ["Ich habe nicht mit ihm gesprochen.", "Ich habe nicht mit ihr gesprochen."],
+      "wordBank": ["Ich", "habe", "nicht", "mit", "ihm", "gesprochen", "spreche", "dir"],
+      "explanation": "„Folë“ ist das Partizip von „flas“ (sprechen), Standard: „folur“. „Me të“ heisst „mit ihm“ oder „mit ihr“.",
+      "errorHints": [
+        { "pattern": "spreche", "category": "grammar.verb_tense", "hint": "„Kam folë“ ist Perfekt: „habe gesprochen“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „folë“ (Kosovo auch „fol“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_024",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.question_particle"],
+      "itemIds": ["item_kane_partizip", "item_ke"],
+      "prompt": { "lang": "sq", "text": "A ke kânë ndonjiherë në Pejë?" },
+      "answerLang": "de",
+      "solutions": ["Bist du schon einmal in Peja gewesen?", "Warst du schon einmal in Peja?", "Bist du jemals in Peja gewesen?"],
+      "wordBank": ["Bist", "du", "schon", "einmal", "in", "Peja", "gewesen", "nie", "hast", "heute"],
+      "explanation": "„Ndonjiherë“ heisst „schon einmal, jemals“, „ke kânë“ „du bist gewesen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)nie(\\s|$)", "category": "vocab.confused", "hint": "„Nie“ wäre „kurrë“. „Ndonjiherë“ heisst „schon einmal“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„ndonjiherë“ (Standard: ndonjëherë) als Gheg-Schreibung zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_025",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.kam"],
+      "itemIds": ["item_punue"],
+      "prompt": { "lang": "de", "text": "Wir haben gearbeitet." },
+      "answerLang": "sq",
+      "solutions": ["Kemi punue.", "Ne kemi punue."],
+      "explanation": "„Kemi“ heisst „wir haben“, „punue“ ist das Gheg-Partizip (Standard: „punuar“).",
+      "errorHints": [
+        { "pattern": "^(ne )?kam ", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Für „wir haben“: „kemi“." },
+        { "pattern": "punoj", "category": "grammar.participle", "hint": "Im Perfekt steht das Partizip: „punue“." }
+      ],
+      "standardForms": ["Kemi punuar.", "Ne kemi punuar."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_026",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics"],
+      "itemIds": ["item_ba"],
+      "prompt": { "lang": "de", "text": "Ich habe es gemacht." },
+      "answerLang": "sq",
+      "solutions": ["E kam bâ.", "Unë e kam bâ."],
+      "explanation": "„E“ (es) steht vor „kam“. „Bâ“ ist das kurze Gheg-Partizip von „bâj“ (Standard: „bërë“).",
+      "errorHints": [
+        { "pattern": "^(un[eë] )?kam e ", "category": "grammar.clitics", "hint": "Die Kurzform „e“ steht vor „kam“: „E kam bâ.“" },
+        { "pattern": "b[aâ]j$", "category": "grammar.participle", "hint": "„Bâj“ heisst „ich mache“. Das Partizip ist „bâ“." }
+      ],
+      "standardForms": ["E kam bërë.", "Unë e kam bërë."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_027",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_kane_partizip"],
+      "prompt": { "lang": "de", "text": "Er ist in Prishtina gewesen." },
+      "answerLang": "sq",
+      "solutions": ["Ka kânë në Prishtinë.", "Ai ka kânë në Prishtinë.", "Ka kjenë në Prishtinë.", "Ai ka kjenë në Prishtinë."],
+      "explanation": "Auch „sein“ bildet im Gheg das Perfekt mit „kam“: „Ka kânë …“ (Standard: „ka qenë“).",
+      "errorHints": [
+        { "pattern": "^(ai )?[aâ]sht ", "category": "grammar.verb_tense", "hint": "Auch „sein“ bildet das Perfekt mit „kam“: „Ka kânë …“." }
+      ],
+      "standardForms": ["Ka qenë në Prishtinë.", "Ai ka qenë në Prishtinë."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kjenë“ als weitere Schreibung von „kânë“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_028",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "grammar.question_particle"],
+      "itemIds": ["item_ngrane", "item_ke"],
+      "prompt": { "lang": "de", "text": "Hast du gegessen?" },
+      "answerLang": "sq",
+      "solutions": ["A ke ngrânë?", "Ke ngrânë?"],
+      "explanation": "„Ngrânë“ ist das Partizip von „ha“ (Standard: „ngrënë“).",
+      "errorHints": [
+        { "pattern": "ke ha$", "category": "grammar.participle", "hint": "Das Partizip von „ha“ ist „ngrânë“: „A ke ngrânë?“" },
+        { "pattern": "^(a )?kam ", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Für „du hast“: „ke“." }
+      ],
+      "standardForms": ["A ke ngrënë?", "Ke ngrënë?"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Alltagsform „hangër“ (a ke hangër?) nicht als Lösung aufgenommen – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_029",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_shkue"],
+      "prompt": { "lang": "de", "text": "Wir sind nach Peja gegangen." },
+      "answerLang": "sq",
+      "solutions": ["Kemi shkue në Pejë.", "Ne kemi shkue në Pejë."],
+      "explanation": "Im Deutschen „sind gegangen“, im Gheg „kemi shkue“ – das Perfekt steht mit „kam“.",
+      "errorHints": [
+        { "pattern": "^(ne )?jemi ", "category": "grammar.verb_tense", "hint": "Das Perfekt von „gehen“ bildest du mit „kam“: „Kemi shkue“." },
+        { "pattern": "shkoj", "category": "grammar.participle", "hint": "Im Perfekt steht das Partizip: „shkue“." }
+      ],
+      "standardForms": ["Kemi shkuar në Pejë.", "Ne kemi shkuar në Pejë."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_030",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "grammar.verbs.kam"],
+      "itemIds": ["item_shkrue", "item_leter", "item_kane"],
+      "prompt": { "lang": "de", "text": "Sie haben einen Brief geschrieben. (sie = Plural)" },
+      "answerLang": "sq",
+      "solutions": ["Kanë shkrue nji letër.", "Ata kanë shkrue nji letër.", "Ato kanë shkrue nji letër."],
+      "explanation": "„Shkrue“ ist das kurze Gheg-Partizip von „shkruaj“ (Standard: „shkruar“). „Nji“ ist die Gheg-Form von „ein“.",
+      "errorHints": [
+        { "pattern": "shkruaj", "category": "grammar.participle", "hint": "Im Perfekt steht das Partizip: „shkrue“." },
+        { "pattern": "^(ata |ato )?kemi ", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“. „Sie haben“: „kanë“." }
+      ],
+      "standardForms": ["Kanë shkruar një letër.", "Ata kanë shkruar një letër."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_031",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_thane"],
+      "prompt": { "lang": "de", "text": "Ich habe es dir gesagt." },
+      "answerLang": "sq",
+      "solutions": ["Ta kam thânë.", "Unë ta kam thânë."],
+      "explanation": "„Ta“ ist „të“ (dir) + „e“ (es). „Thânë“ ist das Partizip von „them“ (Standard: „thënë“).",
+      "errorHints": [
+        { "pattern": "^(un[eë] )?t[eë] kam", "category": "grammar.clitics", "hint": "„Es dir“ zusammen heisst „ta“ (të + e): „Ta kam thânë.“" },
+        { "pattern": "dh[aâ]n[eë]", "category": "vocab.confused", "hint": "„Dhânë“ heisst „gegeben“. „Gesagt“ ist „thânë“." }
+      ],
+      "standardForms": ["Ta kam thënë.", "Unë ta kam thënë."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_032",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.negation", "spelling.nasal_vowels"],
+      "itemIds": ["item_kurre", "item_kane_partizip"],
+      "prompt": { "lang": "de", "text": "Ich bin noch nie in Albanien gewesen." },
+      "answerLang": "sq",
+      "solutions": [
+        "Nuk kam kânë kurrë në Shqipni.",
+        "S'kam kânë kurrë në Shqipni.",
+        "Kurrë nuk kam kânë në Shqipni.",
+        "Nuk kam kjenë kurrë në Shqipni."
+      ],
+      "explanation": "„Kurrë“ heisst „nie“, „kam kânë“ „ich bin gewesen“. „Shqipni“ ist die Gheg-Form von „Albanien“ (Standard: „Shqipëri“).",
+      "errorHints": [
+        { "pattern": "^(nuk |s)?jam ", "category": "grammar.verb_tense", "hint": "Auch „sein“ bildet das Perfekt mit „kam“: „Nuk kam kânë …“." }
+      ],
+      "standardForms": ["Nuk kam qenë kurrë në Shqipëri.", "S'kam qenë kurrë në Shqipëri.", "Kurrë nuk kam qenë në Shqipëri."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_033",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.kam", "spelling.nasal_vowels"],
+      "itemIds": ["item_kane_partizip", "item_kane", "item_gjermani"],
+      "prompt": { "lang": "de", "text": "Sie sind in Deutschland gewesen. (sie = Plural)" },
+      "answerLang": "sq",
+      "solutions": ["Ata kanë kânë në Gjermani.", "Kanë kânë në Gjermani.", "Ato kanë kânë në Gjermani."],
+      "explanation": "„Kanë“ (sie haben) + „kânë“ (gewesen): zwei Wörter, die sich nur im Zirkumflex unterscheiden.",
+      "errorHints": [
+        { "pattern": "^(ata |ato )?jan[eë] ", "category": "grammar.verb_tense", "hint": "Auch „sein“ bildet das Perfekt mit „kam“: „Kanë kânë …“." }
+      ],
+      "standardForms": ["Ata kanë qenë në Gjermani.", "Kanë qenë në Gjermani."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_034",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle"],
+      "itemIds": ["item_punue"],
+      "prompt": { "lang": "de", "text": "Ich habe gearbeitet." },
+      "answerLang": "sq",
+      "text": "Kam ___.",
+      "solutions": ["punue"],
+      "choices": ["punoj", "punue", "punon", "punova"],
+      "explanation": "Nach „kam“ steht im Perfekt das Partizip: „punue“.",
+      "errorHints": [
+        { "pattern": "^punoj$", "category": "grammar.participle", "hint": "„Punoj“ ist Präsens. Das Partizip ist „punue“." },
+        { "pattern": "^punova$", "category": "grammar.verb_tense", "hint": "„Punova“ ist der Aorist." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_035",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_ngrane"],
+      "prompt": { "lang": "de", "text": "Ich habe gegessen." },
+      "answerLang": "sq",
+      "text": "Kam ___.",
+      "solutions": ["ngrânë"],
+      "explanation": "Das Partizip von „ha“ ist „ngrânë“ (Standard: „ngrënë“).",
+      "errorHints": [
+        { "pattern": "^ha$", "category": "grammar.participle", "hint": "Das Partizip von „ha“ ist „ngrânë“." },
+        { "pattern": "^hangra$", "category": "grammar.verb_tense", "hint": "„Hangra“ ist der Aorist (ich ass)." }
+      ],
+      "standardForms": ["ngrënë"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_036",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam", "grammar.verbs.perfect"],
+      "itemIds": ["item_mesue"],
+      "prompt": { "lang": "de", "text": "Wir haben gelernt." },
+      "answerLang": "sq",
+      "text": "___ mësue.",
+      "solutions": ["Kemi"],
+      "choices": ["Kam", "Kemi", "Kanë", "Keni"],
+      "explanation": "„Kemi“ heisst „wir haben“.",
+      "errorHints": [
+        { "pattern": "^kan[eë]$", "category": "grammar.verb_conjugation", "hint": "„Kanë“ heisst „sie haben“." },
+        { "pattern": "^keni$", "category": "grammar.verb_conjugation", "hint": "„Keni“ heisst „ihr habt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_037",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels", "grammar.clitics"],
+      "itemIds": ["item_ba"],
+      "prompt": { "lang": "de", "text": "Ich habe das gemacht." },
+      "answerLang": "sq",
+      "text": "E kam ___.",
+      "solutions": ["bâ"],
+      "explanation": "„Bâ“ ist das Partizip von „bâj“ (Standard: „bërë“). Ohne Zirkumflex zählt „ba“ als fast richtig.",
+      "errorHints": [
+        { "pattern": "^b[aâ]j$", "category": "grammar.participle", "hint": "„Bâj“ heisst „ich mache“. Das Partizip ist „bâ“." }
+      ],
+      "standardForms": ["bërë"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_038",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_kane_partizip"],
+      "prompt": { "lang": "de", "text": "Ich bin in Prizren gewesen." },
+      "answerLang": "sq",
+      "text": "Kam ___ në Prizren.",
+      "solutions": ["kânë", "kjenë"],
+      "explanation": "Das Partizip von „jam“ ist „kânë“ (Standard: „qenë“).",
+      "errorHints": [
+        { "pattern": "^jam$", "category": "grammar.participle", "hint": "Hier fehlt das Partizip von „jam“: „kânë“." }
+      ],
+      "standardForms": ["qenë"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kjenë“ als weitere Schreibung zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_039",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam", "spelling.nasal_vowels"],
+      "itemIds": ["item_ngrane", "item_kane"],
+      "prompt": { "lang": "de", "text": "Sie haben gegessen. (sie = Plural)" },
+      "answerLang": "sq",
+      "text": "___ ngrânë.",
+      "solutions": ["Kanë"],
+      "choices": ["Kânë", "Kanë", "Kam", "Ka"],
+      "explanation": "„Kanë“ ohne Zirkumflex heisst „sie haben“. „Kânë“ mit Zirkumflex heisst „gewesen“.",
+      "errorHints": [
+        { "pattern": "^kânë$", "category": "vocab.confused", "hint": "„Kânë“ heisst „gewesen“. „Sie haben“ ist „kanë“ – ohne Zirkumflex." },
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Ka“ heisst „er/sie hat“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_040",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle"],
+      "itemIds": ["item_shkrue", "item_leter"],
+      "prompt": { "lang": "de", "text": "Er hat einen Brief geschrieben." },
+      "answerLang": "sq",
+      "text": "Ka ___ nji letër.",
+      "solutions": ["shkrue"],
+      "explanation": "Das Gheg-Partizip von „shkruaj“ ist kurz: „shkrue“ (Standard: „shkruar“).",
+      "errorHints": [
+        { "pattern": "^shkruan?$", "category": "grammar.participle", "hint": "Im Perfekt steht das Partizip: „shkrue“." }
+      ],
+      "standardForms": ["shkruar"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_041",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "grammar.clitics"],
+      "itemIds": ["item_pa_partizip", "item_ke"],
+      "prompt": { "lang": "de", "text": "Hast du Arta gesehen?" },
+      "answerLang": "sq",
+      "text": "A e ke ___ Artën?",
+      "solutions": ["pa"],
+      "choices": ["pa", "shoh", "sheh", "pe"],
+      "explanation": "Nach „ke“ steht das Partizip von „shoh“: „pa“ (Standard: „parë“).",
+      "errorHints": [
+        { "pattern": "^pe$", "category": "grammar.verb_tense", "hint": "„Pe“ ist der Aorist (du sahst). Nach „ke“ steht das Partizip „pa“." },
+        { "pattern": "^sh(oh|eh)$", "category": "grammar.participle", "hint": "Im Perfekt steht das Partizip: „pa“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_042",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle"],
+      "itemIds": ["item_prite"],
+      "prompt": { "lang": "de", "text": "Wir haben lange gewartet." },
+      "answerLang": "sq",
+      "text": "Kemi ___ shumë.",
+      "solutions": ["pritë"],
+      "explanation": "Das Partizip von „pres“ (warten) ist im Gheg „pritë“ (Standard: „pritur“).",
+      "errorHints": [
+        { "pattern": "^pres$", "category": "grammar.participle", "hint": "Das Partizip von „pres“ ist „pritë“." }
+      ],
+      "standardForms": ["pritur"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip nach der Regel -ur → -ë gebildet – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_043",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "grammar.clitics"],
+      "itemIds": ["item_hape", "item_dere"],
+      "prompt": { "lang": "de", "text": "Ich habe die Tür geöffnet." },
+      "answerLang": "sq",
+      "text": "E kam ___ derën.",
+      "solutions": ["hapë"],
+      "explanation": "Das Partizip von „hap“ (öffnen) ist im Gheg „hapë“ (Standard: „hapur“).",
+      "errorHints": [
+        { "pattern": "^hap$", "category": "grammar.participle", "hint": "Hier brauchst du das Partizip: „hapë“." }
+      ],
+      "standardForms": ["hapur"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip nach der Regel -ur → -ë gebildet – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_044",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "grammar.verbs.participle"],
+      "itemIds": ["item_jam_lodhe"],
+      "prompt": { "lang": "de", "text": "Ich bin müde geworden." },
+      "answerLang": "sq",
+      "text": "Jam ___.",
+      "solutions": ["lodhë"],
+      "explanation": "Reflexive Verben wie „lodhem“ (müde werden) bilden das Perfekt mit „jam“: „Jam lodhë.“ (Standard: „jam lodhur“).",
+      "errorHints": [
+        { "pattern": "^lodhem$", "category": "grammar.participle", "hint": "Nach „jam“ steht hier das Partizip: „lodhë“." }
+      ],
+      "standardForms": ["lodhur"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt mit „jam“ bei reflexiven Verben und Schreibung „lodhë“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_045",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.participle", "grammar.clitics", "spelling.nasal_vowels"],
+      "itemIds": ["item_thane", "item_dhane"],
+      "prompt": { "lang": "de", "text": "Ich habe es dir gesagt." },
+      "answerLang": "sq",
+      "text": "Ta kam ___.",
+      "solutions": ["thânë"],
+      "choices": ["thânë", "them", "thashë", "dhânë"],
+      "explanation": "„Thânë“ ist das Partizip von „them“ (sagen), Standard: „thënë“.",
+      "errorHints": [
+        { "pattern": "^dh[aâ]n[eë]$", "category": "vocab.confused", "hint": "„Dhânë“ heisst „gegeben“. „Gesagt“ ist „thânë“." },
+        { "pattern": "^thash[eë]$", "category": "grammar.verb_tense", "hint": "„Thashë“ ist der Aorist (ich sagte)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_046",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle"],
+      "itemIds": ["item_punue", "item_shkue", "item_mesue", "item_lexue", "item_shkrue"],
+      "prompt": { "lang": "de", "text": "Ordne die Partizipien zu." },
+      "pairs": [
+        { "left": "punue", "right": "gearbeitet" },
+        { "left": "shkue", "right": "gegangen" },
+        { "left": "mësue", "right": "gelernt" },
+        { "left": "lexue", "right": "gelesen" },
+        { "left": "shkrue", "right": "geschrieben" }
+      ],
+      "explanation": "Alle enden im Gheg auf -ue (Standard: -uar).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_047",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_ba", "item_kane_partizip", "item_pa_partizip", "item_dhane", "item_thane"],
+      "prompt": { "lang": "de", "text": "Ordne die Partizipien zu." },
+      "pairs": [
+        { "left": "bâ", "right": "gemacht" },
+        { "left": "kânë", "right": "gewesen" },
+        { "left": "pa", "right": "gesehen" },
+        { "left": "dhânë", "right": "gegeben" },
+        { "left": "thânë", "right": "gesagt" }
+      ],
+      "explanation": "Diese kurzen Partizipien sind typisch Gheg (Standard: bërë, qenë, parë, dhënë, thënë).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_048",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_ngrane", "item_ardhe", "item_fjete", "item_marre", "item_dale"],
+      "prompt": { "lang": "de", "text": "Ordne die Partizipien zu." },
+      "pairs": [
+        { "left": "ngrânë", "right": "gegessen" },
+        { "left": "ardhë", "right": "gekommen" },
+        { "left": "fjetë", "right": "geschlafen" },
+        { "left": "marrë", "right": "genommen" },
+        { "left": "dalë", "right": "hinausgegangen" }
+      ],
+      "explanation": "„Ardhë“ und „fjetë“ sind kürzer als im Standard (ardhur, fjetur).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_049",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.kam", "grammar.verbs.perfect"],
+      "itemIds": ["item_punue", "item_kam", "item_ke", "item_ka", "item_kemi", "item_kane"],
+      "prompt": { "lang": "de", "text": "Ordne zu." },
+      "pairs": [
+        { "left": "kam punue", "right": "ich habe gearbeitet" },
+        { "left": "ke punue", "right": "du hast gearbeitet" },
+        { "left": "ka punue", "right": "er hat gearbeitet" },
+        { "left": "kemi punue", "right": "wir haben gearbeitet" },
+        { "left": "kanë punue", "right": "sie haben gearbeitet" }
+      ],
+      "explanation": "Nur „kam“ ändert sich, das Partizip bleibt immer gleich.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_050",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_ngrane", "item_fjete", "item_pase", "item_harrue", "item_takue", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Kam ngrânë.", "right": "Ich habe gegessen." },
+        { "left": "Kam fjetë.", "right": "Ich habe geschlafen." },
+        { "left": "Kam pasë kohë.", "right": "Ich habe Zeit gehabt." },
+        { "left": "Kam harrue.", "right": "Ich habe vergessen." },
+        { "left": "Kam takue Artën.", "right": "Ich habe Arta getroffen." }
+      ],
+      "explanation": "Perfekt = „kam“ + Partizip – ganz einfach.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_051",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels", "grammar.verbs.kam"],
+      "itemIds": ["item_kane_partizip", "item_ba", "item_thane"],
+      "prompt": { "lang": "de", "text": "Achtung, Zirkumflex! Ordne zu." },
+      "pairs": [
+        { "left": "kanë", "right": "sie haben" },
+        { "left": "kânë", "right": "gewesen" },
+        { "left": "bân", "right": "er macht" },
+        { "left": "bâ", "right": "gemacht" },
+        { "left": "thânë", "right": "gesagt" }
+      ],
+      "explanation": "„Kanë“ (sie haben) und „kânë“ (gewesen) unterscheiden sich nur im Zirkumflex.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_052",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect"],
+      "itemIds": ["item_punue", "item_kam"],
+      "prompt": { "lang": "de", "text": "Ich habe viel gearbeitet." },
+      "answerLang": "sq",
+      "tokens": ["Kam", "punue", "shumë"],
+      "solutions": ["Kam punue shumë."],
+      "explanation": "„Shumë“ (viel) steht nach dem Partizip.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_053",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect"],
+      "itemIds": ["item_ngrane"],
+      "prompt": { "lang": "de", "text": "Wir haben Brot gegessen." },
+      "answerLang": "sq",
+      "tokens": ["Kemi", "ngrânë", "bukë"],
+      "solutions": ["Kemi ngrânë bukë."],
+      "explanation": "Reihenfolge: kemi + Partizip + Objekt.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_054",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
+      "itemIds": ["item_ardhe"],
+      "prompt": { "lang": "de", "text": "Er ist nach Hause gekommen." },
+      "answerLang": "sq",
+      "tokens": ["Ka", "ardhë", "në", "shpi"],
+      "solutions": ["Ka ardhë në shpi."],
+      "explanation": "„Në shpi“ heisst „nach Hause“ (Standard: „në shtëpi“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_055",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "grammar.question_particle"],
+      "itemIds": ["item_lexue", "item_liber", "item_ke"],
+      "prompt": { "lang": "de", "text": "Hast du das Buch gelesen?" },
+      "answerLang": "sq",
+      "tokens": ["A", "e", "ke", "lexue", "librin"],
+      "solutions": ["A e ke lexue librin?"],
+      "explanation": "„A“ steht am Anfang, die Kurzform „e“ vor „ke“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_056",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics"],
+      "itemIds": ["item_takue"],
+      "prompt": { "lang": "de", "text": "Ich habe Arta in Prizren getroffen." },
+      "answerLang": "sq",
+      "tokens": ["E", "kam", "takue", "Artën", "në", "Prizren"],
+      "solutions": ["E kam takue Artën në Prizren.", "Në Prizren e kam takue Artën."],
+      "explanation": "Die Kurzform „e“ nimmt „Artën“ vorweg – das ist im Albanischen üblich.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_057",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.negation"],
+      "itemIds": ["item_hala", "item_fjete"],
+      "prompt": { "lang": "de", "text": "Sie haben noch nicht geschlafen. (sie = Plural)" },
+      "answerLang": "sq",
+      "tokens": ["Hala", "nuk", "kanë", "fjetë"],
+      "solutions": ["Hala nuk kanë fjetë.", "Nuk kanë fjetë hala."],
+      "explanation": "„Nuk“ steht direkt vor „kanë“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„hala“ (noch nicht) als Kosovo-Wort zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_058",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.negation"],
+      "itemIds": ["item_kurre", "item_kane_partizip"],
+      "prompt": { "lang": "de", "text": "Ich bin nie in Peja gewesen." },
+      "answerLang": "sq",
+      "tokens": ["Nuk", "kam", "kânë", "kurrë", "në", "Pejë"],
+      "solutions": ["Nuk kam kânë kurrë në Pejë.", "Kurrë nuk kam kânë në Pejë."],
+      "explanation": "„Nuk kam kânë kurrë“ – „ich bin nie gewesen“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u09_perfect_059",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "vocab.activities"],
+      "itemIds": ["item_i_lodhun", "item_punue"],
+      "prompt": { "lang": "de", "text": "Ich bin müde, ich habe viel gearbeitet." },
+      "answerLang": "sq",
+      "tokens": ["Jam", "i", "lodhun", "kam", "punue", "shumë"],
+      "solutions": ["Jam i lodhun, kam punue shumë."],
+      "explanation": "„Jam i lodhun“ heisst „ich bin müde“ (Standard: „i lodhur“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„i lodhun“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u09_perfect_060",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "grammar.case.dative"],
+      "itemIds": ["item_dhane"],
+      "prompt": { "lang": "de", "text": "Wir haben ihm ein Geschenk gegeben." },
+      "answerLang": "sq",
+      "tokens": ["I", "kemi", "dhânë", "nji", "dhuratë"],
+      "solutions": ["I kemi dhânë nji dhuratë."],
+      "explanation": "„I“ heisst „ihm“ und steht vor „kemi“. „Dhânë“ ist das Partizip von „jap“ (Standard: „dhënë“).",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

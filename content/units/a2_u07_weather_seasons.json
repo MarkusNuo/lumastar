@@ -1,0 +1,1195 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u07_weather_seasons",
+  "level": "A2.2",
+  "grammar": [
+    {
+      "title": "So beschreibst du das Wetter",
+      "explanation": "Meist genügt **âsht** + Adjektiv: *Âsht ftohtë.* (Es ist kalt.) *Âsht nxehtë.* (Es ist heiss.) *Âsht vranët.* (Es ist bewölkt.)\n\nRegen und Schnee „fallen“: **Bie shi.** (Es regnet.) **Bie borë.** (Es schneit.) Mit *po* davor passiert es gerade: *Po bie shi.*\n\nFür morgen nimmst du die Gheg-Zukunft: **Nesër ka me ra shi.** – „Morgen wird es regnen.“ (*ra* ist das Partizip von *bie*; Standard: *do të bjerë*.)"
+    },
+    {
+      "title": "Jahreszeiten – und vena ist nicht vera",
+      "explanation": "| unbestimmt | bestimmt | Deutsch |\n|---|---|---|\n| pranverë | pranvera | der Frühling |\n| verë | vera | der Sommer |\n| vjeshtë | vjeshta | der Herbst |\n| dimën | dimni | der Winter |\n\n„Im Sommer“ heisst **në verë**, „im Winter“ **në dimën** – nach *në* ohne Artikel.\n\nAchtung: Gheg behält oft ein altes **n**, wo die Standardsprache **r** hat: *dimni* (Standard: dimri), **vena** = der Wein (Standard: vera). Im Gheg ist **vera** immer der Sommer."
+    },
+    {
+      "title": "Mir gefällt …",
+      "explanation": "**Më pëlqen vera.** – „Mir gefällt der Sommer.“ Das Ding, das gefällt, trägt den Artikel. *Të pëlqen* heisst „dir gefällt“, *i pëlqen* „ihm/ihr gefällt“. **Ma shumë** heisst „am meisten, mehr“ (Standard: *më shumë*): *Cila stinë të pëlqen ma shumë?*"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_mot",
+      "kind": "word",
+      "gheg": "mot",
+      "de": "Wetter",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "moti",
+      "note": "Im Kosovo sagt man für „Wetter“ oft auch „koha“ (wörtlich „die Zeit“) – zu prüfen, welche Form Hauptform sein soll.",
+      "reviewed": false
+    },
+    { "id": "item_shi", "kind": "word", "gheg": "shi", "de": "Regen", "partOfSpeech": "noun", "gender": "m", "definite": "shiu", "reviewed": false },
+    { "id": "item_bore", "kind": "word", "gheg": "borë", "de": "Schnee", "partOfSpeech": "noun", "gender": "f", "definite": "bora", "reviewed": false },
+    { "id": "item_diell", "kind": "word", "gheg": "diell", "de": "Sonne", "partOfSpeech": "noun", "gender": "m", "definite": "dielli", "reviewed": false },
+    {
+      "id": "item_ere",
+      "kind": "word",
+      "gheg": "erë",
+      "de": "Wind",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "era",
+      "note": "„erë“ heisst auch „Geruch“.",
+      "reviewed": false
+    },
+    { "id": "item_re", "kind": "word", "gheg": "re", "de": "Wolke", "partOfSpeech": "noun", "gender": "f", "definite": "reja", "plural": "re", "reviewed": false },
+    { "id": "item_bie_shi", "kind": "phrase", "gheg": "bie shi", "de": "es regnet", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_bie_bore", "kind": "phrase", "gheg": "bie borë", "de": "es schneit", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_fryn_ere", "kind": "phrase", "gheg": "fryn erë", "de": "es ist windig, der Wind weht", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_ka_diell",
+      "kind": "phrase",
+      "gheg": "ka diell",
+      "de": "die Sonne scheint, es ist sonnig",
+      "partOfSpeech": "phrase",
+      "note": "Alltagswendung; daneben „âsht me diell“ und „bân diell“ – zu prüfen, welche im Kosovo am üblichsten ist.",
+      "reviewed": false
+    },
+    { "id": "item_fresket", "kind": "word", "gheg": "freskët", "de": "kühl, frisch", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_vranet", "kind": "word", "gheg": "vranët", "de": "bewölkt", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_vape", "kind": "word", "gheg": "vapë", "de": "Hitze", "partOfSpeech": "noun", "gender": "f", "definite": "vapa", "reviewed": false },
+    { "id": "item_i_forte", "kind": "word", "gheg": "i fortë, e fortë", "de": "stark", "partOfSpeech": "adjective", "reviewed": false },
+    {
+      "id": "item_stine",
+      "kind": "word",
+      "gheg": "stinë",
+      "de": "Jahreszeit",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "stina",
+      "plural": "stinë",
+      "reviewed": false
+    },
+    { "id": "item_pranvere", "kind": "word", "gheg": "pranverë", "de": "Frühling", "partOfSpeech": "noun", "gender": "f", "definite": "pranvera", "reviewed": false },
+    {
+      "id": "item_vere",
+      "kind": "word",
+      "gheg": "verë",
+      "de": "Sommer",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "vera",
+      "note": "Im Gheg heisst „vera“ nur „der Sommer“; der Wein ist „vena“.",
+      "reviewed": false
+    },
+    { "id": "item_vjeshte", "kind": "word", "gheg": "vjeshtë", "de": "Herbst", "partOfSpeech": "noun", "gender": "f", "definite": "vjeshta", "reviewed": false },
+    { "id": "item_dimen", "kind": "word", "gheg": "dimën", "de": "Winter", "partOfSpeech": "noun", "gender": "m", "definite": "dimni", "reviewed": false },
+    {
+      "id": "item_cader",
+      "kind": "word",
+      "gheg": "çadër",
+      "de": "Regenschirm",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "çadra",
+      "note": "Im Kosovo regional auch „shamsi“ – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_grade", "kind": "word", "gheg": "gradë", "de": "Grad (Temperatur)", "partOfSpeech": "noun", "gender": "f", "plural": "gradë", "reviewed": false },
+    { "id": "item_ma_shume", "kind": "phrase", "gheg": "ma shumë", "de": "mehr, am meisten", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_sepse", "kind": "word", "gheg": "sepse", "de": "weil", "partOfSpeech": "conjunction", "reviewed": false },
+    { "id": "item_mal", "kind": "word", "gheg": "mal", "de": "Berg", "partOfSpeech": "noun", "gender": "m", "definite": "mali", "plural": "male", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u07_weather_seasons_001",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_shi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „shi“?" },
+      "choices": ["der Schnee", "der Regen", "der Wind", "die Sonne"],
+      "solutions": ["der Regen"],
+      "explanation": "„Shi“ heisst „Regen“. „Bie shi“ bedeutet „es regnet“.",
+      "errorHints": [
+        { "pattern": "schnee", "category": "vocab.confused", "hint": "Schnee heisst „borë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_002",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_bore", "item_shi", "item_diell", "item_ere"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Schnee“?" },
+      "choices": ["diell", "borë", "shi", "erë"],
+      "solutions": ["borë"],
+      "explanation": "„Borë“ ist der Schnee, mit Artikel „bora“. „Bie borë“ heisst „es schneit“.",
+      "errorHints": [
+        { "pattern": "^shi$", "category": "vocab.confused", "hint": "„Shi“ ist der Regen." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_003",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.seasons", "vocab.regional_variants"],
+      "itemIds": ["item_vere", "item_vene"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „vera“ im Gheg?" },
+      "choices": ["der Wein", "der Sommer", "der Winter", "der Frühling"],
+      "solutions": ["der Sommer"],
+      "explanation": "„Verë“ ist der Sommer, „vera“ der Sommer mit Artikel. Der Wein heisst im Gheg „vena“ – in der Standardsprache dagegen „vera“.",
+      "errorHints": [
+        { "pattern": "wein", "category": "vocab.confused", "hint": "Im Gheg heisst der Wein „vena“. „Vera“ ist der Sommer." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_004",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.seasons", "vocab.regional_variants"],
+      "itemIds": ["item_vene", "item_vere"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „vena“?" },
+      "choices": ["der Sommer", "der Wind", "der Wein", "der Regen"],
+      "solutions": ["der Wein"],
+      "explanation": "„Vena“ ist der Gheg-Name für den Wein (Standard: „vera“). Gheg behält hier das alte n.",
+      "errorHints": [
+        { "pattern": "sommer", "category": "vocab.confused", "hint": "Der Sommer heisst „vera“. „Vena“ ist der Wein." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_005",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.seasons"],
+      "itemIds": ["item_dimen", "item_vere", "item_vjeshte", "item_pranvere"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „der Winter“?" },
+      "choices": ["pranvera", "vera", "dimni", "vjeshta"],
+      "solutions": ["dimni"],
+      "explanation": "„Dimni“ ist der Winter mit Artikel (Standard: „dimri“). Gheg behält hier das n.",
+      "errorHints": [
+        { "pattern": "^vera$", "category": "vocab.confused", "hint": "„Vera“ ist der Sommer." },
+        { "pattern": "^vjeshta$", "category": "vocab.confused", "hint": "„Vjeshta“ ist der Herbst." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_006",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sot", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Sot âsht ftohtë.“?" },
+      "choices": ["Morgen ist es kalt.", "Heute ist es kalt.", "Heute ist es heiss.", "Heute regnet es."],
+      "solutions": ["Heute ist es kalt."],
+      "explanation": "„Sot“ heisst „heute“, „ftohtë“ heisst „kalt“.",
+      "errorHints": [
+        { "pattern": "heiss", "category": "vocab.confused", "hint": "„Heiss“ heisst „nxehtë“." },
+        { "pattern": "^morgen", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“, „morgen“ ist „nesër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_007",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.verbs.future"],
+      "itemIds": ["item_shi", "item_neser"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Nesër ka me ra shi.“?" },
+      "choices": ["Heute regnet es.", "Morgen wird es regnen.", "Morgen wird es schneien.", "Gestern hat es geregnet."],
+      "solutions": ["Morgen wird es regnen."],
+      "explanation": "„Ka me ra“ ist die Gheg-Zukunft von „bie“ (fallen): „Es wird regnen.“ In der Standardsprache sagt man „do të bjerë shi“.",
+      "errorHints": [
+        { "pattern": "schneien", "category": "vocab.confused", "hint": "Schnee wäre „borë“. Hier steht „shi“ (Regen)." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_008",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons"],
+      "itemIds": ["item_vjeshte", "item_stine"],
+      "prompt": { "lang": "de", "text": "Welche Jahreszeit kommt nach dem Sommer?" },
+      "choices": ["pranvera", "dimni", "vjeshta", "vera"],
+      "solutions": ["vjeshta"],
+      "explanation": "Nach dem Sommer (vera) kommt der Herbst: „vjeshta“.",
+      "errorHints": [
+        { "pattern": "^dimni$", "category": "vocab.confused", "hint": "„Dimni“ ist der Winter – er kommt nach dem Herbst." },
+        { "pattern": "^pranvera$", "category": "vocab.confused", "hint": "„Pranvera“ ist der Frühling." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_009",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "grammar.clitics"],
+      "itemIds": ["item_pelqen", "item_vere"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Mir gefällt der Sommer.“?" },
+      "choices": ["Më pëlqen vena.", "Më pëlqen vera.", "Më pëlqen dimni.", "Të pëlqen vera."],
+      "solutions": ["Më pëlqen vera."],
+      "explanation": "„Më pëlqen“ heisst „mir gefällt“, „vera“ ist der Sommer. „Vena“ wäre der Wein!",
+      "errorHints": [
+        { "pattern": "vena", "category": "vocab.confused", "hint": "„Vena“ ist der Wein. Der Sommer heisst „vera“." },
+        { "pattern": "^t[eë] p", "category": "grammar.clitics", "hint": "„Të pëlqen“ heisst „dir gefällt“. Für „mir“ sagst du „më“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_010",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_vranet"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „vranët“?" },
+      "choices": ["windig", "sonnig", "bewölkt", "heiss"],
+      "solutions": ["bewölkt"],
+      "explanation": "„Sot âsht vranët.“ heisst „Heute ist es bewölkt.“",
+      "errorHints": [
+        { "pattern": "sonnig", "category": "vocab.confused", "hint": "Sonnig wäre „me diell“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_011",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.weather", "reading.short_texts", "grammar.verbs.future"],
+      "itemIds": ["item_cader", "item_shi", "item_i_ftohte", "item_fryn_ere", "item_sepse"],
+      "prompt": { "lang": "sq", "text": "Sot âsht ftohtë dhe fryn erë. Arta merr çadrën, sepse pasdite ka me ra shi.\n\nFrage: Warum nimmt Arta den Regenschirm mit?" },
+      "choices": [
+        "Weil es heute heiss ist.",
+        "Weil es am Nachmittag regnen wird.",
+        "Weil es schneit.",
+        "Weil die Sonne scheint."
+      ],
+      "solutions": ["Weil es am Nachmittag regnen wird."],
+      "explanation": "„Pasdite ka me ra shi“ heisst „am Nachmittag wird es regnen“. „Çadra“ ist der Regenschirm, „sepse“ heisst „weil“.",
+      "errorHints": [
+        { "pattern": "heiss", "category": "vocab.confused", "hint": "Im Text steht „ftohtë“ – es ist kalt." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_012",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.seasons", "reading.short_texts", "grammar.clitics"],
+      "itemIds": ["item_vere", "item_dimen", "item_det", "item_mal", "item_bore"],
+      "prompt": { "lang": "sq", "text": "Në verë âsht nxehtë. Driton shkon në det me familjen. Në dimën ai shkon në mal, sepse i pëlqen bora.\n\nFrage: Was macht Driton im Winter?" },
+      "choices": ["Er fährt ans Meer.", "Er bleibt zu Hause.", "Er fährt in die Berge.", "Er arbeitet viel."],
+      "solutions": ["Er fährt in die Berge."],
+      "explanation": "„Në dimën“ heisst „im Winter“, „në mal“ „in die Berge“. „I pëlqen bora“ – „ihm gefällt der Schnee“.",
+      "errorHints": [
+        { "pattern": "meer", "category": "vocab.confused", "hint": "Ans Meer (në det) fährt Driton im Sommer." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_013",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_bie_shi", "item_shi"],
+      "prompt": { "lang": "de", "text": "Es regnet." },
+      "answerLang": "sq",
+      "solutions": ["Bie shi.", "Po bie shi."],
+      "wordBank": ["Bie", "shi", "borë", "âsht", "diell"],
+      "explanation": "„Bie shi“ heisst wörtlich „Regen fällt“. Mit „po“ davor: „Po bie shi.“ – „Es regnet gerade.“",
+      "errorHints": [
+        { "pattern": "^(po )?bie bor", "category": "vocab.confused", "hint": "„Borë“ ist Schnee. Regen heisst „shi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_014",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sot", "item_i_nxehte", "item_asht"],
+      "prompt": { "lang": "de", "text": "Heute ist es heiss." },
+      "answerLang": "sq",
+      "solutions": ["Sot âsht nxehtë.", "Âsht nxehtë sot."],
+      "wordBank": ["Sot", "âsht", "nxehtë", "ftohtë", "nesër", "jam"],
+      "explanation": "„Sot“ heisst „heute“, „nxehtë“ „heiss“. „Âsht“ ist die Gheg-Form von „ist“ (Standard: „është“).",
+      "errorHints": [
+        { "pattern": "ftoht", "category": "vocab.confused", "hint": "„Ftohtë“ heisst „kalt“. Heiss ist „nxehtë“." },
+        { "pattern": "^nes[eë]r", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“. Heute ist „sot“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_015",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.weather"],
+      "itemIds": ["item_dimen", "item_bie_bore"],
+      "prompt": { "lang": "de", "text": "Im Winter schneit es." },
+      "answerLang": "sq",
+      "solutions": ["Në dimën bie borë.", "Bie borë në dimën."],
+      "wordBank": ["Në", "dimën", "bie", "borë", "verë", "shi", "dimni"],
+      "explanation": "„Në dimën“ heisst „im Winter“ – nach „në“ steht hier die Form ohne Artikel. Standard: „në dimër“.",
+      "errorHints": [
+        { "pattern": "n[eë] ver[eë]", "category": "vocab.confused", "hint": "„Verë“ ist der Sommer. Winter heisst „dimën“." },
+        { "pattern": "n[eë] dimni", "category": "grammar.definite_article", "hint": "Nach „në“ steht hier die Form ohne Artikel: „në dimën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_016",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "grammar.clitics"],
+      "itemIds": ["item_pelqen", "item_pranvere"],
+      "prompt": { "lang": "de", "text": "Mir gefällt der Frühling." },
+      "answerLang": "sq",
+      "solutions": ["Më pëlqen pranvera.", "Pranvera më pëlqen."],
+      "wordBank": ["Më", "pëlqen", "pranvera", "të", "vera", "pranverë"],
+      "explanation": "Was gefällt, trägt den Artikel: pranverë → „pranvera“ (der Frühling).",
+      "errorHints": [
+        { "pattern": "pranver[eë]$", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „pranvera“ (der Frühling)." },
+        { "pattern": "^t[eë] p", "category": "grammar.clitics", "hint": "„Të pëlqen“ heisst „dir gefällt“. Für „mir“ sagst du „më“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_017",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_mot", "item_i_keq", "item_sot"],
+      "prompt": { "lang": "de", "text": "Das Wetter ist heute schlecht." },
+      "answerLang": "sq",
+      "solutions": ["Moti âsht i keq sot.", "Sot moti âsht i keq."],
+      "wordBank": ["Moti", "âsht", "i", "keq", "sot", "e", "mirë", "keqe"],
+      "explanation": "„Moti“ (das Wetter) ist maskulin – darum „i keq“ (schlecht).",
+      "errorHints": [
+        { "pattern": "(^|\\s)e keqe", "category": "grammar.linking_article", "hint": "„Moti“ ist maskulin – darum „i keq“, nicht „e keqe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_018",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.weather", "grammar.verbs.future"],
+      "itemIds": ["item_bore", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen wird es schneien." },
+      "answerLang": "sq",
+      "solutions": ["Nesër ka me ra borë.", "Ka me ra borë nesër."],
+      "wordBank": ["Nesër", "ka", "me", "ra", "borë", "bie", "kam", "shi"],
+      "explanation": "Die Gheg-Zukunft: „ka me“ + Partizip. Das Partizip von „bie“ (fallen) ist „ra“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam me", "category": "grammar.verb_conjugation", "hint": "Beim Wetter steht die 3. Person: „ka me ra“." },
+        { "pattern": "me bie", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ra“, nicht „me bie“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_019",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sot", "item_vranet"],
+      "prompt": { "lang": "sq", "text": "Sot âsht vranët." },
+      "answerLang": "de",
+      "solutions": ["Heute ist es bewölkt.", "Es ist heute bewölkt."],
+      "wordBank": ["Heute", "ist", "es", "bewölkt", "sonnig", "morgen", "kalt"],
+      "explanation": "„Vranët“ heisst „bewölkt“.",
+      "errorHints": [
+        { "pattern": "sonnig", "category": "vocab.confused", "hint": "„Vranët“ heisst „bewölkt“. Sonnig wäre „me diell“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_020",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.seasons", "vocab.regional_variants"],
+      "itemIds": ["item_vere", "item_i_nxehte"],
+      "prompt": { "lang": "sq", "text": "Vera âsht e nxehtë." },
+      "answerLang": "de",
+      "solutions": ["Der Sommer ist heiss."],
+      "wordBank": ["Der", "Sommer", "ist", "heiss", "Wein", "Winter", "kalt"],
+      "explanation": "„Vera“ ist im Gheg der Sommer. Weil „vera“ feminin ist, steht „e nxehtë“.",
+      "errorHints": [
+        { "pattern": "wein", "category": "vocab.confused", "hint": "Im Gheg ist „vera“ der Sommer; der Wein heisst „vena“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_021",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_fryn_ere", "item_i_forte"],
+      "prompt": { "lang": "sq", "text": "Fryn nji erë e fortë." },
+      "answerLang": "de",
+      "solutions": ["Es weht ein starker Wind.", "Der Wind weht stark.", "Ein starker Wind weht."],
+      "wordBank": ["Es", "weht", "ein", "starker", "Wind", "Regen", "kalter", "schwacher"],
+      "explanation": "„Fryn“ heisst „weht“, „erë“ ist der Wind, „e fortë“ heisst „stark“.",
+      "errorHints": [
+        { "pattern": "regen", "category": "vocab.confused", "hint": "„Erë“ ist der Wind. Regen heisst „shi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_022",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.weather"],
+      "itemIds": ["item_vjeshte", "item_shpesh", "item_bie_shi"],
+      "prompt": { "lang": "sq", "text": "Në vjeshtë bie shpesh shi." },
+      "answerLang": "de",
+      "solutions": ["Im Herbst regnet es oft.", "Im Herbst regnet es häufig."],
+      "wordBank": ["Im", "Herbst", "regnet", "es", "oft", "Frühling", "schneit", "selten"],
+      "explanation": "„Në vjeshtë“ heisst „im Herbst“, „shpesh“ heisst „oft“.",
+      "errorHints": [
+        { "pattern": "fr[uü]hling", "category": "vocab.confused", "hint": "„Vjeshtë“ ist der Herbst. Der Frühling heisst „pranverë“." },
+        { "pattern": "schneit", "category": "vocab.confused", "hint": "„Bie shi“ heisst „es regnet“. Schneien wäre „bie borë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_023",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sot", "item_grade"],
+      "prompt": { "lang": "sq", "text": "Sot janë tridhjetë gradë." },
+      "answerLang": "de",
+      "solutions": ["Heute sind es dreissig Grad.", "Heute sind es 30 Grad.", "Es sind heute dreissig Grad."],
+      "wordBank": ["Heute", "sind", "es", "dreissig", "Grad", "zwanzig", "morgen", "Uhr"],
+      "explanation": "„Gradë“ heisst „Grad“. Bei der Temperatur sagt man „janë“ (sind): „janë tridhjetë gradë“.",
+      "errorHints": [
+        { "pattern": "zwanzig", "category": "vocab.confused", "hint": "„Tridhjetë“ heisst „dreissig“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_024",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.seasons", "grammar.clitics"],
+      "itemIds": ["item_stine", "item_ma_shume"],
+      "prompt": { "lang": "sq", "text": "Cila stinë të pëlqen ma shumë?" },
+      "answerLang": "de",
+      "solutions": [
+        "Welche Jahreszeit gefällt dir am besten?",
+        "Welche Jahreszeit magst du am liebsten?",
+        "Welche Jahreszeit gefällt dir am meisten?"
+      ],
+      "wordBank": ["Welche", "Jahreszeit", "gefällt", "dir", "am", "besten", "mir", "Farbe", "wann"],
+      "explanation": "„Të pëlqen“ heisst „dir gefällt“, „ma shumë“ „am meisten“ (Standard: „më shumë“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)mir(\\s|$)", "category": "grammar.clitics", "hint": "„Të“ heisst hier „dir“ – „më“ wäre „mir“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_025",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_bie_bore", "item_bore"],
+      "prompt": { "lang": "de", "text": "Es schneit." },
+      "answerLang": "sq",
+      "solutions": ["Bie borë.", "Po bie borë."],
+      "explanation": "„Bie borë“ heisst „es schneit“, wörtlich „Schnee fällt“.",
+      "errorHints": [
+        { "pattern": "^(po )?bie shi", "category": "vocab.confused", "hint": "„Shi“ ist Regen. Schnee heisst „borë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_026",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.regional_variants"],
+      "itemIds": ["item_vene"],
+      "prompt": { "lang": "de", "text": "der Wein (Gheg, mit Artikel)" },
+      "answerLang": "sq",
+      "solutions": ["vena"],
+      "explanation": "Im Gheg heisst der Wein „vena“. „Vera“ ist die Standard-Form – und im Gheg heisst „vera“ der Sommer!",
+      "errorHints": [
+        { "pattern": "^ven[eë]$", "category": "grammar.definite_article", "hint": "Gefragt ist die Form mit Artikel: „vena“ (der Wein)." }
+      ],
+      "standardForms": ["vera"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_027",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sot", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Heute ist es kalt." },
+      "answerLang": "sq",
+      "solutions": ["Sot âsht ftohtë.", "Âsht ftohtë sot.", "Sot âsht ftoftë.", "Âsht ftoftë sot."],
+      "explanation": "„Ftohtë“ heisst „kalt“, „sot“ heisst „heute“. „Âsht“ ist die Gheg-Form von „ist“.",
+      "errorHints": [
+        { "pattern": "nxeht", "category": "vocab.confused", "hint": "„Nxehtë“ heisst „heiss“. Kalt ist „ftohtë“." }
+      ],
+      "standardForms": ["Sot është ftohtë.", "Është ftohtë sot."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„ftoftë“ als Kosovo-Schreibung von „ftohtë“ akzeptiert – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_028",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.weather"],
+      "itemIds": ["item_vere", "item_i_nxehte"],
+      "prompt": { "lang": "de", "text": "Im Sommer ist es heiss." },
+      "answerLang": "sq",
+      "solutions": ["Në verë âsht nxehtë.", "Âsht nxehtë në verë."],
+      "explanation": "„Në verë“ heisst „im Sommer“. Achtung: „vena“ wäre der Wein.",
+      "errorHints": [
+        { "pattern": "n[eë] ven", "category": "vocab.confused", "hint": "„Vena“ ist der Wein. Der Sommer heisst „verë“." },
+        { "pattern": "n[eë] vera", "category": "grammar.definite_article", "hint": "Nach „në“ steht hier die Form ohne Artikel: „në verë“." }
+      ],
+      "standardForms": ["Në verë është nxehtë.", "Është nxehtë në verë."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_029",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_mot", "item_sot"],
+      "prompt": { "lang": "de", "text": "Wie ist das Wetter heute?" },
+      "answerLang": "sq",
+      "solutions": ["Qysh âsht moti sot?", "Si âsht moti sot?", "Qysh âsht koha sot?", "Si âsht koha sot?"],
+      "explanation": "„Moti“ heisst „das Wetter“; im Kosovo sagt man oft auch „koha“. „Qysh“ und „si“ heissen beide „wie“.",
+      "errorHints": [
+        { "pattern": "[aâ]sht mot(\\s|$)", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „moti“ (das Wetter)." }
+      ],
+      "standardForms": ["Si është moti sot?", "Si është koha sot?"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„koha“ für „Wetter“ als Kosovo-Alltagsform zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_030",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_ka_diell", "item_sot"],
+      "prompt": { "lang": "de", "text": "Heute ist es sonnig." },
+      "answerLang": "sq",
+      "solutions": ["Sot ka diell.", "Ka diell sot.", "Sot âsht me diell.", "Sot bân diell."],
+      "explanation": "„Ka diell“ heisst wörtlich „es hat Sonne“. Man sagt auch „âsht me diell“.",
+      "errorHints": [
+        { "pattern": "vran", "category": "vocab.confused", "hint": "„Vranët“ heisst „bewölkt“. Sonnig: „ka diell“." }
+      ],
+      "standardForms": ["Sot është me diell.", "Sot bën diell."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendungen „ka diell“, „âsht me diell“, „bân diell“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_031",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.weather", "grammar.verbs.future"],
+      "itemIds": ["item_shi", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen wird es regnen." },
+      "answerLang": "sq",
+      "solutions": ["Nesër ka me ra shi.", "Ka me ra shi nesër."],
+      "explanation": "Die Gheg-Zukunft: „ka me“ + Partizip. Von „bie“ (fallen) ist das Partizip „ra“.",
+      "errorHints": [
+        { "pattern": "me bie", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ra“, nicht „me bie“." },
+        { "pattern": "^nes[eë]r (po )?bie", "category": "grammar.verb_tense", "hint": "„Bie shi“ ist Präsens. Für „es wird regnen“ brauchst du „ka me ra shi“." }
+      ],
+      "standardForms": ["Nesër do të bjerë shi.", "Do të bjerë shi nesër."],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_032",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.seasons", "grammar.clitics"],
+      "itemIds": ["item_pelqen", "item_dimen", "item_sepse", "item_bie_bore"],
+      "prompt": { "lang": "de", "text": "Mir gefällt der Winter, weil es schneit." },
+      "answerLang": "sq",
+      "solutions": ["Më pëlqen dimni, sepse bie borë.", "Dimni më pëlqen, sepse bie borë."],
+      "explanation": "„Dimni“ ist der Winter mit Artikel (Standard: „dimri“), „sepse“ heisst „weil“.",
+      "errorHints": [
+        { "pattern": "dim[eë]n sepse", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „dimni“ (der Winter)." },
+        { "pattern": "^t[eë] p", "category": "grammar.clitics", "hint": "„Të pëlqen“ heisst „dir gefällt“. Für „mir“ sagst du „më“." }
+      ],
+      "standardForms": ["Më pëlqen dimri, sepse bie borë.", "Dimri më pëlqen, sepse bie borë."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_033",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.seasons", "vocab.weather", "grammar.linking_article"],
+      "itemIds": ["item_pranvere", "item_mot", "item_i_bukur"],
+      "prompt": { "lang": "de", "text": "Im Frühling ist das Wetter schön." },
+      "answerLang": "sq",
+      "solutions": ["Në pranverë moti âsht i bukur.", "Moti âsht i bukur në pranverë.", "Në pranverë koha âsht e bukur."],
+      "explanation": "„Moti“ ist maskulin – darum „i bukur“. Sagst du „koha“ (feminin), heisst es „e bukur“.",
+      "errorHints": [
+        { "pattern": "moti [aâ]sht e bukur", "category": "grammar.linking_article", "hint": "„Moti“ ist maskulin – darum „i bukur“." }
+      ],
+      "standardForms": ["Në pranverë moti është i bukur.", "Moti është i bukur në pranverë."],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_034",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_shi", "item_bie_shi"],
+      "prompt": { "lang": "de", "text": "Es regnet." },
+      "answerLang": "sq",
+      "text": "Bie ___.",
+      "solutions": ["shi"],
+      "choices": ["shi", "borë", "diell", "erë"],
+      "explanation": "„Bie shi“ heisst „es regnet“. „Bie borë“ wäre „es schneit“.",
+      "errorHints": [
+        { "pattern": "^bor[eë]$", "category": "vocab.confused", "hint": "„Borë“ ist Schnee. Regen heisst „shi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_035",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.seasons"],
+      "itemIds": ["item_dimen", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Im Winter ist es kalt." },
+      "answerLang": "sq",
+      "text": "Në ___ âsht ftohtë.",
+      "solutions": ["dimën"],
+      "choices": ["dimni", "verë", "dimën", "pranverë"],
+      "explanation": "Nach „në“ steht hier die Form ohne Artikel: „në dimën“ (Standard: „në dimër“).",
+      "errorHints": [
+        { "pattern": "^dimni$", "category": "grammar.definite_article", "hint": "Nach „në“ steht die Form ohne Artikel: „në dimën“." },
+        { "pattern": "^ver[eë]$", "category": "vocab.confused", "hint": "„Verë“ ist der Sommer." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_036",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_vranet", "item_sot"],
+      "prompt": { "lang": "de", "text": "Heute ist es bewölkt." },
+      "answerLang": "sq",
+      "text": "Sot âsht ___.",
+      "solutions": ["vranët"],
+      "choices": ["diell", "vranët", "shi", "verë"],
+      "explanation": "„Vranët“ heisst „bewölkt“: „Sot âsht vranët.“",
+      "errorHints": [
+        { "pattern": "^diell$", "category": "vocab.confused", "hint": "„Diell“ ist die Sonne." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_037",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_asht", "item_i_nxehte"],
+      "prompt": { "lang": "de", "text": "Heute ist es heiss." },
+      "answerLang": "sq",
+      "text": "Sot ___ nxehtë.",
+      "solutions": ["âsht"],
+      "explanation": "„Âsht“ heisst „ist“ (Standard: „është“). Ohne Zirkumflex zählt „asht“ als fast richtig.",
+      "errorHints": [
+        { "pattern": "^(jam|je|jemi|jeni|jan[eë])$", "category": "grammar.verb_conjugation", "hint": "Beim Wetter steht „âsht“ (es ist)." }
+      ],
+      "standardForms": ["është"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_038",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.regional_variants"],
+      "itemIds": ["item_dimen"],
+      "prompt": { "lang": "de", "text": "Der Winter ist kalt." },
+      "answerLang": "sq",
+      "text": "___ âsht i ftohtë.",
+      "solutions": ["Dimni"],
+      "explanation": "„Dimni“ ist der Winter mit Artikel. Die Standard-Form „dimri“ hat ein r, Gheg behält das n.",
+      "errorHints": [
+        { "pattern": "^dim[eë]n$", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „dimni“ (der Winter)." }
+      ],
+      "standardForms": ["Dimri"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_039",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.regional_variants"],
+      "itemIds": ["item_vene"],
+      "prompt": { "lang": "de", "text": "Der Wein ist rot." },
+      "answerLang": "sq",
+      "text": "___ âsht e kuqe.",
+      "solutions": ["Vena"],
+      "explanation": "Im Gheg heisst der Wein „vena“ (Standard: „vera“). „Vera“ ist im Gheg der Sommer.",
+      "errorHints": [
+        { "pattern": "^ven[eë]$", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „vena“ (der Wein)." }
+      ],
+      "standardForms": ["Vera"],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_040",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.verbs.future"],
+      "itemIds": ["item_bore", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen wird es schneien." },
+      "answerLang": "sq",
+      "text": "Nesër ka me ___ borë.",
+      "solutions": ["ra"],
+      "explanation": "Nach „ka me“ steht das Partizip. Von „bie“ (fallen) ist es kurz: „ra“.",
+      "errorHints": [
+        { "pattern": "^bie$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „ra“ (von „bie“)." }
+      ],
+      "standardForms": ["rënë"],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_041",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.seasons", "grammar.clitics"],
+      "itemIds": ["item_pelqen", "item_vjeshte"],
+      "prompt": { "lang": "de", "text": "Mir gefällt der Herbst." },
+      "answerLang": "sq",
+      "text": "Më pëlqen ___.",
+      "solutions": ["vjeshta"],
+      "choices": ["vjeshtë", "vjeshta", "vena", "dimën"],
+      "explanation": "Was gefällt, trägt den Artikel: vjeshtë → „vjeshta“ (der Herbst).",
+      "errorHints": [
+        { "pattern": "^vjesht[eë]$", "category": "grammar.definite_article", "hint": "Hier brauchst du den Artikel: „vjeshta“." },
+        { "pattern": "^vena$", "category": "vocab.confused", "hint": "„Vena“ ist der Wein." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_042",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_cader", "item_bie_shi"],
+      "prompt": { "lang": "de", "text": "Nimm den Regenschirm, es regnet!" },
+      "answerLang": "sq",
+      "text": "Merr ___, po bie shi!",
+      "solutions": ["çadrën"],
+      "choices": ["çadra", "çadrën", "çadër", "bora"],
+      "explanation": "Nach „merr“ (nimm) steht der Akkusativ mit Artikel: çadër → „çadrën“.",
+      "errorHints": [
+        { "pattern": "^çadra$", "category": "grammar.case", "hint": "Nach „merr“ steht der Akkusativ: „çadrën“." },
+        { "pattern": "^çad[eë]r$", "category": "grammar.definite_article", "hint": "Es geht um den bestimmten Regenschirm: „çadrën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_043",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.weather"],
+      "itemIds": ["item_pranvere", "item_i_ngrohte"],
+      "prompt": { "lang": "de", "text": "Im Frühling ist es warm." },
+      "answerLang": "sq",
+      "text": "Në pranverë âsht ___.",
+      "solutions": ["ngrohtë"],
+      "explanation": "„Ngrohtë“ heisst „warm“, „nxehtë“ „heiss“.",
+      "errorHints": [
+        { "pattern": "^nxeht[eë]$", "category": "vocab.confused", "hint": "„Nxehtë“ heisst „heiss“. Warm ist „ngrohtë“." },
+        { "pattern": "^fto[hf]t[eë]$", "category": "vocab.confused", "hint": "„Ftohtë“ heisst „kalt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_044",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.weather", "grammar.linking_article"],
+      "itemIds": ["item_fryn_ere", "item_i_forte"],
+      "prompt": { "lang": "de", "text": "Heute weht ein starker Wind." },
+      "answerLang": "sq",
+      "text": "Sot fryn nji erë ___ fortë.",
+      "solutions": ["e"],
+      "choices": ["i", "e", "të", "së"],
+      "explanation": "„Erë“ (Wind) ist feminin – darum „e fortë“.",
+      "errorHints": [
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "„Erë“ ist feminin – darum „e fortë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_045",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.seasons"],
+      "itemIds": ["item_stine"],
+      "prompt": { "lang": "de", "text": "Welche Jahreszeit gefällt dir?" },
+      "answerLang": "sq",
+      "text": "Cila ___ të pëlqen?",
+      "solutions": ["stinë"],
+      "explanation": "Nach „cila“ (welche) steht das Nomen ohne Artikel: „cila stinë“.",
+      "errorHints": [
+        { "pattern": "^stina$", "category": "grammar.definite_article", "hint": "Nach „cila“ steht die Form ohne Artikel: „stinë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_046",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.seasons"],
+      "itemIds": ["item_pranvere", "item_vere", "item_vjeshte", "item_dimen", "item_stine"],
+      "prompt": { "lang": "de", "text": "Ordne die Jahreszeiten zu." },
+      "pairs": [
+        { "left": "pranverë", "right": "Frühling" },
+        { "left": "verë", "right": "Sommer" },
+        { "left": "vjeshtë", "right": "Herbst" },
+        { "left": "dimën", "right": "Winter" },
+        { "left": "stinë", "right": "Jahreszeit" }
+      ],
+      "explanation": "Die vier Jahreszeiten: pranverë, verë, vjeshtë, dimën (Standard: dimër).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_047",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_shi", "item_bore", "item_diell", "item_ere", "item_re"],
+      "prompt": { "lang": "de", "text": "Ordne die Wetterwörter zu." },
+      "pairs": [
+        { "left": "shi", "right": "Regen" },
+        { "left": "borë", "right": "Schnee" },
+        { "left": "diell", "right": "Sonne" },
+        { "left": "erë", "right": "Wind" },
+        { "left": "re", "right": "Wolke" }
+      ],
+      "explanation": "Mit diesen fünf Wörtern kannst du fast jedes Wetter beschreiben.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_048",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_i_nxehte", "item_i_ftohte", "item_i_ngrohte", "item_fresket", "item_vranet"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "nxehtë", "right": "heiss" },
+        { "left": "ftohtë", "right": "kalt" },
+        { "left": "ngrohtë", "right": "warm" },
+        { "left": "freskët", "right": "kühl" },
+        { "left": "vranët", "right": "bewölkt" }
+      ],
+      "explanation": "Alle passen nach „âsht“: „Âsht ngrohtë.“ – „Es ist warm.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_049",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.weather", "vocab.regional_variants"],
+      "itemIds": ["item_vene", "item_vere", "item_dimen", "item_bore", "item_diell"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter mit Artikel zu." },
+      "pairs": [
+        { "left": "vena", "right": "der Wein" },
+        { "left": "vera", "right": "der Sommer" },
+        { "left": "dimni", "right": "der Winter" },
+        { "left": "bora", "right": "der Schnee" },
+        { "left": "dielli", "right": "die Sonne" }
+      ],
+      "explanation": "Merke: „vena“ ist der Wein, „vera“ der Sommer. Gheg behält in „vena“ und „dimni“ das alte n.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_050",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_bie_shi", "item_bie_bore", "item_fryn_ere", "item_vape", "item_vranet"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Bie shi.", "right": "Es regnet." },
+        { "left": "Bie borë.", "right": "Es schneit." },
+        { "left": "Fryn erë.", "right": "Es ist windig." },
+        { "left": "Âsht vapë.", "right": "Es ist brütend heiss." },
+        { "left": "Âsht vranët.", "right": "Es ist bewölkt." }
+      ],
+      "explanation": "„Vapë“ ist grosse Hitze: „Âsht vapë.“ sagt man an sehr heissen Sommertagen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_051",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather", "vocab.seasons"],
+      "itemIds": ["item_det", "item_mal", "item_cader", "item_grade", "item_sot"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "det", "right": "Meer" },
+        { "left": "mal", "right": "Berg" },
+        { "left": "çadër", "right": "Regenschirm" },
+        { "left": "gradë", "right": "Grad" },
+        { "left": "sot", "right": "heute" }
+      ],
+      "explanation": "Im Sommer geht man „në det“ (ans Meer), im Winter oft „në mal“ (in die Berge).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_052",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_bie_shi", "item_po"],
+      "prompt": { "lang": "de", "text": "Es regnet gerade." },
+      "answerLang": "sq",
+      "tokens": ["Po", "bie", "shi"],
+      "solutions": ["Po bie shi."],
+      "explanation": "„Po“ vor dem Verb zeigt, dass etwas gerade passiert: „Po bie shi.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_053",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sot", "item_i_ftohte", "item_asht"],
+      "prompt": { "lang": "de", "text": "Heute ist es kalt." },
+      "answerLang": "sq",
+      "tokens": ["Sot", "âsht", "ftohtë"],
+      "solutions": ["Sot âsht ftohtë.", "Âsht ftohtë sot."],
+      "explanation": "„Sot“ kann am Anfang oder am Ende stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_054",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.seasons"],
+      "itemIds": ["item_vere", "item_det"],
+      "prompt": { "lang": "de", "text": "Im Sommer gehen wir ans Meer." },
+      "answerLang": "sq",
+      "tokens": ["Në", "verë", "shkojmë", "në", "det"],
+      "solutions": ["Në verë shkojmë në det.", "Shkojmë në det në verë."],
+      "explanation": "„Në verë“ heisst „im Sommer“, „shkojmë në det“ „wir gehen ans Meer“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_055",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_mot", "item_i_bukur", "item_sot"],
+      "prompt": { "lang": "de", "text": "Das Wetter ist heute schön." },
+      "answerLang": "sq",
+      "tokens": ["Moti", "âsht", "i", "bukur", "sot"],
+      "solutions": ["Moti âsht i bukur sot.", "Sot moti âsht i bukur."],
+      "explanation": "Das Adjektiv steht mit „i“ nach „âsht“: „moti âsht i bukur“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_056",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.weather"],
+      "itemIds": ["item_dimen", "item_mal"],
+      "prompt": { "lang": "de", "text": "Im Winter gehen wir in die Berge." },
+      "answerLang": "sq",
+      "tokens": ["Në", "dimën", "shkojmë", "në", "mal"],
+      "solutions": ["Në dimën shkojmë në mal.", "Shkojmë në mal në dimën."],
+      "explanation": "„Në dimën“ heisst „im Winter“ (Standard: „në dimër“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_057",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "grammar.clitics"],
+      "itemIds": ["item_stine", "item_ma_shume"],
+      "prompt": { "lang": "de", "text": "Welche Jahreszeit gefällt dir am besten?" },
+      "answerLang": "sq",
+      "tokens": ["Cila", "stinë", "të", "pëlqen", "ma", "shumë"],
+      "solutions": ["Cila stinë të pëlqen ma shumë?"],
+      "explanation": "Das Fragewort „cila“ steht am Anfang, „ma shumë“ am Ende (Standard: „më shumë“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_058",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.verbs.future"],
+      "itemIds": ["item_shi", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen wird es regnen." },
+      "answerLang": "sq",
+      "tokens": ["Nesër", "ka", "me", "ra", "shi"],
+      "solutions": ["Nesër ka me ra shi.", "Ka me ra shi nesër."],
+      "explanation": "„Ka me ra“ bleibt zusammen: Das ist die Gheg-Zukunft.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_059",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_cader", "item_sepse", "item_bie_shi"],
+      "prompt": { "lang": "de", "text": "Nimm den Regenschirm, weil es gerade regnet." },
+      "answerLang": "sq",
+      "tokens": ["Merr", "çadrën", "sepse", "po", "bie", "shi"],
+      "solutions": ["Merr çadrën, sepse po bie shi."],
+      "explanation": "„Sepse“ (weil) leitet den Grund ein. „Po“ steht direkt vor dem Verb.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_060",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.seasons", "vocab.weather"],
+      "itemIds": ["item_dimen", "item_shpesh", "item_bie_bore", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Im Winter schneit es oft und es ist kalt." },
+      "answerLang": "sq",
+      "tokens": ["Në", "dimën", "bie", "shpesh", "borë", "dhe", "âsht", "ftohtë"],
+      "solutions": ["Në dimën bie shpesh borë dhe âsht ftohtë.", "Në dimën bie borë shpesh dhe âsht ftohtë."],
+      "explanation": "„Shpesh“ (oft) kann vor oder nach „borë“ stehen.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
