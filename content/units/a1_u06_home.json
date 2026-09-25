@@ -59,8 +59,6 @@
       "reviewed": false
     },
     { "id": "item_celes", "kind": "word", "gheg": "çelës", "de": "Schlüssel", "partOfSpeech": "noun", "gender": "m", "definite": "çelësi", "reviewed": false },
-    { "id": "item_liber", "kind": "word", "gheg": "libër", "de": "Buch", "partOfSpeech": "noun", "gender": "m", "definite": "libri", "plural": "libra", "reviewed": false },
-    { "id": "item_mace", "kind": "word", "gheg": "mace", "de": "Katze", "partOfSpeech": "noun", "gender": "f", "definite": "macja", "reviewed": false },
     { "id": "item_mbi", "kind": "word", "gheg": "mbi", "de": "auf, über", "partOfSpeech": "preposition", "reviewed": false },
     { "id": "item_nen", "kind": "word", "gheg": "nën", "de": "unter", "partOfSpeech": "preposition", "reviewed": false },
     {
@@ -73,16 +71,7 @@
       "reviewed": false
     },
     { "id": "item_afer", "kind": "word", "gheg": "afër", "de": "in der Nähe, nahe", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_atje", "kind": "word", "gheg": "atje", "de": "dort", "partOfSpeech": "adverb", "reviewed": false },
-    {
-      "id": "item_i_hapun",
-      "kind": "phrase",
-      "gheg": "i hapun, e hapun",
-      "de": "offen, geöffnet",
-      "partOfSpeech": "adjective",
-      "note": "Gheg-Partizip auf -un (Standard: i hapur) nach Sprachrichtlinie 7.3 – zu prüfen.",
-      "reviewed": false
-    }
+    { "id": "item_atje", "kind": "word", "gheg": "atje", "de": "dort", "partOfSpeech": "adverb", "reviewed": false }
   ],
   "exercises": [
     {
