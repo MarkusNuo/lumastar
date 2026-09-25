@@ -1,0 +1,1311 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u01_daily_routine",
+  "level": "A2.1",
+  "grammar": [
+    {
+      "title": "Reflexive Verben auf -hem",
+      "explanation": "Viele Alltagsverben sind reflexiv. Das deutsche „mich, dich, sich“ steckt in der Endung **-(h)em**:\n\n| Person | çohem (aufstehen) | lahem (sich waschen) |\n|---|---|---|\n| unë | çohem | lahem |\n| ti | çohesh | lahesh |\n| ai / ajo | çohet | lahet |\n| ne | çohemi | lahemi |\n| ju | çoheni | laheni |\n| ata / ato | çohen | lahen |\n\nGenauso: *vishem* (ich ziehe mich an), *zgjohem* (ich wache auf), *krihem* (ich kämme mich), *kthehem* (ich kehre zurück), *nisem* (ich breche auf), *ulem* (ich setze mich)."
+    },
+    {
+      "title": "Mit oder ohne Objekt",
+      "explanation": "Mit einem Objekt ist das Verb **nicht** reflexiv: *lahem* (ich wasche mich), aber **i laj dhâmbët** (ich putze mir die Zähne). Das kleine *i* nimmt „die Zähne“ vorweg. Gheg schreibt *dhâmbët* mit â (Standard: dhëmbët)."
+    },
+    {
+      "title": "Gheg im Alltag",
+      "explanation": "Im Kosovo sagt man **çohem** für „ich stehe auf“ (Standard: *ngrihem*). Weitere Gheg-Formen: *bâj dush* (ich dusche, Standard: bëj dush), *bâhem gati* (ich mache mich fertig) und **shkoj me fjetë** (ich gehe schlafen) – mit dem Gheg-Infinitiv (Standard: *shkoj të fle*)."
+    }
+  ],
+  "items": [
+    {
+      "id": "item_cohem",
+      "kind": "word",
+      "gheg": "çohem",
+      "de": "ich stehe auf",
+      "partOfSpeech": "verb",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_zgjohem", "kind": "word", "gheg": "zgjohem", "de": "ich wache auf", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_lahem", "kind": "word", "gheg": "lahem", "de": "ich wasche mich", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_vishem", "kind": "word", "gheg": "vishem", "de": "ich ziehe mich an", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_krihem", "kind": "word", "gheg": "krihem", "de": "ich kämme mich", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_rruhem", "kind": "word", "gheg": "rruhem", "de": "ich rasiere mich", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_nisem", "kind": "word", "gheg": "nisem", "de": "ich breche auf, ich mache mich auf den Weg", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_kthehem", "kind": "word", "gheg": "kthehem", "de": "ich kehre zurück, ich komme zurück", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_ulem", "kind": "word", "gheg": "ulem", "de": "ich setze mich", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_bahem_gati",
+      "kind": "phrase",
+      "gheg": "bâhem gati",
+      "de": "ich mache mich fertig",
+      "partOfSpeech": "phrase",
+      "note": "Gheg-Form „bâhem gati“ (Standard: bëhem gati) zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_baj_dush", "kind": "phrase", "gheg": "bâj dush", "de": "ich dusche", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_i_laj_dhambet", "kind": "phrase", "gheg": "i laj dhâmbët", "de": "ich putze mir die Zähne", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_ha_mengjes", "kind": "phrase", "gheg": "ha mëngjes", "de": "frühstücken", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_dreke", "kind": "word", "gheg": "drekë", "de": "Mittagessen", "partOfSpeech": "noun", "gender": "f", "definite": "dreka", "reviewed": false },
+    { "id": "item_darke", "kind": "word", "gheg": "darkë", "de": "Abendessen", "partOfSpeech": "noun", "gender": "f", "definite": "darka", "reviewed": false },
+    { "id": "item_pune", "kind": "word", "gheg": "punë", "de": "Arbeit", "partOfSpeech": "noun", "gender": "f", "definite": "puna", "reviewed": false },
+    { "id": "item_zakonisht", "kind": "word", "gheg": "zakonisht", "de": "normalerweise, meistens", "partOfSpeech": "adverb", "reviewed": false },
+    {
+      "id": "item_pastaj",
+      "kind": "word",
+      "gheg": "pastaj",
+      "de": "dann, danach",
+      "partOfSpeech": "adverb",
+      "note": "Im Kosovo auch „mandej“ – als weitere Lösung akzeptiert, zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_cdo", "kind": "word", "gheg": "çdo", "de": "jeder, jede, jedes", "partOfSpeech": "pronoun", "reviewed": false },
+    { "id": "item_shpejt", "kind": "word", "gheg": "shpejt", "de": "schnell", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_shkoj_me_fjete", "kind": "phrase", "gheg": "shkoj me fjetë", "de": "ich gehe schlafen", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_i_lodhun",
+      "kind": "word",
+      "gheg": "i lodhun, e lodhun",
+      "de": "müde",
+      "partOfSpeech": "adjective",
+      "note": "Gheg-Form „i lodhun“ (Standard: i lodhur) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u01_daily_routine_001",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_cohem"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „çohem“?" },
+      "choices": ["ich stehe auf", "ich schlafe", "ich wasche mich", "ich ziehe mich an"],
+      "solutions": ["ich stehe auf"],
+      "explanation": "„Çohem“ heisst „ich stehe auf“ – so sagt man es im Kosovo (Standard: „ngrihem“).",
+      "errorHints": [
+        { "pattern": "wasche", "category": "vocab.confused", "hint": "„Ich wasche mich“ heisst „lahem“." },
+        { "pattern": "ziehe", "category": "vocab.confused", "hint": "„Ich ziehe mich an“ heisst „vishem“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_002",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_lahem", "item_vishem", "item_cohem", "item_ulem"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ich wasche mich“?" },
+      "choices": ["lahem", "vishem", "çohem", "ulem"],
+      "solutions": ["lahem"],
+      "explanation": "„Lahem“ heisst „ich wasche mich“ – das „mich“ steckt in der Endung -hem.",
+      "errorHints": [
+        { "pattern": "^vishem$", "category": "vocab.confused", "hint": "„Vishem“ heisst „ich ziehe mich an“." },
+        { "pattern": "^ulem$", "category": "vocab.confused", "hint": "„Ulem“ heisst „ich setze mich“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_003",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_zgjohem", "item_heret"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Zgjohem herët.“?" },
+      "choices": ["Ich wache früh auf.", "Ich wache spät auf.", "Ich gehe früh schlafen.", "Ich stehe spät auf."],
+      "solutions": ["Ich wache früh auf."],
+      "explanation": "„Zgjohem“ heisst „ich wache auf“, „herët“ heisst „früh“.",
+      "errorHints": [
+        { "pattern": "spät", "category": "vocab.confused", "hint": "„Spät“ heisst „vonë“; „herët“ ist „früh“." },
+        { "pattern": "schlafen", "category": "vocab.confused", "hint": "„Ich gehe schlafen“ heisst „shkoj me fjetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_004",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine"],
+      "itemIds": ["item_dreke", "item_darke", "item_pune"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „drekë“?" },
+      "choices": ["Mittagessen", "Abendessen", "Frühstück", "Arbeit"],
+      "solutions": ["Mittagessen"],
+      "explanation": "„Drekë“ ist das Mittagessen, „darkë“ das Abendessen, „mëngjes“ das Frühstück.",
+      "errorHints": [
+        { "pattern": "abendessen", "category": "vocab.confused", "hint": "„Abendessen“ heisst „darkë“." },
+        { "pattern": "frühstück", "category": "vocab.confused", "hint": "„Frühstück“ heisst „mëngjes“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_005",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_vishem", "item_lahem", "item_krihem", "item_nisem"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ich ziehe mich an“?" },
+      "choices": ["vishem", "lahem", "krihem", "nisem"],
+      "solutions": ["vishem"],
+      "explanation": "„Vishem“ heisst „ich ziehe mich an“.",
+      "errorHints": [
+        { "pattern": "^krihem$", "category": "vocab.confused", "hint": "„Krihem“ heisst „ich kämme mich“." },
+        { "pattern": "^nisem$", "category": "vocab.confused", "hint": "„Nisem“ heisst „ich breche auf“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_006",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive"],
+      "itemIds": ["item_cohem"],
+      "prompt": { "lang": "de", "text": "Welche Form passt? „Arta ___ në orën shtatë.“ (Arta steht um sieben auf.)" },
+      "choices": ["çohet", "çohem", "çohesh", "çohen"],
+      "solutions": ["çohet"],
+      "explanation": "Für „sie“ (Arta) endet das Verb auf -het: „çohet“.",
+      "errorHints": [
+        {
+          "pattern": "^[cç]ohem$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Çohem“ heisst „ich stehe auf“. Für Arta: „çohet“."
+        },
+        { "pattern": "^[cç]ohesh$", "category": "grammar.verb_conjugation", "hint": "„Çohesh“ heisst „du stehst auf“." },
+        { "pattern": "^[cç]ohen$", "category": "grammar.verb_conjugation", "hint": "„Çohen“ ist Mehrzahl: „sie stehen auf“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_007",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "spelling.nasal_vowels"],
+      "itemIds": ["item_baj_dush", "item_mengjes"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Bâj dush në mëngjes.“?" },
+      "choices": [
+        "Ich dusche am Morgen.",
+        "Ich dusche am Abend.",
+        "Ich frühstücke am Morgen.",
+        "Ich wasche mich mit kaltem Wasser."
+      ],
+      "solutions": ["Ich dusche am Morgen."],
+      "explanation": "„Bâj dush“ heisst „ich dusche“ (Standard: „bëj dush“). „Në mëngjes“ = am Morgen.",
+      "errorHints": [
+        { "pattern": "abend", "category": "vocab.confused", "hint": "„Am Abend“ heisst „në mbrâmje“." },
+        { "pattern": "frühstücke", "category": "vocab.confused", "hint": "„Ich frühstücke“ heisst „ha mëngjes“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_008",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "spelling.nasal_vowels", "grammar.clitics"],
+      "itemIds": ["item_i_laj_dhambet"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ich putze mir die Zähne.“?" },
+      "choices": ["I laj dhâmbët.", "Lahem dhâmbët.", "I laj dhâmbin.", "Bâj dhâmbët."],
+      "solutions": ["I laj dhâmbët."],
+      "explanation": "Mit Objekt ist „laj“ (waschen) nicht reflexiv: „i laj dhâmbët“. Das „i“ nimmt die Zähne vorweg (Standard: „dhëmbët“).",
+      "errorHints": [
+        {
+          "pattern": "^lahem",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Lahem“ heisst „ich wasche mich“. Mit Objekt: „i laj dhâmbët“."
+        },
+        {
+          "pattern": "dh[aâ]mbin",
+          "category": "grammar.clitics",
+          "hint": "„I“ steht für mehrere Dinge – darum „dhâmbët“ (die Zähne)."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_009",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_kthehem", "item_ne_shpi", "item_ore"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kthehem në shpi në orën pesë.“?" },
+      "choices": [
+        "Ich komme um fünf Uhr nach Hause.",
+        "Ich gehe um fünf Uhr zur Arbeit.",
+        "Ich bin um fünf Uhr müde.",
+        "Ich stehe um fünf Uhr auf."
+      ],
+      "solutions": ["Ich komme um fünf Uhr nach Hause."],
+      "explanation": "„Kthehem“ heisst „ich kehre zurück“. „Në shpi“ = nach Hause.",
+      "errorHints": [
+        { "pattern": "arbeit", "category": "vocab.confused", "hint": "„Zur Arbeit“ hiesse „në punë“." },
+        { "pattern": "stehe", "category": "vocab.confused", "hint": "„Ich stehe auf“ heisst „çohem“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_010",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive"],
+      "itemIds": ["item_cohem"],
+      "prompt": { "lang": "de", "text": "Welche Form heisst „wir stehen auf“?" },
+      "choices": ["çohemi", "çohem", "çoheni", "çohen"],
+      "solutions": ["çohemi"],
+      "explanation": "Die Endungen sind: -hem, -hesh, -het, -hemi, -heni, -hen. „Wir“ = „çohemi“.",
+      "errorHints": [
+        { "pattern": "^[cç]oheni$", "category": "grammar.verb_conjugation", "hint": "„Çoheni“ heisst „ihr steht auf“." },
+        { "pattern": "^[cç]ohen$", "category": "grammar.verb_conjugation", "hint": "„Çohen“ heisst „sie stehen auf“." },
+        { "pattern": "^[cç]ohem$", "category": "grammar.verb_conjugation", "hint": "„Çohem“ heisst „ich stehe auf“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "1. Person Plural „çohemi“ – im Kosovo-Alltag evtl. „çohena“ (vgl. jemi/jena) – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_011",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_shkoj_me_fjete", "item_ore"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Në orën dhjetë shkoj me fjetë.“?" },
+      "choices": [
+        "Um zehn Uhr gehe ich schlafen.",
+        "Um zehn Uhr stehe ich auf.",
+        "Ich schlafe zehn Stunden.",
+        "Um zehn Uhr gehe ich zur Arbeit."
+      ],
+      "solutions": ["Um zehn Uhr gehe ich schlafen."],
+      "explanation": "„Shkoj me fjetë“ heisst „ich gehe schlafen“ – mit dem Gheg-Infinitiv „me fjetë“ (Standard: „shkoj të fle“).",
+      "errorHints": [
+        {
+          "pattern": "stunden",
+          "category": "vocab.confused",
+          "hint": "„Në orën dhjetë“ heisst „um zehn Uhr“, nicht „zehn Stunden“."
+        },
+        { "pattern": "arbeit", "category": "vocab.confused", "hint": "„Me fjetë“ heisst „schlafen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_012",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.reflexive", "spelling.nasal_vowels"],
+      "itemIds": ["item_bahem_gati", "item_shpejt"],
+      "prompt": { "lang": "de", "text": "Welcher Satz heisst „Ich mache mich schnell fertig.“?" },
+      "choices": ["Bâhem gati shpejt.", "Bâj gati shpejt.", "Bâhesh gati shpejt.", "Bâhet gati shpejt."],
+      "solutions": ["Bâhem gati shpejt."],
+      "explanation": "„Bâhem gati“ ist reflexiv: „ich mache mich fertig“. „Bâhesh“ wäre „du machst dich fertig“.",
+      "errorHints": [
+        {
+          "pattern": "^b[aâ]j gati",
+          "category": "grammar.verb_conjugation",
+          "hint": "Hier braucht es die reflexive Form: „bâhem gati“."
+        },
+        { "pattern": "^b[aâ]hesh", "category": "grammar.verb_conjugation", "hint": "„Bâhesh“ ist die Form für „du“." },
+        { "pattern": "^b[aâ]het", "category": "grammar.verb_conjugation", "hint": "„Bâhet“ ist die Form für „er/sie“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „bâhem gati“ (Standard: bëhem gati) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_013",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_cohem", "item_heret"],
+      "prompt": { "lang": "de", "text": "Ich stehe früh auf." },
+      "answerLang": "sq",
+      "solutions": ["Çohem herët."],
+      "wordBank": ["Çohem", "herët", "vonë", "çohet", "lahem"],
+      "explanation": "„Çohem“ = ich stehe auf (Kosovo; Standard: „ngrihem“). „Herët“ = früh.",
+      "errorHints": [
+        {
+          "pattern": "^[cç]ohet",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Çohet“ heisst „er/sie steht auf“. „Ich“: „çohem“."
+        },
+        { "pattern": "von[eë]", "category": "vocab.confused", "hint": "„Vonë“ heisst „spät“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_014",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_vishem", "item_shpejt"],
+      "prompt": { "lang": "sq", "text": "Vishem shpejt." },
+      "answerLang": "de",
+      "solutions": ["Ich ziehe mich schnell an."],
+      "wordBank": ["Ich", "ziehe", "mich", "schnell", "an", "langsam", "wasche", "dich"],
+      "explanation": "„Vishem“ = ich ziehe mich an, „shpejt“ = schnell.",
+      "errorHints": [
+        { "pattern": "wasche", "category": "vocab.confused", "hint": "„Ich wasche mich“ hiesse „lahem“." },
+        { "pattern": "langsam", "category": "vocab.confused", "hint": "„Shpejt“ heisst „schnell“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_015",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "vocab.time"],
+      "itemIds": ["item_ha_mengjes", "item_ore"],
+      "prompt": { "lang": "de", "text": "Ich frühstücke um sieben Uhr." },
+      "answerLang": "sq",
+      "solutions": ["Ha mëngjes në orën shtatë.", "Në orën shtatë ha mëngjes.", "Unë ha mëngjes në orën shtatë."],
+      "wordBank": ["Ha", "mëngjes", "në", "orën", "shtatë", "drekë", "ora", "tetë"],
+      "explanation": "„Ha mëngjes“ heisst wörtlich „ich esse Frühstück“. „Në orën shtatë“ = um sieben Uhr.",
+      "errorHints": [
+        { "pattern": "n[eë] ora ", "category": "grammar.case", "hint": "Nach „në“ steht „orën“ (Akkusativ)." },
+        { "pattern": "drek[eë]", "category": "vocab.confused", "hint": "„Drekë“ ist das Mittagessen." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_016",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_zgjohem", "item_heret"],
+      "prompt": { "lang": "sq", "text": "Arta zgjohet herët." },
+      "answerLang": "de",
+      "solutions": ["Arta wacht früh auf."],
+      "wordBank": ["Arta", "wacht", "früh", "auf", "spät", "steht", "schläft"],
+      "explanation": "„Zgjohet“ ist die Form für „sie“ (Arta): „sie wacht auf“.",
+      "errorHints": [
+        { "pattern": "spät", "category": "vocab.confused", "hint": "„Spät“ heisst „vonë“; „herët“ ist „früh“." },
+        { "pattern": "steht", "category": "vocab.confused", "hint": "„Sie steht auf“ hiesse „çohet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_017",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "spelling.nasal_vowels"],
+      "itemIds": ["item_baj_dush", "item_mengjes"],
+      "prompt": { "lang": "de", "text": "Ich dusche am Morgen." },
+      "answerLang": "sq",
+      "solutions": ["Bâj dush në mëngjes.", "Në mëngjes bâj dush."],
+      "wordBank": ["Bâj", "dush", "në", "mëngjes", "bân", "mbrâmje", "lahet"],
+      "explanation": "„Bâj dush“ = ich dusche (Standard: „bëj dush“). „Në mëngjes“ = am Morgen.",
+      "errorHints": [
+        {
+          "pattern": "^b[aâ]n dush",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Bân“ heisst „du machst“. „Ich dusche“: „bâj dush“."
+        },
+        { "pattern": "mbr[aâ]mje", "category": "vocab.confused", "hint": "„Në mbrâmje“ heisst „am Abend“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_018",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_kthehem", "item_ne_shpi", "item_ore"],
+      "prompt": { "lang": "de", "text": "Ich komme um fünf Uhr nach Hause zurück." },
+      "answerLang": "sq",
+      "solutions": ["Kthehem në shpi në orën pesë.", "Në orën pesë kthehem në shpi."],
+      "wordBank": ["Kthehem", "në", "shpi", "në", "orën", "pesë", "kthehet", "ora", "punë"],
+      "explanation": "„Kthehem“ ist reflexiv: „ich kehre zurück“. „Në shpi“ = nach Hause.",
+      "errorHints": [
+        {
+          "pattern": "^kthehet",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Kthehet“ heisst „er/sie kehrt zurück“. „Ich“: „kthehem“."
+        },
+        { "pattern": "n[eë] ora ", "category": "grammar.case", "hint": "Nach „në“ steht „orën“ (Akkusativ)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_019",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "grammar.case.accusative"],
+      "itemIds": ["item_cohem", "item_vone", "item_femije", "item_e_diel"],
+      "prompt": { "lang": "sq", "text": "Fëmijët çohen vonë të dielën." },
+      "answerLang": "de",
+      "solutions": ["Die Kinder stehen am Sonntag spät auf.", "Am Sonntag stehen die Kinder spät auf."],
+      "wordBank": ["Die", "Kinder", "stehen", "am", "Sonntag", "spät", "auf", "früh", "Samstag", "steht"],
+      "explanation": "„Çohen“ ist die Mehrzahl: „sie stehen auf“. „Të dielën“ = am Sonntag.",
+      "errorHints": [
+        { "pattern": "früh", "category": "vocab.confused", "hint": "„Vonë“ heisst „spät“." },
+        { "pattern": "samstag", "category": "vocab.confused", "hint": "„Samstag“ heisst „e shtunë“." },
+        { "pattern": "steht", "category": "grammar.verb_conjugation", "hint": "„Çohen“ ist Mehrzahl: „sie stehen auf“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_020",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine"],
+      "itemIds": ["item_pastaj", "item_kafe"],
+      "prompt": { "lang": "sq", "text": "Pastaj pi nji kafe." },
+      "answerLang": "de",
+      "solutions": ["Dann trinke ich einen Kaffee.", "Danach trinke ich einen Kaffee."],
+      "wordBank": ["Dann", "trinke", "ich", "einen", "Kaffee", "Tee", "zuerst", "esse"],
+      "explanation": "„Pastaj“ heisst „dann, danach“.",
+      "errorHints": [
+        { "pattern": "zuerst", "category": "vocab.confused", "hint": "„Pastaj“ heisst „dann, danach“." },
+        { "pattern": "esse", "category": "vocab.confused", "hint": "„Pi“ heisst „ich trinke“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_021",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_rruhem", "item_cdo", "item_mengjes"],
+      "prompt": { "lang": "de", "text": "Ich rasiere mich jeden Morgen." },
+      "answerLang": "sq",
+      "solutions": ["Rruhem çdo mëngjes.", "Çdo mëngjes rruhem."],
+      "wordBank": ["Rruhem", "çdo", "mëngjes", "rruhet", "mbrâmje", "shpejt"],
+      "explanation": "„Çdo“ heisst „jeder, jede“: „çdo mëngjes“ = jeden Morgen.",
+      "errorHints": [
+        {
+          "pattern": "^rruhet",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Rruhet“ heisst „er rasiert sich“. „Ich“: „rruhem“."
+        },
+        { "pattern": "mbr[aâ]mje", "category": "vocab.confused", "hint": "„Mbrâmje“ heisst „Abend“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_022",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "spelling.nasal_vowels"],
+      "itemIds": ["item_mbramje", "item_i_lodhun"],
+      "prompt": { "lang": "sq", "text": "Në mbrâmje jam i lodhun." },
+      "answerLang": "de",
+      "solutions": ["Am Abend bin ich müde."],
+      "wordBank": ["Am", "Abend", "bin", "ich", "müde", "Morgen", "wach", "sind"],
+      "explanation": "„I lodhun“ heisst „müde“ – Gheg-Form auf -un (Standard: „i lodhur“).",
+      "errorHints": [
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "„Në mbrâmje“ heisst „am Abend“." },
+        { "pattern": "wach", "category": "vocab.confused", "hint": "„I lodhun“ heisst „müde“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i lodhun“ (Standard: i lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_023",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_zakonisht", "item_cohem", "item_ore"],
+      "prompt": { "lang": "de", "text": "Normalerweise stehe ich um sechs Uhr auf." },
+      "answerLang": "sq",
+      "solutions": ["Zakonisht çohem në orën gjashtë.", "Zakonisht në orën gjashtë çohem.", "Çohem zakonisht në orën gjashtë."],
+      "wordBank": ["Zakonisht", "çohem", "në", "orën", "gjashtë", "çohesh", "orë", "shtatë"],
+      "explanation": "„Zakonisht“ heisst „normalerweise“ und steht meist am Satzanfang.",
+      "errorHints": [
+        {
+          "pattern": "[cç]ohesh",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Çohesh“ heisst „du stehst auf“. „Ich“: „çohem“."
+        },
+        { "pattern": "sht[aâ]t[eë]", "category": "vocab.confused", "hint": "„Shtatë“ ist sieben. Sechs heisst „gjashtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_024",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_nisem", "item_pune", "item_ore"],
+      "prompt": { "lang": "sq", "text": "Nisem për punë në orën tetë." },
+      "answerLang": "de",
+      "solutions": [
+        "Ich gehe um acht Uhr zur Arbeit los.",
+        "Um acht Uhr gehe ich zur Arbeit los.",
+        "Ich breche um acht Uhr zur Arbeit auf.",
+        "Ich gehe um acht Uhr zur Arbeit."
+      ],
+      "wordBank": ["Ich", "gehe", "um", "acht", "Uhr", "zur", "Arbeit", "los", "komme", "Hause", "sieben"],
+      "explanation": "„Nisem“ heisst „ich breche auf, ich gehe los“; „për punë“ = zur Arbeit.",
+      "errorHints": [
+        { "pattern": "hause", "category": "vocab.confused", "hint": "„Nach Hause“ hiesse „në shpi“." },
+        { "pattern": "komme", "category": "vocab.confused", "hint": "„Ich komme zurück“ wäre „kthehem“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_025",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_cohem", "item_ore"],
+      "prompt": { "lang": "de", "text": "Ich stehe um sieben Uhr auf." },
+      "answerLang": "sq",
+      "solutions": ["Çohem në orën shtatë.", "Në orën shtatë çohem.", "Unë çohem në orën shtatë."],
+      "standardForms": ["Ngrihem në orën shtatë.", "Në orën shtatë ngrihem.", "Unë ngrihem në orën shtatë."],
+      "explanation": "Im Kosovo sagt man „çohem“ (Standard: „ngrihem“) – verstanden wird beides.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)[cç]oj(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "Aufstehen ist reflexiv: „çohem“, nicht „çoj“."
+        },
+        {
+          "pattern": "[cç]ohet",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Çohet“ heisst „er/sie steht auf“. „Ich“: „çohem“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_026",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_lahem"],
+      "prompt": { "lang": "de", "text": "Ich wasche mich." },
+      "answerLang": "sq",
+      "solutions": ["Lahem.", "Unë lahem."],
+      "explanation": "Das „mich“ steckt in der Endung -hem: „lahem“.",
+      "errorHints": [
+        {
+          "pattern": "^(un[eë] )?laj$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Laj“ braucht ein Objekt (z. B. „i laj dhâmbët“). „Ich wasche mich“: „lahem“."
+        },
+        { "pattern": "lahet", "category": "grammar.verb_conjugation", "hint": "„Lahet“ heisst „er/sie wäscht sich“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_027",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_vishem"],
+      "prompt": { "lang": "de", "text": "Ich ziehe mich an." },
+      "answerLang": "sq",
+      "solutions": ["Vishem.", "Unë vishem."],
+      "explanation": "Reflexiv: „vishem“ = ich ziehe mich an.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)vesh(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Vesh“ heisst „ich ziehe (etwas) an“. „Ich ziehe mich an“: „vishem“."
+        },
+        { "pattern": "vishet", "category": "grammar.verb_conjugation", "hint": "„Vishet“ heisst „er/sie zieht sich an“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_028",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "spelling.nasal_vowels", "grammar.clitics"],
+      "itemIds": ["item_i_laj_dhambet"],
+      "prompt": { "lang": "de", "text": "Ich putze mir die Zähne." },
+      "answerLang": "sq",
+      "solutions": ["I laj dhâmbët.", "Unë i laj dhâmbët."],
+      "standardForms": ["I laj dhëmbët.", "Unë i laj dhëmbët."],
+      "explanation": "„Dhâmbët“ (die Zähne) schreibt Gheg mit â (Standard: „dhëmbët“). Das „i“ vor „laj“ steht für die Zähne.",
+      "errorHints": [
+        {
+          "pattern": "^(un[eë] )?laj dh",
+          "category": "grammar.clitics",
+          "hint": "Vor „laj“ steht das kurze „i“ für die Zähne: „i laj dhâmbët“."
+        },
+        {
+          "pattern": "lahem",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Lahem“ = ich wasche mich. Mit Objekt: „i laj dhâmbët“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_029",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "grammar.case.accusative"],
+      "itemIds": ["item_cohem", "item_vone", "item_e_shtune"],
+      "prompt": { "lang": "de", "text": "Am Samstag stehe ich spät auf." },
+      "answerLang": "sq",
+      "solutions": ["Të shtunën çohem vonë.", "Çohem vonë të shtunën."],
+      "standardForms": ["Të shtunën ngrihem vonë.", "Ngrihem vonë të shtunën."],
+      "explanation": "„Të shtunën“ = am Samstag, „vonë“ = spät.",
+      "errorHints": [
+        { "pattern": "(^|\\s)e shtun[eë](\\s|$)", "category": "grammar.case", "hint": "„Am Samstag“ heisst „të shtunën“." },
+        { "pattern": "her[eë]t", "category": "vocab.confused", "hint": "„Herët“ heisst „früh“. „Spät“ ist „vonë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_030",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.infinitive_me", "vocab.time"],
+      "itemIds": ["item_shkoj_me_fjete", "item_ore"],
+      "prompt": { "lang": "de", "text": "Ich gehe um zehn Uhr schlafen." },
+      "answerLang": "sq",
+      "solutions": ["Shkoj me fjetë në orën dhjetë.", "Në orën dhjetë shkoj me fjetë.", "Unë shkoj me fjetë në orën dhjetë."],
+      "standardForms": ["Shkoj të fle në orën dhjetë.", "Në orën dhjetë shkoj të fle."],
+      "explanation": "„Shkoj me fjetë“ – mit dem Gheg-Infinitiv „me fjetë“ (Standard: „shkoj të fle“).",
+      "errorHints": [{ "pattern": "me fle", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „fjetë“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_031",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_cohem", "item_kur"],
+      "prompt": { "lang": "de", "text": "Wann stehst du auf?" },
+      "answerLang": "sq",
+      "solutions": ["Kur çohesh?", "Kur çohesh ti?"],
+      "standardForms": ["Kur ngrihesh?", "Kur ngrihesh ti?"],
+      "explanation": "Für „du“ endet das Verb auf -hesh: „çohesh“.",
+      "errorHints": [
+        { "pattern": "^kur [cç]ohem", "category": "grammar.verb_conjugation", "hint": "„Çohem“ ist „ich“. Für „du“: „çohesh“." },
+        {
+          "pattern": "^kur [cç]ohet",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Çohet“ ist „er/sie“. Für „du“: „çohesh“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_032",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine"],
+      "itemIds": ["item_darke", "item_familje"],
+      "prompt": { "lang": "de", "text": "Wir essen mit der Familie zu Abend." },
+      "answerLang": "sq",
+      "solutions": ["Hamë darkë me familjen.", "Me familjen hamë darkë.", "Ne hamë darkë me familjen."],
+      "explanation": "„Ha darkë“ = zu Abend essen, „hamë“ = wir essen. Nach „me“ (mit) steht der Akkusativ: „familjen“.",
+      "errorHints": [
+        { "pattern": "me familja", "category": "grammar.case", "hint": "Nach „me“ (mit) steht der Akkusativ: „me familjen“." },
+        {
+          "pattern": "^(ne )?ha dark[eë](\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Ha“ ist „ich/du isst“. „Wir essen“: „hamë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "1. Person Plural „hamë“ (Kosovo-Alltag evtl. „hana“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_033",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_cohem", "item_lahem", "item_vishem", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Ich stehe auf, wasche mich und ziehe mich an." },
+      "answerLang": "sq",
+      "solutions": ["Çohem, lahem dhe vishem.", "Çohem, lahem e vishem.", "Çohem, lahem edhe vishem."],
+      "standardForms": ["Ngrihem, lahem dhe vishem."],
+      "explanation": "Drei reflexive Verben hintereinander – alle enden auf -em: çohem, lahem, vishem.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)vesh(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Ich ziehe mich an“ ist reflexiv: „vishem“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_034",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_cohem", "item_ore"],
+      "prompt": { "lang": "de", "text": "Ich stehe um sechs Uhr auf." },
+      "answerLang": "sq",
+      "text": "___ në orën gjashtë.",
+      "solutions": ["Çohem"],
+      "choices": ["Çohem", "Çohet", "Çohen", "Çohesh"],
+      "standardForms": ["Ngrihem"],
+      "explanation": "„Ich“ – die Endung ist -hem: „çohem“.",
+      "errorHints": [
+        { "pattern": "^[cç]ohet$", "category": "grammar.verb_conjugation", "hint": "„Çohet“ heisst „er/sie steht auf“." },
+        { "pattern": "^[cç]ohen$", "category": "grammar.verb_conjugation", "hint": "„Çohen“ heisst „sie stehen auf“." },
+        { "pattern": "^[cç]ohesh$", "category": "grammar.verb_conjugation", "hint": "„Çohesh“ heisst „du stehst auf“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_035",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.reflexive", "spelling.nasal_vowels"],
+      "itemIds": ["item_lahem", "item_mbramje"],
+      "prompt": { "lang": "de", "text": "Du wäschst dich am Abend." },
+      "answerLang": "sq",
+      "text": "Ti ___ në mbrâmje.",
+      "solutions": ["lahesh"],
+      "choices": ["lahesh", "lahem", "lahet", "laj"],
+      "explanation": "Für „ti“ (du) endet das reflexive Verb auf -hesh: „lahesh“.",
+      "errorHints": [
+        { "pattern": "^lahem$", "category": "grammar.verb_conjugation", "hint": "„Lahem“ ist „ich“. Für „ti“ (du): „lahesh“." },
+        { "pattern": "^lahet$", "category": "grammar.verb_conjugation", "hint": "„Lahet“ ist „er/sie“. Für „ti“ (du): „lahesh“." },
+        { "pattern": "^laj$", "category": "grammar.verb_conjugation", "hint": "„Laj“ braucht ein Objekt. Reflexiv: „lahesh“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_036",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine"],
+      "itemIds": ["item_dreke", "item_pune"],
+      "prompt": { "lang": "de", "text": "Ich esse bei der Arbeit zu Mittag." },
+      "answerLang": "sq",
+      "text": "Ha ___ në punë.",
+      "solutions": ["drekë"],
+      "choices": ["drekë", "darkë", "mëngjes", "kafe"],
+      "explanation": "„Ha drekë“ heisst „zu Mittag essen“. „Në punë“ = bei der Arbeit.",
+      "errorHints": [
+        { "pattern": "^dark[eë]$", "category": "vocab.confused", "hint": "„Darkë“ ist das Abendessen." },
+        { "pattern": "^m[eë]ngjes$", "category": "vocab.confused", "hint": "„Mëngjes“ ist das Frühstück." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_037",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_zgjohem", "item_heret"],
+      "prompt": { "lang": "de", "text": "Ich wache früh auf." },
+      "answerLang": "sq",
+      "text": "Zgjohem ___.",
+      "solutions": ["herët"],
+      "explanation": "„Herët“ heisst „früh“, „vonë“ heisst „spät“.",
+      "errorHints": [{ "pattern": "^von[eë]$", "category": "vocab.confused", "hint": "„Vonë“ heisst „spät“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_038",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine"],
+      "itemIds": ["item_pastaj", "item_kafe"],
+      "prompt": { "lang": "de", "text": "Dann trinke ich einen Kaffee." },
+      "answerLang": "sq",
+      "text": "___ pi nji kafe.",
+      "solutions": ["Pastaj", "Mandej"],
+      "explanation": "„Pastaj“ heisst „dann, danach“. Im Kosovo hört man auch „mandej“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„mandej“ (Kosovo) als weitere Lösung zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_039",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive"],
+      "itemIds": ["item_vishem", "item_shpejt"],
+      "prompt": { "lang": "de", "text": "Arta zieht sich schnell an." },
+      "answerLang": "sq",
+      "text": "Arta ___ shpejt.",
+      "solutions": ["vishet"],
+      "choices": ["vishet", "vishem", "vesh", "vishen"],
+      "explanation": "Für „sie“ (Arta) endet das Verb auf -et: „vishet“.",
+      "errorHints": [
+        { "pattern": "^vishem$", "category": "grammar.verb_conjugation", "hint": "„Vishem“ ist „ich“. Für Arta: „vishet“." },
+        {
+          "pattern": "^vesh$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Vesh“ ist nicht reflexiv. „Sie zieht sich an“: „vishet“."
+        },
+        { "pattern": "^vishen$", "category": "grammar.verb_conjugation", "hint": "„Vishen“ ist Mehrzahl." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_040",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive", "spelling.nasal_vowels"],
+      "itemIds": ["item_bahem_gati"],
+      "prompt": { "lang": "de", "text": "Ich mache mich fertig." },
+      "answerLang": "sq",
+      "text": "___ gati.",
+      "solutions": ["Bâhem"],
+      "choices": ["Bâhem", "Bâj", "Bân", "Bâhen"],
+      "standardForms": ["Bëhem"],
+      "explanation": "„Bâhem gati“ ist reflexiv: „ich mache mich fertig“ (Standard: „bëhem gati“).",
+      "errorHints": [
+        { "pattern": "^b[aâ]j$", "category": "grammar.verb_conjugation", "hint": "Hier braucht es die reflexive Form „bâhem“." },
+        { "pattern": "^b[aâ]n$", "category": "grammar.verb_conjugation", "hint": "„Bân“ heisst „du machst“. Hier: „bâhem“." },
+        {
+          "pattern": "^b[aâ]hen$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Bâhen“ ist Mehrzahl: „sie machen sich fertig“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „bâhem gati“ (Standard: bëhem gati) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_041",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_cohem", "item_heret"],
+      "prompt": { "lang": "de", "text": "Wir stehen früh auf." },
+      "answerLang": "sq",
+      "text": "Ne ___ herët.",
+      "solutions": ["çohemi"],
+      "standardForms": ["ngrihemi"],
+      "explanation": "Für „ne“ (wir) endet das Verb auf -hemi: „çohemi“.",
+      "errorHints": [
+        { "pattern": "^[cç]ohem$", "category": "grammar.verb_conjugation", "hint": "„Çohem“ ist „ich“. „Wir“: „çohemi“." },
+        { "pattern": "^[cç]ohen$", "category": "grammar.verb_conjugation", "hint": "„Çohen“ ist „sie“. „Wir“: „çohemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "1. Person Plural „çohemi“ – im Kosovo-Alltag evtl. „çohena“ (vgl. jemi/jena) – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_042",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive"],
+      "itemIds": ["item_ulem"],
+      "prompt": { "lang": "de", "text": "Ich setze mich und lese." },
+      "answerLang": "sq",
+      "text": "___ dhe lexoj.",
+      "solutions": ["Ulem"],
+      "explanation": "„Ulem“ heisst „ich setze mich“ – reflexiv wie im Deutschen.",
+      "errorHints": [
+        {
+          "pattern": "^ulet$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Ulet“ heisst „er/sie setzt sich“. „Ich“: „ulem“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_043",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.clitics", "spelling.nasal_vowels"],
+      "itemIds": ["item_i_laj_dhambet"],
+      "prompt": { "lang": "de", "text": "Ich putze mir die Zähne." },
+      "answerLang": "sq",
+      "text": "I ___ dhâmbët.",
+      "solutions": ["laj"],
+      "explanation": "Mit Objekt ist „laj“ (ich wasche) nicht reflexiv: „i laj dhâmbët“.",
+      "errorHints": [
+        {
+          "pattern": "^lahem$",
+          "category": "grammar.verb_conjugation",
+          "hint": "Mit Objekt ist „laj“ nicht reflexiv: „i laj dhâmbët“."
+        },
+        { "pattern": "^lan$", "category": "grammar.verb_conjugation", "hint": "„Lan“ heisst „du wäschst“. „Ich“: „laj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_044",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.reflexive"],
+      "itemIds": ["item_kthehem", "item_femije", "item_ore"],
+      "prompt": { "lang": "de", "text": "Die Kinder kommen um vier Uhr nach Hause zurück." },
+      "answerLang": "sq",
+      "text": "Fëmijët ___ në shpi në orën katër.",
+      "solutions": ["kthehen"],
+      "choices": ["kthehen", "kthehet", "kthehem", "kthehemi"],
+      "explanation": "„Fëmijët“ (die Kinder) ist Mehrzahl – darum „kthehen“.",
+      "errorHints": [
+        { "pattern": "^kthehet$", "category": "grammar.verb_conjugation", "hint": "„Fëmijët“ ist Mehrzahl – darum „kthehen“." },
+        {
+          "pattern": "^kthehem$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Kthehem“ ist „ich“. „Die Kinder“: „kthehen“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_045",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.infinitive_me", "grammar.case.accusative"],
+      "itemIds": ["item_shkoj_me_fjete", "item_e_diel", "item_vone"],
+      "prompt": { "lang": "de", "text": "Am Sonntag gehe ich spät schlafen. (fle = ich schlafe)" },
+      "answerLang": "sq",
+      "text": "Të dielën shkoj me ___ vonë.",
+      "solutions": ["fjetë"],
+      "standardForms": ["fjetur"],
+      "explanation": "Nach „me“ steht das Partizip „fjetë“: „shkoj me fjetë“ = ich gehe schlafen (Standard: „shkoj të fle“).",
+      "errorHints": [
+        { "pattern": "^fle$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „fjetë“, nicht „fle“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_046",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive"],
+      "itemIds": ["item_cohem", "item_lahem", "item_vishem", "item_zgjohem", "item_ulem"],
+      "prompt": { "lang": "de", "text": "Ordne die reflexiven Verben zu." },
+      "pairs": [
+        { "left": "çohem", "right": "ich stehe auf" },
+        { "left": "lahem", "right": "ich wasche mich" },
+        { "left": "vishem", "right": "ich ziehe mich an" },
+        { "left": "zgjohem", "right": "ich wache auf" },
+        { "left": "ulem", "right": "ich setze mich" }
+      ],
+      "explanation": "Alle diese Verben sind reflexiv – das „mich“ steckt in der Endung.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_047",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine"],
+      "itemIds": ["item_mengjes", "item_dreke", "item_darke", "item_pune", "item_shpejt"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "mëngjes", "right": "Frühstück" },
+        { "left": "drekë", "right": "Mittagessen" },
+        { "left": "darkë", "right": "Abendessen" },
+        { "left": "punë", "right": "Arbeit" },
+        { "left": "shpejt", "right": "schnell" }
+      ],
+      "explanation": "„Mëngjes“ heisst „Morgen“ und „Frühstück“: „ha mëngjes“ = frühstücken.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_048",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "spelling.nasal_vowels"],
+      "itemIds": ["item_krihem", "item_rruhem", "item_nisem", "item_kthehem", "item_bahem_gati"],
+      "prompt": { "lang": "de", "text": "Ordne die Verben zu." },
+      "pairs": [
+        { "left": "krihem", "right": "ich kämme mich" },
+        { "left": "rruhem", "right": "ich rasiere mich" },
+        { "left": "nisem", "right": "ich breche auf" },
+        { "left": "kthehem", "right": "ich kehre zurück" },
+        { "left": "bâhem gati", "right": "ich mache mich fertig" }
+      ],
+      "explanation": "Auch „nisem“ und „kthehem“ sind reflexiv, obwohl das Deutsche hier kein „mich“ hat.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „bâhem gati“ (Standard: bëhem gati) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_049",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive"],
+      "itemIds": ["item_cohem"],
+      "prompt": { "lang": "de", "text": "Ordne die Formen zu." },
+      "pairs": [
+        { "left": "çohem", "right": "ich stehe auf" },
+        { "left": "çohesh", "right": "du stehst auf" },
+        { "left": "çohet", "right": "er steht auf" },
+        { "left": "çohemi", "right": "wir stehen auf" },
+        { "left": "çohen", "right": "sie stehen auf" }
+      ],
+      "explanation": "Die Endungen: -hem (ich), -hesh (du), -het (er/sie), -hemi (wir), -heni (ihr), -hen (sie).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen. 1. Person Plural „çohemi“ – im Kosovo-Alltag evtl. „çohena“ (vgl. jemi/jena) – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_050",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "vocab.time"],
+      "itemIds": ["item_zakonisht", "item_pastaj", "item_cdo", "item_heret", "item_vone"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "zakonisht", "right": "normalerweise" },
+        { "left": "pastaj", "right": "dann" },
+        { "left": "çdo mëngjes", "right": "jeden Morgen" },
+        { "left": "herët", "right": "früh" },
+        { "left": "vonë", "right": "spät" }
+      ],
+      "explanation": "Mit diesen Wörtern beschreibst du, wann und wie oft du etwas tust.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_051",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine", "spelling.nasal_vowels", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_baj_dush", "item_i_laj_dhambet", "item_ha_mengjes", "item_shkoj_me_fjete", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "bâj dush", "right": "ich dusche" },
+        { "left": "i laj dhâmbët", "right": "ich putze mir die Zähne" },
+        { "left": "ha mëngjes", "right": "ich frühstücke" },
+        { "left": "shkoj me fjetë", "right": "ich gehe schlafen" },
+        { "left": "jam i lodhun", "right": "ich bin müde" }
+      ],
+      "explanation": "Typisch Gheg: „bâj“ und „dhâmbët“ mit â, „me fjetë“ als Infinitiv, „i lodhun“ auf -un.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „i lodhun“ (Standard: i lodhur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_052",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_zgjohem", "item_ore"],
+      "prompt": { "lang": "de", "text": "Ich wache um sechs Uhr auf." },
+      "answerLang": "sq",
+      "tokens": ["Zgjohem", "në", "orën", "gjashtë"],
+      "solutions": ["Zgjohem në orën gjashtë.", "Në orën gjashtë zgjohem."],
+      "explanation": "„Zgjohem“ = ich wache auf, „në orën gjashtë“ = um sechs Uhr.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_053",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_cohem", "item_heret"],
+      "prompt": { "lang": "de", "text": "Arta steht früh auf." },
+      "answerLang": "sq",
+      "tokens": ["Arta", "çohet", "herët"],
+      "solutions": ["Arta çohet herët."],
+      "explanation": "Für „sie“ (Arta) heisst es „çohet“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_054",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine", "spelling.nasal_vowels"],
+      "itemIds": ["item_baj_dush", "item_shpejt"],
+      "prompt": { "lang": "de", "text": "Ich dusche schnell." },
+      "answerLang": "sq",
+      "tokens": ["Bâj", "dush", "shpejt"],
+      "solutions": ["Bâj dush shpejt."],
+      "explanation": "„Bâj dush“ = ich dusche (Standard: „bëj dush“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_055",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["vocab.daily_routine"],
+      "itemIds": ["item_ha_mengjes", "item_familje"],
+      "prompt": { "lang": "de", "text": "Ich frühstücke mit der Familie." },
+      "answerLang": "sq",
+      "tokens": ["Ha", "mëngjes", "me", "familjen"],
+      "solutions": ["Ha mëngjes me familjen.", "Me familjen ha mëngjes."],
+      "explanation": "„Me familjen“ heisst „mit der Familie“ – nach „me“ steht der Akkusativ.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_056",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine"],
+      "itemIds": ["item_pastaj", "item_pune"],
+      "prompt": { "lang": "de", "text": "Dann gehe ich mit dem Bus zur Arbeit." },
+      "answerLang": "sq",
+      "tokens": ["Pastaj", "shkoj", "në", "punë", "me", "autobus"],
+      "solutions": ["Pastaj shkoj në punë me autobus.", "Pastaj shkoj me autobus në punë."],
+      "explanation": "„Pastaj“ = dann, „në punë“ = zur Arbeit, „me autobus“ = mit dem Bus.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_057",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive", "spelling.nasal_vowels"],
+      "itemIds": ["item_mbramje", "item_ulem", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Am Abend setze ich mich und lese." },
+      "answerLang": "sq",
+      "tokens": ["Në", "mbrâmje", "ulem", "dhe", "lexoj"],
+      "solutions": ["Në mbrâmje ulem dhe lexoj.", "Ulem dhe lexoj në mbrâmje."],
+      "explanation": "„Ulem“ = ich setze mich, „lexoj“ = ich lese.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_058",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_kur", "item_shkoj_me_fjete"],
+      "prompt": { "lang": "de", "text": "Wann gehst du schlafen?" },
+      "answerLang": "sq",
+      "tokens": ["Kur", "shkon", "me", "fjetë"],
+      "solutions": ["Kur shkon me fjetë?"],
+      "explanation": "„Shkon“ = du gehst, „me fjetë“ = schlafen (Gheg-Infinitiv).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_059",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "vocab.time", "spelling.nasal_vowels"],
+      "itemIds": ["item_zakonisht", "item_cohem", "item_ore", "item_baj_dush", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Normalerweise stehe ich um sieben Uhr auf und dusche." },
+      "answerLang": "sq",
+      "tokens": ["Zakonisht", "çohem", "në", "orën", "shtatë", "dhe", "bâj", "dush"],
+      "solutions": ["Zakonisht çohem në orën shtatë dhe bâj dush."],
+      "explanation": "„Zakonisht“ steht am Anfang. Danach kommen die Handlungen in ihrer Reihenfolge.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„çohem“ (ich stehe auf) als Kosovo-Wortschatz (Standard: ngrihem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u01_daily_routine_060",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": ["vocab.daily_routine", "grammar.verbs.reflexive", "spelling.nasal_vowels"],
+      "itemIds": ["item_bahem_gati", "item_shpejt", "item_nisem", "item_pune", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Ich mache mich schnell fertig und breche zur Arbeit auf." },
+      "answerLang": "sq",
+      "tokens": ["Bâhem", "gati", "shpejt", "dhe", "nisem", "për", "punë"],
+      "solutions": ["Bâhem gati shpejt dhe nisem për punë."],
+      "explanation": "„Bâhem gati“ = ich mache mich fertig, „nisem për punë“ = ich breche zur Arbeit auf.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Form „bâhem gati“ (Standard: bëhem gati) zu prüfen."
+    }
+  ]
+}

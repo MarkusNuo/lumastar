@@ -1,0 +1,1234 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u12_time_days",
+  "level": "A1.3",
+  "grammar": [
+    {
+      "title": "Wie spät ist es?",
+      "explanation": "**Sa âsht ora?** – Wie spät ist es? Antwort: **Ora âsht tre.** oder **Âsht ora tre.** – Es ist drei Uhr. „Ein Uhr“ heisst *ora nji* (Standard: një).\n\n| Gheg | Uhrzeit |\n|---|---|\n| tre e dhjetë | 3.10 (zehn nach drei) |\n| tre e çerek | 3.15 (Viertel nach drei) |\n| tre e gjysmë | 3.30 (halb vier!) |\n| katër pa çerek | 3.45 (Viertel vor vier) |\n| katër pa pesë | 3.55 (fünf vor vier) |\n\n**e** heisst „und“ (nach), **pa** heisst „ohne“ (vor). **Achtung:** *tre e gjysmë* ist „drei und eine halbe“ – auf Deutsch „halb vier“. „Um drei Uhr“ heisst **në orën tre**."
+    },
+    {
+      "title": "Die Wochentage",
+      "explanation": "Vor jedem Wochentag steht **e**: *e hânë* (Montag), *e martë, e mërkurë, e enjte, e premte, e shtunë, e diel* (Sonntag). Nur der Montag hat im Gheg den Nasalvokal: **e hânë** (Standard: e hënë).\n\n- *Sot âsht e hânë.* – Heute ist Montag.\n- „Am Montag“ heisst **të hânën** (Akkusativ mit *të*): *Të hânën punoj.* – *Shihemi të dielën!*"
+    },
+    {
+      "title": "Tageszeiten",
+      "explanation": "*në mëngjes* (am Morgen), *në mbrâmje* (am Abend, Standard: mbrëmje), *natën* (in der Nacht), *sot* (heute), *nesër* (morgen), *dje* (gestern), *tash* (jetzt), *herët* (früh), *vonë* (spät). Fragewort: **kur?** – wann?"
+    }
+  ],
+  "items": [
+    { "id": "item_ore", "kind": "word", "gheg": "orë", "de": "Uhr; Stunde", "partOfSpeech": "noun", "gender": "f", "definite": "ora", "plural": "orë", "reviewed": false },
+    { "id": "item_sa_asht_ora", "kind": "phrase", "gheg": "sa âsht ora?", "de": "wie spät ist es?", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_gjysme",
+      "kind": "word",
+      "gheg": "gjysmë",
+      "de": "Hälfte; halb",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "gjysma",
+      "note": "„gjysmë“ (halb) wie im Standard; im Kosovo auch „gjysë“ gesprochen – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_cerek", "kind": "word", "gheg": "çerek", "de": "Viertel", "partOfSpeech": "noun", "gender": "m", "definite": "çereku", "reviewed": false },
+    { "id": "item_minute", "kind": "word", "gheg": "minutë", "de": "Minute", "partOfSpeech": "noun", "gender": "f", "definite": "minuta", "plural": "minuta", "reviewed": false },
+    { "id": "item_dite", "kind": "word", "gheg": "ditë", "de": "Tag", "partOfSpeech": "noun", "gender": "f", "definite": "dita", "plural": "ditë", "reviewed": false },
+    { "id": "item_jave", "kind": "word", "gheg": "javë", "de": "Woche", "partOfSpeech": "noun", "gender": "f", "definite": "java", "plural": "javë", "reviewed": false },
+    { "id": "item_fundjave", "kind": "word", "gheg": "fundjavë", "de": "Wochenende", "partOfSpeech": "noun", "gender": "f", "definite": "fundjava", "reviewed": false },
+    { "id": "item_dje", "kind": "word", "gheg": "dje", "de": "gestern", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_mengjes", "kind": "word", "gheg": "mëngjes", "de": "Morgen (Tageszeit); Frühstück", "partOfSpeech": "noun", "gender": "m", "definite": "mëngjesi", "reviewed": false },
+    {
+      "id": "item_mbramje",
+      "kind": "word",
+      "gheg": "mbrâmje",
+      "de": "Abend",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "mbrâmja",
+      "note": "Schreibung „mbrâmje“ mit â (Standard: mbrëmje) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_nate", "kind": "word", "gheg": "natë", "de": "Nacht", "partOfSpeech": "noun", "gender": "f", "definite": "nata", "reviewed": false },
+    { "id": "item_heret", "kind": "word", "gheg": "herët", "de": "früh", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_vone", "kind": "word", "gheg": "vonë", "de": "spät", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_kur", "kind": "word", "gheg": "kur", "de": "wann", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_e_hane", "kind": "phrase", "gheg": "e hânë", "de": "Montag", "partOfSpeech": "noun", "gender": "f", "definite": "e hâna", "reviewed": false },
+    { "id": "item_e_marte", "kind": "phrase", "gheg": "e martë", "de": "Dienstag", "partOfSpeech": "noun", "gender": "f", "definite": "e marta", "reviewed": false },
+    { "id": "item_e_merkure", "kind": "phrase", "gheg": "e mërkurë", "de": "Mittwoch", "partOfSpeech": "noun", "gender": "f", "definite": "e mërkura", "reviewed": false },
+    { "id": "item_e_enjte", "kind": "phrase", "gheg": "e enjte", "de": "Donnerstag", "partOfSpeech": "noun", "gender": "f", "definite": "e enjtja", "reviewed": false },
+    { "id": "item_e_premte", "kind": "phrase", "gheg": "e premte", "de": "Freitag", "partOfSpeech": "noun", "gender": "f", "definite": "e premtja", "reviewed": false },
+    { "id": "item_e_shtune", "kind": "phrase", "gheg": "e shtunë", "de": "Samstag", "partOfSpeech": "noun", "gender": "f", "definite": "e shtuna", "reviewed": false },
+    { "id": "item_e_diel", "kind": "phrase", "gheg": "e diel", "de": "Sonntag", "partOfSpeech": "noun", "gender": "f", "definite": "e diela", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u12_time_days_001",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling", "vocab.time"],
+      "itemIds": ["item_sa_asht_ora"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Sa âsht ora?“" },
+      "choices": ["Wie spät ist es?", "Wie geht es dir?", "Wie viel kostet das?", "Wo ist die Uhr?"],
+      "solutions": ["Wie spät ist es?"],
+      "explanation": "„Sa“ heisst „wie viel“, „ora“ ist „die Uhr, die Stunde“. Wörtlich: „Wie viel ist die Uhr?“",
+      "errorHints": [
+        { "pattern": "kostet", "category": "vocab.confused", "hint": "„Wie viel kostet das?“ hiesse „Sa kushton?“." },
+        { "pattern": "^wo ", "category": "vocab.confused", "hint": "„Wo“ hiesse „ku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_002",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days", "spelling.nasal_vowels"],
+      "itemIds": ["item_e_hane", "item_e_marte", "item_e_diel", "item_e_shtune"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Montag“?" },
+      "choices": ["e hânë", "e martë", "e diel", "e shtunë"],
+      "solutions": ["e hânë"],
+      "explanation": "„E hânë“ ist Montag – mit dem Gheg-Nasalvokal â (Standard: „e hënë“).",
+      "errorHints": [
+        { "pattern": "^e mart[eë]$", "category": "vocab.confused", "hint": "„E martë“ ist Dienstag." },
+        { "pattern": "^e diel$", "category": "vocab.confused", "hint": "„E diel“ ist Sonntag." },
+        { "pattern": "^e shtun[eë]$", "category": "vocab.confused", "hint": "„E shtunë“ ist Samstag." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_003",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days"],
+      "itemIds": ["item_e_diel"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „e diel“?" },
+      "choices": ["Sonntag", "Samstag", "Montag", "Freitag"],
+      "solutions": ["Sonntag"],
+      "explanation": "„E diel“ ist der Sonntag, „e shtunë“ der Samstag.",
+      "errorHints": [
+        { "pattern": "samstag", "category": "vocab.confused", "hint": "„Samstag“ heisst „e shtunë“." },
+        { "pattern": "freitag", "category": "vocab.confused", "hint": "„Freitag“ heisst „e premte“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_004",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_neser", "item_sot", "item_dje", "item_tash"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „nesër“?" },
+      "choices": ["morgen", "heute", "gestern", "jetzt"],
+      "solutions": ["morgen"],
+      "explanation": "„Nesër“ = morgen, „sot“ = heute, „dje“ = gestern, „tash“ = jetzt.",
+      "errorHints": [
+        { "pattern": "heute", "category": "vocab.confused", "hint": "„Heute“ heisst „sot“." },
+        { "pattern": "gestern", "category": "vocab.confused", "hint": "„Gestern“ heisst „dje“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_005",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Ora âsht tre.“?" },
+      "choices": ["Es ist drei Uhr.", "Es ist halb drei.", "Ich habe drei Stunden.", "Es ist Viertel nach drei."],
+      "solutions": ["Es ist drei Uhr."],
+      "explanation": "„Ora âsht tre“ oder „Âsht ora tre“ heisst „Es ist drei Uhr“.",
+      "errorHints": [
+        { "pattern": "halb", "category": "vocab.confused", "hint": "„Halb“ hiesse „e gjysmë“." },
+        { "pattern": "viertel", "category": "vocab.confused", "hint": "„Viertel“ hiesse „çerek“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_006",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_gjysme"],
+      "prompt": { "lang": "de", "text": "„Ora âsht dy e gjysmë.“ – Wie spät ist es?" },
+      "choices": ["halb drei (2.30)", "halb zwei (1.30)", "Viertel nach zwei (2.15)", "zwei Uhr (2.00)"],
+      "solutions": ["halb drei (2.30)"],
+      "explanation": "„Dy e gjysmë“ heisst „zwei und eine halbe“ – also 2.30, auf Deutsch „halb drei“.",
+      "errorHints": [
+        {
+          "pattern": "halb zwei",
+          "category": "vocab.confused",
+          "hint": "Aufgepasst: „dy e gjysmë“ ist 2.30 – auf Deutsch „halb drei“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„gjysmë“ (halb) wie im Standard; im Kosovo auch „gjysë“ gesprochen – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_007",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_cerek"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Viertel vor fünf“?" },
+      "choices": ["pesë pa çerek", "pesë e çerek", "katër e çerek", "katër pa çerek"],
+      "solutions": ["pesë pa çerek"],
+      "explanation": "„Pa“ heisst „ohne“ – also „fünf ohne Viertel“: „pesë pa çerek“. „E“ heisst „und“, also „nach“.",
+      "errorHints": [
+        { "pattern": "^pes[eë] e [cç]erek$", "category": "vocab.confused", "hint": "„Pesë e çerek“ ist Viertel nach fünf." },
+        { "pattern": "^kat[eë]r pa [cç]erek$", "category": "vocab.confused", "hint": "„Katër pa çerek“ ist Viertel vor vier." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_008",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days"],
+      "itemIds": ["item_e_merkure", "item_e_enjte", "item_e_marte", "item_e_premte"],
+      "prompt": { "lang": "de", "text": "Welcher Tag kommt nach „e mërkurë“ (Mittwoch)?" },
+      "choices": ["e enjte", "e martë", "e premte", "e hânë"],
+      "solutions": ["e enjte"],
+      "explanation": "Mittwoch (e mërkurë) – Donnerstag (e enjte) – Freitag (e premte).",
+      "errorHints": [
+        { "pattern": "^e premte$", "category": "vocab.confused", "hint": "„E premte“ ist Freitag – ein Tag zu weit." },
+        { "pattern": "^e mart[eë]$", "category": "vocab.confused", "hint": "„E martë“ (Dienstag) kommt vor „e mërkurë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_009",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "grammar.case.accusative", "grammar.negation"],
+      "itemIds": ["item_e_diel"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Të dielën nuk punoj.“?" },
+      "choices": [
+        "Am Sonntag arbeite ich nicht.",
+        "Am Samstag arbeite ich nicht.",
+        "Heute ist Sonntag.",
+        "Ich arbeite jeden Tag."
+      ],
+      "solutions": ["Am Sonntag arbeite ich nicht."],
+      "explanation": "„Të dielën“ heisst „am Sonntag“: Der Wochentag steht im Akkusativ, mit „të“ davor.",
+      "errorHints": [
+        { "pattern": "samstag", "category": "vocab.confused", "hint": "„E shtunë“ ist Samstag, „e diel“ ist Sonntag." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_010",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "spelling.nasal_vowels"],
+      "itemIds": ["item_mbramje", "item_mengjes", "item_nate", "item_heret"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „am Abend“?" },
+      "choices": ["në mbrâmje", "në mëngjes", "natën", "herët"],
+      "solutions": ["në mbrâmje"],
+      "explanation": "„Mbrâmje“ ist der Abend (Standard: „mbrëmje“). „Në mëngjes“ heisst „am Morgen“.",
+      "errorHints": [
+        { "pattern": "m[eë]ngjes", "category": "vocab.confused", "hint": "„Në mëngjes“ heisst „am Morgen“." },
+        { "pattern": "^nat[eë]n$", "category": "vocab.confused", "hint": "„Natën“ heisst „in der Nacht“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „mbrâmje“ mit â (Standard: mbrëmje) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_011",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_shtate", "item_dhjete"],
+      "prompt": { "lang": "de", "text": "Es ist 7.10 Uhr. Was sagst du?" },
+      "choices": [
+        "Ora âsht shtatë e dhjetë.",
+        "Ora âsht shtatë pa dhjetë.",
+        "Ora âsht dhjetë e shtatë.",
+        "Ora âsht dhjetë pa shtatë."
+      ],
+      "solutions": ["Ora âsht shtatë e dhjetë."],
+      "explanation": "Zuerst die Stunde, dann „e“ (nach) und die Minuten: „shtatë e dhjetë“.",
+      "errorHints": [
+        {
+          "pattern": "sht[aâ]t[eë] pa dhjet",
+          "category": "vocab.confused",
+          "hint": "„Pa“ heisst „vor“: „shtatë pa dhjetë“ wäre 6.50."
+        },
+        {
+          "pattern": "dhjet[eë] (e|pa) sht",
+          "category": "grammar.word_order",
+          "hint": "Zuerst kommt die Stunde, dann die Minuten: „shtatë e dhjetë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_012",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.days", "grammar.case.accusative"],
+      "itemIds": ["item_e_shtune", "item_cka_po_ban"],
+      "prompt": { "lang": "de", "text": "Wie fragst du „Was machst du am Samstag?“" },
+      "choices": ["Çka bân të shtunën?", "Çka bân e shtunë?", "Çka bân sot?", "Çka bâj të shtunën?"],
+      "solutions": ["Çka bân të shtunën?"],
+      "explanation": "„Am Samstag“ heisst „të shtunën“ – mit „të“ und der Endung -n (Akkusativ).",
+      "errorHints": [
+        { "pattern": "(^|\\s)e shtun[eë]$", "category": "grammar.case", "hint": "„Am Samstag“ heisst „të shtunën“ (Akkusativ)." },
+        {
+          "pattern": "b[aâ]j t",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+        },
+        { "pattern": "sot$", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_013",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days", "spelling.nasal_vowels"],
+      "itemIds": ["item_sot", "item_e_hane"],
+      "prompt": { "lang": "de", "text": "Heute ist Montag." },
+      "answerLang": "sq",
+      "solutions": ["Sot âsht e hânë."],
+      "wordBank": ["Sot", "âsht", "e", "hânë", "nesër", "martë", "je"],
+      "explanation": "Wochentage stehen mit „e“: „e hânë“ (Montag). Gheg schreibt „hânë“ mit â (Standard: „hënë“).",
+      "errorHints": [
+        { "pattern": "^n[eë]s[eë]r", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“; „heute“ ist „sot“." },
+        { "pattern": "mart[eë]$", "category": "vocab.confused", "hint": "„E martë“ ist Dienstag." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_014",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_dy"],
+      "prompt": { "lang": "de", "text": "Es ist zwei Uhr." },
+      "answerLang": "sq",
+      "solutions": ["Ora âsht dy.", "Âsht ora dy."],
+      "wordBank": ["Ora", "âsht", "dy", "tre", "je", "orë"],
+      "explanation": "„Ora“ ist „die Uhr“. Beide Stellungen gehen: „Ora âsht dy“ oder „Âsht ora dy“.",
+      "errorHints": [{ "pattern": "tre$", "category": "vocab.confused", "hint": "„Tre“ ist drei. Zwei heisst „dy“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_015",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days", "vocab.time"],
+      "itemIds": ["item_neser", "item_e_shtune"],
+      "prompt": { "lang": "sq", "text": "Nesër âsht e shtunë." },
+      "answerLang": "de",
+      "solutions": ["Morgen ist Samstag."],
+      "wordBank": ["Morgen", "ist", "Samstag", "Heute", "Sonntag", "gestern"],
+      "explanation": "„Nesër“ heisst „morgen“, „e shtunë“ ist der Samstag.",
+      "errorHints": [
+        { "pattern": "sonntag", "category": "vocab.confused", "hint": "„Sonntag“ heisst „e diel“." },
+        { "pattern": "heute", "category": "vocab.confused", "hint": "„Heute“ heisst „sot“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_016",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days", "vocab.time"],
+      "itemIds": ["item_jave", "item_dite"],
+      "prompt": { "lang": "sq", "text": "Java ka shtatë ditë." },
+      "answerLang": "de",
+      "solutions": ["Die Woche hat sieben Tage."],
+      "wordBank": ["Die", "Woche", "hat", "sieben", "Tage", "Stunden", "sechs", "ist"],
+      "explanation": "„Java“ ist „die Woche“, „ditë“ heisst „Tag“ oder „Tage“.",
+      "errorHints": [
+        { "pattern": "stunden", "category": "vocab.confused", "hint": "„Stunden“ hiesse „orë“." },
+        { "pattern": "sechs", "category": "vocab.confused", "hint": "„Shtatë“ ist sieben, sechs wäre „gjashtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_017",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_vone", "item_heret"],
+      "prompt": { "lang": "de", "text": "Es ist spät." },
+      "answerLang": "sq",
+      "solutions": ["Âsht vonë."],
+      "wordBank": ["Âsht", "vonë", "herët", "ora", "jam"],
+      "explanation": "„Vonë“ heisst „spät“, das Gegenteil ist „herët“ (früh).",
+      "errorHints": [{ "pattern": "her[eë]t", "category": "vocab.confused", "hint": "„Herët“ heisst „früh“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_018",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "grammar.case.accusative", "grammar.negation"],
+      "itemIds": ["item_e_diel"],
+      "prompt": { "lang": "de", "text": "Am Sonntag arbeite ich nicht." },
+      "answerLang": "sq",
+      "solutions": ["Të dielën nuk punoj.", "Nuk punoj të dielën.", "Të dielën s'punoj."],
+      "wordBank": ["Të", "dielën", "nuk", "punoj", "e", "diel", "punon"],
+      "explanation": "„Am Sonntag“ heisst „të dielën“. „Nuk“ steht vor dem Verb.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e diel(\\s|$)",
+          "category": "grammar.case",
+          "hint": "„Am Sonntag“ heisst „të dielën“ – mit „të“ und -n."
+        },
+        {
+          "pattern": "punon",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Punon“ heisst „du arbeitest / er arbeitet“. „Ich arbeite“ ist „punoj“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_019",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_gjysme"],
+      "prompt": { "lang": "sq", "text": "Ora âsht katër e gjysmë." },
+      "answerLang": "de",
+      "solutions": ["Es ist halb fünf.", "Es ist vier Uhr dreissig."],
+      "wordBank": ["Es", "ist", "halb", "fünf", "vier", "Viertel", "nach"],
+      "explanation": "„Katër e gjysmë“ = vier und eine halbe, also 4.30 – auf Deutsch „halb fünf“.",
+      "errorHints": [
+        {
+          "pattern": "halb vier",
+          "category": "vocab.confused",
+          "hint": "Aufgepasst: „katër e gjysmë“ ist 4.30 – auf Deutsch „halb fünf“."
+        },
+        { "pattern": "viertel", "category": "vocab.confused", "hint": "„Viertel“ hiesse „çerek“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„gjysmë“ (halb) wie im Standard; im Kosovo auch „gjysë“ gesprochen – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_020",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "grammar.case.accusative"],
+      "itemIds": ["item_shihemi", "item_e_premte"],
+      "prompt": { "lang": "de", "text": "Wir sehen uns am Freitag!" },
+      "answerLang": "sq",
+      "solutions": ["Shihemi të premten!"],
+      "wordBank": ["Shihemi", "të", "premten", "e", "premte", "nesër"],
+      "explanation": "„Shihemi“ heisst „wir sehen uns“. „Am Freitag“ ist „të premten“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)e premte", "category": "grammar.case", "hint": "„Am Freitag“ heisst „të premten“ (Akkusativ)." },
+        { "pattern": "n[eë]s[eë]r", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_021",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_mengjes", "item_kafe"],
+      "prompt": { "lang": "sq", "text": "Në mëngjes pi kafe." },
+      "answerLang": "de",
+      "solutions": ["Am Morgen trinke ich Kaffee.", "Morgens trinke ich Kaffee."],
+      "wordBank": ["Am", "Morgen", "trinke", "ich", "Kaffee", "Abend", "esse", "Tee"],
+      "explanation": "„Në mëngjes“ heisst „am Morgen“. „Mëngjes“ kann auch „Frühstück“ heissen.",
+      "errorHints": [
+        { "pattern": "abend", "category": "vocab.confused", "hint": "„Abend“ heisst „mbrâmje“." },
+        { "pattern": "tee", "category": "vocab.confused", "hint": "„Kafe“ ist Kaffee; Tee heisst „çaj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_022",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore"],
+      "prompt": { "lang": "sq", "text": "Puna fillon në orën tetë." },
+      "answerLang": "de",
+      "solutions": ["Die Arbeit beginnt um acht Uhr.", "Die Arbeit fängt um acht Uhr an."],
+      "wordBank": ["Die", "Arbeit", "beginnt", "um", "acht", "Uhr", "sieben", "endet", "halb"],
+      "explanation": "„Në orën tetë“ heisst „um acht Uhr“ – nach „në“ steht „ora“ im Akkusativ: „orën“.",
+      "errorHints": [
+        { "pattern": "sieben", "category": "vocab.confused", "hint": "„Shtatë“ wäre sieben; „tetë“ ist acht." },
+        { "pattern": "endet", "category": "vocab.confused", "hint": "„Fillon“ heisst „beginnt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_023",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_cerek"],
+      "prompt": { "lang": "de", "text": "Es ist Viertel vor sechs." },
+      "answerLang": "sq",
+      "solutions": ["Ora âsht gjashtë pa çerek.", "Âsht ora gjashtë pa çerek."],
+      "wordBank": ["Ora", "âsht", "gjashtë", "pa", "çerek", "e", "pesë", "gjysmë"],
+      "explanation": "„Pa“ heisst „ohne“ – also „sechs ohne Viertel“: 5.45.",
+      "errorHints": [
+        {
+          "pattern": "gjasht[eë] e [cç]erek",
+          "category": "vocab.confused",
+          "hint": "„Gjashtë e çerek“ ist Viertel nach sechs. „Vor“ heisst „pa“."
+        },
+        {
+          "pattern": "pes[eë] e [cç]erek",
+          "category": "vocab.confused",
+          "hint": "„Pesë e çerek“ ist 5.15. Für 5.45 nennt man die nächste Stunde: „gjashtë pa çerek“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_024",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_ore", "item_dite"],
+      "prompt": { "lang": "sq", "text": "Punoj tetë orë në ditë." },
+      "answerLang": "de",
+      "solutions": ["Ich arbeite acht Stunden am Tag.", "Ich arbeite acht Stunden pro Tag."],
+      "wordBank": ["Ich", "arbeite", "acht", "Stunden", "am", "Tag", "Uhr", "Woche", "um"],
+      "explanation": "„Orë“ heisst „Stunde“ und „Uhr“. „Në ditë“ heisst hier „am Tag, pro Tag“.",
+      "errorHints": [
+        { "pattern": "uhr", "category": "vocab.confused", "hint": "„Tetë orë“ heisst hier „acht Stunden“, nicht „acht Uhr“." },
+        { "pattern": "woche", "category": "vocab.confused", "hint": "„Ditë“ heisst „Tag“; „Woche“ wäre „javë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_025",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_nji"],
+      "prompt": { "lang": "de", "text": "Es ist ein Uhr." },
+      "answerLang": "sq",
+      "solutions": ["Ora âsht nji.", "Âsht ora nji."],
+      "standardForms": ["Ora është një.", "Është ora një."],
+      "explanation": "„Nji“ ist die Gheg-Form von „eins“ (Standard: „një“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_026",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_sa_asht_ora"],
+      "prompt": { "lang": "de", "text": "Wie spät ist es?" },
+      "answerLang": "sq",
+      "solutions": ["Sa âsht ora?", "Sa âsht sahati?"],
+      "standardForms": ["Sa është ora?"],
+      "explanation": "Wörtlich: „Wie viel ist die Uhr?“ „Âsht“ ist die Gheg-Form von „ist“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Sa âsht sahati?“ (Kosovo-Alltag, „sahat“ = Uhr) als weitere Lösung – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_027",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days"],
+      "itemIds": ["item_sot", "item_e_premte"],
+      "prompt": { "lang": "de", "text": "Heute ist Freitag." },
+      "answerLang": "sq",
+      "solutions": ["Sot âsht e premte."],
+      "standardForms": ["Sot është e premte."],
+      "explanation": "Vor dem Wochentag steht immer „e“: „e premte“ (Freitag).",
+      "errorHints": [
+        {
+          "pattern": "[aâ]sht premte",
+          "category": "grammar.linking_article",
+          "hint": "Wochentage haben immer „e“ davor: „e premte“."
+        },
+        { "pattern": "^n[eë]s[eë]r", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“; „heute“ ist „sot“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_028",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "grammar.case.accusative", "spelling.nasal_vowels"],
+      "itemIds": ["item_e_hane"],
+      "prompt": { "lang": "de", "text": "Am Montag arbeite ich." },
+      "answerLang": "sq",
+      "solutions": ["Të hânën punoj.", "Punoj të hânën.", "Unë punoj të hânën."],
+      "standardForms": ["Të hënën punoj.", "Punoj të hënën.", "Unë punoj të hënën."],
+      "explanation": "„Am Montag“ heisst „të hânën“: „të“ + Wochentag mit -n (Akkusativ). Standard: „të hënën“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e h[aâ]n[eë](\\s|$)",
+          "category": "grammar.case",
+          "hint": "„Am Montag“ heisst „të hânën“ (Akkusativ)."
+        },
+        { "pattern": "n[eë] h[aâ]n", "category": "grammar.case", "hint": "Bei Wochentagen steht „të“, nicht „në“: „të hânën“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Akkusativ „të hânën“ (am Montag; Standard: të hënën) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_029",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_gjysme", "item_dy"],
+      "prompt": { "lang": "de", "text": "Es ist halb drei." },
+      "answerLang": "sq",
+      "solutions": ["Ora âsht dy e gjysmë.", "Âsht ora dy e gjysmë."],
+      "standardForms": ["Ora është dy e gjysmë.", "Është ora dy e gjysmë."],
+      "explanation": "„Halb drei“ ist 2.30 – auf Albanisch „dy e gjysmë“ (zwei und eine halbe).",
+      "errorHints": [
+        {
+          "pattern": "tre e gjysm",
+          "category": "vocab.confused",
+          "hint": "Aufgepasst: „tre e gjysmë“ wäre 3.30. „Halb drei“ ist „dy e gjysmë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„gjysmë“ (halb) wie im Standard; im Kosovo auch „gjysë“ gesprochen – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_030",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore"],
+      "prompt": { "lang": "de", "text": "Ich komme um fünf Uhr." },
+      "answerLang": "sq",
+      "solutions": ["Vij në orën pesë.", "Në orën pesë vij.", "Unë vij në orën pesë."],
+      "explanation": "„Um … Uhr“ heisst „në orën …“ – nach „në“ steht „orën“ (Akkusativ).",
+      "errorHints": [
+        { "pattern": "n[eë] ora pes", "category": "grammar.case", "hint": "Nach „në“ steht „orën“ (Akkusativ): „në orën pesë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_031",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "spelling.nasal_vowels"],
+      "itemIds": ["item_mbramje", "item_jam", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Am Abend bin ich zu Hause." },
+      "answerLang": "sq",
+      "solutions": ["Në mbrâmje jam në shpi.", "Jam në shpi në mbrâmje."],
+      "standardForms": ["Në mbrëmje jam në shtëpi.", "Jam në shtëpi në mbrëmje."],
+      "explanation": "„Në mbrâmje“ heisst „am Abend“, „në shpi“ heisst „zu Hause“. Standard: „mbrëmje“, „shtëpi“.",
+      "errorHints": [
+        {
+          "pattern": "m[eë]ngjes",
+          "category": "vocab.confused",
+          "hint": "„Në mëngjes“ heisst „am Morgen“. „Am Abend“ ist „në mbrâmje“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „mbrâmje“ mit â (Standard: mbrëmje) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_032",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_cerek"],
+      "prompt": { "lang": "de", "text": "Es ist Viertel nach vier." },
+      "answerLang": "sq",
+      "solutions": ["Ora âsht katër e çerek.", "Âsht ora katër e çerek."],
+      "standardForms": ["Ora është katër e çerek.", "Është ora katër e çerek."],
+      "explanation": "„E“ heisst „und“ – also „vier und ein Viertel“: „katër e çerek“.",
+      "errorHints": [
+        {
+          "pattern": "kat[eë]r pa [cç]erek",
+          "category": "vocab.confused",
+          "hint": "„Pa çerek“ heisst „Viertel vor“. „Nach“ ist „e“: „katër e çerek“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_033",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.time_telling", "vocab.time"],
+      "itemIds": ["item_shihemi", "item_neser", "item_ore"],
+      "prompt": { "lang": "de", "text": "Wir sehen uns morgen um acht Uhr." },
+      "answerLang": "sq",
+      "solutions": ["Shihemi nesër në orën tetë.", "Nesër shihemi në orën tetë.", "Shihemi në orën tetë nesër."],
+      "explanation": "„Shihemi“ = wir sehen uns, „në orën tetë“ = um acht Uhr.",
+      "errorHints": [
+        { "pattern": "n[eë] ora tet", "category": "grammar.case", "hint": "Nach „në“ steht „orën“ (Akkusativ): „në orën tetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_034",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_sa_asht_ora", "item_ore"],
+      "prompt": { "lang": "de", "text": "Wie spät ist es?" },
+      "answerLang": "sq",
+      "text": "Sa âsht ___?",
+      "solutions": ["ora"],
+      "choices": ["ora", "dita", "java", "sot"],
+      "explanation": "„Ora“ ist „die Uhr“ – mit bestimmtem Artikel.",
+      "errorHints": [
+        { "pattern": "^dita$", "category": "vocab.confused", "hint": "„Dita“ ist „der Tag“." },
+        { "pattern": "^java$", "category": "vocab.confused", "hint": "„Java“ ist „die Woche“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_035",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days"],
+      "itemIds": ["item_sot", "item_e_diel"],
+      "prompt": { "lang": "de", "text": "Heute ist Sonntag." },
+      "answerLang": "sq",
+      "text": "Sot âsht e ___.",
+      "solutions": ["diel"],
+      "choices": ["diel", "hânë", "shtunë", "premte"],
+      "explanation": "„E diel“ ist der Sonntag.",
+      "errorHints": [
+        { "pattern": "^shtun[eë]$", "category": "vocab.confused", "hint": "„E shtunë“ ist Samstag." },
+        { "pattern": "^h[aâ]n[eë]$", "category": "vocab.confused", "hint": "„E hânë“ ist Montag." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_036",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_gjysme", "item_shtate"],
+      "prompt": { "lang": "de", "text": "Es ist halb acht (7.30)." },
+      "answerLang": "sq",
+      "text": "Ora âsht shtatë e ___.",
+      "solutions": ["gjysmë"],
+      "choices": ["gjysmë", "çerek", "pesë", "dhjetë"],
+      "explanation": "„Shtatë e gjysmë“ ist 7.30 – auf Deutsch „halb acht“.",
+      "errorHints": [{ "pattern": "^[cç]erek$", "category": "vocab.confused", "hint": "„Çerek“ heisst „Viertel“." }],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„gjysmë“ (halb) wie im Standard; im Kosovo auch „gjysë“ gesprochen – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_037",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days", "vocab.time"],
+      "itemIds": ["item_neser", "item_e_marte"],
+      "prompt": { "lang": "de", "text": "Morgen ist Dienstag." },
+      "answerLang": "sq",
+      "text": "___ âsht e martë.",
+      "solutions": ["Nesër"],
+      "explanation": "„Nesër“ heisst „morgen“.",
+      "errorHints": [
+        { "pattern": "^sot$", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“. „Morgen“ ist „nesër“." },
+        { "pattern": "^dje$", "category": "vocab.confused", "hint": "„Dje“ heisst „gestern“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_038",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_heret"],
+      "prompt": { "lang": "de", "text": "Es ist früh." },
+      "answerLang": "sq",
+      "text": "Âsht ___.",
+      "solutions": ["herët"],
+      "explanation": "„Herët“ heisst „früh“, „vonë“ heisst „spät“.",
+      "errorHints": [{ "pattern": "^von[eë]$", "category": "vocab.confused", "hint": "„Vonë“ heisst „spät“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_039",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "grammar.case.accusative", "spelling.nasal_vowels"],
+      "itemIds": ["item_e_hane"],
+      "prompt": { "lang": "de", "text": "Am Montag arbeite ich." },
+      "answerLang": "sq",
+      "text": "___ hânën punoj.",
+      "solutions": ["Të"],
+      "choices": ["Të", "E", "Në", "I"],
+      "explanation": "Für „am + Wochentag“ steht „të“ und der Tag im Akkusativ: „të hânën“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.case", "hint": "„Am Montag“ heisst „të hânën“ – mit „të“." },
+        { "pattern": "^n[eë]$", "category": "grammar.case", "hint": "Bei Wochentagen steht „të“, nicht „në“: „të hânën“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Akkusativ „të hânën“ (am Montag; Standard: të hënën) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_040",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_cerek", "item_dymbedhjete"],
+      "prompt": { "lang": "de", "text": "Es ist Viertel vor zwölf." },
+      "answerLang": "sq",
+      "text": "Ora âsht dymbëdhjetë ___ çerek.",
+      "solutions": ["pa"],
+      "choices": ["pa", "e", "në", "me"],
+      "explanation": "„Pa“ heisst „ohne“: „dymbëdhjetë pa çerek“ = zwölf ohne Viertel, also 11.45.",
+      "errorHints": [
+        {
+          "pattern": "^e$",
+          "category": "vocab.confused",
+          "hint": "„E çerek“ heisst „Viertel nach“. „Viertel vor“ ist „pa çerek“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_041",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days", "vocab.time"],
+      "itemIds": ["item_jave", "item_dite"],
+      "prompt": { "lang": "de", "text": "Die Woche hat sieben Tage." },
+      "answerLang": "sq",
+      "text": "___ ka shtatë ditë.",
+      "solutions": ["Java"],
+      "explanation": "„Javë“ ist die Woche, bestimmt „java“.",
+      "errorHints": [
+        {
+          "pattern": "^jav[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: javë → java."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_042",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.time_telling", "grammar.case.accusative"],
+      "itemIds": ["item_ore"],
+      "prompt": { "lang": "de", "text": "Ich komme um drei Uhr." },
+      "answerLang": "sq",
+      "text": "Vij në ___ tre.",
+      "solutions": ["orën"],
+      "explanation": "Nach „në“ steht „ora“ im Akkusativ: „në orën tre“ – um drei Uhr.",
+      "errorHints": [
+        { "pattern": "^ora$", "category": "grammar.case", "hint": "Nach „në“ steht der Akkusativ: „në orën tre“." },
+        {
+          "pattern": "^or[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es „orën“ – mit Artikel im Akkusativ."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_043",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "grammar.case.accusative"],
+      "itemIds": ["item_shihemi", "item_e_shtune"],
+      "prompt": { "lang": "de", "text": "Wir sehen uns am Samstag!" },
+      "answerLang": "sq",
+      "text": "Shihemi të ___!",
+      "solutions": ["shtunën"],
+      "explanation": "Nach „të“ bekommt der Wochentag die Endung -n: „të shtunën“ – am Samstag.",
+      "errorHints": [
+        {
+          "pattern": "^shtun[eë]$",
+          "category": "grammar.case",
+          "hint": "Nach „të“ braucht der Wochentag die Endung -n: „të shtunën“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_044",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_tete", "item_pese"],
+      "prompt": { "lang": "de", "text": "Es ist fünf vor acht (7.55)." },
+      "answerLang": "sq",
+      "text": "Ora âsht tetë pa ___.",
+      "solutions": ["pesë"],
+      "explanation": "„Tetë pa pesë“ = acht ohne fünf – also 7.55.",
+      "errorHints": [
+        { "pattern": "^5$", "category": "vocab.unknown", "hint": "Schreib die Zahl als Wort: „pesë“." },
+        {
+          "pattern": "^sht[aâ]t[eë]$",
+          "category": "vocab.confused",
+          "hint": "Nach „pa“ kommen die Minuten, die bis zur vollen Stunde fehlen: „pesë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_045",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.days", "vocab.time"],
+      "itemIds": ["item_fundjave"],
+      "prompt": { "lang": "de", "text": "Am Wochenende ruhe ich mich aus." },
+      "answerLang": "sq",
+      "text": "Në ___ pushoj.",
+      "solutions": ["fundjavë"],
+      "explanation": "„Fundjavë“ ist das Wochenende (wörtlich „Ende der Woche“). „Në fundjavë“ = am Wochenende.",
+      "errorHints": [
+        {
+          "pattern": "^jav[eë]n?$",
+          "category": "vocab.confused",
+          "hint": "„Javë“ ist die ganze Woche. „Wochenende“ heisst „fundjavë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_046",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days", "spelling.nasal_vowels"],
+      "itemIds": ["item_e_hane", "item_e_marte", "item_e_merkure", "item_e_enjte", "item_e_premte"],
+      "prompt": { "lang": "de", "text": "Ordne die Wochentage zu." },
+      "pairs": [
+        { "left": "e hânë", "right": "Montag" },
+        { "left": "e martë", "right": "Dienstag" },
+        { "left": "e mërkurë", "right": "Mittwoch" },
+        { "left": "e enjte", "right": "Donnerstag" },
+        { "left": "e premte", "right": "Freitag" }
+      ],
+      "explanation": "Von Montag bis Freitag. Nur „e hânë“ hat im Gheg das â (Standard: „e hënë“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_047",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_sot", "item_neser", "item_dje", "item_tash", "item_vone"],
+      "prompt": { "lang": "de", "text": "Ordne die Zeitwörter zu." },
+      "pairs": [
+        { "left": "sot", "right": "heute" },
+        { "left": "nesër", "right": "morgen" },
+        { "left": "dje", "right": "gestern" },
+        { "left": "tash", "right": "jetzt" },
+        { "left": "vonë", "right": "spät" }
+      ],
+      "explanation": "„Tash“ ist die Gheg-Form von „jetzt“ (Standard: „tani“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_048",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "vocab.time"],
+      "itemIds": ["item_e_shtune", "item_e_diel", "item_fundjave", "item_jave", "item_dite"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "e shtunë", "right": "Samstag" },
+        { "left": "e diel", "right": "Sonntag" },
+        { "left": "fundjavë", "right": "Wochenende" },
+        { "left": "javë", "right": "Woche" },
+        { "left": "ditë", "right": "Tag" }
+      ],
+      "explanation": "„Fundjavë“ heisst wörtlich „Ende der Woche“: fund (Ende) + javë (Woche).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_049",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "phrase.time_telling"],
+      "itemIds": ["item_ore", "item_minute", "item_cerek", "item_gjysme", "item_nate"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "orë", "right": "Stunde" },
+        { "left": "minutë", "right": "Minute" },
+        { "left": "çerek", "right": "Viertel" },
+        { "left": "gjysmë", "right": "halb" },
+        { "left": "natë", "right": "Nacht" }
+      ],
+      "explanation": "„Orë“ heisst „Stunde“ und „Uhr“: „ora âsht tre“ (es ist drei Uhr), „tetë orë“ (acht Stunden).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„gjysmë“ (halb) wie im Standard; im Kosovo auch „gjysë“ gesprochen – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_050",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_ore", "item_cerek", "item_gjysme", "item_tre", "item_dhjete"],
+      "prompt": { "lang": "de", "text": "Ordne die Uhrzeiten zu." },
+      "pairs": [
+        { "left": "tre e dhjetë", "right": "3.10" },
+        { "left": "tre pa dhjetë", "right": "2.50" },
+        { "left": "tre e gjysmë", "right": "3.30" },
+        { "left": "tre e çerek", "right": "3.15" },
+        { "left": "tre pa çerek", "right": "2.45" }
+      ],
+      "explanation": "„E“ = nach, „pa“ = vor. „Tre e gjysmë“ ist 3.30 – auf Deutsch „halb vier“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„gjysmë“ (halb) wie im Standard; im Kosovo auch „gjysë“ gesprochen – zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_051",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "spelling.nasal_vowels"],
+      "itemIds": ["item_mengjes", "item_mbramje", "item_nate", "item_heret", "item_kur"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "në mëngjes", "right": "am Morgen" },
+        { "left": "në mbrâmje", "right": "am Abend" },
+        { "left": "natën", "right": "in der Nacht" },
+        { "left": "herët", "right": "früh" },
+        { "left": "kur?", "right": "wann?" }
+      ],
+      "explanation": "„Mbrâmje“ (Abend) hat im Gheg das â (Standard: „mbrëmje“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „mbrâmje“ mit â (Standard: mbrëmje) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_052",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.days"],
+      "itemIds": ["item_sot", "item_e_enjte"],
+      "prompt": { "lang": "de", "text": "Heute ist Donnerstag." },
+      "answerLang": "sq",
+      "tokens": ["Sot", "âsht", "e", "enjte"],
+      "solutions": ["Sot âsht e enjte."],
+      "explanation": "„Sot“ = heute, „e enjte“ = Donnerstag.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_053",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling"],
+      "itemIds": ["item_sa_asht_ora"],
+      "prompt": { "lang": "de", "text": "Wie spät ist es?" },
+      "answerLang": "sq",
+      "tokens": ["Sa", "âsht", "ora"],
+      "solutions": ["Sa âsht ora?"],
+      "explanation": "Das Fragewort „sa“ steht am Anfang: „Sa âsht ora?“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_054",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_kur", "item_neser"],
+      "prompt": { "lang": "de", "text": "Wann kommst du morgen?" },
+      "answerLang": "sq",
+      "tokens": ["Kur", "vjen", "nesër"],
+      "solutions": ["Kur vjen nesër?", "Nesër kur vjen?"],
+      "explanation": "„Kur“ heisst „wann“, „vjen“ heisst „du kommst“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_055",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.time_telling", "vocab.time"],
+      "itemIds": ["item_tash", "item_ore"],
+      "prompt": { "lang": "de", "text": "Jetzt ist es zehn Uhr." },
+      "answerLang": "sq",
+      "tokens": ["Tash", "âsht", "ora", "dhjetë"],
+      "solutions": ["Tash âsht ora dhjetë.", "Tash ora âsht dhjetë."],
+      "explanation": "„Tash“ heisst „jetzt“ (Standard: „tani“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_056",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "grammar.case.accusative"],
+      "itemIds": ["item_e_enjte", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Am Donnerstag habe ich Zeit." },
+      "answerLang": "sq",
+      "tokens": ["Të", "enjten", "kam", "kohë"],
+      "solutions": ["Të enjten kam kohë.", "Kam kohë të enjten."],
+      "explanation": "„Të enjten“ heisst „am Donnerstag“, „kam kohë“ = ich habe Zeit.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_057",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_minute"],
+      "prompt": { "lang": "de", "text": "Ich komme in fünf Minuten." },
+      "answerLang": "sq",
+      "tokens": ["Vij", "për", "pesë", "minuta"],
+      "solutions": ["Vij për pesë minuta."],
+      "explanation": "„Për pesë minuta“ heisst „in fünf Minuten“. „Minutë“ hat den Plural „minuta“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_058",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.days", "grammar.case.accusative"],
+      "itemIds": ["item_e_shtune", "item_treg"],
+      "prompt": { "lang": "de", "text": "Am Samstag gehe ich auf den Markt." },
+      "answerLang": "sq",
+      "tokens": ["Të", "shtunën", "shkoj", "në", "treg"],
+      "solutions": ["Të shtunën shkoj në treg.", "Shkoj në treg të shtunën."],
+      "explanation": "„Të shtunën“ = am Samstag, „në treg“ = auf den Markt.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_059",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_fundjave", "item_shume"],
+      "prompt": { "lang": "de", "text": "Am Wochenende schlafe ich viel." },
+      "answerLang": "sq",
+      "tokens": ["Në", "fundjavë", "fle", "shumë"],
+      "solutions": ["Në fundjavë fle shumë.", "Fle shumë në fundjavë."],
+      "explanation": "„Në fundjavë“ = am Wochenende, „fle shumë“ = ich schlafe viel.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u12_time_days_060",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.days", "phrase.time_telling", "grammar.case.accusative"],
+      "itemIds": ["item_shihemi", "item_e_hane", "item_ore"],
+      "prompt": { "lang": "de", "text": "Wir sehen uns am Montag um zehn Uhr." },
+      "answerLang": "sq",
+      "tokens": ["Shihemi", "të", "hânën", "në", "orën", "dhjetë"],
+      "solutions": ["Shihemi të hânën në orën dhjetë.", "Të hânën shihemi në orën dhjetë."],
+      "explanation": "„Të hânën“ = am Montag, „në orën dhjetë“ = um zehn Uhr.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Akkusativ „të hânën“ (am Montag; Standard: të hënën) zu prüfen."
+    }
+  ]
+}

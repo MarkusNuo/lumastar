@@ -1,0 +1,1300 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u11_colours_adjectives",
+  "level": "A1.3",
+  "grammar": [
+    {
+      "title": "Der Verbindungsartikel i und e",
+      "explanation": "Adjektive stehen **nach** dem Nomen und haben einen kleinen Artikel davor: **i** bei maskulinen, **e** bei femininen Nomen.\n\n| Gheg | Deutsch |\n|---|---|\n| djali **i** madh | der grosse Sohn |\n| vajza **e** madhe | die grosse Tochter |\n| nji libër **i** ri | ein neues Buch |\n| nji veturë **e** re | ein neues Auto |\n\nAuch nach „âsht“ bleibt er: *Libri âsht i ri. Vetura âsht e re.*\n\nNach **kam nji …** (Akkusativ) wird er zu **të**: *Kam nji veturë të kuqe.* – Ich habe ein rotes Auto."
+    },
+    {
+      "title": "Feminine Adjektive",
+      "explanation": "Viele Adjektive ändern sich im Feminin: *i madh → e madhe, i kuq → e kuqe, i keq → e keqe, i zi → e zezë, i ri → e re*. Andere bleiben gleich: *i bardhë → e bardhë, i mirë → e mirë, i vogël → e vogël*.\n\nAchtung, das Genus ist oft anders als im Deutschen: *molla* (der Apfel) ist feminin – **Molla âsht e kuqe.** *Qumështi* (die Milch) ist maskulin."
+    },
+    {
+      "title": "Farben ohne Verbindungsartikel",
+      "explanation": "Einige Farben kommen aus anderen Sprachen. Sie haben **keinen** Verbindungsartikel und bleiben immer gleich: *blu* (blau), *gri* (grau), *rozë* (rosa). *Vetura âsht blu.* Im Kosovo sagt man für „blau“ auch **i kaltër / e kaltër**: *Qielli âsht i kaltër.*"
+    }
+  ],
+  "items": [
+    { "id": "item_ngjyre", "kind": "word", "gheg": "ngjyrë", "de": "Farbe", "partOfSpeech": "noun", "gender": "f", "definite": "ngjyra", "plural": "ngjyra", "reviewed": false },
+    { "id": "item_i_kuq", "kind": "word", "gheg": "i kuq, e kuqe", "de": "rot", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_zi", "kind": "word", "gheg": "i zi, e zezë", "de": "schwarz", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_bardhe", "kind": "word", "gheg": "i bardhë, e bardhë", "de": "weiss", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_verdhe", "kind": "word", "gheg": "i verdhë, e verdhë", "de": "gelb", "partOfSpeech": "adjective", "reviewed": false },
+    {
+      "id": "item_i_gjelber",
+      "kind": "word",
+      "gheg": "i gjelbër, e gjelbër",
+      "de": "grün",
+      "partOfSpeech": "adjective",
+      "note": "Form „i gjelbër“ (Kosovo auch „i gjelbërt“) zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_i_kalter",
+      "kind": "word",
+      "gheg": "i kaltër, e kaltër",
+      "de": "blau",
+      "partOfSpeech": "adjective",
+      "note": "„i kaltër / e kaltër“ für „blau“ (im Kosovo üblich, daneben „blu“) zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_blu", "kind": "word", "gheg": "blu", "de": "blau (unveränderlich, ohne Verbindungsartikel)", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_mire", "kind": "word", "gheg": "i mirë, e mirë", "de": "gut", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_keq", "kind": "word", "gheg": "i keq, e keqe", "de": "schlecht", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_ri", "kind": "word", "gheg": "i ri, e re", "de": "neu; jung", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_vjeter", "kind": "word", "gheg": "i vjetër, e vjetër", "de": "alt", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_bukur", "kind": "word", "gheg": "i bukur, e bukur", "de": "schön", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_gjate", "kind": "word", "gheg": "i gjatë, e gjatë", "de": "lang; gross (Person)", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_shkurter", "kind": "word", "gheg": "i shkurtër, e shkurtër", "de": "kurz", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_ngrohte", "kind": "word", "gheg": "i ngrohtë, e ngrohtë", "de": "warm", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_ftohte", "kind": "word", "gheg": "i ftohtë, e ftohtë", "de": "kalt", "partOfSpeech": "adjective", "reviewed": false },
+    {
+      "id": "item_veture",
+      "kind": "word",
+      "gheg": "veturë",
+      "de": "Auto",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "vetura",
+      "plural": "vetura",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_cante", "kind": "word", "gheg": "çantë", "de": "Tasche", "partOfSpeech": "noun", "gender": "f", "definite": "çanta", "plural": "çanta", "reviewed": false },
+    { "id": "item_liber", "kind": "word", "gheg": "libër", "de": "Buch", "partOfSpeech": "noun", "gender": "m", "definite": "libri", "plural": "libra", "reviewed": false },
+    { "id": "item_molle", "kind": "word", "gheg": "mollë", "de": "Apfel", "partOfSpeech": "noun", "gender": "f", "definite": "molla", "plural": "mollë", "reviewed": false },
+    { "id": "item_lule", "kind": "word", "gheg": "lule", "de": "Blume", "partOfSpeech": "noun", "gender": "f", "definite": "lulja", "plural": "lule", "reviewed": false },
+    { "id": "item_mace", "kind": "word", "gheg": "mace", "de": "Katze", "partOfSpeech": "noun", "gender": "f", "definite": "macja", "plural": "mace", "reviewed": false },
+    { "id": "item_qiell", "kind": "word", "gheg": "qiell", "de": "Himmel", "partOfSpeech": "noun", "gender": "m", "definite": "qielli", "reviewed": false },
+    { "id": "item_kemishe", "kind": "word", "gheg": "këmishë", "de": "Hemd", "partOfSpeech": "noun", "gender": "f", "definite": "këmisha", "plural": "këmisha", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u11_colours_adjectives_001",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours"],
+      "itemIds": ["item_i_kuq"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „e kuqe“?" },
+      "choices": ["rot", "gelb", "schwarz", "weiss"],
+      "solutions": ["rot"],
+      "explanation": "„I kuq“ (maskulin) und „e kuqe“ (feminin) heissen „rot“.",
+      "errorHints": [
+        { "pattern": "gelb", "category": "vocab.confused", "hint": "„Gelb“ heisst „i verdhë / e verdhë“." },
+        { "pattern": "schwarz", "category": "vocab.confused", "hint": "„Schwarz“ heisst „i zi / e zezë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_002",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours"],
+      "itemIds": ["item_i_bardhe", "item_i_zi", "item_i_verdhe", "item_i_kuq"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „weiss“ bei einem maskulinen Nomen?" },
+      "choices": ["i bardhë", "i zi", "i verdhë", "i kuq"],
+      "solutions": ["i bardhë"],
+      "explanation": "„I bardhë“ heisst „weiss“, „i zi“ ist das Gegenteil: „schwarz“.",
+      "errorHints": [
+        { "pattern": "^i zi$", "category": "vocab.confused", "hint": "„I zi“ heisst „schwarz“." },
+        { "pattern": "^i verdh[eë]$", "category": "vocab.confused", "hint": "„I verdhë“ heisst „gelb“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_003",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours"],
+      "itemIds": ["item_ngjyre"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „ngjyrë“?" },
+      "choices": ["Farbe", "Blume", "Tasche", "Himmel"],
+      "solutions": ["Farbe"],
+      "explanation": "„Ngjyrë“ heisst „Farbe“, bestimmt „ngjyra“ – die Farbe.",
+      "errorHints": [{ "pattern": "blume", "category": "vocab.confused", "hint": "„Blume“ heisst „lule“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_004",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_qiell", "item_i_kalter", "item_asht"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Qielli âsht i kaltër.“?" },
+      "choices": ["Der Himmel ist blau.", "Der Himmel ist grau.", "Das Meer ist blau.", "Der Himmel ist schön."],
+      "solutions": ["Der Himmel ist blau."],
+      "explanation": "„Qielli“ ist „der Himmel“. „I kaltër“ heisst „blau“ – im Kosovo sehr üblich.",
+      "errorHints": [
+        { "pattern": "grau", "category": "vocab.confused", "hint": "„Grau“ heisst „gri“." },
+        { "pattern": "meer", "category": "vocab.confused", "hint": "„Das Meer“ heisst „deti“. „Qielli“ ist der Himmel." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„i kaltër / e kaltër“ für „blau“ (im Kosovo üblich, daneben „blu“) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_005",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.linking_article"],
+      "itemIds": ["item_veture"],
+      "prompt": { "lang": "de", "text": "Welcher Verbindungsartikel passt zu „vetura“ (feminin)?" },
+      "choices": ["e", "i", "të", "së"],
+      "solutions": ["e"],
+      "explanation": "„Vetura“ ist feminin, darum „e“: „vetura e kuqe“ – das rote Auto.",
+      "errorHints": [
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "„I“ steht bei maskulinen Nomen, z. B. „libri i ri“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_006",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.linking_article", "grammar.adjective_agreement"],
+      "itemIds": ["item_vajze", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „die grosse Tochter“?" },
+      "choices": ["vajza e madhe", "vajza i madh", "vajza e madh", "e madhe vajza"],
+      "solutions": ["vajza e madhe"],
+      "explanation": "Das Adjektiv steht nach dem Nomen. Feminin: „e madhe“, maskulin: „i madh“.",
+      "errorHints": [
+        { "pattern": "^vajza i ", "category": "grammar.linking_article", "hint": "„Vajza“ ist feminin – darum „e madhe“." },
+        {
+          "pattern": "^vajza e madh$",
+          "category": "grammar.gender",
+          "hint": "Im Feminin heisst das Adjektiv „e madhe“ – mit -e am Ende."
+        },
+        {
+          "pattern": "^e madhe vajza",
+          "category": "grammar.word_order",
+          "hint": "Das Adjektiv steht nach dem Nomen: „vajza e madhe“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_007",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.colours", "grammar.linking_article", "grammar.adjective_agreement"],
+      "itemIds": ["item_mace", "item_i_zi", "item_asht"],
+      "prompt": { "lang": "de", "text": "Welcher Satz heisst „Die Katze ist schwarz.“?" },
+      "choices": ["Macja âsht e zezë.", "Macja âsht i zi.", "Macja âsht e zi.", "Macja e zezë âsht."],
+      "solutions": ["Macja âsht e zezë."],
+      "explanation": "„Macja“ ist feminin. „Schwarz“ heisst maskulin „i zi“, feminin „e zezë“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)i zi", "category": "grammar.linking_article", "hint": "„Macja“ ist feminin – darum „e zezë“." },
+        { "pattern": "(^|\\s)e zi(\\s|$)", "category": "grammar.gender", "hint": "Feminin heisst es „e zezë“, nicht „e zi“." },
+        {
+          "pattern": "e zez[eë] [aâ]sht",
+          "category": "grammar.word_order",
+          "hint": "„Âsht“ steht vor dem Adjektiv: „Macja âsht e zezë.“"
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_008",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_i_madh", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Was ist das Gegenteil von „i madh“?" },
+      "choices": ["i vogël", "i gjatë", "i ri", "i mirë"],
+      "solutions": ["i vogël"],
+      "explanation": "„I madh“ heisst „gross“, „i vogël“ heisst „klein“.",
+      "errorHints": [
+        { "pattern": "^i gjat[eë]$", "category": "vocab.confused", "hint": "„I gjatë“ heisst „lang“ oder „gross gewachsen“." },
+        { "pattern": "^i ri$", "category": "vocab.confused", "hint": "„I ri“ heisst „neu, jung“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_009",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_liber", "item_i_vjeter", "item_nji"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „nji libër i vjetër“?" },
+      "choices": ["ein altes Buch", "ein neues Buch", "das alte Buch", "ein kleines Buch"],
+      "solutions": ["ein altes Buch"],
+      "explanation": "„Nji libër“ ist unbestimmt (ein Buch), „i vjetër“ heisst „alt“. „Das alte Buch“ wäre „libri i vjetër“.",
+      "errorHints": [
+        { "pattern": "neues", "category": "vocab.confused", "hint": "„Neu“ heisst „i ri“." },
+        {
+          "pattern": "^das alte",
+          "category": "grammar.definite_article",
+          "hint": "„Nji libër“ ist unbestimmt: „ein Buch“. „Das Buch“ wäre „libri“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_010",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_veture", "item_i_ri", "item_nji"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ein neues Auto“?" },
+      "choices": ["nji veturë e re", "nji veturë i ri", "nji vetura e re", "nji veturë e ri"],
+      "solutions": ["nji veturë e re"],
+      "explanation": "„I ri“ ist unregelmässig: Feminin heisst es „e re“. Nach „nji“ steht das Nomen unbestimmt: „veturë“.",
+      "errorHints": [
+        { "pattern": "vetur[eë] i ri", "category": "grammar.linking_article", "hint": "„Veturë“ ist feminin – darum „e re“." },
+        {
+          "pattern": "nji vetura",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji“ steht die unbestimmte Form „veturë“."
+        },
+        { "pattern": "e ri$", "category": "grammar.gender", "hint": "Feminin heisst „neu“ „e re“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_011",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_blu", "item_i_kuq", "item_i_bardhe", "item_i_verdhe"],
+      "prompt": { "lang": "de", "text": "Welche Farbe steht ohne Verbindungsartikel?" },
+      "choices": ["blu", "kuq", "bardhë", "verdhë"],
+      "solutions": ["blu"],
+      "explanation": "„Blu“ kommt aus einer anderen Sprache und bleibt immer gleich: „Vetura âsht blu.“ Die anderen brauchen „i“ oder „e“.",
+      "errorHints": [
+        {
+          "pattern": "^(kuq|bardh[eë]|verdh[eë])$",
+          "category": "grammar.linking_article",
+          "hint": "Diese Farbe braucht „i“ oder „e“ davor, z. B. „i kuq“. Ohne Artikel steht „blu“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_012",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.linking_article", "grammar.case.accusative"],
+      "itemIds": ["item_kam", "item_veture", "item_i_kuq"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kam nji veturë të kuqe.“?" },
+      "choices": ["Ich habe ein rotes Auto.", "Das rote Auto ist neu.", "Ich habe das rote Auto.", "Du hast ein rotes Auto."],
+      "solutions": ["Ich habe ein rotes Auto."],
+      "explanation": "Nach „kam nji …“ steht das Nomen im Akkusativ, darum wird „e“ zu „të“: „nji veturë të kuqe“.",
+      "errorHints": [
+        { "pattern": "^du hast", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“; „du hast“ wäre „ke“." },
+        { "pattern": "das rote", "category": "grammar.definite_article", "hint": "„Nji veturë“ ist unbestimmt: „ein Auto“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_013",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.linking_article"],
+      "itemIds": ["item_veture", "item_i_kuq", "item_asht"],
+      "prompt": { "lang": "de", "text": "Das Auto ist rot." },
+      "answerLang": "sq",
+      "solutions": ["Vetura âsht e kuqe."],
+      "wordBank": ["Vetura", "âsht", "e", "kuqe", "i", "kuq", "libri"],
+      "explanation": "„Vetura“ ist feminin, darum „e kuqe“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i kuq",
+          "category": "grammar.linking_article",
+          "hint": "„Vetura“ ist feminin – darum „e kuqe“, nicht „i kuq“."
+        },
+        { "pattern": "(^|\\s)e kuq$", "category": "grammar.gender", "hint": "Feminin heisst „rot“ „e kuqe“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_014",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_liber", "item_i_ri", "item_asht"],
+      "prompt": { "lang": "de", "text": "Das Buch ist neu." },
+      "answerLang": "sq",
+      "solutions": ["Libri âsht i ri."],
+      "wordBank": ["Libri", "âsht", "i", "ri", "e", "re", "vetura"],
+      "explanation": "„Libri“ (das Buch) ist maskulin: „i ri“. Bei femininen Nomen hiesse es „e re“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)e re$", "category": "grammar.linking_article", "hint": "„Libri“ ist maskulin – darum „i ri“." },
+        { "pattern": "(^|\\s)e ri$", "category": "grammar.linking_article", "hint": "„Libri“ ist maskulin – darum „i ri“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_015",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_molle", "item_i_kuq"],
+      "prompt": { "lang": "sq", "text": "Molla âsht e kuqe." },
+      "answerLang": "de",
+      "solutions": ["Der Apfel ist rot."],
+      "wordBank": ["Der", "Apfel", "ist", "rot", "gelb", "Die", "Blume"],
+      "explanation": "„Molla“ ist feminin, obwohl „der Apfel“ im Deutschen maskulin ist – darum „e kuqe“.",
+      "errorHints": [
+        { "pattern": "gelb", "category": "vocab.confused", "hint": "„Gelb“ heisst „e verdhë“." },
+        { "pattern": "blume", "category": "vocab.confused", "hint": "„Blume“ heisst „lule“; „molla“ ist der Apfel." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_016",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours"],
+      "itemIds": ["item_qen", "item_i_bardhe"],
+      "prompt": { "lang": "sq", "text": "Qeni âsht i bardhë." },
+      "answerLang": "de",
+      "solutions": ["Der Hund ist weiss."],
+      "wordBank": ["Der", "Hund", "ist", "weiss", "schwarz", "Katze", "Die"],
+      "explanation": "„Qeni“ ist „der Hund“, „i bardhë“ heisst „weiss“.",
+      "errorHints": [
+        { "pattern": "schwarz", "category": "vocab.confused", "hint": "„Schwarz“ heisst „i zi“." },
+        { "pattern": "katze", "category": "vocab.confused", "hint": "„Katze“ heisst „mace“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_017",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.linking_article"],
+      "itemIds": ["item_lule", "item_i_verdhe"],
+      "prompt": { "lang": "de", "text": "Die Blume ist gelb." },
+      "answerLang": "sq",
+      "solutions": ["Lulja âsht e verdhë."],
+      "wordBank": ["Lulja", "âsht", "e", "verdhë", "i", "lule", "kuqe"],
+      "explanation": "„Lule“ (Blume) ist feminin: bestimmt „lulja“, dazu „e verdhë“.",
+      "errorHints": [
+        {
+          "pattern": "^lule [aâ]sht",
+          "category": "grammar.definite_article",
+          "hint": "Hier brauchst du den bestimmten Artikel: lule → lulja."
+        },
+        { "pattern": "(^|\\s)i verdh", "category": "grammar.linking_article", "hint": "„Lulja“ ist feminin – darum „e verdhë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_018",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement", "grammar.possessive"],
+      "itemIds": ["item_cante", "item_ime", "item_i_zi"],
+      "prompt": { "lang": "de", "text": "Meine Tasche ist schwarz." },
+      "answerLang": "sq",
+      "solutions": ["Çanta ime âsht e zezë."],
+      "wordBank": ["Çanta", "ime", "âsht", "e", "zezë", "im", "zi", "i"],
+      "explanation": "„Çanta ime“ = meine Tasche. „Schwarz“ heisst feminin „e zezë“.",
+      "errorHints": [
+        { "pattern": "^[cç]anta im(\\s|$)", "category": "grammar.gender", "hint": "„Çanta“ ist feminin – darum „ime“." },
+        { "pattern": "(^|\\s)e zi(\\s|$)", "category": "grammar.gender", "hint": "Feminin heisst „schwarz“ „e zezë“." },
+        { "pattern": "(^|\\s)i zi", "category": "grammar.linking_article", "hint": "„Çanta“ ist feminin – darum „e zezë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_019",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_kjo", "item_vajze", "item_i_bukur", "item_nji"],
+      "prompt": { "lang": "sq", "text": "Kjo âsht nji vajzë e bukur." },
+      "answerLang": "de",
+      "solutions": ["Das ist ein schönes Mädchen.", "Dies ist ein schönes Mädchen."],
+      "wordBank": ["Das", "ist", "ein", "schönes", "Mädchen", "Junge", "hässliches", "die"],
+      "explanation": "„Nji vajzë e bukur“ – das Adjektiv „e bukur“ steht nach dem Nomen.",
+      "errorHints": [
+        { "pattern": "junge", "category": "vocab.confused", "hint": "„Djalë“ wäre der Junge; „vajzë“ ist das Mädchen." },
+        { "pattern": "hässliches", "category": "vocab.confused", "hint": "„E bukur“ heisst „schön“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_020",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.possessive"],
+      "itemIds": ["item_moter", "item_ime", "item_i_ri"],
+      "prompt": { "lang": "sq", "text": "Motra ime âsht e re." },
+      "answerLang": "de",
+      "solutions": ["Meine Schwester ist jung."],
+      "wordBank": ["Meine", "Schwester", "ist", "jung", "alt", "neu", "Bruder"],
+      "explanation": "„E re“ heisst bei Menschen „jung“, bei Dingen „neu“.",
+      "errorHints": [
+        { "pattern": "alt", "category": "vocab.confused", "hint": "„E re“ heisst „jung“ – das Gegenteil von „alt“." },
+        { "pattern": "neu", "category": "vocab.confused", "hint": "Bei Dingen heisst „e re“ „neu“, bei Menschen „jung“." },
+        { "pattern": "bruder", "category": "vocab.confused", "hint": "„Motra“ ist die Schwester." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_021",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_qiell", "item_i_kalter", "item_blu"],
+      "prompt": { "lang": "de", "text": "Der Himmel ist blau." },
+      "answerLang": "sq",
+      "solutions": ["Qielli âsht i kaltër.", "Qielli âsht blu."],
+      "wordBank": ["Qielli", "âsht", "i", "kaltër", "e", "gri", "lulja"],
+      "explanation": "Für „blau“ sagt man im Kosovo „i kaltër“ oder „blu“ – „blu“ hat keinen Verbindungsartikel.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e kalt[eë]r",
+          "category": "grammar.linking_article",
+          "hint": "„Qielli“ ist maskulin – darum „i kaltër“."
+        },
+        { "pattern": "(^|\\s)gri$", "category": "vocab.confused", "hint": "„Gri“ heisst „grau“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„i kaltër / e kaltër“ für „blau“ (im Kosovo üblich, daneben „blu“) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_022",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_caj", "item_i_ngrohte"],
+      "prompt": { "lang": "de", "text": "Der Tee ist warm." },
+      "answerLang": "sq",
+      "solutions": ["Çaji âsht i ngrohtë."],
+      "wordBank": ["Çaji", "âsht", "i", "ngrohtë", "e", "ftohtë", "kafja"],
+      "explanation": "„Çaji“ (der Tee) ist maskulin: „i ngrohtë“. Das Gegenteil ist „i ftohtë“ (kalt).",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e ngroht",
+          "category": "grammar.linking_article",
+          "hint": "„Çaji“ ist maskulin – darum „i ngrohtë“."
+        },
+        { "pattern": "ftoht", "category": "vocab.confused", "hint": "„I ftohtë“ heisst „kalt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_023",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_veture", "item_i_bardhe", "item_i_vjeter"],
+      "prompt": { "lang": "sq", "text": "Vetura e bardhë âsht e vjetër." },
+      "answerLang": "de",
+      "solutions": ["Das weisse Auto ist alt."],
+      "wordBank": ["Das", "weisse", "Auto", "ist", "alt", "neu", "ein", "rote"],
+      "explanation": "„Vetura e bardhë“ ist „das weisse Auto“. Danach folgt die Aussage „âsht e vjetër“ – ist alt.",
+      "errorHints": [
+        { "pattern": "neu", "category": "vocab.confused", "hint": "„Neu“ hiesse „e re“." },
+        { "pattern": "rote", "category": "vocab.confused", "hint": "„Rot“ hiesse „e kuqe“; „e bardhë“ ist weiss." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_024",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.colours", "grammar.linking_article", "grammar.case.accusative"],
+      "itemIds": ["item_kam", "item_veture", "item_i_kuq"],
+      "prompt": { "lang": "de", "text": "Ich habe ein rotes Auto." },
+      "answerLang": "sq",
+      "solutions": ["Kam nji veturë të kuqe."],
+      "wordBank": ["Kam", "nji", "veturë", "të", "kuqe", "e", "vetura", "i"],
+      "explanation": "Nach „kam nji …“ steht der Akkusativ – der Verbindungsartikel heisst dann „të“: „nji veturë të kuqe“.",
+      "errorHints": [
+        {
+          "pattern": "nji vetur[eë] e kuqe",
+          "category": "grammar.linking_article",
+          "hint": "Nach „kam nji …“ wird „e“ zu „të“: „nji veturë të kuqe“."
+        },
+        {
+          "pattern": "nji vetura",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji“ steht die unbestimmte Form „veturë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_025",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_qen", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Der Hund ist klein." },
+      "answerLang": "sq",
+      "solutions": ["Qeni âsht i vogël."],
+      "standardForms": ["Qeni është i vogël."],
+      "explanation": "„Qeni“ (der Hund) ist maskulin: „i vogël“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e vog[eë]l",
+          "category": "grammar.linking_article",
+          "hint": "„Qeni“ ist maskulin – darum „i vogël“."
+        },
+        {
+          "pattern": "^qen [aâ]sht",
+          "category": "grammar.definite_article",
+          "hint": "Hier brauchst du den bestimmten Artikel: qen → qeni."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_026",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_shpi", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Das Haus ist gross." },
+      "answerLang": "sq",
+      "solutions": ["Shpija âsht e madhe."],
+      "standardForms": ["Shtëpia është e madhe.", "Shpija është e madhe."],
+      "explanation": "„Shpija“ (das Haus) ist feminin: „e madhe“. Gheg sagt „shpi“ (Standard: „shtëpi“).",
+      "errorHints": [
+        {
+          "pattern": "^shpi [aâ]sht",
+          "category": "grammar.definite_article",
+          "hint": "Der bestimmte Artikel wird angehängt: shpi → shpija."
+        },
+        { "pattern": "(^|\\s)i madh", "category": "grammar.linking_article", "hint": "„Shpija“ ist feminin – darum „e madhe“." },
+        { "pattern": "(^|\\s)e madh$", "category": "grammar.gender", "hint": "Feminin heisst „gross“ „e madhe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_027",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.linking_article"],
+      "itemIds": ["item_mace", "item_i_bardhe"],
+      "prompt": { "lang": "de", "text": "Die Katze ist weiss." },
+      "answerLang": "sq",
+      "solutions": ["Macja âsht e bardhë."],
+      "standardForms": ["Macja është e bardhë."],
+      "explanation": "„Mace“ (Katze) ist feminin: bestimmt „macja“, dazu „e bardhë“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)i bardh", "category": "grammar.linking_article", "hint": "„Macja“ ist feminin – darum „e bardhë“." },
+        {
+          "pattern": "^mace [aâ]sht",
+          "category": "grammar.definite_article",
+          "hint": "Hier brauchst du den bestimmten Artikel: mace → macja."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_028",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_kjo", "item_veture", "item_i_bukur", "item_nji"],
+      "prompt": { "lang": "de", "text": "Das ist ein schönes Auto." },
+      "answerLang": "sq",
+      "solutions": ["Kjo âsht nji veturë e bukur.", "Kjo âsht nji makinë e bukur."],
+      "standardForms": ["Kjo është një veturë e bukur.", "Kjo është një makinë e bukur."],
+      "explanation": "Das Adjektiv steht nach dem Nomen: „nji veturë e bukur“. „Veturë“ ist feminin, darum „kjo“ und „e“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)i bukur", "category": "grammar.linking_article", "hint": "„Veturë“ ist feminin – darum „e bukur“." },
+        { "pattern": "^ky ", "category": "grammar.gender", "hint": "„Veturë“ ist feminin – darum „kjo“." },
+        {
+          "pattern": "nji e bukur",
+          "category": "grammar.word_order",
+          "hint": "Das Adjektiv steht nach dem Nomen: „nji veturë e bukur“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen. „makinë“ ist deshalb als weitere Lösung akzeptiert."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_029",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article", "grammar.possessive"],
+      "itemIds": ["item_moter", "item_ime", "item_i_gjate", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Meine Schwester ist gross." },
+      "answerLang": "sq",
+      "solutions": ["Motra ime âsht e gjatë.", "Motra ime âsht e madhe."],
+      "standardForms": ["Motra ime është e gjatë.", "Motra ime është e madhe."],
+      "explanation": "Für die Körpergrösse sagt man „e gjatë“ (lang, gross gewachsen); „e madhe“ heisst auch „älter, erwachsen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)i gjat", "category": "grammar.linking_article", "hint": "„Motra“ ist feminin – darum „e gjatë“." },
+        { "pattern": "(^|\\s)i madh", "category": "grammar.linking_article", "hint": "„Motra“ ist feminin – darum „e madhe“." },
+        {
+          "pattern": "^mot[eë]r ime",
+          "category": "grammar.definite_article",
+          "hint": "Mit „ime“ braucht es den bestimmten Artikel: motër → motra."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_030",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_kafe", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Der Kaffee ist kalt." },
+      "answerLang": "sq",
+      "solutions": ["Kafja âsht e ftohtë.", "Kafeja âsht e ftohtë."],
+      "standardForms": ["Kafeja është e ftohtë.", "Kafja është e ftohtë."],
+      "explanation": "„Kafe“ ist feminin – bestimmt „kafja“, dazu „e ftohtë“. Im Deutschen ist „der Kaffee“ maskulin.",
+      "errorHints": [
+        {
+          "pattern": "^kafe [aâ]sht",
+          "category": "grammar.definite_article",
+          "hint": "Hier brauchst du den bestimmten Artikel: kafe → kafja."
+        },
+        { "pattern": "(^|\\s)i ftoht", "category": "grammar.linking_article", "hint": "„Kafja“ ist feminin – darum „e ftohtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Bestimmte Form „kafja“ (Kosovo-Alltag) neben „kafeja“ zu prüfen; beide sind vorerst akzeptiert."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_031",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_veture", "item_blu", "item_i_kalter"],
+      "prompt": { "lang": "de", "text": "Das Auto ist blau." },
+      "answerLang": "sq",
+      "solutions": ["Vetura âsht blu.", "Vetura âsht e kaltër.", "Makina âsht blu.", "Makina âsht e kaltër."],
+      "standardForms": ["Vetura është blu.", "Vetura është e kaltër.", "Makina është blu.", "Makina është e kaltër."],
+      "explanation": "„Blu“ bleibt immer gleich, ohne „i“ oder „e“. Im Kosovo sagt man auch „e kaltër“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)[ei] blu",
+          "category": "grammar.linking_article",
+          "hint": "„Blu“ hat keinen Verbindungsartikel: „Vetura âsht blu.“"
+        },
+        {
+          "pattern": "(^|\\s)i kalt[eë]r",
+          "category": "grammar.linking_article",
+          "hint": "„Vetura“ ist feminin – darum „e kaltër“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„i kaltër / e kaltër“ für „blau“ (im Kosovo üblich, daneben „blu“) zu prüfen. Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_032",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_veture", "item_i_kuq", "item_i_ri"],
+      "prompt": { "lang": "de", "text": "Das rote Auto ist neu." },
+      "answerLang": "sq",
+      "solutions": ["Vetura e kuqe âsht e re.", "Makina e kuqe âsht e re."],
+      "standardForms": ["Vetura e kuqe është e re.", "Makina e kuqe është e re."],
+      "explanation": "„Vetura e kuqe“ = das rote Auto; „âsht e re“ = ist neu. „I ri“ wird im Feminin zu „e re“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)e ri(\\s|$)", "category": "grammar.gender", "hint": "Feminin heisst „neu“ „e re“." },
+        { "pattern": "(^|\\s)i kuq", "category": "grammar.linking_article", "hint": "„Vetura“ ist feminin – darum „e kuqe“." },
+        { "pattern": "(^|\\s)e kuq(\\s|$)", "category": "grammar.gender", "hint": "Feminin heisst „rot“ „e kuqe“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_033",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.colours", "grammar.linking_article", "grammar.case.accusative"],
+      "itemIds": ["item_kam", "item_qen", "item_i_zi"],
+      "prompt": { "lang": "de", "text": "Ich habe einen schwarzen Hund." },
+      "answerLang": "sq",
+      "solutions": ["Kam nji qen të zi.", "Unë kam nji qen të zi."],
+      "standardForms": ["Kam një qen të zi.", "Unë kam një qen të zi."],
+      "explanation": "Im Akkusativ nach „nji“ heisst der Verbindungsartikel „të“ – für beide Genera: „nji qen të zi“, „nji veturë të zezë“.",
+      "errorHints": [
+        {
+          "pattern": "nji qen i zi",
+          "category": "grammar.linking_article",
+          "hint": "Nach „kam nji …“ wird der Verbindungsartikel zu „të“: „nji qen të zi“."
+        },
+        { "pattern": "qen t[eë] zez", "category": "grammar.gender", "hint": "„Qen“ ist maskulin: „të zi“." },
+        { "pattern": "nji qeni", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form „qen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_034",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.linking_article"],
+      "itemIds": ["item_djale", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Der Junge ist gross." },
+      "answerLang": "sq",
+      "text": "Djali âsht ___ madh.",
+      "solutions": ["i"],
+      "choices": ["i", "e", "të", "së"],
+      "explanation": "Maskuline Nomen bekommen „i“: „djali i madh“, feminine „e“: „vajza e madhe“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„Djali“ ist maskulin – darum „i madh“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_035",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.linking_article"],
+      "itemIds": ["item_vajze", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Die Tochter ist klein." },
+      "answerLang": "sq",
+      "text": "Vajza âsht ___ vogël.",
+      "solutions": ["e"],
+      "choices": ["e", "i", "të", "së"],
+      "explanation": "„Vajza“ ist feminin – darum „e vogël“.",
+      "errorHints": [
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "„Vajza“ ist feminin – darum „e vogël“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_036",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_cante", "item_i_kuq"],
+      "prompt": { "lang": "de", "text": "Die Tasche ist rot." },
+      "answerLang": "sq",
+      "text": "Çanta âsht e ___.",
+      "solutions": ["kuqe"],
+      "choices": ["kuqe", "kuq", "zi", "bardhë"],
+      "explanation": "„Rot“: maskulin „i kuq“, feminin „e kuqe“.",
+      "errorHints": [
+        { "pattern": "^kuq$", "category": "grammar.gender", "hint": "Nach „e“ (feminin) heisst es „kuqe“." },
+        { "pattern": "^zi$", "category": "vocab.confused", "hint": "„Zi“ heisst „schwarz“ – und im Feminin „e zezë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_037",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.linking_article"],
+      "itemIds": ["item_qiell", "item_i_kalter"],
+      "prompt": { "lang": "de", "text": "Der Himmel ist blau." },
+      "answerLang": "sq",
+      "text": "Qielli âsht ___ kaltër.",
+      "solutions": ["i"],
+      "explanation": "„Qielli“ ist maskulin – darum „i kaltër“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„Qielli“ ist maskulin – darum „i kaltër“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„i kaltër / e kaltër“ für „blau“ (im Kosovo üblich, daneben „blu“) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_038",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_mace", "item_i_zi"],
+      "prompt": { "lang": "de", "text": "Die Katze ist schwarz." },
+      "answerLang": "sq",
+      "text": "Macja âsht e ___.",
+      "solutions": ["zezë"],
+      "explanation": "„I zi“ wird im Feminin zu „e zezë“.",
+      "errorHints": [{ "pattern": "^zi$", "category": "grammar.gender", "hint": "Feminin heisst „schwarz“ „e zezë“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_039",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_cante", "item_i_ri"],
+      "prompt": { "lang": "de", "text": "Das ist eine neue Tasche." },
+      "answerLang": "sq",
+      "text": "Kjo âsht nji çantë e ___.",
+      "solutions": ["re"],
+      "choices": ["re", "ri", "reja", "vjetër"],
+      "explanation": "„Neu“ heisst maskulin „i ri“, feminin „e re“.",
+      "errorHints": [
+        { "pattern": "^ri$", "category": "grammar.gender", "hint": "„I ri“ ist unregelmässig: Feminin heisst es „e re“." },
+        {
+          "pattern": "^reja$",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji çantë“ bleibt das Adjektiv unbestimmt: „e re“."
+        },
+        { "pattern": "^vjet[eë]r$", "category": "vocab.confused", "hint": "„E vjetër“ heisst „alt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_040",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.colours", "grammar.linking_article"],
+      "itemIds": ["item_molle", "item_i_gjelber"],
+      "prompt": { "lang": "de", "text": "Der Apfel ist grün." },
+      "answerLang": "sq",
+      "text": "Molla âsht ___ gjelbër.",
+      "solutions": ["e"],
+      "choices": ["e", "i", "të", "së"],
+      "explanation": "„Molla“ ist feminin (anders als „der Apfel“) – darum „e gjelbër“.",
+      "errorHints": [
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "„Molla“ ist feminin – darum „e gjelbër“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Form „i gjelbër“ (Kosovo auch „i gjelbërt“) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_041",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_liber", "item_i_vjeter"],
+      "prompt": { "lang": "de", "text": "Das Buch ist alt." },
+      "answerLang": "sq",
+      "text": "Libri âsht i ___.",
+      "solutions": ["vjetër"],
+      "explanation": "„I vjetër“ heisst „alt“ – das Gegenteil von „i ri“ (neu).",
+      "errorHints": [{ "pattern": "^ri$", "category": "vocab.confused", "hint": "„I ri“ heisst „neu“. „Alt“ ist „i vjetër“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_042",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.colours", "grammar.linking_article"],
+      "itemIds": ["item_kemishe", "item_i_bardhe"],
+      "prompt": { "lang": "de", "text": "Das Hemd ist weiss." },
+      "answerLang": "sq",
+      "text": "Këmisha âsht ___ bardhë.",
+      "solutions": ["e"],
+      "explanation": "„Këmisha“ (das Hemd) ist feminin – darum „e bardhë“.",
+      "errorHints": [
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "„Këmisha“ ist feminin – darum „e bardhë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_043",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_lule", "item_i_bukur"],
+      "prompt": { "lang": "de", "text": "Die Blume ist schön." },
+      "answerLang": "sq",
+      "text": "___ âsht e bukur.",
+      "solutions": ["Lulja"],
+      "explanation": "„Lule“ ist feminin; mit Artikel heisst es „lulja“ – die Blume.",
+      "errorHints": [
+        {
+          "pattern": "^lule$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: lule → lulja."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_044",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.colours", "grammar.linking_article", "grammar.case.accusative"],
+      "itemIds": ["item_kam", "item_mace", "item_i_bardhe"],
+      "prompt": { "lang": "de", "text": "Ich habe eine weisse Katze." },
+      "answerLang": "sq",
+      "text": "Kam nji mace ___ bardhë.",
+      "solutions": ["të"],
+      "choices": ["të", "e", "i", "së"],
+      "explanation": "Im Akkusativ nach unbestimmtem Nomen heisst der Verbindungsartikel „të“: „nji mace të bardhë“.",
+      "errorHints": [
+        {
+          "pattern": "^e$",
+          "category": "grammar.linking_article",
+          "hint": "Nach „kam nji …“ steht der Akkusativ: „nji mace të bardhë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_045",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_cante", "item_i_madh", "item_shume"],
+      "prompt": { "lang": "de", "text": "Die Tasche ist sehr gross." },
+      "answerLang": "sq",
+      "text": "Çanta âsht shumë e ___.",
+      "solutions": ["madhe"],
+      "explanation": "„Shumë“ (sehr) steht vor dem Verbindungsartikel: „shumë e madhe“. Feminin heisst „gross“ „e madhe“.",
+      "errorHints": [{ "pattern": "^madh$", "category": "grammar.gender", "hint": "Feminin heisst „gross“ „e madhe“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_046",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours"],
+      "itemIds": ["item_i_kuq", "item_i_zi", "item_i_bardhe", "item_i_verdhe", "item_i_gjelber"],
+      "prompt": { "lang": "de", "text": "Ordne die Farben zu." },
+      "pairs": [
+        { "left": "i kuq", "right": "rot" },
+        { "left": "i zi", "right": "schwarz" },
+        { "left": "i bardhë", "right": "weiss" },
+        { "left": "i verdhë", "right": "gelb" },
+        { "left": "i gjelbër", "right": "grün" }
+      ],
+      "explanation": "Das sind die Grundfarben in der maskulinen Form mit „i“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Form „i gjelbër“ (Kosovo auch „i gjelbërt“) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_047",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours"],
+      "itemIds": ["item_veture", "item_cante", "item_liber", "item_lule", "item_mace"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "veturë", "right": "Auto" },
+        { "left": "çantë", "right": "Tasche" },
+        { "left": "libër", "right": "Buch" },
+        { "left": "lule", "right": "Blume" },
+        { "left": "mace", "right": "Katze" }
+      ],
+      "explanation": "Achtung beim Genus: „veturë“, „çantë“, „lule“ und „mace“ sind feminin, „libër“ ist maskulin.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_048",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_i_madh", "item_i_vogel", "item_i_ri", "item_i_vjeter", "item_i_bukur"],
+      "prompt": { "lang": "de", "text": "Ordne die Adjektive zu." },
+      "pairs": [
+        { "left": "i madh", "right": "gross" },
+        { "left": "i vogël", "right": "klein" },
+        { "left": "i ri", "right": "neu" },
+        { "left": "i vjetër", "right": "alt" },
+        { "left": "i bukur", "right": "schön" }
+      ],
+      "explanation": "Adjektive stehen nach dem Nomen: „libri i ri“, „qeni i vogël“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_049",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.colours", "grammar.linking_article"],
+      "itemIds": ["item_veture", "item_liber", "item_lule", "item_qen", "item_mace"],
+      "prompt": { "lang": "de", "text": "Ordne zu." },
+      "pairs": [
+        { "left": "vetura e kuqe", "right": "das rote Auto" },
+        { "left": "libri i zi", "right": "das schwarze Buch" },
+        { "left": "lulja e verdhë", "right": "die gelbe Blume" },
+        { "left": "qeni i bardhë", "right": "der weisse Hund" },
+        { "left": "macja e zezë", "right": "die schwarze Katze" }
+      ],
+      "explanation": "Maskulin mit „i“ (libri i zi, qeni i bardhë), feminin mit „e“ (vetura e kuqe, macja e zezë).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_050",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_i_mire", "item_i_keq", "item_i_gjate", "item_i_shkurter", "item_i_ngrohte"],
+      "prompt": { "lang": "de", "text": "Ordne die Adjektive zu." },
+      "pairs": [
+        { "left": "i mirë", "right": "gut" },
+        { "left": "i keq", "right": "schlecht" },
+        { "left": "i gjatë", "right": "lang" },
+        { "left": "i shkurtër", "right": "kurz" },
+        { "left": "i ngrohtë", "right": "warm" }
+      ],
+      "explanation": "Hier stehen Gegensatzpaare: „i mirë – i keq“ (gut – schlecht), „i gjatë – i shkurtër“ (lang – kurz).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_051",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_i_zi", "item_i_ri", "item_i_keq", "item_i_kuq", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Ordne die femininen Formen zu." },
+      "pairs": [
+        { "left": "e zezë", "right": "schwarz" },
+        { "left": "e re", "right": "neu" },
+        { "left": "e keqe", "right": "schlecht" },
+        { "left": "e kuqe", "right": "rot" },
+        { "left": "e ftohtë", "right": "kalt" }
+      ],
+      "explanation": "Diese Adjektive ändern sich im Feminin: i zi → e zezë, i ri → e re, i keq → e keqe, i kuq → e kuqe. „E ftohtë“ bleibt wie „i ftohtë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_052",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_cante", "item_i_zi"],
+      "prompt": { "lang": "de", "text": "Die Tasche ist schwarz." },
+      "answerLang": "sq",
+      "tokens": ["Çanta", "âsht", "e", "zezë"],
+      "solutions": ["Çanta âsht e zezë."],
+      "explanation": "Nomen – âsht – Verbindungsartikel – Adjektiv: „Çanta âsht e zezë.“",
+      "errorHints": [
+        {
+          "pattern": "e zez[eë] [aâ]sht",
+          "category": "grammar.word_order",
+          "hint": "„Âsht“ steht vor dem Adjektiv: „Çanta âsht e zezë.“"
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_053",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_qen", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Der Hund ist gross." },
+      "answerLang": "sq",
+      "tokens": ["Qeni", "âsht", "i", "madh"],
+      "solutions": ["Qeni âsht i madh."],
+      "explanation": "„Qeni“ ist maskulin – darum „i madh“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_054",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_lule", "item_i_kuq"],
+      "prompt": { "lang": "de", "text": "Die Blume ist rot." },
+      "answerLang": "sq",
+      "tokens": ["Lulja", "âsht", "e", "kuqe"],
+      "solutions": ["Lulja âsht e kuqe."],
+      "explanation": "„Lulja“ ist feminin – darum „e kuqe“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_055",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_mace", "item_i_vogel"],
+      "prompt": { "lang": "de", "text": "Die Katze ist klein." },
+      "answerLang": "sq",
+      "tokens": ["Macja", "âsht", "e", "vogël"],
+      "solutions": ["Macja âsht e vogël."],
+      "explanation": "„Macja“ ist feminin – darum „e vogël“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_056",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_ky", "item_liber", "item_i_vogel", "item_nji"],
+      "prompt": { "lang": "de", "text": "Das ist ein kleines Buch." },
+      "answerLang": "sq",
+      "tokens": ["Ky", "âsht", "nji", "libër", "i", "vogël"],
+      "solutions": ["Ky âsht nji libër i vogël."],
+      "explanation": "Das Adjektiv steht nach dem Nomen: „nji libër i vogël“. „Ky“ passt zum maskulinen „libër“.",
+      "errorHints": [
+        {
+          "pattern": "nji i vog[eë]l",
+          "category": "grammar.word_order",
+          "hint": "Das Adjektiv steht nach dem Nomen: „nji libër i vogël“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_057",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_kemishe", "item_i_bardhe", "item_i_ri"],
+      "prompt": { "lang": "de", "text": "Das weisse Hemd ist neu." },
+      "answerLang": "sq",
+      "tokens": ["Këmisha", "e", "bardhë", "âsht", "e", "re"],
+      "solutions": ["Këmisha e bardhë âsht e re."],
+      "explanation": "„Këmisha e bardhë“ ist „das weisse Hemd“, „âsht e re“ heisst „ist neu“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_058",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_uje", "item_i_ftohte", "item_shume"],
+      "prompt": { "lang": "de", "text": "Das Wasser ist sehr kalt." },
+      "answerLang": "sq",
+      "tokens": ["Uji", "âsht", "shumë", "i", "ftohtë"],
+      "solutions": ["Uji âsht shumë i ftohtë."],
+      "explanation": "„Shumë“ (sehr) steht vor dem Verbindungsartikel: „shumë i ftohtë“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i shum[eë]",
+          "category": "grammar.word_order",
+          "hint": "„Shumë“ steht vor dem Verbindungsartikel: „shumë i ftohtë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_059",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.linking_article", "grammar.case.accusative"],
+      "itemIds": ["item_kam", "item_cante", "item_i_ri"],
+      "prompt": { "lang": "de", "text": "Ich habe eine neue Tasche." },
+      "answerLang": "sq",
+      "tokens": ["Kam", "nji", "çantë", "të", "re"],
+      "solutions": ["Kam nji çantë të re."],
+      "explanation": "Nach „kam nji …“ steht „të“: „nji çantë të re“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_060",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.colours", "grammar.adjective_agreement"],
+      "itemIds": ["item_qen", "item_i_madh", "item_i_zi", "item_i_bardhe", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Der grosse Hund ist schwarz und weiss." },
+      "answerLang": "sq",
+      "tokens": ["Qeni", "i", "madh", "âsht", "i", "zi", "dhe", "i", "bardhë"],
+      "solutions": ["Qeni i madh âsht i zi dhe i bardhë.", "Qeni i madh âsht i bardhë dhe i zi."],
+      "explanation": "Jedes Adjektiv bekommt seinen eigenen Verbindungsartikel: „i zi dhe i bardhë“.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

@@ -1,0 +1,1365 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u13_shopping",
+  "level": "A1.3",
+  "grammar": [
+    {
+      "title": "Was kostet das?",
+      "explanation": "**Sa kushton?** – Wie viel kostet das? Bei mehreren Dingen: **Sa kushtojnë domatet?** – Wie viel kosten die Tomaten?\n\nAn der Kasse hört man im Kosovo oft **Sa bân?** – „Wie viel macht das?“ (Standard: Sa bën?). Antwort: *Kushton dy euro.* / *Bân pesë euro.* „Euro“ bleibt in der Mehrzahl gleich: *nji euro, dy euro*."
+    },
+    {
+      "title": "Mengen verlangen",
+      "explanation": "Nach einer Zahl oder Menge steht das Nomen **ohne** Artikel: *nji kilogram mollë, dy bukë, nji qese*.\n\n- **Du …, të lutem.** – Ich möchte …, bitte. (*du* = ich will; Standard: dua)\n- **Më jep …, të lutem.** – Gib mir …, bitte.\n- **A keni …?** – Haben Sie …? Antwort: *Po, kemi.* / *Jo, nuk kemi.*\n- **Diçka tjetër?** – Sonst noch etwas? *Jo, veç kaq, faleminderit.*"
+    },
+    {
+      "title": "Offen oder geschlossen?",
+      "explanation": "*Dyqani âsht i hapun.* – Der Laden ist offen. *Dyqani âsht i mbyllun.* – Der Laden ist geschlossen. Gheg-Adjektive, die aus Partizipien kommen, enden auf **-un** (Standard: *i hapur, i mbyllur*). „Dyqan“ ist maskulin, darum „i“."
+    }
+  ],
+  "items": [
+    { "id": "item_sa_kushton", "kind": "phrase", "gheg": "sa kushton?", "de": "wie viel kostet das?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_kushton", "kind": "word", "gheg": "kushton", "de": "(es) kostet", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_sa_ban",
+      "kind": "phrase",
+      "gheg": "sa bân?",
+      "de": "wie viel macht das?",
+      "partOfSpeech": "phrase",
+      "note": "„Sa bân?“ (wie viel macht das?, Standard: Sa bën?) als Kosovo-Alltagsform zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_euro", "kind": "word", "gheg": "euro", "de": "Euro", "partOfSpeech": "noun", "gender": "m", "plural": "euro", "reviewed": false },
+    {
+      "id": "item_kilogram",
+      "kind": "word",
+      "gheg": "kilogram",
+      "de": "Kilogramm, Kilo",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "kilogrami",
+      "note": "Im Alltag oft kurz „kilo“; in den Lösungen als Variante akzeptiert.",
+      "reviewed": false
+    },
+    { "id": "item_treg", "kind": "word", "gheg": "treg", "de": "Markt", "partOfSpeech": "noun", "gender": "m", "definite": "tregu", "reviewed": false },
+    { "id": "item_dyqan", "kind": "word", "gheg": "dyqan", "de": "Laden, Geschäft", "partOfSpeech": "noun", "gender": "m", "definite": "dyqani", "reviewed": false },
+    { "id": "item_qese", "kind": "word", "gheg": "qese", "de": "Tüte, Beutel", "partOfSpeech": "noun", "gender": "f", "definite": "qesja", "reviewed": false },
+    { "id": "item_i_shtrenjte", "kind": "word", "gheg": "i shtrenjtë, e shtrenjtë", "de": "teuer", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_lire", "kind": "word", "gheg": "i lirë, e lirë", "de": "billig, günstig", "partOfSpeech": "adjective", "reviewed": false },
+    {
+      "id": "item_i_hapun",
+      "kind": "word",
+      "gheg": "i hapun, e hapun",
+      "de": "offen, geöffnet",
+      "partOfSpeech": "adjective",
+      "note": "Adjektivische Gheg-Partizipien auf -un („i hapun“, „i mbyllun“; Standard: i hapur, i mbyllur) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_i_mbyllun",
+      "kind": "word",
+      "gheg": "i mbyllun, e mbyllun",
+      "de": "geschlossen",
+      "partOfSpeech": "adjective",
+      "note": "Adjektivische Gheg-Partizipien auf -un („i hapun“, „i mbyllun“; Standard: i hapur, i mbyllur) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_blej", "kind": "word", "gheg": "blej", "de": "ich kaufe", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_me_ble",
+      "kind": "word",
+      "gheg": "me ble",
+      "de": "kaufen",
+      "partOfSpeech": "verb",
+      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_me_pague",
+      "kind": "word",
+      "gheg": "me pague",
+      "de": "zahlen, bezahlen",
+      "partOfSpeech": "verb",
+      "note": "Partizip „pague“ (von paguaj, Standard: paguar) nach der Regel -uar → -ue gebildet – zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_kartele",
+      "kind": "word",
+      "gheg": "kartelë",
+      "de": "(Bank-)Karte",
+      "partOfSpeech": "noun",
+      "gender": "f",
+      "definite": "kartela",
+      "note": "Kosovo-Wort (Standard: kartë) – zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_me_jep", "kind": "phrase", "gheg": "më jep", "de": "gib mir", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_e_marr", "kind": "phrase", "gheg": "e marr", "de": "ich nehme es", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_dicka_tjeter",
+      "kind": "phrase",
+      "gheg": "diçka tjetër?",
+      "de": "sonst noch etwas?",
+      "partOfSpeech": "phrase",
+      "note": "„diçka“ ist auch Standard; ob im Kosovo-Alltag eine eigene Gheg-Form üblicher ist, zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_vec_kaq",
+      "kind": "phrase",
+      "gheg": "veç kaq",
+      "de": "nur das, das ist alles",
+      "partOfSpeech": "phrase",
+      "note": "„veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_domate", "kind": "word", "gheg": "domate", "de": "Tomate", "partOfSpeech": "noun", "gender": "f", "definite": "domatja", "plural": "domate", "reviewed": false },
+    { "id": "item_veze", "kind": "word", "gheg": "vezë", "de": "Ei", "partOfSpeech": "noun", "gender": "f", "definite": "veza", "plural": "vezë", "reviewed": false },
+    { "id": "item_djathe", "kind": "word", "gheg": "djathë", "de": "Käse", "partOfSpeech": "noun", "gender": "m", "definite": "djathi", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u13_shopping_001",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "vocab.shopping"],
+      "itemIds": ["item_sa_kushton", "item_buke"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Sa kushton buka?“" },
+      "choices": ["Wie viel kostet das Brot?", "Wo ist das Brot?", "Ist das Brot frisch?", "Wie viel Brot willst du?"],
+      "solutions": ["Wie viel kostet das Brot?"],
+      "explanation": "„Sa kushton …?“ fragt nach dem Preis. „Buka“ ist „das Brot“.",
+      "errorHints": [
+        { "pattern": "^wo ", "category": "vocab.confused", "hint": "„Wo“ hiesse „ku“." },
+        { "pattern": "willst", "category": "vocab.confused", "hint": "„Kushton“ heisst „kostet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_002",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_i_shtrenjte", "item_i_lire"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „teuer“ bei einem maskulinen Nomen?" },
+      "choices": ["i shtrenjtë", "i lirë", "i madh", "i ri"],
+      "solutions": ["i shtrenjtë"],
+      "explanation": "„I shtrenjtë“ heisst „teuer“, das Gegenteil ist „i lirë“ (billig).",
+      "errorHints": [{ "pattern": "^i lir[eë]$", "category": "vocab.confused", "hint": "„I lirë“ heisst „billig“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_003",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_treg", "item_dyqan", "item_qese"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „treg“?" },
+      "choices": ["Markt", "Laden", "Geld", "Tüte"],
+      "solutions": ["Markt"],
+      "explanation": "„Treg“ ist der Markt, bestimmt „tregu“. Der Laden heisst „dyqan“.",
+      "errorHints": [
+        { "pattern": "laden", "category": "vocab.confused", "hint": "„Laden“ heisst „dyqan“." },
+        { "pattern": "t[uü]te", "category": "vocab.confused", "hint": "„Tüte“ heisst „qese“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_004",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_kilogram", "item_molle"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Du nji kilogram mollë.“?" },
+      "choices": [
+        "Ich möchte ein Kilo Äpfel.",
+        "Ich habe ein Kilo Äpfel.",
+        "Ein Kilo Äpfel kostet einen Euro.",
+        "Ich möchte einen Apfel."
+      ],
+      "solutions": ["Ich möchte ein Kilo Äpfel."],
+      "explanation": "„Du“ heisst „ich will, ich möchte“. Nach „nji kilogram“ steht „mollë“ ohne Artikel.",
+      "errorHints": [
+        { "pattern": "habe", "category": "vocab.confused", "hint": "„Ich habe“ hiesse „kam“." },
+        { "pattern": "einen apfel", "category": "vocab.confused", "hint": "„Nji kilogram mollë“ ist ein Kilo Äpfel." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_005",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_sa_ban"],
+      "prompt": { "lang": "de", "text": "Du willst an der Kasse wissen, wie viel alles zusammen kostet. Was sagst du?" },
+      "choices": ["Sa bân?", "Si je?", "Çka bân?", "Ku âsht?"],
+      "solutions": ["Sa bân?"],
+      "explanation": "„Sa bân?“ – wörtlich „Wie viel macht es?“ – hört man im Kosovo an jeder Kasse (Standard: „Sa bën?“).",
+      "errorHints": [
+        { "pattern": "^[cç]ka b[aâ]n$", "category": "vocab.confused", "hint": "„Çka bân?“ heisst „Was machst du?“." },
+        { "pattern": "^ku [aâ]sht$", "category": "vocab.confused", "hint": "„Ku âsht?“ heisst „Wo ist es?“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Sa bân?“ (wie viel macht das?, Standard: Sa bën?) als Kosovo-Alltagsform zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_006",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping", "grammar.linking_article", "grammar.adjective_agreement"],
+      "itemIds": ["item_buke", "item_i_lire"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Das Brot ist billig.“?" },
+      "choices": ["Buka âsht e lirë.", "Buka âsht i lirë.", "Bukë âsht e lirë.", "Buka âsht e shtrenjtë."],
+      "solutions": ["Buka âsht e lirë."],
+      "explanation": "„Buka“ ist feminin, darum „e lirë“. „E shtrenjtë“ heisst „teuer“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)i lir", "category": "grammar.linking_article", "hint": "„Buka“ ist feminin – darum „e lirë“." },
+        {
+          "pattern": "^buk[eë] ",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: bukë → buka."
+        },
+        { "pattern": "shtrenjt", "category": "vocab.confused", "hint": "„E shtrenjtë“ heisst „teuer“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_007",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_dicka_tjeter"],
+      "prompt": { "lang": "de", "text": "Der Verkäufer fragt „Diçka tjetër?“. Was bedeutet das?" },
+      "choices": ["Sonst noch etwas?", "Wie viel kostet das?", "Was möchtest du?", "Ist das alles teuer?"],
+      "solutions": ["Sonst noch etwas?"],
+      "explanation": "„Diçka tjetër?“ heisst „Sonst noch etwas?“. Du kannst antworten: „Jo, faleminderit.“",
+      "errorHints": [
+        { "pattern": "kostet", "category": "vocab.confused", "hint": "„Wie viel kostet das?“ hiesse „Sa kushton?“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_008",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_dyqan", "item_i_mbyllun"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Dyqani âsht i mbyllun.“?" },
+      "choices": ["Der Laden ist geschlossen.", "Der Laden ist offen.", "Der Laden ist gross.", "Der Markt ist geschlossen."],
+      "solutions": ["Der Laden ist geschlossen."],
+      "explanation": "„I mbyllun“ heisst „geschlossen“ (Standard: „i mbyllur“). „Offen“ ist „i hapun“.",
+      "errorHints": [
+        { "pattern": "offen", "category": "vocab.confused", "hint": "„Offen“ heisst „i hapun“." },
+        { "pattern": "markt", "category": "vocab.confused", "hint": "„Markt“ heisst „treg“; „dyqani“ ist der Laden." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Adjektivische Gheg-Partizipien auf -un („i hapun“, „i mbyllun“; Standard: i hapur, i mbyllur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_009",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "phrase.politeness", "grammar.question_particle"],
+      "itemIds": ["item_qumesht"],
+      "prompt": { "lang": "de", "text": "Wie fragst du im Laden „Haben Sie Milch?“" },
+      "choices": ["A keni qumësht?", "A ke qumësht?", "A kemi qumësht?", "Sa kushton qumështi?"],
+      "solutions": ["A keni qumësht?"],
+      "explanation": "„Keni“ ist die Sie- oder Ihr-Form von „haben“. „A ke …?“ wäre „Hast du …?“.",
+      "errorHints": [
+        {
+          "pattern": "^a ke ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„A ke …?“ ist die Du-Form. Höflich fragst du „A keni …?“."
+        },
+        { "pattern": "^a kemi", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“." },
+        { "pattern": "^sa kushton", "category": "vocab.confused", "hint": "„Sa kushton qumështi?“ fragt nach dem Preis." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_010",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "vocab.numbers"],
+      "itemIds": ["item_kushton", "item_euro", "item_pese"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kushton pesë euro.“?" },
+      "choices": ["Es kostet fünf Euro.", "Es kostet fünfzehn Euro.", "Es kostet fünfzig Euro.", "Es kostet vier Euro."],
+      "solutions": ["Es kostet fünf Euro."],
+      "explanation": "„Pesë“ heisst „fünf“. „Euro“ bleibt in der Mehrzahl gleich.",
+      "errorHints": [
+        { "pattern": "fünfzig", "category": "vocab.confused", "hint": "„Fünfzig“ hiesse „pesëdhjetë“." },
+        { "pattern": "vier", "category": "vocab.confused", "hint": "„Vier“ hiesse „katër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_011",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.shopping", "vocab.numbers"],
+      "itemIds": ["item_sa", "item_molle", "item_don"],
+      "prompt": { "lang": "de", "text": "Welche Antwort passt auf „Sa mollë don?“" },
+      "choices": ["Pesë, të lutem.", "Pesë euro.", "Po, kemi.", "Âsht e lirë."],
+      "solutions": ["Pesë, të lutem."],
+      "explanation": "„Sa mollë don?“ heisst „Wie viele Äpfel willst du?“ – die Antwort ist eine Anzahl.",
+      "errorHints": [
+        { "pattern": "euro", "category": "vocab.confused", "hint": "Gefragt ist die Anzahl der Äpfel, nicht der Preis." },
+        { "pattern": "^po kemi", "category": "vocab.confused", "hint": "„Po, kemi“ antwortet auf „A keni …?“ (Haben Sie …?)." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„don“ (du willst; Standard: do) als Kosovo-Form zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_012",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.shopping", "grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_muj", "item_me_pague", "item_kartele"],
+      "prompt": { "lang": "de", "text": "Wie fragst du „Kann ich mit Karte zahlen?“" },
+      "choices": [
+        "A muj me pague me kartelë?",
+        "A mundesh me pague me kartelë?",
+        "A du me pague me kartelë?",
+        "A duhet me pague me kartelë?"
+      ],
+      "solutions": ["A muj me pague me kartelë?"],
+      "explanation": "„A muj me …?“ heisst „Kann ich …?“. „Me pague“ ist der Gheg-Infinitiv von „paguaj“ (zahlen), Standard: „të paguaj“.",
+      "errorHints": [
+        {
+          "pattern": "mundesh",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Mundesh“ heisst „kannst du“. Für „kann ich“ sagst du „muj“."
+        },
+        { "pattern": "^a du ", "category": "vocab.confused", "hint": "„A du …?“ heisst „Will ich …?“." },
+        { "pattern": "^a duhet", "category": "vocab.confused", "hint": "„A duhet …?“ heisst „Muss man …?“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „pague“ (von paguaj, Standard: paguar) nach der Regel -uar → -ue und das Kosovo-Wort „kartelë“ (Standard: kartë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_013",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "vocab.shopping"],
+      "itemIds": ["item_sa_kushton", "item_buke"],
+      "prompt": { "lang": "de", "text": "Wie viel kostet das Brot?" },
+      "answerLang": "sq",
+      "solutions": ["Sa kushton buka?"],
+      "wordBank": ["Sa", "kushton", "buka", "bukë", "ku", "kushtojnë"],
+      "explanation": "„Sa kushton …?“ fragt nach dem Preis. „Buka“ ist „das Brot“.",
+      "errorHints": [
+        {
+          "pattern": "kushton buk[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: bukë → buka."
+        },
+        {
+          "pattern": "kushtojn[eë]",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Kushtojnë“ ist Mehrzahl. Für das Brot reicht „kushton“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_014",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "phrase.politeness"],
+      "itemIds": ["item_qese", "item_nji", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Eine Tüte, bitte." },
+      "answerLang": "sq",
+      "solutions": ["Nji qese, të lutem.", "Nji qese, ju lutem.", "Të lutem, nji qese."],
+      "wordBank": ["Nji", "qese", "të", "lutem", "dy", "më", "qesja"],
+      "explanation": "„Qese“ ist die Tüte. „Nji“ ist Gheg für „ein, eine“ (Standard: „një“).",
+      "errorHints": [
+        {
+          "pattern": "nji qesja",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji“ steht die unbestimmte Form: „nji qese“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_015",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "vocab.numbers"],
+      "itemIds": ["item_buke", "item_kushton", "item_euro"],
+      "prompt": { "lang": "sq", "text": "Buka kushton nji euro." },
+      "answerLang": "de",
+      "solutions": ["Das Brot kostet einen Euro."],
+      "wordBank": ["Das", "Brot", "kostet", "einen", "Euro", "zwei", "Milch", "Cent"],
+      "explanation": "„Nji euro“ – ein Euro. „Buka“ ist „das Brot“.",
+      "errorHints": [
+        { "pattern": "milch", "category": "vocab.confused", "hint": "„Milch“ heisst „qumësht“." },
+        { "pattern": "zwei", "category": "vocab.confused", "hint": "„Nji“ heisst „ein, eins“; „zwei“ wäre „dy“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_016",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_treg", "item_i_madh"],
+      "prompt": { "lang": "sq", "text": "Tregu âsht i madh." },
+      "answerLang": "de",
+      "solutions": ["Der Markt ist gross."],
+      "wordBank": ["Der", "Markt", "ist", "gross", "Laden", "klein", "teuer"],
+      "explanation": "„Tregu“ ist „der Markt“, „i madh“ heisst „gross“.",
+      "errorHints": [
+        { "pattern": "laden", "category": "vocab.confused", "hint": "„Laden“ heisst „dyqan“." },
+        { "pattern": "klein", "category": "vocab.confused", "hint": "„Klein“ heisst „i vogël“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_017",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping", "grammar.linking_article"],
+      "itemIds": ["item_cante", "item_i_shtrenjte"],
+      "prompt": { "lang": "de", "text": "Die Tasche ist teuer." },
+      "answerLang": "sq",
+      "solutions": ["Çanta âsht e shtrenjtë."],
+      "wordBank": ["Çanta", "âsht", "e", "shtrenjtë", "i", "lirë", "vetura"],
+      "explanation": "„Çanta“ ist feminin – darum „e shtrenjtë“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i shtrenjt",
+          "category": "grammar.linking_article",
+          "hint": "„Çanta“ ist feminin – darum „e shtrenjtë“."
+        },
+        { "pattern": "lir[eë]", "category": "vocab.confused", "hint": "„E lirë“ heisst „billig“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_018",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_kilogram", "item_molle"],
+      "prompt": { "lang": "de", "text": "Ich möchte ein Kilo Äpfel." },
+      "answerLang": "sq",
+      "solutions": ["Du nji kilogram mollë.", "Du nji kilo mollë."],
+      "wordBank": ["Du", "nji", "kilogram", "mollë", "molla", "kam", "dy"],
+      "explanation": "„Du“ heisst „ich will, ich möchte“ (Standard: „dua“). Nach „nji kilogram“ steht „mollë“ ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "kilo(gram)? molla",
+          "category": "grammar.definite_article",
+          "hint": "Nach einer Mengenangabe steht das Nomen ohne Artikel: „nji kilogram mollë“."
+        },
+        { "pattern": "^kam ", "category": "vocab.confused", "hint": "„Kam“ heisst „ich habe“. „Ich möchte“ ist „du“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_019",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_sa_kushton", "item_domate"],
+      "prompt": { "lang": "sq", "text": "Sa kushtojnë domatet?" },
+      "answerLang": "de",
+      "solutions": ["Wie viel kosten die Tomaten?"],
+      "wordBank": ["Wie", "viel", "kosten", "die", "Tomaten", "kostet", "Kartoffeln", "wo"],
+      "explanation": "Bei mehreren Dingen heisst es „kushtojnë“ (sie kosten). „Domatet“ = die Tomaten.",
+      "errorHints": [
+        { "pattern": "kostet", "category": "grammar.verb_conjugation", "hint": "„Kushtojnë“ ist Mehrzahl: „kosten“." },
+        { "pattern": "kartoffeln", "category": "vocab.confused", "hint": "„Domate“ heisst „Tomate“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_020",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_ku", "item_treg"],
+      "prompt": { "lang": "de", "text": "Wo ist der Markt?" },
+      "answerLang": "sq",
+      "solutions": ["Ku âsht tregu?", "Tregu ku âsht?"],
+      "wordBank": ["Ku", "âsht", "tregu", "treg", "sa", "dyqani"],
+      "explanation": "„Ku“ heisst „wo“. „Tregu“ ist „der Markt“ – mit bestimmtem Artikel.",
+      "errorHints": [
+        {
+          "pattern": "^ku [aâ]sht treg$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: treg → tregu."
+        },
+        { "pattern": "dyqani", "category": "vocab.confused", "hint": "„Dyqani“ ist der Laden." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_021",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping", "grammar.case.accusative"],
+      "itemIds": ["item_dyqan", "item_i_hapun", "item_e_diel"],
+      "prompt": { "lang": "sq", "text": "Dyqani âsht i hapun të dielën." },
+      "answerLang": "de",
+      "solutions": ["Der Laden ist am Sonntag offen.", "Am Sonntag ist der Laden offen."],
+      "wordBank": ["Der", "Laden", "ist", "am", "Sonntag", "offen", "geschlossen", "Samstag", "Markt"],
+      "explanation": "„I hapun“ heisst „offen“ (Standard: „i hapur“), „të dielën“ = am Sonntag.",
+      "errorHints": [
+        {
+          "pattern": "geschlossen",
+          "category": "vocab.confused",
+          "hint": "„Geschlossen“ hiesse „i mbyllun“; „i hapun“ heisst „offen“."
+        },
+        { "pattern": "samstag", "category": "vocab.confused", "hint": "„Samstag“ heisst „e shtunë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Adjektivische Gheg-Partizipien auf -un („i hapun“, „i mbyllun“; Standard: i hapur, i mbyllur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_022",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "phrase.politeness", "grammar.clitics"],
+      "itemIds": ["item_me_jep", "item_dy", "item_buke", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Gib mir bitte zwei Brote." },
+      "answerLang": "sq",
+      "solutions": ["Më jep dy bukë, të lutem.", "Të lutem, më jep dy bukë."],
+      "wordBank": ["Më", "jep", "dy", "bukë", "të", "lutem", "buka", "tre", "jap"],
+      "explanation": "„Më jep“ heisst „gib mir“. Nach „dy“ steht „bukë“ ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "dy buka",
+          "category": "grammar.definite_article",
+          "hint": "Nach „dy“ steht die unbestimmte Mehrzahl: „dy bukë“."
+        },
+        {
+          "pattern": "(^|\\s)jap(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Jap“ heisst „ich gebe“. „Gib mir!“ ist „më jep“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_023",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.shopping", "vocab.numbers"],
+      "itemIds": ["item_sa_ban", "item_euro", "item_pese"],
+      "prompt": { "lang": "de", "text": "Das macht fünf Euro." },
+      "answerLang": "sq",
+      "solutions": ["Bân pesë euro."],
+      "wordBank": ["Bân", "pesë", "euro", "bâj", "kushtojnë", "katër"],
+      "explanation": "„Bân“ heisst hier „es macht“ – wie im Deutschen „Das macht fünf Euro“ (Standard: „Bën pesë euro“).",
+      "errorHints": [
+        {
+          "pattern": "^b[aâ]j ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Bâj“ heisst „ich mache“. „Das macht“ ist „bân“."
+        },
+        { "pattern": "kat[eë]r", "category": "vocab.confused", "hint": "„Katër“ ist vier. Fünf heisst „pesë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Sa bân?“ (wie viel macht das?, Standard: Sa bën?) als Kosovo-Alltagsform zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_024",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.shopping", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_treg", "item_me_ble", "item_domate"],
+      "prompt": { "lang": "sq", "text": "Shkoj në treg me ble domate." },
+      "answerLang": "de",
+      "solutions": [
+        "Ich gehe auf den Markt, um Tomaten zu kaufen.",
+        "Ich gehe zum Markt, um Tomaten zu kaufen.",
+        "Ich gehe auf den Markt Tomaten kaufen."
+      ],
+      "wordBank": ["Ich", "gehe", "auf", "den", "Markt", "um", "Tomaten", "zu", "kaufen", "verkaufen", "Laden", "Äpfel"],
+      "explanation": "„Me ble“ ist der Gheg-Infinitiv von „blej“ (kaufen). Nach einer Bewegung heisst er „um … zu“.",
+      "errorHints": [
+        { "pattern": "verkaufen", "category": "vocab.confused", "hint": "„Me ble“ heisst „kaufen“, nicht „verkaufen“." },
+        { "pattern": "laden", "category": "vocab.confused", "hint": "„Treg“ ist der Markt; „Laden“ hiesse „dyqan“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_025",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_sa_kushton"],
+      "prompt": { "lang": "de", "text": "Wie viel kostet das?" },
+      "answerLang": "sq",
+      "solutions": ["Sa kushton?", "Sa kushton kjo?", "Sa kushton ky?"],
+      "explanation": "„Sa kushton?“ ist die wichtigste Frage auf dem Markt. „Sa“ heisst „wie viel“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_026",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "phrase.politeness"],
+      "itemIds": ["item_kilogram", "item_domate", "item_nji"],
+      "prompt": { "lang": "de", "text": "Ein Kilo Tomaten, bitte." },
+      "answerLang": "sq",
+      "solutions": [
+        "Nji kilogram domate, të lutem.",
+        "Nji kilogram domate, ju lutem.",
+        "Nji kilo domate, të lutem.",
+        "Nji kilo domate, ju lutem.",
+        "Të lutem, nji kilogram domate.",
+        "Ju lutem, nji kilogram domate."
+      ],
+      "standardForms": [
+        "Një kilogram domate, të lutem.",
+        "Një kilogram domate, ju lutem.",
+        "Një kilo domate, të lutem.",
+        "Një kilo domate, ju lutem."
+      ],
+      "explanation": "Nach „nji kilogram“ steht „domate“ ohne Artikel. „Nji“ ist Gheg für „ein, eine“ (Standard: „një“).",
+      "errorHints": [
+        {
+          "pattern": "kilo(gram)? domat(ja|et)",
+          "category": "grammar.definite_article",
+          "hint": "Nach einer Mengenangabe steht das Nomen ohne Artikel: „nji kilogram domate“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_027",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping", "grammar.linking_article"],
+      "itemIds": ["item_buke", "item_i_lire"],
+      "prompt": { "lang": "de", "text": "Das Brot ist billig." },
+      "answerLang": "sq",
+      "solutions": ["Buka âsht e lirë."],
+      "standardForms": ["Buka është e lirë."],
+      "explanation": "„Buka“ ist feminin, darum „e lirë“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)i lir", "category": "grammar.linking_article", "hint": "„Buka“ ist feminin – darum „e lirë“." },
+        {
+          "pattern": "^buk[eë] ",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: bukë → buka."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_028",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "phrase.politeness", "grammar.question_particle"],
+      "itemIds": ["item_veze"],
+      "prompt": { "lang": "de", "text": "Haben Sie Eier?" },
+      "answerLang": "sq",
+      "solutions": ["A keni vezë?", "Keni vezë?"],
+      "explanation": "„A keni …?“ ist die höfliche Frage im Laden. „Vezë“ bleibt in der Mehrzahl gleich.",
+      "errorHints": [
+        { "pattern": "^(a )?ke ", "category": "grammar.verb_conjugation", "hint": "„Ke“ ist die Du-Form. Höflich: „A keni …?“." },
+        {
+          "pattern": "^(a )?kemi ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Kemi“ heisst „wir haben“. Höflich: „A keni …?“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_029",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "phrase.politeness"],
+      "itemIds": ["item_vec_kaq", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Nein, das ist alles, danke." },
+      "answerLang": "sq",
+      "solutions": ["Jo, veç kaq, faleminderit.", "Jo, veç kaq, falemnderit.", "Jo, faleminderit, veç kaq."],
+      "standardForms": ["Jo, vetëm kaq, faleminderit.", "Jo, vetëm kaq, falemnderit.", "Jo, faleminderit, vetëm kaq."],
+      "explanation": "„Veç kaq“ heisst „nur das, das ist alles“. „Veç“ ist Gheg für „nur“ (Standard: „vetëm“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_030",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping", "grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_me_ble", "item_buke"],
+      "prompt": { "lang": "de", "text": "Ich will Brot kaufen." },
+      "answerLang": "sq",
+      "solutions": ["Du me ble bukë.", "Unë du me ble bukë."],
+      "standardForms": ["Dua të blej bukë.", "Unë dua të blej bukë.", "Du të blej bukë."],
+      "explanation": "„Me ble“ ist der Gheg-Infinitiv von „blej“ (kaufen). Standard: „Dua të blej bukë.“",
+      "errorHints": [
+        { "pattern": "me blej", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „ble“: „me ble“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_031",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping", "grammar.linking_article"],
+      "itemIds": ["item_dyqan", "item_i_mbyllun"],
+      "prompt": { "lang": "de", "text": "Der Laden ist geschlossen." },
+      "answerLang": "sq",
+      "solutions": ["Dyqani âsht i mbyllun."],
+      "standardForms": ["Dyqani është i mbyllur.", "Dyqani âsht i mbyllur."],
+      "explanation": "„Dyqani“ ist maskulin: „i mbyllun“. Gheg-Adjektive aus Partizipien enden auf -un (Standard: „i mbyllur“).",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e mbyll",
+          "category": "grammar.linking_article",
+          "hint": "„Dyqani“ ist maskulin – darum „i mbyllun“."
+        },
+        {
+          "pattern": "^dyqan [aâ]sht",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: dyqan → dyqani."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Adjektivische Gheg-Partizipien auf -un („i hapun“, „i mbyllun“; Standard: i hapur, i mbyllur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_032",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_sa_kushton", "item_kilogram", "item_molle"],
+      "prompt": { "lang": "de", "text": "Wie viel kostet ein Kilo Äpfel?" },
+      "answerLang": "sq",
+      "solutions": ["Sa kushton nji kilogram mollë?", "Sa kushton nji kilo mollë?"],
+      "standardForms": ["Sa kushton një kilogram mollë?", "Sa kushton një kilo mollë?"],
+      "explanation": "Nach „nji kilogram“ steht das Nomen ohne Artikel: „mollë“.",
+      "errorHints": [
+        {
+          "pattern": "kilo(gram)? moll(a|et)",
+          "category": "grammar.definite_article",
+          "hint": "Nach einer Mengenangabe steht das Nomen ohne Artikel: „nji kilogram mollë“."
+        },
+        { "pattern": "kushtojn[eë]", "category": "grammar.verb_conjugation", "hint": "Es geht um „ein Kilo“ – darum „kushton“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_033",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.shopping", "grammar.verbs.infinitive_me", "grammar.verbs.modal", "grammar.question_particle"],
+      "itemIds": ["item_muj", "item_me_pague", "item_kartele"],
+      "prompt": { "lang": "de", "text": "Kann ich mit Karte zahlen?" },
+      "answerLang": "sq",
+      "solutions": ["A muj me pague me kartelë?", "Muj me pague me kartelë?"],
+      "standardForms": ["A mund të paguaj me kartë?", "A mund të paguaj me kartelë?", "Mund të paguaj me kartë?"],
+      "explanation": "„A muj me pague …?“ – „Kann ich … zahlen?“. Nach „muj“ folgt der Gheg-Infinitiv mit „me“.",
+      "errorHints": [
+        {
+          "pattern": "me paguaj",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip „pague“, nicht „paguaj“."
+        },
+        {
+          "pattern": "^(a )?mundesh",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Mundesh“ heisst „kannst du“. „Kann ich“ ist „muj“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „pague“ (von paguaj, Standard: paguar) nach der Regel -uar → -ue und das Kosovo-Wort „kartelë“ (Standard: kartë) zu prüfen. „muj“ (Standard: mund) ebenfalls zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_034",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_sa_kushton", "item_kushton"],
+      "prompt": { "lang": "de", "text": "Wie viel kostet das?" },
+      "answerLang": "sq",
+      "text": "Sa ___?",
+      "solutions": ["kushton"],
+      "choices": ["kushton", "kushtojnë", "bâj", "je"],
+      "explanation": "„Kushton“ heisst „(es) kostet“.",
+      "errorHints": [
+        {
+          "pattern": "^kushtojn[eë]$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Kushtojnë“ ist Mehrzahl (sie kosten). Für „das“ reicht „kushton“."
+        },
+        { "pattern": "^b[aâ]j$", "category": "grammar.verb_conjugation", "hint": "„Bâj“ heisst „ich mache“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_035",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_buke"],
+      "prompt": { "lang": "de", "text": "Ich möchte ein Brot." },
+      "answerLang": "sq",
+      "text": "Du nji ___.",
+      "solutions": ["bukë"],
+      "choices": ["bukë", "buka", "bukën", "qumësht"],
+      "explanation": "Nach „nji“ steht das Nomen ohne Artikel: „nji bukë“.",
+      "errorHints": [
+        {
+          "pattern": "^buka$",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji“ steht die unbestimmte Form: „nji bukë“."
+        },
+        {
+          "pattern": "^buk[eë]n$",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji“ steht die unbestimmte Form: „nji bukë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_036",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping", "grammar.linking_article"],
+      "itemIds": ["item_dyqan", "item_i_hapun"],
+      "prompt": { "lang": "de", "text": "Der Laden ist offen." },
+      "answerLang": "sq",
+      "text": "Dyqani âsht ___ hapun.",
+      "solutions": ["i"],
+      "choices": ["i", "e", "të", "së"],
+      "explanation": "„Dyqani“ ist maskulin – darum „i hapun“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„Dyqani“ ist maskulin – darum „i hapun“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Adjektivische Gheg-Partizipien auf -un („i hapun“, „i mbyllun“; Standard: i hapur, i mbyllur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_037",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_ku", "item_treg"],
+      "prompt": { "lang": "de", "text": "Wo ist der Markt?" },
+      "answerLang": "sq",
+      "text": "Ku âsht ___?",
+      "solutions": ["tregu"],
+      "explanation": "„Treg“ ist maskulin; mit Artikel heisst es „tregu“ (nach -g endet der Artikel auf -u).",
+      "errorHints": [
+        {
+          "pattern": "^treg$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: treg → tregu."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_038",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "vocab.numbers"],
+      "itemIds": ["item_kushton", "item_euro", "item_tre"],
+      "prompt": { "lang": "de", "text": "Es kostet drei Euro." },
+      "answerLang": "sq",
+      "text": "Kushton ___ euro.",
+      "solutions": ["tre"],
+      "explanation": "„Tre“ heisst „drei“. „Euro“ bleibt in der Mehrzahl gleich.",
+      "errorHints": [
+        { "pattern": "^3$", "category": "vocab.unknown", "hint": "Schreib die Zahl als Wort: „tre“." },
+        { "pattern": "^dy$", "category": "vocab.confused", "hint": "„Dy“ ist zwei. Drei heisst „tre“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_039",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "grammar.clitics"],
+      "itemIds": ["item_me_jep", "item_kilogram", "item_molle"],
+      "prompt": { "lang": "de", "text": "Gib mir bitte ein Kilo Äpfel." },
+      "answerLang": "sq",
+      "text": "Më ___ nji kilogram mollë, të lutem.",
+      "solutions": ["jep"],
+      "choices": ["jep", "jap", "ke", "blej"],
+      "explanation": "„Më jep“ heisst „gib mir“. „Jap“ wäre „ich gebe“.",
+      "errorHints": [
+        { "pattern": "^jap$", "category": "grammar.verb_conjugation", "hint": "„Jap“ heisst „ich gebe“. „Gib mir“ ist „më jep“." },
+        { "pattern": "^blej$", "category": "vocab.confused", "hint": "„Blej“ heisst „ich kaufe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_040",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping", "grammar.linking_article"],
+      "itemIds": ["item_qumesht", "item_i_shtrenjte"],
+      "prompt": { "lang": "de", "text": "Die Milch ist teuer." },
+      "answerLang": "sq",
+      "text": "Qumështi âsht ___ shtrenjtë.",
+      "solutions": ["i"],
+      "choices": ["i", "e", "të", "së"],
+      "explanation": "„Qumësht“ ist maskulin – anders als „die Milch“. Darum „i shtrenjtë“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„Qumështi“ ist maskulin – darum „i shtrenjtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_041",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_sa_ban"],
+      "prompt": { "lang": "de", "text": "Wie viel macht das?" },
+      "answerLang": "sq",
+      "text": "Sa ___?",
+      "solutions": ["bân", "kushton"],
+      "standardForms": ["bën"],
+      "explanation": "„Sa bân?“ – „Wie viel macht das?“ (Standard: „Sa bën?“). „Sa kushton?“ ist ebenfalls richtig.",
+      "errorHints": [
+        { "pattern": "^b[aâ]j$", "category": "grammar.verb_conjugation", "hint": "„Bâj“ heisst „ich mache“. Hier: „Sa bân?“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Sa bân?“ (wie viel macht das?, Standard: Sa bën?) als Kosovo-Alltagsform zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_042",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_ble", "item_qumesht"],
+      "prompt": { "lang": "de", "text": "Ich will Milch kaufen. (blej = ich kaufe)" },
+      "answerLang": "sq",
+      "text": "Du me ___ qumësht.",
+      "solutions": ["ble"],
+      "standardForms": ["blerë"],
+      "explanation": "„Blej“ hat das Gheg-Partizip „ble“: „me ble“ = kaufen (Standard: „blerë“).",
+      "errorHints": [
+        { "pattern": "^blej$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „ble“, nicht „blej“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_043",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "phrase.politeness"],
+      "itemIds": ["item_djathe"],
+      "prompt": { "lang": "de", "text": "Haben Sie Käse?" },
+      "answerLang": "sq",
+      "text": "A ___ djathë?",
+      "solutions": ["keni"],
+      "choices": ["keni", "kemi", "kam", "janë"],
+      "explanation": "„A keni …?“ ist die höfliche Frage: „Haben Sie …?“.",
+      "errorHints": [
+        { "pattern": "^kemi$", "category": "grammar.verb_conjugation", "hint": "„Kemi“ heisst „wir haben“." },
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_044",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_kushton", "item_veze"],
+      "prompt": { "lang": "de", "text": "Wie viel kosten die Eier?" },
+      "answerLang": "sq",
+      "text": "Sa ___ vezët?",
+      "solutions": ["kushtojnë"],
+      "explanation": "„Vezët“ (die Eier) ist Mehrzahl – darum „kushtojnë“ (sie kosten).",
+      "errorHints": [
+        {
+          "pattern": "^kushton$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Vezët“ ist Mehrzahl – darum „kushtojnë“ (sie kosten)."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_045",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.shopping", "grammar.clitics"],
+      "itemIds": ["item_e_marr"],
+      "prompt": { "lang": "de", "text": "Ja, ich nehme es." },
+      "answerLang": "sq",
+      "text": "Po, e ___.",
+      "solutions": ["marr"],
+      "explanation": "„E marr“ heisst „ich nehme es“ – das kurze „e“ steht für „es“.",
+      "errorHints": [
+        {
+          "pattern": "^merr$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Merr“ heisst „du nimmst“. „Ich nehme“ ist „marr“."
+        },
+        {
+          "pattern": "^blej$",
+          "category": "vocab.confused",
+          "hint": "„Blej“ heisst „ich kaufe“. Gefragt ist „ich nehme“: „marr“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_046",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_buke", "item_qumesht", "item_molle", "item_domate", "item_veze"],
+      "prompt": { "lang": "de", "text": "Ordne die Lebensmittel zu." },
+      "pairs": [
+        { "left": "bukë", "right": "Brot" },
+        { "left": "qumësht", "right": "Milch" },
+        { "left": "mollë", "right": "Apfel" },
+        { "left": "domate", "right": "Tomate" },
+        { "left": "vezë", "right": "Ei" }
+      ],
+      "explanation": "Achtung beim Genus: „qumësht“ ist maskulin, „mollë“ feminin – anders als im Deutschen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_047",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_treg", "item_dyqan", "item_qese", "item_djathe", "item_kartele"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "treg", "right": "Markt" },
+        { "left": "dyqan", "right": "Laden" },
+        { "left": "qese", "right": "Tüte" },
+        { "left": "djathë", "right": "Käse" },
+        { "left": "kartelë", "right": "Karte" }
+      ],
+      "explanation": "„Kartelë“ ist die (Bank-)Karte – im Kosovo so gesagt (Standard: „kartë“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Wort „kartelë“ (Standard: kartë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_048",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_sa_kushton", "item_sa_ban", "item_dicka_tjeter", "item_vec_kaq", "item_e_marr"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "sa kushton?", "right": "wie viel kostet das?" },
+        { "left": "sa bân?", "right": "wie viel macht das?" },
+        { "left": "diçka tjetër?", "right": "sonst noch etwas?" },
+        { "left": "veç kaq", "right": "das ist alles" },
+        { "left": "e marr", "right": "ich nehme es" }
+      ],
+      "explanation": "Mit diesen Wendungen kommst du durch jeden Einkauf.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Sa bân?“ (wie viel macht das?, Standard: Sa bën?) als Kosovo-Alltagsform zu prüfen. „veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_049",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_i_shtrenjte", "item_i_lire", "item_i_hapun", "item_i_mbyllun", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Ordne die Adjektive zu." },
+      "pairs": [
+        { "left": "i shtrenjtë", "right": "teuer" },
+        { "left": "i lirë", "right": "billig" },
+        { "left": "i hapun", "right": "offen" },
+        { "left": "i mbyllun", "right": "geschlossen" },
+        { "left": "i madh", "right": "gross" }
+      ],
+      "explanation": "„I hapun“ und „i mbyllun“ sind Gheg-Formen (Standard: „i hapur“, „i mbyllur“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Adjektivische Gheg-Partizipien auf -un („i hapun“, „i mbyllun“; Standard: i hapur, i mbyllur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_050",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.numbers", "phrase.shopping"],
+      "itemIds": ["item_euro", "item_dy", "item_tre", "item_kater", "item_pese", "item_dhjete"],
+      "prompt": { "lang": "de", "text": "Ordne die Preise zu." },
+      "pairs": [
+        { "left": "dy euro", "right": "zwei Euro" },
+        { "left": "tre euro", "right": "drei Euro" },
+        { "left": "katër euro", "right": "vier Euro" },
+        { "left": "pesë euro", "right": "fünf Euro" },
+        { "left": "dhjetë euro", "right": "zehn Euro" }
+      ],
+      "explanation": "„Euro“ bleibt in der Mehrzahl gleich: „nji euro, dy euro, dhjetë euro“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_051",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.shopping", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_blej", "item_me_ble", "item_kushton", "item_me_jep", "item_me_pague"],
+      "prompt": { "lang": "de", "text": "Ordne die Verbformen zu." },
+      "pairs": [
+        { "left": "blej", "right": "ich kaufe" },
+        { "left": "me ble", "right": "kaufen" },
+        { "left": "kushton", "right": "es kostet" },
+        { "left": "më jep", "right": "gib mir" },
+        { "left": "me pague", "right": "zahlen" }
+      ],
+      "explanation": "„Me ble“ und „me pague“ sind Gheg-Infinitive: „me“ + Partizip.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen. Partizip „pague“ (von paguaj, Standard: paguar) nach der Regel -uar → -ue und das Kosovo-Wort „kartelë“ (Standard: kartë) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_052",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping"],
+      "itemIds": ["item_sa_kushton", "item_qumesht"],
+      "prompt": { "lang": "de", "text": "Wie viel kostet die Milch?" },
+      "answerLang": "sq",
+      "tokens": ["Sa", "kushton", "qumështi"],
+      "solutions": ["Sa kushton qumështi?"],
+      "explanation": "„Sa kushton“ steht am Anfang, danach das Nomen mit Artikel: „qumështi“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_053",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping"],
+      "itemIds": ["item_blej", "item_buke", "item_qumesht", "item_dhe"],
+      "prompt": { "lang": "de", "text": "Ich kaufe Brot und Milch." },
+      "answerLang": "sq",
+      "tokens": ["Blej", "bukë", "dhe", "qumësht"],
+      "solutions": ["Blej bukë dhe qumësht.", "Blej qumësht dhe bukë."],
+      "explanation": "„Blej“ heisst „ich kaufe“. Ohne Artikel: „bukë“, „qumësht“ – allgemein Brot und Milch.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_054",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.shopping", "grammar.linking_article"],
+      "itemIds": ["item_djathe", "item_i_shtrenjte"],
+      "prompt": { "lang": "de", "text": "Der Käse ist teuer." },
+      "answerLang": "sq",
+      "tokens": ["Djathi", "âsht", "i", "shtrenjtë"],
+      "solutions": ["Djathi âsht i shtrenjtë."],
+      "explanation": "„Djathi“ (der Käse) ist maskulin – darum „i shtrenjtë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_055",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.shopping", "phrase.politeness", "grammar.question_particle"],
+      "itemIds": ["item_domate"],
+      "prompt": { "lang": "de", "text": "Haben Sie Tomaten?" },
+      "answerLang": "sq",
+      "tokens": ["A", "keni", "domate"],
+      "solutions": ["A keni domate?"],
+      "explanation": "„A“ am Anfang macht daraus eine Frage, „keni“ ist die höfliche Form.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_056",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "phrase.politeness", "grammar.clitics"],
+      "itemIds": ["item_me_jep", "item_qese", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Gib mir bitte eine Tüte." },
+      "answerLang": "sq",
+      "tokens": ["Më", "jep", "nji", "qese", "të", "lutem"],
+      "solutions": ["Më jep nji qese, të lutem.", "Të lutem, më jep nji qese."],
+      "explanation": "„Më jep“ = gib mir. „Të lutem“ darf am Anfang oder am Ende stehen.",
+      "errorHints": [
+        { "pattern": "^jep m[eë]", "category": "grammar.clitics", "hint": "Das kurze „më“ steht vor dem Verb: „më jep“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_057",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "vocab.numbers"],
+      "itemIds": ["item_buke", "item_kushton", "item_euro"],
+      "prompt": { "lang": "de", "text": "Das Brot kostet einen Euro." },
+      "answerLang": "sq",
+      "tokens": ["Buka", "kushton", "nji", "euro"],
+      "solutions": ["Buka kushton nji euro."],
+      "explanation": "Zuerst das Brot, dann „kushton“, dann der Preis.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_058",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.shopping", "grammar.case.accusative"],
+      "itemIds": ["item_dyqan", "item_i_mbyllun", "item_e_diel"],
+      "prompt": { "lang": "de", "text": "Am Sonntag ist der Laden geschlossen." },
+      "answerLang": "sq",
+      "tokens": ["Të", "dielën", "dyqani", "âsht", "i", "mbyllun"],
+      "solutions": ["Të dielën dyqani âsht i mbyllun.", "Dyqani âsht i mbyllun të dielën."],
+      "explanation": "„Të dielën“ = am Sonntag. „I mbyllun“ = geschlossen (Standard: „i mbyllur“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Adjektivische Gheg-Partizipien auf -un („i hapun“, „i mbyllun“; Standard: i hapur, i mbyllur) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_059",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.shopping", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_treg", "item_me_ble", "item_molle"],
+      "prompt": { "lang": "de", "text": "Ich gehe auf den Markt, um Äpfel zu kaufen." },
+      "answerLang": "sq",
+      "tokens": ["Shkoj", "në", "treg", "me", "ble", "mollë"],
+      "solutions": ["Shkoj në treg me ble mollë."],
+      "explanation": "„Me ble“ = kaufen. Im Gheg reicht der Infinitiv: „shkoj … me ble“ = ich gehe, um zu kaufen.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u13_shopping_060",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.shopping", "grammar.adjective_agreement"],
+      "itemIds": ["item_domate", "item_i_lire", "item_sot"],
+      "prompt": { "lang": "de", "text": "Heute sind die Tomaten billig." },
+      "answerLang": "sq",
+      "tokens": ["Sot", "domatet", "janë", "të", "lira"],
+      "solutions": ["Sot domatet janë të lira.", "Domatet janë të lira sot."],
+      "explanation": "In der Mehrzahl heisst der Verbindungsartikel „të“: „domatet janë të lira“.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

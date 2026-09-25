@@ -1,0 +1,1379 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_u10_infinitive_me",
+  "level": "A1.3",
+  "grammar": [
+    {
+      "title": "Der Gheg-Infinitiv: me + Partizip",
+      "explanation": "Gheg hat einen echten Infinitiv: **me** + Partizip.\n\n| Gheg | Deutsch | Standard |\n|---|---|---|\n| me punue | arbeiten | të punoj |\n| me shkrue | schreiben | të shkruaj |\n| me bâ | machen | të bëj |\n| me folë | sprechen | të flas |\n\nStandardalbanisch hat keinen Infinitiv und sagt *të* + Verbform. Wenn du *Dua të punoj* schreibst, gilt das als „richtig, aber Standard“."
+    },
+    {
+      "title": "Das kurze Gheg-Partizip",
+      "explanation": "Verben auf **-oj** bilden das Partizip auf **-ue**: *punoj → punue, mësoj → mësue, shkoj → shkue, lexoj → lexue*. Auch *shkruaj → shkrue*.\n\nEinige häufige Verben sind unregelmässig: *bâj → bâ* (machen), *flas → folë* (sprechen), *vij → ardhë* (kommen), *fle → fjetë* (schlafen), *ha → ngrânë* (essen), *pi → pi* (trinken). Das Partizip bleibt immer gleich – egal, wer etwas tut."
+    },
+    {
+      "title": "Wollen, können, müssen",
+      "explanation": "Nach diesen Wörtern folgt der Infinitiv mit **me**:\n\n- **du me …** – ich will …: *Du me punue.*\n- **don me …** – du willst / er will …: *A don me pi kafe?*\n- **muj me …** – ich kann …: *Muj me ardhë.* – *S'muj me ardhë.* (ich kann nicht kommen)\n- **duhet me …** / **më duhet me …** – man muss / ich muss …: *Më duhet me punue.*\n- **s'kam kohë me …** – ich habe keine Zeit zu …: *S'kam kohë me folë.*"
+    }
+  ],
+  "items": [
+    { "id": "item_me_infinitiv", "kind": "grammar", "gheg": "me + Partizip", "de": "Gheg-Infinitiv (z. B. me punue = arbeiten)", "reviewed": false },
+    { "id": "item_me_punue", "kind": "word", "gheg": "me punue", "de": "arbeiten", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_shkrue", "kind": "word", "gheg": "me shkrue", "de": "schreiben", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_ba", "kind": "word", "gheg": "me bâ", "de": "machen, tun", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_mesue", "kind": "word", "gheg": "me mësue", "de": "lernen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_shkue", "kind": "word", "gheg": "me shkue", "de": "gehen", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_me_fole",
+      "kind": "word",
+      "gheg": "me folë",
+      "de": "sprechen, reden",
+      "partOfSpeech": "verb",
+      "note": "Partizip „folë“ (Kosovo auch „fol“) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    { "id": "item_me_lexue", "kind": "word", "gheg": "me lexue", "de": "lesen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_pi", "kind": "word", "gheg": "me pi", "de": "trinken", "partOfSpeech": "verb", "note": "Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen.", "reviewed": false },
+    { "id": "item_me_ngrane", "kind": "word", "gheg": "me ngrânë", "de": "essen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_ardhe", "kind": "word", "gheg": "me ardhë", "de": "kommen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_fjete", "kind": "word", "gheg": "me fjetë", "de": "schlafen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_ndihmue", "kind": "word", "gheg": "me ndihmue", "de": "helfen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_pushue", "kind": "word", "gheg": "me pushue", "de": "sich ausruhen, Pause machen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_dale", "kind": "word", "gheg": "me dalë", "de": "hinausgehen, ausgehen", "partOfSpeech": "verb", "reviewed": false },
+    {
+      "id": "item_me_luejte",
+      "kind": "word",
+      "gheg": "me luejtë",
+      "de": "spielen",
+      "partOfSpeech": "verb",
+      "note": "Gheg-Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_me_gatue",
+      "kind": "word",
+      "gheg": "me gatue",
+      "de": "kochen",
+      "partOfSpeech": "verb",
+      "note": "Partizip „gatue“ (von gatuaj, Standard: gatuar) nach der Regel -uar → -ue gebildet – zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_du",
+      "kind": "word",
+      "gheg": "du",
+      "de": "ich will; ich liebe",
+      "partOfSpeech": "verb",
+      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen (auch „due“; Standard: dua).",
+      "reviewed": false
+    },
+    {
+      "id": "item_don",
+      "kind": "word",
+      "gheg": "don",
+      "de": "du willst; er/sie will",
+      "partOfSpeech": "verb",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_muj",
+      "kind": "word",
+      "gheg": "muj",
+      "de": "ich kann",
+      "partOfSpeech": "verb",
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen.",
+      "reviewed": false
+    },
+    {
+      "id": "item_mundesh",
+      "kind": "word",
+      "gheg": "mundesh",
+      "de": "du kannst",
+      "partOfSpeech": "verb",
+      "note": "Form für „du kannst“ im Kosovo-Gheg zu prüfen (gesprochen oft „mun, munesh“).",
+      "reviewed": false
+    },
+    { "id": "item_duhet", "kind": "word", "gheg": "duhet", "de": "man muss, es ist nötig", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_duhet", "kind": "phrase", "gheg": "më duhet", "de": "ich muss (wörtlich: mir ist nötig)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_kohe", "kind": "word", "gheg": "kohë", "de": "Zeit", "partOfSpeech": "noun", "gender": "f", "definite": "koha", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a1_u10_infinitive_me_001",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_me_punue"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Du me punue.“?" },
+      "choices": ["Ich will arbeiten.", "Ich muss arbeiten.", "Ich kann arbeiten.", "Ich arbeite gerade."],
+      "solutions": ["Ich will arbeiten."],
+      "explanation": "„Du“ heisst „ich will“, „me punue“ ist der Gheg-Infinitiv „arbeiten“ (Standard: „Dua të punoj.“).",
+      "errorHints": [
+        { "pattern": "muss", "category": "vocab.confused", "hint": "„Ich muss“ hiesse „duhet“ oder „më duhet“." },
+        { "pattern": "kann", "category": "vocab.confused", "hint": "„Ich kann“ hiesse „muj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_002",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_duhet", "item_me_shkue"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ich muss gehen“?" },
+      "choices": ["Duhet me shkue.", "Du me shkue.", "Muj me shkue.", "Po shkoj."],
+      "solutions": ["Duhet me shkue."],
+      "explanation": "„Duhet“ heisst „man muss, es ist nötig“. Danach folgt der Infinitiv „me shkue“ (gehen).",
+      "errorHints": [
+        { "pattern": "^du me", "category": "vocab.confused", "hint": "„Du me shkue“ heisst „ich will gehen“." },
+        { "pattern": "^muj", "category": "vocab.confused", "hint": "„Muj me shkue“ heisst „ich kann gehen“." },
+        { "pattern": "^po shkoj", "category": "vocab.confused", "hint": "„Po shkoj“ heisst „ich gehe gerade“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_003",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_infinitiv"],
+      "prompt": { "lang": "de", "text": "Welches Wort steht beim Gheg-Infinitiv vor dem Partizip?" },
+      "choices": ["me", "po", "e", "a"],
+      "solutions": ["me"],
+      "explanation": "Der Gheg-Infinitiv ist „me“ + Partizip: me punue, me shkrue, me bâ. Standardalbanisch hat keinen Infinitiv.",
+      "errorHints": [
+        {
+          "pattern": "^po$",
+          "category": "grammar.infinitive",
+          "hint": "„Po“ steht vor Verben im Präsens („po punoj“ = ich arbeite gerade), nicht vor dem Partizip."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_004",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.participle"],
+      "itemIds": ["item_me_shkrue"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „me shkrue“?" },
+      "choices": ["schreiben", "lesen", "lernen", "sprechen"],
+      "solutions": ["schreiben"],
+      "explanation": "„Me shkrue“ heisst „schreiben“. Das Partizip „shkrue“ ist die kurze Gheg-Form (Standard: „shkruar“).",
+      "errorHints": [
+        { "pattern": "^lesen$", "category": "vocab.confused", "hint": "„Lesen“ heisst „me lexue“." },
+        { "pattern": "^lernen$", "category": "vocab.confused", "hint": "„Lernen“ heisst „me mësue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_005",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_muj", "item_me_ardhe"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Muj me ardhë.“?" },
+      "choices": ["Ich kann kommen.", "Ich will kommen.", "Ich muss kommen.", "Ich komme morgen."],
+      "solutions": ["Ich kann kommen."],
+      "explanation": "„Muj“ heisst „ich kann“ (Kosovo-Form, Standard: „mund“). „Me ardhë“ heisst „kommen“.",
+      "errorHints": [
+        { "pattern": "will", "category": "vocab.confused", "hint": "„Ich will“ hiesse „du“." },
+        { "pattern": "muss", "category": "vocab.confused", "hint": "„Ich muss“ hiesse „duhet“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_006",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_me_ba"],
+      "prompt": { "lang": "de", "text": "Welches ist das Gheg-Partizip von „bâj“ (machen)?" },
+      "choices": ["bâ", "bân", "bâjmë", "bâni"],
+      "solutions": ["bâ"],
+      "explanation": "Das Partizip von „bâj“ ist ganz kurz: „bâ“ – also „me bâ“ (machen). Standard: „bërë“.",
+      "errorHints": [
+        {
+          "pattern": "^b[aâ]n$",
+          "category": "grammar.participle",
+          "hint": "„Bân“ heisst „du machst, er macht“. Das Partizip ist „bâ“."
+        },
+        {
+          "pattern": "^b[aâ]jm[eë]$",
+          "category": "grammar.participle",
+          "hint": "„Bâjmë“ heisst „wir machen“. Das Partizip ist „bâ“."
+        },
+        { "pattern": "^b[aâ]ni$", "category": "grammar.participle", "hint": "„Bâni“ heisst „ihr macht“. Das Partizip ist „bâ“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_007",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle"],
+      "itemIds": ["item_me_fole", "item_flas"],
+      "prompt": { "lang": "de", "text": "Welches ist das Gheg-Partizip von „flas“ (sprechen)?" },
+      "choices": ["folë", "flet", "flasim", "flas"],
+      "solutions": ["folë"],
+      "explanation": "„Flas“ hat das Partizip „folë“: „me folë“ heisst „sprechen“. Standard: „folur“.",
+      "errorHints": [
+        {
+          "pattern": "^fl",
+          "category": "grammar.participle",
+          "hint": "Das ist eine Präsensform. Das Partizip von „flas“ ist „folë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „folë“ (Kosovo auch „fol“) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_008",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_me_mesue", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Welcher Satz heisst „Ich will Albanisch lernen.“?" },
+      "choices": ["Du me mësue shqip.", "Du me mësoj shqip.", "Du mësue shqip.", "Me du mësue shqip."],
+      "solutions": ["Du me mësue shqip."],
+      "explanation": "Nach „du“ folgt „me“ + Partizip: „me mësue“. Die Präsensform „mësoj“ passt nach „me“ nicht.",
+      "errorHints": [
+        {
+          "pattern": "me m[eë]soj",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip „mësue“, nicht „mësoj“."
+        },
+        { "pattern": "^du m[eë]sue", "category": "grammar.infinitive", "hint": "Das „me“ gehört dazu: „du me mësue“." },
+        { "pattern": "^me du", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „Du me mësue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_009",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_duhet", "item_me_punue", "item_sot"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Më duhet me punue sot.“?" },
+      "choices": [
+        "Ich muss heute arbeiten.",
+        "Ich will heute arbeiten.",
+        "Ich habe heute gearbeitet.",
+        "Ich kann heute nicht arbeiten."
+      ],
+      "solutions": ["Ich muss heute arbeiten."],
+      "explanation": "„Më duhet“ heisst „ich muss“ (wörtlich „mir ist nötig“). „Sot“ heisst „heute“.",
+      "errorHints": [
+        {
+          "pattern": "gearbeitet",
+          "category": "grammar.verb_tense",
+          "hint": "„Me punue“ ist ein Infinitiv, keine Vergangenheit."
+        },
+        { "pattern": "will", "category": "vocab.confused", "hint": "„Ich will“ hiesse „du“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_010",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.question_particle"],
+      "itemIds": ["item_don", "item_me_pi"],
+      "prompt": { "lang": "de", "text": "Wie fragst du „Willst du Kaffee trinken?“?" },
+      "choices": ["A don me pi kafe?", "A du me pi kafe?", "A pi kafe?", "A ke kafe?"],
+      "solutions": ["A don me pi kafe?"],
+      "explanation": "„Don“ heisst „du willst“ (Kosovo-Form, Standard: „do“). „Du“ wäre „ich will“.",
+      "errorHints": [
+        {
+          "pattern": "^a du ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Du“ heisst „ich will“. Für „du willst“ sagst du „don“."
+        },
+        { "pattern": "^a pi kafe", "category": "vocab.confused", "hint": "„A pi kafe?“ heisst „Trinkst du Kaffee?“." },
+        { "pattern": "^a ke kafe", "category": "vocab.confused", "hint": "„A ke kafe?“ heisst „Hast du Kaffee?“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_011",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_me_ngrane"],
+      "prompt": { "lang": "de", "text": "Welches ist das Gheg-Partizip von „ha“ (essen)?" },
+      "choices": ["ngrânë", "hangra", "hamë", "ha"],
+      "solutions": ["ngrânë"],
+      "explanation": "„Ha“ hat ein ganz anderes Partizip: „ngrânë“ – „me ngrânë“ heisst „essen“. Standard: „ngrënë“.",
+      "errorHints": [
+        {
+          "pattern": "^hangra$",
+          "category": "grammar.verb_tense",
+          "hint": "„Hangra“ heisst „ich ass“ (Vergangenheit). Das Partizip ist „ngrânë“."
+        },
+        {
+          "pattern": "^ham[eë]$",
+          "category": "grammar.participle",
+          "hint": "„Hamë“ heisst „wir essen“. Das Partizip ist „ngrânë“."
+        },
+        { "pattern": "^ha$", "category": "grammar.participle", "hint": "„Ha“ ist die Präsensform. Das Partizip ist „ngrânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_012",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.negation"],
+      "itemIds": ["item_kohe", "item_me_fole"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „S'kam kohë me folë.“?" },
+      "choices": [
+        "Ich habe keine Zeit zu reden.",
+        "Ich will nicht reden.",
+        "Ich kann nicht sprechen.",
+        "Ich habe keine Zeit zum Essen."
+      ],
+      "solutions": ["Ich habe keine Zeit zu reden."],
+      "explanation": "„S'kam kohë“ heisst „ich habe keine Zeit“. Der Infinitiv „me folë“ sagt, wofür: „zu reden“.",
+      "errorHints": [
+        {
+          "pattern": "essen",
+          "category": "vocab.confused",
+          "hint": "„Essen“ hiesse „me ngrânë“. „Me folë“ heisst „reden, sprechen“."
+        },
+        { "pattern": "will", "category": "vocab.confused", "hint": "„Ich will nicht“ hiesse „nuk du“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_013",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_me_punue"],
+      "prompt": { "lang": "de", "text": "Ich will arbeiten." },
+      "answerLang": "sq",
+      "solutions": ["Du me punue."],
+      "wordBank": ["Du", "me", "punue", "punoj", "muj", "don"],
+      "explanation": "„Du“ = ich will, „me punue“ = arbeiten. Standard wäre „Dua të punoj.“",
+      "errorHints": [
+        { "pattern": "me punoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me punue“." },
+        {
+          "pattern": "^don ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Don“ heisst „du willst“. Für „ich will“ sagst du „du“."
+        },
+        { "pattern": "^muj ", "category": "vocab.confused", "hint": "„Muj“ heisst „ich kann“. Für „ich will“ sagst du „du“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_014",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_duhet", "item_me_shkue"],
+      "prompt": { "lang": "de", "text": "Ich muss gehen." },
+      "answerLang": "sq",
+      "solutions": ["Duhet me shkue.", "Më duhet me shkue."],
+      "wordBank": ["Duhet", "me", "shkue", "shkoj", "du", "po"],
+      "explanation": "„Duhet“ heisst „man muss“. Mit „më duhet“ sagst du ausdrücklich „ich muss“.",
+      "errorHints": [
+        { "pattern": "me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." },
+        { "pattern": "^du ", "category": "vocab.confused", "hint": "„Du“ heisst „ich will“. „Ich muss“ ist „duhet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_015",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_me_mesue", "item_shqip"],
+      "prompt": { "lang": "sq", "text": "Du me mësue shqip." },
+      "answerLang": "de",
+      "solutions": ["Ich will Albanisch lernen.", "Ich möchte Albanisch lernen."],
+      "wordBank": ["Ich", "will", "Albanisch", "lernen", "muss", "kann", "Deutsch"],
+      "explanation": "„Shqip“ heisst „Albanisch“. „Du me mësue“ = „ich will lernen“.",
+      "errorHints": [
+        { "pattern": "muss", "category": "vocab.confused", "hint": "„Ich muss“ hiesse „duhet“." },
+        { "pattern": "kann", "category": "vocab.confused", "hint": "„Ich kann“ hiesse „muj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_016",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_muj", "item_me_shkrue"],
+      "prompt": { "lang": "sq", "text": "Muj me shkrue." },
+      "answerLang": "de",
+      "solutions": ["Ich kann schreiben."],
+      "wordBank": ["Ich", "kann", "schreiben", "will", "lesen", "muss"],
+      "explanation": "„Muj“ heisst „ich kann“, „me shkrue“ heisst „schreiben“.",
+      "errorHints": [
+        { "pattern": "lesen", "category": "vocab.confused", "hint": "„Lesen“ hiesse „me lexue“." },
+        { "pattern": "will", "category": "vocab.confused", "hint": "„Ich will“ hiesse „du“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_017",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.question_particle"],
+      "itemIds": ["item_don", "item_me_fjete"],
+      "prompt": { "lang": "de", "text": "Willst du schlafen?" },
+      "answerLang": "sq",
+      "solutions": ["A don me fjetë?", "Don me fjetë?"],
+      "wordBank": ["A", "don", "me", "fjetë", "du", "fle", "je"],
+      "explanation": "„Fle“ heisst „ich schlafe“, das Partizip ist „fjetë“: „me fjetë“ = schlafen.",
+      "errorHints": [
+        {
+          "pattern": "^(a )?du ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Du“ heisst „ich will“. Für „du willst“ sagst du „don“."
+        },
+        { "pattern": "me fle", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „fjetë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_018",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_du", "item_me_ba", "item_nji", "item_kafe"],
+      "prompt": { "lang": "de", "text": "Ich will einen Kaffee machen." },
+      "answerLang": "sq",
+      "solutions": ["Du me bâ nji kafe."],
+      "wordBank": ["Du", "me", "bâ", "nji", "kafe", "bân", "bâj", "don"],
+      "explanation": "„Me bâ“ heisst „machen“ – das kurze Gheg-Partizip von „bâj“ (Standard: „bërë“).",
+      "errorHints": [
+        { "pattern": "me b[aâ]j", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „bâ“, nicht „bâj“." },
+        { "pattern": "me b[aâ]n", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „bâ“, nicht „bân“." },
+        {
+          "pattern": "^don ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Don“ heisst „du willst“. Für „ich will“ sagst du „du“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_019",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_duhet", "item_me_punue", "item_sot"],
+      "prompt": { "lang": "sq", "text": "Më duhet me punue sot." },
+      "answerLang": "de",
+      "solutions": ["Ich muss heute arbeiten.", "Heute muss ich arbeiten."],
+      "wordBank": ["Ich", "muss", "heute", "arbeiten", "will", "gestern", "kann"],
+      "explanation": "„Më duhet“ heisst „ich muss“, „sot“ ist „heute“.",
+      "errorHints": [
+        { "pattern": "gestern", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“; „gestern“ wäre „dje“." },
+        { "pattern": "will", "category": "vocab.confused", "hint": "„Më duhet“ heisst „ich muss“. „Ich will“ wäre „du“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_020",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.negation"],
+      "itemIds": ["item_muj", "item_me_ardhe", "item_neser"],
+      "prompt": { "lang": "sq", "text": "S'muj me ardhë nesër." },
+      "answerLang": "de",
+      "solutions": ["Ich kann morgen nicht kommen.", "Morgen kann ich nicht kommen."],
+      "wordBank": ["Ich", "kann", "morgen", "nicht", "kommen", "will", "heute", "muss"],
+      "explanation": "„S'muj“ heisst „ich kann nicht“ – „s'“ ist die kurze Verneinung. „Me ardhë“ heisst „kommen“.",
+      "errorHints": [
+        { "pattern": "heute", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“." },
+        {
+          "pattern": "will",
+          "category": "vocab.confused",
+          "hint": "„S'muj“ heisst „ich kann nicht“. „Ich will nicht“ wäre „s'du“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_021",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_ku", "item_don", "item_me_shkue"],
+      "prompt": { "lang": "de", "text": "Wohin willst du gehen?" },
+      "answerLang": "sq",
+      "solutions": ["Ku don me shkue?"],
+      "wordBank": ["Ku", "don", "me", "shkue", "du", "shkoj", "si"],
+      "explanation": "„Ku“ heisst „wo, wohin“. Standard wäre „Ku do të shkosh?“",
+      "errorHints": [
+        {
+          "pattern": "^ku du ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Du“ heisst „ich will“. Für „du willst“ sagst du „don“."
+        },
+        { "pattern": "me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „shkue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_022",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_don", "item_me_lexue", "item_liber"],
+      "prompt": { "lang": "sq", "text": "Arta don me lexue nji libër." },
+      "answerLang": "de",
+      "solutions": ["Arta will ein Buch lesen.", "Arta möchte ein Buch lesen."],
+      "wordBank": ["Arta", "will", "ein", "Buch", "lesen", "schreiben", "muss", "kann"],
+      "explanation": "„Don“ heisst hier „sie will“ – dieselbe Form wie „du willst“. „Me lexue“ heisst „lesen“.",
+      "errorHints": [
+        { "pattern": "schreiben", "category": "vocab.confused", "hint": "„Schreiben“ hiesse „me shkrue“." },
+        { "pattern": "muss", "category": "vocab.confused", "hint": "„Muss“ hiesse „duhet“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_023",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_du", "item_me_fole", "item_me_prep", "item_nane"],
+      "prompt": { "lang": "de", "text": "Ich will mit der Mutter sprechen." },
+      "answerLang": "sq",
+      "solutions": ["Du me folë me nânën."],
+      "wordBank": ["Du", "me", "folë", "me", "nânën", "flas", "nâna", "don"],
+      "explanation": "Hier kommt „me“ zweimal vor: „me folë“ ist der Infinitiv (sprechen), „me nânën“ heisst „mit der Mutter“.",
+      "errorHints": [
+        { "pattern": "me flas", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „folë“." },
+        { "pattern": "me n[aâ]na$", "category": "grammar.case", "hint": "Nach „me“ (mit) steht der Akkusativ: „me nânën“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „folë“ (Kosovo auch „fol“) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_024",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.infinitive_me"],
+      "itemIds": ["item_asht", "item_me_mesue", "item_shqip"],
+      "prompt": { "lang": "sq", "text": "Âsht mirë me mësue shqip." },
+      "answerLang": "de",
+      "solutions": ["Es ist gut, Albanisch zu lernen.", "Albanisch zu lernen ist gut."],
+      "wordBank": ["Es", "ist", "gut", "Albanisch", "zu", "lernen", "schlecht", "sprechen", "muss"],
+      "explanation": "Gheg sagt „âsht mirë me mësue“ – wörtlich „es ist gut zu lernen“. Standard: „Është mirë të mësosh.“",
+      "errorHints": [
+        {
+          "pattern": "sprechen",
+          "category": "vocab.confused",
+          "hint": "„Sprechen“ hiesse „me folë“; „me mësue“ heisst „lernen“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_025",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_du", "item_me_ngrane"],
+      "prompt": { "lang": "de", "text": "Ich will essen." },
+      "answerLang": "sq",
+      "solutions": ["Du me ngrânë.", "Unë du me ngrânë."],
+      "standardForms": ["Dua të ha.", "Unë dua të ha.", "Du të ha."],
+      "explanation": "„Ha“ (essen) hat das Partizip „ngrânë“: „Du me ngrânë.“ Standard: „Dua të ha.“",
+      "errorHints": [
+        {
+          "pattern": "me ha(\\s|$)",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip: „me ngrânë“, nicht „me ha“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen (auch „due“; Standard: dua)."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_026",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_duhet", "item_me_punue"],
+      "prompt": { "lang": "de", "text": "Ich muss arbeiten." },
+      "answerLang": "sq",
+      "solutions": ["Duhet me punue.", "Më duhet me punue."],
+      "standardForms": ["Duhet të punoj.", "Më duhet të punoj."],
+      "explanation": "Mit „duhet me“ + Partizip sagst du, was du tun musst. Standard: „Duhet të punoj.“",
+      "errorHints": [
+        { "pattern": "me punoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me punue“." },
+        {
+          "pattern": "^(un[eë] )?du me punue",
+          "category": "vocab.confused",
+          "hint": "„Du me punue“ heisst „ich will arbeiten“. „Ich muss“ ist „duhet“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_027",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_muj", "item_me_ardhe"],
+      "prompt": { "lang": "de", "text": "Ich kann kommen." },
+      "answerLang": "sq",
+      "solutions": ["Muj me ardhë.", "Unë muj me ardhë."],
+      "standardForms": ["Mund të vij.", "Unë mund të vij."],
+      "explanation": "„Muj“ heisst „ich kann“ (Standard: „mund“), „me ardhë“ heisst „kommen“.",
+      "errorHints": [{ "pattern": "me vij", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „ardhë“." }],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_028",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_me_shkue", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Ich will nach Hause gehen." },
+      "answerLang": "sq",
+      "solutions": ["Du me shkue në shpi.", "Unë du me shkue në shpi."],
+      "standardForms": ["Dua të shkoj në shtëpi.", "Unë dua të shkoj në shtëpi.", "Du të shkoj në shpi."],
+      "explanation": "„Në shpi“ heisst „nach Hause“ oder „zu Hause“. Gheg sagt „shpi“ (Standard: „shtëpi“).",
+      "errorHints": [{ "pattern": "me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „shkue“." }],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen (auch „due“; Standard: dua)."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_029",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.negation"],
+      "itemIds": ["item_kohe", "item_me_fole"],
+      "prompt": { "lang": "de", "text": "Ich habe keine Zeit zu reden." },
+      "answerLang": "sq",
+      "solutions": ["S'kam kohë me folë.", "Nuk kam kohë me folë."],
+      "standardForms": ["S'kam kohë të flas.", "Nuk kam kohë të flas."],
+      "explanation": "„S'kam kohë“ = „ich habe keine Zeit“, danach folgt der Infinitiv „me folë“ (reden). Standard: „S'kam kohë të flas.“",
+      "errorHints": [{ "pattern": "me flas", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „folë“." }],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „folë“ (Kosovo auch „fol“) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_030",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.question_particle"],
+      "itemIds": ["item_don", "item_me_pi", "item_kafe"],
+      "prompt": { "lang": "de", "text": "Willst du Kaffee trinken?" },
+      "answerLang": "sq",
+      "solutions": ["A don me pi kafe?", "Don me pi kafe?"],
+      "standardForms": ["A do të pish kafe?", "Do të pish kafe?"],
+      "explanation": "„A don …?“ fragt „willst du …?“. Das Partizip von „pi“ (trinken) ist ebenfalls „pi“.",
+      "errorHints": [
+        {
+          "pattern": "^(a )?du ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Du“ heisst „ich will“. Für „du willst“ sagst du „don“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_031",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_du", "item_me_punue", "item_sot"],
+      "prompt": { "lang": "de", "text": "Ich will heute nicht arbeiten." },
+      "answerLang": "sq",
+      "solutions": ["Nuk du me punue sot.", "Sot nuk du me punue.", "S'du me punue sot.", "Sot s'du me punue."],
+      "standardForms": ["Nuk dua të punoj sot.", "Sot nuk dua të punoj."],
+      "explanation": "Die Verneinung „nuk“ oder „s'“ steht vor dem Verb: „nuk du me punue“.",
+      "errorHints": [
+        { "pattern": "^du nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor „du“: „Nuk du me punue.“" },
+        { "pattern": "me punoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me punue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen (auch „due“; Standard: dua)."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_032",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.clitics", "grammar.question_particle"],
+      "itemIds": ["item_mundesh", "item_me_ndihmue"],
+      "prompt": { "lang": "de", "text": "Kannst du mir helfen?" },
+      "answerLang": "sq",
+      "solutions": ["A mundesh me më ndihmue?", "Mundesh me më ndihmue?"],
+      "standardForms": ["A mund të më ndihmosh?", "Mund të më ndihmosh?"],
+      "explanation": "Das kurze „më“ (mir) steht zwischen „me“ und dem Partizip: „me më ndihmue“.",
+      "errorHints": [
+        {
+          "pattern": "me ndihmue m[eë](\\s|$)",
+          "category": "grammar.clitics",
+          "hint": "„Më“ steht vor dem Partizip: „me më ndihmue“."
+        },
+        { "pattern": "m[eë] me ndihmue", "category": "grammar.clitics", "hint": "„Më“ steht nach „me“: „me më ndihmue“." },
+        { "pattern": "me ndihmoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „ndihmue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Stellung des Klitikons in „me më ndihmue“ und die Form „mundesh“ im Kosovo-Gheg zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_033",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.infinitive_me", "spelling.nasal_vowels"],
+      "itemIds": ["item_asht", "item_me_mesue", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Es ist gut, Albanisch zu lernen." },
+      "answerLang": "sq",
+      "solutions": ["Âsht mirë me mësue shqip."],
+      "standardForms": ["Është mirë të mësosh shqip.", "Është mirë të mësojmë shqip.", "Është mirë të mësosh gjuhën shqipe."],
+      "explanation": "Gheg braucht hier einfach den Infinitiv „me mësue“. Standard sagt „të mësosh“ (dass du lernst).",
+      "errorHints": [
+        { "pattern": "me m[eë]soj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „mësue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_034",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_infinitiv", "item_me_punue"],
+      "prompt": { "lang": "de", "text": "Ich will arbeiten." },
+      "answerLang": "sq",
+      "text": "Du ___ punue.",
+      "solutions": ["me"],
+      "choices": ["me", "po", "e", "a"],
+      "explanation": "Der Gheg-Infinitiv beginnt immer mit „me“: me punue, me shkrue, me bâ.",
+      "errorHints": [
+        {
+          "pattern": "^po$",
+          "category": "grammar.infinitive",
+          "hint": "„Po“ steht vor dem Präsens („po punoj“). Vor dem Partizip steht „me“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_035",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_shkrue"],
+      "prompt": { "lang": "de", "text": "Ich will schreiben." },
+      "answerLang": "sq",
+      "text": "Du me ___.",
+      "solutions": ["shkrue"],
+      "choices": ["shkrue", "shkruaj", "shkruan", "shkrova"],
+      "standardForms": ["shkruar"],
+      "explanation": "Nach „me“ steht das Partizip: „shkrue“ (Standard: „shkruar“).",
+      "errorHints": [
+        {
+          "pattern": "^shkruaj$",
+          "category": "grammar.infinitive",
+          "hint": "„Shkruaj“ heisst „ich schreibe“. Nach „me“ steht das Partizip „shkrue“."
+        },
+        {
+          "pattern": "^shkruan$",
+          "category": "grammar.infinitive",
+          "hint": "„Shkruan“ heisst „du schreibst“. Nach „me“ steht das Partizip „shkrue“."
+        },
+        {
+          "pattern": "^shkrova$",
+          "category": "grammar.verb_tense",
+          "hint": "„Shkrova“ heisst „ich schrieb“. Nach „me“ steht das Partizip „shkrue“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_036",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_duhet", "item_me_shkue"],
+      "prompt": { "lang": "de", "text": "Ich muss gehen." },
+      "answerLang": "sq",
+      "text": "___ me shkue.",
+      "solutions": ["Duhet"],
+      "choices": ["Duhet", "Du", "Muj", "Don"],
+      "explanation": "„Duhet“ heisst „man muss, es ist nötig“.",
+      "errorHints": [
+        { "pattern": "^du$", "category": "vocab.confused", "hint": "„Du“ heisst „ich will“." },
+        { "pattern": "^muj$", "category": "vocab.confused", "hint": "„Muj“ heisst „ich kann“." },
+        { "pattern": "^don$", "category": "vocab.confused", "hint": "„Don“ heisst „du willst“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_037",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_mesue"],
+      "prompt": { "lang": "de", "text": "Ich will lernen. (mësoj = ich lerne)" },
+      "answerLang": "sq",
+      "text": "Du me ___.",
+      "solutions": ["mësue"],
+      "standardForms": ["mësuar"],
+      "explanation": "Verben auf -oj bilden das Partizip auf -ue: mësoj → mësue (Standard: mësuar).",
+      "errorHints": [
+        {
+          "pattern": "^m[eë]soj$",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip „mësue“, nicht „mësoj“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_038",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_me_lexue", "item_duhet"],
+      "prompt": { "lang": "de", "text": "Man muss lesen. (lexoj = ich lese)" },
+      "answerLang": "sq",
+      "text": "Duhet me ___.",
+      "solutions": ["lexue"],
+      "standardForms": ["lexuar"],
+      "explanation": "lexoj → lexue: Aus -oj wird im Partizip -ue (Standard: lexuar).",
+      "errorHints": [
+        { "pattern": "^lexoj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „lexue“, nicht „lexoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_039",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_don", "item_me_ardhe"],
+      "prompt": { "lang": "de", "text": "Willst du kommen?" },
+      "answerLang": "sq",
+      "text": "A ___ me ardhë?",
+      "solutions": ["don"],
+      "choices": ["don", "du", "muj", "duhet"],
+      "standardForms": ["do"],
+      "explanation": "„Don“ heisst „du willst“ – so sagt man es im Kosovo (Standard: „do“).",
+      "errorHints": [
+        {
+          "pattern": "^du$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Du“ heisst „ich will“. Für „du willst“ sagst du „don“."
+        },
+        { "pattern": "^muj$", "category": "vocab.confused", "hint": "„Muj“ heisst „ich kann“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_040",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.infinitive_me", "spelling.nasal_vowels"],
+      "itemIds": ["item_cka", "item_don", "item_me_ba", "item_sot"],
+      "prompt": { "lang": "de", "text": "Was willst du heute machen?" },
+      "answerLang": "sq",
+      "text": "Çka don me ___ sot?",
+      "solutions": ["bâ"],
+      "choices": ["bâ", "bân", "bâj", "bâjnë"],
+      "standardForms": ["bërë"],
+      "explanation": "Das Partizip von „bâj“ ist „bâ“: „me bâ“ = machen (Standard: „bërë“).",
+      "errorHints": [
+        { "pattern": "^b[aâ]n$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „bâ“, nicht „bân“." },
+        { "pattern": "^b[aâ]j$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „bâ“, nicht „bâj“." },
+        { "pattern": "^b[aâ]jn[eë]$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „bâ“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_041",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_fjete"],
+      "prompt": { "lang": "de", "text": "Ich will schlafen. (fle = ich schlafe)" },
+      "answerLang": "sq",
+      "text": "Du me ___.",
+      "solutions": ["fjetë"],
+      "standardForms": ["fjetur"],
+      "explanation": "„Fle“ hat das Partizip „fjetë“ (Standard: „fjetur“).",
+      "errorHints": [
+        { "pattern": "^fle$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „fjetë“, nicht „fle“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_042",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_me_duhet", "item_me_gatue", "item_sot"],
+      "prompt": { "lang": "de", "text": "Ich muss heute kochen. (gatuaj = ich koche)" },
+      "answerLang": "sq",
+      "text": "Më duhet me ___ sot.",
+      "solutions": ["gatue"],
+      "standardForms": ["gatuar"],
+      "explanation": "Verben auf -uaj bilden das Gheg-Partizip auf -ue: gatuaj → gatue (Standard: gatuar).",
+      "errorHints": [
+        {
+          "pattern": "^gatuaj$",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip „gatue“, nicht „gatuaj“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „gatue“ (Standard: gatuar) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_043",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.negation"],
+      "itemIds": ["item_muj", "item_me_ardhe", "item_sot"],
+      "prompt": { "lang": "de", "text": "Heute kann ich nicht kommen." },
+      "answerLang": "sq",
+      "text": "Sot ___ me ardhë.",
+      "solutions": ["s'muj", "nuk muj"],
+      "choices": ["s'muj", "s'du", "duhet", "muj"],
+      "explanation": "„S'muj“ heisst „ich kann nicht“ – „s'“ ist die kurze Form von „nuk“.",
+      "errorHints": [
+        { "pattern": "^sdu$", "category": "vocab.confused", "hint": "„S'du“ heisst „ich will nicht“." },
+        { "pattern": "^duhet$", "category": "vocab.confused", "hint": "„Duhet“ heisst „man muss“." },
+        { "pattern": "^muj$", "category": "vocab.confused", "hint": "Es fehlt die Verneinung: „s'muj“ = ich kann nicht." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_044",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_luejte"],
+      "prompt": { "lang": "de", "text": "Ich will Fussball spielen. (luaj = ich spiele)" },
+      "answerLang": "sq",
+      "text": "Du me ___ futboll.",
+      "solutions": ["luejtë"],
+      "standardForms": ["luajtur"],
+      "explanation": "„Luaj“ hat im Gheg das Partizip „luejtë“ (Standard: „luajtur“).",
+      "errorHints": [
+        { "pattern": "^luaj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „luejtë“, nicht „luaj“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_045",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.infinitive_me", "grammar.verbs.modal", "grammar.clitics"],
+      "itemIds": ["item_me_mesue", "item_duhet"],
+      "prompt": { "lang": "de", "text": "Du musst viel lernen. (mësoj = ich lerne)" },
+      "answerLang": "sq",
+      "text": "Të duhet me ___ shumë.",
+      "solutions": ["mësue"],
+      "standardForms": ["mësuar"],
+      "explanation": "„Të duhet“ heisst „du musst“ (wörtlich „dir ist nötig“), „më duhet“ heisst „ich muss“. Das Partizip bleibt immer „mësue“.",
+      "errorHints": [
+        { "pattern": "^m[eë]soj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „mësue“." },
+        {
+          "pattern": "^m[eë]son$",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht immer dasselbe Partizip „mësue“ – egal, wer lernt."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_046",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_punue", "item_me_shkrue", "item_me_ba", "item_me_mesue", "item_me_fole"],
+      "prompt": { "lang": "de", "text": "Ordne die Infinitive zu." },
+      "pairs": [
+        { "left": "me punue", "right": "arbeiten" },
+        { "left": "me shkrue", "right": "schreiben" },
+        { "left": "me bâ", "right": "machen" },
+        { "left": "me mësue", "right": "lernen" },
+        { "left": "me folë", "right": "sprechen" }
+      ],
+      "explanation": "Gheg-Infinitive bestehen aus „me“ + Partizip.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_047",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_ngrane", "item_me_pi", "item_me_fjete", "item_me_ardhe", "item_me_shkue"],
+      "prompt": { "lang": "de", "text": "Ordne die Infinitive zu." },
+      "pairs": [
+        { "left": "me ngrânë", "right": "essen" },
+        { "left": "me pi", "right": "trinken" },
+        { "left": "me fjetë", "right": "schlafen" },
+        { "left": "me ardhë", "right": "kommen" },
+        { "left": "me shkue", "right": "gehen" }
+      ],
+      "explanation": "Bei „me ngrânë“ (essen) sieht das Partizip ganz anders aus als das Verb „ha“ (ich esse).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_048",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.negation"],
+      "itemIds": ["item_du", "item_muj", "item_duhet", "item_me_shkue"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Du me shkue.", "right": "Ich will gehen." },
+        { "left": "Muj me shkue.", "right": "Ich kann gehen." },
+        { "left": "Duhet me shkue.", "right": "Ich muss gehen." },
+        { "left": "S'muj me shkue.", "right": "Ich kann nicht gehen." },
+        { "left": "S'du me shkue.", "right": "Ich will nicht gehen." }
+      ],
+      "explanation": "„Du“ = ich will, „muj“ = ich kann, „duhet“ = man muss. „S'“ verneint.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen (auch „due“; Standard: dua). Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_049",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_lexue", "item_me_ndihmue", "item_me_pushue", "item_me_dale", "item_me_luejte"],
+      "prompt": { "lang": "de", "text": "Ordne die Infinitive zu." },
+      "pairs": [
+        { "left": "me lexue", "right": "lesen" },
+        { "left": "me ndihmue", "right": "helfen" },
+        { "left": "me pushue", "right": "sich ausruhen" },
+        { "left": "me dalë", "right": "ausgehen" },
+        { "left": "me luejtë", "right": "spielen" }
+      ],
+      "explanation": "Verben auf -oj haben das Partizip auf -ue: lexoj → lexue, ndihmoj → ndihmue, pushoj → pushue.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_050",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.participle", "spelling.nasal_vowels"],
+      "itemIds": ["item_me_punue", "item_me_ba", "item_me_fole", "item_me_ngrane", "item_me_ardhe"],
+      "prompt": { "lang": "de", "text": "Ordne die Partizipien zu." },
+      "pairs": [
+        { "left": "punue", "right": "gearbeitet" },
+        { "left": "bâ", "right": "gemacht" },
+        { "left": "folë", "right": "gesprochen" },
+        { "left": "ngrânë", "right": "gegessen" },
+        { "left": "ardhë", "right": "gekommen" }
+      ],
+      "explanation": "Das Partizip allein entspricht dem deutschen Partizip: punue = gearbeitet, bâ = gemacht.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „folë“ (Kosovo auch „fol“) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_051",
+      "type": "match_pairs",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.participle"],
+      "itemIds": ["item_me_shkrue", "item_me_fjete", "item_me_mesue", "item_me_shkue", "item_me_pi"],
+      "prompt": { "lang": "de", "text": "Ordne die Partizipien zu." },
+      "pairs": [
+        { "left": "shkrue", "right": "geschrieben" },
+        { "left": "fjetë", "right": "geschlafen" },
+        { "left": "mësue", "right": "gelernt" },
+        { "left": "shkue", "right": "gegangen" },
+        { "left": "pi", "right": "getrunken" }
+      ],
+      "explanation": "Gheg-Partizipien sind kurz: shkrue, mësue, shkue (Standard: shkruar, mësuar, shkuar).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_052",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.modal"],
+      "itemIds": ["item_du", "item_me_pushue", "item_pak"],
+      "prompt": { "lang": "de", "text": "Ich will mich ein bisschen ausruhen." },
+      "answerLang": "sq",
+      "tokens": ["Du", "me", "pushue", "pak"],
+      "solutions": ["Du me pushue pak."],
+      "explanation": "„Me pushue“ heisst „sich ausruhen, Pause machen“, „pak“ heisst „ein bisschen“.",
+      "errorHints": [
+        { "pattern": "^me du", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „Du me pushue.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_053",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_duhet", "item_me_fjete"],
+      "prompt": { "lang": "de", "text": "Man muss schlafen." },
+      "answerLang": "sq",
+      "tokens": ["Duhet", "me", "fjetë"],
+      "solutions": ["Duhet me fjetë."],
+      "explanation": "Die Reihenfolge ist fest: Modalverb – me – Partizip.",
+      "errorHints": [
+        {
+          "pattern": "^me duhet",
+          "category": "grammar.word_order",
+          "hint": "„Me“ steht direkt vor dem Partizip: „Duhet me fjetë.“"
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_054",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_muj", "item_me_shkrue"],
+      "prompt": { "lang": "de", "text": "Ich kann schreiben." },
+      "answerLang": "sq",
+      "tokens": ["Muj", "me", "shkrue"],
+      "solutions": ["Muj me shkrue."],
+      "explanation": "„Muj me shkrue“ – zuerst „muj“ (ich kann), dann der Infinitiv.",
+      "errorHints": [
+        { "pattern": "^me muj", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „Muj me shkrue.“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_055",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.question_particle"],
+      "itemIds": ["item_don", "item_me_ngrane"],
+      "prompt": { "lang": "de", "text": "Willst du essen?" },
+      "answerLang": "sq",
+      "tokens": ["A", "don", "me", "ngrânë"],
+      "solutions": ["A don me ngrânë?"],
+      "explanation": "„A“ am Anfang macht daraus eine Ja/Nein-Frage. „Me ngrânë“ heisst „essen“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_056",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.negation"],
+      "itemIds": ["item_nuk", "item_du", "item_me_punue", "item_sot"],
+      "prompt": { "lang": "de", "text": "Ich will heute nicht arbeiten." },
+      "answerLang": "sq",
+      "tokens": ["Nuk", "du", "me", "punue", "sot"],
+      "solutions": ["Nuk du me punue sot.", "Sot nuk du me punue."],
+      "explanation": "„Nuk“ steht direkt vor dem Verb „du“. „Sot“ darf am Anfang oder am Ende stehen.",
+      "errorHints": [
+        { "pattern": "^du nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „Nuk du me punue.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_057",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_duhet", "item_me_mesue", "item_shqip"],
+      "prompt": { "lang": "de", "text": "Ich muss Albanisch lernen." },
+      "answerLang": "sq",
+      "tokens": ["Më", "duhet", "me", "mësue", "shqip"],
+      "solutions": ["Më duhet me mësue shqip."],
+      "explanation": "„Më duhet“ = ich muss, „me mësue“ = lernen, „shqip“ = Albanisch.",
+      "errorHints": [
+        { "pattern": "m[eë]sue me(\\s|$)", "category": "grammar.word_order", "hint": "„Me“ steht vor dem Partizip: „me mësue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_058",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.negation"],
+      "itemIds": ["item_kohe", "item_me_gatue"],
+      "prompt": { "lang": "de", "text": "Ich habe keine Zeit zu kochen." },
+      "answerLang": "sq",
+      "tokens": ["S'kam", "kohë", "me", "gatue"],
+      "solutions": ["S'kam kohë me gatue."],
+      "explanation": "„S'kam kohë“ = ich habe keine Zeit, „me gatue“ = zu kochen.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „gatue“ (Standard: gatuar) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_059",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_don", "item_me_dale"],
+      "prompt": { "lang": "de", "text": "Arta will heute Abend ausgehen." },
+      "answerLang": "sq",
+      "tokens": ["Arta", "don", "me", "dalë", "sonte"],
+      "solutions": ["Arta don me dalë sonte.", "Sonte Arta don me dalë."],
+      "explanation": "„Me dalë“ heisst „ausgehen, hinausgehen“, „sonte“ heisst „heute Abend“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u10_infinitive_me_060",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.clitics", "grammar.question_particle"],
+      "itemIds": ["item_mundesh", "item_me_ndihmue", "item_neser"],
+      "prompt": { "lang": "de", "text": "Kannst du mir morgen helfen?" },
+      "answerLang": "sq",
+      "tokens": ["A", "mundesh", "me", "më", "ndihmue", "nesër"],
+      "solutions": ["A mundesh me më ndihmue nesër?", "A mundesh nesër me më ndihmue?"],
+      "explanation": "Das kurze „më“ (mir) steht zwischen „me“ und dem Partizip: „me më ndihmue“.",
+      "errorHints": [
+        {
+          "pattern": "me ndihmue m[eë](\\s|$)",
+          "category": "grammar.clitics",
+          "hint": "„Më“ steht vor dem Partizip: „me më ndihmue“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Stellung des Klitikons in „me më ndihmue“ und die Form „mundesh“ zu prüfen."
+    }
+  ]
+}
