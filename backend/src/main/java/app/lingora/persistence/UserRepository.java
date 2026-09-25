@@ -1,8 +1,10 @@
 package app.lingora.persistence;
 
+import jakarta.persistence.LockModeType;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
@@ -10,6 +12,10 @@ public interface UserRepository extends JpaRepository<UserEntity, UUID> {
 
     /** The account of this single-user instance, if it has been set up. */
     Optional<UserEntity> findFirstByOrderByCreatedAtAsc();
+
+    /** Locks the account row: placement, plan and onboarding changes of one learner run one after another. */
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    Optional<UserEntity> findForUpdateById(UUID id);
 
     /** Adds XP in the database, so that concurrent lesson completions cannot overwrite each other. */
     @Modifying(flushAutomatically = true, clearAutomatically = true)

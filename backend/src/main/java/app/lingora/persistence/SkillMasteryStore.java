@@ -58,8 +58,9 @@ public class SkillMasteryStore {
     }
 
     /**
-     * Sets initial estimates, e.g. from the placement test. Tags that have been practised keep their value, since
-     * their answers say more than an estimate.
+     * Sets initial estimates, e.g. from the placement test. An estimate only ever raises the value of a tag, so a
+     * re-placement cannot lower it; tags that have been practised keep their value, since their answers say more than
+     * an estimate.
      */
     @Transactional
     public void seedInitial(UUID userId, Map<SkillTag, Double> estimates, Instant at) {
@@ -67,7 +68,7 @@ public class SkillMasteryStore {
                         INSERT INTO skill_mastery (user_id, skill_tag, mastery, updated_at)
                         VALUES (:user, :tag, :mastery, :now)
                         ON CONFLICT (user_id, skill_tag) DO UPDATE SET mastery = excluded.mastery, updated_at = excluded.updated_at
-                        WHERE skill_mastery.attempts = 0""")
+                        WHERE skill_mastery.attempts = 0 AND skill_mastery.mastery < excluded.mastery""")
                 .param("user", userId)
                 .param("tag", tag.id())
                 .param("mastery", calculator.initial(estimate).mastery())

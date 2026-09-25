@@ -49,6 +49,18 @@ public final class SpaClient {
         return exchange(request);
     }
 
+    public MvcTestResult put(String uri, String json) {
+        MockMvcRequestBuilder request = mvc.put().uri(uri).contentType(MediaType.APPLICATION_JSON).content(json);
+        if (csrfToken() != null) {
+            request.header(CSRF_HEADER, csrfToken());
+        }
+        return exchange(request);
+    }
+
+    public MvcTestResult putWithoutCsrfHeader(String uri, String json) {
+        return exchange(mvc.put().uri(uri).contentType(MediaType.APPLICATION_JSON).content(json));
+    }
+
     public MvcTestResult postWithCsrfHeader(String uri, String json, String headerValue) {
         return exchange(jsonPost(uri, json).header(CSRF_HEADER, headerValue));
     }

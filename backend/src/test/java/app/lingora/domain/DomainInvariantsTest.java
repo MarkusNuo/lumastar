@@ -84,7 +84,7 @@ class DomainInvariantsTest {
     void placementResultListsAtMostThreeStrengthsAndWeaknesses() {
         List<SkillTag> four = List.of(SkillTag.of("vocab.a"), SkillTag.of("vocab.b"), SkillTag.of("vocab.c"), SkillTag.of("vocab.d"));
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new PlacementResult(Level.A1_1, Map.of(), four, List.of()));
+                .isThrownBy(() -> new PlacementResult(Level.A1_1, Map.of(), four, List.of(), Map.of()));
     }
 
     private static Exercise exercise(int difficulty, List<SkillTag> tags) {

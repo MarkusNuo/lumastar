@@ -12,6 +12,7 @@ import app.lingora.domain.Level;
 import app.lingora.domain.Outcome;
 import app.lingora.domain.PartOfSpeech;
 import app.lingora.domain.Rating;
+import app.lingora.domain.SelfAssessment;
 import app.lingora.domain.SkillArea;
 import app.lingora.domain.UnitColor;
 import jakarta.persistence.AttributeConverter;
@@ -137,6 +138,20 @@ public final class CodedEnumConverters {
     public static class ErrorCategoryConverter extends CodedEnumConverter<ErrorCategory> {
         public ErrorCategoryConverter() {
             super(ErrorCategory.class);
+        }
+    }
+
+    @Converter(autoApply = true)
+    public static class SelfAssessmentConverter extends CodedEnumConverter<SelfAssessment> {
+        public SelfAssessmentConverter() {
+            super(SelfAssessment.class);
+        }
+    }
+
+    @Converter(autoApply = true)
+    public static class PlacementStatusConverter extends CodedEnumConverter<PlacementStatus> {
+        public PlacementStatusConverter() {
+            super(PlacementStatus.class);
         }
     }
 

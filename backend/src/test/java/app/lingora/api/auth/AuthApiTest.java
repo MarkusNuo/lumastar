@@ -51,7 +51,8 @@ class AuthApiTest extends IntegrationTest {
         MvcTestResult setup = browser.post(SETUP, SETUP_BODY);
 
         assertThat(setup).hasStatus(HttpStatus.CREATED).bodyJson().isStrictlyEqualTo("""
-                {"displayName": "Erza", "xpTotal": 0, "dailyGoalMinutes": 10, "onboardingCompleted": false}""");
+                {"displayName": "Erza", "xpTotal": 0, "dailyGoalMinutes": 10, "onboardingCompleted": false,
+                 "onboardingStep": "profile", "motivations": []}""");
         assertThat(browser.get(ME)).hasStatusOk().bodyJson().extractingPath("$.displayName").isEqualTo("Erza");
         assertThat(browser.get(STATUS)).bodyJson().isStrictlyEqualTo("""
                 {"setupRequired": false, "authenticated": true, "displayName": "Erza"}""");

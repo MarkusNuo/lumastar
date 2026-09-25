@@ -29,7 +29,7 @@ public record SubmittedAnswer(
         return Stream.of(text, choice, tokens, mistakes).filter(Objects::nonNull).count() == 1;
     }
 
-    Answer toDomain(Duration responseTime) {
+    public Answer toDomain(Duration responseTime) {
         if (text != null) {
             return new Answer.Text(text, responseTime);
         }
@@ -43,7 +43,7 @@ public record SubmittedAnswer(
     }
 
     /** The answer as stored with the attempt: the one field that was submitted. */
-    Map<String, Object> toJson() {
+    public Map<String, Object> toJson() {
         if (text != null) {
             return Map.of("text", text);
         }

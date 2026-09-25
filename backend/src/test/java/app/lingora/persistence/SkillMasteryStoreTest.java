@@ -81,7 +81,7 @@ class SkillMasteryStoreTest extends IntegrationTest {
     }
 
     @Test
-    void seedsInitialEstimatesOnlyForTagsThatHaveNotBeenPractised() {
+    void seedsInitialEstimatesOnlyForUnpractisedTagsAndNeverLowersThem() {
         store.recordAnswer(learner, List.of(FAMILY), Outcome.WRONG, false, NOW);
 
         store.seedInitial(learner, Map.of(FAMILY, 0.9, HOME, 0.7), NOW);
@@ -89,7 +89,7 @@ class SkillMasteryStoreTest extends IntegrationTest {
 
         Map<SkillTag, Entry> raw = store.raw(learner).entries();
         assertThat(raw.get(FAMILY)).isEqualTo(new Entry(0, 1, 0, NOW));
-        assertThat(raw.get(HOME)).isEqualTo(new Entry(0.6, 0, 0, null));
+        assertThat(raw.get(HOME)).isEqualTo(new Entry(0.7, 0, 0, null));
     }
 
     @Test

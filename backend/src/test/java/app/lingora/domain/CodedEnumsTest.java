@@ -45,6 +45,15 @@ class CodedEnumsTest {
     }
 
     @Test
+    void theSelfAssessmentSetsTheStartLevelAndOnlyAnAbsoluteBeginnerMaySkip() {
+        assertThat(Arrays.stream(SelfAssessment.values()).map(SelfAssessment::startLevel))
+                .containsExactly(Level.A0, Level.A1_1, Level.A1_3, Level.A2_2, Level.B1_2);
+        assertThat(EnumSet.allOf(SelfAssessment.class).stream().filter(SelfAssessment::allowsSkippingPlacement))
+                .containsExactly(SelfAssessment.NOTHING);
+        assertThat(SelfAssessment.fromCode("understand_much").label()).isEqualTo("Ich verstehe viel, will aber besser schreiben");
+    }
+
+    @Test
     void acceptsOnlyAnswersThatAreNotWrong() {
         assertThat(EnumSet.allOf(Outcome.class).stream().filter(Outcome::isAccepted))
                 .containsExactly(Outcome.CORRECT, Outcome.ALMOST_CORRECT, Outcome.CORRECT_STANDARD_FORM);

@@ -1,15 +1,25 @@
 package app.lingora.core.plan;
 
-import app.lingora.domain.ErrorEntry;
 import app.lingora.domain.LearnerProfile;
 import app.lingora.domain.LearningPlan;
 import app.lingora.domain.SkillMastery;
+import app.lingora.domain.SkillTagErrorRate;
 import java.util.List;
 
-/** Builds and revises the personal learning plan up to C2 (PRD F3). */
+/**
+ * Builds and revises the personal learning plan up to C2 (PRD F3). Unlike PRD 10.2, {@link #revise} takes the error
+ * rates per skill tag instead of the error log, because weak tags are defined by their share of wrong answers.
+ */
 public interface PlanGenerator {
 
+    /** The first plan; {@code profile.currentLevel()} must be set. */
     LearningPlan generate(LearnerProfile profile, SkillMastery mastery);
 
-    LearningPlan revise(LearningPlan plan, LearnerProfile profile, SkillMastery mastery, List<ErrorEntry> errors);
+    /**
+     * The plan recalculated from the current state.
+     *
+     * @param plan       the current plan with the live status of every unit (completed, in progress, …)
+     * @param errorRates error rates per skill tag of the recent answers
+     */
+    LearningPlan revise(LearningPlan plan, LearnerProfile profile, SkillMastery mastery, List<SkillTagErrorRate> errorRates);
 }

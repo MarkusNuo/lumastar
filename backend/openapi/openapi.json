@@ -166,6 +166,37 @@
         ],
         "type": "object"
       },
+      "Competence": {
+        "enum": [
+          "vocabulary",
+          "grammar",
+          "reading",
+          "translation"
+        ],
+        "type": "string"
+      },
+      "CompetenceResult": {
+        "properties": {
+          "answered": {
+            "description": "0 if the test had no item of it",
+            "format": "int32",
+            "type": "integer"
+          },
+          "competence": {
+            "$ref": "#/components/schemas/Competence"
+          },
+          "correct": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "answered",
+          "competence",
+          "correct"
+        ],
+        "type": "object"
+      },
       "CurriculumResponse": {
         "properties": {
           "stages": {
@@ -572,6 +603,116 @@
         ],
         "type": "object"
       },
+      "Motivation": {
+        "enum": [
+          "family",
+          "travel",
+          "work",
+          "heritage",
+          "interest"
+        ],
+        "type": "string"
+      },
+      "MotivationOption": {
+        "properties": {
+          "label": {
+            "example": "Familie/Partner",
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/components/schemas/Motivation"
+          }
+        },
+        "required": [
+          "label",
+          "value"
+        ],
+        "type": "object"
+      },
+      "OnboardingOptionsResponse": {
+        "description": "The answer options of the onboarding questions with their German labels, in display order",
+        "properties": {
+          "dailyGoalMinutes": {
+            "items": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "motivations": {
+            "items": {
+              "$ref": "#/components/schemas/MotivationOption"
+            },
+            "type": "array"
+          },
+          "selfAssessments": {
+            "description": "From \"Ich kann kein Wort\" to \"Ich verstehe viel, will aber besser schreiben\"",
+            "items": {
+              "$ref": "#/components/schemas/SelfAssessmentOption"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "dailyGoalMinutes",
+          "motivations",
+          "selfAssessments"
+        ],
+        "type": "object"
+      },
+      "OnboardingRequest": {
+        "description": "The onboarding questions (PRD F1); the options and their German labels come from GET /api/onboarding/options.",
+        "properties": {
+          "dailyGoalMinutes": {
+            "description": "5, 10, 15 or 20",
+            "format": "int32",
+            "type": "integer"
+          },
+          "motivations": {
+            "items": {
+              "$ref": "#/components/schemas/Motivation"
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "selfAssessment": {
+            "$ref": "#/components/schemas/SelfAssessment"
+          }
+        },
+        "required": [
+          "dailyGoalMinutes",
+          "motivations",
+          "selfAssessment"
+        ],
+        "type": "object"
+      },
+      "OnboardingResponse": {
+        "properties": {
+          "placementSkippable": {
+            "description": "true if POST /api/placement/skip may be used instead of the test (\"Ich kann kein Wort\", before the first placement)",
+            "type": "boolean"
+          },
+          "startLevel": {
+            "$ref": "#/components/schemas/Level",
+            "description": "The level POST /api/placement starts at"
+          }
+        },
+        "required": [
+          "placementSkippable",
+          "startLevel"
+        ],
+        "type": "object"
+      },
+      "OnboardingStep": {
+        "enum": [
+          "profile",
+          "placement",
+          "done"
+        ],
+        "type": "string"
+      },
       "Outcome": {
         "enum": [
           "correct",
@@ -580,6 +721,181 @@
           "wrong"
         ],
         "type": "string"
+      },
+      "PlacementAnswerRequest": {
+        "properties": {
+          "answer": {
+            "$ref": "#/components/schemas/SubmittedAnswer"
+          },
+          "exerciseId": {
+            "description": "Id of the item shown",
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "responseTimeMs": {
+            "description": "Time from showing the item to the answer",
+            "format": "int32",
+            "maximum": 86400000,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "answer",
+          "exerciseId",
+          "responseTimeMs"
+        ],
+        "type": "object"
+      },
+      "PlacementAnswerResponse": {
+        "description": "The test goes on with the next item or is finished; like a real placement test it gives no verdict on single answers",
+        "properties": {
+          "finished": {
+            "description": "true when the test is over; the result is at GET /api/placement/{testId}/result",
+            "type": "boolean"
+          },
+          "nextItem": {
+            "$ref": "#/components/schemas/PlacementItem",
+            "description": "The item to show next; absent when finished"
+          },
+          "position": {
+            "description": "1-based position of the next item; when finished, the number of answered items",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "finished",
+          "position"
+        ],
+        "type": "object"
+      },
+      "PlacementItem": {
+        "description": "A placement item without solutions or explanation; choices, word chips and tokens are shuffled. Fields that do not apply to the type are absent. The answer is sent like a lesson answer (SubmittedAnswer).",
+        "properties": {
+          "answerLang": {
+            "$ref": "#/components/schemas/AnswerLang",
+            "description": "Language of the answer; all types except multiple_choice"
+          },
+          "choices": {
+            "description": "multiple_choice (4 options) and fill_gap answered by picking a chip",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "competence": {
+            "$ref": "#/components/schemas/Competence"
+          },
+          "id": {
+            "type": "string"
+          },
+          "prompt": {
+            "$ref": "#/components/schemas/ExercisePrompt"
+          },
+          "reviewed": {
+            "description": "false until the author has checked the content",
+            "type": "boolean"
+          },
+          "text": {
+            "description": "fill_gap: sentence with exactly one ___ gap",
+            "type": "string"
+          },
+          "tokens": {
+            "description": "word_order: the words to put in order",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ExerciseType",
+            "description": "multiple_choice, fill_gap, translate_wordbank, translate_free or word_order"
+          },
+          "wordBank": {
+            "description": "translate_wordbank: word chips including distractors",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "competence",
+          "id",
+          "prompt",
+          "reviewed",
+          "type"
+        ],
+        "type": "object"
+      },
+      "PlacementResultResponse": {
+        "description": "Result of a completed or skipped placement test (PRD F2), for the animated level reveal",
+        "properties": {
+          "answeredCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "competences": {
+            "description": "All four competences in the order vocabulary, grammar, reading, translation",
+            "items": {
+              "$ref": "#/components/schemas/CompetenceResult"
+            },
+            "type": "array"
+          },
+          "finishedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "level": {
+            "$ref": "#/components/schemas/Level",
+            "example": "A1.2"
+          },
+          "levelTitle": {
+            "description": "Title of the stage",
+            "example": "Alltag zu Hause",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "true if the test was skipped (start at A0)",
+            "type": "boolean"
+          },
+          "startLevel": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "strengths": {
+            "description": "Top 3 strengths, strongest first",
+            "items": {
+              "$ref": "#/components/schemas/SkillEstimate"
+            },
+            "type": "array"
+          },
+          "testId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "weaknesses": {
+            "description": "Top 3 weaknesses, weakest first",
+            "items": {
+              "$ref": "#/components/schemas/SkillEstimate"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "answeredCount",
+          "competences",
+          "finishedAt",
+          "level",
+          "levelTitle",
+          "skipped",
+          "startLevel",
+          "strengths",
+          "testId",
+          "weaknesses"
+        ],
+        "type": "object"
       },
       "ProblemDetail": {
         "description": "RFC 9457 problem details",
@@ -688,8 +1004,23 @@
           "displayName": {
             "type": "string"
           },
+          "motivations": {
+            "description": "Empty until the onboarding questions are answered",
+            "items": {
+              "$ref": "#/components/schemas/Motivation"
+            },
+            "type": "array"
+          },
           "onboardingCompleted": {
             "type": "boolean"
+          },
+          "onboardingStep": {
+            "$ref": "#/components/schemas/OnboardingStep",
+            "description": "profile: the onboarding questions are open (PUT /api/onboarding); placement: the placement test or its skip is open; done: onboarding done"
+          },
+          "selfAssessment": {
+            "$ref": "#/components/schemas/SelfAssessment",
+            "description": "Absent until the onboarding questions are answered"
           },
           "xpTotal": {
             "format": "int32",
@@ -699,7 +1030,9 @@
         "required": [
           "dailyGoalMinutes",
           "displayName",
+          "motivations",
           "onboardingCompleted",
+          "onboardingStep",
           "xpTotal"
         ],
         "type": "object"
@@ -712,6 +1045,42 @@
           "easy"
         ],
         "type": "string"
+      },
+      "SelfAssessment": {
+        "enum": [
+          "nothing",
+          "few_words",
+          "simple_sentences",
+          "everyday_conversation",
+          "understand_much"
+        ],
+        "type": "string"
+      },
+      "SelfAssessmentOption": {
+        "properties": {
+          "label": {
+            "example": "Ich kann kein Wort",
+            "type": "string"
+          },
+          "placementSkippable": {
+            "description": "Whether the first placement test may be skipped (start at A0)",
+            "type": "boolean"
+          },
+          "startLevel": {
+            "$ref": "#/components/schemas/Level",
+            "description": "Level the first placement test starts at"
+          },
+          "value": {
+            "$ref": "#/components/schemas/SelfAssessment"
+          }
+        },
+        "required": [
+          "label",
+          "placementSkippable",
+          "startLevel",
+          "value"
+        ],
+        "type": "object"
       },
       "SetupRequest": {
         "description": "Creates the only account of this instance.",
@@ -736,6 +1105,28 @@
         ],
         "type": "object"
       },
+      "SkillEstimate": {
+        "properties": {
+          "label": {
+            "description": "German label",
+            "type": "string"
+          },
+          "mastery": {
+            "description": "Initial mastery estimate, 0 to 1",
+            "format": "double",
+            "type": "number"
+          },
+          "skillTag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "mastery",
+          "skillTag"
+        ],
+        "type": "object"
+      },
       "StartLessonRequest": {
         "properties": {
           "unitId": {
@@ -747,6 +1138,39 @@
         },
         "required": [
           "unitId"
+        ],
+        "type": "object"
+      },
+      "StartPlacementResponse": {
+        "description": "A started placement test with its first item",
+        "properties": {
+          "item": {
+            "$ref": "#/components/schemas/PlacementItem"
+          },
+          "maxItems": {
+            "description": "The most items the test can take; it usually ends earlier",
+            "format": "int32",
+            "type": "integer"
+          },
+          "position": {
+            "description": "1-based position of the item",
+            "format": "int32",
+            "type": "integer"
+          },
+          "startLevel": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "testId": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item",
+          "maxItems",
+          "position",
+          "startLevel",
+          "testId"
         ],
         "type": "object"
       },
@@ -1372,6 +1796,392 @@
         ]
       }
     },
+    "/api/onboarding": {
+      "put": {
+        "description": "Can be sent again later, e.g. to change the daily goal. The onboarding is done once the first placement test is completed or skipped.",
+        "operationId": "answerOnboarding",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnboardingRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingResponse"
+                }
+              }
+            },
+            "description": "Where the placement test starts and whether it may be skipped"
+          },
+          "400": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Invalid answers (code validation_failed or bad_request)"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Save the answers of the onboarding questions",
+        "tags": [
+          "onboarding"
+        ]
+      }
+    },
+    "/api/onboarding/options": {
+      "get": {
+        "operationId": "getOnboardingOptions",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingOptionsResponse"
+                }
+              }
+            },
+            "description": "The options"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "Answer options of the onboarding questions with German labels",
+        "tags": [
+          "onboarding"
+        ]
+      }
+    },
+    "/api/placement": {
+      "post": {
+        "description": "Starts at the current level, or at the self-assessed level before the first placement. An unfinished test is abandoned. Also used for \"Neu einstufen\" at any time later (PRD F2).",
+        "operationId": "startPlacement",
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartPlacementResponse"
+                }
+              }
+            },
+            "description": "The test with its first item"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Onboarding questions not answered yet or no placement items (codes onboarding_incomplete, placement_unavailable)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Start a placement test",
+        "tags": [
+          "placement"
+        ]
+      }
+    },
+    "/api/placement/skip": {
+      "post": {
+        "description": "Only for the self-assessment \"Ich kann kein Wort\" before the first placement (PRD F1).",
+        "operationId": "skipPlacement",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlacementResultResponse"
+                }
+              }
+            },
+            "description": "The result of the skipped test (level A0)"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Skipping is not allowed (code placement_not_skippable)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Skip the first placement test and start at A0",
+        "tags": [
+          "placement"
+        ]
+      }
+    },
+    "/api/placement/{testId}/answers": {
+      "post": {
+        "description": "No verdict and no solution: the test gives no feedback. When the test is over the learner is placed: level, initial mastery, onboarding completed.",
+        "operationId": "answerPlacementItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "testId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlacementAnswerRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlacementAnswerResponse"
+                }
+              }
+            },
+            "description": "The next item, or finished"
+          },
+          "400": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Invalid request"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Unknown test (code placement_not_found)"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "The test is over or was abandoned (code placement_finished)"
+          },
+          "422": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not the item shown or answer field not fitting its type (codes unexpected_placement_item, answer_type_mismatch)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Answer the current item and get the next one",
+        "tags": [
+          "placement"
+        ]
+      }
+    },
+    "/api/placement/{testId}/result": {
+      "get": {
+        "operationId": "getPlacementResult",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "testId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlacementResultResponse"
+                }
+              }
+            },
+            "description": "Level, strengths, weaknesses and competences"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Unknown test (code placement_not_found)"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Still running or abandoned (code placement_not_finished)"
+          }
+        },
+        "summary": "Result of a completed or skipped test",
+        "tags": [
+          "placement"
+        ]
+      }
+    },
     "/api/profile/documents/{name}": {
       "get": {
         "description": "Generated from the current learning state. The JSON documents are learner_profile.json, skill_mastery.json, recent_errors.json (last 50 errors) and learning_plan.json; learner_summary.md is Markdown.",
@@ -1625,6 +2435,14 @@
     {
       "description": "Lesson player: start a lesson, answer its exercises, finish it with XP",
       "name": "lessons"
+    },
+    {
+      "description": "First-start questions: motivation, daily goal and self-assessment",
+      "name": "onboarding"
+    },
+    {
+      "description": "Adaptive placement test: start, answer item by item, result; skip for beginners",
+      "name": "placement"
     },
     {
       "description": "The signed-in learner",

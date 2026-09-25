@@ -20,6 +20,10 @@ public class SkillTagEntity extends SeededContentEntity {
         super(id);
     }
 
+    public String getLabel() {
+        return label;
+    }
+
     public void update(SkillTagDefinition definition) {
         label = definition.label();
         area = definition.area();

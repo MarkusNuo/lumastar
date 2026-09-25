@@ -111,7 +111,7 @@ class ProfileExportApiTest extends IntegrationTest {
 
             assertThat(JSON.readTree(entries.get("data/profile.json"))).isEqualTo(JSON.readTree("""
                     {"displayName": "Erza", "motivations": ["family", "travel"], "dailyGoalMinutes": 10,
-                     "selfAssessment": "some_basics", "currentLevel": "A1.2", "xpTotal": 15, "timeZone": "Europe/Zurich",
+                     "selfAssessment": "few_words", "currentLevel": "A1.2", "xpTotal": 15, "timeZone": "Europe/Zurich",
                      "settings": {"sounds": true, "requestRetention": 0.9},
                      "onboardingCompletedAt": "2026-09-20T08:00:00+00:00"}"""));
             JsonNode attempt = JSON.readTree(entries.get("data/attempts.json")).get(0);
@@ -333,7 +333,7 @@ class ProfileExportApiTest extends IntegrationTest {
     /** Synthetic rows for the tables that later milestones fill (placement, plan, FSRS, streak). */
     private void addPlacementPlanAndReviewData() {
         jdbc.sql("""
-                UPDATE users SET motivations = '{family,travel}', current_level = 'A1.2', self_assessment = 'some_basics',
+                UPDATE users SET motivations = '{family,travel}', current_level = 'A1.2', self_assessment = 'few_words',
                                  settings = '{"sounds": true, "requestRetention": 0.9}',
                                  onboarding_completed_at = '2026-09-20T08:00:00Z'""").update();
         jdbc.sql("""
