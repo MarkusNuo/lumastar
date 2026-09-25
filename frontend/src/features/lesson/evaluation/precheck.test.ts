@@ -53,7 +53,7 @@ describe('precheck of typed answers', () => {
     expect(verdict).toMatchObject({ outcome: 'correct', solution: 'Të lutem, nji kafe.' });
   });
 
-  it('treats apostrophes like any other punctuation', () => {
+  it('removes apostrophes', () => {
     const exercise: TranslateFreeExercise = {
       ...SAMPLE_TRANSLATE_FREE,
       solutions: ["S'ka përse."],
@@ -62,6 +62,17 @@ describe('precheck of typed answers', () => {
 
     expect(precheck(exercise, text('ska përse')).outcome).toBe('correct');
     expect(precheck(exercise, text('s’ka përse')).outcome).toBe('correct');
+  });
+
+  it('reads punctuation between words as a space: "Jo,faleminderit"', () => {
+    const exercise: TranslateFreeExercise = {
+      ...SAMPLE_TRANSLATE_FREE,
+      solutions: ['Jo, faleminderit.'],
+      standardForms: [],
+    };
+
+    expect(precheck(exercise, text('Jo,faleminderit')).outcome).toBe('correct');
+    expect(precheck(exercise, text('Jofaleminderit')).outcome).toBe('almost_correct');
   });
 
   it('counts a missing circumflex as almost correct: "asht" for "âsht"', () => {
@@ -89,6 +100,26 @@ describe('precheck of typed answers', () => {
     const verdict = precheck(SAMPLE_TRANSLATE_FREE_NASAL, text('cka po ban'));
 
     expect(verdict.hint).toBe('Fast richtig – achte auf die Sonderzeichen: **Çka**, **bân**');
+  });
+
+  it('never counts an added diacritic as almost correct: "jâm" for "jam"', () => {
+    const verdict = precheck(SAMPLE_FILL_GAP_TYPED, text('jâm'));
+
+    expect(verdict).toMatchObject({ outcome: 'wrong', solution: 'jam' });
+  });
+
+  it('counts a wrong diacritic as a typo, not as a missing one', () => {
+    const exercise: TranslateFreeExercise = {
+      ...SAMPLE_TRANSLATE_FREE,
+      solutions: ['mirëdita'],
+      standardForms: [],
+    };
+
+    expect(precheck(exercise, text('mirêdita'))).toMatchObject({
+      outcome: 'almost_correct',
+      hint: 'Fast richtig – achte auf die Schreibweise: **mirëdita**',
+    });
+    expect(precheck(exercise, text('mirêditê')).outcome).toBe('wrong');
   });
 
   it('recognises a listed Standard form: "është" for "âsht"', () => {
@@ -185,8 +216,23 @@ describe('precheck of word chips', () => {
     expect(verdict).toMatchObject({ outcome: 'correct', solution: 'Mirëdita! Si je?' });
   });
 
-  it('marks a distractor as wrong', () => {
+  it('marks a distractor as wrong, even when it is one letter away', () => {
     expect(precheck(SAMPLE_WORDBANK, tokens('Mirëdita', 'Si', 'jeni')).outcome).toBe('wrong');
+    expect(
+      precheck(SAMPLE_WORD_ORDER, tokens('Mirë', 'se', 'vjen', 'në', 'Prishtina')),
+    ).toMatchObject({ outcome: 'wrong', solution: 'Mirë se vjen në Prishtinë!' });
+  });
+
+  it('never tolerates missing diacritics in chips', () => {
+    expect(precheck(SAMPLE_WORDBANK, tokens('Miredita', 'Si', 'je')).outcome).toBe('wrong');
+  });
+
+  it('marks reordered word-bank chips as a word-order mistake and shows that solution', () => {
+    expect(precheck(SAMPLE_WORDBANK, tokens('Mirëdita', 'je', 'Qysh'))).toMatchObject({
+      outcome: 'wrong',
+      solution: 'Mirëdita! Qysh je?',
+      hint: 'Die Wörter stimmen, aber die Reihenfolge noch nicht.',
+    });
   });
 
   it('marks the right words in the wrong order as wrong with a word-order hint', () => {

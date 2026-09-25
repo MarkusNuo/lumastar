@@ -1,11 +1,21 @@
 import { LESSON_COPY } from '../copy';
 import type { Answer, LessonExercise, Outcome, Verdict } from '../model';
 import { editDistance } from './editDistance';
-import { foldDiacritics, normalizeAnswer, wordsOf, writtenWordsOf } from './normalize';
+import {
+  differsInMissingDiacriticsOnly,
+  foldDiacritics,
+  matchesWithoutDiacritic,
+  normalizeAnswer,
+  tokensOf,
+  wordsOf,
+  writtenWordsOf,
+} from './normalize';
 
 /*
  * Instant pre-check (PRD 11.2) mirroring the backend's rule-based evaluator. The backend knows more
  * (error hints, a lexicon of Standard forms), so its verdict replaces this one when they differ.
+ * Tolerance (missing diacritics, typos) applies to typed answers only; answers built from tiles or
+ * choices are exact (docs/CONTENT_FORMAT.md, point 6).
  */
 
 const hints = LESSON_COPY.hints;
@@ -16,7 +26,6 @@ const TWO_TYPOS_MIN_LETTERS = 16;
 interface Phrase {
   text: string;
   normalized: string;
-  folded: string;
   words: string[];
   foldedWords: string[];
   writtenWords: string[];
@@ -24,13 +33,11 @@ interface Phrase {
 
 function phrase(text: string): Phrase {
   const normalized = normalizeAnswer(text);
-  const folded = foldDiacritics(normalized);
   return {
     text,
     normalized,
-    folded,
     words: wordsOf(normalized),
-    foldedWords: wordsOf(folded),
+    foldedWords: wordsOf(foldDiacritics(normalized)),
     writtenWords: writtenWordsOf(text),
   };
 }
@@ -58,12 +65,12 @@ function evaluate(exercise: LessonExercise, answer: Answer): Evaluation {
     case 'fill_gap':
       return exercise.choices
         ? checkChoice(exercise.solutions, expect(answer, 'choice').choice)
-        : checkText(exercise.solutions, exercise.standardForms, expect(answer, 'text').text);
+        : checkTyped(exercise.solutions, exercise.standardForms, expect(answer, 'text').text);
     case 'translate_free':
-      return checkText(exercise.solutions, exercise.standardForms, expect(answer, 'text').text);
+      return checkTyped(exercise.solutions, exercise.standardForms, expect(answer, 'text').text);
     case 'translate_wordbank':
     case 'word_order':
-      return checkText(exercise.solutions, [], expect(answer, 'tokens').tokens.join(' '));
+      return checkTiles(exercise.solutions, expect(answer, 'tokens').tokens);
     case 'match_pairs':
       return checkPairs(expect(answer, 'mistakes').mistakes);
   }
@@ -88,8 +95,40 @@ function checkPairs(mistakes: number): Evaluation {
   return { outcome: 'wrong', hint: hints.pairsMismatched(mistakes) };
 }
 
+/** Tiles in the solution's order are correct; the same tiles in another order are a word-order mistake. */
+function checkTiles(solutionTexts: string[], tiles: string[]): Evaluation {
+  const answerTokens = tiles.flatMap(tokensOf);
+  const solutions = solutionTexts.map((text) => ({ phrase: phrase(text), tokens: tokensOf(text) }));
+
+  const exact = solutions.find((solution) => sameTokens(solution.tokens, answerTokens));
+  if (exact) return { outcome: 'correct', solution: exact.phrase.text };
+
+  const answer = phrase(answerTokens.join(' '));
+  const reorderings = solutions.filter((solution) =>
+    sameTokens(sorted(solution.tokens), sorted(answerTokens)),
+  );
+  if (reorderings.length > 0) {
+    const solution = closest(
+      reorderings.map((reordering) => reordering.phrase),
+      answer,
+    );
+    return { outcome: 'wrong', solution: solution.text, hint: hints.wordOrder };
+  }
+  return {
+    outcome: 'wrong',
+    solution: closest(
+      solutions.map((solution) => solution.phrase),
+      answer,
+    ).text,
+  };
+}
+
 /** Exact match, Standard form, missing diacritics, Standard form without diacritics, mistake. */
-function checkText(solutionTexts: string[], standardFormTexts: string[], text: string): Evaluation {
+function checkTyped(
+  solutionTexts: string[],
+  standardFormTexts: string[],
+  text: string,
+): Evaluation {
   const answer = phrase(text);
   const solutions = solutionTexts.map(phrase);
   const standardForms = standardFormTexts.map(phrase);
@@ -97,22 +136,32 @@ function checkText(solutionTexts: string[], standardFormTexts: string[], text: s
   const exact = solutions.find((solution) => solution.normalized === answer.normalized);
   if (exact) return { outcome: 'correct', solution: exact.text };
 
-  const standard = standardForm(answer, solutions, standardForms, 'normalized');
+  const standard = standardForm(answer, solutions, standardForms, sameText);
   if (standard) return standard;
 
-  const withoutDiacritics = solutions.find((solution) => solution.folded === answer.folded);
+  const withoutDiacritics = solutions.find((solution) => lacksDiacriticsOnly(answer, solution));
   if (withoutDiacritics) return missingDiacritics(answer, withoutDiacritics);
 
-  return standardForm(answer, solutions, standardForms, 'folded') ?? mistake(answer, solutions);
+  return (
+    standardForm(answer, solutions, standardForms, lacksDiacriticsOnly) ??
+    mistake(answer, solutions)
+  );
 }
+
+type PhraseMatch = (answer: Phrase, expected: Phrase) => boolean;
+
+const sameText: PhraseMatch = (answer, expected) => answer.normalized === expected.normalized;
+
+const lacksDiacriticsOnly: PhraseMatch = (answer, expected) =>
+  differsInMissingDiacriticsOnly(answer.normalized, expected.normalized);
 
 function standardForm(
   answer: Phrase,
   solutions: Phrase[],
   standardForms: Phrase[],
-  form: 'normalized' | 'folded',
+  matches: PhraseMatch,
 ): Evaluation | undefined {
-  if (!standardForms.some((standard) => standard[form] === answer[form])) return undefined;
+  if (!standardForms.some((standard) => matches(answer, standard))) return undefined;
   const solution = closest(solutions, answer);
   return {
     outcome: 'correct_standard_form',
@@ -160,14 +209,22 @@ function mistake(answer: Phrase, solutions: Phrase[]): Evaluation {
 }
 
 function isReordering(answer: Phrase, solution: Phrase): boolean {
-  return sorted(answer.foldedWords).join(' ') === sorted(solution.foldedWords).join(' ');
+  return (
+    !sameTokens(answer.foldedWords, solution.foldedWords) &&
+    sameTokens(sorted(answer.foldedWords), sorted(solution.foldedWords))
+  );
 }
 
 function isTypo(answer: Phrase, solution: Phrase): boolean {
-  const letters = solution.folded.replaceAll(' ', '').length;
+  const letters = foldDiacritics(solution.normalized).replaceAll(' ', '').length;
   const allowedEdits =
     letters >= TWO_TYPOS_MIN_LETTERS ? 2 : letters >= ONE_TYPO_MIN_LETTERS ? 1 : 0;
-  return allowedEdits > 0 && editDistance(answer.folded, solution.folded) <= allowedEdits;
+  return allowedEdits > 0 && edits(answer, solution) <= allowedEdits;
+}
+
+/** A missing diacritic costs nothing (it is tolerated anyway); an added or wrong one is an edit. */
+function edits(answer: Phrase, solution: Phrase): number {
+  return editDistance(answer.normalized, solution.normalized, matchesWithoutDiacritic);
 }
 
 /** The solution words the answer got wrong, or the whole solution if the word counts differ. */
@@ -193,15 +250,19 @@ function closest(solutions: Phrase[], answer: Phrase): Phrase {
   const [first, ...rest] = solutions;
   if (!first) throw new Error('An exercise needs at least one solution');
   let best = first;
-  let fewestEdits = editDistance(answer.folded, first.folded);
+  let fewestEdits = edits(answer, first);
   for (const solution of rest) {
-    const edits = editDistance(answer.folded, solution.folded);
-    if (edits < fewestEdits) {
+    const candidateEdits = edits(answer, solution);
+    if (candidateEdits < fewestEdits) {
       best = solution;
-      fewestEdits = edits;
+      fewestEdits = candidateEdits;
     }
   }
   return best;
+}
+
+function sameTokens(a: string[], b: string[]): boolean {
+  return a.length === b.length && a.every((token, index) => token === b[index]);
 }
 
 function sorted(words: string[]): string[] {
