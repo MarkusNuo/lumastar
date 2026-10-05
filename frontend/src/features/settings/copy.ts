@@ -61,7 +61,8 @@ export const PROFILE_COPY = {
     downloaded: (filename: string) => `Backup gespeichert: ${filename}`,
     confirm: {
       title: 'Backup importieren?',
-      text: 'Alle aktuellen Lerndaten werden durch das Backup ersetzt. Fortfahren?',
+      text: (fileName: string) =>
+        `Alle aktuellen Lerndaten werden durch das Backup „${fileName}“ ersetzt. Fortfahren?`,
       cancel: 'Abbrechen',
       replace: 'Ersetzen',
     },

@@ -304,7 +304,7 @@ describe('ProfilePage', () => {
       await user.upload(fileInput(), await backupFile());
       const dialog = await screen.findByRole('alertdialog', { name: 'Backup importieren?' });
       expect(dialog).toHaveAccessibleDescription(
-        'Alle aktuellen Lerndaten werden durch das Backup ersetzt. Fortfahren?',
+        'Alle aktuellen Lerndaten werden durch das Backup „lingora-export-2026-09-24.zip“ ersetzt. Fortfahren?',
       );
       await user.click(within(dialog).getByRole('button', { name: 'Abbrechen' }));
 

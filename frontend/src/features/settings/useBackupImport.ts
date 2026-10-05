@@ -17,6 +17,8 @@ export function useBackupImport() {
   const queryClient = useQueryClient();
   const inputRef = useRef<HTMLInputElement>(null);
   const [chosenFile, setChosenFile] = useState<File | null>(null);
+  // Separate from the file, so its name stays in the dialog while the dialog closes.
+  const [confirming, setConfirming] = useState(false);
   const [tooLarge, setTooLarge] = useState(false);
 
   const mutation = useMutation({
@@ -33,8 +35,12 @@ export function useBackupImport() {
     // Cleared so that choosing the same file again fires another change event.
     event.currentTarget.value = '';
     if (!file) return;
-    if (isBackupTooLarge(file)) setTooLarge(true);
-    else setChosenFile(file);
+    if (isBackupTooLarge(file)) {
+      setTooLarge(true);
+      return;
+    }
+    setChosenFile(file);
+    setConfirming(true);
   };
 
   const problem: ProblemMessage | null = tooLarge
@@ -48,12 +54,14 @@ export function useBackupImport() {
     fileInput: { ref: inputRef, onChange: onFileChange },
     choose: () => inputRef.current?.click(),
     /** A file was chosen and waits for the confirmation. */
-    confirming: chosenFile !== null,
+    confirming,
+    /** Name of the chosen file, for the confirmation. */
+    fileName: chosenFile?.name ?? '',
     confirm: () => {
-      if (chosenFile) mutation.mutate(chosenFile);
-      setChosenFile(null);
+      if (confirming && chosenFile) mutation.mutate(chosenFile);
+      setConfirming(false);
     },
-    cancel: () => setChosenFile(null),
+    cancel: () => setConfirming(false),
     isPending: mutation.isPending,
     problem,
     reset: () => {

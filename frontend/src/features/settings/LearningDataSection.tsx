@@ -88,7 +88,7 @@ export function LearningDataSection() {
       <ConfirmDialog
         open={backup.confirming}
         title={PROFILE_COPY.backup.confirm.title}
-        text={PROFILE_COPY.backup.confirm.text}
+        text={PROFILE_COPY.backup.confirm.text(backup.fileName)}
         cancelLabel={PROFILE_COPY.backup.confirm.cancel}
         confirmLabel={PROFILE_COPY.backup.confirm.replace}
         mascot="thinking"
