@@ -1,9 +1,22 @@
-import { expect, test, type Locator, type Page, type Response } from '@playwright/test';
+import { expect, test, type Page, type Response } from '@playwright/test';
 import { AppShell } from '../../pages/AppShell.ts';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
-import { FEEDBACK, LessonPlayer, type FeedbackVariant } from '../../pages/LessonPlayer.ts';
+import {
+  FEEDBACK,
+  LessonPlayer,
+  VARIANT_OF,
+  type FeedbackVariant,
+} from '../../pages/LessonPlayer.ts';
 import { LessonResultScreen } from '../../pages/LessonResultScreen.ts';
-import { firstBuildableChips, normalizeAnswer, withoutDiacritics } from '../../support/answers.ts';
+import { isSpecialChar } from '../../support/answers.ts';
+import {
+  almostAnswer,
+  choiceFor,
+  hasChoices,
+  isTyped,
+  textFor,
+  type Intent,
+} from '../../support/lessonAnswers.ts';
 import {
   fetchXpTotal,
   isAttempt,
@@ -27,8 +40,8 @@ import { snap } from '../../support/screenshots.ts';
 
 const UNIT = 'Begrüssung & Höflichkeit';
 const BASE_XP = 10;
-
-type Intent = FeedbackVariant;
+/** The result screen lists this many practised words until "Alle <n> anzeigen" is tapped. */
+const COLLAPSED_WORDS = 6;
 
 const OUTCOME_OF: Record<Intent, Outcome> = {
   correct: 'correct',
@@ -36,28 +49,6 @@ const OUTCOME_OF: Record<Intent, Outcome> = {
   standard: 'correct_standard_form',
   wrong: 'wrong',
 };
-
-const VARIANT_OF: Record<Outcome, FeedbackVariant> = {
-  correct: 'correct',
-  almost_correct: 'almost',
-  correct_standard_form: 'standard',
-  wrong: 'wrong',
-};
-
-const isTyped = (exercise: LessonExercise) =>
-  exercise.type === 'translate_free' || (exercise.type === 'fill_gap' && !exercise.choices);
-
-const hasChoices = (exercise: LessonExercise) => exercise.choices !== undefined;
-
-const solutionsOf = (exercise: LessonExercise) => exercise.solutions ?? [];
-
-/** A solution typed without ë, ç, â…, which neither is a solution nor a Standard form by itself. */
-function almostAnswer(exercise: LessonExercise): string | undefined {
-  const taken = new Set([...solutionsOf(exercise), ...(exercise.standardForms ?? [])].map(normalizeAnswer));
-  return solutionsOf(exercise)
-    .map(withoutDiacritics)
-    .find((answer) => !taken.has(normalizeAnswer(answer)));
-}
 
 /** The deliberate deviations; every exercise not in the map is answered correctly. */
 function planIntents(exercises: readonly LessonExercise[]): Map<string, Intent> {
@@ -73,30 +64,25 @@ function planIntents(exercises: readonly LessonExercise[]): Map<string, Intent> 
       }
     }
   };
+  const almostFits = (exercise: LessonExercise) =>
+    isTyped(exercise) && almostAnswer(exercise) !== undefined;
+  const standardFits = (exercise: LessonExercise) =>
+    isTyped(exercise) && (exercise.standardForms?.length ?? 0) > 0;
+  // Deviations prefer exercises that leave a right Gheg answer typed through the bar.
+  const leavesBarAnswer = (exercise: LessonExercise) =>
+    exercises.some((other) => other !== exercise && !intents.has(other.id) && needsBar(other));
+
   pick('wrong', (exercise) => exercise.type === 'multiple_choice', hasChoices);
-  pick('standard', (exercise) => isTyped(exercise) && (exercise.standardForms?.length ?? 0) > 0);
-  pick('almost', (exercise) => isTyped(exercise) && almostAnswer(exercise) !== undefined);
+  // "almost" is required, a Standard form only shown when another typed exercise offers one.
+  pick('almost', (exercise) => almostFits(exercise) && leavesBarAnswer(exercise), almostFits);
+  pick('standard', (exercise) => standardFits(exercise) && leavesBarAnswer(exercise), standardFits);
   return intents;
 }
 
-function choiceFor(exercise: LessonExercise, intent: Intent): string {
-  const solutions = new Set(solutionsOf(exercise).map(normalizeAnswer));
-  const choice = (exercise.choices ?? []).find(
-    (candidate) => solutions.has(normalizeAnswer(candidate)) === (intent !== 'wrong'),
-  );
-  if (choice === undefined) throw new Error(`No ${intent} choice in ${exercise.id}`);
-  return choice;
-}
-
-function textFor(exercise: LessonExercise, intent: Intent): string {
-  const text =
-    intent === 'almost'
-      ? almostAnswer(exercise)
-      : intent === 'standard'
-        ? exercise.standardForms?.[0]
-        : solutionsOf(exercise)[0];
-  if (text === undefined) throw new Error(`No ${intent} text for ${exercise.id}`);
-  return text;
+/** A typed Gheg answer whose solution has ë, ç, â…, i.e. one typed through the special-character bar. */
+function needsBar(exercise: LessonExercise): boolean {
+  if (!isTyped(exercise) || exercise.answerLang !== 'sq') return false;
+  return [...textFor(exercise, 'correct')].some(isSpecialChar);
 }
 
 /** Screenshot name per exercise type; the two ways of filling a gap look different. */
@@ -194,7 +180,7 @@ test('a full lesson with every exercise type, all feedback states, the retry and
       if (exercise.type === 'match_pairs') {
         await player.matchPairs(exercise.pairs ?? [], beforeCheck);
       } else {
-        charsFromBar += await enterAnswer(player, exercise, intent);
+        charsFromBar += await player.enterAnswer(exercise, intent);
         await beforeCheck();
         await player.check();
       }
@@ -268,8 +254,16 @@ test('a full lesson with every exercise type, all feedback states, the retry and
     await expect(resultScreen.stat('Genauigkeit')).toContainText(percent(result.accuracy));
     await expect(resultScreen.stat('Zeit')).toContainText(clock(result.durationMs));
     await expect(resultScreen.xpPart('Basis')).toHaveText(`Basis +${BASE_XP}`);
-    await expect(resultScreen.learnedWords()).toHaveCount(result.learnedItems.length);
+    const learned = result.learnedItems.length;
+    await expect(resultScreen.learnedWords()).toHaveCount(Math.min(learned, COLLAPSED_WORDS));
     await snap(page, 'result', { fullPage: false });
+    if (learned > COLLAPSED_WORDS) {
+      const showAll = resultScreen.showAllWordsButton(learned);
+      await expect(showAll).toHaveAttribute('aria-expanded', 'false');
+      await showAll.click();
+      await expect(resultScreen.learnedWords()).toHaveCount(learned);
+      await expect(resultScreen.showFewerWordsButton).toHaveAttribute('aria-expanded', 'true');
+    }
     // A full-page capture would leave the sticky "Weiter" button in the middle of the word list.
     await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
@@ -281,51 +275,3 @@ test('a full lesson with every exercise type, all feedback states, the retry and
     await snap(page, 'home-after-lesson', { fullPage: false });
   });
 });
-
-/** Enters the answer of every type except match_pairs; returns the characters typed via the bar. */
-async function enterAnswer(
-  player: LessonPlayer,
-  exercise: LessonExercise,
-  intent: Intent,
-): Promise<number> {
-  switch (exercise.type) {
-    case 'multiple_choice':
-      await player.chooseOption(choiceFor(exercise, intent));
-      return 0;
-    case 'translate_wordbank': {
-      const chips = firstBuildableChips(solutionsOf(exercise), exercise.wordBank ?? []);
-      await player.tapChips('Wortbausteine', chips);
-      await expect(player.answerLine().getByRole('button')).toHaveText(chips);
-      return 0;
-    }
-    case 'word_order': {
-      const tokens = exercise.tokens ?? [];
-      await player.tapChips('Wortbausteine', tokens);
-      await expect(player.answerLine().getByRole('button')).toHaveText(tokens);
-      return 0;
-    }
-    case 'fill_gap':
-      if (exercise.choices) {
-        const choice = choiceFor(exercise, intent);
-        await player.tapChips('Antwortmöglichkeiten', [choice]);
-        await expect(player.exercise.getByRole('group', { name: 'Lücke' })).toHaveText(choice);
-        return 0;
-      }
-      return typeText(player, player.gapField(), exercise, intent);
-    case 'translate_free':
-      return typeText(player, player.answerField(exercise.answerLang ?? 'sq'), exercise, intent);
-    case 'match_pairs':
-      throw new Error('Match pairs are answered by matchPairs');
-  }
-}
-
-/** A learner who types "almost" right skips the special characters; the others use the bar. */
-function typeText(
-  player: LessonPlayer,
-  field: Locator,
-  exercise: LessonExercise,
-  intent: Intent,
-): Promise<number> {
-  const useBar = exercise.answerLang === 'sq' && intent !== 'almost';
-  return player.typeAnswer(field, textFor(exercise, intent), { useBar });
-}

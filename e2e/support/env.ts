@@ -13,7 +13,7 @@ export const BACKEND_URL = `http://${HOST}:${BACKEND_PORT}`;
 export const FRONTEND_URL = `http://${HOST}:${FRONTEND_PORT}`;
 
 /** Screenshots land in screenshots/<milestone>/; bump per milestone or override via env. */
-export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm1';
+export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm2';
 
 /**
  * Which code the servers run: the working tree (default) or the last commit (E2E_SOURCE=head), which
@@ -28,6 +28,12 @@ function sourceFromEnv(value: string | undefined): Source {
 }
 
 export const SOURCE: Source = sourceFromEnv(process.env.E2E_SOURCE);
+
+/**
+ * The commit E2E_SOURCE=head exports: HEAD unless E2E_REF names another one, e.g. the last commit
+ * before an unfinished change changed a flow the tests depend on.
+ */
+export const SOURCE_REF = process.env.E2E_REF?.trim() || 'HEAD';
 
 const fromE2eRoot = (relative: string) => fileURLToPath(new URL(`../${relative}`, import.meta.url));
 

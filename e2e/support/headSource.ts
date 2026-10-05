@@ -3,9 +3,10 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync
 import path from 'node:path';
 
 /*
- * E2E_SOURCE=head: the servers run from an export of the last commit instead of the shared working
- * tree, so half-finished local edits cannot break a run. The export is refreshed only when
- * the committed backend/, frontend/ or content/ changed; build output and node_modules are kept.
+ * E2E_SOURCE=head: the servers run from an export of the last commit (or of E2E_REF) instead of the
+ * shared working tree, so half-finished local edits cannot break a run. The export is
+ * refreshed only when the committed backend/, frontend/ or content/ changed; build output and
+ * node_modules are kept.
  */
 
 const AREAS = ['backend', 'frontend', 'content'] as const;
@@ -32,29 +33,31 @@ export interface SourceRoots {
 /** Set by the runner process; workers evaluate the config again and must not export a newer HEAD. */
 const EXPORTED_ENV = 'LINGORA_E2E_HEAD_EXPORTED';
 
-export function exportHead(repoRoot: string, target: string): SourceRoots {
+export function exportHead(repoRoot: string, target: string, ref: string): SourceRoots {
   const roots = { backend: path.join(target, 'backend'), frontend: path.join(target, 'frontend') };
   if (process.env[EXPORTED_ENV]) return roots;
 
   const git = (...args: string[]) =>
     execFileSync('git', args, { cwd: repoRoot, encoding: 'utf8' }).trim();
+  // Resolved once, so a commit landing meanwhile cannot mix two versions into one export.
+  const commit = git('rev-parse', '--verify', `${ref}^{commit}`);
   const wanted: ExportMarker = {
-    commit: git('rev-parse', 'HEAD'),
-    trees: Object.fromEntries(AREAS.map((area) => [area, git('rev-parse', `HEAD:${area}`)])) as Record<
+    commit,
+    trees: Object.fromEntries(AREAS.map((area) => [area, git('rev-parse', `${commit}:${area}`)])) as Record<
       Area,
       string
     >,
-    lockfile: git('rev-parse', 'HEAD:frontend/package-lock.json'),
+    lockfile: git('rev-parse', `${commit}:frontend/package-lock.json`),
   };
   const markerFile = path.join(target, 'export.json');
   const previous = readMarker(markerFile);
-  const log = (message: string) => console.log(`[e2e] ${message} (HEAD ${wanted.commit.slice(0, 9)})`);
+  const log = (message: string) => console.log(`[e2e] ${message} (${ref} ${wanted.commit.slice(0, 9)})`);
 
   if (!previous || AREAS.some((area) => previous.trees[area] !== wanted.trees[area])) {
     log(`Exporting ${AREAS.join(', ')} to ${target}`);
     rmSync(markerFile, { force: true });
     clean(target);
-    extract(repoRoot, target);
+    extract(repoRoot, target, wanted.commit);
   } else {
     log('Reusing the export');
   }
@@ -89,10 +92,10 @@ function clean(target: string): void {
   }
 }
 
-/** `git archive HEAD` piped into tar; tar runs inside the target so no path needs escaping. */
-function extract(repoRoot: string, target: string): void {
+/** `git archive <commit>` piped into tar; tar runs inside the target so no path needs escaping. */
+function extract(repoRoot: string, target: string, commit: string): void {
   mkdirSync(target, { recursive: true });
-  const archive = execFileSync('git', ['archive', '--format=tar', 'HEAD', ...AREAS], {
+  const archive = execFileSync('git', ['archive', '--format=tar', commit, ...AREAS], {
     cwd: repoRoot,
     maxBuffer: 1024 * 1024 * 1024,
   });

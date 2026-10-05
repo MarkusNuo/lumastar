@@ -8,6 +8,7 @@ import {
   HOST,
   PATHS,
   SOURCE,
+  SOURCE_REF,
 } from './support/env.ts';
 import { exportHead, type SourceRoots } from './support/headSource.ts';
 import { PHONES } from './support/phones.ts';
@@ -15,6 +16,8 @@ import { PHONES } from './support/phones.ts';
 type WebServer = Extract<NonNullable<PlaywrightTestConfig['webServer']>, { command: string }>;
 
 const isCI = Boolean(process.env.CI);
+/** Seed of the backend's lesson composer (lingora.lesson.random-seed); older commits ignore it. */
+const LESSON_SEED = 20261005;
 const isWindows = process.platform === 'win32';
 
 /** HEAD mode never reuses a running server: it may run the working tree instead of the commit. */
@@ -22,7 +25,7 @@ const reuseExistingServer = !isCI && SOURCE === 'worktree';
 
 const roots: SourceRoots =
   SOURCE === 'head'
-    ? exportHead(PATHS.repoRoot, PATHS.headExport)
+    ? exportHead(PATHS.repoRoot, PATHS.headExport, SOURCE_REF)
     : { backend: PATHS.backend, frontend: PATHS.frontend };
 
 /**
@@ -35,7 +38,8 @@ function backendServer(cwd: string): WebServer {
   if (isWindows) mkdirSync(PATHS.gradleTemp, { recursive: true });
   return {
     name: 'backend',
-    command: `${gradle} bootTestRun --args=--server.port=${BACKEND_PORT} --console=plain`,
+    // A fixed seed makes the composed lessons the same in every run of the same tests.
+    command: `${gradle} bootTestRun "--args=--server.port=${BACKEND_PORT} --lingora.lesson.random-seed=${LESSON_SEED}" --console=plain`,
     cwd,
     // The JDK on the Windows dev machine cannot open its loopback socket in the user temp dir.
     env: isWindows ? { TEMP: PATHS.gradleTemp, TMP: PATHS.gradleTemp } : {},

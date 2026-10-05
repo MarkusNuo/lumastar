@@ -1,8 +1,17 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import { isSpecialChar } from '../support/answers.ts';
-import type { ExerciseType } from '../support/lessonApi.ts';
+import { firstBuildableChips, isSpecialChar } from '../support/answers.ts';
+import { choiceFor, solutionsOf, textFor, type Intent } from '../support/lessonAnswers.ts';
+import type { ExerciseType, LessonExercise, Outcome } from '../support/lessonApi.ts';
 
 export type FeedbackVariant = 'correct' | 'almost' | 'standard' | 'wrong';
+
+/** The feedback sheet the player shows for the binding outcome of the backend. */
+export const VARIANT_OF: Record<Outcome, FeedbackVariant> = {
+  correct: 'correct',
+  almost_correct: 'almost',
+  correct_standard_form: 'standard',
+  wrong: 'wrong',
+};
 
 /** Title, colour tone and solution label of the feedback sheet per variant (PRD F5, 12.3). */
 export const FEEDBACK: Record<FeedbackVariant, { title: string; tone: string; solutionLabel: string }> = {
@@ -142,6 +151,48 @@ export class LessonPlayer {
       // A matched pair flashes green, then both tiles are locked.
       await expect(this.exercise.getByRole('button', { name: pair.left, exact: true })).toBeDisabled();
     }
+  }
+
+  /**
+   * Enters the answer of every type except match_pairs (see `matchPairs`); returns how many
+   * characters were typed through the special-character bar.
+   */
+  async enterAnswer(exercise: LessonExercise, intent: Intent): Promise<number> {
+    switch (exercise.type) {
+      case 'multiple_choice':
+        await this.chooseOption(choiceFor(exercise, intent));
+        return 0;
+      case 'translate_wordbank': {
+        const chips = firstBuildableChips(solutionsOf(exercise), exercise.wordBank ?? []);
+        await this.tapChips('Wortbausteine', chips);
+        await expect(this.answerLine().getByRole('button')).toHaveText(chips);
+        return 0;
+      }
+      case 'word_order': {
+        const tokens = exercise.tokens ?? [];
+        await this.tapChips('Wortbausteine', tokens);
+        await expect(this.answerLine().getByRole('button')).toHaveText(tokens);
+        return 0;
+      }
+      case 'fill_gap':
+        if (exercise.choices) {
+          const choice = choiceFor(exercise, intent);
+          await this.tapChips('Antwortmöglichkeiten', [choice]);
+          await expect(this.exercise.getByRole('group', { name: 'Lücke' })).toHaveText(choice);
+          return 0;
+        }
+        return this.typeText(this.gapField(), exercise, intent);
+      case 'translate_free':
+        return this.typeText(this.answerField(exercise.answerLang ?? 'sq'), exercise, intent);
+      case 'match_pairs':
+        throw new Error('Match pairs are answered by matchPairs');
+    }
+  }
+
+  /** A learner who types "almost" right skips the special characters; the others use the bar. */
+  private typeText(field: Locator, exercise: LessonExercise, intent: Intent): Promise<number> {
+    const useBar = exercise.answerLang === 'sq' && intent !== 'almost';
+    return this.typeAnswer(field, textFor(exercise, intent), { useBar });
   }
 
   async check(): Promise<void> {
