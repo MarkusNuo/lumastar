@@ -33,6 +33,7 @@ const IMPORT_RESULT: ImportResult = {
   exportedAt: '2026-09-24T18:30:00Z',
   imported: {
     attempts: 42,
+    badges: 0,
     fsrsParams: 0,
     learningPlans: 1,
     placementAnswers: 0,

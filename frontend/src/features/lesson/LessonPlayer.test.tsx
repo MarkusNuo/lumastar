@@ -23,14 +23,16 @@ const LESSON: Lesson = {
 };
 
 const RESULT: LessonResultResponse = {
+  kind: 'lesson',
   xpEarned: 15,
   xpBreakdown: { base: 10, perfectBonus: 0, speedBonus: 5 },
   accuracy: 0.5,
   durationMs: 75_000,
   correctCount: 1,
   exerciseCount: 2,
-  learnedItems: [{ id: 'item_miredita', gheg: 'mirëdita', de: 'guten Tag, hallo' }],
+  learnedItems: [{ id: 'item_miredita', gheg: 'mirëdita', de: 'guten Tag, hallo', known: false }],
   xpTotal: 115,
+  learnedWordsTotal: 1,
 };
 
 function attemptResponse(overrides: Partial<AttemptResponse>): AttemptResponse {

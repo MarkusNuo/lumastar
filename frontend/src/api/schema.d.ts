@@ -443,6 +443,43 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/review/lessons": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Compose and start a review lesson of the due items
+         * @description Up to 12 exercises at or below the learner's level that practise the most overdue items, one exercise per item and mixed types. It is played like any lesson: answers go to POST /api/lessons/{sessionId}/attempts and it is finished with POST /api/lessons/{sessionId}/complete.
+         */
+        post: operations["startReviewLesson"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/review/summary": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Items due for review now and tomorrow */
+        get: operations["getReviewSummary"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -475,7 +512,7 @@ export interface components {
             /** @description Short German hint; words to look at are marked as **bold** */
             hint?: string;
             outcome: components["schemas"]["Outcome"];
-            /** @description Provisional FSRS rating of the answer */
+            /** @description FSRS rating of the answer (PRD F8): again for wrong, hard for almost correct or slow, good for correct, easy for correct and fast on known items. The cards of its items are reviewed with it; a retry reviews no card. */
             rating: components["schemas"]["Rating"];
             /** @description The accepted solution closest to the answer; absent for match_pairs */
             solution?: string;
@@ -494,6 +531,11 @@ export interface components {
              * @description Answers
              */
             attempts: number;
+            /**
+             * Format: int32
+             * @description Level badges
+             */
+            badges: number;
             /** Format: int32 */
             fsrsParams: number;
             /** Format: int32 */
@@ -578,6 +620,15 @@ export interface components {
         };
         /** @enum {string} */
         ExerciseType: "multiple_choice" | "translate_wordbank" | "translate_free" | "fill_gap" | "match_pairs" | "word_order" | "conjugation_drill" | "declension_drill" | "reading" | "free_writing" | "listen_select";
+        /** @description The focus unit of the plan for the weak skill tag; start it with POST /api/lessons */
+        FocusSuggestion: {
+            /** @description German label of the skill tag */
+            label: string;
+            /** @example grammar.case */
+            skillTag: string;
+            /** @example focus_grammar.case_1 */
+            unitId: string;
+        };
         /** @description suffix: the word before the match + value must begin the Gheg word (which may carry an inflection ending: punuar → punue, punuem, punuemi). prefix: value + the word after the match must equal the Gheg word, also with a j between them if the rest begins with a vowel (shtëpia → shpija). word: value must equal the Gheg word. */
         GhegReplacement: {
             kind: components["schemas"]["GhegReplacementKind"];
@@ -602,6 +653,8 @@ export interface components {
             de: string;
             gheg: string;
             id: string;
+            /** @description Its FSRS card is in the review state, so the item counts as learned */
+            known: boolean;
         };
         LessonExercise: {
             /** @description Language of the answer; all types except multiple_choice and match_pairs */
@@ -638,11 +691,18 @@ export interface components {
             /** @description translate_wordbank: word chips including distractors */
             wordBank?: string[];
         };
+        /**
+         * @description lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8) or checkpoint at the end of a stage (PRD chapter 5)
+         * @enum {string}
+         */
+        LessonKind: "lesson" | "focus" | "review" | "checkpoint";
         /** @description A started lesson; its exercises are in the order they are played */
         LessonResponse: {
             exercises: components["schemas"]["LessonExercise"][];
+            kind: components["schemas"]["LessonKind"];
             /** Format: uuid */
             sessionId: string;
+            /** @description The unit or focus unit played; review for a review lesson */
             unitId: string;
         };
         /** @description Result of a finished lesson; completing it again returns the same result */
@@ -664,8 +724,16 @@ export interface components {
             durationMs: number;
             /** Format: int32 */
             exerciseCount: number;
+            /** @description A focus lesson for a skill tag answered wrongly at least three times in this lesson (PRD F7); absent otherwise */
+            focusSuggestion?: components["schemas"]["FocusSuggestion"];
+            kind: components["schemas"]["LessonKind"];
             /** @description Items practised in the lesson */
             learnedItems: components["schemas"]["LearnedItem"][];
+            /**
+             * Format: int32
+             * @description Learned words of the learner: words and phrases whose FSRS card is in the review state (PRD F10)
+             */
+            learnedWordsTotal: number;
             xpBreakdown: components["schemas"]["XpBreakdown"];
             /** Format: int32 */
             xpEarned: number;
@@ -930,6 +998,24 @@ export interface components {
         };
         /** @enum {string} */
         Rating: "again" | "hard" | "good" | "easy";
+        /** @description The learner's FSRS cards (PRD F8): what is due now and tomorrow */
+        ReviewSummaryResponse: {
+            /**
+             * Format: int32
+             * @description Cards due now, overdue ones included
+             */
+            dueNow: number;
+            /**
+             * Format: int32
+             * @description Cards that come due during tomorrow, in the learner's time zone
+             */
+            dueTomorrow: number;
+            /**
+             * Format: int32
+             * @description All cards, i.e. items practised so far
+             */
+            totalCards: number;
+        };
         /** @enum {string} */
         SelfAssessment: "nothing" | "few_words" | "simple_sentences" | "everyday_conversation" | "understand_much";
         SelfAssessmentOption: {
@@ -2071,6 +2157,82 @@ export interface operations {
                 };
                 content: {
                     "text/markdown": string;
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    startReviewLesson: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The review lesson (kind review, unitId review) */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LessonResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Nothing is due that an exercise practises (code no_reviews_due) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getReviewSummary: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The counts */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewSummaryResponse"];
                 };
             };
             /** @description Not signed in */
