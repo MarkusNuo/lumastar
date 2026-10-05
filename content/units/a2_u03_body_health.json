@@ -150,7 +150,18 @@
     },
     { "id": "item_ndihem", "kind": "word", "gheg": "ndihem", "de": "ich fühle mich (ndihesh: du fühlst dich)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_ma_mire", "kind": "phrase", "gheg": "ma mirë", "de": "besser", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_sherim_te_shpejte", "kind": "phrase", "gheg": "shërim të shpejtë", "de": "gute Besserung", "partOfSpeech": "phrase", "reviewed": false }
+    { "id": "item_sherim_te_shpejte", "kind": "phrase", "gheg": "shërim të shpejtë", "de": "gute Besserung", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_shendet",
+      "kind": "word",
+      "gheg": "shëndet",
+      "de": "Gesundheit; Gesundheit! (beim Niesen)",
+      "partOfSpeech": "noun",
+      "gender": "m",
+      "definite": "shëndeti",
+      "note": "„Shëndet!“ als Wunsch beim Niesen im Kosovo-Alltag zu prüfen.",
+      "reviewed": false
+    }
   ],
   "exercises": [
     {
@@ -854,7 +865,6 @@
       "answerLang": "sq",
       "text": "Ndihem ___ mirë.",
       "solutions": ["ma"],
-      "choices": ["ma", "shumë", "keq", "pak"],
       "standardForms": ["më"],
       "explanation": "„Ma mirë“ heisst „besser“ (Standard: „më mirë“).",
       "errorHints": [{ "pattern": "^shum[eë]$", "category": "vocab.confused", "hint": "„Shumë mirë“ heisst „sehr gut“. „Besser“ ist „ma mirë“." }],
@@ -1217,6 +1227,44 @@
       "explanation": "„Thotë“ heisst „sagt“, „se“ heisst „dass“. Danach folgt „duhet me pushue“.",
       "reviewed": false,
       "source": "manual"
+    },
+    {
+      "id": "ex_a2_u03_body_health_061",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.health", "reading.dialogues", "grammar.comparison"],
+      "itemIds": ["item_ndihem", "item_sot", "item_ma_mire", "item_faleminderit"],
+      "prompt": { "lang": "sq", "text": "– Si ndihesh sot? – Ma mirë, faleminderit." },
+      "answerLang": "de",
+      "solutions": ["Wie fühlst du dich heute? – Besser, danke."],
+      "wordBank": ["Wie", "fühlst", "du", "dich", "heute", "Besser", "danke", "schlechter", "gestern", "bitte"],
+      "explanation": "„Si ndihesh?“ heisst „Wie fühlst du dich?“. „Ma mirë“ heisst „besser“ (Standard: më mirë).",
+      "errorHints": [
+        { "pattern": "schlechter", "category": "vocab.confused", "hint": "„Ma mirë“ heisst „besser“. „Schlechter“ wäre „ma keq“." },
+        { "pattern": "gestern", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“, „dje“ heisst „gestern“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u03_body_health_062",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": ["phrase.wishes", "phrase.health"],
+      "itemIds": ["item_shendet"],
+      "prompt": { "lang": "de", "text": "Gesundheit! (wenn jemand niest)" },
+      "answerLang": "sq",
+      "solutions": ["Shëndet!"],
+      "explanation": "Niest jemand, sagst du „Shëndet!“ – Gesundheit!",
+      "errorHints": [
+        { "pattern": "sh[eë]rim", "category": "vocab.confused", "hint": "„Shërim të shpejtë!“ heisst „Gute Besserung!“. Beim Niesen sagt man „Shëndet!“" },
+        { "pattern": "g[eë]zuar", "category": "vocab.confused", "hint": "„Gëzuar!“ sagt man beim Anstossen. Beim Niesen: „Shëndet!“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Shëndet!“ als Wunsch beim Niesen im Kosovo-Alltag zu prüfen."
     }
   ]
 }

@@ -58,7 +58,15 @@
     { "id": "item_e_enjte", "kind": "phrase", "gheg": "e enjte", "de": "Donnerstag", "partOfSpeech": "noun", "gender": "f", "definite": "e enjtja", "reviewed": false },
     { "id": "item_e_premte", "kind": "phrase", "gheg": "e premte", "de": "Freitag", "partOfSpeech": "noun", "gender": "f", "definite": "e premtja", "reviewed": false },
     { "id": "item_e_shtune", "kind": "phrase", "gheg": "e shtunë", "de": "Samstag", "partOfSpeech": "noun", "gender": "f", "definite": "e shtuna", "reviewed": false },
-    { "id": "item_e_diel", "kind": "phrase", "gheg": "e diel", "de": "Sonntag", "partOfSpeech": "noun", "gender": "f", "definite": "e diela", "reviewed": false }
+    { "id": "item_e_diel", "kind": "phrase", "gheg": "e diel", "de": "Sonntag", "partOfSpeech": "noun", "gender": "f", "definite": "e diela", "reviewed": false },
+    {
+      "id": "item_fundjave_te_mire",
+      "kind": "phrase",
+      "gheg": "fundjavë të mirë",
+      "de": "schönes Wochenende",
+      "partOfSpeech": "phrase",
+      "reviewed": false
+    }
   ],
   "exercises": [
     {
@@ -1229,6 +1237,28 @@
       "reviewed": false,
       "source": "manual",
       "note": "Akkusativ „të hânën“ (am Montag; Standard: të hënën) zu prüfen."
+    },
+    {
+      "id": "ex_a1_u12_time_days_061",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.wishes", "grammar.linking_article", "vocab.time"],
+      "itemIds": ["item_fundjave_te_mire", "item_fundjave"],
+      "prompt": { "lang": "de", "text": "Schönes Wochenende!" },
+      "answerLang": "sq",
+      "text": "Fundjavë ___ mirë!",
+      "solutions": ["të"],
+      "choices": ["e", "të", "i", "së"],
+      "explanation": "Im Wunsch steht nach „fundjavë“ (ohne Artikel) „të“: „Fundjavë të mirë!“ Mit Artikel heisst es „e“: „Natën e mirë!“",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„E“ steht nach dem bestimmten Nomen („Natën e mirë!“). Nach „fundjavë“ steht „të“." },
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "„I“ steht bei maskulinen Nomen. Im Wunsch heisst es „fundjavë të mirë“." },
+        { "pattern": "^s[eë]$", "category": "grammar.linking_article", "hint": "„Së“ passt hier nicht. Im Wunsch heisst es „fundjavë të mirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Im Kosovo-Alltag hört man auch „Vikend të mirë!“ – zu prüfen, ob als Lösung aufnehmen."
     }
   ]
 }

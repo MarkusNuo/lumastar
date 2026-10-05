@@ -783,7 +783,6 @@
       "text": "Çka ___ dje?",
       "solutions": ["bâne"],
       "choices": ["bâne", "bâna", "bân", "bâni"],
-      "standardForms": ["bëre"],
       "explanation": "„Bâne“ heisst „du machtest“: bâna (ich), bâne (du), bâni (er/sie). Standard: „bëre“.",
       "errorHints": [
         { "pattern": "^b[aâ]na$", "category": "grammar.verb_conjugation", "hint": "„Bâna“ heisst „ich machte“." },

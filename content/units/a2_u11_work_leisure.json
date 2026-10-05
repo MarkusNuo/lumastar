@@ -115,7 +115,16 @@
     { "id": "item_sport", "kind": "word", "gheg": "sport", "de": "Sport", "partOfSpeech": "noun", "gender": "m", "definite": "sporti", "reviewed": false },
     { "id": "item_kinema", "kind": "word", "gheg": "kinema", "de": "Kino", "partOfSpeech": "noun", "gender": "f", "definite": "kinemaja", "reviewed": false },
     { "id": "item_palester", "kind": "word", "gheg": "palestër", "de": "Fitnessstudio", "partOfSpeech": "noun", "gender": "f", "definite": "palestra", "reviewed": false },
-    { "id": "item_kafene", "kind": "word", "gheg": "kafene", "de": "Café", "partOfSpeech": "noun", "gender": "f", "definite": "kafeneja", "reviewed": false }
+    { "id": "item_kafene", "kind": "word", "gheg": "kafene", "de": "Café", "partOfSpeech": "noun", "gender": "f", "definite": "kafeneja", "reviewed": false },
+    {
+      "id": "item_pune_te_mbare",
+      "kind": "phrase",
+      "gheg": "punë të mbarë",
+      "de": "frohes Schaffen, gutes Gelingen",
+      "partOfSpeech": "phrase",
+      "note": "Wunsch „Punë të mbarë!“ im Kosovo-Alltag zu prüfen.",
+      "reviewed": false
+    }
   ],
   "exercises": [
     {
@@ -1226,6 +1235,45 @@
       "explanation": "„Me dalë“ heisst „ausgehen“ – der Gheg-Infinitiv.",
       "reviewed": false,
       "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_061",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.work", "reading.dialogues"],
+      "itemIds": ["item_cka_punon", "item_infermiere", "item_spital", "item_punoj_si", "item_shofer"],
+      "prompt": { "lang": "sq", "text": "– Çka punon, Drita?\n– Jam infermiere në spital. Po ti, Arben?\n– Unë punoj si shofer në Prishtinë.\n\nFrage: Was ist Drita von Beruf?" },
+      "choices": ["Sie ist Fahrerin.", "Sie ist Pflegefachfrau.", "Sie ist Ärztin.", "Sie ist Verkäuferin."],
+      "solutions": ["Sie ist Pflegefachfrau."],
+      "explanation": "Drita sagt „Jam infermiere në spital“: Sie ist Pflegefachfrau im Spital. Arben arbeitet als Fahrer („shofer“).",
+      "errorHints": [
+        { "pattern": "fahrerin", "category": "vocab.confused", "hint": "„Shofer“ ist Arben. Drita sagt: „Jam infermiere.“" },
+        { "pattern": "rztin", "category": "vocab.confused", "hint": "„Ärztin“ heisst „mjeke“. Drita ist „infermiere“ (Pflegefachfrau)." },
+        { "pattern": "verk[aä]uferin", "category": "vocab.confused", "hint": "„Verkäuferin“ heisst „shitëse“. Drita ist „infermiere“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u11_work_leisure_062",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.wishes", "vocab.work"],
+      "itemIds": ["item_pune_te_mbare", "item_pushime_te_mbara", "item_rruge_te_mbare", "item_sherim_te_shpejte", "item_gezuar"],
+      "prompt": { "lang": "de", "text": "Ordne die Wünsche zu." },
+      "pairs": [
+        { "left": "Punë të mbarë!", "right": "Frohes Schaffen!" },
+        { "left": "Pushime të mbara!", "right": "Schöne Ferien!" },
+        { "left": "Rrugë të mbarë!", "right": "Gute Reise!" },
+        { "left": "Shërim të shpejtë!", "right": "Gute Besserung!" },
+        { "left": "Gëzuar!", "right": "Prost!" }
+      ],
+      "explanation": "„Të mbarë“ heisst „gut, erfolgreich“: „Punë të mbarë!“ wünschst du bei der Arbeit, „Rrugë të mbarë!“ vor einer Reise.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Punë të mbarë!“ und „Pushime të mbara!“ im Kosovo-Gheg zu prüfen."
     }
   ]
 }

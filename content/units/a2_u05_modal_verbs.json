@@ -792,7 +792,6 @@
       "answerLang": "sq",
       "text": "A mundesh me folë ___ ngadalë?",
       "solutions": ["ma"],
-      "choices": ["ma", "shumë", "mirë", "keq"],
       "standardForms": ["më"],
       "explanation": "„Ma ngadalë“ heisst „langsamer“ (Standard: „më ngadalë“).",
       "errorHints": [{ "pattern": "^shum[eë]$", "category": "vocab.confused", "hint": "„Shumë ngadalë“ heisst „sehr langsam“. „Langsamer“ ist „ma ngadalë“." }],
@@ -1185,6 +1184,26 @@
       "reviewed": false,
       "source": "manual",
       "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u05_modal_verbs_061",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.modal", "phrase.requests", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_mundesh", "item_me_ndihmue"],
+      "prompt": { "lang": "de", "text": "Kannst du mir helfen?" },
+      "answerLang": "sq",
+      "solutions": ["A mundesh me më ndihmue?", "Mundesh me më ndihmue?"],
+      "standardForms": ["A mund të më ndihmosh?", "Mund të më ndihmosh?"],
+      "explanation": "Nach „mundesh“ (du kannst) folgt „me“ + Partizip. Das Kurzwort „më“ (mir) steht zwischen „me“ und „ndihmue“. Standard: „A mund të më ndihmosh?“",
+      "errorHints": [
+        { "pattern": "ndihmoj(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me më ndihmue“." },
+        { "pattern": "me ndihmue m[eë](\\s|$)", "category": "grammar.clitics", "hint": "Das Kurzwort „më“ steht vor dem Partizip: „me më ndihmue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Form „mundesh“ (du kannst) im Kosovo-Gheg zu prüfen; im Alltag auch „mun“ gehört. Stellung des Klitikons in „me më ndihmue“ (auch „me m'ndihmue“ gehört) zu prüfen."
     }
   ]
 }

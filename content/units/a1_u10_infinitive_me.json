@@ -849,7 +849,6 @@
       "text": "Du me ___.",
       "solutions": ["shkrue"],
       "choices": ["shkrue", "shkruaj", "shkruan", "shkrova"],
-      "standardForms": ["shkruar"],
       "explanation": "Nach „me“ steht das Partizip: „shkrue“ (Standard: „shkruar“).",
       "errorHints": [
         {
@@ -946,7 +945,6 @@
       "text": "A ___ me ardhë?",
       "solutions": ["don"],
       "choices": ["don", "du", "muj", "duhet"],
-      "standardForms": ["do"],
       "explanation": "„Don“ heisst „du willst“ – so sagt man es im Kosovo (Standard: „do“).",
       "errorHints": [
         {
@@ -972,7 +970,6 @@
       "text": "Çka don me ___ sot?",
       "solutions": ["bâ"],
       "choices": ["bâ", "bân", "bâj", "bâjnë"],
-      "standardForms": ["bërë"],
       "explanation": "Das Partizip von „bâj“ ist „bâ“: „me bâ“ = machen (Standard: „bërë“).",
       "errorHints": [
         { "pattern": "^b[aâ]n$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „bâ“, nicht „bân“." },

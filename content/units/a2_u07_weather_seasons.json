@@ -1190,6 +1190,81 @@
       "explanation": "„Shpesh“ (oft) kann vor oder nach „borë“ stehen.",
       "reviewed": false,
       "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_061",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.comparison", "vocab.weather"],
+      "itemIds": ["item_ma_se", "item_i_ftohte", "item_sot", "item_dje"],
+      "prompt": { "lang": "de", "text": "Heute ist es kälter als gestern." },
+      "answerLang": "sq",
+      "text": "Sot âsht ma ftohtë ___ dje.",
+      "solutions": ["se"],
+      "choices": ["si", "se", "sa", "ma"],
+      "explanation": "Beim Vergleich heisst „als“ „se“: „ma ftohtë se dje“ – kälter als gestern.",
+      "errorHints": [
+        { "pattern": "^si$", "category": "vocab.confused", "hint": "„Si“ heisst „wie“. Beim Vergleich heisst „als“ „se“." },
+        { "pattern": "^sa$", "category": "vocab.confused", "hint": "„Sa“ heisst „wie viel“. „Als“ heisst „se“." },
+        { "pattern": "^ma$", "category": "vocab.confused", "hint": "„Ma“ steht schon vor „ftohtë“. „Als“ heisst „se“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_062",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.seasons"],
+      "itemIds": ["item_vere", "item_ma_se", "item_i_nxehte", "item_pranvere"],
+      "prompt": { "lang": "de", "text": "Der Sommer ist heisser als der Frühling." },
+      "answerLang": "sq",
+      "tokens": ["Vera", "âsht", "ma", "e", "nxehtë", "se", "pranvera"],
+      "solutions": ["Vera âsht ma e nxehtë se pranvera."],
+      "explanation": "„Ma e nxehtë se …“ heisst „heisser als …“. „Vera“ ist hier der Sommer – der Wein heisst im Gheg „vena“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_063",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.comparison", "vocab.weather"],
+      "itemIds": ["item_ma_se", "item_ma_shume", "item_ma_mire", "item_i_ftohte", "item_i_nxehte"],
+      "prompt": { "lang": "de", "text": "Ordne die Vergleiche zu." },
+      "pairs": [
+        { "left": "ma ftohtë", "right": "kälter" },
+        { "left": "ma nxehtë", "right": "heisser" },
+        { "left": "ma shumë", "right": "mehr" },
+        { "left": "ma pak", "right": "weniger" },
+        { "left": "ma mirë", "right": "besser" }
+      ],
+      "explanation": "„Ma“ vor einem Wort macht den Vergleich: „ma ftohtë“ heisst „kälter“. Im Standard steht „më“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u07_weather_seasons_064",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.seasons"],
+      "itemIds": ["item_dimen", "item_ma_se", "item_i_ftohte", "item_vjeshte"],
+      "prompt": { "lang": "sq", "text": "Dimni âsht ma i ftohtë se vjeshta." },
+      "answerLang": "de",
+      "solutions": ["Der Winter ist kälter als der Herbst."],
+      "wordBank": ["Der", "Winter", "ist", "kälter", "als", "der", "Herbst", "wärmer", "Sommer", "Frühling"],
+      "explanation": "„Ma i ftohtë se …“ heisst „kälter als …“. „Dimni“ ist der Winter (Standard: dimri).",
+      "errorHints": [
+        { "pattern": "w[aä]rmer", "category": "vocab.confused", "hint": "„Ma i ftohtë“ heisst „kälter“. „Wärmer“ wäre „ma i ngrohtë“." },
+        { "pattern": "sommer", "category": "vocab.confused", "hint": "„Dimni“ heisst „der Winter“. Der Sommer ist „vera“." },
+        { "pattern": "fr[uü]hling", "category": "vocab.confused", "hint": "„Vjeshta“ heisst „der Herbst“. Der Frühling ist „pranvera“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
     }
   ]
 }

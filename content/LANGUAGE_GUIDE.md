@@ -450,7 +450,7 @@ Trifft kein Muster, nimmt der Evaluator den ersten Skill-Tag der Aufgabe (in ihr
 
 - **`solutions[0]`** ist die kanonische, natürlichste Gheg-Form. Sie wird als Lösung angezeigt; aus ihr entstehen Wortbank und Satzbausteine.
 - **Weitere `solutions`:** andere Gheg-Schreibweisen (*faleminderit / falemnderit*), Synonyme (*Si je? / Qysh je?*) und andere natürliche Wortstellungen (*Mirë jam / Jam mirë*). **Nicht** aufnehmen: Varianten, die sich nur durch fehlende Sonderzeichen unterscheiden (das erledigt der Evaluator bei getippten Antworten) und Standard-Formen.
-- **`standardForms`** (bei `translate_free` und `fill_gap`): die wahrscheinlichen Standard-Varianten, vollständig wie eine Lösung geschrieben (*Një kafe, ju lutem.*).
+- **`standardForms`** (nur bei getippten Antworten: `translate_free` und `fill_gap` ohne `choices`): die wahrscheinlichen Standard-Varianten, vollständig wie eine Lösung geschrieben (*Një kafe, ju lutem.*). Bei Auswahl-Aufgaben werden sie nie ausgewertet, `npm run validate` lehnt sie dort ab. Ist der Gheg-Standard-Unterschied der Kern der Aufgabe, die Lücke ohne `choices` stellen.
 - **Item-`alternatives`:** weitere akzeptierte Schreibweisen desselben Wortes (*vëlla* zu *vlla*), keine Synonyme.
 
 **Übungstypen**

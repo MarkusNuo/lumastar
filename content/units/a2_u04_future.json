@@ -96,6 +96,15 @@
       "definite": "plani",
       "plural": "plane",
       "reviewed": false
+    },
+    {
+      "id": "item_pushime_te_mbara",
+      "kind": "phrase",
+      "gheg": "pushime të mbara",
+      "de": "schöne Ferien",
+      "partOfSpeech": "phrase",
+      "note": "Mehrzahlform „të mbara“ (Einzahl: i/e mbarë) im Kosovo-Gheg zu prüfen.",
+      "reviewed": false
     }
   ],
   "exercises": [
@@ -1227,6 +1236,27 @@
       "reviewed": false,
       "source": "manual",
       "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u04_future_061",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.wishes", "phrase.plans"],
+      "itemIds": ["item_pushime_te_mbara", "item_pushime"],
+      "prompt": { "lang": "sq", "text": "Pushime të mbara!" },
+      "answerLang": "de",
+      "solutions": ["Schöne Ferien!"],
+      "wordBank": ["Schöne", "Ferien", "Reise", "Nacht", "Besserung"],
+      "explanation": "„Pushime të mbara!“ wünschst du vor den Ferien. „Pushime“ steht in der Mehrzahl, darum „të mbara“.",
+      "errorHints": [
+        { "pattern": "reise", "category": "vocab.confused", "hint": "„Pushime“ sind die Ferien. „Gute Reise!“ heisst „Rrugë të mbarë!“" },
+        { "pattern": "nacht", "category": "vocab.confused", "hint": "„Gute Nacht!“ heisst „Natën e mirë!“" },
+        { "pattern": "besserung", "category": "vocab.confused", "hint": "„Gute Besserung!“ heisst „Shërim të shpejtë!“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Pushime të mbara!“ (Mehrzahl von „i mbarë“) im Kosovo-Gheg zu prüfen."
     }
   ]
 }

@@ -1360,6 +1360,84 @@
       "explanation": "In der Mehrzahl heisst der Verbindungsartikel „të“: „domatet janë të lira“.",
       "reviewed": false,
       "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_061",
+      "type": "translate_free",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.shopping"],
+      "itemIds": ["item_treg", "item_ma_se", "item_i_lire", "item_dyqan"],
+      "prompt": { "lang": "de", "text": "Der Markt ist billiger als der Laden." },
+      "answerLang": "sq",
+      "solutions": ["Tregu âsht ma i lirë se dyqani."],
+      "standardForms": ["Tregu është më i lirë se dyqani.", "Tregu âsht më i lirë se dyqani."],
+      "explanation": "„Ma i lirë se …“ heisst „billiger als …“. „Tregu“ ist maskulin, darum „i“. Im Standard: „më i lirë“.",
+      "errorHints": [
+        { "pattern": "shtrenjt", "category": "vocab.confused", "hint": "„I shtrenjtë“ heisst „teuer“. „Billig“ ist „i lirë“." },
+        { "pattern": "(ma|m[eë]) e lir", "category": "grammar.gender", "hint": "„Tregu“ ist maskulin: „ma i lirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_062",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.comparison", "grammar.demonstratives", "vocab.shopping"],
+      "itemIds": ["item_ky", "item_dyqan", "item_ma_se", "item_i_shtrenjte", "item_treg"],
+      "prompt": { "lang": "de", "text": "Was heisst „Ky dyqan âsht ma i shtrenjtë se tregu.“?" },
+      "choices": ["Dieser Laden ist billiger als der Markt.", "Der Markt ist teurer als dieser Laden.", "Dieser Laden ist sehr teuer.", "Dieser Laden ist teurer als der Markt."],
+      "solutions": ["Dieser Laden ist teurer als der Markt."],
+      "explanation": "„Ky dyqan“ heisst „dieser Laden“, „ma i shtrenjtë se“ heisst „teurer als“.",
+      "errorHints": [
+        { "pattern": "billiger", "category": "vocab.confused", "hint": "„I shtrenjtë“ heisst „teuer“, „i lirë“ heisst „billig“." },
+        { "pattern": "^der markt ist", "category": "vocab.confused", "hint": "Vorne steht „ky dyqan“ (dieser Laden): Er ist teurer als der Markt." },
+        { "pattern": "sehr", "category": "vocab.confused", "hint": "„Ma … se“ vergleicht: „ma i shtrenjtë se“ heisst „teurer als“. „Sehr teuer“ wäre „shumë i shtrenjtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_063",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.demonstratives", "phrase.shopping"],
+      "itemIds": ["item_sa_kushton", "item_kjo", "item_cante"],
+      "prompt": { "lang": "de", "text": "Wie viel kostet diese Tasche?" },
+      "answerLang": "sq",
+      "text": "Sa kushton ___ çantë?",
+      "solutions": ["kjo"],
+      "choices": ["ky", "kjo", "këta", "këto"],
+      "explanation": "„Çantë“ ist feminin, darum „kjo çantë“ – diese Tasche.",
+      "errorHints": [
+        { "pattern": "^ky$", "category": "grammar.gender", "hint": "„Çantë“ ist feminin: „kjo çantë“." },
+        { "pattern": "^k[eë]ta$", "category": "vocab.confused", "hint": "„Këta“ heisst „diese“ (Mehrzahl, maskulin). Für eine Tasche: „kjo“." },
+        { "pattern": "^k[eë]to$", "category": "vocab.confused", "hint": "„Këto“ heisst „diese“ (Mehrzahl, feminin). Für eine Tasche: „kjo“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u13_shopping_064",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.shopping", "reading.dialogues", "phrase.requests"],
+      "itemIds": ["item_sa_kushton", "item_djathe", "item_kilogram", "item_me_jep", "item_dicka_tjeter", "item_vec_kaq"],
+      "prompt": { "lang": "sq", "text": "– Mirëdita! Sa kushton djathi?\n– Kilogrami pesë euro.\n– Më jep nji kilogram, të lutem.\n– Diçka tjetër?\n– Jo, veç kaq.\n\nFrage: Was kauft die Person?" },
+      "choices": ["Fünf Kilo Käse.", "Ein Kilo Tomaten.", "Ein Kilo Käse.", "Käse und Eier."],
+      "solutions": ["Ein Kilo Käse."],
+      "explanation": "„Më jep nji kilogram“ heisst „gib mir ein Kilo“. „Pesë euro“ ist der Preis, „veç kaq“ heisst „nur das“.",
+      "errorHints": [
+        { "pattern": "f[uü]nf", "category": "vocab.confused", "hint": "„Pesë euro“ ist der Preis. Die Person nimmt „nji kilogram“." },
+        { "pattern": "tomaten", "category": "vocab.confused", "hint": "„Djathë“ heisst „Käse“, „domate“ heisst „Tomate“." },
+        { "pattern": "eier", "category": "vocab.confused", "hint": "„Veç kaq“ heisst „nur das“: Die Person nimmt nur Käse." }
+      ],
+      "reviewed": false,
+      "source": "manual"
     }
   ]
 }

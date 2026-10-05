@@ -807,7 +807,6 @@
       "text": "Dritarja âsht e ___.",
       "solutions": ["hapun"],
       "choices": ["madhe", "vogël", "hapun", "mirë"],
-      "standardForms": ["hapur"],
       "explanation": "„E hapun“ heisst „offen“ (Standard: „e hapur“).",
       "errorHints": [
         { "pattern": "^madhe$", "category": "vocab.confused", "hint": "„E madhe“ heisst „gross“." }
@@ -1160,6 +1159,27 @@
       "tokens": ["Në", "dhomën", "e", "gjumit", "ka", "nji", "shtrat", "të", "madh"],
       "solutions": ["Në dhomën e gjumit ka nji shtrat të madh.", "Ka nji shtrat të madh në dhomën e gjumit."],
       "explanation": "Nach „ka“ (es gibt) steht das Objekt im Akkusativ – darum „nji shtrat të madh“ mit „të“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u06_home_061",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.demonstratives", "vocab.home", "grammar.adjective_agreement"],
+      "itemIds": ["item_kjo", "item_dhome", "item_asht", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Dieses Zimmer ist gross." },
+      "answerLang": "sq",
+      "solutions": ["Kjo dhomë âsht e madhe."],
+      "standardForms": ["Kjo dhomë është e madhe."],
+      "explanation": "„Dhomë“ ist feminin, darum „kjo dhomë“ und „e madhe“. Nach „kjo“ steht das Nomen ohne Artikel.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ky dhom", "category": "grammar.gender", "hint": "„Dhomë“ ist feminin: „kjo dhomë“." },
+        { "pattern": "kjo dhoma", "category": "grammar.definite_article", "hint": "Nach „kjo“ steht die unbestimmte Form: „kjo dhomë“." },
+        { "pattern": "(^|\\s)i madh", "category": "grammar.linking_article", "hint": "Bei femininen Nomen steht „e“: „e madhe“." },
+        { "pattern": "e madh$", "category": "grammar.gender", "hint": "Feminin heisst es „e madhe“." }
+      ],
       "reviewed": false,
       "source": "manual"
     }

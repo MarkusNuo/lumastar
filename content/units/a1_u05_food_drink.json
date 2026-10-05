@@ -1199,6 +1199,80 @@
       "explanation": "„Për mëngjes“ heisst „zum Frühstück“. Die Zeitangabe kann am Anfang oder am Ende stehen.",
       "reviewed": false,
       "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_061",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.ordering", "reading.dialogues", "phrase.requests"],
+      "itemIds": ["item_kafe", "item_pa_ohne", "item_sheqer", "item_te_lutem", "item_caj"],
+      "prompt": { "lang": "sq", "text": "Kamarieri: Mirëdita! Çka po pini?\nArben: Nji kafe pa sheqer, të lutem.\nBesa: Unë nji çaj me sheqer.\n\nFrage: Was trinkt Besa?" },
+      "choices": ["Einen Kaffee ohne Zucker.", "Einen Tee mit Zucker.", "Einen Tee ohne Zucker.", "Einen Kaffee mit Zucker."],
+      "solutions": ["Einen Tee mit Zucker."],
+      "explanation": "Besa sagt „nji çaj me sheqer“: einen Tee mit Zucker. Den Kaffee ohne Zucker („pa sheqer“) bestellt Arben.",
+      "errorHints": [
+        { "pattern": "kaffee", "category": "vocab.confused", "hint": "Den Kaffee bestellt Arben. Besa sagt „nji çaj“ – einen Tee." },
+        { "pattern": "tee ohne", "category": "vocab.confused", "hint": "„Me sheqer“ heisst „mit Zucker“, „pa sheqer“ heisst „ohne Zucker“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u05_food_drink_062",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.wishes", "vocab.drinks"],
+      "itemIds": ["item_gezuar", "item_te_bafte_mire"],
+      "prompt": { "lang": "de", "text": "Du stösst mit Freunden an. Was sagst du?" },
+      "choices": ["Të bâftë mirë!", "Gëzuar!", "Natën e mirë!", "Faleminderit!"],
+      "solutions": ["Gëzuar!"],
+      "explanation": "Beim Anstossen sagt man „Gëzuar!“ – Prost! „Të bâftë mirë!“ wünschst du vor dem Essen.",
+      "errorHints": [
+        { "pattern": "b[aâ]ft[eë]", "category": "vocab.confused", "hint": "„Të bâftë mirë!“ sagt man zum Essen (en Guete). Beim Anstossen: „Gëzuar!“" },
+        { "pattern": "nat[eë]n", "category": "vocab.confused", "hint": "„Natën e mirë!“ heisst „Gute Nacht!“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Gëzuar“ (Prost) und Ablenker „Të bâftë mirë!“ (Standard: të bëftë mirë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_063",
+      "type": "translate_wordbank",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.wishes", "phrase.politeness"],
+      "itemIds": ["item_te_bafte_mire", "item_faleminderit", "item_gjithashtu"],
+      "prompt": { "lang": "de", "text": "En Guete! – Danke, gleichfalls!" },
+      "answerLang": "sq",
+      "solutions": ["Të bâftë mirë! – Faleminderit, gjithashtu!"],
+      "wordBank": ["Të", "bâftë", "mirë", "Faleminderit", "gjithashtu", "Gëzuar", "natën", "shumë"],
+      "explanation": "„Të bâftë mirë!“ wünschst du vor dem Essen (Standard: të bëftë mirë). Die Antwort: „Faleminderit, gjithashtu!“",
+      "errorHints": [
+        { "pattern": "(^|\\s)g[eë]zuar(\\s|$)", "category": "vocab.confused", "hint": "„Gëzuar!“ heisst „Prost!“. Zum Essen sagt man „Të bâftë mirë!“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Të bâftë mirë!“ (Standard: të bëftë mirë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a1_u05_food_drink_064",
+      "type": "translate_free",
+      "level": "A1.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.ordering", "phrase.requests"],
+      "itemIds": ["item_edhe", "item_nji", "item_kafe", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Noch einen Kaffee, bitte!" },
+      "answerLang": "sq",
+      "solutions": ["Edhe nji kafe, të lutem!", "Edhe nji kafe, ju lutem!", "Të lutem, edhe nji kafe!"],
+      "standardForms": ["Edhe një kafe, të lutem!", "Edhe një kafe, ju lutem!"],
+      "explanation": "„Edhe nji“ heisst „noch ein“. Gheg sagt „nji“, Standard „një“.",
+      "errorHints": [
+        { "pattern": "^nji kafe", "category": "vocab.unknown", "hint": "„Noch ein“ heisst „edhe nji“: „Edhe nji kafe, të lutem!“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
     }
   ]
 }

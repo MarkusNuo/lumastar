@@ -806,7 +806,6 @@
       "text": "___ në orën gjashtë.",
       "solutions": ["Çohem"],
       "choices": ["Çohem", "Çohet", "Çohen", "Çohesh"],
-      "standardForms": ["Ngrihem"],
       "explanation": "„Ich“ – die Endung ist -hem: „çohem“.",
       "errorHints": [
         { "pattern": "^[cç]ohet$", "category": "grammar.verb_conjugation", "hint": "„Çohet“ heisst „er/sie steht auf“." },
@@ -927,7 +926,6 @@
       "text": "___ gati.",
       "solutions": ["Bâhem"],
       "choices": ["Bâhem", "Bâj", "Bân", "Bâhen"],
-      "standardForms": ["Bëhem"],
       "explanation": "„Bâhem gati“ ist reflexiv: „ich mache mich fertig“ (Standard: „bëhem gati“).",
       "errorHints": [
         { "pattern": "^b[aâ]j$", "category": "grammar.verb_conjugation", "hint": "Hier braucht es die reflexive Form „bâhem“." },

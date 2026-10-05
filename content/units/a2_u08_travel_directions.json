@@ -63,7 +63,15 @@
       "note": "Gheg-Infinitiv in der Frage nach dem Weg (Standard: si të shkoj) – Wendung zu prüfen.",
       "reviewed": false
     },
-    { "id": "item_ne_kambe", "kind": "phrase", "gheg": "në kâmbë", "de": "zu Fuss", "partOfSpeech": "phrase", "reviewed": false }
+    { "id": "item_ne_kambe", "kind": "phrase", "gheg": "në kâmbë", "de": "zu Fuss", "partOfSpeech": "phrase", "reviewed": false },
+    {
+      "id": "item_rruge_te_mbare",
+      "kind": "phrase",
+      "gheg": "rrugë të mbarë",
+      "de": "gute Reise",
+      "partOfSpeech": "phrase",
+      "reviewed": false
+    }
   ],
   "exercises": [
     {
@@ -1155,6 +1163,81 @@
       "tokens": ["Te", "banka", "kthehu", "majtas", "posta", "âsht", "aty"],
       "solutions": ["Te banka kthehu majtas, posta âsht aty.", "Kthehu majtas te banka, posta âsht aty."],
       "explanation": "„Te banka“ kann vor oder nach „kthehu majtas“ stehen. „Aty“ heisst „dort“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_061",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.wishes", "vocab.travel"],
+      "itemIds": ["item_rruge_te_mbare", "item_autobus"],
+      "prompt": { "lang": "de", "text": "Deine Freundin fährt mit dem Bus nach Pejë. Was wünschst du ihr?" },
+      "choices": ["Shërim të shpejtë!", "Të bâftë mirë!", "Rrugë të mbarë!", "Mirë se erdhe!"],
+      "solutions": ["Rrugë të mbarë!"],
+      "explanation": "Vor einer Reise wünschst du „Rrugë të mbarë!“ – Gute Reise!",
+      "errorHints": [
+        { "pattern": "sh[eë]rim", "category": "vocab.confused", "hint": "„Shërim të shpejtë!“ heisst „Gute Besserung!“" },
+        { "pattern": "b[aâ]ft[eë]", "category": "vocab.confused", "hint": "„Të bâftë mirë!“ sagt man zum Essen (en Guete)." },
+        { "pattern": "erdhe", "category": "vocab.confused", "hint": "„Mirë se erdhe!“ sagt man, wenn jemand ankommt." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Ablenker „Të bâftë mirë!“ (Standard: të bëftë mirë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_062",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.wishes", "vocab.travel"],
+      "itemIds": ["item_rruge_te_mbare"],
+      "prompt": { "lang": "de", "text": "Gute Reise, Besa!" },
+      "answerLang": "sq",
+      "tokens": ["Rrugë", "të", "mbarë", "Besa"],
+      "solutions": ["Rrugë të mbarë, Besa!", "Besa, rrugë të mbarë!"],
+      "explanation": "„Rrugë të mbarë!“ heisst „Gute Reise!“. Der Name kann vorne oder hinten stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_063",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.directions", "reading.dialogues"],
+      "itemIds": ["item_ku", "item_stacion", "item_shko", "item_drejt", "item_pastaj", "item_kthehu", "item_majtas"],
+      "prompt": { "lang": "de", "text": "– Wo ist der Bahnhof? – Geh geradeaus, dann bieg links ab." },
+      "answerLang": "sq",
+      "text": "– Ku âsht stacioni? – Shko drejt, pastaj kthehu ___.",
+      "solutions": ["majtas"],
+      "choices": ["djathtas", "larg", "majtas", "aty"],
+      "explanation": "„Kthehu majtas“ heisst „bieg links ab“, „kthehu djathtas“ heisst „bieg rechts ab“.",
+      "errorHints": [
+        { "pattern": "^djathtas$", "category": "vocab.confused", "hint": "„Djathtas“ heisst „rechts“. „Links“ ist „majtas“." },
+        { "pattern": "^larg$", "category": "vocab.confused", "hint": "„Larg“ heisst „weit weg“." },
+        { "pattern": "^aty$", "category": "vocab.confused", "hint": "„Aty“ heisst „dort“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u08_travel_directions_064",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.travel", "reading.dialogues", "phrase.wishes"],
+      "itemIds": ["item_kur", "item_niset", "item_tren", "item_bilete", "item_rruge_te_mbare"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze aus dem Gespräch am Bahnhof zu." },
+      "pairs": [
+        { "left": "Kur niset treni?", "right": "Wann fährt der Zug ab?" },
+        { "left": "Në orën tetë.", "right": "Um acht Uhr." },
+        { "left": "Sa kushton bileta?", "right": "Wie viel kostet die Fahrkarte?" },
+        { "left": "Dhjetë euro.", "right": "Zehn Euro." },
+        { "left": "Rrugë të mbarë!", "right": "Gute Reise!" }
+      ],
+      "explanation": "Am Bahnhof fragst du „Kur niset treni?“ (Wann fährt der Zug ab?) und „Sa kushton bileta?“ (Wie viel kostet die Fahrkarte?).",
       "reviewed": false,
       "source": "manual"
     }

@@ -114,13 +114,22 @@ function literalsRemovedByNormalisation(pattern) {
   return [...new Set([...pattern].filter((character) => ABSENT_AFTER_NORMALISATION.test(character) && !REGEX_SYNTAX.has(character)))];
 }
 
+/** Standard forms only count for typed answers (contract point 7) and must not repeat a Gheg solution. */
 function standardFormProblems(exercise) {
+  if (exercise.standardForms && isPickedAnswer(exercise)) {
+    return [{ path: '/standardForms', message: 'Picked answers are exact (contract point 7), so standardForms are never evaluated here: remove them or drop the choices to make the answer typed.' }];
+  }
   const solutions = new Set((exercise.solutions ?? []).map(normalizeAnswer));
   return (exercise.standardForms ?? []).flatMap((form, index) =>
     solutions.has(normalizeAnswer(form))
       ? [{ path: `/standardForms/${index}`, message: 'A standard form must not also be listed as a Gheg solution.' }]
       : [],
   );
+}
+
+/** multiple_choice and fill_gap with choices: the learner picks an option instead of typing (contract point 7). */
+function isPickedAnswer(exercise) {
+  return exercise.type === 'multiple_choice' || (exercise.type === 'fill_gap' && exercise.choices !== undefined);
 }
 
 function warnOnUnitMismatch(doc, exercise, pointer, report) {

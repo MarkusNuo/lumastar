@@ -416,7 +416,6 @@
       "text": "Du ___ shqip.",
       "solutions": ["me mësue"],
       "choices": ["me mësoj", "me mësue", "mëson", "mësova"],
-      "standardForms": ["të mësoj"],
       "explanation": "Gheg hat einen echten Infinitiv: „me“ + Partizip, also „me mësue“. Standard sagt „të mësoj“.",
       "errorHints": [{ "pattern": "^me m[eë]soj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me mësue“." }],
       "reviewed": false,
@@ -755,7 +754,6 @@
       "text": "Kam ___ këtë film.",
       "solutions": ["pa"],
       "choices": ["shoh", "sheh", "pa", "pashë"],
-      "standardForms": ["parë"],
       "explanation": "Perfekt = „kam“ + Partizip. Das Gheg-Partizip von „shoh“ (sehen) ist kurz: „pa“ (Standard: parë).",
       "errorHints": [
         { "pattern": "^pash[eë]$", "category": "grammar.verb_tense", "hint": "„Pashë“ ist Aorist („ich sah“). Nach „kam“ steht das Partizip „pa“." },
@@ -981,7 +979,6 @@
       "text": "Prishtina âsht ___ e madhe se Prizreni.",
       "solutions": ["ma"],
       "choices": ["shumë", "ma", "se", "sa"],
-      "standardForms": ["më"],
       "explanation": "Den Vergleich bildest du mit „ma … se“: „ma e madhe se“ (Standard: më e madhe se).",
       "errorHints": [
         { "pattern": "^shum[eë]$", "category": "grammar.word_order", "hint": "„Shumë e madhe“ heisst „sehr gross“. Für „grösser als“ brauchst du „ma … se“." }
@@ -1296,7 +1293,6 @@
       "text": "E pashë Artën ___ punue në kopsht.",
       "solutions": ["tue"],
       "choices": ["me", "tue", "pa", "po"],
-      "standardForms": ["duke"],
       "explanation": "Das Gheg-Gerundium ist „tue“ + Partizip: „tue punue“ – beim Arbeiten (Standard: duke punuar).",
       "errorHints": [
         { "pattern": "^me$", "category": "grammar.infinitive", "hint": "„Me punue“ ist der Infinitiv. „Beim Arbeiten“ heisst „tue punue“." },
@@ -1430,7 +1426,6 @@
       "text": "Shpija ___ ndërtue para 50 vjetësh.",
       "solutions": ["âsht"],
       "choices": ["ka", "kam", "janë", "âsht"],
-      "standardForms": ["është"],
       "explanation": "Passiv im Perfekt: „âsht“ + Partizip – „âsht ndërtue“ (Standard: është ndërtuar).",
       "errorHints": [
         { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Ka ndërtue“ ist aktiv („hat gebaut“). Passiv: „âsht ndërtue“." },
@@ -1656,7 +1651,6 @@
       "text": "Të ___ mirë!",
       "solutions": ["bâftë"],
       "choices": ["bân", "bâni", "bâftë", "bâj"],
-      "standardForms": ["bëftë"],
       "explanation": "Der Optativ drückt einen Wunsch aus: „të bâftë mirë“ (Standard: të bëftë mirë).",
       "errorHints": [
         { "pattern": "^b[aâ]n$", "category": "grammar.verb_tense", "hint": "„Bân“ ist Präsens. Für einen Wunsch brauchst du den Optativ „bâftë“." }
@@ -2128,7 +2122,6 @@
       "text": "Gjuha kockë s'ka, ___ kockë thyen.",
       "solutions": ["po"],
       "choices": ["po", "se", "sa", "as"],
-      "standardForms": ["por"],
       "explanation": "„Po“ heisst im Gheg auch „aber“ (Standard: por).",
       "errorHints": [{ "pattern": "^se$", "category": "vocab.confused", "hint": "„Se“ heisst „dass, als“. Für „aber“ steht im Gheg „po“." }],
       "reviewed": false,

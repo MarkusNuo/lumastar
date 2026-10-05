@@ -14,6 +14,10 @@
     {
       "title": "Farben ohne Verbindungsartikel",
       "explanation": "Einige Farben kommen aus anderen Sprachen. Sie haben **keinen** Verbindungsartikel und bleiben immer gleich: *blu* (blau), *gri* (grau), *rozë* (rosa). *Vetura âsht blu.* Im Kosovo sagt man für „blau“ auch **i kaltër / e kaltër**: *Qielli âsht i kaltër.*"
+    },
+    {
+      "title": "Vergleichen: ma … se",
+      "explanation": "Für „grösser“, „schöner“ oder „besser“ stellst du **ma** vor das Adjektiv. „Als“ heisst **se**.\n\n| Gheg | Deutsch |\n|---|---|\n| ma i madh | grösser |\n| ma e bukur | schöner |\n| ma mirë | besser |\n\n*Arta âsht ma e gjatë se Besa.* – Arta ist grösser als Besa. Der Verbindungsartikel bleibt: *ma **i** lirë* (maskulin), *ma **e** bukur* (feminin). Im Standard heisst es **më** statt *ma*."
     }
   ],
   "items": [
@@ -68,7 +72,15 @@
     { "id": "item_lule", "kind": "word", "gheg": "lule", "de": "Blume", "partOfSpeech": "noun", "gender": "f", "definite": "lulja", "plural": "lule", "reviewed": false },
     { "id": "item_mace", "kind": "word", "gheg": "mace", "de": "Katze", "partOfSpeech": "noun", "gender": "f", "definite": "macja", "plural": "mace", "reviewed": false },
     { "id": "item_qiell", "kind": "word", "gheg": "qiell", "de": "Himmel", "partOfSpeech": "noun", "gender": "m", "definite": "qielli", "reviewed": false },
-    { "id": "item_kemishe", "kind": "word", "gheg": "këmishë", "de": "Hemd", "partOfSpeech": "noun", "gender": "f", "definite": "këmisha", "plural": "këmisha", "reviewed": false }
+    { "id": "item_kemishe", "kind": "word", "gheg": "këmishë", "de": "Hemd", "partOfSpeech": "noun", "gender": "f", "definite": "këmisha", "plural": "këmisha", "reviewed": false },
+    {
+      "id": "item_ma_se",
+      "kind": "grammar",
+      "gheg": "ma … se",
+      "de": "-er als (Vergleich), z. B. ma i madh se = grösser als",
+      "partOfSpeech": "other",
+      "reviewed": false
+    }
   ],
   "exercises": [
     {
@@ -1293,6 +1305,99 @@
       "tokens": ["Qeni", "i", "madh", "âsht", "i", "zi", "dhe", "i", "bardhë"],
       "solutions": ["Qeni i madh âsht i zi dhe i bardhë.", "Qeni i madh âsht i bardhë dhe i zi."],
       "explanation": "Jedes Adjektiv bekommt seinen eigenen Verbindungsartikel: „i zi dhe i bardhë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_061",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement"],
+      "itemIds": ["item_ma_se", "item_i_gjate"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Arta ist grösser als Besa“?" },
+      "choices": ["Besa âsht ma e gjatë se Arta.", "Arta âsht ma e shkurtër se Besa.", "Arta âsht ma e gjatë se Besa.", "Arta âsht shumë e gjatë."],
+      "solutions": ["Arta âsht ma e gjatë se Besa."],
+      "explanation": "„Ma e gjatë se …“ heisst „grösser als …“: „ma“ vor dem Adjektiv, „se“ für „als“.",
+      "errorHints": [
+        { "pattern": "^besa", "category": "vocab.confused", "hint": "Hier ist Besa die Grössere. Arta steht vorne: „Arta âsht ma e gjatë se Besa.“" },
+        { "pattern": "shkurt", "category": "vocab.confused", "hint": "„E shkurtër“ heisst „klein, kurz“. „Gross“ (bei Personen) ist „e gjatë“." },
+        { "pattern": "shum[eë] e gjat", "category": "vocab.confused", "hint": "„Shumë e gjatë“ heisst „sehr gross“. „Grösser als“ ist „ma e gjatë se“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_062",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.comparison", "vocab.colours"],
+      "itemIds": ["item_ma_se", "item_molle", "item_i_kuq", "item_i_mire", "item_i_verdhe"],
+      "prompt": { "lang": "de", "text": "Der rote Apfel ist besser als der gelbe Apfel." },
+      "answerLang": "sq",
+      "text": "Molla e kuqe âsht ___ e mirë se molla e verdhë.",
+      "solutions": ["ma"],
+      "choices": ["shumë", "ma", "se", "sa"],
+      "explanation": "„Ma e mirë“ heisst „besser“. „Ma“ steht vor dem Adjektiv, „se“ heisst „als“.",
+      "errorHints": [
+        { "pattern": "^shum[eë]$", "category": "vocab.confused", "hint": "„Shumë e mirë“ heisst „sehr gut“. „Besser“ ist „ma e mirë“." },
+        { "pattern": "^se$", "category": "vocab.confused", "hint": "„Se“ heisst „als“ und kommt nach dem Adjektiv. Davor steht „ma“." },
+        { "pattern": "^sa$", "category": "vocab.confused", "hint": "„Sa“ heisst „wie viel“. Für „besser“: „ma e mirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_063",
+      "type": "fill_gap",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.colours"],
+      "itemIds": ["item_ma_se", "item_veture", "item_i_bardhe", "item_i_ri", "item_i_zi"],
+      "prompt": { "lang": "de", "text": "Das weisse Auto ist neuer als das schwarze Auto." },
+      "answerLang": "sq",
+      "text": "Vetura e bardhë âsht ___ e re se vetura e zezë.",
+      "solutions": ["ma"],
+      "standardForms": ["më"],
+      "explanation": "„Ma e re“ heisst „neuer“: „ma“ vor dem Adjektiv macht den Vergleich. Im Standard heisst es „më“.",
+      "errorHints": [
+        { "pattern": "^shum[eë]$", "category": "vocab.confused", "hint": "„Shumë e re“ heisst „sehr neu“. „Neuer“ ist „ma e re“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_064",
+      "type": "translate_wordbank",
+      "level": "A1.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "grammar.demonstratives", "grammar.adjective_agreement"],
+      "itemIds": ["item_kjo", "item_lule", "item_ma_se", "item_i_bukur"],
+      "prompt": { "lang": "de", "text": "Diese Blume ist schöner." },
+      "answerLang": "sq",
+      "solutions": ["Kjo lule âsht ma e bukur."],
+      "wordBank": ["Kjo", "lule", "âsht", "ma", "e", "bukur", "ky", "i", "se"],
+      "explanation": "„Lule“ ist feminin: „kjo lule“ und „ma e bukur“ (schöner).",
+      "errorHints": [
+        { "pattern": "(^|\\s)ky lule", "category": "grammar.gender", "hint": "„Lule“ ist feminin: „kjo lule“." },
+        { "pattern": "ma i bukur", "category": "grammar.linking_article", "hint": "Bei femininen Nomen steht „e“: „ma e bukur“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a1_u11_colours_adjectives_065",
+      "type": "word_order",
+      "level": "A1.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.demonstratives", "grammar.linking_article"],
+      "itemIds": ["item_ky", "item_liber", "item_i_ri"],
+      "prompt": { "lang": "de", "text": "Dieses Buch ist neu." },
+      "answerLang": "sq",
+      "tokens": ["Ky", "libër", "âsht", "i", "ri"],
+      "solutions": ["Ky libër âsht i ri."],
+      "explanation": "„Libër“ ist maskulin: „ky libër“ (dieses Buch) und „i ri“ (neu).",
       "reviewed": false,
       "source": "manual"
     }
