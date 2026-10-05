@@ -24,7 +24,8 @@ with `git archive` before the servers start. The export is refreshed only when o
 `backend/build`, `backend/.gradle` and `frontend/node_modules` are kept, and `npm ci` runs only when
 the lockfile changed. The tests themselves always come from the working tree's `e2e/`.
 
-The backend runs with a fixed `lingora.lesson.random-seed`, so the same tests get the same lessons.
+The backend runs with a fixed `lingora.lesson.random-seed` and `lingora.placement.random-seed`, so the
+same tests get the same lessons and placement items.
 
 Locally, working-tree mode reuses servers already listening on 8181/5183 (the setup test then signs in
 instead of creating the account). `head` mode never reuses them: stop such servers first, otherwise the
@@ -40,7 +41,9 @@ path, and expectations come from the API (`GET /api/path`, `/api/plan/changes`, 
 
 "Neu einstufen" runs a full placement test through the UI. The API sends no solutions, so the test
 reads `placement.json` of the seeded content (`PATHS.content`) and answers every item wrong for sure:
-the staircase ends at A0 whichever items the (unseeded) engine picks.
+the staircase ends at A0 whichever items the engine picks. The seed makes the items of a run
+reproducible, but a fixed answer per screen would still break with every content change, so the test
+keeps reading the solutions.
 
 ## Screenshots
 

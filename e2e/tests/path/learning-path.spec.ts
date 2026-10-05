@@ -1,19 +1,43 @@
 import { expect, test } from '@playwright/test';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { shownDay } from '../../support/dates.ts';
-import { BANDS, bandOf, fetchPath, type Band, type PathUnit } from '../../support/planApi.ts';
+import {
+  BANDS,
+  bandOf,
+  fetchPath,
+  type Band,
+  type CheckpointStatus,
+  type PathStage,
+  type PathUnit,
+} from '../../support/planApi.ts';
 import { scrollToTop, snap } from '../../support/screenshots.ts';
 
 /*
  * The learning path on the home tab (PRD 12.3, F3): every stage from the current level up to C2 with
- * its unit banners, one node per planned lesson, the next lesson as the only current node and a
- * locked checkpoint at the end of each stage (checkpoints arrive with M4).
+ * its unit banners, one node per planned lesson, the next lesson as the only current node and the
+ * checkpoint at the end of each stage with its live status (PRD 5).
  */
 
 type NodeStatus = 'abgeschlossen' | 'als Nächstes' | 'verfügbar' | 'gesperrt';
 
+const CHECKPOINT_NODE: Record<CheckpointStatus, NodeStatus> = {
+  locked: 'gesperrt',
+  available: 'verfügbar',
+  passed: 'abgeschlossen',
+};
+
 /** Room for the sticky top bar above an element scrolled to the top. */
 const TOP_BAR_GAP = 88;
+
+/**
+ * PRD 5: a checkpoint not passed yet opens once every unit of its stage that has exercises is done
+ * (completed or skipped); focus units are extra practice and do not count.
+ */
+function openCheckpointStatus(stage: PathStage): Exclude<CheckpointStatus, 'passed'> {
+  const units = stage.units.filter((unit) => !unit.focus && unit.hasContent);
+  const done = units.every((unit) => unit.status === 'completed' || unit.status === 'skipped');
+  return units.length > 0 && done ? 'available' : 'locked';
+}
 
 /** The status a node of the unit must show (PRD 12.3; skipped and done units stay repeatable, F3). */
 function expectedStatuses(unit: PathUnit): NodeStatus[] {
@@ -32,7 +56,7 @@ function expectedStatuses(unit: PathUnit): NodeStatus[] {
   });
 }
 
-test('the path shows the plan up to C2: stages, unit banners, lesson nodes, the next lesson and locked checkpoints', async ({
+test('the path shows the plan up to C2: stages, unit banners, lesson nodes, the next lesson and the checkpoints', async ({
   page,
 }) => {
   test.setTimeout(2 * 60_000);
@@ -78,8 +102,14 @@ test('the path shows the plan up to C2: stages, unit banners, lesson nodes, the 
         if (!unit.hasContent) await expect(unitSection.getByText('Bald verfügbar')).toBeAttached();
         if (unit.status === 'skipped') await expect(unitSection.getByText('Übersprungen')).toBeAttached();
       }
-      await expect(path.checkpoint(stage.level), 'checkpoints arrive with M4').toHaveAccessibleName(
-        `Checkpoint ${stage.level}, gesperrt`,
+      const { status } = stage.checkpoint;
+      if (status !== 'passed') {
+        expect(status, `checkpoint ${stage.level}: open once the units are done`).toBe(
+          openCheckpointStatus(stage),
+        );
+      }
+      await expect(path.checkpoint(stage.level)).toHaveAccessibleName(
+        `Checkpoint ${stage.level}, ${CHECKPOINT_NODE[status]}`,
       );
     });
   }

@@ -14,7 +14,10 @@ export const DOCUMENTS = [
   'learner_summary.md',
 ] as const;
 
-/** Learner tables of export format 1; data/profile.json holds the account row without its identity. */
+/** The export format this Lingora writes; an import upgrades older ones and rejects newer ones (PRD 13). */
+export const EXPORT_FORMAT = 2;
+
+/** Learner tables of export format 2; data/profile.json holds the account row without its identity. */
 export const DATA_TABLES = [
   'streaks',
   'fsrs_params',
@@ -23,6 +26,7 @@ export const DATA_TABLES = [
   'placement_tests',
   'placement_answers',
   'sessions',
+  'badges',
   'attempts',
   'skill_mastery',
   'srs_cards',
@@ -143,13 +147,37 @@ export interface PlacementAnswerRow {
   outcome: string;
 }
 
-/** A row of data/sessions.json. */
+/** A row of data/sessions.json; only a finished checkpoint has a result (format 2). */
 export interface SessionRow {
   id: string;
+  kind: string;
   unitId: string;
   finishedAt: string | null;
   exerciseCount: number;
   xpEarned: number;
+  checkpointPassed: boolean | null;
+}
+
+/** A row of data/badges.json (format 2): a level badge, awarded by the checkpoint that completes a band. */
+export interface BadgeRow {
+  id: string;
+  code: string;
+  sessionId: string | null;
+  awardedAt: string;
+}
+
+/** A row of data/srs_cards.json: the FSRS card of an item. */
+export interface SrsCardRow {
+  id: string;
+  itemId: string;
+  state: 'new' | 'learning' | 'review' | 'relearning';
+}
+
+/** A row of data/review_log.json; the target retention it was scheduled with is new in format 2. */
+export interface ReviewLogRow {
+  id: string;
+  itemId: string;
+  requestRetention: number;
 }
 
 export interface ProfileData {
@@ -196,6 +224,34 @@ export class BackupArchive {
   rows<T>(table: DataTable): T[] {
     return this.json<T[]>(`data/${table}.json`);
   }
+}
+
+/** A copy of the object without one of its keys. */
+function omit(row: Record<string, unknown>, key: string): Record<string, unknown> {
+  return Object.fromEntries(Object.entries(row).filter(([name]) => name !== key));
+}
+
+/**
+ * The export as a Lingora before M4 wrote it (format 1): without data/badges.json, without the
+ * checkpoint result of each session and the target retention of each review. Format 1 could hold
+ * neither badges nor checkpoints, so only an export without them can be turned back.
+ */
+export function asFormat1(backup: BackupArchive): Record<string, string> {
+  const entries: Record<string, string> = {};
+  for (const name of backup.names().filter((entry) => entry !== 'data/badges.json')) {
+    entries[name] = backup.text(name);
+  }
+  const manifest = backup.manifest();
+  entries['manifest.json'] = JSON.stringify({
+    ...manifest,
+    schemaVersion: 1,
+    counts: omit(manifest.counts, 'badges'),
+  });
+  const withoutColumn = (table: DataTable, column: string) =>
+    JSON.stringify(backup.rows<Record<string, unknown>>(table).map((row) => omit(row, column)));
+  entries['data/sessions.json'] = withoutColumn('sessions', 'checkpointPassed');
+  entries['data/review_log.json'] = withoutColumn('review_log', 'requestRetention');
+  return entries;
 }
 
 /** Writes a ZIP with the given text entries, e.g. a hand-made broken backup. */

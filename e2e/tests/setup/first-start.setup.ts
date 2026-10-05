@@ -195,14 +195,24 @@ test('the first start: account, onboarding questions and the skipped placement l
     const plan = new PlanPage(page);
     await plan.expectVisible();
     const changes = await fetchPlanChanges(page.request);
-    expect(changes.map((change) => change.type)).toEqual(['plan_created']);
-    expect(changes[0]?.reason).toMatch(/übersprungen/);
+    expect(changes.map((change) => change.type), 'nothing skipped or shortened').toEqual(['plan_created']);
+    expect(changes[0]?.reason).toBe(`Lernplan ab ${START_LEVEL} erstellt, Einstufung übersprungen`);
     await plan.expectHistory(changes);
 
     await plan.toPathButton.click();
     const path = new LearningPathPage(page);
     await path.expectVisible();
-    const unit = currentUnit(await fetchPath(page.request));
+    const data = await fetchPath(page.request);
+    const units = data.stages.flatMap((stage) => stage.units);
+    expect(
+      units.filter((unit) => unit.status !== 'planned' && unit.status !== 'in_progress'),
+      'a new learner has done nothing yet, and a placement alone skips no unit (PRD F3)',
+    ).toEqual([]);
+    expect(
+      data.stages.filter((stage) => stage.checkpoint.status !== 'locked'),
+      'no unit done, so every checkpoint is locked (PRD 5)',
+    ).toEqual([]);
+    const unit = currentUnit(data);
     await expect(path.unit(unit.title).getByRole('button', { name: 'Lektion 1, als Nächstes' })).toBeVisible();
     await expect(path.currentNode).toHaveCount(1);
   });

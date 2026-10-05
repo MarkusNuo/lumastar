@@ -18,15 +18,23 @@ import {
   type PlacementResult,
   type StartPlacementResponse,
 } from '../../support/placementApi.ts';
-import { currentUnit, fetchPath, fetchPlan, fetchPlanChanges } from '../../support/planApi.ts';
+import {
+  currentUnit,
+  fetchPath,
+  fetchPlan,
+  fetchPlanChanges,
+  type LearningPath,
+} from '../../support/planApi.ts';
 import { fetchExport } from '../../support/profileApi.ts';
+import { escapeRegExp } from '../../support/regex.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
  * "Neu einstufen" (PRD F2): a full placement test through the UI. The API sends no solutions, so the
  * test answers every item wrong for sure (content/placement.json knows the solutions): the staircase
- * then walks down to A0 and ends there, so the level stays the same in every run. The plan is revised
- * with the mastery of the lessons so far, and the change shows up in the "Plan-Verlauf" (PRD F3).
+ * then walks down to A0 and ends there, so the level stays the same in every run, whichever items
+ * the (seeded) engine picks. The plan is revised with the mastery proven in the lessons so far,
+ * never by the placement alone, and the change shows up in the "Plan-Verlauf" (PRD F3).
  */
 
 /** PRD F2: a beginner lands on A0/A1.1 after 6 items at the latest. */
@@ -39,7 +47,8 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
   const bank = readPlacementBank();
   const planBefore = await fetchPlan(page.request);
   const changesBefore = await fetchPlanChanges(page.request);
-  const unitBefore = currentUnit(await fetchPath(page.request));
+  const pathBefore = await fetchPath(page.request);
+  const unitBefore = currentUnit(pathBefore);
   expect(planBefore.startLevel, 'the setup placed the learner at A0').toBe(START_LEVEL);
 
   await test.step('profile → "Neu einstufen"', async () => {
@@ -171,21 +180,37 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
     );
   });
 
-  await test.step('back on the path, it continues with the revised plan', async () => {
+  await test.step('back on the path: the unit in progress is never skipped', async () => {
     await new PlanPage(page).toPathButton.click();
     const path = new LearningPathPage(page);
     await path.expectVisible();
-    const unitAfter = currentUnit(await fetchPath(page.request));
+    const pathAfter = await fetchPath(page.request);
+    const unitAfter = currentUnit(pathAfter);
     await expect(path.unit(unitAfter.title).locator('button[aria-current="step"]')).toBeVisible();
+
+    const before = unitsById(pathBefore);
+    const after = unitsById(pathAfter);
+    const reasons = (await fetchPlanChanges(page.request))
+      .filter((change) => change.planVersion === planBefore.version + 1)
+      .map((change) => change.reason);
     if (unitAfter.unitId !== unitBefore.unitId) {
-      // Mastered skill tags skip or shorten units (PRD F3), also the one in progress.
-      const changes = await fetchPlanChanges(page.request);
-      const reasons = changes
-        .filter((change) => change.planVersion === planBefore.version + 1)
-        .map((change) => change.reason);
-      expect(reasons, `the history explains why "${unitBefore.title}" is done`).toContainEqual(
-        expect.stringContaining(`‚${unitBefore.title}‘`),
+      // Only mastery proven in lessons shortens a unit (PRD F3), and that may finish the one in progress.
+      expect(after.get(unitBefore.unitId)?.status, `"${unitBefore.title}" is done, not skipped`).toBe(
+        'completed',
+      );
+      expect(reasons).toContainEqual(
+        expect.stringMatching(new RegExp(`^Einheit ‚${escapeRegExp(unitBefore.title)}‘ verkürzt: `)),
+      );
+    }
+    for (const unit of after.values()) {
+      if (unit.status !== 'skipped' || before.get(unit.unitId)?.status === 'skipped') continue;
+      expect(unit.unitId, 'the unit in progress stays').not.toBe(unitBefore.unitId);
+      expect(reasons, `the history explains why "${unit.title}" is skipped`).toContain(
+        `Einheit ‚${unit.title}‘ übersprungen: bereits beherrscht`,
       );
     }
   });
 });
+
+const unitsById = (path: LearningPath) =>
+  new Map(path.stages.flatMap((stage) => stage.units).map((unit) => [unit.unitId, unit]));

@@ -75,13 +75,17 @@ export interface AttemptResponse {
 }
 
 export interface LessonResultResponse {
+  kind: string;
   xpEarned: number;
   xpBreakdown: { base: number; perfectBonus: number; speedBonus: number };
   accuracy: number;
   durationMs: number;
   correctCount: number;
   exerciseCount: number;
-  learnedItems: { id: string; gheg: string; de: string }[];
+  /** The items practised in the lesson; `known` once the FSRS card of the item is in review state. */
+  learnedItems: { id: string; gheg: string; de: string; known: boolean }[];
+  /** Learned words of the learner (PRD F10): words and phrases whose card is in review state. */
+  learnedWordsTotal: number;
   xpTotal: number;
 }
 

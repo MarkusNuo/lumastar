@@ -15,10 +15,13 @@ export interface PathUnit {
   lessonsCompleted: number;
 }
 
+/** The test at the end of a stage (PRD 5): open once its units are done, passed with 80 % accuracy. */
+export type CheckpointStatus = 'locked' | 'available' | 'passed';
+
 export interface PathStage {
   level: string;
   title: string;
-  checkpoint: { status: 'locked' | 'available' | 'passed' };
+  checkpoint: { status: CheckpointStatus };
   units: PathUnit[];
 }
 

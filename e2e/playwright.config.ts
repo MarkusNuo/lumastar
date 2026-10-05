@@ -18,6 +18,8 @@ type WebServer = Extract<NonNullable<PlaywrightTestConfig['webServer']>, { comma
 const isCI = Boolean(process.env.CI);
 /** Seed of the backend's lesson composer (lingora.lesson.random-seed); older commits ignore it. */
 const LESSON_SEED = 20261005;
+/** Seed of the placement engine's pick among the items of a stage (lingora.placement.random-seed). */
+const PLACEMENT_SEED = 20261005;
 const isWindows = process.platform === 'win32';
 
 /** HEAD mode never reuses a running server: it may run the working tree instead of the commit. */
@@ -38,8 +40,8 @@ function backendServer(cwd: string): WebServer {
   if (isWindows) mkdirSync(PATHS.gradleTemp, { recursive: true });
   return {
     name: 'backend',
-    // A fixed seed makes the composed lessons the same in every run of the same tests.
-    command: `${gradle} bootTestRun "--args=--server.port=${BACKEND_PORT} --lingora.lesson.random-seed=${LESSON_SEED}" --console=plain`,
+    // Fixed seeds make the composed lessons and placement tests the same in every run of the same tests.
+    command: `${gradle} bootTestRun "--args=--server.port=${BACKEND_PORT} --lingora.lesson.random-seed=${LESSON_SEED} --lingora.placement.random-seed=${PLACEMENT_SEED}" --console=plain`,
     cwd,
     // The JDK on the Windows dev machine cannot open its loopback socket in the user temp dir.
     env: isWindows ? { TEMP: PATHS.gradleTemp, TMP: PATHS.gradleTemp } : {},

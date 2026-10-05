@@ -3,22 +3,28 @@ import { expect, test } from '@playwright/test';
 import { ProfilePage } from '../../pages/ProfilePage.ts';
 import { fetchAuthStatus } from '../../support/auth.ts';
 import {
+  asFormat1,
   BackupArchive,
   countKey,
   DATA_TABLES,
   ERROR_CATEGORIES,
   EXPECTED_ENTRIES,
+  EXPORT_FORMAT,
   localDate,
   writeZip,
   type AttemptRow,
+  type BadgeRow,
   type LearnerProfileDocument,
   type LearningPlanDocument,
   type MasteryDocument,
   type PlacementTestRow,
   type ProfileData,
   type RecentError,
+  type ReviewLogRow,
   type SessionRow,
+  type SrsCardRow,
 } from '../../support/backup.ts';
+import { isVocabulary, readItemKinds } from '../../support/content.ts';
 import { LEARNER, ONBOARDING } from '../../support/learner.ts';
 import { choiceFor } from '../../support/lessonAnswers.ts';
 import { fetchMe, P0_EXERCISE_TYPES, playLessonViaApi } from '../../support/lessonApi.ts';
@@ -41,6 +47,9 @@ const UNCHANGED = 'Deine Lerndaten sind unverändert.';
 const NOT_A_BACKUP = `Diese Datei ist kein Lingora-Backup. Wähle eine ZIP-Datei, die du hier heruntergeladen hast. ${UNCHANGED}`;
 const NEWER_VERSION = `Dieses Backup stammt aus einer Lingora-Version, die diese Installation nicht kennt. ${UNCHANGED}`;
 
+/** The target retention of FSRS while the learner keeps the default (PRD F8). */
+const DEFAULT_RETENTION = 0.9;
+
 const keysOf = (value: object) => Object.keys(value).sort();
 const accepted = (outcome: string) => outcome !== 'wrong';
 
@@ -50,6 +59,12 @@ const swissDate = (instant: string) =>
   );
 const count = (value: number, singular: string, plural: string) =>
   `${value.toLocaleString('de-CH')} ${value === 1 ? singular : plural}`;
+
+/** The toast after an import. */
+const importedMessage = ({ exportedAt, imported }: ImportResult) =>
+  `Backup vom ${swissDate(exportedAt)} importiert: ` +
+  `${count(imported.sessions ?? 0, 'Lektion', 'Lektionen')}, ` +
+  `${count(imported.attempts ?? 0, 'Antwort', 'Antworten')}.`;
 
 test('the downloaded backup holds the manifest, the five profile documents and all learner data', async ({
   page,
@@ -68,7 +83,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
   await test.step('entries and manifest', () => {
     expect(backup.names().sort()).toEqual([...EXPECTED_ENTRIES].sort());
     const manifest = backup.manifest();
-    expect(manifest.schemaVersion).toBe(1);
+    expect(manifest.schemaVersion, 'format 2 since M4').toBe(EXPORT_FORMAT);
     expect(manifest.exportedAt).toMatch(ISO_INSTANT);
     expect(typeof manifest.appVersion).toBe('string');
     expect(keysOf(manifest.counts)).toEqual(DATA_TABLES.map(countKey).sort());
@@ -97,7 +112,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
       ].sort(),
     );
     expect(document).toMatchObject({
-      schemaVersion: 1,
+      schemaVersion: EXPORT_FORMAT,
       displayName: LEARNER.displayName,
       variety: 'gheg-kosovo',
       currentLevel: me.currentLevel ?? null,
@@ -197,13 +212,54 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     }
   });
 
+  const learnedWords = await test.step('learned words: words and phrases whose card is in review state (PRD F10)', () => {
+    const kinds = readItemKinds();
+    const cards = backup.rows<SrsCardRow>('srs_cards');
+    const stateOf = new Map(cards.map((card) => [card.itemId, card.state]));
+    expect(played.result.learnedItems.length, 'the lesson practised items').toBeGreaterThan(0);
+    for (const item of played.result.learnedItems) {
+      expect(item.known, `${item.id} is known once its card is in review state`).toBe(
+        stateOf.get(item.id) === 'review',
+      );
+    }
+    const learned = cards.filter(
+      (card) => card.state === 'review' && isVocabulary(kinds.get(card.itemId)),
+    ).length;
+    expect(played.result.learnedWordsTotal, 'the total on the result of the lesson').toBe(learned);
+    return learned;
+  });
+
   await test.step('learner_summary.md', async () => {
     const summary = backup.text('documents/learner_summary.md');
+    const { streak } = backup.document<LearnerProfileDocument>('learner_profile.json');
     expect(summary).toMatch(new RegExp(`^# Lernstand ${LEARNER.displayName} – `));
-    expect(summary).toContain(`- Niveau: ${me.currentLevel ?? 'noch nicht eingestuft'} (Ziel C2)`);
+    expect(summary.split('\n')[3], 'level, streak and the learned words').toBe(
+      `- Niveau: ${me.currentLevel ?? 'noch nicht eingestuft'} (Ziel C2), ` +
+        `${count(streak.current, 'Tag', 'Tage')} Streak, ${count(learnedWords, 'Wort', 'Wörter')}`,
+    );
     expect(summary, 'the same text as "KI-Zusammenfassung kopieren"').toBe(
       await fetchSummary(page.request),
     );
+  });
+
+  await test.step('format 2: checkpoint results, level badges, the target retention of every review', () => {
+    const sessions = backup.rows<SessionRow>('sessions');
+    for (const session of sessions.filter((row) => row.kind !== 'checkpoint')) {
+      expect(session.checkpointPassed, `the ${session.kind} ${session.id} is no checkpoint`).toBeNull();
+    }
+    const passedCheckpoints = sessions
+      .filter((row) => row.kind === 'checkpoint' && row.checkpointPassed === true)
+      .map((row) => row.id);
+    for (const badge of backup.rows<BadgeRow>('badges')) {
+      expect(passedCheckpoints, `badge ${badge.code} comes from a passed checkpoint`).toContain(
+        badge.sessionId,
+      );
+    }
+    const reviews = backup.rows<ReviewLogRow>('review_log');
+    expect(reviews.length, 'first answers review the cards of their items').toBeGreaterThan(0);
+    for (const review of reviews) {
+      expect(review.requestRetention, `review ${review.id} of ${review.itemId}`).toBe(DEFAULT_RETENTION);
+    }
   });
 
   await test.step('data/: the complete learner state, without the password', () => {
@@ -230,9 +286,11 @@ test('the downloaded backup holds the manifest, the five profile documents and a
       .rows<SessionRow>('sessions')
       .find((row) => row.id === played.lesson.sessionId);
     expect(session, 'the played lesson').toMatchObject({
+      kind: played.result.kind,
       unitId,
       exerciseCount: played.lesson.exercises.length,
       xpEarned: played.result.xpEarned,
+      checkpointPassed: null,
     });
     expect(session?.finishedAt).toMatch(PG_INSTANT);
 
@@ -279,16 +337,12 @@ test('importing the downloaded backup restores the same state and keeps the acco
   expect(response.status(), await response.text()).toBe(200);
   const result = (await response.json()) as ImportResult;
   expect(result).toEqual({
-    schemaVersion: 1,
+    schemaVersion: EXPORT_FORMAT,
     exportedAt: manifest.exportedAt,
     imported: manifest.counts,
   });
 
-  const message =
-    `Backup vom ${swissDate(manifest.exportedAt)} importiert: ` +
-    `${count(result.imported.sessions ?? 0, 'Lektion', 'Lektionen')}, ` +
-    `${count(result.imported.attempts ?? 0, 'Antwort', 'Antworten')}.`;
-  await expect(profile.toast(message)).toBeVisible();
+  await expect(profile.toast(importedMessage(result))).toBeVisible();
   expect(result.imported.sessions).toBeGreaterThan(0);
   await expect(profile.action('Backup importieren'), 'busy until the data is fresh').not.toHaveAttribute(
     'aria-busy',
@@ -310,6 +364,44 @@ test('importing the downloaded backup restores the same state and keeps the acco
     expect(reexported.text(name), `${name} survives the round trip unchanged`).toBe(
       exported.text(name),
     );
+  }
+});
+
+test('a backup of export format 1 is upgraded on import and restores the same state (PRD 13)', async ({
+  page,
+}, testInfo) => {
+  await playLessonViaApi(page.request, currentUnit(await fetchPath(page.request)).unitId);
+  const current = await fetchExport(page.request);
+  const manifest = current.manifest();
+  // Format 1 could hold neither, so the upgraded file must come back as it was exported.
+  expect(current.rows<BadgeRow>('badges'), 'no level badge yet').toEqual([]);
+  expect(
+    current.rows<SessionRow>('sessions').filter((session) => session.kind === 'checkpoint'),
+    'no checkpoint played yet',
+  ).toEqual([]);
+  const formatOne = testInfo.outputPath('lingora-export-format-1.zip');
+  await writeZip(formatOne, asFormat1(current));
+
+  const profile = new ProfilePage(page);
+  await profile.goto();
+  const imported = page.waitForResponse(isImport);
+  await profile.chooseBackup(formatOne);
+  await profile.confirmImport();
+  const response = await imported;
+  expect(response.status(), await response.text()).toBe(200);
+  const result = (await response.json()) as ImportResult;
+  expect(result, 'the version of the file, the rows of format 2').toEqual({
+    schemaVersion: 1,
+    exportedAt: manifest.exportedAt,
+    imported: { ...manifest.counts, badges: 0 },
+  });
+  await expect(profile.toast(importedMessage(result))).toBeVisible();
+
+  const upgraded = await fetchExport(page.request);
+  expect(upgraded.manifest().schemaVersion, 'exported again in the current format').toBe(EXPORT_FORMAT);
+  for (const name of current.names().filter((entry) => entry.startsWith('data/'))) {
+    // No badges, no checkpoint results, the default target retention for every review.
+    expect(upgraded.text(name), `${name} after the upgrade`).toBe(current.text(name));
   }
 });
 
@@ -340,10 +432,13 @@ test('an invalid backup is rejected with a German message and changes nothing', 
     await snap(page, 'profile-import-error', { fullPage: false });
   });
 
-  await test.step('an export of a newer Lingora (schemaVersion 2)', async () => {
+  await test.step(`an export of a newer Lingora (schemaVersion ${EXPORT_FORMAT + 1})`, async () => {
     const newer = testInfo.outputPath('lingora-export-neuer.zip');
     await writeZip(newer, {
-      'manifest.json': JSON.stringify({ schemaVersion: 2, exportedAt: new Date().toISOString() }),
+      'manifest.json': JSON.stringify({
+        schemaVersion: EXPORT_FORMAT + 1,
+        exportedAt: new Date().toISOString(),
+      }),
     });
     await expectRejected(profile, newer, 'unsupported_schema_version', NEWER_VERSION);
   });
@@ -351,7 +446,10 @@ test('an invalid backup is rejected with a German message and changes nothing', 
   await test.step('an entry that would escape the folder when unpacked (zip slip)', async () => {
     const slip = testInfo.outputPath('lingora-export-slip.zip');
     await writeZip(slip, {
-      'manifest.json': JSON.stringify({ schemaVersion: 1, exportedAt: new Date().toISOString() }),
+      'manifest.json': JSON.stringify({
+        schemaVersion: EXPORT_FORMAT,
+        exportedAt: new Date().toISOString(),
+      }),
       '../data/profile.json': '{}',
     });
     await expectRejected(profile, slip, 'invalid_backup_archive', NOT_A_BACKUP);
