@@ -1,12 +1,28 @@
-import { motion, type TargetAndTransition } from 'motion/react';
-import { useId } from 'react';
+import { motion, useAnimate, useReducedMotion, type TargetAndTransition } from 'motion/react';
+import { useEffect, useId, useRef, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
-import { springs } from '../../styles/motion';
+import { durations, springs } from '../../styles/motion';
 import { UI_COPY } from './copy';
+import {
+  CHEEK_RADII,
+  CHEEKS,
+  EYES,
+  HAPPY_MOUTH,
+  HAPPY_TONGUE,
+  HIGHLIGHT,
+  MASCOT_VIEWBOX,
+  SPARKLE_PATH,
+  STAR_EDGE_OFFSET,
+  STAR_POSES,
+  STAR_STROKE_WIDTH,
+  type StarPose,
+} from './mascotArt';
 
 /*
- * Placeholder mascot: an original, chubby aurora star (PRD 12.2 leaves the final character open).
- * Everything is drawn inline so each expression can animate without extra assets.
+ * Lingora's own mascot: a chubby aurora star with a 3D edge like the buttons (PRD 12.2; the final
+ * character is still open, see QUESTIONS.md). Its arms (the side points) carry the body language:
+ * up when celebrating, one waving when encouraging, drooping when sad. Drawn inline so every
+ * expression can animate without extra assets.
  */
 
 export type MascotExpression = 'happy' | 'encouraging' | 'thinking' | 'celebrating' | 'sad';
@@ -16,69 +32,103 @@ export interface MascotProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   /** Overrides the default accessible description. */
   label?: string;
+  /** Hidden from assistive technology where the text next to it already says everything. */
+  decorative?: boolean;
   className?: string;
 }
 
 const sizeClass = { sm: 'size-16', md: 'size-24', lg: 'size-32', xl: 'size-44' } as const;
 
-const bodyMotion: Record<MascotExpression, TargetAndTransition> = {
-  happy: { rotate: 0, y: 0, scaleY: 1 },
-  encouraging: { rotate: 7, y: 0, scaleY: 1 },
-  thinking: { rotate: -7, y: 0, scaleY: 1 },
-  celebrating: {
-    rotate: [0, -9, 9, 0],
-    y: [0, -10, 0],
-    scaleY: 1,
-    transition: { duration: 0.9, repeat: Infinity, ease: 'easeInOut' },
-  },
-  sad: { rotate: 0, y: 4, scaleY: 0.95 },
+const pose: Record<MascotExpression, StarPose> = {
+  happy: 'rest',
+  encouraging: 'wave',
+  thinking: 'rest',
+  celebrating: 'cheer',
+  sad: 'droop',
 };
 
-// Five-point star with round joins (stroked with its own fill) for a soft, chubby silhouette.
-const STAR_POINTS =
-  '60,18 76.5,41.3 103.7,49.8 86.6,72.7 87,101.2 60,92 33,101.2 33.4,72.7 16.3,49.8 43.5,41.3';
-const SPARKLE = 'M0-8Q1.6-1.6 8 0 1.6 1.6 0 8-1.6 1.6-8 0-1.6-1.6 0-8Z';
+const bodyMotion: Record<MascotExpression, TargetAndTransition> = {
+  happy: { rotate: 0, y: 0 },
+  encouraging: { rotate: 5, y: 0 },
+  thinking: { rotate: -7, y: 0 },
+  celebrating: {
+    rotate: [0, -8, 8, 0],
+    y: [0, -10, 0],
+    transition: { duration: 0.9, repeat: Infinity, ease: 'easeInOut' },
+  },
+  sad: { rotate: 0, y: 4 },
+};
 
-export function Mascot({ expression = 'happy', size = 'md', label, className }: MascotProps) {
+/** Squash and stretch whenever the expression changes, as if the star reacts. */
+const SQUASH = { scaleX: [1, 1.08, 0.97, 1], scaleY: [1, 0.9, 1.05, 1] };
+
+const svgBox = { transformBox: 'fill-box', transformOrigin: '50% 100%' } as const;
+
+export function Mascot({
+  expression = 'happy',
+  size = 'md',
+  label,
+  decorative = false,
+  className,
+}: MascotProps) {
   const gradientId = useId();
+  const reactionScope = useReaction(expression);
+  const outline = { points: STAR_POSES[pose[expression]] };
 
   return (
     <span
-      role="img"
-      aria-label={label ?? UI_COPY.mascot.label(expression)}
+      {...(decorative
+        ? { 'aria-hidden': true }
+        : { role: 'img', 'aria-label': label ?? UI_COPY.mascot.label(expression) })}
+      data-expression={expression}
       className={cx('inline-block shrink-0 motion-safe:animate-float', sizeClass[size], className)}
     >
-      <svg aria-hidden="true" viewBox="0 0 120 120" className="size-full overflow-visible">
+      <svg aria-hidden="true" viewBox={MASCOT_VIEWBOX} className="size-full overflow-visible">
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="0.3" y2="1">
             <stop offset="0%" className="[stop-color:var(--color-mascot-top)]" />
             <stop offset="100%" className="[stop-color:var(--color-mascot-bottom)]" />
           </linearGradient>
         </defs>
-        <motion.g
-          animate={bodyMotion[expression]}
-          transition={springs.bouncy}
-          style={{ transformBox: 'fill-box', transformOrigin: 'center' }}
-        >
-          <polygon
-            points={STAR_POINTS}
-            fill={`url(#${gradientId})`}
-            stroke={`url(#${gradientId})`}
-            strokeWidth={11}
-            strokeLinejoin="round"
-          />
-          <ellipse
-            cx={55}
-            cy={31}
-            rx={5.5}
-            ry={3.2}
-            transform="rotate(-40 55 31)"
-            className="fill-shine"
-          />
-          <ellipse cx={39} cy={73} rx={6} ry={3.5} className="fill-mascot-cheek opacity-80" />
-          <ellipse cx={81} cy={73} rx={6} ry={3.5} className="fill-mascot-cheek opacity-80" />
-          <Eyes expression={expression} />
-          <Mouth expression={expression} />
+        <motion.g animate={bodyMotion[expression]} transition={springs.bouncy} style={svgBox}>
+          <g ref={reactionScope} style={svgBox}>
+            <motion.polygon
+              initial={false}
+              animate={outline}
+              transition={springs.bouncy}
+              transform={`translate(0 ${STAR_EDGE_OFFSET})`}
+              strokeWidth={STAR_STROKE_WIDTH}
+              strokeLinejoin="round"
+              className="fill-mascot-edge stroke-mascot-edge"
+            />
+            <motion.polygon
+              initial={false}
+              animate={outline}
+              transition={springs.bouncy}
+              fill={`url(#${gradientId})`}
+              stroke={`url(#${gradientId})`}
+              strokeWidth={STAR_STROKE_WIDTH}
+              strokeLinejoin="round"
+            />
+            <ellipse
+              cx={HIGHLIGHT.cx}
+              cy={HIGHLIGHT.cy}
+              rx={HIGHLIGHT.rx}
+              ry={HIGHLIGHT.ry}
+              transform={`rotate(${HIGHLIGHT.rotate} ${HIGHLIGHT.cx} ${HIGHLIGHT.cy})`}
+              className="fill-shine"
+            />
+            {CHEEKS.map((cheek) => (
+              <ellipse
+                key={cheek.cx}
+                {...cheek}
+                {...CHEEK_RADII}
+                className="fill-mascot-cheek opacity-80"
+              />
+            ))}
+            <Eyes expression={expression} />
+            <Mouth expression={expression} />
+          </g>
         </motion.g>
         <Extras expression={expression} />
       </svg>
@@ -86,14 +136,21 @@ export function Mascot({ expression = 'happy', size = 'md', label, className }: 
   );
 }
 
-function OpenEye({ cx: x, cy: y, lookX = 0, lookY = 0 }: EyeProps) {
-  return (
-    <g>
-      <circle cx={x} cy={y} r={8.5} className="fill-mascot-eye" />
-      <circle cx={x + lookX} cy={y + lookY} r={4.8} className="fill-mascot-pupil" />
-      <circle cx={x + lookX + 1.8} cy={y + lookY - 1.8} r={1.6} className="fill-mascot-eye" />
-    </g>
-  );
+function useReaction(expression: MascotExpression) {
+  const [scope, animate] = useAnimate<SVGGElement>();
+  const reduceMotion = useReducedMotion();
+  // Compared with the previous expression instead of a "first render" flag, so the double effect
+  // run of StrictMode does not squash the star on mount.
+  const previous = useRef(expression);
+
+  useEffect(() => {
+    if (previous.current === expression) return;
+    previous.current = expression;
+    if (reduceMotion) return;
+    void animate(scope.current, SQUASH, { duration: durations.slow, ease: 'easeOut' });
+  }, [expression, reduceMotion, animate, scope]);
+
+  return scope;
 }
 
 interface EyeProps {
@@ -101,6 +158,26 @@ interface EyeProps {
   cy: number;
   lookX?: number;
   lookY?: number;
+}
+
+function OpenEye({ cx: x, cy: y, lookX = 0, lookY = 0 }: EyeProps) {
+  return (
+    <g>
+      <circle cx={x} cy={y} r={EYES.radius} className="fill-mascot-eye" />
+      <circle cx={x + lookX} cy={y + lookY} r={EYES.pupilRadius} className="fill-mascot-pupil" />
+      <circle
+        cx={x + lookX + EYES.glintOffset}
+        cy={y + lookY - EYES.glintOffset}
+        r={EYES.glintRadius}
+        className="fill-mascot-eye"
+      />
+    </g>
+  );
+}
+
+/** Open eyes blink now and then; they close around their own centre line. */
+function Blinking({ children }: { children: ReactNode }) {
+  return <g className="origin-center transform-fill motion-safe:animate-blink">{children}</g>;
 }
 
 const strokeFeature = {
@@ -112,6 +189,7 @@ const strokeFeature = {
 } as const;
 
 function Eyes({ expression }: { expression: MascotExpression }) {
+  const { left, right } = EYES;
   switch (expression) {
     case 'celebrating':
       return (
@@ -123,36 +201,40 @@ function Eyes({ expression }: { expression: MascotExpression }) {
     case 'encouraging':
       return (
         <g>
-          <OpenEye cx={48} cy={60} />
+          <Blinking>
+            <OpenEye {...left} />
+          </Blinking>
           <path d="M64 61q8-8 16 0" {...strokeFeature} />
         </g>
       );
     case 'thinking':
       return (
-        <g>
-          <OpenEye cx={48} cy={60} lookX={2.4} lookY={-2.6} />
-          <OpenEye cx={72} cy={60} lookX={2.4} lookY={-2.6} />
-        </g>
+        <Blinking>
+          <OpenEye {...left} lookX={2.4} lookY={-2.6} />
+          <OpenEye {...right} lookX={2.4} lookY={-2.6} />
+        </Blinking>
       );
     case 'sad':
       return (
         <g>
-          <OpenEye cx={48} cy={61} lookY={2.4} />
-          <OpenEye cx={72} cy={61} lookY={2.4} />
+          <Blinking>
+            <OpenEye cx={left.cx} cy={left.cy + 1} lookY={2.4} />
+            <OpenEye cx={right.cx} cy={right.cy + 1} lookY={2.4} />
+          </Blinking>
           <path d="M39 49l13-4" {...strokeFeature} strokeWidth={3.5} />
           <path d="M81 49l-13-4" {...strokeFeature} strokeWidth={3.5} />
           <path
             d="M37 67c2.6 3.6 3.6 5.3 3.6 7a3.6 3.6 0 0 1-7.2 0c0-1.7 1-3.4 3.6-7Z"
-            className="fill-mascot-tear"
+            className="fill-mascot-tear motion-safe:animate-drip"
           />
         </g>
       );
     case 'happy':
       return (
-        <g>
-          <OpenEye cx={48} cy={60} />
-          <OpenEye cx={72} cy={60} />
-        </g>
+        <Blinking>
+          <OpenEye {...left} />
+          <OpenEye {...right} />
+        </Blinking>
       );
   }
 }
@@ -162,8 +244,8 @@ function Mouth({ expression }: { expression: MascotExpression }) {
     case 'happy':
       return (
         <g>
-          <path d="M49 72q11 14 22 0Z" className="fill-mascot-mouth" />
-          <path d="M54.5 77.6q5.5 4.6 11 0-5.5-3-11 0Z" className="fill-mascot-tongue" />
+          <path d={HAPPY_MOUTH} className="fill-mascot-mouth" />
+          <path d={HAPPY_TONGUE} className="fill-mascot-tongue" />
         </g>
       );
     case 'celebrating':
@@ -182,26 +264,56 @@ function Mouth({ expression }: { expression: MascotExpression }) {
   }
 }
 
+interface SparkleProps {
+  x: number;
+  y: number;
+  scale?: number;
+  /** Offsets the twinkle so several sparkles do not pulse in unison. */
+  delayMs?: number;
+}
+
+function Sparkle({ x, y, scale = 1, delayMs = 0 }: SparkleProps) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${scale})`}>
+      <path
+        d={SPARKLE_PATH}
+        style={{ animationDelay: `${delayMs}ms` }}
+        className="origin-center transform-fill motion-safe:animate-twinkle"
+      />
+    </g>
+  );
+}
+
 function Extras({ expression }: { expression: MascotExpression }) {
   switch (expression) {
     case 'thinking':
       return (
         <g className="fill-fg-muted">
-          <circle cx={101} cy={30} r={3.2} />
-          <circle cx={109} cy={17} r={4.8} />
+          <circle cx={101} cy={30} r={3.2} className="motion-safe:animate-dot" />
+          <circle
+            cx={109}
+            cy={17}
+            r={4.8}
+            style={{ animationDelay: '160ms' }}
+            className="motion-safe:animate-dot"
+          />
         </g>
       );
     case 'celebrating':
       return (
         <g className="fill-xp">
-          <path d={SPARKLE} transform="translate(12 26)" />
-          <path d={SPARKLE} transform="translate(108 22) scale(0.75)" />
-          <path d={SPARKLE} transform="translate(110 92) scale(0.9)" />
-          <path d={SPARKLE} transform="translate(10 94) scale(0.6)" />
+          <Sparkle x={12} y={22} />
+          <Sparkle x={110} y={16} scale={0.75} delayMs={350} />
+          <Sparkle x={112} y={92} scale={0.9} delayMs={700} />
+          <Sparkle x={8} y={92} scale={0.6} delayMs={1050} />
         </g>
       );
     case 'encouraging':
-      return <path d={SPARKLE} transform="translate(104 30) scale(0.7)" className="fill-xp" />;
+      return (
+        <g className="fill-xp">
+          <Sparkle x={113} y={22} scale={0.7} />
+        </g>
+      );
     case 'sad':
     case 'happy':
       return null;

@@ -98,9 +98,10 @@
   --color-unit-coral-edge: #d45a3e;
   --color-on-unit-coral: #2e0e05;
 
-  /* Mascot (placeholder character) */
+  /* Mascot: Lingora's own aurora star */
   --color-mascot-top: #5ce8da;
   --color-mascot-bottom: #8e6bff;
+  --color-mascot-edge: #5b3cc8;
   --color-mascot-eye: #ffffff;
   --color-mascot-pupil: #0f1e26;
   --color-mascot-cheek: #ff8fb8;
@@ -167,6 +168,9 @@
   --animate-shine: shine 2.8s var(--ease-in-out) infinite;
   --animate-flicker: flicker 1.6s var(--ease-in-out) infinite;
   --animate-dot: dot 1s var(--ease-in-out) infinite;
+  --animate-blink: blink 4.6s var(--ease-in-out) infinite;
+  --animate-twinkle: twinkle 1.4s var(--ease-in-out) infinite;
+  --animate-drip: drip 2s var(--ease-in-out) infinite;
 
   @keyframes pulse-ring {
     from {
@@ -215,6 +219,41 @@
     }
     70% {
       transform: scale(0.97, 1.05) rotate(2deg);
+    }
+  }
+  @keyframes blink {
+    0%,
+    93%,
+    100% {
+      transform: scaleY(1);
+    }
+    96.5% {
+      transform: scaleY(0.1);
+    }
+  }
+  @keyframes twinkle {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.6) rotate(25deg);
+      opacity: 0.6;
+    }
+  }
+  @keyframes drip {
+    0% {
+      transform: translateY(-2px);
+      opacity: 0;
+    }
+    20%,
+    75% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(8px);
+      opacity: 0;
     }
   }
   @keyframes dot {
