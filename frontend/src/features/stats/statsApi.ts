@@ -17,7 +17,5 @@ export const statsQuery = queryOptions({
  * `no_practice_exercises` when none at or below the learner's level carries it.
  */
 export async function startPracticeLesson(skillTag: string): Promise<Lesson> {
-  return toLesson(
-    await unwrap(api.POST('/api/lessons', { body: { kind: 'practice', skillTag } })),
-  );
+  return toLesson(await unwrap(api.POST('/api/lessons', { body: { kind: 'practice', skillTag } })));
 }

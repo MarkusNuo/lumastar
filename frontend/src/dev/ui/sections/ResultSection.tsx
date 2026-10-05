@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 import { StatCard } from '../../../components/ui/StatCard';
+import { DailyGoalCard } from '../../../features/lesson/result/DailyGoalCard';
 import { useCountUp } from '../../../features/lesson/result/useCountUp';
 import { Specimen } from '../CatalogSection';
 
@@ -58,9 +59,43 @@ function ConfirmDemo() {
   );
 }
 
+function DailyGoalCardsDemo() {
+  const [round, setRound] = useState(0);
+
+  return (
+    <div className="flex flex-col gap-3">
+      <DailyGoalCard
+        key={`open-${round}`}
+        goal={{ minutesToday: 3, goalMinutes: 10, goalMet: false, justMet: false }}
+      />
+      <DailyGoalCard
+        key={`met-${round}`}
+        goal={{ minutesToday: 6, goalMinutes: 5, goalMet: true, justMet: true }}
+      />
+      <DailyGoalCard
+        key={`earlier-${round}`}
+        goal={{ minutesToday: 14, goalMinutes: 10, goalMet: true, justMet: false }}
+      />
+      <Button
+        variant="neutral"
+        icon={ArrowClockwiseIcon}
+        onClick={() => setRound((current) => current + 1)}
+      >
+        Ringe nochmals füllen
+      </Button>
+    </div>
+  );
+}
+
 export function ResultSection() {
   return (
     <>
+      <Specimen
+        label="Tagesziel nach der Lektion: offen · gerade erreicht · schon erreicht"
+        layout="stack"
+      >
+        <DailyGoalCardsDemo />
+      </Specimen>
       <Specimen label="Ergebnis-Karten: XP zählt hoch · Genauigkeit · Zeit" layout="stack">
         <ResultCardsDemo />
       </Specimen>

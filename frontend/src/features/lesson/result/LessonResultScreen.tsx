@@ -7,13 +7,18 @@ import { Card } from '../../../components/ui/Card';
 import { FocusScreen } from '../../../components/ui/FocusScreen';
 import { Mascot } from '../../../components/ui/Mascot';
 import { useCelebration } from '../../../lib/useCelebration';
-import { springs } from '../../../styles/motion';
+import { durations, springs } from '../../../styles/motion';
 import { LESSON_COPY } from '../copy';
 import type { LearnedItem, LessonResult, XpBreakdown } from '../model';
+import { DailyGoalCard } from './DailyGoalCard';
 import { FocusSuggestionCard } from './FocusSuggestionCard';
+import { entranceDelay } from './entrance';
 import { ResultStats, StatEntrance } from './ResultStats';
 
 const copy = LESSON_COPY.result;
+
+/** The daily goal springs in after the three result cards. */
+const GOAL_ORDER = 3;
 
 /** A long list would push the lesson end far down; the rest is one tap away. */
 const COLLAPSED_WORDS = 6;
@@ -68,6 +73,14 @@ export function LessonResultScreen({
 
       <ResultStats result={result} />
       {result.xp && <XpBreakdownLine breakdown={result.xp.breakdown} />}
+      {result.dailyGoal && (
+        <StatEntrance order={GOAL_ORDER}>
+          <DailyGoalCard
+            goal={result.dailyGoal}
+            delay={entranceDelay(GOAL_ORDER) + durations.base}
+          />
+        </StatEntrance>
+      )}
 
       {!result.saved && (
         <div className="flex w-full flex-col gap-3 text-left">
@@ -83,7 +96,7 @@ export function LessonResultScreen({
         </div>
       )}
       {result.focusSuggestion && (
-        <StatEntrance order={3}>
+        <StatEntrance order={GOAL_ORDER + 1}>
           <FocusSuggestionCard suggestion={result.focusSuggestion} onStart={onStartFocus} />
         </StatEntrance>
       )}

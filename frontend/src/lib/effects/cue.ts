@@ -9,6 +9,8 @@ export const FEEDBACK_CUES = [
   'wrong',
   'combo',
   'complete',
+  'goal',
+  'streak',
   'levelUp',
 ] as const;
 

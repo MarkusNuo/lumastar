@@ -173,7 +173,7 @@ describe('LessonPlayer', () => {
     expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ saved: true }));
   });
 
-  it('refreshes XP, level, plan and review counts once the result is saved', async () => {
+  it('refreshes XP, level, plan, review counts, daily goal and statistics once the result is saved', async () => {
     stubApi({ [ATTEMPTS]: answerLikePrecheck, [COMPLETE]: () => jsonResponse(RESULT) });
     const { user, queryClient } = renderPlayer({ ...LESSON, exercises: [SAMPLE_MULTIPLE_CHOICE] });
     const invalidate = vi.spyOn(queryClient, 'invalidateQueries');
@@ -187,6 +187,8 @@ describe('LessonPlayer', () => {
       ['me'],
       ['plan'],
       ['review'],
+      ['progress'],
+      ['stats'],
     ]);
   });
 

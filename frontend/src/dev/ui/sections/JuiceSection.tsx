@@ -25,6 +25,8 @@ const CUE_LABELS: Record<FeedbackCue, string> = {
   wrong: 'Falsch',
   combo: 'Combo',
   complete: 'Lektionsende',
+  goal: 'Tagesziel',
+  streak: 'Streak',
   levelUp: 'Niveau erreicht',
 };
 

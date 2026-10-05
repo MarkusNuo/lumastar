@@ -64,6 +64,26 @@ export const LESSON_COPY = {
       'Dein Ergebnis konnte noch nicht gespeichert werden. XP und geübte Wörter erscheinen, sobald es geklappt hat.',
     retrySave: 'Nochmals speichern',
     continue: 'Weiter',
+    dailyGoal: {
+      title: 'Tagesziel',
+      minutes: (minutes: number, goalMinutes: number) => `${minutes} von ${goalMinutes} Min.`,
+      remaining: (left: number) => `Noch ${left} Min. bis zum Tagesziel.`,
+      justMet: 'Tagesziel erreicht!',
+      justMetText: (minutes: number) => `${minutes} Min. geübt. Dein Streak wächst.`,
+      met: 'Tagesziel erreicht',
+      metText: (minutes: number) => `Heute schon ${minutes} Min. geübt.`,
+    },
+    streak: {
+      unit: (days: number) => (days === 1 ? 'Tag Streak' : 'Tage Streak'),
+      title: (days: number) => `${days} ${days === 1 ? 'Tag' : 'Tage'} Streak!`,
+      text: (days: number) =>
+        days === 1
+          ? 'Dein Tagesziel ist erreicht und deine Flamme brennt. Komm morgen wieder!'
+          : 'Tagesziel erreicht! Komm morgen wieder, damit deine Flamme weiterbrennt.',
+      freezeUsed:
+        'Dein Streak-Schutz hat den verpassten Tag überbrückt. Pro Woche gibt es einen davon.',
+      continue: 'Weiter',
+    },
     focus: {
       eyebrow: 'Fokus-Lektion vorgeschlagen',
       /** Names the card as one phrase; the eyebrow and the label are two lines on screen. */

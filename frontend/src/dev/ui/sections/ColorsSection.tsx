@@ -51,6 +51,8 @@ const GROUPS: { label: string; swatches: Swatch[] }[] = [
       { name: 'streak', className: 'bg-streak' },
       { name: 'streak-core', className: 'bg-streak-core' },
       { name: 'xp', className: 'bg-xp' },
+      { name: 'freeze', className: 'bg-freeze' },
+      { name: 'freeze-surface', className: 'bg-freeze-surface' },
       { name: 'locked', className: 'bg-locked' },
       { name: 'locked-edge', className: 'bg-locked-edge' },
       { name: 'on-locked', className: 'bg-on-locked' },

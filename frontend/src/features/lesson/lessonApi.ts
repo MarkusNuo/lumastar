@@ -175,5 +175,7 @@ export function toLessonResult(response: LessonResultResponse): LessonResult {
     saved: true,
     focusSuggestion: response.focusSuggestion,
     checkpoint: response.checkpoint,
+    dailyGoal: response.dailyGoal,
+    streak: response.streak,
   };
 }

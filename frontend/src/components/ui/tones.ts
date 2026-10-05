@@ -20,6 +20,7 @@ export type Tone =
   | 'danger'
   | 'warning'
   | 'xp'
+  | 'freeze'
   | 'locked'
   | `unit-${UnitColor}`;
 

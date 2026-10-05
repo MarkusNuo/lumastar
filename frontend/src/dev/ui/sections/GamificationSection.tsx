@@ -1,13 +1,16 @@
-import { ConfettiIcon, FireIcon, LightningIcon } from '@phosphor-icons/react';
+import { ArrowClockwiseIcon, ConfettiIcon, FireIcon, LightningIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { Card } from '../../../components/ui/Card';
 import { DailyGoalRing } from '../../../components/ui/DailyGoalRing';
 import { LevelBadge } from '../../../components/ui/LevelBadge';
 import { CEFR_LEVELS } from '../../../components/ui/levels';
+import { PopNumber } from '../../../components/ui/PopNumber';
 import { StreakCounter } from '../../../components/ui/StreakCounter';
+import { StreakFlare } from '../../../components/ui/StreakFlare';
 import { XpCounter } from '../../../components/ui/XpCounter';
 import { celebrate } from '../../../lib/celebrate';
+import { playCue } from '../../../lib/effects/playCue';
 import { Specimen } from '../CatalogSection';
 
 function TopBarDemo() {
@@ -40,6 +43,36 @@ function TopBarDemo() {
   );
 }
 
+/** The flame of the streak celebration: cold first, then it catches fire with the new number. */
+function StreakFlareDemo() {
+  const [lit, setLit] = useState(false);
+  const [days, setDays] = useState(4);
+
+  const ignite = () => {
+    if (lit) {
+      setLit(false);
+      return;
+    }
+    setDays((current) => current + 1);
+    setLit(true);
+    playCue('streak');
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <StreakFlare lit={lit} />
+      <PopNumber value={days} className="text-hero font-black text-streak" />
+      <Button
+        variant={lit ? 'neutral' : 'warning'}
+        icon={lit ? ArrowClockwiseIcon : FireIcon}
+        onClick={ignite}
+      >
+        {lit ? 'Löschen' : 'Entzünden'}
+      </Button>
+    </div>
+  );
+}
+
 export function GamificationSection() {
   return (
     <>
@@ -51,6 +84,9 @@ export function GamificationSection() {
         <StreakCounter days={12} active={false} />
         <StreakCounter days={1} active />
         <StreakCounter days={4} active={false} freezes={1} />
+      </Specimen>
+      <Specimen label="Streak-Flamme lodert bei Verlängerung" layout="stack">
+        <StreakFlareDemo />
       </Specimen>
       <Specimen label="Niveau A0 bis C2 (obere Leiste, Einstufung)">
         {CEFR_LEVELS.map((level) => (

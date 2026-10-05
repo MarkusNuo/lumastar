@@ -30,14 +30,17 @@ export interface SoundRecipe {
 const PITCH = {
   C4: 261.63,
   E4: 329.63,
+  F4: 349.23,
   G4: 392,
   C5: 523.25,
   E5: 659.25,
   G5: 783.99,
+  A5: 880,
   B5: 987.77,
   C6: 1046.5,
   D6: 1174.66,
   E6: 1318.51,
+  F6: 1396.91,
   G6: 1567.98,
   C7: 2093,
 } as const;
@@ -112,6 +115,35 @@ export const SOUNDS: Record<FeedbackCue, SoundRecipe> = {
       }),
       { frequency: PITCH.C7, at: 0.3, duration: 0.5, wave: 'sine', gain: 0.05 },
     ],
+  },
+  // Two bright bells as the goal ring closes.
+  goal: {
+    notes: [
+      ...strike([PITCH.E5, PITCH.B5], { step: 0.12, duration: 0.3, wave: 'triangle', gain: 0.36 }),
+      { frequency: PITCH.E6, at: 0.24, duration: 0.45, wave: 'sine', gain: 0.12 },
+    ],
+  },
+  // The flame catches: a soft rising whoosh, then a warm F major arpeggio.
+  streak: {
+    notes: [
+      {
+        frequency: PITCH.F4 / 2,
+        glideTo: PITCH.F4,
+        at: 0,
+        duration: 0.3,
+        wave: 'triangle',
+        gain: 0.3,
+      },
+      ...strike([PITCH.A5, PITCH.C6, PITCH.F6], {
+        start: 0.22,
+        step: 0.08,
+        duration: 0.32,
+        wave: 'triangle',
+        gain: 0.3,
+      }),
+      { frequency: PITCH.F6 * 2, at: 0.42, duration: 0.5, wave: 'sine', gain: 0.05 },
+    ],
+    lowpassHz: 4200,
   },
   levelUp: {
     notes: [

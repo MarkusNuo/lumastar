@@ -161,6 +161,9 @@
   --text-headline--line-height: 2.25rem;
   --text-display: 2.5rem;
   --text-display--line-height: 2.75rem;
+  /* The one big number of a celebration, e.g. the new streak */
+  --text-hero: 4.5rem;
+  --text-hero--line-height: 4.75rem;
 
   /* Motion: easing curves and looping animations (springs live in src/styles/motion.ts) */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -172,6 +175,7 @@
   --animate-float: float 3.2s var(--ease-in-out) infinite;
   --animate-shine: shine 2.8s var(--ease-in-out) infinite;
   --animate-flicker: flicker 1.6s var(--ease-in-out) infinite;
+  --animate-blaze: blaze 0.9s var(--ease-in-out) infinite;
   --animate-dot: dot 1s var(--ease-in-out) infinite;
   --animate-blink: blink 4.6s var(--ease-in-out) infinite;
   --animate-twinkle: twinkle 1.4s var(--ease-in-out) infinite;
@@ -224,6 +228,21 @@
     }
     70% {
       transform: scale(0.97, 1.05) rotate(2deg);
+    }
+  }
+  @keyframes blaze {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.04, 0.96) rotate(-2.5deg);
+    }
+    50% {
+      transform: scale(0.97, 1.06) rotate(1.5deg);
+    }
+    75% {
+      transform: scale(1.03, 0.98) rotate(-1deg);
     }
   }
   @keyframes blink {
@@ -366,6 +385,14 @@
     --tone-surface: var(--color-xp-surface);
     --tone-text: var(--color-xp);
     --tone-border: var(--color-xp);
+  }
+  [data-tone='freeze'] {
+    --tone-face: var(--color-freeze);
+    --tone-edge: var(--color-freeze-edge);
+    --tone-on: var(--color-on-freeze);
+    --tone-surface: var(--color-freeze-surface);
+    --tone-text: var(--color-freeze);
+    --tone-border: var(--color-freeze);
   }
   [data-tone='locked'] {
     --tone-face: var(--color-locked);

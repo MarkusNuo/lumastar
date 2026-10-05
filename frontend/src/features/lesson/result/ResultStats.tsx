@@ -3,9 +3,10 @@ import { motion } from 'motion/react';
 import type { ReactNode } from 'react';
 import { StatCard } from '../../../components/ui/StatCard';
 import type { Tone } from '../../../components/ui/tones';
-import { durations, springs } from '../../../styles/motion';
+import { springs } from '../../../styles/motion';
 import { LESSON_COPY } from '../copy';
 import type { LessonResult } from '../model';
+import { entranceDelay } from './entrance';
 import { formatDuration, formatPercent } from './format';
 import { useCountUp } from './useCountUp';
 
@@ -59,7 +60,7 @@ export function StatEntrance({ order, delay = 0, children }: StatEntranceProps) 
     <motion.div
       initial={{ opacity: 0, y: 24, scale: 0.85 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ ...springs.bouncy, delay: delay + durations.base + order * durations.press }}
+      transition={{ ...springs.bouncy, delay: entranceDelay(order, delay) }}
       className="w-full min-w-0"
     >
       {children}

@@ -1,11 +1,25 @@
-import type { CheckpointResult, ErrorCategory, FocusSuggestion, LessonKind } from '../../api/types';
+import type {
+  CheckpointResult,
+  ErrorCategory,
+  FocusSuggestion,
+  LessonDailyGoal,
+  LessonKind,
+  LessonStreak,
+} from '../../api/types';
 
 /*
  * View model of the lesson player. Screens and logic only depend on these types; lessonApi.ts maps
  * the generated API types onto them, so a contract change stays in that one file.
  */
 
-export type { CheckpointResult, ErrorCategory, FocusSuggestion, LessonKind };
+export type {
+  CheckpointResult,
+  ErrorCategory,
+  FocusSuggestion,
+  LessonDailyGoal,
+  LessonKind,
+  LessonStreak,
+};
 
 /** "sq" is Gheg (the app never teaches Standard Albanian), "de" German. */
 export type Lang = 'sq' | 'de';
@@ -170,4 +184,8 @@ export interface LessonResult {
   focusSuggestion?: FocusSuggestion;
   /** Passed or not, the new level and the badges earned; only for a saved checkpoint. */
   checkpoint?: CheckpointResult;
+  /** Today's minutes up to this lesson (PRD F9); absent when the result was not saved. */
+  dailyGoal?: LessonDailyGoal;
+  /** The streak after the lesson; absent when the result was not saved. */
+  streak?: LessonStreak;
 }
