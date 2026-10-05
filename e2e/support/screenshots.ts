@@ -2,6 +2,8 @@ import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import type { Locator, Page } from '@playwright/test';
 import { PATHS } from './env.ts';
+import type { LessonExercise } from './lessonApi.ts';
+import { PHONES } from './phones.ts';
 
 export interface SnapOptions {
   /** Capture the whole scrollable page instead of the visible viewport (default: true). */
@@ -47,4 +49,30 @@ export async function snap(page: Page, name: string, options: SnapOptions = {}):
     await page.screenshot({ ...settings, fullPage: options.fullPage ?? true });
   }
   return file;
+}
+
+/**
+ * Screens that exist only once per run (the first start, the lesson that meets today's goal) are
+ * captured at every phone size of the run: the viewport is resized for each capture and restored.
+ * `prepare` runs after each resize, e.g. to scroll the subject back under the top bar.
+ */
+export async function snapOnAllPhones(
+  page: Page,
+  name: string,
+  options: SnapOptions = {},
+  prepare?: () => Promise<void>,
+): Promise<void> {
+  const original = page.viewportSize();
+  for (const phone of Object.values(PHONES)) {
+    await page.setViewportSize(phone.viewport);
+    await prepare?.();
+    await snap(page, name, options);
+  }
+  if (original) await page.setViewportSize(original);
+}
+
+/** "exercise-<type>"; the two ways of filling a gap look different, so they get a name each. */
+export function exerciseScreenName(exercise: Pick<LessonExercise, 'type' | 'choices'>): string {
+  if (exercise.type === 'fill_gap') return exercise.choices ? 'exercise-fill_gap-choices' : 'exercise-fill_gap-typed';
+  return `exercise-${exercise.type}`;
 }

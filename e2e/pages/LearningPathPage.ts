@@ -32,6 +32,14 @@ export class LearningPathPage {
     return this.page.getByRole('region', { name: `${level} · ${title}`, exact: true });
   }
 
+  /**
+   * The stage passed last, collapsed with its trophy above the current one (PRD 12.3), named e.g.
+   * "A0 · Erste Schritte, bestanden".
+   */
+  passedStage(level: string, title: string): Locator {
+    return this.page.getByRole('region', { name: `${level} · ${title}, bestanden`, exact: true });
+  }
+
   /** A unit: its banner (the title is a level-3 heading) and its lesson nodes. */
   unit(title: string): Locator {
     return this.page.getByRole('region', { name: title, exact: true });

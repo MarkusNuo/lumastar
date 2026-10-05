@@ -77,11 +77,17 @@ function frontendServer(cwd: string): WebServer {
 /** Checkpoints move the single learner up for good, so they run last: after every other test. */
 const LEVEL_UP = /[\\/]levelup[\\/].*\.spec\.ts$/;
 
+/**
+ * Only the lesson that first meets today's goal extends the streak and gets the celebration, once a
+ * day: these tests run right after the setup, before any other lesson of the run.
+ */
+const DAILY_GOAL = /[\\/]daily-goal[\\/].*\.spec\.ts$/;
+
 const signedInPhones = Object.entries(PHONES).map(([name, phone]) => ({
   name,
   testMatch: /\.spec\.ts$/,
-  testIgnore: LEVEL_UP,
-  dependencies: ['setup'],
+  testIgnore: [LEVEL_UP, DAILY_GOAL],
+  dependencies: ['daily-goal'],
   use: { ...phone, storageState: PATHS.authState },
 }));
 
@@ -115,6 +121,9 @@ export default defineConfig({
     colorScheme: 'dark',
     // Motion jumps to its end state, which keeps screenshots stable; the layout is the same.
     reducedMotion: 'reduce',
+    // Requests stay visible to page.route and every page load is a cold start; tests/platform
+    // allows the PWA's service worker where it is the subject.
+    serviceWorkers: 'block',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
@@ -122,6 +131,12 @@ export default defineConfig({
   projects: [
     // Runs first and exactly once: sees the empty instance, creates the account, saves its session.
     { name: 'setup', testMatch: /\.setup\.ts$/, use: { ...PHONES['phone-390'] } },
+    {
+      name: 'daily-goal',
+      testMatch: DAILY_GOAL,
+      dependencies: ['setup'],
+      use: { ...PHONES['phone-390'], storageState: PATHS.authState },
+    },
     ...signedInPhones,
     ...levelUpPhones,
   ],

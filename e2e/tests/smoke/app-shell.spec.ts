@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { AppShell } from '../../pages/AppShell.ts';
+import { StatsPage } from '../../pages/StatsPage.ts';
 import { LEARNER } from '../../support/learner.ts';
+import { fetchXpTotal } from '../../support/lessonApi.ts';
+import { fetchTodayProgress } from '../../support/progressApi.ts';
 import { snap } from '../../support/screenshots.ts';
 
 // Signed in through the storage state of the setup project. Shell screens are captured per viewport:
@@ -13,6 +16,9 @@ test('the home tab shows the top bar, the learning path and the bottom navigatio
   await page.goto('/');
   await shell.expectHome();
   await expect(page.getByRole('heading', { name: 'Lernpfad' })).toBeAttached();
+  // PRD 12.3: streak (flame and number), XP and the daily-goal ring.
+  await shell.expectProgress(await fetchTodayProgress(page.request));
+  await expect(shell.xpLabel).toHaveText(`${await fetchXpTotal(page.request)} XP`);
   await snap(page, 'home', { fullPage: false });
 
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
@@ -32,14 +38,11 @@ test('the profile tab shows the signed-in learner', async ({ page }) => {
   await snap(page, 'profile', { fullPage: false });
 });
 
-// "Statistik" is the last tab of a later milestone (M5); "Wiederholen" is real since M4 (tests/review).
-test('tabs of later milestones show a placeholder', async ({ page }) => {
+// Every tab is real since M5: no placeholder is left (the Statistik tab in detail: tests/stats).
+test('the Statistik tab opens from the navigation with all its sections', async ({ page }) => {
   const shell = new AppShell(page);
   await page.goto('/');
   await shell.navLink('Statistik').click();
-  await expect(page).toHaveURL(/\/statistik$/);
-  await expect(shell.navLink('Statistik')).toHaveAttribute('aria-current', 'page');
-  await expect(page.getByRole('heading', { name: 'Statistik', level: 1 })).toBeVisible();
-  await expect(page.getByText('Kommt bald')).toBeVisible();
-  await snap(page, 'placeholder-tab', { fullPage: false });
+  await new StatsPage(page).expectVisible();
+  await expect(page.getByText('Kommt bald')).toHaveCount(0);
 });

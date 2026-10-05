@@ -1,4 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import type { PathCheckpoint } from '../support/planApi.ts';
 import { escapeRegExp } from '../support/regex.ts';
 
 /** "0.8" → "80 %", as the checkpoint screens write shares. */
@@ -18,10 +19,16 @@ export class CheckpointIntroSheet {
     this.laterButton = this.sheet.getByRole('button', { name: 'Später', exact: true });
   }
 
-  /** What the sheet promises: ~15 tasks, 80 % to pass and the level a pass leads to. */
-  async expectOpen(nextLevel: string): Promise<void> {
+  /**
+   * What the sheet promises: the size and pass mark of the checkpoint as the path states them, tasks
+   * from easy to hard, and the level a pass leads to.
+   */
+  async expectOpen(nextLevel: string, checkpoint: PathCheckpoint): Promise<void> {
     await expect(this.sheet).toBeVisible();
-    await expect(this.sheet).toContainText('~15 Aufgaben · 80 % zum Bestehen');
+    await expect(this.sheet).toContainText(
+      `~${checkpoint.exerciseCount} Aufgaben · ${share(checkpoint.requiredAccuracy)} zum Bestehen`,
+    );
+    await expect(this.sheet).toContainText('Aufgaben aus allen Einheiten der Stufe, von leicht bis schwer.');
     await expect(this.sheet).toHaveAccessibleDescription(
       new RegExp(`^Bestehst du, steigst du auf ${escapeRegExp(nextLevel)} auf\\.`),
     );
@@ -85,5 +92,12 @@ export class BadgeRevealScreen {
 
   badge(band: string): Locator {
     return this.page.getByRole('main').getByRole('img', { name: `Abzeichen ${band}`, exact: true });
+  }
+
+  /** "Niveau A1 abgeschlossen. Im Profil findest du alle Abzeichen." */
+  text(bands: readonly string[]): Locator {
+    return this.page.getByText(`Niveau ${bands.join(' & ')} abgeschlossen. Im Profil findest du alle Abzeichen.`, {
+      exact: true,
+    });
   }
 }

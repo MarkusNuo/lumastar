@@ -4,6 +4,10 @@ Playwright tests on mobile Chromium (390×844 and 360×740, touch). The config s
 (`gradlew bootTestRun` on port 8181, throwaway PostgreSQL Testcontainer, content seeded from `/content`)
 and a production build of the frontend (`vite preview` on port 5183). Docker must be running.
 
+Projects run in this order: `setup` (first start), `daily-goal`, `phone-390` and `phone-360` (all
+other tests), then `levelup-phone-390` and `levelup-phone-360`. A full run takes about a quarter of
+an hour, five minutes of it the daily-goal test.
+
 ```bash
 npm install && npx playwright install chromium
 npm test                   # working tree (default)
@@ -51,6 +55,26 @@ frontend's rule for that (`checkpointAsNextStep`), and lessons start from the ne
 progress. Focus units the plan holds open are played through the API first where a test needs a
 lesson of a curriculum unit (`finishOpenFocusUnits`).
 
+## Daily goal and streak
+
+The daily goal counts the minutes from the start to the end of every lesson, and only the lesson that
+first meets it extends the streak and shows the streak celebration, once a day. `tests/daily-goal`
+therefore runs in its own project right after `setup`, before any other lesson of the run: it sets a
+5-minute goal in the profile, plays a lesson that takes five minutes (it waits before the last answer),
+checks the "Tagesziel" card, the celebration and the top bar, and sets the onboarding goal (15 min)
+again. It is the slowest test (about five minutes). Every other test leaves a lesson end through
+`LessonResultScreen.leave(result)`, which also passes the celebration should a lesson meet the goal,
+e.g. in a run past midnight. Its lesson is the first of a fresh instance and is composed the same in
+every run, so it also gives the screenshots of every exercise type and feedback sheet at both sizes.
+
+## Platform tests
+
+`tests/platform` checks PRD 13: the web app manifest and the service worker of the production build
+(the worker must leave `/api` to the network), app start under 2 s and exercise switches under 100 ms
+(measured in the browser with an init script; the results are test annotations in the report) and that
+no screen requests anything from another host. All other tests block service workers
+(`serviceWorkers: 'block'`), so `page.route` sees every request and each page load is a cold start.
+
 ## Level-up projects
 
 Passing a checkpoint moves the learner up for good, so `tests/levelup/` runs in the projects
@@ -62,12 +86,11 @@ lessons than any other test (about half a minute) and is tagged `@slow`;
 `npx playwright test --grep-invert @slow` leaves it out. A failure in a phone project skips the
 level-up projects (they depend on it).
 
-Reviews (`tests/review`): the backend has no test clock, so the test relies on the FSRS learning steps
-(a wrong answer is due again after one minute). Cards left by earlier tests usually are due already;
-a run that starts with this test waits up to two minutes for one. Known backend issue: cards of
-items above the learner's level count as due, but no review lesson practises them. When the run
-reaches that state (lessons of the next stage played before its checkpoint), the test documents the
-screen and is marked as an expected failure (`test.fail`) instead of failing the run.
+Reviews (`tests/review`): the backend has no test clock, so the test relies on the FSRS learning steps:
+a wrong answer on an item still being learned is due again after one minute (a known item lapses into
+relearning and is due only after ten minutes, so the test reads the cards from the export and makes its
+mistakes on new items). When nothing is due, the test waits up to two minutes for such a card. The review summary counts only cards
+a review lesson can practise, so the test expects a review to start whenever something is due.
 
 ## Screenshots
 

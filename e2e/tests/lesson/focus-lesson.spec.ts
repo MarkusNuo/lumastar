@@ -3,13 +3,13 @@ import { AppShell } from '../../pages/AppShell.ts';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { LessonPlayer } from '../../pages/LessonPlayer.ts';
 import { LessonResultScreen } from '../../pages/LessonResultScreen.ts';
-import { canAnswerWrong } from '../../support/lessonAnswers.ts';
+import { mostWrongableTag } from '../../support/lessonAnswers.ts';
 import type { LessonExercise } from '../../support/lessonApi.ts';
 import { openLesson, playOpenedLesson } from '../../support/lessonFlow.ts';
 import {
-  currentUnit,
   fetchPath,
   fetchPlanChanges,
+  unitOfLearnerStage,
   type LearningPath,
 } from '../../support/planApi.ts';
 import { finishOpenFocusUnits } from '../../support/progression.ts';
@@ -33,12 +33,7 @@ const TOP_BAR_GAP = 88;
  * made of exercises up to the learner's level, so the lesson must be one of the learner's stage.
  */
 function weakTagPlan(exercises: readonly LessonExercise[]): { tag: string; wrong: Set<string> } {
-  const byTag = new Map<string, LessonExercise[]>();
-  for (const exercise of exercises.filter(canAnswerWrong)) {
-    for (const tag of exercise.skillTags) byTag.set(tag, [...(byTag.get(tag) ?? []), exercise]);
-  }
-  const [tag, candidates = []] =
-    [...byTag.entries()].sort(([a, x], [b, y]) => y.length - x.length || a.localeCompare(b))[0] ?? [];
+  const { tag, candidates } = mostWrongableTag(exercises) ?? { tag: undefined, candidates: [] };
   if (!tag || candidates.length < FOCUS_MISTAKES) {
     throw new Error(`No skill tag has ${FOCUS_MISTAKES} exercises with choices or a typed answer`);
   }
@@ -50,16 +45,10 @@ function weakTagPlan(exercises: readonly LessonExercise[]): { tag: string; wrong
  * otherwise a lesson of a done unit of that stage (done units stay repeatable, PRD F3).
  */
 function lessonOfLearnerStage(path: LearningPath, page: LearningPathPage): Locator {
-  const [stage] = path.stages;
-  if (!stage) throw new Error('The learning path has no stage');
-  const unit = currentUnit(path);
-  if (stage.units.includes(unit)) return page.nextLessonNode(unit);
-  const done = stage.units.find(
-    (candidate) => !candidate.focus && candidate.hasContent && candidate.status !== 'planned',
-  );
-  if (!done) throw new Error(`Stage ${stage.level} has no lesson to play`);
+  const unit = unitOfLearnerStage(path);
+  if (unit.status === 'in_progress') return page.nextLessonNode(unit);
   return page
-    .unit(done.title)
+    .unit(unit.title)
     .getByRole('button', { name: /^Lektion \d+, (abgeschlossen|verfügbar)$/ })
     .first();
 }
@@ -134,7 +123,7 @@ test('three mistakes on one skill tag suggest a focus lesson, which plays and sh
     expect(focusResult.kind).toBe('focus');
     await expect(resultScreen.heading).toHaveText(/^(Fokus-Lektion geschafft!|Fehlerfrei!)$/);
     await snap(page, 'focus-lesson-result', { fullPage: false });
-    await resultScreen.continueButton.click();
+    await resultScreen.leave(focusResult);
     await new AppShell(page).expectHome();
   });
 

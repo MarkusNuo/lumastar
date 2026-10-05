@@ -1,4 +1,4 @@
-import { expect, test, type Page, type Response } from '@playwright/test';
+import { expect, test, type Response } from '@playwright/test';
 import { AppShell } from '../../pages/AppShell.ts';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { LevelRevealPage } from '../../pages/LevelRevealPage.ts';
@@ -11,10 +11,9 @@ import { fetchAuthStatus } from '../../support/auth.ts';
 import { PATHS } from '../../support/env.ts';
 import { LEARNER, ONBOARDING, START_LEVEL } from '../../support/learner.ts';
 import { fetchMe } from '../../support/lessonApi.ts';
-import { PHONES } from '../../support/phones.ts';
 import { isPlacementSkip, type PlacementResult } from '../../support/placementApi.ts';
 import { currentUnit, fetchPath, fetchPlanChanges } from '../../support/planApi.ts';
-import { snap } from '../../support/screenshots.ts';
+import { snapOnAllPhones } from '../../support/screenshots.ts';
 import { Stopwatch } from '../../support/stopwatch.ts';
 
 /*
@@ -27,16 +26,6 @@ import { Stopwatch } from '../../support/stopwatch.ts';
 
 /** PRD F1: the onboarding can be completed in under a minute. */
 const ONBOARDING_LIMIT_MS = 60_000;
-
-/** First-start screens exist only once per run, so they are captured at every phone size here. */
-async function snapOnAllPhones(page: Page, name: string): Promise<void> {
-  const original = page.viewportSize();
-  for (const phone of Object.values(PHONES)) {
-    await page.setViewportSize(phone.viewport);
-    await snap(page, name);
-  }
-  if (original) await page.setViewportSize(original);
-}
 
 const isOnboardingAnswer = (response: Response) =>
   response.request().method() === 'PUT' && new URL(response.url()).pathname === '/api/onboarding';

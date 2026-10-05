@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { expect, type Locator, type Page } from '@playwright/test';
+import { isSettingsUpdate, type DailyGoalMinutes, type Settings } from '../support/progressApi.ts';
 import { AppShell } from './AppShell.ts';
 
 export interface SavedDownload {
@@ -16,11 +17,23 @@ export const LEARNING_DATA_ACTIONS = [
 ] as const;
 export type LearningDataAction = (typeof LEARNING_DATA_ACTIONS)[number];
 
-/** Profile tab (/profil): learner header, the "Lerndaten" actions of PRD F11 and the logout. */
+/**
+ * Profile tab (/profil): learner header, badges, the "Lerndaten" actions of PRD F11, the settings
+ * and the logout.
+ */
 export class ProfilePage {
   readonly page: Page;
   readonly shell: AppShell;
   readonly learningData: Locator;
+  /** "Einstellungen": daily goal, sounds, vibration and the target retention. */
+  readonly settings: Locator;
+  /** The choice of 5, 10, 15 or 20 minutes a day (PRD F1, F9). */
+  readonly dailyGoal: Locator;
+  /** The note after a new daily goal: "Lernplan angepasst: A1 bis ca. …". */
+  readonly planNote: Locator;
+  /** Opens the advanced setting "Ziel-Behaltensrate" (PRD F8); its name ends with the current value. */
+  readonly retentionToggle: Locator;
+  readonly retentionSlider: Locator;
   /** The bottom sheet with the formatted learner_summary.md. */
   readonly summarySheet: Locator;
   readonly importConfirm: Locator;
@@ -31,6 +44,11 @@ export class ProfilePage {
     this.page = page;
     this.shell = new AppShell(page);
     this.learningData = page.getByRole('region', { name: 'Lerndaten' });
+    this.settings = page.getByRole('region', { name: 'Einstellungen', exact: true });
+    this.dailyGoal = this.settings.getByRole('radiogroup', { name: 'Tagesziel', exact: true });
+    this.planNote = this.settings.getByRole('status').filter({ hasText: /^Lernplan angepasst/ });
+    this.retentionToggle = this.settings.getByRole('button', { name: /^Ziel-Behaltensrate anpassen:/ });
+    this.retentionSlider = this.settings.getByRole('slider', { name: 'Ziel-Behaltensrate', exact: true });
     this.summarySheet = page.getByRole('dialog', { name: 'KI-Zusammenfassung' });
     this.importConfirm = page.getByRole('alertdialog', { name: 'Backup importieren?' });
     this.problem = page.getByRole('main').getByRole('alert');
@@ -40,6 +58,26 @@ export class ProfilePage {
     await this.page.goto('/');
     await this.shell.openProfile();
     for (const action of LEARNING_DATA_ACTIONS) await expect(this.action(action)).toBeVisible();
+  }
+
+  /** The radio button of a daily goal, labelled "5 Min." etc. */
+  goalOption(minutes: DailyGoalMinutes): Locator {
+    return this.dailyGoal.getByRole('radio', { name: `${minutes} Min.`, exact: true });
+  }
+
+  /** Taps a daily goal, as a learner does, and waits until it is saved. */
+  async chooseGoal(minutes: DailyGoalMinutes): Promise<Settings> {
+    const saved = this.page.waitForResponse(isSettingsUpdate);
+    await this.dailyGoal.getByText(`${minutes} Min.`, { exact: true }).click();
+    const response = await saved;
+    expect(response.status(), await response.text()).toBe(200);
+    await expect(this.goalOption(minutes)).toBeChecked();
+    return (await response.json()) as Settings;
+  }
+
+  /** A switch of a device setting, e.g. "Töne" or "Vibration" (PRD 12.4). */
+  deviceSwitch(label: 'Töne' | 'Vibration'): Locator {
+    return this.settings.getByRole('switch', { name: label, exact: true });
   }
 
   action(label: LearningDataAction): Locator {

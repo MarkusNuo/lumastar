@@ -33,7 +33,7 @@ import {
 } from '../../support/lessonApi.ts';
 import { checkpointAsNextStep, currentUnit, fetchPath } from '../../support/planApi.ts';
 import { finishOpenFocusUnits } from '../../support/progression.ts';
-import { snap } from '../../support/screenshots.ts';
+import { exerciseScreenName, snap } from '../../support/screenshots.ts';
 
 /*
  * The next lesson of the learning path through the real UI (PRD F4, F5, F9). The backend composes
@@ -41,8 +41,11 @@ import { snap } from '../../support/screenshots.ts';
  * solutions. One choice is answered wrong, one text without its diacritics, one with a Standard form;
  * the rest right. Every answer is held back from the backend until the instant feedback sheet of the
  * pre-check is on screen, so each verdict shows that the pre-check and the backend agree (PRD 11.2).
+ * The result screen shows XP, accuracy, time and today's goal; the top bar then has the new XP.
  */
 const BASE_XP = 10;
+/** Every lesson of a unit shows at least this many of the six P0 exercise types. */
+const MIXED_TYPES = 4;
 /** The result screen lists this many practised words until "Alle <n> anzeigen" is tapped. */
 const COLLAPSED_WORDS = 6;
 
@@ -93,12 +96,6 @@ function usesBar(exercise: LessonExercise, intent: Intent): boolean {
   return [...textFor(exercise, intent)].some(isSpecialChar);
 }
 
-/** Screenshot name per exercise type; the two ways of filling a gap look different. */
-function screenName(exercise: LessonExercise): string {
-  if (exercise.type === 'fill_gap') return exercise.choices ? 'fill_gap-choices' : 'fill_gap-typed';
-  return exercise.type;
-}
-
 /** Collects every lesson response of the page, to check their status codes at the end. */
 function recordResponses(page: Page, matches: (response: Response) => boolean): Response[] {
   const responses: Response[] = [];
@@ -143,9 +140,12 @@ test('a full lesson with every exercise type, all feedback states, the retry and
   await expect(page).toHaveURL(new RegExp(`/lesson/${lesson.unitId}$`));
 
   const total = lesson.exercises.length;
-  expect(new Set(lesson.exercises.map((exercise) => exercise.type)), 'every P0 type').toEqual(
-    new Set(P0_EXERCISE_TYPES),
-  );
+  // The composer mixes as many types as the unit's open exercises allow (PRD F4, F7): later lessons
+  // of a unit may lack one. The first lesson of the run has all of them (tests/daily-goal).
+  const types = new Set(lesson.exercises.map((exercise) => exercise.type));
+  expect(types.size, 'the lesson mixes the exercise types').toBeGreaterThanOrEqual(MIXED_TYPES);
+  const missing = P0_EXERCISE_TYPES.filter((type) => !types.has(type));
+  if (missing.length > 0) test.info().annotations.push({ type: 'types not in this lesson', description: missing.join(', ') });
   const intents = planIntents(lesson.exercises);
   const planned = [...intents.values()];
   expect(planned, 'one wrong, one almost correct answer').toEqual(
@@ -187,7 +187,7 @@ test('a full lesson with every exercise type, all feedback states, the retry and
       const progressBefore = await player.progressValue();
 
       const beforeCheck = async () => {
-        const name = retry ? 'retry' : `exercise-${screenName(exercise)}`;
+        const name = retry ? 'retry' : exerciseScreenName(exercise);
         if (shownScreens.has(name)) return;
         shownScreens.add(name);
         await snap(page, name, { fullPage: false });
@@ -282,7 +282,10 @@ test('a full lesson with every exercise type, all feedback states, the retry and
     await expect(resultScreen.xpPart('Basis')).toHaveText(`Basis +${BASE_XP}`);
     const learned = result.learnedItems.length;
     await expect(resultScreen.learnedWords()).toHaveCount(Math.min(learned, COLLAPSED_WORDS));
+    await resultScreen.expectDailyGoal(result.dailyGoal);
     await snap(page, 'result', { fullPage: false });
+    await resultScreen.dailyGoalCard.scrollIntoViewIfNeeded();
+    await snap(page, 'result-daily-goal', { fullPage: false });
     if (learned > COLLAPSED_WORDS) {
       const showAll = resultScreen.showAllWordsButton(learned);
       await expect(showAll).toHaveAttribute('aria-expanded', 'false');
@@ -295,7 +298,7 @@ test('a full lesson with every exercise type, all feedback states, the retry and
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
     await snap(page, 'result-scrolled', { fullPage: false });
 
-    await resultScreen.continueButton.click();
+    await resultScreen.leave(result);
     await shell.expectHome();
     await expect(shell.xpLabel, 'the top bar shows the new XP').toHaveText(`${result.xpTotal} XP`);
     const pathAfter = await fetchPath(page.request);

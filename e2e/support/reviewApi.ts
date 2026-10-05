@@ -26,5 +26,10 @@ export async function fetchReviewSummary(request: APIRequestContext): Promise<Re
   return (await response.json()) as ReviewSummary;
 }
 
-/** "1 Wort fällig", "12 Wörter fällig": the label of the due count and of the navigation badge. */
-export const dueLabel = (count: number) => `${count} ${count === 1 ? 'Wort' : 'Wörter'} fällig`;
+/**
+ * "1 Karte fällig", "12 Karten fällig": the label of the due count and of the navigation badge. The
+ * FSRS cards hold words, phrases and grammar points alike.
+ */
+export const dueLabel = (count: number) => `${count} ${cards(count)} fällig`;
+
+export const cards = (count: number) => (count === 1 ? 'Karte' : 'Karten');

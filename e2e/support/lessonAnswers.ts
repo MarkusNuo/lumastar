@@ -111,3 +111,37 @@ export function submittedAnswer(exercise: LessonExercise, intent: Intent): Submi
       return { mistakes: 0 };
   }
 }
+
+/**
+ * The skill tag with the most exercises the tests can answer wrong for sure (ties by name), with
+ * those exercises in lesson order; `only` limits the choice to one tag.
+ */
+export function mostWrongableTag(
+  exercises: readonly LessonExercise[],
+  only?: string,
+): { tag: string; candidates: LessonExercise[] } | undefined {
+  const byTag = new Map<string, LessonExercise[]>();
+  for (const exercise of exercises.filter(canAnswerWrong)) {
+    for (const tag of exercise.skillTags) {
+      if (only === undefined || tag === only) byTag.set(tag, [...(byTag.get(tag) ?? []), exercise]);
+    }
+  }
+  const [best] = [...byTag.entries()].sort(([a, x], [b, y]) => y.length - x.length || a.localeCompare(b));
+  return best && { tag: best[0], candidates: best[1] };
+}
+
+/**
+ * One wrong choice, one typed answer without its special characters and one Standard form, each on
+ * an exercise of its own where the lesson has one: a lesson that shows every feedback sheet.
+ */
+export function feedbackTour(exercises: readonly LessonExercise[]): Map<string, Intent> {
+  const intents = new Map<string, Intent>();
+  const pick = (intent: Intent, fits: (exercise: LessonExercise) => boolean) => {
+    const exercise = exercises.find((candidate) => !intents.has(candidate.id) && fits(candidate));
+    if (exercise) intents.set(exercise.id, intent);
+  };
+  pick('wrong', (exercise) => exercise.type === 'multiple_choice');
+  pick('standard', (exercise) => isTyped(exercise) && (exercise.standardForms?.length ?? 0) > 0);
+  pick('almost', (exercise) => isTyped(exercise) && almostAnswer(exercise) !== undefined);
+  return intents;
+}

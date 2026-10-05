@@ -1,5 +1,7 @@
-import type { Locator, Page } from '@playwright/test';
-import type { LessonKind } from '../support/lessonApi.ts';
+import { expect, type Locator, type Page } from '@playwright/test';
+import type { LessonDailyGoal, LessonKind, LessonResultResponse } from '../support/lessonApi.ts';
+import { goalRingPercent, goalRingText } from './AppShell.ts';
+import { StreakCelebration } from './StreakCelebration.ts';
 
 export type StatLabel = 'XP' | 'Genauigkeit' | 'Zeit';
 
@@ -12,7 +14,20 @@ export const RESULT_TITLES: Record<Exclude<LessonKind, 'checkpoint'>, string> = 
 };
 export const PERFECT_TITLE = 'Fehlerfrei!';
 
-/** Lesson end (PRD F5, 12.3): title, XP, accuracy and time cards, practised words. */
+/** Headline and line below it of the "Tagesziel" card on the result screen (PRD F9). */
+export function dailyGoalCardText({ minutesToday, goalMinutes, goalMet, justMet }: LessonDailyGoal): {
+  headline: string;
+  detail: string;
+} {
+  if (justMet) return { headline: 'Tagesziel erreicht!', detail: `${minutesToday} Min. geübt. Dein Streak wächst.` };
+  if (goalMet) return { headline: 'Tagesziel erreicht', detail: `Heute schon ${minutesToday} Min. geübt.` };
+  return {
+    headline: `${minutesToday} von ${goalMinutes} Min.`,
+    detail: `Noch ${goalMinutes - minutesToday} Min. bis zum Tagesziel.`,
+  };
+}
+
+/** Lesson end (PRD F5, F9, 12.3): title, XP, accuracy and time cards, today's goal, practised words. */
 export class LessonResultScreen {
   readonly page: Page;
   /** The title of any lesson kind; a checkpoint ends on its own screen (CheckpointResultScreen). */
@@ -20,6 +35,8 @@ export class LessonResultScreen {
   readonly continueButton: Locator;
   /** Collapses the expanded list of practised words again. */
   readonly showFewerWordsButton: Locator;
+  /** The card with today's minutes and the goal ring. */
+  readonly dailyGoalCard: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -27,6 +44,32 @@ export class LessonResultScreen {
     this.heading = page.getByRole('heading', { name: new RegExp(`^(${titles.join('|')})$`), level: 1 });
     this.continueButton = page.getByRole('button', { name: 'Weiter', exact: true });
     this.showFewerWordsButton = page.getByRole('button', { name: 'Weniger anzeigen', exact: true });
+    this.dailyGoalCard = page.getByRole('main').getByRole('region', { name: 'Tagesziel', exact: true });
+  }
+
+  /** The "Tagesziel" card shows the minutes of the lesson's day against the goal, and its ring. */
+  async expectDailyGoal(goal: LessonDailyGoal): Promise<void> {
+    const { headline, detail } = dailyGoalCardText(goal);
+    const card = this.dailyGoalCard;
+    await expect(card).toBeVisible();
+    await expect(card).toHaveAttribute('data-tone', goal.goalMet ? 'success' : 'neutral');
+    await expect(card.getByText(headline, { exact: true })).toBeVisible();
+    await expect(card.getByText(detail, { exact: true })).toBeVisible();
+    const ring = card.getByRole('progressbar', { name: 'Tagesziel', exact: true });
+    await expect(ring).toHaveAttribute('aria-valuetext', goalRingText(goal.minutesToday, goal.goalMinutes));
+    await expect(ring).toHaveAttribute(
+      'aria-valuenow',
+      String(goalRingPercent(goal.minutesToday, goal.goalMinutes)),
+    );
+  }
+
+  /**
+   * "Weiter": the lesson that met today's goal is followed by the streak celebration (PRD F9),
+   * which takes a second "Weiter"; every other lesson leaves at once.
+   */
+  async leave(result: Pick<LessonResultResponse, 'dailyGoal' | 'streak'>): Promise<void> {
+    await this.continueButton.click();
+    await new StreakCelebration(this.page).continueIfDue(result);
   }
 
   /** The card that suggests a focus lesson (PRD F7), named "Fokus-Lektion vorgeschlagen: <tag>". */

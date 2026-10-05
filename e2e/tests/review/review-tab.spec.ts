@@ -3,15 +3,18 @@ import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { LessonPlayer } from '../../pages/LessonPlayer.ts';
 import { LessonResultScreen } from '../../pages/LessonResultScreen.ts';
 import { ReviewTab } from '../../pages/ReviewTab.ts';
+import type { SrsCardRow } from '../../support/backup.ts';
+import { canAnswerWrong } from '../../support/lessonAnswers.ts';
 import {
   finishViaApi,
   isCompletion,
-  playLessonViaApi,
+  playViaApi,
   startViaApi,
   type LessonResponse,
 } from '../../support/lessonApi.ts';
 import { playOpenedLesson } from '../../support/lessonFlow.ts';
 import { currentUnit, fetchPath } from '../../support/planApi.ts';
+import { fetchExport } from '../../support/profileApi.ts';
 import {
   fetchReviewSummary,
   isReviewStart,
@@ -24,8 +27,9 @@ import { snap } from '../../support/screenshots.ts';
  * The tab "Wiederholen" (PRD F8, 12.3): the due count on the tab and in the summary card, the due
  * items as a review lesson of their own, and "Alles wiederholt!" with the way to new content once
  * nothing is due. The backend has no test clock, so the test relies on the FSRS learning steps: a
- * wrong answer is rated Again and its card comes due a minute later. Earlier tests of the run leave
- * such cards behind; only a run that starts with this test waits for one (marked "slow").
+ * wrong answer on an item still being learned is rated Again and its card comes due a minute later
+ * (a known item would lapse into relearning, due only after ten minutes). Earlier tests of the run
+ * leave such cards behind; when nothing is due the test waits for one (marked "slow").
  */
 
 /** The first FSRS learning step is one minute; this leaves room for a slow machine. */
@@ -34,9 +38,16 @@ const DUE_WAIT_MS = 2 * 60_000;
 /** Review lessons of up to 12 items; more rounds than this means the cards cannot be cleared. */
 const MAX_REVIEW_ROUNDS = 6;
 
-/** Known issue, see the M4 review: due cards of items above the learner's level have no review lesson. */
-const UNREVIEWABLE =
-  'cards of items above the learner level count as due, but POST /api/review/lessons finds nothing to practise';
+/** At most this many deliberate mistakes, so the trigger lesson stays an ordinary one. */
+const TRIGGER_MISTAKES = 2;
+
+/** Items whose card is in review or relearning: a wrong answer leaves them due only in ten minutes. */
+async function knownItems(page: Page): Promise<Set<string>> {
+  const cards = (await fetchExport(page.request)).rows<SrsCardRow>('srs_cards');
+  return new Set(
+    cards.filter((card) => card.state === 'review' || card.state === 'relearning').map((card) => card.itemId),
+  );
+}
 
 /** Opens the tab and returns the counts it shows: those of its own summary request. */
 async function openTab(page: Page, tab: ReviewTab): Promise<ReviewSummary> {
@@ -51,17 +62,18 @@ async function openTab(page: Page, tab: ReviewTab): Promise<ReviewSummary> {
 
 /**
  * Reviews everything due through the API, every answer right, so the next cards come due only after
- * the next learning step (10 minutes). Returns false if due cards are left that no lesson practises.
+ * the next learning step (10 minutes). The summary counts only cards a review lesson can practise,
+ * so a review starts whenever something is due.
  */
-async function reviewAllDueViaApi(page: Page): Promise<boolean> {
+async function reviewAllDueViaApi(page: Page): Promise<void> {
   for (let round = 0; round < MAX_REVIEW_ROUNDS; round += 1) {
-    if ((await fetchReviewSummary(page.request)).dueNow === 0) return true;
+    const { dueNow } = await fetchReviewSummary(page.request);
+    if (dueNow === 0) return;
     const started = await startViaApi(page.request, { review: true });
-    if (started.status() === 409) return false;
-    expect(started.status(), await started.text()).toBe(201);
+    expect(started.status(), `${dueNow} due: ${await started.text()}`).toBe(201);
     await finishViaApi(page.request, (await started.json()) as LessonResponse);
   }
-  return (await fetchReviewSummary(page.request)).dueNow === 0;
+  expect((await fetchReviewSummary(page.request)).dueNow, 'every due card is reviewed').toBe(0);
 }
 
 test('the review tab shows what is due, plays it as a review lesson and ends with "Alles wiederholt!"', async ({
@@ -75,8 +87,22 @@ test('the review tab shows what is due, plays it as a review lesson and ends wit
   await test.step('something is due', async () => {
     if ((await fetchReviewSummary(page.request)).dueNow > 0) return;
     test.info().annotations.push({ type: 'slow', description: 'waited for the first FSRS learning step' });
-    // One wrong answer is rated Again: its card comes due after the first learning step.
-    await playLessonViaApi(page.request, currentUnit(await fetchPath(page.request)).unitId);
+    // Wrong answers on items still being learned are rated Again: due after the first learning step.
+    const known = await knownItems(page);
+    const { result } = await playViaApi(
+      page.request,
+      { unitId: currentUnit(await fetchPath(page.request)).unitId },
+      (exercise, played) =>
+        played.exercises
+          .filter((candidate) => canAnswerWrong(candidate) && candidate.itemIds.every((id) => !known.has(id)))
+          .slice(0, TRIGGER_MISTAKES)
+          .includes(exercise)
+          ? 'wrong'
+          : 'correct',
+    );
+    expect(result.correctCount, 'mistakes on items of the unit in progress still being learned').toBeLessThan(
+      result.exerciseCount,
+    );
     await expect
       .poll(async () => (await fetchReviewSummary(page.request)).dueNow, {
         message: 'a card comes due after the first FSRS learning step',
@@ -86,7 +112,7 @@ test('the review tab shows what is due, plays it as a review lesson and ends wit
       .toBeGreaterThan(0);
   });
 
-  await test.step('the tab and its navigation badge show the due words', async () => {
+  await test.step('the tab and its navigation badge show the due cards', async () => {
     const summary = await openTab(page, tab);
     expect(summary.dueNow).toBeGreaterThan(0);
     expect(summary.totalCards).toBeGreaterThanOrEqual(summary.dueNow);
@@ -100,14 +126,7 @@ test('the review tab shows what is due, plays it as a review lesson and ends wit
     const starting = page.waitForResponse(isReviewStart);
     await tab.startButton.click();
     const started = await starting;
-    if (started.status() === 409) {
-      // The tab promised due words; the player says there is nothing to practise.
-      test.fail(true, UNREVIEWABLE);
-      await expect(page.getByRole('heading', { name: 'Die Wiederholung konnte nicht starten' })).toBeVisible();
-      await snap(page, 'review-nothing-to-practise', { fullPage: false });
-      throw new Error(UNREVIEWABLE);
-    }
-    expect(started.status(), await started.text()).toBe(201);
+    expect(started.status(), `the due cards can be practised: ${await started.text()}`).toBe(201);
     const review = { lesson: (await started.json()) as LessonResponse, completion };
     expect(review.lesson).toMatchObject({ kind: 'review', unitId: 'review' });
     expect(review.lesson.exercises.length).toBeGreaterThan(0);
@@ -118,8 +137,9 @@ test('the review tab shows what is due, plays it as a review lesson and ends wit
 
     const result = await playOpenedLesson(page, review, { end: resultScreen.heading });
     expect(result.kind).toBe('review');
+    await resultScreen.expectDailyGoal(result.dailyGoal);
     await snap(page, 'review-result', { fullPage: false });
-    await resultScreen.continueButton.click();
+    await resultScreen.leave(result);
     await expect(page, 'back to the tab').toHaveURL(/\/wiederholen$/);
     await expect(tab.heading).toBeVisible();
   });
@@ -128,10 +148,7 @@ test('the review tab shows what is due, plays it as a review lesson and ends wit
     let summary: ReviewSummary | undefined;
     // A card of an earlier test may come due in between; then it is reviewed as well.
     for (let attempt = 0; attempt < 3 && summary?.dueNow !== 0; attempt += 1) {
-      if (!(await reviewAllDueViaApi(page))) {
-        test.fail(true, UNREVIEWABLE);
-        throw new Error(UNREVIEWABLE);
-      }
+      await reviewAllDueViaApi(page);
       summary = await openTab(page, tab);
     }
     expect(summary?.dueNow, 'everything due is reviewed').toBe(0);

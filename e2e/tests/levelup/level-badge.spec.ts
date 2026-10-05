@@ -6,7 +6,8 @@ import {
 } from '../../pages/CheckpointScreens.ts';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { ProfilePage } from '../../pages/ProfilePage.ts';
-import { isCheckpointStart, type CheckpointResult } from '../../support/lessonApi.ts';
+import { StreakCelebration } from '../../pages/StreakCelebration.ts';
+import { isCheckpointStart } from '../../support/lessonApi.ts';
 import { openLesson, playOpenedLesson } from '../../support/lessonFlow.ts';
 import { fetchPath, type PathStage } from '../../support/planApi.ts';
 import { completeStageViaApi, passCheckpointViaApi } from '../../support/progression.ts';
@@ -59,15 +60,19 @@ test('@slow the checkpoint that completes a band reveals its level badge, and th
   const results = new CheckpointResultScreen(page);
   const reveal = new BadgeRevealScreen(page);
 
-  const checkpoint = await test.step(`checkpoint ${stage.level} in the UI`, async () => {
+  const result = await test.step(`checkpoint ${stage.level} in the UI`, async () => {
     await path.goto();
     await path.checkpoint(stage.level).tap();
-    await intro.expectOpen(next.level);
+    await intro.expectOpen(next.level, stage.checkpoint);
     const opened = await openLesson(page, () => intro.startButton.click(), isCheckpointStart);
-    const result = await playOpenedLesson(page, opened, { end: results.anyHeading() });
-    return result.checkpoint as CheckpointResult;
+    return playOpenedLesson(page, opened, { end: results.anyHeading() });
   });
-  expect(checkpoint).toMatchObject({ level: stage.level, passed: true, newLevel: next.level, badges: [band] });
+  expect(result.checkpoint).toMatchObject({
+    level: stage.level,
+    passed: true,
+    newLevel: next.level,
+    badges: [band],
+  });
 
   await test.step('the level-up first, then the badge of the band', async () => {
     await expect(results.passedHeading(next.level)).toBeVisible();
@@ -75,9 +80,11 @@ test('@slow the checkpoint that completes a band reveals its level badge, and th
     await expect(reveal.heading([band])).toBeVisible();
     await expect(page.getByText('Neues Abzeichen!', { exact: true })).toBeVisible();
     await expect(reveal.badge(band)).toBeVisible();
+    await expect(reveal.text([band])).toBeVisible();
     await expect(reveal.continueButton).toBeEnabled();
     await snap(page, 'badge-reveal', { fullPage: false });
     await reveal.continueButton.click();
+    await new StreakCelebration(page).continueIfDue(result);
     await path.expectVisible();
   });
 

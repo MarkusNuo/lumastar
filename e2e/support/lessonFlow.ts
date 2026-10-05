@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page, type Response } from '@playwright/test';
 import { AppShell } from '../pages/AppShell.ts';
 import { LearningPathPage } from '../pages/LearningPathPage.ts';
-import { LessonPlayer, VARIANT_OF } from '../pages/LessonPlayer.ts';
+import { LessonPlayer, VARIANT_OF, type FeedbackVariant } from '../pages/LessonPlayer.ts';
 import { LessonResultScreen } from '../pages/LessonResultScreen.ts';
 import { firstWrongCandidate, type Intent } from './lessonAnswers.ts';
 import {
@@ -11,6 +11,7 @@ import {
   isLessonStart,
   type AttemptResponse,
   type IntentOf,
+  type LessonExercise,
   type LessonResponse,
   type LessonResultResponse,
   type PlayedLesson,
@@ -49,13 +50,17 @@ export interface UiPlayOptions {
   intentOf?: IntentOf;
   /** Shows once the last exercise is done, e.g. the heading of the result screen. */
   end: Locator;
+  /** Runs before the exercise on screen is answered; `step` counts the answers given so far. */
+  beforeAnswer?: (exercise: LessonExercise, step: number) => Promise<void>;
+  /** Runs while the feedback sheet of the backend's verdict is on screen. */
+  onFeedback?: (variant: FeedbackVariant) => Promise<void>;
 }
 
 /** Answers the opened lesson through the UI until `end` shows; returns the saved result. */
 export async function playOpenedLesson(
   page: Page,
   { lesson, completion }: OpenedLesson,
-  { intentOf = allCorrect, end }: UiPlayOptions,
+  { intentOf = allCorrect, end, beforeAnswer, onFeedback }: UiPlayOptions,
 ): Promise<LessonResultResponse> {
   const player = new LessonPlayer(page);
   const byId = new Map(lesson.exercises.map((exercise) => [exercise.id, exercise]));
@@ -73,6 +78,7 @@ export async function playOpenedLesson(
     const exercise = byId.get(id);
     if (!exercise) throw new Error(`Exercise ${id} is not part of the lesson response`);
     const intent: Intent = answered.has(id) ? 'correct' : intentOf(exercise, lesson);
+    await beforeAnswer?.(exercise, step);
 
     const attempt = page.waitForResponse(isAttempt);
     if (exercise.type === 'match_pairs') {
@@ -84,7 +90,12 @@ export async function playOpenedLesson(
     const verdict = (await (await attempt).json()) as AttemptResponse;
     expect(verdict.countsAsCorrect, `${id} answered ${intent}`).toBe(intent !== 'wrong');
     answered.add(id);
-    await player.continueFrom(player.feedbackSheet(VARIANT_OF[verdict.outcome]));
+    const sheet = player.feedbackSheet(VARIANT_OF[verdict.outcome]);
+    if (onFeedback) {
+      await expect(sheet).toBeInViewport({ ratio: 1 });
+      await onFeedback(VARIANT_OF[verdict.outcome]);
+    }
+    await player.continueFrom(sheet);
   }
 
   const completed = await completion;
@@ -109,7 +120,7 @@ export async function playLessonInUi(page: Page): Promise<PlayedLesson> {
     intentOf: (exercise) => (exercise === wrongExercise ? 'wrong' : 'correct'),
     end: resultScreen.heading,
   });
-  await resultScreen.continueButton.click();
+  await resultScreen.leave(result);
   await new AppShell(page).expectHome();
   return { lesson: opened.lesson, result, wrongExercise };
 }

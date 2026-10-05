@@ -1,5 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import { dueLabel, type ReviewSummary } from '../support/reviewApi.ts';
+import { cards, dueLabel, type ReviewSummary } from '../support/reviewApi.ts';
 import { AppShell } from './AppShell.ts';
 
 const count = (value: number) => value.toLocaleString('de-CH');
@@ -20,13 +20,13 @@ export class ReviewTab {
     this.learnButton = page.getByRole('button', { name: 'Neue Lektion lernen' });
   }
 
-  /** The card of the tab, named after its headline, e.g. "12 Wörter fällig" or "Alles wiederholt!". */
+  /** The card of the tab, named after its headline, e.g. "12 Karten fällig" or "Alles wiederholt!". */
   summary(name: string): Locator {
     return this.page.getByRole('main').getByRole('region', { name, exact: true });
   }
 
   /** A stat card of the summary: the label on its face, the value below. */
-  stat(label: 'Morgen fällig' | 'Wörter gesamt'): Locator {
+  stat(label: 'Morgen fällig' | 'Karten gesamt'): Locator {
     return this.page.getByRole('main').getByText(label, { exact: true }).locator('xpath=..');
   }
 
@@ -45,8 +45,7 @@ export class ReviewTab {
 
   /** Something is due: the count as the headline, tomorrow and total below, "Wiederholung starten". */
   async expectDue(summary: ReviewSummary): Promise<void> {
-    const words = summary.dueNow === 1 ? 'Wort' : 'Wörter';
-    const card = this.summary(`${count(summary.dueNow)} ${words} fällig`);
+    const card = this.summary(`${count(summary.dueNow)} ${cards(summary.dueNow)} fällig`);
     await expect(card).toBeVisible();
     await this.expectStats(summary);
     await expect(this.startButton).toBeEnabled();
@@ -57,9 +56,7 @@ export class ReviewTab {
   async expectAllDone(summary: ReviewSummary): Promise<void> {
     const card = this.summary('Alles wiederholt!');
     await expect(card).toBeVisible();
-    await expect(card).toContainText(
-      summary.dueTomorrow > 0 ? `Morgen fällig: ${summary.dueTomorrow}` : 'Morgen ist nichts fällig.',
-    );
+    await expect(card).toContainText('Für heute ist alles aufgefrischt. Schau morgen wieder vorbei!');
     await this.expectStats(summary);
     await expect(this.startButton, 'nothing to start').toHaveCount(0);
     await expect(this.learnButton).toBeEnabled();
@@ -67,6 +64,6 @@ export class ReviewTab {
 
   private async expectStats(summary: ReviewSummary): Promise<void> {
     await expect(this.stat('Morgen fällig')).toContainText(count(summary.dueTomorrow));
-    await expect(this.stat('Wörter gesamt')).toContainText(count(summary.totalCards));
+    await expect(this.stat('Karten gesamt')).toContainText(count(summary.totalCards));
   }
 }

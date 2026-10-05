@@ -101,6 +101,22 @@ export interface CheckpointResult {
   badges: string[];
 }
 
+/** The daily goal on the day of the lesson, up to and including it (PRD F9). */
+export interface LessonDailyGoal {
+  minutesToday: number;
+  goalMinutes: number;
+  goalMet: boolean;
+  /** This lesson met the goal of its day and extended the streak: the streak celebration follows. */
+  justMet: boolean;
+}
+
+/** The streak after the lesson (PRD F9). */
+export interface LessonStreak {
+  current: number;
+  extendedToday: boolean;
+  freezeUsed: boolean;
+}
+
 export interface LessonResultResponse {
   kind: LessonKind;
   xpEarned: number;
@@ -116,6 +132,8 @@ export interface LessonResultResponse {
   xpTotal: number;
   focusSuggestion?: FocusSuggestion;
   checkpoint?: CheckpointResult;
+  dailyGoal: LessonDailyGoal;
+  streak: LessonStreak;
 }
 
 const pathOf = (response: Response) => new URL(response.url()).pathname;
@@ -156,15 +174,20 @@ export type IntentOf = (exercise: LessonExercise, lesson: LessonResponse) => Int
 
 export const allCorrect: IntentOf = () => 'correct';
 
-/** A lesson started through the API: POST /api/lessons, /api/review/lessons or /api/checkpoints. */
+/**
+ * A lesson started through the API: POST /api/lessons (a unit, or a practice lesson on a skill tag),
+ * /api/review/lessons or /api/checkpoints.
+ */
 export type LessonStart =
   | { unitId: string }
+  | { practice: string }
   | { review: true }
   | { checkpoint: string };
 
 function startRequest(start: LessonStart): { url: string; data?: object } {
   if ('review' in start) return { url: '/api/review/lessons' };
   if ('checkpoint' in start) return { url: '/api/checkpoints', data: { level: start.checkpoint } };
+  if ('practice' in start) return { url: '/api/lessons', data: { kind: 'practice', skillTag: start.practice } };
   return { url: '/api/lessons', data: { unitId: start.unitId } };
 }
 

@@ -18,11 +18,28 @@ export interface PathUnit {
 /** The test at the end of a stage (PRD 5): open once its units are done, passed with 80 % accuracy. */
 export type CheckpointStatus = 'locked' | 'available' | 'passed';
 
+export interface PathCheckpoint {
+  status: CheckpointStatus;
+  /** 15, or every exercise of the stage if it has fewer. */
+  exerciseCount: number;
+  /** The share of first answers that must be right, e.g. 0.8. */
+  requiredAccuracy: number;
+}
+
 export interface PathStage {
   level: string;
   title: string;
-  checkpoint: { status: CheckpointStatus };
+  checkpoint: PathCheckpoint;
   units: PathUnit[];
+}
+
+/** The stage passed last below the current level, shown with its trophy above the path. */
+export interface PassedStage {
+  level: string;
+  title: string;
+  passedAt: string;
+  /** The share of right first answers in its checkpoint. */
+  accuracy: number;
 }
 
 /** GET /api/path: the plan from the current level up to C2.3 with the live progress. */
@@ -32,6 +49,8 @@ export interface LearningPath {
   dailyGoalMinutes: number;
   /** Expected day per CEFR band from A1 on, e.g. { A2: "2027-03-01" }. */
   estimates: Record<string, string>;
+  /** Absent until a checkpoint below the current level is passed. */
+  previousStage?: PassedStage;
   stages: PathStage[];
 }
 
@@ -129,3 +148,27 @@ export const openFocusUnits = (path: LearningPath) =>
   path.stages
     .flatMap((stage) => stage.units)
     .filter((unit) => unit.focus && unit.hasContent && unit.status !== 'completed');
+
+/** The next band to finish with its expected day: the current band, or A1 while still at A0. */
+export function nextBandGoal(path: LearningPath): { band: Band; day: string } | undefined {
+  const bands = Object.keys(BANDS) as Band[];
+  const from = bands.indexOf(bandOf(path.currentLevel));
+  const band = bands.find((candidate, index) => index >= from && path.estimates[candidate] !== undefined);
+  const day = band && path.estimates[band];
+  return band && day ? { band, day } : undefined;
+}
+
+/**
+ * A curriculum unit of the learner's own stage, whose exercises are at the learner's level: the unit
+ * in progress if it belongs to that stage, otherwise a done one (done units stay repeatable, PRD F3).
+ */
+export function unitOfLearnerStage(path: LearningPath): PathUnit {
+  const [stage] = path.stages;
+  if (!stage) throw new Error('The learning path has no stage');
+  const playable = stage.units.filter((unit) => !unit.focus && unit.hasContent);
+  const unit =
+    playable.find((candidate) => candidate.status === 'in_progress') ??
+    playable.find((candidate) => candidate.status !== 'planned');
+  if (!unit) throw new Error(`Stage ${stage.level} has no lesson to play`);
+  return unit;
+}

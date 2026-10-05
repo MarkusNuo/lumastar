@@ -2,11 +2,9 @@ import { expect, test } from '@playwright/test';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { shownDay } from '../../support/dates.ts';
 import {
-  BANDS,
-  bandOf,
   checkpointAsNextStep,
   fetchPath,
-  type Band,
+  nextBandGoal,
   type CheckpointStatus,
   type PathStage,
   type PathUnit,
@@ -80,14 +78,13 @@ test('the path shows the plan up to C2: stages, unit banners, lesson nodes, the 
   });
 
   await test.step('the plan teaser names the next goal', async () => {
-    const bands = Object.keys(BANDS) as Band[];
-    const from = bands.indexOf(bandOf(data.currentLevel));
-    const goal = bands.find((band, index) => index >= from && data.estimates[band] !== undefined);
-    const day = goal && data.estimates[goal];
-    if (!goal || !day) throw new Error('The plan has no estimate after the current level');
+    const goal = nextBandGoal(data);
+    if (!goal) throw new Error('The plan has no estimate after the current level');
     await page.evaluate(() => window.scrollTo(0, 0));
     await expect(path.planTeaser).toBeInViewport();
-    await expect(path.planTeaser).toContainText(`${goal} geschafft ca. am ${await shownDay(page, day)}`);
+    await expect(path.planTeaser).toContainText(
+      `${goal.band} geschafft ca. am ${await shownDay(page, goal.day)}`,
+    );
     await expect(path.planTeaser.getByRole('img', { name: `Niveau ${data.currentLevel}` })).toBeVisible();
     await snap(page, 'path-top', { fullPage: false });
   });
