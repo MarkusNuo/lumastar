@@ -4,6 +4,7 @@ import { Card } from '../../../components/ui/Card';
 import { EmphasisText } from '../../../components/ui/EmphasisText';
 import type { Tone } from '../../../components/ui/tones';
 import { precheck } from '../../../features/lesson/evaluation/precheck';
+import { EMPTY_LEXICON } from '../../../features/lesson/evaluation/standardFormLexicon';
 import { ExerciseView } from '../../../features/lesson/exercises/ExerciseView';
 import type { Answer, LessonExercise, Outcome, Verdict } from '../../../features/lesson/model';
 import {
@@ -58,7 +59,8 @@ function ExerciseDemo({ exercise }: { exercise: LessonExercise }) {
   const [answer, setAnswer] = useState<Answer | null>(null);
   const [verdict, setVerdict] = useState<Verdict>();
 
-  const check = (value: Answer) => setVerdict(precheck(exercise, value));
+  // The catalog has no backend; the listed Standard forms of the samples still apply.
+  const check = (value: Answer) => setVerdict(precheck(exercise, value, EMPTY_LEXICON));
   const reset = () => {
     setRound((current) => current + 1);
     setAnswer(null);

@@ -1,3 +1,4 @@
+import { queryOptions } from '@tanstack/react-query';
 import { api, unwrap } from '../../api/client';
 import type {
   AttemptResponse,
@@ -14,8 +15,19 @@ import type {
   LessonResult,
   Verdict,
 } from './model';
+import { createStandardFormLexicon } from './evaluation/standardFormLexicon';
 
 /* The only place that knows the API shapes of the lesson player; everything else uses model.ts. */
+
+const DAY_MS = 86_400_000;
+
+/** The Standard-form lexicon of the pre-check; it changes only with the content (cached a day). */
+export const standardFormsQuery = queryOptions({
+  queryKey: ['content', 'standardForms'],
+  queryFn: () => unwrap(api.GET('/api/content/standard-forms')),
+  staleTime: DAY_MS,
+  select: createStandardFormLexicon,
+});
 
 export async function startLesson(unitId: string): Promise<Lesson> {
   return toLesson(await unwrap(api.POST('/api/lessons', { body: { unitId } })));
@@ -67,6 +79,8 @@ export function toExercise(response: LessonExerciseResponse): LessonExercise {
     prompt: response.prompt,
     explanation: response.explanation,
     reviewed: response.reviewed,
+    errorHints: response.errorHints,
+    skillTags: response.skillTags,
   };
   const need = <T>(value: T | undefined, field: string) => required(value, field, response);
 
@@ -131,14 +145,15 @@ export function toSubmittedAnswer(answer: Answer): SubmittedAnswer {
       return { text: answer.text };
     case 'tokens':
       return { tokens: answer.tokens };
-    case 'mistakes':
-      return { mistakes: answer.mistakes };
+    case 'pairs':
+      return { wrongMatches: answer.wrongMatches };
   }
 }
 
 export function toVerdict(response: AttemptResponse): Verdict {
   return {
     outcome: response.outcome,
+    errorCategory: response.errorCategory,
     countsAsCorrect: response.countsAsCorrect,
     solution: response.solution,
     hint: response.hint,

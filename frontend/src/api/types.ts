@@ -13,6 +13,8 @@ export type LessonResponse = Schemas['LessonResponse'];
 export type LessonExerciseResponse = Schemas['LessonExercise'];
 export type SubmittedAnswer = Schemas['SubmittedAnswer'];
 export type AttemptResponse = Schemas['AttemptResponse'];
+export type ErrorCategory = Schemas['ErrorCategory'];
+export type StandardForms = Schemas['StandardFormsResponse'];
 export type LessonResultResponse = Schemas['LessonResultResponse'];
 
 export type ImportResult = Schemas['ImportResult'];

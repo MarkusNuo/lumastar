@@ -1,7 +1,11 @@
+import type { ErrorCategory } from '../../api/types';
+
 /*
  * View model of the lesson player. Screens and logic only depend on these types; lessonApi.ts maps
  * the generated API types onto them, so a contract change stays in that one file.
  */
+
+export type { ErrorCategory };
 
 /** "sq" is Gheg (the app never teaches Standard Albanian), "de" German. */
 export type Lang = 'sq' | 'de';
@@ -9,6 +13,14 @@ export type Lang = 'sq' | 'de';
 export interface ExercisePrompt {
   lang: Lang;
   text: string;
+}
+
+/** A typical wrong answer of an exercise; `pattern` is matched against the normalised answer. */
+export interface ErrorHint {
+  pattern: string;
+  category: ErrorCategory;
+  /** German hint for the feedback sheet. */
+  hint?: string;
 }
 
 /**
@@ -22,6 +34,9 @@ interface ExerciseBase {
   explanation: string;
   /** False until the author has checked the content (PRD chapter 4); shown as a small marker. */
   reviewed: boolean;
+  /** Classify a wrong answer: the first matching hint, else the first grammar tag (PRD F6). */
+  errorHints: ErrorHint[];
+  skillTags: string[];
 }
 
 export interface MultipleChoiceExercise extends ExerciseBase {
@@ -99,12 +114,15 @@ export type Answer =
   | { kind: 'choice'; choice: string }
   | { kind: 'text'; text: string }
   | { kind: 'tokens'; tokens: string[] }
-  | { kind: 'mistakes'; mistakes: number };
+  /** Every wrong match before all pairs were matched, as shown: a Gheg side with a German one. */
+  | { kind: 'pairs'; wrongMatches: WordPair[] };
 
 export type Outcome = 'correct' | 'almost_correct' | 'correct_standard_form' | 'wrong';
 
 export interface Verdict {
   outcome: Outcome;
+  /** What went wrong (PRD F6); absent for a correct answer. */
+  errorCategory?: ErrorCategory;
   /** Correct, almost correct and standard-form answers count; only wrong ones are repeated. */
   countsAsCorrect: boolean;
   /** The accepted solution closest to the answer; absent for match_pairs. */

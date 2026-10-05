@@ -15,6 +15,19 @@ import type {
 
 export const SAMPLE_MULTIPLE_CHOICE: MultipleChoiceExercise = {
   id: 'ex_a1_u01_greetings_001',
+  skillTags: ['vocab.greetings'],
+  errorHints: [
+    {
+      pattern: 'nat[eë]n e mir',
+      category: 'vocab.confused',
+      hint: '„Natën e mirë“ sagt man am Abend zum Abschied: „Gute Nacht“.',
+    },
+    {
+      pattern: '^mirupafshim$',
+      category: 'vocab.confused',
+      hint: '„Mirupafshim“ heisst „Auf Wiedersehen“.',
+    },
+  ],
   reviewed: false,
   type: 'multiple_choice',
   prompt: { lang: 'de', text: 'Wie sagt man „guten Tag“?' },
@@ -26,6 +39,14 @@ export const SAMPLE_MULTIPLE_CHOICE: MultipleChoiceExercise = {
 
 export const SAMPLE_WORDBANK: TranslateWordbankExercise = {
   id: 'ex_a1_u01_greetings_005',
+  skillTags: ['vocab.greetings', 'phrase.small_talk'],
+  errorHints: [
+    {
+      pattern: '(^|\\s)si jeni$',
+      category: 'grammar.verb_conjugation',
+      hint: '„Si jeni?“ ist die Sie- oder Ihr-Form. Zu einer Person, die du duzt, sagst du „Si je?“.',
+    },
+  ],
   reviewed: false,
   type: 'translate_wordbank',
   prompt: { lang: 'de', text: 'Guten Tag! Wie geht es dir?' },
@@ -38,6 +59,14 @@ export const SAMPLE_WORDBANK: TranslateWordbankExercise = {
 
 export const SAMPLE_TRANSLATE_FREE: TranslateFreeExercise = {
   id: 'ex_a1_u01_greetings_009',
+  skillTags: ['phrase.politeness', 'vocab.drinks'],
+  errorHints: [
+    {
+      pattern: '^(?!.*(ju|të|te) lutem).*lutem',
+      category: 'vocab.unknown',
+      hint: '„Bitte“ hat zwei Wörter: „ju lutem“ (höflich) oder „të lutem“ (du).',
+    },
+  ],
   reviewed: false,
   type: 'translate_free',
   prompt: { lang: 'de', text: 'Einen Kaffee, bitte.' },
@@ -60,6 +89,14 @@ export const SAMPLE_TRANSLATE_FREE: TranslateFreeExercise = {
 
 export const SAMPLE_TRANSLATE_FREE_NASAL: TranslateFreeExercise = {
   id: 'ex_a1_u01_greetings_010',
+  skillTags: ['phrase.small_talk'],
+  errorHints: [
+    {
+      pattern: '(^|\\s)b[aâ]j$',
+      category: 'grammar.verb_conjugation',
+      hint: '„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“.',
+    },
+  ],
   reviewed: false,
   type: 'translate_free',
   prompt: { lang: 'de', text: 'Was machst du gerade?' },
@@ -72,6 +109,14 @@ export const SAMPLE_TRANSLATE_FREE_NASAL: TranslateFreeExercise = {
 
 export const SAMPLE_FILL_GAP_CHOICES: FillGapExercise = {
   id: 'ex_a1_u01_greetings_012',
+  skillTags: ['phrase.small_talk'],
+  errorHints: [
+    {
+      pattern: '^jo$',
+      category: 'vocab.confused',
+      hint: '„Jo“ heisst „nein“. Für „und du?“ sagst du „po ti?“.',
+    },
+  ],
   reviewed: false,
   type: 'fill_gap',
   prompt: { lang: 'de', text: 'Gut, und du?' },
@@ -86,6 +131,14 @@ export const SAMPLE_FILL_GAP_CHOICES: FillGapExercise = {
 
 export const SAMPLE_FILL_GAP_TYPED: FillGapExercise = {
   id: 'ex_a1_u01_greetings_014',
+  skillTags: ['grammar.verbs.jam', 'phrase.small_talk'],
+  errorHints: [
+    {
+      pattern: '^(je|[aâ]sht|jemi|jeni)$',
+      category: 'grammar.verb_conjugation',
+      hint: 'Du sprichst von dir selbst – also „jam“ (ich bin).',
+    },
+  ],
   reviewed: false,
   type: 'fill_gap',
   prompt: { lang: 'de', text: 'Mir geht es gut, danke. (wörtlich: „Gut bin ich, danke.“)' },
@@ -99,6 +152,8 @@ export const SAMPLE_FILL_GAP_TYPED: FillGapExercise = {
 /** PRD chapter 9 example: "Das Haus ist gross." with the Gheg nasal vowel. */
 export const SAMPLE_FILL_GAP_NASAL: FillGapExercise = {
   id: 'ex_sample_nasal_001',
+  skillTags: ['grammar.verbs.jam'],
+  errorHints: [],
   reviewed: false,
   type: 'fill_gap',
   prompt: { lang: 'de', text: 'Das Haus ist gross.' },
@@ -111,6 +166,8 @@ export const SAMPLE_FILL_GAP_NASAL: FillGapExercise = {
 
 export const SAMPLE_MATCH_PAIRS: MatchPairsExercise = {
   id: 'ex_a1_u01_greetings_015',
+  skillTags: ['vocab.greetings', 'phrase.politeness'],
+  errorHints: [],
   reviewed: false,
   type: 'match_pairs',
   prompt: { lang: 'de', text: 'Ordne die Paare zu.' },
@@ -126,6 +183,14 @@ export const SAMPLE_MATCH_PAIRS: MatchPairsExercise = {
 
 export const SAMPLE_WORD_ORDER: WordOrderExercise = {
   id: 'ex_a1_u01_greetings_019',
+  skillTags: ['vocab.greetings'],
+  errorHints: [
+    {
+      pattern: '^se mir',
+      category: 'grammar.word_order',
+      hint: 'Die feste Wendung beginnt mit „mirë“: „Mirë se vjen“.',
+    },
+  ],
   reviewed: false,
   type: 'word_order',
   prompt: { lang: 'de', text: 'Willkommen in Prishtina!' },

@@ -15,6 +15,8 @@ const port = 5173;
 
 // The API contract lives outside this package; setupRules.test.ts reads it to catch drift.
 const apiContractDir = fileURLToPath(new URL('../backend/openapi', import.meta.url));
+// evaluatorCases.test.ts runs the shared evaluator cases with the Standard-form lexicon.
+const contentDir = fileURLToPath(new URL('../content', import.meta.url));
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
@@ -22,7 +24,7 @@ export default defineConfig({
     port,
     strictPort: true,
     proxy: backendProxy,
-    fs: { allow: [searchForWorkspaceRoot(process.cwd()), apiContractDir] },
+    fs: { allow: [searchForWorkspaceRoot(process.cwd()), apiContractDir, contentDir] },
   },
   preview: { port, strictPort: true, proxy: backendProxy },
   build: {

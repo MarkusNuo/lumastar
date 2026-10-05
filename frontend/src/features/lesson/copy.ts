@@ -1,4 +1,4 @@
-import type { ExerciseType } from './model';
+import type { ExerciseType, WordPair } from './model';
 
 /** Quotes a word the German way, as the backend's hint texts do. */
 const quote = (text: string) => `„${text}“`;
@@ -99,7 +99,8 @@ export const LESSON_COPY = {
     missingDiacritics: (words: string[]) => `Achte auf die Sonderzeichen: ${bold(words)}`,
     typo: (words: string[]) => `Achte auf die Schreibweise: ${bold(words)}`,
     wordOrder: 'Die Wörter stimmen, aber die Reihenfolge noch nicht.',
-    onePairMismatched: 'Ein Paar hast du zuerst falsch zugeordnet.',
-    pairsMismatched: (mistakes: number) => `Du hast ${mistakes} Paare zuerst falsch zugeordnet.`,
+    /** The correct pairs of the confused items: „Richtig ist: **Po** = Ja und **Jo** = Nein.“ */
+    confusedPairs: (pairs: readonly WordPair[]) =>
+      `Richtig ist: ${enumerate(pairs.map((pair) => `${bold([pair.left])} = ${pair.right}`))}.`,
   },
 } as const;

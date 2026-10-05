@@ -7,6 +7,7 @@ import { ProgressBar } from '../../components/ui/ProgressBar';
 import { WaitingScreen } from '../../components/ui/WaitingScreen';
 import { useEscapeKey } from '../../lib/useEscapeKey';
 import { LESSON_COPY } from './copy';
+import type { StandardFormLexicon } from './evaluation/standardFormLexicon';
 import { ExerciseScreen } from './ExerciseScreen';
 import { seedFrom } from './exercises/shuffle';
 import type { Lesson, LessonResult } from './model';
@@ -15,13 +16,15 @@ import { useLessonSession } from './session/useLessonSession';
 
 export interface LessonPlayerProps {
   lesson: Lesson;
+  /** Standard forms the pre-check recognises in typed Gheg answers. */
+  lexicon: StandardFormLexicon;
   /** Leaving before the end; the lesson's progress is lost. */
   onQuit: () => void;
   onFinish: (result: LessonResult) => void;
 }
 
-export function LessonPlayer({ lesson, onQuit, onFinish }: LessonPlayerProps) {
-  const session = useLessonSession(lesson);
+export function LessonPlayer({ lesson, lexicon, onQuit, onFinish }: LessonPlayerProps) {
+  const session = useLessonSession(lesson, lexicon);
   const [quitOpen, setQuitOpen] = useState(false);
   const { completion, entry, progress } = session;
   const playing = completion.status === 'playing' && entry !== undefined;

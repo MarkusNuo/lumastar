@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import type { AttemptResponse, LessonResultResponse } from '../../api/types';
 import { jsonResponse, renderWithQueryClient, stubApi } from '../../test/http';
+import { EMPTY_LEXICON } from './evaluation/standardFormLexicon';
 import { LessonPlayer } from './LessonPlayer';
 import type { Lesson } from './model';
 import { SAMPLE_FILL_GAP_CHOICES, SAMPLE_MULTIPLE_CHOICE } from './sampleExercises';
@@ -63,7 +64,9 @@ function answerLikePrecheck(request: Request): Promise<Response> {
 function renderPlayer() {
   const onFinish = vi.fn();
   const onQuit = vi.fn();
-  renderWithQueryClient(<LessonPlayer lesson={LESSON} onQuit={onQuit} onFinish={onFinish} />);
+  renderWithQueryClient(
+    <LessonPlayer lesson={LESSON} lexicon={EMPTY_LEXICON} onQuit={onQuit} onFinish={onFinish} />,
+  );
   return { user: userEvent.setup(), onFinish, onQuit };
 }
 

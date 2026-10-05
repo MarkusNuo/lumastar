@@ -18,6 +18,8 @@ describe('toPlacementExercise', () => {
       prompt: { lang: 'de', text: 'Was bedeutet „mirëdita“?' },
       reviewed: false,
       explanation: '',
+      errorHints: [],
+      skillTags: [],
       choices: ['Gute Nacht', 'Guten Tag', 'Auf Wiedersehen', 'Danke'],
       solutions: [],
     });

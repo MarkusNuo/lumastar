@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { LESSON_COPY } from '../copy';
-import { precheck } from '../evaluation/precheck';
+import { isExactTileAnswer } from '../evaluation/exactChecks';
 import type { WordOrderExercise } from '../model';
 import { ExerciseHeader } from './ExerciseHeader';
 import { reactionOf, type ExerciseProps } from './exerciseProps';
@@ -21,10 +21,11 @@ export function WordOrder({
   const [bankOrder] = useState(() =>
     scrambledIndices(
       words.length,
-      (order) => {
-        const tokens = order.map((index) => words[index] ?? '');
-        return precheck(exercise, { kind: 'tokens', tokens }).outcome === 'correct';
-      },
+      (order) =>
+        isExactTileAnswer(
+          exercise.solutions,
+          order.map((index) => words[index] ?? ''),
+        ),
       randomFor(shuffleSeed),
     ),
   );

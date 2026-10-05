@@ -61,7 +61,7 @@ describe('MatchPairs', () => {
     expect(gheg('mirëdita')).toHaveAttribute('aria-pressed', 'false');
   });
 
-  it('finishes by itself with the number of mistakes once all pairs are matched', async () => {
+  it('finishes by itself with the wrong matches as shown once all pairs are matched', async () => {
     const user = userEvent.setup();
     const { gheg, german, onSubmit } = renderPairs();
 
@@ -72,7 +72,12 @@ describe('MatchPairs', () => {
       await user.click(gheg(pair.left));
     }
 
-    await waitFor(() => expect(onSubmit).toHaveBeenCalledWith({ kind: 'mistakes', mistakes: 1 }));
+    await waitFor(() =>
+      expect(onSubmit).toHaveBeenCalledWith({
+        kind: 'pairs',
+        wrongMatches: [{ left: 'ju lutem', right: 'gute Nacht' }],
+      }),
+    );
     expect(onSubmit).toHaveBeenCalledOnce();
   });
 });

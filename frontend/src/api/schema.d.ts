@@ -75,6 +75,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/content/standard-forms": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * The Standard-form lexicon for the pre-check
+         * @description The rules with which the evaluator recognises Standard Albanian words in typed Gheg answers (correct_standard_form, variant.standard_form). An answer is a Standard form if it has as many words as a solution and every word that differs from the solution's word at the same position is a Standard form of it. A second pass after the missing-diacritics check also lets the other words lack diacritics and compares the Standard forms folded. Cacheable for a day.
+         */
+        get: operations["getStandardForms"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/curriculum": {
         parameters: {
             query?: never;
@@ -103,7 +123,7 @@ export interface paths {
         put?: never;
         /**
          * Compose and start a lesson of a unit
-         * @description The exercises include their solutions and accepted variants so that the app can pre-check answers instantly (PRD 11.2). A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level.
+         * @description The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level.
          */
         post: operations["startLesson"];
         delete?: never;
@@ -540,6 +560,13 @@ export interface components {
         };
         /** @enum {string} */
         ErrorCategory: "vocab.unknown" | "vocab.confused" | "spelling.diacritics" | "spelling.nasal_vowel" | "spelling.other" | "variant.standard_form" | "grammar.definite_article" | "grammar.case" | "grammar.linking_article" | "grammar.gender" | "grammar.infinitive" | "grammar.participle" | "grammar.verb_conjugation" | "grammar.verb_tense" | "grammar.word_order" | "grammar.clitics";
+        /** @description A typical wrong answer: pattern is a regular expression matched case-insensitively (Unicode) against the normalised answer, diacritics kept (docs/CONTENT_FORMAT.md points 1–3) */
+        ExerciseErrorHint: {
+            category: components["schemas"]["ErrorCategory"];
+            /** @description German hint for the feedback sheet */
+            hint?: string;
+            pattern: string;
+        };
         /** @description A Gheg expression and its German meaning */
         ExercisePair: {
             left: string;
@@ -551,6 +578,13 @@ export interface components {
         };
         /** @enum {string} */
         ExerciseType: "multiple_choice" | "translate_wordbank" | "translate_free" | "fill_gap" | "match_pairs" | "word_order" | "conjugation_drill" | "declension_drill" | "reading" | "free_writing" | "listen_select";
+        /** @description suffix: the word before the match + value must begin the Gheg word (which may carry an inflection ending: punuar → punue, punuem, punuemi). prefix: value + the word after the match must equal the Gheg word, also with a j between them if the rest begins with a vowel (shtëpia → shpija). word: value must equal the Gheg word. */
+        GhegReplacement: {
+            kind: components["schemas"]["GhegReplacementKind"];
+            value: string;
+        };
+        /** @enum {string} */
+        GhegReplacementKind: "suffix" | "prefix" | "word";
         ImportResult: {
             /**
              * Format: date-time
@@ -579,6 +613,8 @@ export interface components {
              * @description 1 (easy) to 3 (hard)
              */
             difficulty: number;
+            /** @description Known wrong answers; the first one whose pattern matches classifies a wrong answer. Typed answers (translate_free, fill_gap without choices) are checked in this order: exact, Standard form, missing diacritics only, Standard form with missing diacritics, errorHints, same words reordered (grammar.word_order), typo, wrong. Picked options: exact, errorHints, wrong. Word tiles: exact, same tokens reordered (grammar.word_order), errorHints, wrong. */
+            errorHints: components["schemas"]["ExerciseErrorHint"][];
             /** @description German explanation for the feedback sheet */
             explanation: string;
             id: string;
@@ -925,6 +961,29 @@ export interface components {
             mastery: number;
             skillTag: string;
         };
+        /** @description The Standard-form lexicon of content/gheg_blocklist.json. All words, values and exceptions are normalised (docs/CONTENT_FORMAT.md points 1–2). A learner's word is the Standard form of the solution's Gheg word if it is a listed standard word with that Gheg word, or if it matches a pattern, is none of its exceptions and one of the pattern's replacements yields the Gheg word. For the comparison with missing diacritics, fold every word, value, exception and the pattern itself (ë→e, ç→c, â→a, ê→e, î→i, ô→o, û→u) before matching. */
+        StandardFormsResponse: {
+            patterns: components["schemas"]["StandardWordPattern"][];
+            words: components["schemas"]["StandardWord"][];
+        };
+        /** @description A Standard word and its Gheg alternatives, e.g. qenë → kânë, kjenë */
+        StandardWord: {
+            gheg: string[];
+            standard: string;
+        };
+        /** @description Standard words recognised by a regular expression on the single word, e.g. punuar → punue */
+        StandardWordPattern: {
+            /** @description Words that match but are no Standard forms */
+            exceptions: string[];
+            gheg: components["schemas"]["GhegReplacement"][];
+            /** @example participle_uar */
+            id: string;
+            /**
+             * @description Unicode regular expression, searched (not fully matched) in the normalised word
+             * @example uar(a|at|ave|e|i|in|it|ës|ën)?$
+             */
+            pattern: string;
+        };
         StartLessonRequest: {
             /**
              * @description A curriculum unit or a focus unit of the current plan, as listed by GET /api/path
@@ -949,22 +1008,30 @@ export interface components {
             /** Format: uuid */
             testId: string;
         };
-        /** @description Exactly one field, depending on the exercise type: text for translate_free and fill_gap without choices, choice for multiple_choice and fill_gap with choices, tokens for translate_wordbank and word_order, mistakes for match_pairs. */
+        /** @description Exactly one field, depending on the exercise type: text for translate_free and fill_gap without choices, choice for multiple_choice and fill_gap with choices, tokens for translate_wordbank and word_order, wrongMatches for match_pairs. */
         SubmittedAnswer: {
             /** @description The picked option, as offered */
             choice?: string;
             /**
              * Format: int32
-             * @description Wrong matches before all pairs were matched
+             * @deprecated
+             * @description Number of wrong matches; send wrongMatches instead
              */
             mistakes?: number;
             /** @description Typed answer */
             text?: string;
             /** @description Word chips in the chosen order */
             tokens?: string[];
+            /** @description match_pairs: every wrong match before all pairs were matched, in order; empty if none. Each one joins the left side of one pair with the right side of another, as shown. */
+            wrongMatches?: components["schemas"]["WrongMatch"][];
         };
         /** @enum {string} */
         UnitColor: "violet" | "teal" | "sky" | "rose" | "amber" | "lime" | "indigo" | "coral";
+        /** @description A Gheg side (left) matched with the German side (right) of another pair */
+        WrongMatch: {
+            left: string;
+            right: string;
+        };
         XpBreakdown: {
             /** Format: int32 */
             base: number;
@@ -1144,6 +1211,35 @@ export interface operations {
             };
         };
     };
+    getStandardForms: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The lexicon */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardFormsResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
     getCurriculum: {
         parameters: {
             query?: never;
@@ -1311,7 +1407,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Exercise not in the lesson or answer field not fitting its type (codes exercise_not_in_lesson, answer_type_mismatch) */
+            /** @description Exercise not in the lesson, answer field not fitting its type or wrong matches not made of its pairs (codes exercise_not_in_lesson, answer_type_mismatch, invalid_answer) */
             422: {
                 headers: {
                     [name: string]: unknown;

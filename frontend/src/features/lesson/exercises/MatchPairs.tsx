@@ -57,12 +57,20 @@ export function MatchPairs({
     return () => clearTimeout(timer);
   }, [flash]);
 
-  const { mistakes } = state;
+  const { wrongMatches } = state;
   useEffect(() => {
     if (!complete || verdict) return;
-    const timer = setTimeout(() => onSubmit({ kind: 'mistakes', mistakes }), FINISH_DELAY_MS);
+    // The backend tags the confused items, so it gets the texts as shown, not the indices.
+    const shown = wrongMatches.map((match) => ({
+      left: pairs[match.left]?.left ?? '',
+      right: pairs[match.right]?.right ?? '',
+    }));
+    const timer = setTimeout(
+      () => onSubmit({ kind: 'pairs', wrongMatches: shown }),
+      FINISH_DELAY_MS,
+    );
     return () => clearTimeout(timer);
-  }, [complete, verdict, mistakes, onSubmit]);
+  }, [complete, verdict, wrongMatches, pairs, onSubmit]);
 
   return (
     <div className="flex flex-col gap-6">

@@ -35,8 +35,8 @@ describe('match pairs', () => {
     const fromLeft = play(tap(left(0)), tap(right(0)));
     const fromRight = play(tap(right(4)), tap(left(4)));
 
-    expect(fromLeft).toMatchObject({ matched: [0], mistakes: 0, selected: null });
-    expect(fromRight).toMatchObject({ matched: [4], mistakes: 0 });
+    expect(fromLeft).toMatchObject({ matched: [0], wrongMatches: [], selected: null });
+    expect(fromRight).toMatchObject({ matched: [4], wrongMatches: [] });
     expect(matchTileState(fromLeft, left(0))).toBe('correct');
     expect(matchTileState(fromLeft, right(0))).toBe('correct');
   });
@@ -49,10 +49,14 @@ describe('match pairs', () => {
     expect(faded.flash).toBeNull();
   });
 
-  it('counts a wrong pair as a mistake and flashes both tiles', () => {
+  it('records a wrong pair and flashes both tiles', () => {
     const state = play(tap(left(0)), tap(right(3)));
 
-    expect(state).toMatchObject({ matched: [], mistakes: 1, selected: null });
+    expect(state).toMatchObject({
+      matched: [],
+      wrongMatches: [{ left: 0, right: 3 }],
+      selected: null,
+    });
     expect(matchTileState(state, left(0))).toBe('wrong');
     expect(matchTileState(state, right(3))).toBe('wrong');
     expect(matchTileState(state, right(0))).toBe('idle');
@@ -70,7 +74,7 @@ describe('match pairs', () => {
     expect(matchReducer(state, tap(right(0)))).toBe(state);
   });
 
-  it('is complete when every pair is matched, keeping the mistakes', () => {
+  it('is complete when every pair is matched, keeping the wrong matches', () => {
     const state = play(
       tap(left(0)),
       tap(right(1)),
@@ -78,7 +82,7 @@ describe('match pairs', () => {
     );
 
     expect(allMatched(state, 5)).toBe(true);
-    expect(state.mistakes).toBe(1);
+    expect(state.wrongMatches).toEqual([{ left: 0, right: 1 }]);
     expect(allMatched(play(tap(left(0)), tap(right(0))), 5)).toBe(false);
   });
 });

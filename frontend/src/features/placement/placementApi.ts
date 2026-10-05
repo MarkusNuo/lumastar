@@ -76,7 +76,14 @@ function required<T>(value: T | undefined, field: string, item: PlacementItem): 
  */
 export function toPlacementExercise(item: PlacementItem): LessonExercise {
   const need = <T>(value: T | undefined, field: string) => required(value, field, item);
-  const base = { id: item.id, prompt: item.prompt, reviewed: item.reviewed, explanation: '' };
+  const base = {
+    id: item.id,
+    prompt: item.prompt,
+    reviewed: item.reviewed,
+    explanation: '',
+    errorHints: [],
+    skillTags: [],
+  };
   const withoutSolutions = { solutions: [] };
 
   switch (item.type) {

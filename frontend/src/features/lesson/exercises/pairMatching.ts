@@ -1,6 +1,6 @@
 /*
  * Matching pairs: tap a tile on one side, then its partner on the other. A correct match locks
- * both tiles, a wrong one counts as a mistake (0 mistakes = correct, 1 = almost, ≥ 2 = wrong).
+ * both tiles; every wrong one is recorded, and any wrong match makes the answer wrong.
  */
 
 export type PairSide = 'left' | 'right';
@@ -19,10 +19,16 @@ export interface MatchFlash {
   right: number;
 }
 
+/** A left tile matched with the right tile of another pair, by pair index. */
+export interface WrongMatch {
+  left: number;
+  right: number;
+}
+
 export interface MatchState {
   selected: MatchTile | null;
   matched: number[];
-  mistakes: number;
+  wrongMatches: WrongMatch[];
   /** Short highlight of the last match attempt. */
   flash: MatchFlash | null;
   nextFlashId: number;
@@ -33,7 +39,7 @@ export type MatchAction = { type: 'tapped'; tile: MatchTile } | { type: 'flashEn
 export const INITIAL_MATCH_STATE: MatchState = {
   selected: null,
   matched: [],
-  mistakes: 0,
+  wrongMatches: [],
   flash: null,
   nextFlashId: 0,
 };
@@ -61,7 +67,7 @@ function tap(state: MatchState, tile: MatchTile): MatchState {
     ...state,
     selected: null,
     matched: correct ? [...state.matched, left] : state.matched,
-    mistakes: correct ? state.mistakes : state.mistakes + 1,
+    wrongMatches: correct ? state.wrongMatches : [...state.wrongMatches, { left, right }],
     flash: { id: state.nextFlashId, outcome: correct ? 'correct' : 'wrong', left, right },
     nextFlashId: state.nextFlashId + 1,
   };

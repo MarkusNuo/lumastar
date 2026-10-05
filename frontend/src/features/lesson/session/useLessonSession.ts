@@ -10,6 +10,7 @@ import {
 } from 'react';
 import { isApiError } from '../../../api/ApiError';
 import { precheck } from '../evaluation/precheck';
+import type { StandardFormLexicon } from '../evaluation/standardFormLexicon';
 import { completeLesson, submitAttempt } from '../lessonApi';
 import type { Answer, Lesson, LessonResult } from '../model';
 import { AttemptOutbox } from './attemptOutbox';
@@ -36,7 +37,7 @@ export type LessonCompletion =
  * Runs one lesson: instant pre-check, answers sent in the background, repetition of wrong answers
  * and the final result. Nothing waits for the network while the learner plays.
  */
-export function useLessonSession(lesson: Lesson) {
+export function useLessonSession(lesson: Lesson, lexicon: StandardFormLexicon) {
   const [state, dispatch] = useReducer(lessonQueueReducer, lesson, createLessonQueue);
   const latest = useRef(state);
   const outboxRef = useRef<AttemptOutbox | null>(null);
@@ -63,18 +64,21 @@ export function useLessonSession(lesson: Lesson) {
     shownAt.current = performance.now();
   }, [entryKey]);
 
-  const check = useCallback((answer: Answer) => {
-    const shown = currentEntry(latest.current);
-    // A double Enter must not send the same answer twice.
-    if (!shown || shown.verdict || checkedKeys.current.has(shown.key)) return;
-    checkedKeys.current.add(shown.key);
-    dispatch({ type: 'checked', verdict: precheck(shown.exercise, answer) });
-    outboxRef.current?.enqueue(shown.key, {
-      exerciseId: shown.exercise.id,
-      answer,
-      responseTimeMs: Math.round(performance.now() - shownAt.current),
-    });
-  }, []);
+  const check = useCallback(
+    (answer: Answer) => {
+      const shown = currentEntry(latest.current);
+      // A double Enter must not send the same answer twice.
+      if (!shown || shown.verdict || checkedKeys.current.has(shown.key)) return;
+      checkedKeys.current.add(shown.key);
+      dispatch({ type: 'checked', verdict: precheck(shown.exercise, answer, lexicon) });
+      outboxRef.current?.enqueue(shown.key, {
+        exerciseId: shown.exercise.id,
+        answer,
+        responseTimeMs: Math.round(performance.now() - shownAt.current),
+      });
+    },
+    [lexicon],
+  );
 
   const proceed = useCallback(() => dispatch({ type: 'continued' }), []);
 

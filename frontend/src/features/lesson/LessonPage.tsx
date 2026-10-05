@@ -6,7 +6,8 @@ import { WaitingScreen } from '../../components/ui/WaitingScreen';
 import { meQuery } from '../auth/authHooks';
 import { PLAN_QUERY_KEY } from '../plan/planQueries';
 import { LESSON_COPY } from './copy';
-import { startLesson } from './lessonApi';
+import { EMPTY_LEXICON } from './evaluation/standardFormLexicon';
+import { standardFormsQuery, startLesson } from './lessonApi';
 import { LessonPlayer } from './LessonPlayer';
 
 const copy = LESSON_COPY.failure;
@@ -33,13 +34,17 @@ export function LessonPage() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const lesson = useQuery(lessonQuery(unitId));
+  const lexicon = useQuery(standardFormsQuery);
+  // Without the lexicon the pre-check misses Standard forms, but the backend's verdict still has them.
+  const lexiconSettled = lexicon.data !== undefined || lexicon.isError;
 
   const backToPath = () => void navigate('/', { replace: true });
 
-  if (lesson.data) {
+  if (lesson.data && lexiconSettled) {
     return (
       <LessonPlayer
         lesson={lesson.data}
+        lexicon={lexicon.data ?? EMPTY_LEXICON}
         onQuit={backToPath}
         onFinish={() => {
           // The top bar shows the new XP total, the path the completed lesson.
