@@ -197,12 +197,27 @@
       },
       "Checkpoint": {
         "properties": {
+          "exerciseCount": {
+            "description": "The exercises the checkpoint will have: 15, or all exercises of the stage if it has fewer",
+            "example": 15,
+            "format": "int32",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "requiredAccuracy": {
+            "description": "The share of first answers that must be correct to pass",
+            "example": 0.8,
+            "format": "double",
+            "type": "number"
+          },
           "status": {
             "$ref": "#/components/schemas/CheckpointStatus",
-            "description": "available once every unit of the stage that has exercises is completed or skipped; start it with POST /api/checkpoints"
+            "description": "available once every curriculum unit of the stage that has exercises is completed or skipped; start it with POST /api/checkpoints"
           }
         },
         "required": [
+          "exerciseCount",
+          "requiredAccuracy",
           "status"
         ],
         "type": "object"
@@ -1348,7 +1363,7 @@
             "type": "integer"
           },
           "focus": {
-            "description": "A focus unit for a weak skill tag",
+            "description": "A focus unit for a weak skill tag: optional extra practice that can be played at once and holds back neither later units nor the checkpoint",
             "type": "boolean"
           },
           "hasContent": {
@@ -1370,7 +1385,7 @@
           },
           "status": {
             "$ref": "#/components/schemas/PlanUnitStatus",
-            "description": "Live status: in_progress is the first unit that is neither completed nor skipped and has exercises"
+            "description": "Live status: in_progress is the first curriculum unit that is neither completed nor skipped and has exercises; a focus unit is never in_progress"
           },
           "title": {
             "type": "string"

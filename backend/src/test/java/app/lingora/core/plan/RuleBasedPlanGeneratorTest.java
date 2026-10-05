@@ -28,6 +28,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -371,7 +372,38 @@ class RuleBasedPlanGeneratorTest {
             LearningPlan revised = revise(withUnits(live, Level.A1_3, foreign));
 
             assertThat(unit(revised, "focus_vocab.home_3")).isEqualTo(foreign);
-            assertThat(unitIds(revised)).startsWith("a1_food", "a1_home", "focus_vocab.home_3");
+            assertThat(unitIds(revised)).containsExactly("a1_food", "a1_home", "a1_infinitive", "a1_review",
+                    "focus_vocab.home_3", "a2_past", "b1_opinions");
+        }
+
+        @Test
+        void anOpenFocusUnitStaysAfterTheUnitItWasInsertedForWhileTheLearnerMovesOn() {
+            LearningPlan withFocus = revise(live, new SkillTagErrorRate(INFINITIVE, 10, 8));
+            LearningPlan movedOn = withStatuses(withFocus,
+                    Map.of("a1_home", PlanUnitStatus.COMPLETED, "a1_infinitive", PlanUnitStatus.IN_PROGRESS));
+
+            LearningPlan revised = revise(movedOn, new SkillTagErrorRate(PAST, 10, 9));
+
+            assertThat(unitIds(revised)).containsExactly("a1_food", "a1_home", "focus_grammar.infinitive_1", "a1_infinitive",
+                    "focus_grammar.past_1", "a1_review", "a2_past", "b1_opinions");
+        }
+
+        @Test
+        void anOpenFocusUnitMovesToTheStartOfTheFirstStageAfterALevelUpAndStaysThere() {
+            LearningPlan withFocus = revise(live, new SkillTagErrorRate(INFINITIVE, 10, 8));
+            LearningPlan stageDone = withStatuses(withFocus, Map.of("a1_home", PlanUnitStatus.COMPLETED));
+
+            LearningPlan levelledUp = generator.revise(stageDone, learner(Level.A1_3, 10), noMastery(), List.of(), List.of());
+            LearningPlan later = generator.revise(withStatuses(levelledUp, Map.of("a1_infinitive", PlanUnitStatus.IN_PROGRESS)),
+                    learner(Level.A1_3, 10), noMastery(), List.of(), List.of());
+
+            assertThat(unitIds(levelledUp)).containsExactly("focus_grammar.infinitive_1", "a1_infinitive", "a1_review",
+                    "a2_past", "b1_opinions");
+            assertThat(unitIds(later)).isEqualTo(unitIds(levelledUp));
+            LearningPlan progress = PlanProgress.apply(levelledUp, Map.of(), Set.of("focus_grammar.infinitive_1", "a1_infinitive"));
+            assertThat(unit(progress, "focus_grammar.infinitive_1").status()).isEqualTo(PlanUnitStatus.PLANNED);
+            assertThat(unit(progress, "a1_infinitive").status()).as("the focus unit holds nothing back")
+                    .isEqualTo(PlanUnitStatus.IN_PROGRESS);
         }
     }
 }

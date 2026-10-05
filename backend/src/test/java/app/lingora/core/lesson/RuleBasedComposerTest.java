@@ -32,6 +32,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class RuleBasedComposerTest {
 
@@ -315,6 +317,17 @@ class RuleBasedComposerTest {
             Stage stage = new Stage(Level.A1_1, "Erste Gespräche", List.of(unit("a1_greetings", exercises("a1_greetings", 3, 1, 0))));
 
             assertThat(composer(9).composeCheckpoint(stage, firstLesson())).hasSize(4);
+        }
+
+        @ParameterizedTest
+        @CsvSource({"0, 0", "4, 4", "15, 15", "16, 15", "300, 15"})
+        void knowTheirLengthFromTheExercisesOfTheStage(int stageExercises, int length) {
+            Stage stage = new Stage(Level.A1_1, "Erste Gespräche", List.of(
+                    unit("a1_greetings", exercises("a1_greetings", stageExercises / 2, 0, 0)),
+                    unit("a1_family", exercises("a1_family", 0, stageExercises - stageExercises / 2, 0))));
+
+            assertThat(composer(9).checkpointLength(stageExercises)).isEqualTo(length);
+            assertThat(composer(9).composeCheckpoint(stage, firstLesson())).hasSize(length);
         }
     }
 

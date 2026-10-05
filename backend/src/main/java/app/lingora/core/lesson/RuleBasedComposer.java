@@ -93,6 +93,11 @@ public final class RuleBasedComposer implements LessonComposer {
         return LessonOrder.byRisingDifficulty(picked);
     }
 
+    @Override
+    public int checkpointLength(int stageExercises) {
+        return Math.min(CHECKPOINT_SIZE, stageExercises);
+    }
+
     private List<Exercise> reviews(LessonContext context, Level maxLevel, int count) {
         List<String> dueItems = context.dueCards().stream().map(SrsCard::itemId).toList();
         if (dueItems.isEmpty()) {

@@ -26,6 +26,8 @@ import tools.jackson.databind.JsonNode;
  */
 class CheckpointApiTest extends IntegrationTest {
 
+    private static final String VOCAB_FOCUS = "focus_vocab.a0_1";
+
     @Autowired
     private ContentSeeder seeder;
 
@@ -53,6 +55,36 @@ class CheckpointApiTest extends IntegrationTest {
         completeUnit(SyntheticContent.wordsUnit(Level.A0));
 
         assertThat(checkpointStatuses()).containsEntry("A0", "available").containsEntry("A1.1", "locked");
+    }
+
+    @Test
+    void thePathTellsHowManyExercisesACheckpointHasAndTheAccuracyToPassIt() {
+        JsonNode stages = PlacementDriver.body(learner.get("/api/path")).get("stages");
+
+        assertThat(stages.get(0).get("level").asString()).isEqualTo("A0");
+        assertThat(stages.get(0).get("checkpoint")).as("all three exercises of A0").isEqualTo(PlacementDriver.JSON.readTree("""
+                {"status": "locked", "exerciseCount": 3, "requiredAccuracy": 0.8}"""));
+        assertThat(stages.get(2).get("level").asString()).isEqualTo("A1.2");
+        assertThat(stages.get(2).get("checkpoint").get("exerciseCount").asInt()).as("no exercises yet").isZero();
+    }
+
+    @Test
+    void anOpenFocusUnitHoldsBackNeitherTheNextUnitNorTheCheckpointAndStaysOpenAfterTheLevelUp() {
+        JsonNode wrong = play(PlacementDriver.body(learner.post("/api/lessons", """
+                {"unitId": "a0_words"}""")), "nein");
+        assertThat(wrong.get("focusSuggestion").get("unitId").asString()).isEqualTo(VOCAB_FOCUS);
+        completeUnit(SyntheticContent.wordsUnit(Level.A0));
+
+        assertThat(unitStatuses()).containsSequence(Map.entry("a0_words", "completed"), Map.entry(VOCAB_FOCUS, "planned"),
+                Map.entry("a0_grammar", "planned"), Map.entry("a1_1_words", "in_progress"));
+        assertThat(checkpointStatuses()).containsEntry("A0", "available");
+
+        play(PlacementDriver.body(startCheckpoint("A0")), "ja");
+
+        assertThat(unitStatuses()).startsWith(Map.entry(VOCAB_FOCUS, "planned"), Map.entry("a1_1_words", "in_progress"),
+                Map.entry("a1_1_grammar", "planned"));
+        JsonNode focus = PlacementDriver.body(learner.get("/api/path")).get("stages").get(0).get("units").get(0);
+        assertThat(focus.get("hasContent").asBoolean()).as("still playable on A1.1").isTrue();
     }
 
     @Test
@@ -185,6 +217,15 @@ class CheckpointApiTest extends IntegrationTest {
         assertThat(learner.put("/api/onboarding", """
                 {"motivations": ["family"], "dailyGoalMinutes": %d, "selfAssessment": "nothing"}""".formatted(minutes)))
                 .hasStatusOk();
+    }
+
+    /** The units of the path in path order with their status. */
+    private List<Map.Entry<String, String>> unitStatuses() {
+        JsonNode path = PlacementDriver.body(learner.get("/api/path"));
+        return StreamSupport.stream(path.get("stages").spliterator(), false)
+                .flatMap(stage -> StreamSupport.stream(stage.get("units").spliterator(), false))
+                .map(unit -> Map.entry(unit.get("unitId").asString(), unit.get("status").asString()))
+                .toList();
     }
 
     private Map<String, String> checkpointStatuses() {

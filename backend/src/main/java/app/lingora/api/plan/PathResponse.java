@@ -29,9 +29,15 @@ public record PathResponse(
     }
 
     public record Checkpoint(
-            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "available once every unit of the stage "
-                    + "that has exercises is completed or skipped; start it with POST /api/checkpoints")
-            CheckpointStatus status) {
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "available once every curriculum unit of "
+                    + "the stage that has exercises is completed or skipped; start it with POST /api/checkpoints")
+            CheckpointStatus status,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, minimum = "0", example = "15", description = "The "
+                    + "exercises the checkpoint will have: 15, or all exercises of the stage if it has fewer")
+            int exerciseCount,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "0.8", description = "The share of first "
+                    + "answers that must be correct to pass")
+            double requiredAccuracy) {
     }
 
     @Schema(description = "A node group of the path: a curriculum unit or an inserted focus unit")
@@ -42,8 +48,11 @@ public record PathResponse(
             @Schema(description = "Banner colour; absent for focus units") UnitColor color,
             @Schema(description = "Free icon key; \"target\" for focus units") String icon,
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Live status: in_progress is the first "
-                    + "unit that is neither completed nor skipped and has exercises") PlanUnitStatus status,
-            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "A focus unit for a weak skill tag")
+                    + "curriculum unit that is neither completed nor skipped and has exercises; a focus unit is never "
+                    + "in_progress") PlanUnitStatus status,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "A focus unit for a weak skill tag: "
+                    + "optional extra practice that can be played at once and holds back neither later units nor the "
+                    + "checkpoint")
             boolean focus,
             @Schema(description = "Why the plan skipped, shortened or inserted the unit, in German") String reason,
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int estimatedLessons,

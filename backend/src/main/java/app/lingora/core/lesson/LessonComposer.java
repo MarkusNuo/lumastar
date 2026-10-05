@@ -23,4 +23,7 @@ public interface LessonComposer {
 
     /** The checkpoint at the end of a stage (PRD chapter 5); {@code stage} holds its units with their exercises. */
     List<Exercise> composeCheckpoint(Stage stage, LessonContext context);
+
+    /** The number of exercises {@link #composeCheckpoint} takes from a stage with {@code stageExercises} exercises. */
+    int checkpointLength(int stageExercises);
 }

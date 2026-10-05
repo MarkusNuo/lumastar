@@ -9,6 +9,7 @@ import app.lingora.SpaClient;
 import app.lingora.SyntheticContent;
 import app.lingora.content.ContentSeeder;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.StreamSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -93,6 +94,23 @@ class PracticeLessonApiTest extends IntegrationTest {
             "{\"kind\": \"review\", \"unitId\": \"a0_words\"}"})
     void rejectsRequestsThatMixUpLessonAndPractice(String request) {
         assertThat(learner.post("/api/lessons", request)).hasStatus(HttpStatus.BAD_REQUEST);
+    }
+
+    @Test
+    void reportsAMissingOrMisplacedUnitOrSkillTagOnItsField() {
+        assertFieldErrors("{\"kind\": \"practice\", \"unitId\": \"a0_words\"}", List.of(
+                Map.of("field", "skillTag", "message", "is required for a practice lesson"),
+                Map.of("field", "unitId", "message", "must be absent for a practice lesson")));
+        assertFieldErrors("{\"skillTag\": \"vocab.a0\"}", List.of(
+                Map.of("field", "skillTag", "message", "must be absent for a lesson"),
+                Map.of("field", "unitId", "message", "is required for a lesson")));
+    }
+
+    private void assertFieldErrors(String request, List<Map<String, String>> errors) {
+        MvcTestResult rejected = learner.post("/api/lessons", request);
+
+        assertThat(rejected).hasStatus(HttpStatus.BAD_REQUEST).bodyJson().extractingPath("$.code").isEqualTo("validation_failed");
+        assertThat(rejected).bodyJson().extractingPath("$.errors").isEqualTo(errors);
     }
 
     @Test

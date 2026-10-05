@@ -5,6 +5,7 @@ import static app.lingora.core.plan.PlanFixtures.learner;
 import static app.lingora.core.plan.PlanFixtures.mastery;
 import static app.lingora.core.plan.PlanFixtures.noMastery;
 import static app.lingora.core.plan.PlanFixtures.withStatuses;
+import static app.lingora.core.plan.PlanFixtures.withUnits;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import app.lingora.domain.LearningPlan;
@@ -17,6 +18,9 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 class PlanProgressTest {
+
+    private static final PlanUnit FOCUS = new PlanUnit("focus_vocab.food_1", "Fokus: Essen", PlanUnitStatus.PLANNED, 1,
+            "Fehlerquote 50 % bei Essen");
 
     private final LearningPlan plan = PlanFixtures.generator().generate(learner(Level.A1_2, 10), noMastery());
 
@@ -72,5 +76,26 @@ class PlanProgressTest {
                 .containsEntry("a1_home", PlanUnitStatus.PLANNED)
                 .containsEntry("a1_infinitive", PlanUnitStatus.IN_PROGRESS);
         assertThat(live.estimates()).isEqualTo(stored.estimates());
+    }
+
+    @Test
+    void aFocusUnitIsNeverInProgressSoItHoldsBackNoUnitAfterIt() {
+        LearningPlan withFocus = withUnits(withStatuses(plan, Map.of("a1_food", PlanUnitStatus.COMPLETED,
+                "a1_home", PlanUnitStatus.COMPLETED)), Level.A1_2, FOCUS);
+
+        LearningPlan live = PlanProgress.apply(withFocus, Map.of(), Set.of(FOCUS.unitId(), "a1_infinitive"));
+
+        assertThat(statuses(live)).containsEntry(FOCUS.unitId(), PlanUnitStatus.PLANNED)
+                .containsEntry("a1_infinitive", PlanUnitStatus.IN_PROGRESS);
+    }
+
+    @Test
+    void aFocusUnitIsCompletedByItsLesson() {
+        LearningPlan withFocus = withUnits(plan, Level.A1_2, FOCUS);
+
+        LearningPlan live = PlanProgress.apply(withFocus, Map.of(FOCUS.unitId(), 1), Set.of(FOCUS.unitId(), "a1_food"));
+
+        assertThat(statuses(live)).containsEntry(FOCUS.unitId(), PlanUnitStatus.COMPLETED)
+                .containsEntry("a1_food", PlanUnitStatus.IN_PROGRESS);
     }
 }

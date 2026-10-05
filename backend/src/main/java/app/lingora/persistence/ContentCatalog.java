@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,15 +29,17 @@ public class ContentCatalog implements ExerciseBank {
     private final ExerciseRepository exercises;
     private final SkillTagRepository skillTags;
     private final ExercisePayloadCodec payloadCodec;
+    private final JdbcClient jdbc;
 
     public ContentCatalog(StageRepository stages, UnitRepository units, ItemRepository items, ExerciseRepository exercises,
-                          SkillTagRepository skillTags, ExercisePayloadCodec payloadCodec) {
+                          SkillTagRepository skillTags, ExercisePayloadCodec payloadCodec, JdbcClient jdbc) {
         this.stages = stages;
         this.units = units;
         this.items = items;
         this.exercises = exercises;
         this.skillTags = skillTags;
         this.payloadCodec = payloadCodec;
+        this.jdbc = jdbc;
     }
 
     /** An active unit with its active items and lesson exercises; a unit without exercises is a skeleton. */
@@ -101,6 +104,19 @@ public class ContentCatalog implements ExerciseBank {
     @Transactional(readOnly = true)
     public Set<SkillTag> lessonSkillTags(Level maxLevel) {
         return exercises.findLessonSkillTags(levelsUpTo(maxLevel)).stream().map(SkillTag::of).collect(Collectors.toSet());
+    }
+
+    /** Per active unit, the number of its active lesson exercises; units without any are missing. */
+    @Transactional(readOnly = true)
+    public Map<String, Integer> lessonExerciseCountsByUnit() {
+        return jdbc.sql("""
+                        SELECT e.unit_id, count(*) AS exercises FROM exercises e
+                        JOIN content_units u ON u.id = e.unit_id AND u.retired_at IS NULL
+                        WHERE e.pool = 'lesson' AND e.owner_user_id IS NULL AND e.retired_at IS NULL
+                        GROUP BY e.unit_id""")
+                .query((row, rowNumber) -> Map.entry(row.getString("unit_id"), row.getInt("exercises")))
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
     private static String[] levelsUpTo(Level maxLevel) {

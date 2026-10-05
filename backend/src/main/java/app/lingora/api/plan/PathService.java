@@ -4,11 +4,15 @@ import app.lingora.api.error.ApiProblemException;
 import app.lingora.api.plan.PathResponse.Checkpoint;
 import app.lingora.api.plan.PathResponse.PathStage;
 import app.lingora.api.plan.PathResponse.PathUnit;
+import app.lingora.core.lesson.LessonComposer;
+import app.lingora.core.plan.CheckpointRule;
 import app.lingora.core.plan.PlanProgress;
 import app.lingora.domain.CheckpointStatus;
 import app.lingora.domain.LearningPlan;
+import app.lingora.domain.LearningPlan.PlanStage;
 import app.lingora.domain.LearningPlan.PlanUnit;
 import app.lingora.domain.Level;
+import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LearningPlanStore.StoredPlan;
 import app.lingora.persistence.LivePlans;
@@ -40,15 +44,19 @@ class PathService {
     private final StageRepository stages;
     private final UnitRepository units;
     private final CheckpointStatuses checkpoints;
+    private final ContentCatalog catalog;
+    private final LessonComposer composer;
 
     PathService(UserRepository users, LearningPlanStore plans, LivePlans livePlans, StageRepository stages,
-                UnitRepository units, CheckpointStatuses checkpoints) {
+                UnitRepository units, CheckpointStatuses checkpoints, ContentCatalog catalog, LessonComposer composer) {
         this.users = users;
         this.plans = plans;
         this.livePlans = livePlans;
         this.stages = stages;
         this.units = units;
         this.checkpoints = checkpoints;
+        this.catalog = catalog;
+        this.composer = composer;
     }
 
     @Transactional(readOnly = true)
@@ -71,13 +79,23 @@ class PathService {
                 .collect(Collectors.toMap(UnitEntity::getId, Function.identity()));
         Map<Level, String> titles = stageTitles();
         Map<Level, CheckpointStatus> checkpointStatuses = checkpoints.of(userId, live);
+        Map<String, Integer> exercisesByUnit = catalog.lessonExerciseCountsByUnit();
         return new PathResponse(learner.getCurrentLevel(), TARGET_LEVEL, learner.getDailyGoalMinutes(),
                 PlanResponse.estimates(live.estimates()),
                 live.stages().stream()
                         .map(stage -> new PathStage(stage.level(), titles.getOrDefault(stage.level(), stage.level().code()),
-                                new Checkpoint(checkpointStatuses.get(stage.level())),
+                                checkpoint(stage, checkpointStatuses.get(stage.level()), exercisesByUnit),
                                 stage.units().stream().map(unit -> pathUnit(unit, unitsById.get(unit.unitId()), progress)).toList()))
                         .toList());
+    }
+
+    /** The checkpoint is made of the exercises of the stage's curriculum units, see {@link LessonComposer}. */
+    private Checkpoint checkpoint(PlanStage stage, CheckpointStatus status, Map<String, Integer> exercisesByUnit) {
+        int stageExercises = stage.units().stream()
+                .filter(unit -> !unit.isFocus())
+                .mapToInt(unit -> exercisesByUnit.getOrDefault(unit.unitId(), 0))
+                .sum();
+        return new Checkpoint(status, composer.checkpointLength(stageExercises), CheckpointRule.PASS_ACCURACY);
     }
 
     private static PathUnit pathUnit(PlanUnit unit, UnitEntity content, LivePlans.Progress progress) {

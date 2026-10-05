@@ -4,11 +4,13 @@ import app.lingora.domain.FocusUnitId;
 import app.lingora.domain.LearningPlan;
 import app.lingora.domain.LearningPlan.PlanStage;
 import app.lingora.domain.LearningPlan.PlanUnit;
+import app.lingora.domain.Level;
 import app.lingora.domain.PlanUnitStatus;
 import app.lingora.domain.SkillTag;
 import app.lingora.domain.SkillTagErrorRate;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +22,12 @@ import java.util.stream.Collectors;
  * error rate of at least 40 %. At most {@value #MAX_OPEN} focus units are open at once: open focus units of the
  * previous plan stay, tags a lesson asked a focus unit for (PRD F7) come next, and the weakest tags without one fill
  * the remaining places. A new focus unit of a tag gets the next number after the tag's focus units in the previous
- * plan. All open focus units go right after the unit in progress, or before the first planned unit if none is in
- * progress; completed focus units leave the plan.
+ * plan. Completed focus units leave the plan.
+ * <p>
+ * Focus units are optional extras (see {@link PlanProgress}) that keep their place: right after the curriculum unit
+ * they were inserted for, or at the start of the stage once that unit lies in an earlier stage, i.e. at the start of
+ * the first stage after a level-up. A new focus unit is inserted for the unit in progress, or before the first planned
+ * unit if none is in progress, or at the very end if everything is done. Focus units at one place keep their order.
  */
 final class FocusPlanner {
 
@@ -52,7 +58,7 @@ final class FocusPlanner {
     List<PlanStage> insert(List<PlanStage> stages, LearningPlan previous, List<SkillTagErrorRate> errorRates,
                            List<FocusRequest> focusRequests) {
         List<PlanUnit> focusUnits = focusUnits(previous, focusRequests, weakTags(errorRates));
-        return focusUnits.isEmpty() ? stages : insertAtCurrentUnit(stages, focusUnits);
+        return focusUnits.isEmpty() || stages.isEmpty() ? stages : insertAtTheirPlaces(stages, previous, focusUnits);
     }
 
     private static Map<SkillTag, SkillTagErrorRate> weakTags(List<SkillTagErrorRate> errorRates) {
@@ -111,40 +117,93 @@ final class FocusPlanner {
                 .orElse(0) + 1;
     }
 
-    private static List<PlanStage> insertAtCurrentUnit(List<PlanStage> stages, List<PlanUnit> focusUnits) {
-        if (stages.isEmpty()) {
-            return stages;
+    /** Right after the curriculum unit {@code after} of the stage, or at the start of the stage if it is null. */
+    private record Place(Level stage, String after) {
+    }
+
+    /** A kept focus unit goes to its place in the previous plan, a new one to the current place. */
+    private static List<PlanStage> insertAtTheirPlaces(List<PlanStage> stages, LearningPlan previous,
+                                                       List<PlanUnit> focusUnits) {
+        Map<String, Place> previousPlaces = focusPlaces(previous);
+        Place current = currentPlace(stages);
+        List<List<PlanUnit>> units = new ArrayList<>();
+        stages.forEach(stage -> units.add(new ArrayList<>(stage.units())));
+        for (PlanUnit focus : focusUnits) {
+            Place place = previousPlaces.getOrDefault(focus.unitId(), current);
+            int stage = indexOfStage(stages, place.stage());
+            int index = 0;
+            if (stage < 0) {
+                stage = 0;
+            } else {
+                index = indexOfUnit(units.get(stage), place.after()) + 1;
+            }
+            List<PlanUnit> stageUnits = units.get(stage);
+            while (index < stageUnits.size() && stageUnits.get(index).isFocus()) {
+                index++;
+            }
+            stageUnits.add(index, focus);
         }
-        Position position = position(stages);
-        List<PlanStage> result = new ArrayList<>(stages);
-        PlanStage stage = stages.get(position.stage());
-        List<PlanUnit> units = new ArrayList<>(stage.units());
-        units.addAll(position.unit(), focusUnits);
-        result.set(position.stage(), new PlanStage(stage.level(), units));
+        List<PlanStage> result = new ArrayList<>();
+        for (int s = 0; s < stages.size(); s++) {
+            result.add(new PlanStage(stages.get(s).level(), units.get(s)));
+        }
         return result;
     }
 
-    private record Position(int stage, int unit) {
+    private static Map<String, Place> focusPlaces(LearningPlan plan) {
+        Map<String, Place> places = new HashMap<>();
+        for (PlanStage stage : plan.stages()) {
+            String after = null;
+            for (PlanUnit unit : stage.units()) {
+                if (unit.isFocus()) {
+                    places.put(unit.unitId(), new Place(stage.level(), after));
+                } else {
+                    after = unit.unitId();
+                }
+            }
+        }
+        return places;
     }
 
-    private static Position position(List<PlanStage> stages) {
-        Position beforeFirstPlanned = null;
-        for (int s = 0; s < stages.size(); s++) {
-            List<PlanUnit> units = stages.get(s).units();
-            for (int u = 0; u < units.size(); u++) {
-                PlanUnitStatus status = units.get(u).status();
-                if (status == PlanUnitStatus.IN_PROGRESS) {
-                    return new Position(s, u + 1);
+    /** After the unit in progress, else before the first planned unit, else at the very end. */
+    private static Place currentPlace(List<PlanStage> stages) {
+        Place beforeFirstPlanned = null;
+        for (PlanStage stage : stages) {
+            String after = null;
+            for (PlanUnit unit : stage.units()) {
+                if (unit.status() == PlanUnitStatus.IN_PROGRESS) {
+                    return new Place(stage.level(), unit.unitId());
                 }
-                if (status == PlanUnitStatus.PLANNED && beforeFirstPlanned == null) {
-                    beforeFirstPlanned = new Position(s, u);
+                if (unit.status() == PlanUnitStatus.PLANNED && beforeFirstPlanned == null) {
+                    beforeFirstPlanned = new Place(stage.level(), after);
                 }
+                after = unit.unitId();
             }
         }
         if (beforeFirstPlanned != null) {
             return beforeFirstPlanned;
         }
-        int last = stages.size() - 1;
-        return new Position(last, stages.get(last).units().size());
+        PlanStage last = stages.getLast();
+        return new Place(last.level(), last.units().isEmpty() ? null : last.units().getLast().unitId());
+    }
+
+    /** -1 if the plan no longer has the stage, e.g. after a level-up. */
+    private static int indexOfStage(List<PlanStage> stages, Level level) {
+        for (int s = 0; s < stages.size(); s++) {
+            if (stages.get(s).level() == level) {
+                return s;
+            }
+        }
+        return -1;
+    }
+
+    /** -1 for {@code null}, the start of the stage, and for a unit the stage no longer has. */
+    private static int indexOfUnit(List<PlanUnit> units, String unitId) {
+        for (int u = 0; u < units.size(); u++) {
+            if (units.get(u).unitId().equals(unitId)) {
+                return u;
+            }
+        }
+        return -1;
     }
 }

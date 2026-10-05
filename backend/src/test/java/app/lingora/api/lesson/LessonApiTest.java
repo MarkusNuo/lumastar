@@ -152,7 +152,8 @@ class LessonApiTest extends IntegrationTest {
                     {"unitId": " "}""");
 
             assertProblem(blank, HttpStatus.BAD_REQUEST, "validation_failed");
-            assertThat(blank).bodyJson().extractingPath("$.errors[*].field").asArray().containsExactly("unitIdFitting");
+            assertThat(blank).bodyJson().extractingPath("$.errors").isEqualTo(List.of(
+                    Map.of("field", "unitId", "message", "is required for a lesson")));
         }
 
         @Test
