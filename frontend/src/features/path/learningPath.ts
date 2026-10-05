@@ -83,7 +83,8 @@ export function buildLearningPath(path: LearningPath): PathStageModel[] {
       checkpoint: toCheckpoint(
         stage,
         path.stages[stageIndex + 1]?.level,
-        units.at(-1)?.color ?? 'violet',
+        // Not the focus colour: an open checkpoint in it would look like a passed, golden one.
+        units.filter((unit) => !unit.focus).at(-1)?.color ?? 'violet',
       ),
     };
   });
@@ -156,29 +157,31 @@ function toCheckpoint(
 }
 
 /**
- * The plan's next lesson may lie in a later stage while the checkpoint of an earlier one is open:
- * then that checkpoint is the next step (it moves the learner up), and the lesson stays playable.
+ * The plan's next lesson may be a focus lesson or lie in a later stage while the checkpoint of an
+ * earlier one is open: then that checkpoint is the next step (it moves the learner up) and the
+ * lesson stays playable. Focus lessons are extra practice, so they never hold a checkpoint back.
  */
 function withCheckpointAsNextStep(stages: PathStageModel[]): PathStageModel[] {
   const open = stages.findIndex((stage) => stage.checkpoint.status === 'available');
   if (open < 0) return stages;
-  const currentStage = stages.findIndex((stage) =>
-    stage.units.some((unit) => unit.nodes.some((node) => node.status === 'current')),
-  );
-  if (currentStage >= 0 && currentStage <= open) return stages;
-  return stages.map((stage, index) => {
-    if (index === open) return { ...stage, checkpoint: { ...stage.checkpoint, status: 'current' } };
-    if (index !== currentStage) return stage;
-    return {
-      ...stage,
-      units: stage.units.map((unit) => ({
-        ...unit,
-        nodes: unit.nodes.map((node) =>
-          node.status === 'current' ? { ...node, status: 'available' } : node,
-        ),
-      })),
-    };
-  });
+  const lessonFirst = stages
+    .slice(0, open + 1)
+    .some((stage) =>
+      stage.units.some(
+        (unit) => !unit.focus && unit.nodes.some((node) => node.status === 'current'),
+      ),
+    );
+  if (lessonFirst) return stages;
+  return stages.map((stage, index) => ({
+    ...stage,
+    checkpoint: index === open ? { ...stage.checkpoint, status: 'current' } : stage.checkpoint,
+    units: stage.units.map((unit) => ({
+      ...unit,
+      nodes: unit.nodes.map((node) =>
+        node.status === 'current' ? { ...node, status: 'available' } : node,
+      ),
+    })),
+  }));
 }
 
 /** Whether any lesson can be started; above A2 the exercises are still being written. */

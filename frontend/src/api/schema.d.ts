@@ -162,8 +162,8 @@ export interface paths {
         get?: never;
         put?: never;
         /**
-         * Compose and start a lesson of a unit
-         * @description The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level.
+         * Compose and start a lesson of a unit or a practice lesson
+         * @description The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level, and so is a practice lesson (kind practice, PRD F10 "Gezielt üben").
          */
         post: operations["startLesson"];
         delete?: never;
@@ -203,7 +203,7 @@ export interface paths {
         put?: never;
         /**
          * Finish the lesson and award its XP
-         * @description Idempotent: completing a finished lesson again returns the same result without awarding XP twice.
+         * @description Idempotent: completing a finished lesson again returns the same result without awarding XP twice. The result reports the daily goal of the lesson's day and the streak (PRD F9); dailyGoal.justMet marks the lesson that met the goal and extended the streak.
          */
         post: operations["completeLesson"];
         delete?: never;
@@ -483,6 +483,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/progress/today": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Today's minutes towards the daily goal, XP, lessons and the streak
+         * @description For the daily goal ring and the streak flame of the top bar (PRD 12.3).
+         */
+        get: operations["getTodayProgress"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/review/lessons": {
         parameters: {
             query?: never;
@@ -512,6 +532,47 @@ export interface paths {
         };
         /** Items due for review now and tomorrow */
         get: operations["getReviewSummary"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/settings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** The learner's settings */
+        get: operations["getSettings"];
+        /**
+         * Change the settings
+         * @description A changed daily goal recalculates the time estimates of the plan, logged in the plan history ("Tagesziel geändert: 10 → 15 Min. pro Tag"). A lower goal or another time zone may meet today's goal and extend the streak.
+         */
+        put: operations["updateSettings"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/stats": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Level progress, mastery per area, top errors, heatmap and FSRS forecast
+         * @description The statistics screen of PRD F10. Every top error carries the request body of its practice lesson ("Gezielt üben") for POST /api/lessons.
+         */
+        get: operations["getStats"];
         put?: never;
         post?: never;
         delete?: never;
@@ -597,6 +658,11 @@ export interface components {
             skillMastery: number;
             /** Format: int32 */
             srsCards: number;
+            /**
+             * Format: int32
+             * @description Days that counted for the streak
+             */
+            streakDays: number;
             /** Format: int32 */
             streaks: number;
         };
@@ -661,6 +727,57 @@ export interface components {
             skillTags: string[];
             title: string;
         };
+        /** @description Today's progress towards the daily goal and the streak (PRD F9); days are dates in the learner's time zone */
+        DailyProgressResponse: {
+            /**
+             * Format: date
+             * @description Today in the learner's time zone
+             */
+            date: string;
+            /** @description minutesToday ≥ goalMinutes */
+            goalMet: boolean;
+            /**
+             * Format: int32
+             * @description 5, 10, 15 or 20
+             */
+            goalMinutes: number;
+            /**
+             * Format: int32
+             * @description Lessons of every kind completed today
+             */
+            lessonsToday: number;
+            /**
+             * Format: int32
+             * @description Whole minutes practised today: completed lessons of every kind and placement tests, each counted with at most 30 minutes
+             */
+            minutesToday: number;
+            streak: components["schemas"]["StreakResponse"];
+            /** Format: int32 */
+            xpToday: number;
+        };
+        DueDay: {
+            /** Format: date */
+            date: string;
+            /** Format: int32 */
+            due: number;
+        };
+        /** @description FSRS forecast (PRD F10 "morgen fällig: 34 Items") */
+        DueForecast: {
+            /** @description The next 7 days from today, one entry per day; today includes the overdue cards */
+            days: components["schemas"]["DueDay"][];
+            /**
+             * Format: int32
+             * @description Cards due now, overdue ones included
+             */
+            dueNow: number;
+            /**
+             * Format: int32
+             * @description Cards due by the end of today, overdue ones included
+             */
+            dueToday: number;
+            /** Format: int32 */
+            dueTomorrow: number;
+        };
         /** @enum {string} */
         ErrorCategory: "vocab.unknown" | "vocab.confused" | "spelling.diacritics" | "spelling.nasal_vowel" | "spelling.other" | "variant.standard_form" | "grammar.definite_article" | "grammar.case" | "grammar.linking_article" | "grammar.gender" | "grammar.infinitive" | "grammar.participle" | "grammar.verb_conjugation" | "grammar.verb_tense" | "grammar.word_order" | "grammar.clitics";
         /** @description A typical wrong answer: pattern is a regular expression matched case-insensitively (Unicode) against the normalised answer, diacritics kept (docs/CONTENT_FORMAT.md points 1–3) */
@@ -690,6 +807,33 @@ export interface components {
             /** @example focus_grammar.case_1 */
             unitId: string;
         };
+        FrequentError: {
+            /**
+             * Format: int32
+             * @description First answers
+             */
+            attempts: number;
+            /** @description The error category the wrong answers were logged with most often; absent if none */
+            category?: components["schemas"]["ErrorCategory"];
+            /** @description German label of the category; absent with it */
+            categoryLabel?: string;
+            /**
+             * Format: double
+             * @description errors / attempts, 0 to 1
+             */
+            errorRate: number;
+            /**
+             * Format: int32
+             * @description Wrong first answers
+             */
+            errors: number;
+            /** @description German label of the skill tag */
+            label: string;
+            /** @description The body of POST /api/lessons for a practice lesson on the tag ("Gezielt üben"); absent if no exercise at or below the learner's level carries it */
+            practice?: components["schemas"]["PracticeTarget"];
+            /** @example grammar.case */
+            skillTag: string;
+        };
         /** @description suffix: the word before the match + value must begin the Gheg word (which may carry an inflection ending: punuar → punue, punuem, punuemi). prefix: value + the word after the match must equal the Gheg word, also with a j between them if the rest begins with a vowel (shtëpia → shpija). word: value must equal the Gheg word. */
         GhegReplacement: {
             kind: components["schemas"]["GhegReplacementKind"];
@@ -697,6 +841,34 @@ export interface components {
         };
         /** @enum {string} */
         GhegReplacementKind: "suffix" | "prefix" | "word";
+        /** @description The last 365 days, one entry per day from the oldest to today */
+        Heatmap: {
+            days: components["schemas"]["HeatmapDay"][];
+            /** Format: date */
+            from: string;
+            /**
+             * Format: date
+             * @description Today
+             */
+            to: string;
+        };
+        HeatmapDay: {
+            /** Format: date */
+            date: string;
+            /** @description A missed day bridged by the streak freeze */
+            frozen: boolean;
+            /** @description The daily goal of that day was met */
+            goalMet: boolean;
+            /** Format: int32 */
+            lessons: number;
+            /**
+             * Format: int32
+             * @description Whole minutes practised
+             */
+            minutes: number;
+            /** Format: int32 */
+            xp: number;
+        };
         ImportResult: {
             /**
              * Format: date-time
@@ -716,6 +888,16 @@ export interface components {
             id: string;
             /** @description Its FSRS card is in the review state, so the item counts as learned */
             known: boolean;
+        };
+        /** @description The daily goal on the day of the lesson, up to and including the lesson (PRD F9) */
+        LessonDailyGoal: {
+            goalMet: boolean;
+            /** Format: int32 */
+            goalMinutes: number;
+            /** @description This lesson met the goal of its day and so extended the streak; time to celebrate */
+            justMet: boolean;
+            /** Format: int32 */
+            minutesToday: number;
         };
         LessonExercise: {
             /** @description Language of the answer; all types except multiple_choice and match_pairs */
@@ -753,17 +935,17 @@ export interface components {
             wordBank?: string[];
         };
         /**
-         * @description lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8) or checkpoint at the end of a stage (PRD chapter 5)
+         * @description lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8), checkpoint at the end of a stage (PRD chapter 5) or practice lesson on a chosen skill tag (PRD F10)
          * @enum {string}
          */
-        LessonKind: "lesson" | "focus" | "review" | "checkpoint";
+        LessonKind: "lesson" | "focus" | "review" | "checkpoint" | "practice";
         /** @description A started lesson; its exercises are in the order they are played */
         LessonResponse: {
             exercises: components["schemas"]["LessonExercise"][];
             kind: components["schemas"]["LessonKind"];
             /** Format: uuid */
             sessionId: string;
-            /** @description The unit or focus unit played; review for a review lesson, checkpoint_<level> (e.g. checkpoint_A1.2) for a checkpoint */
+            /** @description The unit or focus unit played; review for a review lesson, checkpoint_<level> (e.g. checkpoint_A1.2) for a checkpoint, practice_<skill tag> (e.g. practice_grammar.case) for a practice lesson */
             unitId: string;
         };
         /** @description Result of a finished lesson; completing it again returns the same result */
@@ -780,6 +962,7 @@ export interface components {
              * @description Exercises answered correctly at the first attempt
              */
             correctCount: number;
+            dailyGoal: components["schemas"]["LessonDailyGoal"];
             /**
              * Format: int64
              * @description From the lesson start to its completion
@@ -797,6 +980,7 @@ export interface components {
              * @description Learned words of the learner: words and phrases whose FSRS card is in the review state (PRD F10)
              */
             learnedWordsTotal: number;
+            streak: components["schemas"]["LessonStreak"];
             xpBreakdown: components["schemas"]["XpBreakdown"];
             /** Format: int32 */
             xpEarned: number;
@@ -806,12 +990,59 @@ export interface components {
              */
             xpTotal: number;
         };
+        /** @description The streak after the lesson (PRD F9) */
+        LessonStreak: {
+            /** Format: int32 */
+            current: number;
+            /** @description Today's goal is met and has extended the streak */
+            extendedToday: boolean;
+            /** @description This lesson extended the streak over the missed day before, which the weekly streak freeze bridged */
+            freezeUsed: boolean;
+        };
         /** @enum {string} */
         Level: "A0" | "A1.1" | "A1.2" | "A1.3" | "A2.1" | "A2.2" | "A2.3" | "B1.1" | "B1.2" | "B1.3" | "B2.1" | "B2.2" | "B2.3" | "C1.1" | "C1.2" | "C1.3" | "C2.1" | "C2.2" | "C2.3";
         /** @enum {string} */
         LevelBadge: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+        /** @description The learner's stage and the progress towards its checkpoint, which leads to the next stage */
+        LevelProgress: {
+            checkpoint: components["schemas"]["CheckpointStatus"];
+            level: components["schemas"]["Level"];
+            /** @description The stage a passed checkpoint leads to; absent at C2.3 */
+            nextLevel?: components["schemas"]["Level"];
+            /**
+             * Format: int32
+             * @description Completed and skipped units of the total, 0 to 100, rounded down
+             */
+            percent: number;
+            /** @description German title of the stage */
+            title: string;
+            /** Format: int32 */
+            unitsCompleted: number;
+            /** Format: int32 */
+            unitsSkipped: number;
+            /**
+             * Format: int32
+             * @description Units of the stage with exercises; focus units do not count
+             */
+            unitsTotal: number;
+        };
         LoginRequest: {
             password: string;
+        };
+        MasteryArea: {
+            area: components["schemas"]["SkillArea"];
+            /** @example Wortschatz */
+            label: string;
+            /**
+             * Format: double
+             * @description Average effective mastery of these tags, 0 to 1; absent without tags
+             */
+            mastery?: number;
+            /**
+             * Format: int32
+             * @description Skill tags of the area with a mastery value, practised or estimated by the placement test
+             */
+            skillTags: number;
         };
         /** @enum {string} */
         Motivation: "family" | "travel" | "work" | "heritage" | "interest";
@@ -1012,6 +1243,10 @@ export interface components {
         };
         /** @enum {string} */
         PlanUnitStatus: "planned" | "in_progress" | "completed" | "skipped";
+        PracticeTarget: {
+            kind: components["schemas"]["StartLessonKind"];
+            skillTag: string;
+        };
         /** @description RFC 9457 problem details */
         ProblemDetail: {
             /** @description Stable, machine-readable error code, e.g. invalid_credentials */
@@ -1092,6 +1327,44 @@ export interface components {
             startLevel: components["schemas"]["Level"];
             value: components["schemas"]["SelfAssessment"];
         };
+        /** @description All settings at once; a changed daily goal recalculates the plan's time estimates */
+        SettingsRequest: {
+            /**
+             * Format: int32
+             * @description 5, 10, 15 or 20
+             */
+            dailyGoalMinutes: number;
+            /**
+             * Format: double
+             * @description Target retention of the FSRS reviews (PRD F8)
+             * @example 0.9
+             */
+            requestRetention: number;
+            /**
+             * @description IANA time zone
+             * @example Europe/Zurich
+             */
+            timeZone: string;
+        };
+        /** @description The learner's settings; sounds and vibration are per-device preferences of the app */
+        SettingsResponse: {
+            /**
+             * Format: int32
+             * @description 5, 10, 15 or 20
+             */
+            dailyGoalMinutes: number;
+            /**
+             * Format: double
+             * @description Target retention of the FSRS reviews (PRD F8)
+             * @example 0.9
+             */
+            requestRetention: number;
+            /**
+             * @description IANA time zone; it decides when a day starts for the daily goal and the streak
+             * @example Europe/Zurich
+             */
+            timeZone: string;
+        };
         /** @description Creates the only account of this instance. */
         SetupRequest: {
             /**
@@ -1102,6 +1375,8 @@ export interface components {
             /** @description Protects the instance; at least 8 characters */
             password: string;
         };
+        /** @enum {string} */
+        SkillArea: "vocab" | "phrase" | "grammar" | "spelling" | "reading";
         SkillEstimate: {
             /** @description German label */
             label: string;
@@ -1139,12 +1414,25 @@ export interface components {
             /** @description The stage whose checkpoint to take, as listed by GET /api/path */
             level: components["schemas"]["Level"];
         };
+        /**
+         * @description lesson: a lesson of a unit or focus unit (unitId); practice: a practice lesson of the exercises with one skill tag (skillTag, PRD F10 "Gezielt üben")
+         * @enum {string}
+         */
+        StartLessonKind: "lesson" | "practice";
+        /** @description A lesson of a unit ({"unitId": …}) or a practice lesson on a skill tag ({"kind": "practice", "skillTag": …}) */
         StartLessonRequest: {
+            /** @description lesson when absent */
+            kind?: components["schemas"]["StartLessonKind"];
             /**
-             * @description A curriculum unit or a focus unit of the current plan, as listed by GET /api/path
+             * @description Required for kind practice: the skill tag to practise, e.g. a top error of GET /api/stats
+             * @example grammar.case
+             */
+            skillTag?: string;
+            /**
+             * @description Required for kind lesson: a curriculum unit or a focus unit of the current plan, as listed by GET /api/path
              * @example a1_u01_greetings
              */
-            unitId: string;
+            unitId?: string;
         };
         /** @description A started placement test with its first item */
         StartPlacementResponse: {
@@ -1162,6 +1450,46 @@ export interface components {
             startLevel: components["schemas"]["Level"];
             /** Format: uuid */
             testId: string;
+        };
+        /** @description Progress and statistics of the learner (PRD F10); days are dates in the learner's time zone */
+        StatsResponse: {
+            forecast: components["schemas"]["DueForecast"];
+            heatmap: components["schemas"]["Heatmap"];
+            /**
+             * Format: int32
+             * @description Words and phrases whose FSRS card is in the review state
+             */
+            learnedWords: number;
+            /** @description Absent until the placement test (or its skip) has set a level and created the plan */
+            level?: components["schemas"]["LevelProgress"];
+            /** @description One entry per area, in this order: vocab (Wortschatz), phrase (Wendungen), grammar (Grammatik), spelling (Schreiben), reading (Lesen) */
+            masteryByArea: components["schemas"]["MasteryArea"][];
+            /** @description Up to 5 skill tags with the most wrong first answers of the last 30 days, the most first */
+            topErrors: components["schemas"]["FrequentError"][];
+        };
+        /** @description The streak (PRD F9): days in a row with the daily goal met. A single missed day is bridged by the streak freeze of its ISO week (1 per week, not carried over); two missed days in a row end the streak. */
+        StreakResponse: {
+            /**
+             * Format: int32
+             * @description 0 once the streak has ended
+             */
+            current: number;
+            /** @description Today's goal is met and has extended the streak */
+            extendedToday: boolean;
+            /** @description Yesterday was missed and the streak freeze bridges it; until today's goal is met, missing today as well ends the streak and keeps the freeze */
+            freezeUsedYesterday: boolean;
+            /**
+             * Format: int32
+             * @description Streak freezes left this ISO week, 0 or 1
+             */
+            freezesLeft: number;
+            /**
+             * Format: date
+             * @description The last day the daily goal was met; absent before the first time
+             */
+            lastActiveDate?: string;
+            /** Format: int32 */
+            longest: number;
         };
         /** @description Exactly one field, depending on the exercise type: text for translate_free and fill_gap without choices, choice for multiple_choice and fill_gap with choices, tokens for translate_wordbank and word_order, wrongMatches for match_pairs. */
         SubmittedAnswer: {
@@ -1580,7 +1908,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description The unit has no exercises yet (code unit_without_content) */
+            /** @description The unit has no exercises yet (code unit_without_content), or no exercise at or below the learner's level carries the skill tag to practise (code no_practice_exercises) */
             409: {
                 headers: {
                     [name: string]: unknown;
@@ -2337,6 +2665,35 @@ export interface operations {
             };
         };
     };
+    getTodayProgress: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Today's progress */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DailyProgressResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
     startReviewLesson: {
         parameters: {
             query?: never;
@@ -2400,6 +2757,115 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ReviewSummaryResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getSettings: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The settings */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SettingsResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    updateSettings: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SettingsRequest"];
+            };
+        };
+        responses: {
+            /** @description The settings as stored */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SettingsResponse"];
+                };
+            };
+            /** @description Invalid daily goal, target retention or time zone (code validation_failed) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getStats: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The statistics */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StatsResponse"];
                 };
             };
             /** @description Not signed in */

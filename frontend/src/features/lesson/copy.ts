@@ -42,6 +42,7 @@ export const LESSON_COPY = {
       focus: 'Fokus-Lektion geschafft!',
       review: 'Wiederholung geschafft!',
       checkpoint: 'Checkpoint beendet',
+      practice: 'Gezielt geübt!',
     } satisfies Record<LessonKind, string>,
     perfectTitle: 'Fehlerfrei!',
     summary: (correct: number, total: number) =>
@@ -65,6 +66,8 @@ export const LESSON_COPY = {
     continue: 'Weiter',
     focus: {
       eyebrow: 'Fokus-Lektion vorgeschlagen',
+      /** Names the card as one phrase; the eyebrow and the label are two lines on screen. */
+      title: (label: string) => `Fokus-Lektion vorgeschlagen: ${label}`,
       text: 'Hier hattest du mehrere Fehler. Eine kurze Fokus-Lektion festigt genau das.',
       start: 'Fokus-Lektion starten',
     },

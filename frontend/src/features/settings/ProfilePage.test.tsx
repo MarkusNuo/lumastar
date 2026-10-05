@@ -43,6 +43,7 @@ const IMPORT_RESULT: ImportResult = {
     sessions: 3,
     skillMastery: 5,
     srsCards: 12,
+    streakDays: 0,
     streaks: 1,
   },
 };

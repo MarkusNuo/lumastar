@@ -34,6 +34,8 @@ const RESULT: LessonResultResponse = {
   learnedItems: [{ id: 'item_miredita', gheg: 'mirëdita', de: 'guten Tag, hallo', known: false }],
   xpTotal: 115,
   learnedWordsTotal: 1,
+  dailyGoal: { goalMet: false, goalMinutes: 10, justMet: false, minutesToday: 3 },
+  streak: { current: 0, extendedToday: false, freezeUsed: false },
 };
 
 function attemptResponse(overrides: Partial<AttemptResponse>): AttemptResponse {

@@ -154,6 +154,31 @@ describe('buildLearningPath with an open checkpoint', () => {
     );
   });
 
+  it('lets an open checkpoint go before a focus lesson and keeps the colour of the stage', () => {
+    const stage = done(first);
+    const lastUnit = stage.units.filter((unit) => !unit.focus).at(-1);
+    const withFocusLast = {
+      ...stage,
+      units: [
+        ...stage.units.filter((unit) => !unit.focus),
+        {
+          unitId: 'focus_spelling.alphabet_1',
+          title: 'Fokus: Alphabet & Aussprache',
+          status: 'in_progress' as const,
+          estimatedLessons: 1,
+          lessonsCompleted: 0,
+          focus: true,
+          hasContent: true,
+          reason: '3 Fehler in einer Lektion bei Alphabet & Aussprache',
+        },
+      ],
+    };
+    const [built] = buildLearningPath({ ...SAMPLE_PATH, stages: [withFocusLast, second] });
+
+    expect(built?.checkpoint).toMatchObject({ status: 'current', color: lastUnit?.color });
+    expect(built?.units.at(-1)?.nodes.map((node) => node.status)).toEqual(['available']);
+  });
+
   it('names no next level after the last stage', () => {
     const stages = buildLearningPath(SAMPLE_PATH);
 

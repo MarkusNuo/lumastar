@@ -1,5 +1,4 @@
 import { TargetIcon } from '@phosphor-icons/react';
-import { useId } from 'react';
 import type { FocusSuggestion } from '../../../api/types';
 import { Button } from '../../../components/ui/Button';
 import { cx } from '../../../lib/cx';
@@ -15,11 +14,9 @@ export interface FocusSuggestionCardProps {
 
 /** A focus lesson on the skill tag the lesson got wrong three times or more (PRD F7). */
 export function FocusSuggestionCard({ suggestion, onStart, className }: FocusSuggestionCardProps) {
-  const titleId = useId();
-
   return (
     <section
-      aria-labelledby={titleId}
+      aria-label={copy.title(suggestion.label)}
       data-tone="warning"
       className={cx('flex flex-col gap-3 rounded-card tone-outline p-4 text-left', className)}
     >
@@ -30,10 +27,9 @@ export function FocusSuggestionCard({ suggestion, onStart, className }: FocusSug
         >
           <TargetIcon size={28} weight="fill" />
         </span>
-        <h2 id={titleId} className="min-w-0">
+        <h2 className="min-w-0">
           <span className="block text-micro font-black tracking-wider text-tone-text uppercase">
             {copy.eyebrow}
-            <span className="sr-only">:</span>
           </span>{' '}
           <span className="block text-lead font-black text-fg">{suggestion.label}</span>
         </h2>
