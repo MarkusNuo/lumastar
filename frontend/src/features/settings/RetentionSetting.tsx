@@ -50,18 +50,18 @@ export function RetentionSetting() {
       icon={BrainIcon}
       tone="unit-indigo"
       label={copy.label}
-      description={copy.description}
+      // The value sits below the title: next to it, the title breaks at its hyphen on 360 px.
+      description={stored === undefined ? copy.description : copy.valueDescription(stored)}
       aside={
         <button
           type="button"
+          aria-label={stored === undefined ? copy.toggle : copy.toggleValue(stored)}
           aria-expanded={open}
           aria-controls={panelId}
           disabled={stored === undefined}
           onClick={() => setOpen((current) => !current)}
-          className="-mr-2 flex min-h-11 shrink-0 cursor-pointer items-center gap-1 rounded-button-sm px-2 text-label font-black text-fg-muted transition-colors duration-(--duration-fast) hover:bg-surface-raised hover:text-fg disabled:cursor-not-allowed disabled:opacity-50"
+          className="-mr-2 grid size-11 shrink-0 cursor-pointer place-items-center rounded-button-sm text-fg-muted transition-colors duration-(--duration-fast) hover:bg-surface-raised hover:text-fg disabled:cursor-not-allowed disabled:opacity-50"
         >
-          <span className="sr-only">{copy.toggle}:</span>{' '}
-          {stored === undefined ? '–' : copy.percent(stored)}
           <CaretDownIcon
             aria-hidden="true"
             size={18}

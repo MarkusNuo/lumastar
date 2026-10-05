@@ -95,9 +95,7 @@ function SettingsDemo() {
         icon={BrainIcon}
         tone="unit-indigo"
         label="Ziel-Behaltensrate"
-        aside={
-          <span className="text-label font-black text-fg-muted">{formatPercent(retention)}</span>
-        }
+        description={`${formatPercent(retention)} · wie oft Wörter wiederkommen`}
       >
         {({ labelId }) => (
           <input

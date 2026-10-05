@@ -10,6 +10,11 @@ const swissDate = new Intl.DateTimeFormat('de-CH', { dateStyle: 'medium' });
 /** Sentence appended to import errors after which the server provably changed nothing. */
 const UNCHANGED = 'Deine Lerndaten sind unverändert.';
 
+const RETENTION = {
+  description: 'Erweitert: wie oft Wörter wiederkommen',
+  toggle: 'Ziel-Behaltensrate anpassen',
+};
+
 /** UI copy of the profile tab (German, Swiss orthography). */
 export const PROFILE_COPY = {
   title: 'Profil',
@@ -34,8 +39,10 @@ export const PROFILE_COPY = {
     },
     retention: {
       label: 'Ziel-Behaltensrate',
-      description: 'Erweitert: wie oft Wörter wiederkommen',
-      toggle: 'Ziel-Behaltensrate anpassen',
+      description: RETENTION.description,
+      valueDescription: (percent: number) => `${formatPercent(percent)} · ${RETENTION.description}`,
+      toggle: RETENTION.toggle,
+      toggleValue: (percent: number) => `${RETENTION.toggle}: ${formatPercent(percent)}`,
       percent: formatPercent,
       explanation:
         'So sicher sollst du ein Wort noch wissen, wenn es zur Wiederholung kommt. Höher heisst: öfter wiederholen und besser behalten. Tiefer heisst: weniger Wiederholungen, aber mehr vergessen.',

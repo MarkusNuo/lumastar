@@ -1,7 +1,7 @@
-import { screen, within } from '@testing-library/react';
+import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryRouter, RouterProvider } from 'react-router';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import type { CheckpointStatus, LearningPath } from '../../api/types';
 import { jsonResponse, renderWithQueryClient, stubApi } from '../../test/http';
 import { SAMPLE_PATH } from '../plan/samplePlan';
@@ -124,5 +124,18 @@ describe('LearningPathPage passed stage', () => {
 
     await screen.findByRole('region', { name: 'A1.2 · Alltag zu Hause' });
     expect(screen.queryByTestId('passed-stage')).not.toBeInTheDocument();
+  });
+});
+
+describe('LearningPathPage scrolling', () => {
+  it('brings the next step into view only as far as needed, once', async () => {
+    const scrollIntoView = vi.spyOn(Element.prototype, 'scrollIntoView');
+    renderPath(SAMPLE_PATH);
+
+    const current = await screen.findByRole('button', { current: 'step' });
+
+    await waitFor(() => expect(scrollIntoView).toHaveBeenCalledOnce());
+    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'nearest' });
+    expect(scrollIntoView.mock.contexts[0]).toBe(current);
   });
 });

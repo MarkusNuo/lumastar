@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import type { LearningPath } from '../../api/types';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { MascotMessage } from '../../components/ui/MascotMessage';
 import { PathNode } from '../../components/ui/PathNode';
 import { cx } from '../../lib/cx';
+import { useOnceWhen } from '../../lib/useOnceWhen';
 import { CheckpointIntroSheet, type CheckpointIntro } from '../checkpoint/CheckpointIntroSheet';
 import { checkpointRoute } from '../checkpoint/checkpointRoutes';
 import { CHECKPOINT_COPY } from '../checkpoint/copy';
@@ -27,7 +28,7 @@ export function LearningPathPage() {
   useScrollToCurrentNode(path.data !== undefined);
 
   return (
-    <div className="flex flex-col gap-10 pt-5">
+    <div className="flex flex-col gap-10 pt-5 [&_[aria-current=step]]:scroll-clear-bars">
       <h1 className="sr-only">{PATH_COPY.title}</h1>
       {path.data ? (
         <LearningPathStages path={path.data} />
@@ -84,14 +85,14 @@ function LearningPathStages({ path }: { path: LearningPath }) {
   );
 }
 
-/** Opens the path at the next lesson instead of the top. */
+/**
+ * Opens the path at the next lesson instead of the top. "nearest" leaves a node
+ * that is already in view where it is, so the plan teaser above it stays visible.
+ */
 function useScrollToCurrentNode(ready: boolean) {
-  const scrolled = useRef(false);
-  useEffect(() => {
-    if (!ready || scrolled.current) return;
-    scrolled.current = true;
-    document.querySelector('[aria-current="step"]')?.scrollIntoView({ block: 'center' });
-  }, [ready]);
+  useOnceWhen(ready, () => {
+    document.querySelector('[aria-current="step"]')?.scrollIntoView({ block: 'nearest' });
+  });
 }
 
 interface StageSectionProps {

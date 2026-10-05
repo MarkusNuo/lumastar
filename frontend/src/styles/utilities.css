@@ -35,6 +35,15 @@
   }
 }
 
+/*
+ * Scroll margins that keep an element scrolled into view clear of the app shell's sticky top bar
+ * and fixed bottom navigation; the top leaves room for the "Start" bubble above a path node.
+ */
+@utility scroll-clear-bars {
+  scroll-margin-top: calc(var(--spacing-top-bar) + var(--safe-top) + var(--spacing) * 16);
+  scroll-margin-bottom: calc(var(--spacing-nav) + var(--safe-bottom) + var(--spacing) * 8);
+}
+
 /* Static 3D edge for non-interactive surfaces (banners, badges, bubbles). */
 @utility edge-3d {
   box-shadow: 0 var(--press-depth, var(--spacing-edge)) 0 var(--press-edge, var(--tone-edge));

@@ -145,6 +145,8 @@ describe('SettingsSection', () => {
         expect(screen.getByRole('button', { name: /Ziel-Behaltensrate anpassen/ })).toBeEnabled(),
       );
       expect(screen.queryByRole('slider')).not.toBeInTheDocument();
+      // Below the title rather than next to it, which leaves the title its line on 360 px.
+      expect(screen.getByText('90 % · Erweitert: wie oft Wörter wiederkommen')).toBeVisible();
 
       const slider = await openRetention(user);
 
@@ -171,6 +173,7 @@ describe('SettingsSection', () => {
       expect(
         screen.getByRole('button', { name: 'Ziel-Behaltensrate anpassen: 85\u00a0%' }),
       ).toBeVisible();
+      expect(screen.getByText('85 % · Erweitert: wie oft Wörter wiederkommen')).toBeVisible();
     });
 
     it('goes back to the default of 90 %', async () => {

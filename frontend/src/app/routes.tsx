@@ -22,6 +22,7 @@ import { StatsPage } from '../features/stats/StatsPage';
 import { STATS_ROUTES } from '../features/stats/statsRoutes';
 import { AppShell } from './AppShell';
 import { NotFoundPage } from './NotFoundPage';
+import { SignedInSession } from './SignedInSession';
 import { SplashScreen } from './SplashScreen';
 
 export const routes: RouteObject[] = [
@@ -37,7 +38,12 @@ export const routes: RouteObject[] = [
     element: <AuthGuard area="signedIn" />,
     children: [
       {
-        element: <OnboardingGuard />,
+        element: (
+          <>
+            <SignedInSession />
+            <OnboardingGuard />
+          </>
+        ),
         children: [
           {
             path: ONBOARDING_ROUTES.home,
