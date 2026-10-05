@@ -59,7 +59,10 @@ function ErrorRow({
             )}
           </p>
         </div>
-        <span aria-hidden="true" className="text-lead font-black text-danger tabular-nums">
+        <span
+          aria-hidden="true"
+          className="shrink-0 text-lead font-black whitespace-nowrap text-danger tabular-nums"
+        >
           {copy.rate(percent)}
         </span>
       </div>

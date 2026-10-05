@@ -22,7 +22,7 @@ export function MasteryCard({ areas }: { areas: readonly MasteryArea[] }) {
                     className={
                       percent === undefined
                         ? 'text-caption font-bold text-fg-subtle'
-                        : 'text-label font-black text-fg tabular-nums'
+                        : 'text-label font-black whitespace-nowrap text-fg tabular-nums'
                     }
                   >
                     {percent === undefined ? copy.noData : copy.percent(percent)}

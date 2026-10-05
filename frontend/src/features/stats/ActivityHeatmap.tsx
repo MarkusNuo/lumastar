@@ -55,7 +55,8 @@ export function ActivityHeatmap({ heatmap }: { heatmap: Heatmap }) {
             data-testid="heatmap-scroller"
             className="min-w-0 overflow-x-auto overscroll-x-contain pb-1"
           >
-            <div className="inline-flex flex-col gap-1">
+            {/* The right padding keeps today's outline inside the scroll area. */}
+            <div className="inline-flex flex-col gap-1 pr-1">
               <div className="relative h-4">
                 {layout.months.map(({ month, column }) => (
                   <span
