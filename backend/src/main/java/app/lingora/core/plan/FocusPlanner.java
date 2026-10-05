@@ -18,9 +18,10 @@ import java.util.stream.Collectors;
 /**
  * Focus units for weak skill tags (PRD F3). A tag is weak with at least {@value #MIN_ANSWERS} recent answers and an
  * error rate of at least 40 %. At most {@value #MAX_OPEN} focus units are open at once: open focus units of the
- * previous plan stay, and the weakest tags without one fill the free places. A new focus unit of a tag gets the next
- * number after the tag's focus units in the previous plan. All open focus units go right after the unit in progress,
- * or before the first planned unit if none is in progress; completed focus units leave the plan.
+ * previous plan stay, tags a lesson asked a focus unit for (PRD F7) come next, and the weakest tags without one fill
+ * the remaining places. A new focus unit of a tag gets the next number after the tag's focus units in the previous
+ * plan. All open focus units go right after the unit in progress, or before the first planned unit if none is in
+ * progress; completed focus units leave the plan.
  */
 final class FocusPlanner {
 
@@ -39,13 +40,18 @@ final class FocusPlanner {
         return "Fehlerquote %d %% bei %s".formatted(Math.round(weakTag.errorRate() * 100), label);
     }
 
+    static String reason(FocusRequest request, String label) {
+        return "%d Fehler in einer Lektion bei %s".formatted(request.wrongAnswers(), label);
+    }
+
     static boolean isWeak(SkillTagErrorRate rate) {
         return rate.attempts() >= MIN_ANSWERS && rate.errorRate() >= MIN_ERROR_RATE;
     }
 
     /** {@code stages} hold the curriculum units only; the result has the focus units inserted. */
-    List<PlanStage> insert(List<PlanStage> stages, LearningPlan previous, List<SkillTagErrorRate> errorRates) {
-        List<PlanUnit> focusUnits = focusUnits(previous, weakTags(errorRates));
+    List<PlanStage> insert(List<PlanStage> stages, LearningPlan previous, List<SkillTagErrorRate> errorRates,
+                           List<FocusRequest> focusRequests) {
+        List<PlanUnit> focusUnits = focusUnits(previous, focusRequests, weakTags(errorRates));
         return focusUnits.isEmpty() ? stages : insertAtCurrentUnit(stages, focusUnits);
     }
 
@@ -59,7 +65,8 @@ final class FocusPlanner {
                         LinkedHashMap::new));
     }
 
-    private List<PlanUnit> focusUnits(LearningPlan previous, Map<SkillTag, SkillTagErrorRate> weakTags) {
+    private List<PlanUnit> focusUnits(LearningPlan previous, List<FocusRequest> focusRequests,
+                                      Map<SkillTag, SkillTagErrorRate> weakTags) {
         List<PlanUnit> previousFocus = previous.units().filter(PlanUnit::isFocus).toList();
         List<PlanUnit> focus = new ArrayList<>();
         List<SkillTag> covered = new ArrayList<>();
@@ -69,6 +76,14 @@ final class FocusPlanner {
                 SkillTagErrorRate weak = weakTags.get(id.tag());
                 focus.add(weak == null ? unit.withStatus(PlanUnitStatus.PLANNED) : focusUnit(id, weak));
                 covered.add(id.tag());
+            }
+        }
+        for (FocusRequest request : focusRequests) {
+            if (focus.size() < MAX_OPEN && !covered.contains(request.tag())) {
+                String label = labels.of(request.tag());
+                FocusUnitId id = new FocusUnitId(request.tag(), nextNumber(request.tag(), previousFocus));
+                focus.add(new PlanUnit(id.id(), "Fokus: " + label, PlanUnitStatus.PLANNED, LESSONS, reason(request, label)));
+                covered.add(request.tag());
             }
         }
         for (SkillTagErrorRate weak : weakTags.values()) {

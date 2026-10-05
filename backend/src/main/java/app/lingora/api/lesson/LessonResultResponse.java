@@ -25,7 +25,9 @@ public record LessonResultResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Learned words of the learner: words and phrases "
                 + "whose FSRS card is in the review state (PRD F10)") int learnedWordsTotal,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "XP of the learner including this lesson")
-        int xpTotal) {
+        int xpTotal,
+        @Schema(description = "A focus lesson for a skill tag answered wrongly at least three times in this lesson "
+                + "(PRD F7); absent otherwise") FocusSuggestion focusSuggestion) {
 
     public record XpBreakdown(
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int base,
@@ -33,6 +35,13 @@ public record LessonResultResponse(
             int perfectBonus,
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED,
                     description = "Median first-attempt response time of at most 8 seconds") int speedBonus) {
+    }
+
+    @Schema(description = "The focus unit of the plan for the weak skill tag; start it with POST /api/lessons")
+    public record FocusSuggestion(
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "grammar.case") String skillTag,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "German label of the skill tag") String label,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "focus_grammar.case_1") String unitId) {
     }
 
     public record LearnedItem(
@@ -45,7 +54,7 @@ public record LessonResultResponse(
 
     /** @param cards the learner's cards of the items by item id */
     static LessonResultResponse of(LessonSessionEntity session, List<Item> learnedItems, Map<String, SrsCard> cards,
-                                   int learnedWordsTotal, int xpTotal) {
+                                   int learnedWordsTotal, int xpTotal, FocusSuggestion focusSuggestion) {
         LessonXp xp = session.xp();
         return new LessonResultResponse(LessonKind.of(session.getKind()), xp.total(), new XpBreakdown(xp.base(), xp.perfectBonus(), xp.speedBonus()),
                 session.getAccuracy().doubleValue(), session.duration().toMillis(), session.getCorrectCount(),
@@ -54,6 +63,6 @@ public record LessonResultResponse(
                         .map(item -> new LearnedItem(item.id(), item.gheg(), item.de(),
                                 cards.containsKey(item.id()) && cards.get(item.id()).isKnown()))
                         .toList(),
-                learnedWordsTotal, xpTotal);
+                learnedWordsTotal, xpTotal, focusSuggestion);
     }
 }

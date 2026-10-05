@@ -2,6 +2,7 @@ package app.lingora.persistence;
 
 import app.lingora.domain.SkillTag;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +40,18 @@ public class LessonProgressQueries {
                 .query((row, rowNumber) -> Map.entry(row.getString("unit_id"), row.getInt("lessons")))
                 .stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    /** The days, in the learner's time zone, on which the learner completed a lesson of any kind since {@code since}. */
+    public int learningDaysSince(UUID userId, Instant since, ZoneId zone) {
+        return jdbc.sql("""
+                        SELECT count(DISTINCT (finished_at AT TIME ZONE :zone)::date) FROM sessions
+                        WHERE user_id = :user AND finished_at >= :since""")
+                .param("user", userId)
+                .param("since", SqlTimestamps.of(since))
+                .param("zone", zone.getId())
+                .query(Integer.class)
+                .single();
     }
 
     /** The exercises the learner has answered at least once, retries aside. */

@@ -151,7 +151,7 @@ class RuleBasedPlanGeneratorTest {
         void aBandAlreadyDoneIsReachedToday() {
             LearningPlan plan = generator.generate(learner(Level.A1_3, 10), mastery(INFINITIVE, 0.9));
             LearningPlan done = generator.revise(withStatuses(plan, Map.of("a1_review", PlanUnitStatus.COMPLETED)),
-                    learner(Level.A1_3, 10), mastery(INFINITIVE, 0.9), List.of());
+                    learner(Level.A1_3, 10), mastery(INFINITIVE, 0.9), List.of(), List.of());
 
             assertThat(done.estimates().get(CefrBand.A1)).isEqualTo(LocalDate.parse("2026-09-25"));
             assertThat(done.estimates()).doesNotContainKey(CefrBand.A0);
@@ -168,7 +168,7 @@ class RuleBasedPlanGeneratorTest {
             LearningPlan live = withStatuses(first, Map.of("a1_food", PlanUnitStatus.COMPLETED,
                     "a1_home", PlanUnitStatus.IN_PROGRESS));
 
-            LearningPlan revised = generator.revise(live, learner(Level.A1_2, 10), mastery(FOOD, 0.95), List.of());
+            LearningPlan revised = generator.revise(live, learner(Level.A1_2, 10), mastery(FOOD, 0.95), List.of(), List.of());
 
             assertThat(unit(revised, "a1_food").status()).isEqualTo(PlanUnitStatus.COMPLETED);
             assertThat(unit(revised, "a1_home").status()).isEqualTo(PlanUnitStatus.IN_PROGRESS);
@@ -179,14 +179,14 @@ class RuleBasedPlanGeneratorTest {
         void skipsTheUnitInProgressOnceItIsMastered() {
             LearningPlan live = withStatuses(first, Map.of("a1_food", PlanUnitStatus.IN_PROGRESS));
 
-            LearningPlan revised = generator.revise(live, learner(Level.A1_2, 10), mastery(FOOD, 0.85), List.of());
+            LearningPlan revised = generator.revise(live, learner(Level.A1_2, 10), mastery(FOOD, 0.85), List.of(), List.of());
 
             assertThat(unit(revised, "a1_food").status()).isEqualTo(PlanUnitStatus.SKIPPED);
         }
 
         @Test
         void shortensAPartlyMasteredUnitByOneLesson() {
-            LearningPlan revised = generator.revise(first, learner(Level.A1_2, 10), mastery(HOME, 0.9), List.of());
+            LearningPlan revised = generator.revise(first, learner(Level.A1_2, 10), mastery(HOME, 0.9), List.of(), List.of());
 
             assertThat(unit(revised, "a1_home")).isEqualTo(new PlanUnit("a1_home", "Zuhause", PlanUnitStatus.PLANNED, 3,
                     "Verkürzt: Zuhause bereits beherrscht"));
@@ -201,16 +201,16 @@ class RuleBasedPlanGeneratorTest {
             RuleBasedPlanGenerator shortCurriculum = new RuleBasedPlanGenerator(oneLesson, PlanFixtures.LABELS, PlanFixtures.CLOCK);
             LearningPlan plan = shortCurriculum.generate(learner(Level.A1_2, 10), noMastery());
 
-            assertThat(unit(shortCurriculum.revise(plan, learner(Level.A1_2, 10), mastery(FOOD, 0.9), List.of()),
+            assertThat(unit(shortCurriculum.revise(plan, learner(Level.A1_2, 10), mastery(FOOD, 0.9), List.of(), List.of()),
                     "a1_short").estimatedLessons()).isEqualTo(1);
             LearningPlan completed = withStatuses(first, Map.of("a1_home", PlanUnitStatus.COMPLETED));
-            assertThat(unit(generator.revise(completed, learner(Level.A1_2, 10), mastery(HOME, 0.9), List.of()),
+            assertThat(unit(generator.revise(completed, learner(Level.A1_2, 10), mastery(HOME, 0.9), List.of(), List.of()),
                     "a1_home").estimatedLessons()).isEqualTo(4);
         }
 
         @Test
         void startsAtTheNewLevelAfterAReplacement() {
-            LearningPlan revised = generator.revise(first, learner(Level.A2_1, 10), noMastery(), List.of());
+            LearningPlan revised = generator.revise(first, learner(Level.A2_1, 10), noMastery(), List.of(), List.of());
 
             assertThat(revised.startLevel()).isEqualTo(Level.A2_1);
             assertThat(unitIds(revised)).containsExactly("a2_past", "b1_opinions");
@@ -224,7 +224,7 @@ class RuleBasedPlanGeneratorTest {
                 Map.of("a1_food", PlanUnitStatus.COMPLETED, "a1_home", PlanUnitStatus.IN_PROGRESS));
 
         private LearningPlan revise(LearningPlan plan, SkillTagErrorRate... rates) {
-            return generator.revise(plan, learner(Level.A1_2, 10), noMastery(), List.of(rates));
+            return generator.revise(plan, learner(Level.A1_2, 10), noMastery(), List.of(rates), List.of());
         }
 
         @Test
@@ -235,6 +235,28 @@ class RuleBasedPlanGeneratorTest {
                     "a1_review", "a2_past", "b1_opinions");
             assertThat(unit(revised, "focus_grammar.infinitive_1")).isEqualTo(new PlanUnit("focus_grammar.infinitive_1",
                     "Fokus: Infinitiv me + Partizip", PlanUnitStatus.PLANNED, 1, "Fehlerquote 45 % bei Infinitiv me + Partizip"));
+        }
+
+        @Test
+        void insertsTheFocusUnitALessonAskedForBeforeTheWeakTags() {
+            LearningPlan revised = generator.revise(live, learner(Level.A1_2, 10), noMastery(),
+                    List.of(new SkillTagErrorRate(INFINITIVE, 10, 8), new SkillTagErrorRate(ARTICLE, 10, 6)),
+                    List.of(new FocusRequest(PAST, 3)));
+
+            assertThat(unitIds(revised)).containsExactly("a1_food", "a1_home", "focus_grammar.past_1",
+                    "focus_grammar.infinitive_1", "a1_infinitive", "a1_review", "a2_past", "b1_opinions");
+            assertThat(unit(revised, "focus_grammar.past_1")).isEqualTo(new PlanUnit("focus_grammar.past_1",
+                    "Fokus: Vergangenheit", PlanUnitStatus.PLANNED, 1, "3 Fehler in einer Lektion bei Vergangenheit"));
+        }
+
+        @Test
+        void aRequestedTagWithAnOpenFocusUnitGetsNoSecondOne() {
+            LearningPlan withFocus = revise(live, new SkillTagErrorRate(INFINITIVE, 11, 5));
+
+            LearningPlan revised = generator.revise(withFocus, learner(Level.A1_2, 10), noMastery(), List.of(),
+                    List.of(new FocusRequest(INFINITIVE, 4)));
+
+            assertThat(unitIds(revised)).filteredOn(unitId -> unitId.startsWith("focus_")).containsExactly("focus_grammar.infinitive_1");
         }
 
         @Test
@@ -309,7 +331,7 @@ class RuleBasedPlanGeneratorTest {
             LearningPlan done = withStatuses(b1, Map.of("b1_opinions", PlanUnitStatus.COMPLETED));
 
             LearningPlan revised = generator.revise(done, learner(Level.B1_1, 10), noMastery(),
-                    List.of(new SkillTagErrorRate(PAST, 10, 8)));
+                    List.of(new SkillTagErrorRate(PAST, 10, 8)), List.of());
 
             assertThat(unitIds(revised)).containsExactly("b1_opinions", "focus_grammar.past_1");
         }

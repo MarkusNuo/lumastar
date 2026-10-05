@@ -26,7 +26,7 @@ import java.util.Optional;
  *       repeatable. All other units are {@code planned}.</li>
  *   <li>{@link #revise} regenerates the plan and keeps the progress of the previous plan (completed units stay
  *       completed, the unit in progress stays in progress). It shortens a unit by one lesson (to at least one) when
- *       some, but not all, of its skill tags are mastered, and inserts focus units for weak tags (see
+ *       some, but not all, of its skill tags are mastered, and inserts focus units for requested and weak tags (see
  *       {@link FocusPlanner}).</li>
  *   <li>Estimates: see {@link PlanEstimates} and {@link EstimateRules}.</li>
  * </ul>
@@ -63,13 +63,13 @@ public final class RuleBasedPlanGenerator implements PlanGenerator {
 
     @Override
     public LearningPlan revise(LearningPlan plan, LearnerProfile profile, SkillMastery mastery,
-                               List<SkillTagErrorRate> errorRates) {
+                               List<SkillTagErrorRate> errorRates, List<FocusRequest> focusRequests) {
         List<PlanStage> stages = curriculumFrom(currentLevel(profile), mastery).stream()
                 .map(stage -> new PlanStage(stage.level(), stage.units().stream()
                         .map(unit -> shortenIfPartlyMastered(withProgress(unit, plan), mastery))
                         .toList()))
                 .toList();
-        return plan(profile, new FocusPlanner(labels).insert(stages, plan, errorRates));
+        return plan(profile, new FocusPlanner(labels).insert(stages, plan, errorRates, focusRequests));
     }
 
     private LearningPlan plan(LearnerProfile profile, List<PlanStage> stages) {

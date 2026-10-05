@@ -100,6 +100,10 @@ public class AttemptEntity {
         return exerciseId;
     }
 
+    public List<SkillTag> getSkillTags() {
+        return skillTags.stream().map(SkillTag::of).toList();
+    }
+
     public boolean countsAsCorrect() {
         return outcome.isAccepted();
     }

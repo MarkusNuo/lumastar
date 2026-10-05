@@ -9,10 +9,12 @@ import org.springframework.test.web.servlet.assertj.MockMvcTester;
 
 /**
  * Full application on PostgreSQL 18 (Testcontainers). All integration tests share this configuration, hence one
- * Spring context and one container. The startup seed is off; seed tests import the fixture explicitly.
+ * Spring context and one container. The startup seed and the scheduled jobs are off; seed tests import the fixture
+ * explicitly, job tests call the job.
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
         "lingora.content.seed-on-startup=false",
+        "lingora.plan.periodic-revision.cron=-",
         "spring.jpa.properties.hibernate.generate_statistics=true",
         "logging.level.org.hibernate.engine.internal.StatisticalLoggingSessionEventListener=warn"
 })

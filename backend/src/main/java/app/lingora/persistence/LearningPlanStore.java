@@ -50,6 +50,12 @@ public class LearningPlanStore {
                 .optional();
     }
 
+    /** The learners that have a plan. */
+    @Transactional(readOnly = true)
+    public List<UUID> learnersWithPlan() {
+        return jdbc.sql("SELECT DISTINCT user_id FROM learning_plans ORDER BY user_id").query(UUID.class).list();
+    }
+
     /** Stores {@code plan} as the next version, valid from {@code validFrom}. */
     @Transactional
     public StoredPlan save(UUID userId, LearningPlan plan, Instant validFrom) {

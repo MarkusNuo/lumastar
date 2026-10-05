@@ -1,13 +1,17 @@
 package app.lingora.api.lesson;
 
+import app.lingora.api.plan.PlanTriggers;
 import app.lingora.config.EngineProperties;
 import app.lingora.core.evaluation.AnswerEvaluator;
 import app.lingora.core.evaluation.InvalidAnswerException;
 import app.lingora.core.evaluation.UnsupportedAnswerException;
+import app.lingora.core.lesson.FocusSuggestion;
+import app.lingora.core.lesson.FocusSuggestion.FirstAnswer;
 import app.lingora.core.lesson.LessonComposer;
 import app.lingora.core.lesson.XpCalculator;
 import app.lingora.core.lesson.XpCalculator.FirstAttempt;
 import app.lingora.core.lesson.XpCalculator.LessonXp;
+import app.lingora.core.plan.FocusRequest;
 import app.lingora.domain.Answer;
 import app.lingora.domain.EvaluationResult;
 import app.lingora.domain.Exercise;
@@ -46,7 +50,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer together with the mastery of its
  * skill tags (PRD 8.2), finish with XP (F9). Lessons of a unit, focus lessons on a weak skill tag (PRD F3) and review
  * lessons of the due items (PRD F8) share this flow. Every first answer reviews the FSRS cards of its items; retries at
- * the end of a lesson do not.
+ * the end of a lesson do not. A completed lesson may suggest a focus lesson (PRD F7) and revise the plan (PRD F3).
  */
 @Service
 class LessonService {
@@ -64,13 +68,14 @@ class LessonService {
     private final CardReviews cardReviews;
     private final SrsCardStore cards;
     private final LessonContexts contexts;
+    private final PlanTriggers planTriggers;
     private final String engineId;
     private final Clock clock;
 
     LessonService(ContentCatalog catalog, LessonSessionRepository sessions, AttemptRepository attempts, UserRepository users,
                   LearningPlanStore plans, SkillMasteryStore mastery, LessonComposer composer, AnswerEvaluator evaluator,
-                  CardReviews cardReviews, SrsCardStore cards, LessonContexts contexts, EngineProperties engineProperties,
-                  Clock clock) {
+                  CardReviews cardReviews, SrsCardStore cards, LessonContexts contexts, PlanTriggers planTriggers,
+                  EngineProperties engineProperties, Clock clock) {
         this.catalog = catalog;
         this.sessions = sessions;
         this.attempts = attempts;
@@ -82,6 +87,7 @@ class LessonService {
         this.cardReviews = cardReviews;
         this.cards = cards;
         this.contexts = contexts;
+        this.planTriggers = planTriggers;
         this.engineId = engineProperties.engine().id();
         this.clock = clock;
     }
@@ -178,20 +184,45 @@ class LessonService {
         return AttemptResponse.of(exerciseId, result, rating);
     }
 
-    /** Idempotent: a completed lesson returns its stored result and awards no XP again. */
+    /**
+     * Idempotent: a completed lesson returns its result again and awards no XP again; only the first completion revises
+     * the plan.
+     */
     @Transactional
     LessonResultResponse complete(UUID userId, UUID sessionId) {
         LessonSessionEntity session = lockedSession(userId, sessionId);
+        List<AttemptEntity> firstAttempts = attempts.findBySessionIdAndRetryFalseOrderByPosition(session.getId());
+        Optional<FocusRequest> focus = focusRequest(userId, firstAttempts);
         if (!session.isFinished()) {
-            finish(userId, session);
+            finish(userId, session, firstAttempts);
+            planTriggers.afterLesson(userId, focus);
         }
         List<Item> items = learnedItems(session);
         Map<String, SrsCard> itemCards = cards.cards(userId, items.stream().map(Item::id).toList());
-        return LessonResultResponse.of(session, items, itemCards, cards.learnedWords(userId), users.xpTotalOf(userId));
+        return LessonResultResponse.of(session, items, itemCards, cards.learnedWords(userId), users.xpTotalOf(userId),
+                focus.flatMap(request -> focusSuggestion(userId, request)).orElse(null));
     }
 
-    private void finish(UUID userId, LessonSessionEntity session) {
-        List<AttemptEntity> firstAttempts = attempts.findBySessionIdAndRetryFalseOrderByPosition(session.getId());
+    /** A tag the lesson's first answers got wrong at least three times, if a focus lesson could practise it. */
+    private Optional<FocusRequest> focusRequest(UUID userId, List<AttemptEntity> firstAttempts) {
+        Level level = users.findById(userId).map(UserEntity::getCurrentLevel).orElse(null);
+        if (level == null) {
+            return Optional.empty();
+        }
+        return FocusSuggestion.of(firstAttempts.stream()
+                        .map(attempt -> new FirstAnswer(attempt.getSkillTags(), !attempt.countsAsCorrect()))
+                        .toList(),
+                catalog.lessonSkillTags(level));
+    }
+
+    /** The suggestion is offered as the open focus unit of its tag in the plan. */
+    private Optional<LessonResultResponse.FocusSuggestion> focusSuggestion(UUID userId, FocusRequest request) {
+        String label = catalog.skillTagLabels().getOrDefault(request.tag(), request.tag().id());
+        return planTriggers.openFocusUnit(userId, request.tag())
+                .map(unitId -> new LessonResultResponse.FocusSuggestion(request.tag().id(), label, unitId));
+    }
+
+    private void finish(UUID userId, LessonSessionEntity session, List<AttemptEntity> firstAttempts) {
         int unanswered = session.getExerciseIds().size() - firstAttempts.size();
         if (unanswered > 0) {
             throw LessonProblems.lessonIncomplete(unanswered);

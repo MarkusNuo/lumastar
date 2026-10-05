@@ -59,6 +59,11 @@ springdoc:
 
 lingora:
   engine: rule-based
+  plan:
+    periodic-revision:
+      # Daily check of the "every 7 learning days" revision (PRD F3); "-" switches it off.
+      cron: ${LINGORA_PLAN_REVISION_CRON:0 30 3 * * *}
+      zone: Europe/Zurich
   backup:
     max-archive-size: 20MB
     max-unpacked-size: 100MB

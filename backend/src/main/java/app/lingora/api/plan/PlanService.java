@@ -1,5 +1,6 @@
 package app.lingora.api.plan;
 
+import app.lingora.core.plan.FocusRequest;
 import app.lingora.core.plan.PlanChanges;
 import app.lingora.core.plan.PlanGenerator;
 import app.lingora.core.plan.PlanGeneratorFactory;
@@ -71,6 +72,16 @@ public class PlanService {
      */
     @Transactional
     public StoredPlan revise(UUID userId, PlanTrigger trigger, PlanChange cause) {
+        return revise(userId, trigger, List.of(cause), List.of());
+    }
+
+    /**
+     * Like {@link #revise(UUID, PlanTrigger, PlanChange)} with several causes, and with focus units a lesson asked for.
+     *
+     * @param causes the first entries of the plan history for this version
+     */
+    @Transactional
+    public StoredPlan revise(UUID userId, PlanTrigger trigger, List<PlanChange> causes, List<FocusRequest> focusRequests) {
         UserEntity learner = users.findForUpdateById(userId).orElseThrow();
         Instant now = clock.instant();
         LearnerProfile profile = learner.toProfile();
@@ -83,11 +94,10 @@ public class PlanService {
         List<SkillTagErrorRate> errorRates = practisableErrorRates(userId, profile, now);
         LearningPlan plan = before == null
                 ? generator.generate(profile, currentMastery)
-                : generator.revise(before, profile, currentMastery, errorRates);
+                : generator.revise(before, profile, currentMastery, errorRates, focusRequests);
 
         StoredPlan stored = plans.save(userId, plan, now);
-        List<PlanChange> changes = new ArrayList<>();
-        changes.add(cause);
+        List<PlanChange> changes = new ArrayList<>(causes);
         changes.addAll(PlanChanges.between(before, plan, labels, errorRates));
         plans.logChanges(userId, stored.id(), trigger, changes, now);
         return stored;

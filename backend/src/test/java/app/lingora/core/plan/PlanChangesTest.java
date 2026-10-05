@@ -38,20 +38,20 @@ class PlanChangesTest {
         LearningPlan before = withStatuses(generator.generate(learner(Level.A1_2, 10), noMastery()),
                 Map.of("a1_home", PlanUnitStatus.IN_PROGRESS));
         List<SkillTagErrorRate> rates = List.of(new SkillTagErrorRate(INFINITIVE, 11, 5));
-        LearningPlan after = generator.revise(before, learner(Level.A1_2, 10), noMastery(), rates);
+        LearningPlan after = generator.revise(before, learner(Level.A1_2, 10), noMastery(), rates, List.of());
 
         assertThat(PlanChanges.between(before, after, LABELS, rates)).containsExactly(new PlanChange(
                 PlanChangeKind.FOCUS_INSERTED, "Fokus-Lektion ‚Infinitiv me + Partizip‘ eingefügt, Fehlerquote 45 %",
                 Map.of("unitId", "focus_grammar.infinitive_1", "skillTag", "grammar.infinitive", "errorRate", 0.45,
                         "attempts", 11)));
-        assertThat(PlanChanges.between(after, generator.revise(after, learner(Level.A1_2, 10), noMastery(), rates), LABELS,
+        assertThat(PlanChanges.between(after, generator.revise(after, learner(Level.A1_2, 10), noMastery(), rates, List.of()), LABELS,
                 rates)).as("a focus unit that stays is not inserted again").isEmpty();
     }
 
     @Test
     void aRevisionListsShortenedAndNewlySkippedUnits() {
         LearningPlan before = generator.generate(learner(Level.A1_2, 10), noMastery());
-        LearningPlan after = generator.revise(before, learner(Level.A1_2, 10), mastery(HOME, 0.9, FOOD, 0.85), List.of());
+        LearningPlan after = generator.revise(before, learner(Level.A1_2, 10), mastery(HOME, 0.9, FOOD, 0.85), List.of(), List.of());
 
         assertThat(PlanChanges.between(before, after, LABELS, List.of())).containsExactly(
                 new PlanChange(PlanChangeKind.UNIT_SKIPPED, "Einheit ‚Essen & Trinken‘ übersprungen: bereits beherrscht",
@@ -64,7 +64,7 @@ class PlanChangesTest {
     void aFocusUnitWithoutKnownErrorRateIsStillListed() {
         LearningPlan before = generator.generate(learner(Level.A1_2, 10), noMastery());
         LearningPlan after = generator.revise(before, learner(Level.A1_2, 10), noMastery(),
-                List.of(new SkillTagErrorRate(INFINITIVE, 10, 8)));
+                List.of(new SkillTagErrorRate(INFINITIVE, 10, 8)), List.of());
 
         assertThat(PlanChanges.between(before, after, LABELS, List.of()))
                 .extracting(PlanChange::reason)
@@ -75,7 +75,7 @@ class PlanChangesTest {
     void anUnchangedPlanHasNoChanges() {
         LearningPlan plan = generator.generate(learner(Level.A1_2, 10), mastery(FOOD, 0.9));
 
-        assertThat(PlanChanges.between(plan, generator.revise(plan, learner(Level.A1_2, 10), mastery(FOOD, 0.9), List.of()),
+        assertThat(PlanChanges.between(plan, generator.revise(plan, learner(Level.A1_2, 10), mastery(FOOD, 0.9), List.of(), List.of()),
                 LABELS, List.of())).isEmpty();
     }
 }
