@@ -84,14 +84,15 @@ class ProfileDocumentRendererTest {
     }
 
     @Test
-    void theCurrentLearningPlanAsStored() {
+    void theCurrentLearningPlanAsRead() {
         String plan = """
                 {"generatedAt": "2026-09-25T10:05:00Z", "generatedBy": "rule_based_v1", "startLevel": "A1.2",
                  "stages": [{"level": "A1.2", "units": [{"unitId": "a1_u4", "title": "Zuhause", "status": "in_progress",
                  "estimatedLessons": 6}]}], "estimates": {"A2": "2026-11-10"}}""";
         LearnerSnapshot erza = LearnerSnapshots.erza();
         LearnerSnapshot withPlan = new LearnerSnapshot(erza.takenAt(), erza.timeZone(), erza.profile(), erza.streak(),
-                erza.mastery(), erza.skillTagLabels(), erza.recentErrors(), erza.frequentErrors(), erza.learnedWords(), plan);
+                erza.mastery(), erza.skillTagLabels(), erza.recentErrors(), erza.frequentErrors(), erza.learnedWords(), plan,
+                null);
 
         assertThat(json(ProfileDocument.LEARNING_PLAN, withPlan)).isStrictlyEqualTo(plan);
     }

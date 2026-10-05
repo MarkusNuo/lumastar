@@ -345,7 +345,9 @@ class ProfileExportApiTest extends IntegrationTest {
                 .param("user", learnerId).query(UUID.class).single();
         UUID plan = jdbc.sql("""
                 INSERT INTO learning_plans (user_id, version, generated_by, plan)
-                VALUES (:user, 1, 'rule_based_v1', '{"generatedBy": "rule_based_v1", "startLevel": "A1.2", "stages": []}')
+                VALUES (:user, 1, 'rule_based_v1', '{"generatedAt": "2026-09-20T08:00:00Z", "generatedBy": "rule_based_v1",
+                        "startLevel": "A1.2", "stages": [{"level": "A1.2", "units": [{"unitId": "a1_u03_numbers",
+                        "title": "Zahlen 1–100", "status": "planned", "estimatedLessons": 4}]}], "estimates": {"A1": "2026-10-20"}}')
                 RETURNING id""").param("user", learnerId).query(UUID.class).single();
         jdbc.sql("""
                 INSERT INTO plan_changes (user_id, plan_id, triggered_by, kind, reason, details)

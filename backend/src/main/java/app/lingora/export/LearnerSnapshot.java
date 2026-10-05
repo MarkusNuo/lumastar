@@ -3,6 +3,7 @@ package app.lingora.export;
 import app.lingora.domain.ErrorCategoryCount;
 import app.lingora.domain.ErrorEntry;
 import app.lingora.domain.LearnerProfile;
+import app.lingora.domain.Level;
 import app.lingora.domain.SkillMastery;
 import app.lingora.domain.SkillTag;
 import java.time.Instant;
@@ -14,8 +15,9 @@ import java.util.Objects;
 
 /**
  * Everything the profile documents show, read at one point in time: the compact context snapshot of PRD 10.1.
- * {@code mastery} is the effective (decayed) mastery at {@code takenAt}, {@code recentErrors} are newest first and
- * {@code learningPlanJson} is the current plan as stored, or {@code null} before the first plan.
+ * {@code mastery} is the effective (decayed) mastery at {@code takenAt}, {@code recentErrors} are newest first,
+ * {@code learningPlanJson} is the current plan with the live status of its units and {@code currentUnit} the unit in
+ * progress; both are {@code null} before the first plan.
  */
 public record LearnerSnapshot(
         Instant takenAt,
@@ -27,7 +29,8 @@ public record LearnerSnapshot(
         List<ErrorEntry> recentErrors,
         List<ErrorCategoryCount> frequentErrors,
         int learnedWords,
-        String learningPlanJson) {
+        String learningPlanJson,
+        CurrentUnit currentUnit) {
 
     public LearnerSnapshot {
         Objects.requireNonNull(takenAt, "takenAt");
@@ -38,6 +41,15 @@ public record LearnerSnapshot(
         skillTagLabels = Map.copyOf(skillTagLabels);
         recentErrors = List.copyOf(recentErrors);
         frequentErrors = List.copyOf(frequentErrors);
+    }
+
+    /** The unit the learner is working on and the stage it belongs to. */
+    public record CurrentUnit(String title, Level level) {
+
+        public CurrentUnit {
+            Objects.requireNonNull(title, "title");
+            Objects.requireNonNull(level, "level");
+        }
     }
 
     public record Streak(int current, int longest) {

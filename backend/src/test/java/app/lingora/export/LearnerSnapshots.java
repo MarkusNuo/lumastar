@@ -10,6 +10,7 @@ import app.lingora.domain.Motivation;
 import app.lingora.domain.SkillMastery;
 import app.lingora.domain.SkillMastery.Entry;
 import app.lingora.domain.SkillTag;
+import app.lingora.export.LearnerSnapshot.CurrentUnit;
 import app.lingora.export.LearnerSnapshot.Streak;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -61,12 +62,14 @@ final class LearnerSnapshots {
                 List.of(new ErrorCategoryCount(ErrorCategory.SPELLING_NASAL_VOWEL, 5),
                         new ErrorCategoryCount(ErrorCategory.GRAMMAR_DEFINITE_ARTICLE, 3)),
                 340,
-                null);
+                null,
+                new CurrentUnit("Zuhause", Level.A1_2));
     }
 
     static LearnerSnapshot newLearner(Instant takenAt, int streakDays, int learnedWords) {
         return new LearnerSnapshot(takenAt, ZURICH, new LearnerProfile(USER, "Erza", Set.of(), 10, null, 0),
-                new Streak(streakDays, streakDays), new SkillMastery(Map.of()), Map.of(), List.of(), List.of(), learnedWords, null);
+                new Streak(streakDays, streakDays), new SkillMastery(Map.of()), Map.of(), List.of(), List.of(), learnedWords, null,
+                null);
     }
 
     private static SkillTag tag(String id) {

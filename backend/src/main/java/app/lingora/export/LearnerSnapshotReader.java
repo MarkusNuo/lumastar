@@ -1,12 +1,17 @@
 package app.lingora.export;
 
 import app.lingora.domain.Coded;
-import app.lingora.domain.Level;
 import app.lingora.domain.LearnerProfile;
+import app.lingora.domain.LearningPlan;
+import app.lingora.domain.Level;
 import app.lingora.domain.Motivation;
+import app.lingora.domain.PlanUnitStatus;
 import app.lingora.domain.SkillTag;
+import app.lingora.export.LearnerSnapshot.CurrentUnit;
 import app.lingora.export.LearnerSnapshot.Streak;
 import app.lingora.persistence.ErrorAnalysisQueries;
+import app.lingora.persistence.LearningPlanStore;
+import app.lingora.persistence.LivePlans;
 import app.lingora.persistence.SkillMasteryStore;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,12 +21,14 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import tools.jackson.databind.json.JsonMapper;
 
 /** Reads the {@link LearnerSnapshot} of a learner from the database. */
 @Component
@@ -34,12 +41,19 @@ public class LearnerSnapshotReader {
     private final JdbcClient jdbc;
     private final SkillMasteryStore mastery;
     private final ErrorAnalysisQueries errors;
+    private final LearningPlanStore plans;
+    private final LivePlans livePlans;
+    private final JsonMapper json;
     private final Clock clock;
 
-    LearnerSnapshotReader(JdbcClient jdbc, SkillMasteryStore mastery, ErrorAnalysisQueries errors, Clock clock) {
+    LearnerSnapshotReader(JdbcClient jdbc, SkillMasteryStore mastery, ErrorAnalysisQueries errors, LearningPlanStore plans,
+                          LivePlans livePlans, JsonMapper json, Clock clock) {
         this.jdbc = jdbc;
         this.mastery = mastery;
         this.errors = errors;
+        this.plans = plans;
+        this.livePlans = livePlans;
+        this.json = json;
         this.clock = clock;
     }
 
@@ -52,10 +66,20 @@ public class LearnerSnapshotReader {
                 .param("user", userId)
                 .query((row, rowNumber) -> account(userId, row))
                 .single();
+        Optional<LearningPlan> plan = plans.current(userId)
+                .map(stored -> livePlans.live(userId, stored, account.profile().currentLevel()));
         return new LearnerSnapshot(now, account.timeZone(), account.profile(), streak(userId), mastery.effective(userId, now),
                 skillTagLabels(), errors.recentErrors(userId, RECENT_ERRORS),
                 errors.topErrorCategories(userId, now.minus(FREQUENT_ERRORS_PERIOD), FREQUENT_ERROR_CATEGORIES),
-                learnedWords(userId), learningPlan(userId));
+                learnedWords(userId), plan.map(json::writeValueAsString).orElse(null), plan.flatMap(LearnerSnapshotReader::currentUnit).orElse(null));
+    }
+
+    private static Optional<CurrentUnit> currentUnit(LearningPlan plan) {
+        return plan.stages().stream()
+                .flatMap(stage -> stage.units().stream()
+                        .filter(unit -> unit.status() == PlanUnitStatus.IN_PROGRESS)
+                        .map(unit -> new CurrentUnit(unit.title(), stage.level())))
+                .findFirst();
     }
 
     private Streak streak(UUID userId) {
@@ -84,14 +108,6 @@ public class LearnerSnapshotReader {
                 .param("user", userId)
                 .query(Integer.class)
                 .single();
-    }
-
-    private String learningPlan(UUID userId) {
-        return jdbc.sql("SELECT plan::text FROM learning_plans WHERE user_id = :user ORDER BY version DESC LIMIT 1")
-                .param("user", userId)
-                .query(String.class)
-                .optional()
-                .orElse(null);
     }
 
     private static Account account(UUID userId, ResultSet row) throws SQLException {

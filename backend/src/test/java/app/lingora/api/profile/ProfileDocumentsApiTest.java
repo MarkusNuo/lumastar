@@ -95,11 +95,12 @@ class ProfileDocumentsApiTest extends IntegrationTest {
                 .startsWith("# Lernstand Erza – ")
                 .contains("""
                         - Niveau: noch nicht eingestuft (Ziel C2), 0 Tage Streak, 1 Wort
+                        - Aktuelle Einheit: noch keine
                         - Stärken: noch keine
                         - Schwächen: noch keine
-                        - Häufige Fehler (30 Tage): bestimmter Artikel (1×)
+                        - Häufige Fehler (30 Tage): bestimmter Artikel 1×
                         - Letzte typische Fehler:
-                          - „Shpi âsht e madhe“ → „Shpija âsht e madhe“ (bestimmter Artikel)
+                          - Aufgabe „Das Haus ist gross“: „Shpi âsht e madhe“ → „Shpija âsht e madhe“ (bestimmter Artikel)
                         """);
         assertThat(text(summary))
                 .isEqualTo(new String(learner.get(DOCUMENTS + "learner_summary.md").getResponse().getContentAsByteArray(),
@@ -110,14 +111,20 @@ class ProfileDocumentsApiTest extends IntegrationTest {
     void theLearningPlanIsEmptyUntilAPlanExists() {
         assertThat(learner.get(DOCUMENTS + "learning_plan.json")).bodyJson().isStrictlyEqualTo("""
                 {"generatedAt": null, "generatedBy": null, "startLevel": null, "stages": [], "estimates": {}}""");
+    }
 
-        jdbc.sql("""
-                INSERT INTO learning_plans (user_id, version, generated_by, plan)
-                SELECT id, version, 'rule_based_v1', jsonb_build_object('generatedBy', 'rule_based_v1', 'version', version)
-                FROM users, generate_series(1, 2) AS version""").update();
+    @Test
+    void theLearningPlanIsTheNewestPlanWithTheLiveStatusOfItsUnits() {
+        storePlan(1, "planned", "planned");
+        storePlan(2, "completed", "planned");
 
         assertThat(learner.get(DOCUMENTS + "learning_plan.json")).bodyJson().isStrictlyEqualTo("""
-                {"generatedBy": "rule_based_v1", "version": 2}""");
+                {"generatedAt": "2026-09-25T10:05:00Z", "generatedBy": "rule_based_v1", "startLevel": "A1.1",
+                 "stages": [{"level": "A1.1", "units": [
+                   {"unitId": "a1_u01_greetings", "title": "Begrüssung", "status": "completed", "estimatedLessons": 4},
+                   {"unitId": "a1_u02_family", "title": "Familie", "status": "in_progress", "estimatedLessons": 5}]}],
+                 "estimates": {"A1": "2026-10-20"}}""");
+        assertThat(text(learner.get("/api/profile/summary"))).contains("- Aktuelle Einheit: Familie (A1.1)");
     }
 
     @Test
@@ -147,6 +154,21 @@ class ProfileDocumentsApiTest extends IntegrationTest {
         assertThat(learner.post("/api/lessons/%s/attempts".formatted(lesson), """
                 {"exerciseId": "ex_a1_u02_003", "answer": {"choice": "die Mutter"}, "responseTimeMs": 3000}"""))
                 .hasStatusOk();
+    }
+
+    /** A plan version as the plan generator stores it, with the status of the two A1.1 units at its calculation. */
+    private void storePlan(int version, String greetings, String family) {
+        jdbc.sql("""
+                        INSERT INTO learning_plans (user_id, version, generated_by, plan)
+                        SELECT id, :version, 'rule_based_v1', :plan::jsonb FROM users""")
+                .param("version", version)
+                .param("plan", """
+                        {"generatedAt": "2026-09-25T10:05:00Z", "generatedBy": "rule_based_v1", "startLevel": "A1.1",
+                         "stages": [{"level": "A1.1", "units": [
+                           {"unitId": "a1_u01_greetings", "title": "Begrüssung", "status": "%s", "estimatedLessons": 4},
+                           {"unitId": "a1_u02_family", "title": "Familie", "status": "%s", "estimatedLessons": 5}]}],
+                         "estimates": {"A1": "2026-10-20"}}""".formatted(greetings, family))
+                .update();
     }
 
     private static String text(MvcTestResult result) {

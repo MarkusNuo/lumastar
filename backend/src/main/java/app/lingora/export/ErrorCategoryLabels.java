@@ -2,7 +2,10 @@ package app.lingora.export;
 
 import app.lingora.domain.ErrorCategory;
 
-/** German names of the error categories (PRD F6) as used in {@code learner_summary.md}. */
+/**
+ * German names of the error categories (PRD F6) as used in {@code learner_summary.md}. They contain no brackets, since
+ * the summary puts them in brackets.
+ */
 final class ErrorCategoryLabels {
 
     private ErrorCategoryLabels() {
@@ -22,7 +25,7 @@ final class ErrorCategoryLabels {
             case GRAMMAR_GENDER -> "Genus";
             case GRAMMAR_INFINITIVE -> "Infinitiv me + Partizip";
             case GRAMMAR_PARTICIPLE -> "Gheg-Partizip";
-            case GRAMMAR_VERB_CONJUGATION -> "Konjugation (Person/Zahl)";
+            case GRAMMAR_VERB_CONJUGATION -> "Konjugation nach Person und Zahl";
             case GRAMMAR_VERB_TENSE -> "Zeitform";
             case GRAMMAR_WORD_ORDER -> "Wortstellung";
             case GRAMMAR_CLITICS -> "Pronomen-Kurzformen";

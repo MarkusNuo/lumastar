@@ -14,6 +14,7 @@ import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.ErrorAnalysisQueries;
 import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LearningPlanStore.StoredPlan;
+import app.lingora.persistence.LivePlans;
 import app.lingora.persistence.SkillMasteryStore;
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
