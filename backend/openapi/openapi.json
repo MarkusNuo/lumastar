@@ -151,6 +151,11 @@
             "format": "int32",
             "type": "integer"
           },
+          "streakDays": {
+            "description": "Days that counted for the streak",
+            "format": "int32",
+            "type": "integer"
+          },
           "streaks": {
             "format": "int32",
             "type": "integer"
@@ -168,6 +173,7 @@
           "sessions",
           "skillMastery",
           "srsCards",
+          "streakDays",
           "streaks"
         ],
         "type": "object"
@@ -353,6 +359,102 @@
         ],
         "type": "object"
       },
+      "DailyProgressResponse": {
+        "description": "Today's progress towards the daily goal and the streak (PRD F9); days are dates in the learner's time zone",
+        "properties": {
+          "date": {
+            "description": "Today in the learner's time zone",
+            "format": "date",
+            "type": "string"
+          },
+          "goalMet": {
+            "description": "minutesToday ≥ goalMinutes",
+            "type": "boolean"
+          },
+          "goalMinutes": {
+            "description": "5, 10, 15 or 20",
+            "format": "int32",
+            "type": "integer"
+          },
+          "lessonsToday": {
+            "description": "Lessons of every kind completed today",
+            "format": "int32",
+            "type": "integer"
+          },
+          "minutesToday": {
+            "description": "Whole minutes practised today: completed lessons of every kind and placement tests, each counted with at most 30 minutes",
+            "format": "int32",
+            "type": "integer"
+          },
+          "streak": {
+            "$ref": "#/components/schemas/StreakResponse"
+          },
+          "xpToday": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "date",
+          "goalMet",
+          "goalMinutes",
+          "lessonsToday",
+          "minutesToday",
+          "streak",
+          "xpToday"
+        ],
+        "type": "object"
+      },
+      "DueDay": {
+        "properties": {
+          "date": {
+            "format": "date",
+            "type": "string"
+          },
+          "due": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "date",
+          "due"
+        ],
+        "type": "object"
+      },
+      "DueForecast": {
+        "description": "FSRS forecast (PRD F10 \"morgen fällig: 34 Items\")",
+        "properties": {
+          "days": {
+            "description": "The next 7 days from today, one entry per day; today includes the overdue cards",
+            "items": {
+              "$ref": "#/components/schemas/DueDay"
+            },
+            "type": "array"
+          },
+          "dueNow": {
+            "description": "Cards due now, overdue ones included",
+            "format": "int32",
+            "type": "integer"
+          },
+          "dueToday": {
+            "description": "Cards due by the end of today, overdue ones included",
+            "format": "int32",
+            "type": "integer"
+          },
+          "dueTomorrow": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "days",
+          "dueNow",
+          "dueToday",
+          "dueTomorrow"
+        ],
+        "type": "object"
+      },
       "ErrorCategory": {
         "enum": [
           "vocab.unknown",
@@ -464,6 +566,53 @@
         ],
         "type": "object"
       },
+      "FrequentError": {
+        "properties": {
+          "attempts": {
+            "description": "First answers",
+            "format": "int32",
+            "type": "integer"
+          },
+          "category": {
+            "$ref": "#/components/schemas/ErrorCategory",
+            "description": "The error category the wrong answers were logged with most often; absent if none"
+          },
+          "categoryLabel": {
+            "description": "German label of the category; absent with it",
+            "type": "string"
+          },
+          "errorRate": {
+            "description": "errors / attempts, 0 to 1",
+            "format": "double",
+            "type": "number"
+          },
+          "errors": {
+            "description": "Wrong first answers",
+            "format": "int32",
+            "type": "integer"
+          },
+          "label": {
+            "description": "German label of the skill tag",
+            "type": "string"
+          },
+          "practice": {
+            "$ref": "#/components/schemas/PracticeTarget",
+            "description": "The body of POST /api/lessons for a practice lesson on the tag (\"Gezielt üben\"); absent if no exercise at or below the learner's level carries it"
+          },
+          "skillTag": {
+            "example": "grammar.case",
+            "type": "string"
+          }
+        },
+        "required": [
+          "attempts",
+          "errorRate",
+          "errors",
+          "label",
+          "skillTag"
+        ],
+        "type": "object"
+      },
       "GhegReplacement": {
         "description": "suffix: the word before the match + value must begin the Gheg word (which may carry an inflection ending: punuar → punue, punuem, punuemi). prefix: value + the word after the match must equal the Gheg word, also with a j between them if the rest begins with a vowel (shtëpia → shpija). word: value must equal the Gheg word.",
         "properties": {
@@ -487,6 +636,70 @@
           "word"
         ],
         "type": "string"
+      },
+      "Heatmap": {
+        "description": "The last 365 days, one entry per day from the oldest to today",
+        "properties": {
+          "days": {
+            "items": {
+              "$ref": "#/components/schemas/HeatmapDay"
+            },
+            "type": "array"
+          },
+          "from": {
+            "format": "date",
+            "type": "string"
+          },
+          "to": {
+            "description": "Today",
+            "format": "date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "days",
+          "from",
+          "to"
+        ],
+        "type": "object"
+      },
+      "HeatmapDay": {
+        "properties": {
+          "date": {
+            "format": "date",
+            "type": "string"
+          },
+          "frozen": {
+            "description": "A missed day bridged by the streak freeze",
+            "type": "boolean"
+          },
+          "goalMet": {
+            "description": "The daily goal of that day was met",
+            "type": "boolean"
+          },
+          "lessons": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "minutes": {
+            "description": "Whole minutes practised",
+            "format": "int32",
+            "type": "integer"
+          },
+          "xp": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "date",
+          "frozen",
+          "goalMet",
+          "lessons",
+          "minutes",
+          "xp"
+        ],
+        "type": "object"
       },
       "ImportResult": {
         "properties": {
@@ -532,6 +745,33 @@
           "gheg",
           "id",
           "known"
+        ],
+        "type": "object"
+      },
+      "LessonDailyGoal": {
+        "description": "The daily goal on the day of the lesson, up to and including the lesson (PRD F9)",
+        "properties": {
+          "goalMet": {
+            "type": "boolean"
+          },
+          "goalMinutes": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "justMet": {
+            "description": "This lesson met the goal of its day and so extended the streak; time to celebrate",
+            "type": "boolean"
+          },
+          "minutesToday": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "goalMet",
+          "goalMinutes",
+          "justMet",
+          "minutesToday"
         ],
         "type": "object"
       },
@@ -647,12 +887,13 @@
         "type": "object"
       },
       "LessonKind": {
-        "description": "lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8) or checkpoint at the end of a stage (PRD chapter 5)",
+        "description": "lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8), checkpoint at the end of a stage (PRD chapter 5) or practice lesson on a chosen skill tag (PRD F10)",
         "enum": [
           "lesson",
           "focus",
           "review",
-          "checkpoint"
+          "checkpoint",
+          "practice"
         ],
         "type": "string"
       },
@@ -673,7 +914,7 @@
             "type": "string"
           },
           "unitId": {
-            "description": "The unit or focus unit played; review for a review lesson, checkpoint_<level> (e.g. checkpoint_A1.2) for a checkpoint",
+            "description": "The unit or focus unit played; review for a review lesson, checkpoint_<level> (e.g. checkpoint_A1.2) for a checkpoint, practice_<skill tag> (e.g. practice_grammar.case) for a practice lesson",
             "type": "string"
           }
         },
@@ -701,6 +942,9 @@
             "description": "Exercises answered correctly at the first attempt",
             "format": "int32",
             "type": "integer"
+          },
+          "dailyGoal": {
+            "$ref": "#/components/schemas/LessonDailyGoal"
           },
           "durationMs": {
             "description": "From the lesson start to its completion",
@@ -730,6 +974,9 @@
             "format": "int32",
             "type": "integer"
           },
+          "streak": {
+            "$ref": "#/components/schemas/LessonStreak"
+          },
           "xpBreakdown": {
             "$ref": "#/components/schemas/XpBreakdown"
           },
@@ -746,14 +993,39 @@
         "required": [
           "accuracy",
           "correctCount",
+          "dailyGoal",
           "durationMs",
           "exerciseCount",
           "kind",
           "learnedItems",
           "learnedWordsTotal",
+          "streak",
           "xpBreakdown",
           "xpEarned",
           "xpTotal"
+        ],
+        "type": "object"
+      },
+      "LessonStreak": {
+        "description": "The streak after the lesson (PRD F9)",
+        "properties": {
+          "current": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "extendedToday": {
+            "description": "Today's goal is met and has extended the streak",
+            "type": "boolean"
+          },
+          "freezeUsed": {
+            "description": "This lesson extended the streak over the missed day before, which the weekly streak freeze bridged",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "current",
+          "extendedToday",
+          "freezeUsed"
         ],
         "type": "object"
       },
@@ -792,6 +1064,53 @@
         ],
         "type": "string"
       },
+      "LevelProgress": {
+        "description": "The learner's stage and the progress towards its checkpoint, which leads to the next stage",
+        "properties": {
+          "checkpoint": {
+            "$ref": "#/components/schemas/CheckpointStatus"
+          },
+          "level": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "nextLevel": {
+            "$ref": "#/components/schemas/Level",
+            "description": "The stage a passed checkpoint leads to; absent at C2.3"
+          },
+          "percent": {
+            "description": "Completed and skipped units of the total, 0 to 100, rounded down",
+            "format": "int32",
+            "type": "integer"
+          },
+          "title": {
+            "description": "German title of the stage",
+            "type": "string"
+          },
+          "unitsCompleted": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "unitsSkipped": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "unitsTotal": {
+            "description": "Units of the stage with exercises; focus units do not count",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "checkpoint",
+          "level",
+          "percent",
+          "title",
+          "unitsCompleted",
+          "unitsSkipped",
+          "unitsTotal"
+        ],
+        "type": "object"
+      },
       "LoginRequest": {
         "properties": {
           "password": {
@@ -802,6 +1121,33 @@
         },
         "required": [
           "password"
+        ],
+        "type": "object"
+      },
+      "MasteryArea": {
+        "properties": {
+          "area": {
+            "$ref": "#/components/schemas/SkillArea"
+          },
+          "label": {
+            "example": "Wortschatz",
+            "type": "string"
+          },
+          "mastery": {
+            "description": "Average effective mastery of these tags, 0 to 1; absent without tags",
+            "format": "double",
+            "type": "number"
+          },
+          "skillTags": {
+            "description": "Skill tags of the area with a mastery value, practised or estimated by the placement test",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "area",
+          "label",
+          "skillTags"
         ],
         "type": "object"
       },
@@ -1383,6 +1729,21 @@
         ],
         "type": "string"
       },
+      "PracticeTarget": {
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/StartLessonKind"
+          },
+          "skillTag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "skillTag"
+        ],
+        "type": "object"
+      },
       "ProblemDetail": {
         "description": "RFC 9457 problem details",
         "properties": {
@@ -1594,6 +1955,66 @@
         ],
         "type": "object"
       },
+      "SettingsRequest": {
+        "description": "All settings at once; a changed daily goal recalculates the plan's time estimates",
+        "properties": {
+          "dailyGoalMinutes": {
+            "description": "5, 10, 15 or 20",
+            "format": "int32",
+            "type": "integer"
+          },
+          "requestRetention": {
+            "description": "Target retention of the FSRS reviews (PRD F8)",
+            "example": 0.9,
+            "format": "double",
+            "maximum": 0.99,
+            "minimum": 0.7,
+            "type": "number"
+          },
+          "timeZone": {
+            "description": "IANA time zone",
+            "example": "Europe/Zurich",
+            "maxLength": 64,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "required": [
+          "dailyGoalMinutes",
+          "requestRetention",
+          "timeZone"
+        ],
+        "type": "object"
+      },
+      "SettingsResponse": {
+        "description": "The learner's settings; sounds and vibration are per-device preferences of the app",
+        "properties": {
+          "dailyGoalMinutes": {
+            "description": "5, 10, 15 or 20",
+            "format": "int32",
+            "type": "integer"
+          },
+          "requestRetention": {
+            "description": "Target retention of the FSRS reviews (PRD F8)",
+            "example": 0.9,
+            "format": "double",
+            "maximum": 0.99,
+            "minimum": 0.7,
+            "type": "number"
+          },
+          "timeZone": {
+            "description": "IANA time zone; it decides when a day starts for the daily goal and the streak",
+            "example": "Europe/Zurich",
+            "type": "string"
+          }
+        },
+        "required": [
+          "dailyGoalMinutes",
+          "requestRetention",
+          "timeZone"
+        ],
+        "type": "object"
+      },
       "SetupRequest": {
         "description": "Creates the only account of this instance.",
         "properties": {
@@ -1616,6 +2037,16 @@
           "password"
         ],
         "type": "object"
+      },
+      "SkillArea": {
+        "enum": [
+          "vocab",
+          "phrase",
+          "grammar",
+          "spelling",
+          "reading"
+        ],
+        "type": "string"
       },
       "SkillEstimate": {
         "properties": {
@@ -1726,19 +2157,37 @@
         ],
         "type": "object"
       },
+      "StartLessonKind": {
+        "description": "lesson: a lesson of a unit or focus unit (unitId); practice: a practice lesson of the exercises with one skill tag (skillTag, PRD F10 \"Gezielt üben\")",
+        "enum": [
+          "lesson",
+          "practice"
+        ],
+        "type": "string"
+      },
       "StartLessonRequest": {
+        "description": "A lesson of a unit ({\"unitId\": …}) or a practice lesson on a skill tag ({\"kind\": \"practice\", \"skillTag\": …})",
         "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/StartLessonKind",
+            "description": "lesson when absent"
+          },
+          "skillTag": {
+            "description": "Required for kind practice: the skill tag to practise, e.g. a top error of GET /api/stats",
+            "example": "grammar.case",
+            "maxLength": 100,
+            "minLength": 0,
+            "pattern": "^(vocab|phrase|grammar|spelling|reading)(\\.[a-z0-9_]+)+$",
+            "type": "string"
+          },
           "unitId": {
-            "description": "A curriculum unit or a focus unit of the current plan, as listed by GET /api/path",
+            "description": "Required for kind lesson: a curriculum unit or a focus unit of the current plan, as listed by GET /api/path",
             "example": "a1_u01_greetings",
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
           }
         },
-        "required": [
-          "unitId"
-        ],
         "type": "object"
       },
       "StartPlacementResponse": {
@@ -1771,6 +2220,88 @@
           "position",
           "startLevel",
           "testId"
+        ],
+        "type": "object"
+      },
+      "StatsResponse": {
+        "description": "Progress and statistics of the learner (PRD F10); days are dates in the learner's time zone",
+        "properties": {
+          "forecast": {
+            "$ref": "#/components/schemas/DueForecast"
+          },
+          "heatmap": {
+            "$ref": "#/components/schemas/Heatmap"
+          },
+          "learnedWords": {
+            "description": "Words and phrases whose FSRS card is in the review state",
+            "format": "int32",
+            "type": "integer"
+          },
+          "level": {
+            "$ref": "#/components/schemas/LevelProgress",
+            "description": "Absent until the placement test (or its skip) has set a level and created the plan"
+          },
+          "masteryByArea": {
+            "description": "One entry per area, in this order: vocab (Wortschatz), phrase (Wendungen), grammar (Grammatik), spelling (Schreiben), reading (Lesen)",
+            "items": {
+              "$ref": "#/components/schemas/MasteryArea"
+            },
+            "type": "array"
+          },
+          "topErrors": {
+            "description": "Up to 5 skill tags with the most wrong first answers of the last 30 days, the most first",
+            "items": {
+              "$ref": "#/components/schemas/FrequentError"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "forecast",
+          "heatmap",
+          "learnedWords",
+          "masteryByArea",
+          "topErrors"
+        ],
+        "type": "object"
+      },
+      "StreakResponse": {
+        "description": "The streak (PRD F9): days in a row with the daily goal met. A single missed day is bridged by the streak freeze of its ISO week (1 per week, not carried over); two missed days in a row end the streak.",
+        "properties": {
+          "current": {
+            "description": "0 once the streak has ended",
+            "format": "int32",
+            "type": "integer"
+          },
+          "extendedToday": {
+            "description": "Today's goal is met and has extended the streak",
+            "type": "boolean"
+          },
+          "freezeUsedYesterday": {
+            "description": "Yesterday was missed and the streak freeze bridges it; until today's goal is met, missing today as well ends the streak and keeps the freeze",
+            "type": "boolean"
+          },
+          "freezesLeft": {
+            "description": "Streak freezes left this ISO week, 0 or 1",
+            "format": "int32",
+            "type": "integer"
+          },
+          "lastActiveDate": {
+            "description": "The last day the daily goal was met; absent before the first time",
+            "format": "date",
+            "type": "string"
+          },
+          "longest": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "current",
+          "extendedToday",
+          "freezeUsedYesterday",
+          "freezesLeft",
+          "longest"
         ],
         "type": "object"
       },
@@ -2276,7 +2807,7 @@
     },
     "/api/lessons": {
       "post": {
-        "description": "The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level.",
+        "description": "The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level, and so is a practice lesson (kind practice, PRD F10 \"Gezielt üben\").",
         "operationId": "startLesson",
         "requestBody": {
           "content": {
@@ -2347,7 +2878,7 @@
                 }
               }
             },
-            "description": "The unit has no exercises yet (code unit_without_content)"
+            "description": "The unit has no exercises yet (code unit_without_content), or no exercise at or below the learner's level carries the skill tag to practise (code no_practice_exercises)"
           }
         },
         "security": [
@@ -2356,7 +2887,7 @@
             "sessionCookie": []
           }
         ],
-        "summary": "Compose and start a lesson of a unit",
+        "summary": "Compose and start a lesson of a unit or a practice lesson",
         "tags": [
           "lessons"
         ]
@@ -2473,7 +3004,7 @@
     },
     "/api/lessons/{sessionId}/complete": {
       "post": {
-        "description": "Idempotent: completing a finished lesson again returns the same result without awarding XP twice.",
+        "description": "Idempotent: completing a finished lesson again returns the same result without awarding XP twice. The result reports the daily goal of the lesson's day and the streak (PRD F9); dailyGoal.justMet marks the lesson that met the goal and extended the streak.",
         "operationId": "completeLesson",
         "parameters": [
           {
@@ -3315,6 +3846,38 @@
         ]
       }
     },
+    "/api/progress/today": {
+      "get": {
+        "description": "For the daily goal ring and the streak flame of the top bar (PRD 12.3).",
+        "operationId": "getTodayProgress",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DailyProgressResponse"
+                }
+              }
+            },
+            "description": "Today's progress"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "Today's minutes towards the daily goal, XP, lessons and the streak",
+        "tags": [
+          "progress"
+        ]
+      }
+    },
     "/api/review/lessons": {
       "post": {
         "description": "Up to 12 exercises at or below the learner's level that practise the most overdue items, one exercise per item and mixed types. It is played like any lesson: answers go to POST /api/lessons/{sessionId}/attempts and it is finished with POST /api/lessons/{sessionId}/complete.",
@@ -3403,6 +3966,135 @@
           "review"
         ]
       }
+    },
+    "/api/settings": {
+      "get": {
+        "operationId": "getSettings",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SettingsResponse"
+                }
+              }
+            },
+            "description": "The settings"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "The learner's settings",
+        "tags": [
+          "settings"
+        ]
+      },
+      "put": {
+        "description": "A changed daily goal recalculates the time estimates of the plan, logged in the plan history (\"Tagesziel geändert: 10 → 15 Min. pro Tag\"). A lower goal or another time zone may meet today's goal and extend the streak.",
+        "operationId": "updateSettings",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SettingsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SettingsResponse"
+                }
+              }
+            },
+            "description": "The settings as stored"
+          },
+          "400": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Invalid daily goal, target retention or time zone (code validation_failed)"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Change the settings",
+        "tags": [
+          "settings"
+        ]
+      }
+    },
+    "/api/stats": {
+      "get": {
+        "description": "The statistics screen of PRD F10. Every top error carries the request body of its practice lesson (\"Gezielt üben\") for POST /api/lessons.",
+        "operationId": "getStats",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsResponse"
+                }
+              }
+            },
+            "description": "The statistics"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "Level progress, mastery per area, top errors, heatmap and FSRS forecast",
+        "tags": [
+          "stats"
+        ]
+      }
     }
   },
   "security": [
@@ -3458,8 +4150,20 @@
       "name": "profile"
     },
     {
+      "description": "Daily goal and streak",
+      "name": "progress"
+    },
+    {
       "description": "Spaced repetition with FSRS: due items and review lessons",
       "name": "review"
+    },
+    {
+      "description": "Daily goal, FSRS target retention and time zone",
+      "name": "settings"
+    },
+    {
+      "description": "Progress and statistics",
+      "name": "stats"
     }
   ]
 }

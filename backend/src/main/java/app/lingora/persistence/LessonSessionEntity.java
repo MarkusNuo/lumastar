@@ -85,6 +85,14 @@ public class LessonSessionEntity {
         return session;
     }
 
+    /** A lesson on a skill tag the learner chose to practise (PRD F10 "Gezielt üben"); it belongs to no unit. */
+    public static LessonSessionEntity practice(UUID userId, SkillTag tag, Level level, List<String> exerciseIds,
+                                               String composedBy, Instant startedAt) {
+        LessonSessionEntity session = focus(userId, tag, level, exerciseIds, composedBy, startedAt);
+        session.kind = SessionKind.PRACTICE;
+        return session;
+    }
+
     /** A review lesson of due items (PRD F8); it belongs to no unit. {@code level} is {@code null} before the placement. */
     public static LessonSessionEntity review(UUID userId, Level level, List<String> exerciseIds, String composedBy,
                                              Instant startedAt) {
@@ -139,6 +147,11 @@ public class LessonSessionEntity {
 
     public SessionKind getKind() {
         return kind;
+    }
+
+    /** {@code null} while the lesson is running. */
+    public Instant getFinishedAt() {
+        return finishedAt;
     }
 
     public Level getLevel() {

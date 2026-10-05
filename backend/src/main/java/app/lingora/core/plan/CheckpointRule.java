@@ -2,8 +2,6 @@ package app.lingora.core.plan;
 
 import app.lingora.domain.CheckpointStatus;
 import app.lingora.domain.LearningPlan.PlanStage;
-import app.lingora.domain.LearningPlan.PlanUnit;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -27,11 +25,7 @@ public final class CheckpointRule {
         if (passed) {
             return CheckpointStatus.PASSED;
         }
-        List<PlanUnit> playable = liveStage.units().stream()
-                .filter(unit -> !unit.isFocus() && unitsWithContent.contains(unit.unitId()))
-                .toList();
-        boolean done = !playable.isEmpty() && playable.stream().allMatch(unit -> unit.status().isDone());
-        return done ? CheckpointStatus.AVAILABLE : CheckpointStatus.LOCKED;
+        return StageProgress.of(liveStage, unitsWithContent).isComplete() ? CheckpointStatus.AVAILABLE : CheckpointStatus.LOCKED;
     }
 
     public static boolean passes(double accuracy) {

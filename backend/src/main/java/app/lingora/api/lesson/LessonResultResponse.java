@@ -1,5 +1,8 @@
 package app.lingora.api.lesson;
 
+import app.lingora.api.progress.DailyProgress.LessonProgress;
+import app.lingora.api.progress.LessonDailyGoal;
+import app.lingora.api.progress.LessonStreak;
 import app.lingora.core.lesson.XpCalculator.LessonXp;
 import app.lingora.domain.Item;
 import app.lingora.domain.Level;
@@ -30,7 +33,9 @@ public record LessonResultResponse(
         int xpTotal,
         @Schema(description = "A focus lesson for a skill tag answered wrongly at least three times in this lesson "
                 + "(PRD F7); absent otherwise") FocusSuggestion focusSuggestion,
-        @Schema(description = "The result of a checkpoint; absent for other lessons") CheckpointResult checkpoint) {
+        @Schema(description = "The result of a checkpoint; absent for other lessons") CheckpointResult checkpoint,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED) LessonDailyGoal dailyGoal,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED) LessonStreak streak) {
 
     public record XpBreakdown(
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int base,
@@ -69,7 +74,7 @@ public record LessonResultResponse(
     /** @param cards the learner's cards of the items by item id */
     static LessonResultResponse of(LessonSessionEntity session, List<Item> learnedItems, Map<String, SrsCard> cards,
                                    int learnedWordsTotal, int xpTotal, FocusSuggestion focusSuggestion,
-                                   CheckpointResult checkpoint) {
+                                   CheckpointResult checkpoint, LessonProgress progress) {
         LessonXp xp = session.xp();
         return new LessonResultResponse(LessonKind.of(session.getKind()), xp.total(), new XpBreakdown(xp.base(), xp.perfectBonus(), xp.speedBonus()),
                 session.getAccuracy().doubleValue(), session.duration().toMillis(), session.getCorrectCount(),
@@ -78,6 +83,6 @@ public record LessonResultResponse(
                         .map(item -> new LearnedItem(item.id(), item.gheg(), item.de(),
                                 cards.containsKey(item.id()) && cards.get(item.id()).isKnown()))
                         .toList(),
-                learnedWordsTotal, xpTotal, focusSuggestion, checkpoint);
+                learnedWordsTotal, xpTotal, focusSuggestion, checkpoint, progress.dailyGoal(), progress.streak());
     }
 }

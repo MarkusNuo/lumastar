@@ -3,6 +3,7 @@ package app.lingora.export;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import app.lingora.domain.ErrorCategory;
+import app.lingora.domain.ExerciseType;
 import java.time.Instant;
 import org.junit.jupiter.api.Test;
 
@@ -60,9 +61,23 @@ class LearnerSummaryWriterTest {
     }
 
     @Test
+    void putsAReadingTextWithItsQuestionOnTheLineOfItsError() {
+        String summary = writer.write(LearnerSnapshots.withRecentErrors(LearnerSnapshots.error("2026-09-25T10:00:00Z",
+                ExerciseType.READING, "reading.a1", ErrorCategory.VOCAB_UNKNOWN,
+                "Arta banon në Prishtinë.\nAjo punon në shkollë.\n\nFrage: Wo arbeitet Arta?", "In der Schule.",
+                "Im Spital\n")));
+
+        assertThat(summary).endsWith("""
+                - Letzte typische Fehler:
+                  - Aufgabe „Arta banon në Prishtinë. / Ajo punon në shkollë. / Frage: Wo arbeitet Arta?“: „Im Spital“ → \
+                „In der Schule“ (Wort nicht gewusst)
+                """);
+    }
+
+    @Test
     void namesNoErrorCategoryWithBracketsOfItsOwn() {
         for (ErrorCategory category : ErrorCategory.values()) {
-            assertThat(ErrorCategoryLabels.of(category)).doesNotContain("(", ")");
+            assertThat(category.label()).doesNotContain("(", ")");
         }
     }
 }

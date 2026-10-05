@@ -34,11 +34,11 @@ public class LessonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(operationId = "startLesson", summary = "Compose and start a lesson of a unit",
+    @Operation(operationId = "startLesson", summary = "Compose and start a lesson of a unit or a practice lesson",
             description = "The exercises include their solutions, accepted variants and error hints so that the app can "
                     + "pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit "
                     + "of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or "
-                    + "below the learner's level.")
+                    + "below the learner's level, and so is a practice lesson (kind practice, PRD F10 \"Gezielt üben\").")
     @ApiResponse(responseCode = "201", description = "The lesson with its exercises")
     @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
@@ -46,11 +46,12 @@ public class LessonController {
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "404", description = "Unknown unit or focus unit not in the plan (code unit_not_found)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "409", description = "The unit has no exercises yet (code unit_without_content)",
+    @ApiResponse(responseCode = "409", description = "The unit has no exercises yet (code unit_without_content), or no "
+            + "exercise at or below the learner's level carries the skill tag to practise (code no_practice_exercises)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public LessonResponse startLesson(@AuthenticationPrincipal AuthenticatedUser principal,
                                       @Valid @RequestBody StartLessonRequest body) {
-        return lessons.start(accounts.current(principal), body.unitId());
+        return lessons.start(accounts.current(principal), body);
     }
 
     @PostMapping("/{sessionId}/attempts")
@@ -78,7 +79,9 @@ public class LessonController {
 
     @PostMapping("/{sessionId}/complete")
     @Operation(operationId = "completeLesson", summary = "Finish the lesson and award its XP",
-            description = "Idempotent: completing a finished lesson again returns the same result without awarding XP twice.")
+            description = "Idempotent: completing a finished lesson again returns the same result without awarding XP twice. "
+                    + "The result reports the daily goal of the lesson's day and the streak (PRD F9); dailyGoal.justMet marks "
+                    + "the lesson that met the goal and extended the streak.")
     @ApiResponse(responseCode = "200", description = "The lesson result")
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))

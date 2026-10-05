@@ -1,6 +1,7 @@
 package app.lingora.api.plan;
 
 import app.lingora.core.plan.CheckpointRule;
+import app.lingora.core.plan.StageProgress;
 import app.lingora.domain.CheckpointStatus;
 import app.lingora.domain.LearningPlan;
 import app.lingora.domain.LearningPlan.PlanStage;
@@ -39,8 +40,8 @@ public class CheckpointStatuses {
         this.users = users;
     }
 
-    /** A stage of the live plan with the status of its checkpoint. */
-    public record StageCheckpoint(PlanStage stage, CheckpointStatus status) {
+    /** A stage of the live plan with the progress towards its checkpoint and the checkpoint's status. */
+    public record StageCheckpoint(PlanStage stage, StageProgress progress, CheckpointStatus status) {
     }
 
     /** Per stage of the live plan, in plan order. */
@@ -58,10 +59,12 @@ public class CheckpointStatuses {
     @Transactional(readOnly = true)
     public Optional<StageCheckpoint> stage(UUID userId, Level level) {
         Level learnerLevel = users.findById(userId).orElseThrow().getCurrentLevel();
+        Set<String> withContent = unitsWithContent();
         return plans.current(userId)
                 .map(stored -> livePlans.live(userId, stored, learnerLevel))
-                .flatMap(live -> live.stages().stream().filter(stage -> stage.level() == level).findFirst()
-                        .map(stage -> new StageCheckpoint(stage, of(userId, live).get(level))));
+                .flatMap(live -> live.stages().stream().filter(stage -> stage.level() == level).findFirst())
+                .map(stage -> new StageCheckpoint(stage, StageProgress.of(stage, withContent),
+                        CheckpointRule.status(stage, withContent, lessons.passedCheckpoints(userId).contains(level))));
     }
 
     private Set<String> unitsWithContent() {

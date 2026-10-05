@@ -13,7 +13,7 @@ class SchemaMigrationTest extends IntegrationTest {
 
     private static final List<String> LEARNER_TABLES = List.of("streaks", "placement_tests", "placement_answers",
             "learning_plans", "plan_changes", "sessions", "attempts", "skill_mastery", "srs_cards", "review_log",
-            "fsrs_params", "ai_requests", "badges");
+            "fsrs_params", "ai_requests", "badges", "streak_days");
     private static final List<String> HTTP_SESSION_TABLES = List.of("spring_session", "spring_session_attributes");
     private static final List<String> CONTENT_TABLES = List.of("content_skill_tags", "content_stages", "content_units",
             "content_items", "exercises");
@@ -26,7 +26,8 @@ class SchemaMigrationTest extends IntegrationTest {
 
         assertThat(history).containsExactly(Map.of("version", "1", "success", true), Map.of("version", "2", "success", true),
                 Map.of("version", "3", "success", true), Map.of("version", "4", "success", true),
-                Map.of("version", "5", "success", true), Map.of("version", "6", "success", true));
+                Map.of("version", "5", "success", true), Map.of("version", "6", "success", true),
+                Map.of("version", "7", "success", true));
     }
 
     @Test

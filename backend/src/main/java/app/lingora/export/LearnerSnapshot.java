@@ -53,8 +53,6 @@ public record LearnerSnapshot(
     }
 
     public record Streak(int current, int longest) {
-
-        public static final Streak NONE = new Streak(0, 0);
     }
 
     /** The learner's local date of the snapshot. */

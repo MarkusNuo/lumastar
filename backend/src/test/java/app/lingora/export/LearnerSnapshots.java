@@ -72,12 +72,18 @@ final class LearnerSnapshots {
                 null);
     }
 
+    /** A learner without history but the given recent errors, newest first. */
+    static LearnerSnapshot withRecentErrors(ErrorEntry... errors) {
+        return new LearnerSnapshot(TAKEN_AT, ZURICH, new LearnerProfile(USER, "Erza", Set.of(), 10, Level.A1_1, 0),
+                new Streak(0, 0), new SkillMastery(Map.of()), Map.of(), List.of(errors), List.of(), 0, null, null);
+    }
+
     private static SkillTag tag(String id) {
         return SkillTag.of(id);
     }
 
-    private static ErrorEntry error(String at, ExerciseType type, String tag, ErrorCategory category, String prompt,
-                                    String expected, String given) {
+    static ErrorEntry error(String at, ExerciseType type, String tag, ErrorCategory category, String prompt,
+                            String expected, String given) {
         return new ErrorEntry(Instant.parse(at), "ex_test", type, List.of(tag(tag)), category, prompt, expected, given);
     }
 }

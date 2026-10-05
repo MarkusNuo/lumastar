@@ -2,18 +2,20 @@ package app.lingora.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Area of a skill tag; it is the first segment of the tag id. */
+/** Area of a skill tag; it is the first segment of the tag id. The German label names it in the statistics (PRD F10). */
 public enum SkillArea implements Coded {
-    VOCAB("vocab"),
-    PHRASE("phrase"),
-    GRAMMAR("grammar"),
-    SPELLING("spelling"),
-    READING("reading");
+    VOCAB("vocab", "Wortschatz"),
+    PHRASE("phrase", "Wendungen"),
+    GRAMMAR("grammar", "Grammatik"),
+    SPELLING("spelling", "Schreiben"),
+    READING("reading", "Lesen");
 
     private final String code;
+    private final String label;
 
-    SkillArea(String code) {
+    SkillArea(String code, String label) {
         this.code = code;
+        this.label = label;
     }
 
     public static SkillArea fromCode(String code) {
@@ -24,5 +26,9 @@ public enum SkillArea implements Coded {
     @Override
     public String code() {
         return code;
+    }
+
+    public String label() {
+        return label;
     }
 }

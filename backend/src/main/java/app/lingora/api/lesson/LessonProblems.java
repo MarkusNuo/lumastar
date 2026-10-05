@@ -2,6 +2,7 @@ package app.lingora.api.lesson;
 
 import app.lingora.api.error.ApiProblemException;
 import app.lingora.domain.Level;
+import app.lingora.domain.SkillTag;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 
@@ -18,6 +19,11 @@ final class LessonProblems {
     static ApiProblemException unitWithoutContent(String unitId) {
         return new ApiProblemException(HttpStatus.CONFLICT, "unit_without_content",
                 "Unit '%s' has no exercises yet.".formatted(unitId));
+    }
+
+    static ApiProblemException nothingToPractise(SkillTag tag) {
+        return new ApiProblemException(HttpStatus.CONFLICT, "no_practice_exercises",
+                "No lesson exercise at or below the learner's level practises '%s'.".formatted(tag.id()));
     }
 
     static ApiProblemException checkpointNotFound(Level level) {

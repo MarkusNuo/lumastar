@@ -147,6 +147,31 @@ class ErrorAnalysisQueriesTest extends IntegrationTest {
                 .isEqualTo("Shpija âsht e madhe.");
     }
 
+    @Test
+    void frequentErrorsRankTheTagsByWrongFirstAnswersWithTheirMostFrequentCategory() {
+        answer(house("wrong", "grammar.definite_article", false, daysAgo(2)));
+        answer(house("wrong", "grammar.definite_article", false, daysAgo(2)));
+        answer(house("wrong", "vocab.unknown", false, daysAgo(2)));
+        answer(house("wrong", "vocab.unknown", true, daysAgo(2)));
+        answer(mother("wrong", "vocab.confused", daysAgo(1)));
+        answer(mother("correct", null, daysAgo(1)));
+        answer(verbBe("almost_correct", "spelling.nasal_vowel", daysAgo(1)));
+        answer(house("wrong", "grammar.definite_article", false, daysAgo(40)));
+        answerOfAnotherLearner();
+
+        List<ErrorAnalysisQueries.FrequentErrors> frequent = queries.frequentErrorsBySkillTag(learner,
+                NOW.minus(Duration.ofDays(30)), 3);
+
+        assertThat(frequent).extracting(errors -> errors.rate().tag().id(), errors -> errors.rate().attempts(),
+                        errors -> errors.rate().wrong(), ErrorAnalysisQueries.FrequentErrors::category)
+                .containsExactly(
+                        tuple("grammar.definite_article.fem", 5, 4, ErrorCategory.GRAMMAR_DEFINITE_ARTICLE),
+                        tuple("vocab.home", 3, 3, ErrorCategory.GRAMMAR_DEFINITE_ARTICLE),
+                        tuple("vocab.family", 3, 1, ErrorCategory.VOCAB_CONFUSED));
+        assertThat(queries.frequentErrorsBySkillTag(learner, NOW.minus(Duration.ofDays(30)), 10))
+                .as("no tag without a wrong answer, e.g. grammar.verb_be").hasSize(3);
+    }
+
     private Answer house(String outcome, String category, boolean retry, Instant at) {
         return new Answer("ex_a1_u02_002", "translate_free", HOUSE_TAGS, """
                 {"text": "Shpi âsht e madhe."}""", outcome, category, "Shpija âsht e madhe.", retry, at);

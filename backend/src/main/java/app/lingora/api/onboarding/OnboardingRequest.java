@@ -1,5 +1,6 @@
 package app.lingora.api.onboarding;
 
+import app.lingora.core.progress.DailyGoal;
 import app.lingora.domain.Motivation;
 import app.lingora.domain.SelfAssessment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,12 +22,10 @@ public record OnboardingRequest(
         @NotNull Integer dailyGoalMinutes,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) @NotNull SelfAssessment selfAssessment) {
 
-    static final List<Integer> DAILY_GOALS = List.of(5, 10, 15, 20);
-
     @JsonIgnore
     @AssertTrue(message = "must be one of 5, 10, 15 or 20")
     public boolean isDailyGoalMinutesAllowed() {
-        return dailyGoalMinutes == null || DAILY_GOALS.contains(dailyGoalMinutes);
+        return dailyGoalMinutes == null || DailyGoal.OPTIONS.contains(dailyGoalMinutes);
     }
 
     @JsonIgnore

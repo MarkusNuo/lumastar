@@ -3,6 +3,7 @@ package app.lingora.api.lesson;
 import app.lingora.api.plan.CheckpointStatuses;
 import app.lingora.api.plan.CheckpointStatuses.StageCheckpoint;
 import app.lingora.api.plan.PlanTriggers;
+import app.lingora.api.progress.DailyProgress;
 import app.lingora.config.EngineProperties;
 import app.lingora.core.evaluation.AnswerEvaluator;
 import app.lingora.core.evaluation.InvalidAnswerException;
@@ -25,6 +26,7 @@ import app.lingora.domain.LearningPlan.PlanUnit;
 import app.lingora.domain.Level;
 import app.lingora.domain.Outcome;
 import app.lingora.domain.Rating;
+import app.lingora.domain.SkillTag;
 import app.lingora.domain.Stage;
 import app.lingora.domain.SrsCard;
 import app.lingora.domain.Unit;
@@ -54,10 +56,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer together with the mastery of its
- * skill tags (PRD 8.2), finish with XP (F9). Lessons of a unit, focus lessons on a weak skill tag (PRD F3) and review
- * lessons of the due items (PRD F8) and the checkpoints at the end of a stage (PRD chapter 5) share this flow. Every
- * first answer reviews the FSRS cards of its items; retries at the end of a lesson do not. A completed lesson may suggest
- * a focus lesson (PRD F7) and revise the plan (PRD F3); a completed checkpoint may move the learner up.
+ * skill tags (PRD 8.2), finish with XP and the daily goal and streak (F9). Lessons of a unit, focus lessons on a weak
+ * skill tag (PRD F3), review lessons of the due items (PRD F8), the checkpoints at the end of a stage (PRD chapter 5)
+ * and practice lessons on a chosen skill tag (PRD F10) share this flow. Every first answer reviews the FSRS cards of
+ * its items; retries at the end of a lesson do not. A completed lesson may suggest a focus lesson (PRD F7) and revise
+ * the plan (PRD F3); a completed checkpoint may move the learner up.
  */
 @Service
 class LessonService {
@@ -78,13 +81,14 @@ class LessonService {
     private final PlanTriggers planTriggers;
     private final CheckpointStatuses checkpoints;
     private final CheckpointCompletion checkpointCompletion;
+    private final DailyProgress dailyProgress;
     private final String engineId;
     private final Clock clock;
 
     LessonService(ContentCatalog catalog, LessonSessionRepository sessions, AttemptRepository attempts, UserRepository users,
                   LearningPlanStore plans, SkillMasteryStore mastery, LessonComposer composer, AnswerEvaluator evaluator,
                   CardReviews cardReviews, SrsCardStore cards, LessonContexts contexts, PlanTriggers planTriggers,
-                  CheckpointStatuses checkpoints, CheckpointCompletion checkpointCompletion,
+                  CheckpointStatuses checkpoints, CheckpointCompletion checkpointCompletion, DailyProgress dailyProgress,
                   EngineProperties engineProperties, Clock clock) {
         this.catalog = catalog;
         this.sessions = sessions;
@@ -100,12 +104,19 @@ class LessonService {
         this.planTriggers = planTriggers;
         this.checkpoints = checkpoints;
         this.checkpointCompletion = checkpointCompletion;
+        this.dailyProgress = dailyProgress;
         this.engineId = engineProperties.engine().id();
         this.clock = clock;
     }
 
     @Transactional
-    LessonResponse start(UserEntity learner, String unitId) {
+    LessonResponse start(UserEntity learner, StartLessonRequest request) {
+        return request.isPractice()
+                ? startPractice(learner, SkillTag.of(request.skillTag()))
+                : start(learner, request.unitId());
+    }
+
+    private LessonResponse start(UserEntity learner, String unitId) {
         Optional<FocusUnitId> focus = FocusUnitId.parse(unitId);
         if (focus.isPresent()) {
             return startFocus(learner, unitId, focus.get());
@@ -138,6 +149,24 @@ class LessonService {
         Instant now = clock.instant();
         List<Exercise> exercises = composer.composeFocus(unit, contexts.of(learner, now, null));
         LessonSessionEntity session = sessions.save(LessonSessionEntity.focus(learner.getId(), focus.tag(), level,
+                ids(exercises), engineId, now));
+        return LessonResponse.of(session, unitId, exercises);
+    }
+
+    /** A practice lesson of the exercises with the tag at or below the learner's level (PRD F10 "Gezielt üben"). */
+    private LessonResponse startPractice(UserEntity learner, SkillTag tag) {
+        Level level = learner.getCurrentLevel();
+        List<Exercise> pool = level == null ? List.of() : catalog.lessonExercisesWithSkillTag(tag, level);
+        if (pool.isEmpty()) {
+            throw LessonProblems.nothingToPractise(tag);
+        }
+        String unitId = LessonResponse.practiceUnitId(tag);
+        String title = catalog.skillTagLabels().getOrDefault(tag, tag.id());
+        Unit unit = new Unit(unitId.replace('.', '_'), level, title, null, List.of(), List.of(tag), null, null, null,
+                List.of(), List.of(), pool);
+        Instant now = clock.instant();
+        List<Exercise> exercises = composer.composeFocus(unit, contexts.of(learner, now, null));
+        LessonSessionEntity session = sessions.save(LessonSessionEntity.practice(learner.getId(), tag, level,
                 ids(exercises), engineId, now));
         return LessonResponse.of(session, unitId, exercises);
     }
@@ -237,12 +266,15 @@ class LessonService {
             } else {
                 planTriggers.afterLesson(userId, focus);
             }
+            sessions.flush();
+            dailyProgress.evaluate(userId, session.getId());
         }
         List<Item> items = learnedItems(session);
         Map<String, SrsCard> itemCards = cards.cards(userId, items.stream().map(Item::id).toList());
         return LessonResultResponse.of(session, items, itemCards, cards.learnedWords(userId), users.xpTotalOf(userId),
                 focus.flatMap(request -> focusSuggestion(userId, request)).orElse(null),
-                checkpoint ? checkpointCompletion.result(session) : null);
+                checkpoint ? checkpointCompletion.result(session) : null,
+                dailyProgress.ofLesson(userId, session.getId(), session.getFinishedAt()));
     }
 
     /** A tag the lesson's first answers got wrong at least three times, if a focus lesson could practise it. */

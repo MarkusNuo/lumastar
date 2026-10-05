@@ -85,7 +85,7 @@ final class LearnerSummaryWriter {
             return "keine";
         }
         return counts.stream()
-                .map(count -> "%s %d×".formatted(ErrorCategoryLabels.of(count.category()), count.count()))
+                .map(count -> "%s %d×".formatted(count.category().label(), count.count()))
                 .collect(Collectors.joining(", "));
     }
 
@@ -97,8 +97,8 @@ final class LearnerSummaryWriter {
                 .forEach(error -> distinct.putIfAbsent(error.given() + "\n" + error.expected(), error));
         List<String> typical = distinct.values().stream()
                 .limit(TYPICAL_ERRORS)
-                .map(error -> "  - %s„%s“ → „%s“ (%s)".formatted(prompt(error), withoutFinalPeriod(error.given()),
-                        withoutFinalPeriod(error.expected()), ErrorCategoryLabels.of(error.category())))
+                .map(error -> "  - %s„%s“ → „%s“ (%s)".formatted(prompt(error), inline(error.given()),
+                        inline(error.expected()), error.category().label()))
                 .toList();
         if (typical.isEmpty()) {
             return List.of("- Letzte typische Fehler: keine");
@@ -110,7 +110,16 @@ final class LearnerSummaryWriter {
     }
 
     private static String prompt(ErrorEntry error) {
-        return isPresent(error.prompt()) ? "Aufgabe „%s“: ".formatted(withoutFinalPeriod(error.prompt())) : "";
+        return isPresent(error.prompt()) ? "Aufgabe „%s“: ".formatted(inline(error.prompt())) : "";
+    }
+
+    /**
+     * The text on one line and without its final period, so that it fits into a list item; e.g. the text and the question
+     * of a reading exercise are joined with " / ".
+     */
+    private static String inline(String text) {
+        return withoutFinalPeriod(text.lines().map(String::strip).filter(line -> !line.isEmpty())
+                .collect(Collectors.joining(" / ")));
     }
 
     private static String count(int count, String singular, String plural) {

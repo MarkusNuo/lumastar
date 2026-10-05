@@ -2,7 +2,10 @@ package app.lingora.persistence;
 
 import app.lingora.domain.Coded;
 
-/** Kind of a learning session (table {@code sessions}); PRD F5 lessons, F7 focus lessons, F8 reviews, checkpoints. */
+/**
+ * Kind of a learning session (table {@code sessions}): PRD F5 lessons, F7 focus lessons, F8 reviews, checkpoints and
+ * F10 practice lessons on a chosen skill tag.
+ */
 public enum SessionKind implements Coded {
     LESSON("lesson"),
     FOCUS("focus"),

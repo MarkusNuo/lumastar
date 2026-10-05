@@ -1,5 +1,6 @@
 package app.lingora.export;
 
+import app.lingora.core.progress.StreakRule;
 import app.lingora.domain.Coded;
 import app.lingora.domain.LearnerProfile;
 import app.lingora.domain.LearningPlan;
@@ -14,11 +15,13 @@ import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LivePlans;
 import app.lingora.persistence.SkillMasteryStore;
 import app.lingora.persistence.SrsCardStore;
+import app.lingora.persistence.StreakStore;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Map;
@@ -45,17 +48,19 @@ public class LearnerSnapshotReader {
     private final LearningPlanStore plans;
     private final LivePlans livePlans;
     private final SrsCardStore cards;
+    private final StreakStore streaks;
     private final JsonMapper json;
     private final Clock clock;
 
     LearnerSnapshotReader(JdbcClient jdbc, SkillMasteryStore mastery, ErrorAnalysisQueries errors, LearningPlanStore plans,
-                          LivePlans livePlans, SrsCardStore cards, JsonMapper json, Clock clock) {
+                          LivePlans livePlans, SrsCardStore cards, StreakStore streaks, JsonMapper json, Clock clock) {
         this.jdbc = jdbc;
         this.mastery = mastery;
         this.errors = errors;
         this.plans = plans;
         this.livePlans = livePlans;
         this.cards = cards;
+        this.streaks = streaks;
         this.json = json;
         this.clock = clock;
     }
@@ -71,7 +76,8 @@ public class LearnerSnapshotReader {
                 .single();
         Optional<LearningPlan> plan = plans.current(userId)
                 .map(stored -> livePlans.live(userId, stored, account.profile().currentLevel()));
-        return new LearnerSnapshot(now, account.timeZone(), account.profile(), streak(userId), mastery.effective(userId, now),
+        return new LearnerSnapshot(now, account.timeZone(), account.profile(),
+                streak(userId, LocalDate.ofInstant(now, account.timeZone())), mastery.effective(userId, now),
                 skillTagLabels(), errors.recentErrors(userId, RECENT_ERRORS),
                 errors.topErrorCategories(userId, now.minus(FREQUENT_ERRORS_PERIOD), FREQUENT_ERROR_CATEGORIES),
                 cards.learnedWords(userId), plan.map(json::writeValueAsString).orElse(null), plan.flatMap(LearnerSnapshotReader::currentUnit).orElse(null));
@@ -85,12 +91,10 @@ public class LearnerSnapshotReader {
                 .findFirst();
     }
 
-    private Streak streak(UUID userId) {
-        return jdbc.sql("SELECT current_days, longest_days FROM streaks WHERE user_id = :user")
-                .param("user", userId)
-                .query((row, rowNumber) -> new Streak(row.getInt("current_days"), row.getInt("longest_days")))
-                .optional()
-                .orElse(Streak.NONE);
+    /** The streak as it stands today in the learner's time zone, i.e. 0 once it has ended. */
+    private Streak streak(UUID userId, LocalDate today) {
+        StreakRule.Status status = StreakRule.status(streaks.streak(userId), today);
+        return new Streak(status.current(), status.longest());
     }
 
     private Map<SkillTag, String> skillTagLabels() {

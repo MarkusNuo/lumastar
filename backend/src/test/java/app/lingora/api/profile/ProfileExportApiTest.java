@@ -41,8 +41,8 @@ class ProfileExportApiTest extends IntegrationTest {
     private static final JsonMapper JSON = JsonMapper.builder().build();
     private static final List<String> DATA_FILES = List.of("data/profile.json", "data/streaks.json", "data/fsrs_params.json",
             "data/learning_plans.json", "data/plan_changes.json", "data/placement_tests.json", "data/placement_answers.json",
-            "data/sessions.json", "data/badges.json", "data/attempts.json", "data/skill_mastery.json", "data/srs_cards.json",
-            "data/review_log.json");
+            "data/sessions.json", "data/badges.json", "data/streak_days.json", "data/attempts.json", "data/skill_mastery.json",
+            "data/srs_cards.json", "data/review_log.json");
     private static final Map<String, String> CORRECT_GREETINGS_ANSWERS = Map.of(
             "ex_a1_u01_001", """
                     {"choice": "Mirëdita"}""",
@@ -97,13 +97,13 @@ class ProfileExportApiTest extends IntegrationTest {
         void describesTheContentInTheManifest() {
             JsonNode manifest = JSON.readTree(entries(export()).get("manifest.json"));
 
-            assertThat(manifest.get("schemaVersion").asInt()).isEqualTo(2);
+            assertThat(manifest.get("schemaVersion").asInt()).isEqualTo(3);
             assertThat(manifest.get("appVersion").asString()).isEqualTo("0.1.0-SNAPSHOT");
             assertThat(manifest.get("exportedAt").asString()).endsWith("Z");
             assertThat(manifest.get("counts")).isEqualTo(JSON.readTree("""
                     {"streaks": 1, "fsrsParams": 1, "learningPlans": 1, "planChanges": 1, "placementTests": 1,
-                     "placementAnswers": 1, "sessions": 1, "badges": 0, "attempts": 6, "skillMastery": 2, "srsCards": 6,
-                     "reviewLog": 11}"""));
+                     "placementAnswers": 1, "sessions": 1, "badges": 0, "streakDays": 0, "attempts": 6, "skillMastery": 2,
+                     "srsCards": 6, "reviewLog": 11}"""));
         }
 
         @Test
@@ -144,7 +144,7 @@ class ProfileExportApiTest extends IntegrationTest {
             Map<String, String> before = entries(first);
             JsonNode manifest = JSON.readTree(before.get("manifest.json"));
             assertThat(imported).bodyJson().isStrictlyEqualTo("""
-                    {"schemaVersion": 2, "exportedAt": "%s", "imported": %s}"""
+                    {"schemaVersion": 3, "exportedAt": "%s", "imported": %s}"""
                     .formatted(manifest.get("exportedAt").asString(), manifest.get("counts")));
             Map<String, String> after = entries(second);
             assertThat(withoutManifest(after)).isEqualTo(withoutManifest(before));
@@ -210,12 +210,12 @@ class ProfileExportApiTest extends IntegrationTest {
         @Test
         void rejectsAnExportOfANewerVersion() {
             byte[] future = ZipFiles.zip(Map.of("manifest.json", """
-                    {"schemaVersion": 3, "exportedAt": "2027-01-01T00:00:00Z"}"""));
+                    {"schemaVersion": 4, "exportedAt": "2027-01-01T00:00:00Z"}"""));
 
             MvcTestResult rejected = learner.upload(IMPORT, "file", future);
 
             assertProblem(rejected, HttpStatus.UNPROCESSABLE_CONTENT, "unsupported_schema_version");
-            assertThat(rejected).bodyJson().extractingPath("$.detail").asString().contains("version 3");
+            assertThat(rejected).bodyJson().extractingPath("$.detail").asString().contains("version 4");
         }
 
         @Test

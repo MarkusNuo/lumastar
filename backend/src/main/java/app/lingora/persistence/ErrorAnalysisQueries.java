@@ -52,6 +52,47 @@ public class ErrorAnalysisQueries {
                 .list();
     }
 
+    /**
+     * The skill tags with the most wrong answers since {@code since} (PRD F10 "Häufigste Fehler"), each with its error
+     * rate and the error category its wrong answers were logged with most often.
+     *
+     * @param category {@code null} if no wrong answer of the tag has a category
+     */
+    public record FrequentErrors(SkillTagErrorRate rate, ErrorCategory category) {
+    }
+
+    /** Most wrong answers first, then the higher error rate. */
+    public List<FrequentErrors> frequentErrorsBySkillTag(UUID userId, Instant since, int limit) {
+        return jdbc.sql("""
+                        WITH answers AS (
+                            SELECT tag, a.is_correct, a.error_category
+                            FROM attempts a CROSS JOIN LATERAL unnest(a.skill_tags) AS tag
+                            WHERE a.user_id = :user AND NOT a.is_retry AND a.answered_at >= :since
+                        ), per_tag AS (
+                            SELECT tag, count(*) AS attempts, count(*) FILTER (WHERE NOT is_correct) AS wrong
+                            FROM answers GROUP BY tag
+                        ), top_category AS (
+                            SELECT DISTINCT ON (tag) tag, error_category
+                            FROM answers WHERE NOT is_correct AND error_category IS NOT NULL
+                            GROUP BY tag, error_category
+                            ORDER BY tag, count(*) DESC, error_category
+                        )
+                        SELECT p.tag, p.attempts, p.wrong, c.error_category
+                        FROM per_tag p LEFT JOIN top_category c USING (tag)
+                        WHERE p.wrong > 0
+                        ORDER BY p.wrong DESC, p.wrong::float8 / p.attempts DESC, p.tag
+                        LIMIT :limit""")
+                .param("user", userId)
+                .param("since", SqlTimestamps.of(since))
+                .param("limit", limit)
+                .query((row, rowNumber) -> {
+                    String category = row.getString("error_category");
+                    return new FrequentErrors(new SkillTagErrorRate(SkillTag.of(row.getString("tag")), row.getInt("attempts"),
+                            row.getInt("wrong")), category == null ? null : ErrorCategory.fromCode(category));
+                })
+                .list();
+    }
+
     /** The most frequent error categories since {@code since}. */
     public List<ErrorCategoryCount> topErrorCategories(UUID userId, Instant since, int limit) {
         return jdbc.sql("""

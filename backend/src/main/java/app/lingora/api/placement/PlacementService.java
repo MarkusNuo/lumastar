@@ -1,6 +1,7 @@
 package app.lingora.api.placement;
 
 import app.lingora.api.plan.PlanService;
+import app.lingora.api.progress.DailyProgress;
 import app.lingora.config.EngineProperties;
 import app.lingora.core.evaluation.AnswerEvaluator;
 import app.lingora.core.evaluation.UnsupportedAnswerException;
@@ -37,7 +38,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * The placement test of PRD F2: start (abandoning an unfinished test), answer item by item without feedback, and on
  * the end place the learner. Placing sets the level, seeds the initial mastery, completes the onboarding and creates
- * or revises the learning plan.
+ * or revises the learning plan. A completed test counts as practice time towards the daily goal (PRD F9).
  * Every write locks the account row first, so a learner's placement and plan changes never interleave.
  */
 @Service
@@ -50,6 +51,7 @@ class PlacementService {
     private final ContentCatalog catalog;
     private final SkillMasteryStore mastery;
     private final PlanService plans;
+    private final DailyProgress dailyProgress;
     private final PlacementEngineFactory engines;
     private final AnswerEvaluator evaluator;
     private final String engineId;
@@ -57,7 +59,8 @@ class PlacementService {
 
     PlacementService(UserRepository users, PlacementTestRepository tests, PlacementAnswerRepository answers,
                      StageRepository stages, ContentCatalog catalog, SkillMasteryStore mastery, PlanService plans,
-                     PlacementEngineFactory engines, AnswerEvaluator evaluator, EngineProperties engineProperties, Clock clock) {
+                     DailyProgress dailyProgress, PlacementEngineFactory engines, AnswerEvaluator evaluator,
+                     EngineProperties engineProperties, Clock clock) {
         this.users = users;
         this.tests = tests;
         this.answers = answers;
@@ -65,6 +68,7 @@ class PlacementService {
         this.catalog = catalog;
         this.mastery = mastery;
         this.plans = plans;
+        this.dailyProgress = dailyProgress;
         this.engines = engines;
         this.evaluator = evaluator;
         this.engineId = engineProperties.engine().id();
@@ -119,6 +123,7 @@ class PlacementService {
         PlacementResult placement = engine.evaluate(answered);
         test.complete(answered, placement, now);
         place(learner, placement, false, now);
+        dailyProgress.evaluate(userId, null);
         return new PlacementAnswerResponse(true, null, position);
     }
 

@@ -1,5 +1,6 @@
 package app.lingora.api.onboarding;
 
+import app.lingora.core.progress.DailyGoal;
 import app.lingora.domain.Level;
 import app.lingora.domain.Motivation;
 import app.lingora.domain.SelfAssessment;
@@ -32,7 +33,7 @@ public record OnboardingOptionsResponse(
     static OnboardingOptionsResponse all() {
         return new OnboardingOptionsResponse(
                 Arrays.stream(Motivation.values()).map(value -> new MotivationOption(value, value.label())).toList(),
-                OnboardingRequest.DAILY_GOALS,
+                DailyGoal.OPTIONS,
                 Arrays.stream(SelfAssessment.values())
                         .map(value -> new SelfAssessmentOption(value, value.label(), value.startLevel(),
                                 value.allowsSkippingPlacement()))

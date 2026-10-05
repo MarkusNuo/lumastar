@@ -14,6 +14,7 @@ public record BackupCounts(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int placementAnswers,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Lessons") int sessions,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Level badges") int badges,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Days that counted for the streak") int streakDays,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Answers") int attempts,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int skillMastery,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int srsCards,
@@ -23,7 +24,8 @@ public record BackupCounts(
     static BackupCounts of(Map<String, Integer> rowsByTable) {
         return new BackupCounts(rowsByTable.get("streaks"), rowsByTable.get("fsrs_params"), rowsByTable.get("learning_plans"),
                 rowsByTable.get("plan_changes"), rowsByTable.get("placement_tests"), rowsByTable.get("placement_answers"),
-                rowsByTable.get("sessions"), rowsByTable.get("badges"), rowsByTable.get("attempts"), rowsByTable.get("skill_mastery"),
-                rowsByTable.get("srs_cards"), rowsByTable.get("review_log"));
+                rowsByTable.get("sessions"), rowsByTable.get("badges"), rowsByTable.get("streak_days"),
+                rowsByTable.get("attempts"), rowsByTable.get("skill_mastery"), rowsByTable.get("srs_cards"),
+                rowsByTable.get("review_log"));
     }
 }

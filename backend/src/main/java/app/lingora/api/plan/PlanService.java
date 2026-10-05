@@ -8,6 +8,7 @@ import app.lingora.core.plan.ProvenMastery;
 import app.lingora.domain.LearnerProfile;
 import app.lingora.domain.LearningPlan;
 import app.lingora.domain.PlanChange;
+import app.lingora.domain.PlanChangeKind;
 import app.lingora.domain.PlanTrigger;
 import app.lingora.domain.SkillMastery;
 import app.lingora.domain.SkillTag;
@@ -35,8 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * The learning plan of PRD F3. {@link #revise} is the single entry point for every (re)calculation: after the
- * placement test, after a re-placement, after a change of the daily goal and, from M4 on, after checkpoints and every
- * 7 learning days.
+ * placement test, after a re-placement, after a change of the daily goal, after checkpoints and every 7 learning days.
  */
 @Service
 public class PlanService {
@@ -106,6 +106,17 @@ public class PlanService {
         changes.addAll(PlanChanges.between(before, plan, labels, errorRates));
         plans.logChanges(userId, stored.id(), trigger, changes, now);
         return stored;
+    }
+
+    /** The time estimates depend on the daily goal (PRD F3): a changed goal recalculates an existing plan. */
+    @Transactional
+    public void reviseAfterDailyGoalChange(UUID userId, int goalBefore, int goalAfter) {
+        if (goalBefore == goalAfter || !hasPlan(userId)) {
+            return;
+        }
+        revise(userId, PlanTrigger.MANUAL, new PlanChange(PlanChangeKind.REPLANNED,
+                "Tagesziel geändert: %d → %d Min. pro Tag".formatted(goalBefore, goalAfter),
+                Map.of("dailyGoalMinutesBefore", goalBefore, "dailyGoalMinutes", goalAfter)));
     }
 
     /** Recent error rates of the tags a focus lesson could practise, i.e. with lesson exercises up to the level. */

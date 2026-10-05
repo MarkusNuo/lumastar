@@ -8,6 +8,8 @@ import app.lingora.domain.SrsCard;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -161,6 +163,17 @@ public class SrsCardStore {
                 .list();
     }
 
+    /** Cards of active items due at {@code now}, overdue ones included. */
+    public int dueNow(UUID userId, Instant now) {
+        return jdbc.sql("""
+                        SELECT count(*) FROM srs_cards c JOIN content_items i ON i.id = c.item_id
+                        WHERE c.user_id = :user AND i.retired_at IS NULL AND c.due <= :now""")
+                .param("user", userId)
+                .param("now", SqlTimestamps.of(now))
+                .query(Integer.class)
+                .single();
+    }
+
     /** Cards of active items: due at {@code now}, due within {@code [tomorrow, dayAfter)} and in total. */
     public DueCounts dueCounts(UUID userId, Instant now, Instant tomorrow, Instant dayAfter) {
         return jdbc.sql("""
@@ -175,6 +188,25 @@ public class SrsCardStore {
                 .param("dayAfter", SqlTimestamps.of(dayAfter))
                 .query((row, rowNumber) -> new DueCounts(row.getInt("due_now"), row.getInt("due_tomorrow"), row.getInt("total")))
                 .single();
+    }
+
+    /**
+     * Cards of active items coming due per day of the learner's time zone (PRD F10 forecast), for {@code days} days
+     * from {@code today}; overdue cards count for today. Days without due cards are missing.
+     */
+    public Map<LocalDate, Integer> duePerDay(UUID userId, LocalDate today, int days, ZoneId zone) {
+        return jdbc.sql("""
+                        SELECT greatest((c.due AT TIME ZONE :zone)::date, :today) AS day, count(*) AS due
+                        FROM srs_cards c JOIN content_items i ON i.id = c.item_id
+                        WHERE c.user_id = :user AND i.retired_at IS NULL AND c.due < :end
+                        GROUP BY 1""")
+                .param("user", userId)
+                .param("zone", zone.getId())
+                .param("today", today)
+                .param("end", SqlTimestamps.of(today.plusDays(days).atStartOfDay(zone).toInstant()))
+                .query((row, rowNumber) -> Map.entry(row.getObject("day", LocalDate.class), row.getInt("due")))
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
     /** Learned words (PRD F10): words and phrases whose card is in the review state. */
