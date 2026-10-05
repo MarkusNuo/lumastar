@@ -64,3 +64,30 @@ describe('ExerciseView shuffling', () => {
     expect(random).toHaveBeenCalled();
   });
 });
+
+describe('ExerciseView reading prompts', () => {
+  it('shows the Gheg text and the German question as separate blocks in their languages', () => {
+    const reading: LessonExercise = {
+      ...SAMPLE_MULTIPLE_CHOICE,
+      prompt: {
+        lang: 'sq',
+        text: 'Arben nuk pi kafe.\nAi pi çaj me qumësht.\n\nFrage: Was trinkt Arben?',
+      },
+    };
+    render(
+      <ExerciseView
+        exercise={reading}
+        retry={false}
+        verdict={undefined}
+        onAnswerChange={vi.fn()}
+        onSubmit={vi.fn()}
+      />,
+    );
+
+    const title = screen.getByRole('heading', { level: 1 });
+    expect(within(title).getByText(/^Arben nuk pi kafe\./u)).toHaveAttribute('lang', 'sq');
+    expect(within(title).getByText(/^Arben nuk pi kafe\./u).textContent).toContain('\n');
+    expect(within(title).getByText('Frage: Was trinkt Arben?')).toHaveAttribute('lang', 'de');
+    expect(title).not.toHaveAttribute('lang');
+  });
+});

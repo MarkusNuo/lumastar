@@ -1,6 +1,7 @@
 import { ArrowCounterClockwiseIcon, SealQuestionIcon } from '@phosphor-icons/react';
 import type { Lang } from '../model';
 import { LESSON_COPY } from '../copy';
+import { promptBlocks } from './promptBlocks';
 
 export interface ExerciseHeaderProps {
   title: string;
@@ -37,10 +38,13 @@ export function ExerciseHeader({ title, titleLang, retry, reviewed }: ExerciseHe
       <h1
         tabIndex={-1}
         data-exercise-title=""
-        lang={titleLang}
-        className="text-title font-black outline-none"
+        className="flex flex-col gap-3 text-title font-black outline-none"
       >
-        {title}
+        {promptBlocks(title, titleLang).map((block, index) => (
+          <span key={index} lang={block.lang} className="whitespace-pre-line">
+            {block.text}
+          </span>
+        ))}
       </h1>
     </div>
   );
