@@ -1223,19 +1223,20 @@
       "type": "multiple_choice",
       "level": "A1.2",
       "difficulty": 1,
-      "skillTags": ["phrase.wishes", "vocab.drinks"],
-      "itemIds": ["item_gezuar", "item_te_bafte_mire"],
-      "prompt": { "lang": "de", "text": "Du stösst mit Freunden an. Was sagst du?" },
-      "choices": ["Të bâftë mirë!", "Gëzuar!", "Natën e mirë!", "Faleminderit!"],
-      "solutions": ["Gëzuar!"],
-      "explanation": "Beim Anstossen sagt man „Gëzuar!“ – Prost! „Të bâftë mirë!“ wünschst du vor dem Essen.",
+      "skillTags": ["phrase.wishes", "phrase.politeness"],
+      "itemIds": ["item_te_bafte_mire", "item_gjithashtu"],
+      "prompt": { "lang": "de", "text": "Vor dem Essen wünscht dir jemand „Të bâftë mirë!“. Was antwortest du?" },
+      "choices": ["Faleminderit, gjithashtu!", "Gëzuar!", "Natën e mirë!", "S'ka përse!"],
+      "solutions": ["Faleminderit, gjithashtu!"],
+      "explanation": "Auf „Të bâftë mirë!“ (en Guete) antwortest du „Faleminderit, gjithashtu!“ – Danke, gleichfalls!",
       "errorHints": [
-        { "pattern": "b[aâ]ft[eë]", "category": "vocab.confused", "hint": "„Të bâftë mirë!“ sagt man zum Essen (en Guete). Beim Anstossen: „Gëzuar!“" },
-        { "pattern": "nat[eë]n", "category": "vocab.confused", "hint": "„Natën e mirë!“ heisst „Gute Nacht!“." }
+        { "pattern": "^g[eë]zuar", "category": "vocab.confused", "hint": "„Gëzuar!“ sagt man beim Anstossen (Prost)." },
+        { "pattern": "nat[eë]n", "category": "vocab.confused", "hint": "„Natën e mirë!“ heisst „Gute Nacht!“." },
+        { "pattern": "^ska p[eë]rse", "category": "vocab.confused", "hint": "„S'ka përse!“ antwortest du auf „Faleminderit“ (keine Ursache)." }
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "„Gëzuar“ (Prost) und Ablenker „Të bâftë mirë!“ (Standard: të bëftë mirë) laut Sprachrichtlinie zu prüfen."
+      "note": "„Të bâftë mirë!“ (Standard: të bëftë mirë) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a1_u05_food_drink_063",

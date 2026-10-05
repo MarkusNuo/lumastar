@@ -367,11 +367,11 @@
       "itemIds": ["item_a", "item_jeni", "item_gati", "item_jo", "item_nuk", "item_jemi"],
       "prompt": { "lang": "de", "text": "Seid ihr bereit? – Nein, wir sind nicht bereit." },
       "answerLang": "sq",
-      "solutions": ["A jeni gati? Jo, nuk jemi gati.", "A jeni gati? Jo, s'jemi gati."],
+      "solutions": ["A jeni gati? Jo, nuk jemi gati.", "A jeni gati? Jo, s'jemi gati.", "Jeni gati? Jo, nuk jemi gati.", "Jeni gati? Jo, s'jemi gati."],
       "wordBank": ["A", "jeni", "gati", "Jo", "nuk", "jemi", "gati", "janë", "kemi", "po"],
-      "explanation": "Auf „jeni“ (seid ihr) antwortet man mit „jemi“ (wir sind). „Jo“ heisst „nein“, „nuk“ verneint das Verb.",
+      "explanation": "Auf „jeni“ (seid ihr) antwortet man mit „jemi“ (wir sind). „Jo“ heisst „nein“, „nuk“ verneint das Verb. Das „A“ vor der Frage darf auch wegfallen.",
       "errorHints": [
-        { "pattern": "^a jan[eë]", "category": "grammar.verb_conjugation", "hint": "„Janë“ heisst „sie sind“. „Seid ihr“: „jeni“." },
+        { "pattern": "^(a )?jan[eë]", "category": "grammar.verb_conjugation", "hint": "„Janë“ heisst „sie sind“. „Seid ihr“: „jeni“." },
         { "pattern": "nuk jeni", "category": "grammar.verb_conjugation", "hint": "In der Antwort sprichst du von „wir“: „nuk jemi“." },
         { "pattern": "(^|\\s)po nuk", "category": "vocab.confused", "hint": "„Po“ heisst „ja“. „Nein“ heisst „jo“." }
       ],

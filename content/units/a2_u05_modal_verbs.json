@@ -9,7 +9,7 @@
     },
     {
       "title": "Die Formen",
-      "explanation": "- **du** – ich will, **don** – du willst, er/sie will (Kosovo)\n- **muj** – ich kann, **mundesh** – du kannst\n- **duhet** – man muss: bleibt immer gleich. Mit Kurzwort wird es persönlich: **më duhet** – ich muss.\n- **di me** – ich kann (weil ich es gelernt habe): *Di me gatue.* – Ich kann kochen.\n\nAchtung: Das albanische **du** heisst „ich will“ – nicht „du“!"
+      "explanation": "- **du** – ich will, **don** (auch *do*) – du willst, er/sie will\n- **muj** – ich kann, **mundesh** – du kannst\n- **duhet** – man muss: bleibt immer gleich. Mit Kurzwort wird es persönlich: **më duhet** – ich muss, **të duhet** – du musst, **i duhet** – er/sie muss, **na duhet** – wir müssen.\n- **di me** – ich kann (weil ich es gelernt habe): *Di me gatue.* – Ich kann kochen.\n\nAchtung: Das albanische **du** heisst „ich will“ – nicht „du“!"
     },
     {
       "title": "Verneinung und nützliche Wendungen",
@@ -176,23 +176,23 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert."
+      "note": "Kosovo-Form „don“ (du willst) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u05_modal_verbs_008",
       "type": "multiple_choice",
       "level": "A2.2",
       "difficulty": 2,
-      "skillTags": ["grammar.verbs.modal"],
-      "itemIds": ["item_me_duhet", "item_du", "item_muj", "item_kam_me_shkue"],
-      "prompt": { "lang": "de", "text": "Wie sagt man „Ich muss gehen.“?" },
-      "choices": ["Më duhet me shkue.", "Du me shkue.", "Muj me shkue.", "Kam me shkue."],
-      "solutions": ["Më duhet me shkue."],
-      "explanation": "„Më duhet“ heisst „ich muss“ (wörtlich „mir ist nötig“). „Kam me shkue“ heisst „ich werde gehen“.",
+      "skillTags": ["grammar.verbs.modal", "grammar.clitics"],
+      "itemIds": ["item_duhet", "item_me_shkue"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Wir müssen gehen.“?" },
+      "choices": ["Na duhet me shkue.", "Më duhet me shkue.", "Të duhet me shkue.", "I duhet me shkue."],
+      "solutions": ["Na duhet me shkue."],
+      "explanation": "Das Kurzwort vor „duhet“ zeigt, wer muss: më (ich), të (du), i (er/sie), na (wir). „Na duhet“ heisst wörtlich „uns ist nötig“.",
       "errorHints": [
-        { "pattern": "^du me", "category": "vocab.confused", "hint": "„Du me shkue“ heisst „ich will gehen“." },
-        { "pattern": "^muj me", "category": "vocab.confused", "hint": "„Muj me shkue“ heisst „ich kann gehen“." },
-        { "pattern": "^kam me", "category": "grammar.verb_tense", "hint": "„Kam me shkue“ ist die Zukunft: „ich werde gehen“." }
+        { "pattern": "^m[eë] duhet", "category": "grammar.clitics", "hint": "„Më duhet“ heisst „ich muss“. Wir müssen: „Na duhet“." },
+        { "pattern": "^t[eë] duhet", "category": "grammar.clitics", "hint": "„Të duhet“ heisst „du musst“. Wir müssen: „Na duhet“." },
+        { "pattern": "^i duhet", "category": "grammar.clitics", "hint": "„I duhet“ heisst „er/sie muss“. Wir müssen: „Na duhet“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -216,13 +216,18 @@
       "id": "ex_a2_u05_modal_verbs_010",
       "type": "multiple_choice",
       "level": "A2.2",
-      "difficulty": 1,
-      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
-      "itemIds": ["item_kohe", "item_me_fole"],
-      "prompt": { "lang": "de", "text": "Was bedeutet „S'kam kohë me folë.“?" },
-      "choices": ["Ich habe keine Zeit zu reden.", "Ich will nicht reden.", "Ich kann nicht reden.", "Ich habe viel Zeit."],
-      "solutions": ["Ich habe keine Zeit zu reden."],
-      "explanation": "Auch nach Nomen wie „kohë“ (Zeit) steht der Gheg-Infinitiv: „kohë me folë“ (Standard: „kohë të flas“).",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.negation"],
+      "itemIds": ["item_duhet", "item_me_fole"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Nuk duhet me folë kaq shumë.“?" },
+      "choices": ["Man soll nicht so viel reden.", "Ich will nicht so viel reden.", "Ich kann nicht so viel reden.", "Ich habe keine Zeit zu reden."],
+      "solutions": ["Man soll nicht so viel reden."],
+      "explanation": "„Nuk duhet me …“ heisst „man soll nicht …“ oder „man darf nicht …“. „Kaq shumë“ heisst „so viel“.",
+      "errorHints": [
+        { "pattern": "will", "category": "vocab.confused", "hint": "„Ich will nicht“ hiesse „nuk du“. „Nuk duhet“ heisst „man soll nicht“." },
+        { "pattern": "kann", "category": "vocab.confused", "hint": "„Ich kann nicht“ hiesse „nuk muj“. „Nuk duhet“ heisst „man soll nicht“." },
+        { "pattern": "zeit", "category": "vocab.confused", "hint": "„Keine Zeit“ hiesse „s'kam kohë“. „Nuk duhet“ heisst „man soll nicht“." }
+      ],
       "reviewed": false,
       "source": "manual"
     },
@@ -243,7 +248,7 @@
       "errorHints": [{ "pattern": "morgen", "category": "vocab.confused", "hint": "„Nesër muj“ heisst „morgen kann ich“." }],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert. Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15. Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a2_u05_modal_verbs_012",
@@ -342,7 +347,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert."
+      "note": "Kosovo-Form „don“ (du willst) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u05_modal_verbs_017",
@@ -382,27 +387,27 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Partizip „gatue“ (von gatuej, Standard: gatuar) zu prüfen."
+      "note": "Partizip „gatue“ (von gatuaj, Standard: gatuar) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 16."
     },
     {
       "id": "ex_a2_u05_modal_verbs_019",
       "type": "translate_wordbank",
       "level": "A2.2",
       "difficulty": 1,
-      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
-      "itemIds": ["item_du"],
-      "prompt": { "lang": "sq", "text": "Du me mësue shqip." },
+      "skillTags": ["grammar.verbs.modal", "grammar.clitics"],
+      "itemIds": ["item_duhet", "item_me_punue"],
+      "prompt": { "lang": "sq", "text": "I duhet me punue sot." },
       "answerLang": "de",
-      "solutions": ["Ich will Albanisch lernen.", "Ich möchte Albanisch lernen."],
-      "wordBank": ["Ich", "will", "Albanisch", "lernen", "muss", "kann", "Deutsch"],
-      "explanation": "„Du“ heisst „ich will“. Achtung: Es ist nicht das deutsche „du“!",
+      "solutions": ["Er muss heute arbeiten.", "Sie muss heute arbeiten.", "Heute muss er arbeiten.", "Heute muss sie arbeiten."],
+      "wordBank": ["Er", "muss", "heute", "arbeiten", "ich", "will", "kann"],
+      "explanation": "„I duhet“ heisst „er muss“ oder „sie muss“ (wörtlich „ihm/ihr ist nötig“). „Më duhet“ wäre „ich muss“.",
       "errorHints": [
-        { "pattern": "muss", "category": "vocab.confused", "hint": "„Duhet“ hiesse „muss“. „Du“ heisst „ich will“." },
-        { "pattern": "kann", "category": "vocab.confused", "hint": "„Muj“ hiesse „kann“. „Du“ heisst „ich will“." }
+        { "pattern": "(^|\\s)ich(\\s|$)", "category": "grammar.clitics", "hint": "„Ich muss“ hiesse „më duhet“. „I duhet“ heisst „er/sie muss“." },
+        { "pattern": "will", "category": "vocab.confused", "hint": "„Duhet“ heisst „muss“, nicht „will“." },
+        { "pattern": "kann", "category": "vocab.confused", "hint": "„Duhet“ heisst „muss“, nicht „kann“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u05_modal_verbs_020",
@@ -455,7 +460,7 @@
       "errorHints": [{ "pattern": "kannst", "category": "vocab.confused", "hint": "„Kannst du“ hiesse „a mundesh“." }],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert."
+      "note": "Kosovo-Form „don“ (du willst) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u05_modal_verbs_023",
@@ -475,7 +480,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Partizip „gatue“ (von gatuej, Standard: gatuar) zu prüfen."
+      "note": "Partizip „gatue“ (von gatuaj, Standard: gatuar) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 16."
     },
     {
       "id": "ex_a2_u05_modal_verbs_024",
@@ -501,21 +506,30 @@
       "id": "ex_a2_u05_modal_verbs_025",
       "type": "translate_free",
       "level": "A2.2",
-      "difficulty": 1,
-      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
-      "itemIds": ["item_du"],
-      "prompt": { "lang": "de", "text": "Ich will nach Hause gehen." },
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.negation", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_don", "item_me_ardhe"],
+      "prompt": { "lang": "de", "text": "Er will nicht kommen." },
       "answerLang": "sq",
-      "solutions": ["Du me shkue në shpi.", "Due me shkue në shpi.", "Unë du me shkue në shpi."],
-      "standardForms": ["Dua të shkoj në shtëpi.", "Dua të shkoj në shpi.", "Dua me shkue në shpi.", "Du të shkoj në shpi."],
-      "explanation": "Gheg: „du me shkue“ (ich will gehen). Standard: „dua të shkoj“.",
+      "solutions": [
+        "Nuk don me ardhë.",
+        "S'don me ardhë.",
+        "Ai nuk don me ardhë.",
+        "Ai s'don me ardhë.",
+        "Nuk do me ardhë.",
+        "S'do me ardhë.",
+        "Ai nuk do me ardhë.",
+        "Ai s'do me ardhë."
+      ],
+      "standardForms": ["Nuk do të vijë.", "Ai nuk do të vijë."],
+      "explanation": "„Don“ heisst auch „er/sie will“ – dieselbe Form wie „du willst“. Verneint: „nuk don me ardhë“ (Standard: „nuk do të vijë“).",
       "errorHints": [
-        { "pattern": "(^|\\s)me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." },
-        { "pattern": "^duhet", "category": "vocab.confused", "hint": "„Duhet“ heisst „man muss“. „Ich will“ heisst „du“." }
+        { "pattern": "(^|\\s)s?du me", "category": "grammar.verb_conjugation", "hint": "„Du“ heisst „ich will“. Für „er will“ sagst du „don“." },
+        { "pattern": "me vij", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ardhë“." }
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen. „të + Konjunktiv“ als Standard-Form gewertet (Sprachrichtlinie 7.2, offener Punkt 8) – zu prüfen."
+      "note": "„don/do“ (er will) siehe LANGUAGE_GUIDE §13 Nr. 15. „të + Konjunktiv“ als Standard-Form gewertet (Sprachrichtlinie 7.2, offener Punkt 8) – zu prüfen."
     },
     {
       "id": "ex_a2_u05_modal_verbs_026",
@@ -612,7 +626,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a2_u05_modal_verbs_031",
@@ -699,22 +713,23 @@
       "id": "ex_a2_u05_modal_verbs_035",
       "type": "fill_gap",
       "level": "A2.2",
-      "difficulty": 1,
+      "difficulty": 2,
       "skillTags": ["grammar.verbs.modal"],
-      "itemIds": ["item_duhet"],
-      "prompt": { "lang": "de", "text": "Ich muss gehen." },
+      "itemIds": ["item_di", "item_me_gatue"],
+      "prompt": { "lang": "de", "text": "Arta kann gut kochen. (Sie hat es gelernt.)" },
       "answerLang": "sq",
-      "text": "___ me shkue.",
-      "solutions": ["Duhet"],
-      "choices": ["Duhet", "Du", "Muj", "Kam"],
-      "explanation": "„Duhet me shkue“ heisst „ich muss gehen“.",
+      "text": "Arta ___ me gatue mirë.",
+      "solutions": ["di"],
+      "choices": ["di", "don", "duhet", "du"],
+      "explanation": "„Di me …“ heisst „können, weil man es gelernt hat“. „Di“ bleibt bei „ich“ und „er/sie“ gleich: „Arta di me gatue mirë.“",
       "errorHints": [
-        { "pattern": "^du$", "category": "vocab.confused", "hint": "„Du me shkue“ heisst „ich will gehen“." },
-        { "pattern": "^muj$", "category": "vocab.confused", "hint": "„Muj me shkue“ heisst „ich kann gehen“." },
-        { "pattern": "^kam$", "category": "grammar.verb_tense", "hint": "„Kam me shkue“ heisst „ich werde gehen“." }
+        { "pattern": "^don$", "category": "vocab.confused", "hint": "„Don me gatue“ heisst „sie will kochen“." },
+        { "pattern": "^duhet$", "category": "vocab.confused", "hint": "„Duhet me gatue“ heisst „sie muss kochen“." },
+        { "pattern": "^du$", "category": "grammar.verb_conjugation", "hint": "„Du“ heisst „ich will“. Hier passt „di“ (sie kann)." }
       ],
       "reviewed": false,
-      "source": "manual"
+      "source": "manual",
+      "note": "Partizip „gatue“ (von gatuaj) siehe LANGUAGE_GUIDE §13 Nr. 16."
     },
     {
       "id": "ex_a2_u05_modal_verbs_036",
@@ -750,14 +765,14 @@
       "text": "A ___ me dalë?",
       "solutions": ["don", "do"],
       "choices": ["don", "du", "muj", "duhet"],
-      "explanation": "„Don“ heisst im Kosovo „du willst“ (Standard: „do“).",
+      "explanation": "„Don“ heisst im Kosovo „du willst“ (auch: „do“).",
       "errorHints": [
         { "pattern": "^du$", "category": "grammar.verb_conjugation", "hint": "„Du“ heisst „ich will“. Für „du willst“: „don“." },
         { "pattern": "^muj$", "category": "grammar.verb_conjugation", "hint": "„Muj“ heisst „ich kann“." }
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert."
+      "note": "Kosovo-Form „don“ (du willst) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u05_modal_verbs_038",
@@ -960,7 +975,7 @@
       "explanation": "Der Gheg-Infinitiv: „me“ + Partizip.",
       "reviewed": false,
       "source": "manual",
-      "note": "Partizip „gatue“ (von gatuej, Standard: gatuar) zu prüfen. Partizip „pritë“ (von pres, Standard: pritur) zu prüfen."
+      "note": "Partizip „gatue“ (von gatuaj, Standard: gatuar) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 16. Partizip „pritë“ (von pres, Standard: pritur) zu prüfen."
     },
     {
       "id": "ex_a2_u05_modal_verbs_048",
@@ -1000,7 +1015,7 @@
       "explanation": "„Du“ heisst auf Albanisch „ich will“ – nicht verwechseln mit dem deutschen „du“!",
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert. Form „mundesh“ (du kannst) im Kosovo-Gheg zu prüfen; im Alltag auch „mun“ gehört."
+      "note": "Kosovo-Form „don“ (du willst) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15. Form „mundesh“ (du kannst) im Kosovo-Gheg zu prüfen; im Alltag auch „mun“ gehört."
     },
     {
       "id": "ex_a2_u05_modal_verbs_050",
@@ -1151,7 +1166,7 @@
       "explanation": "Hier stehen zwei „me“: „me ngrânë“ (essen) und „me ne“ (mit uns).",
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst; Standard und Gheg-Literatur: do) zu prüfen; „do“ wird, wo möglich, als weitere Lösung akzeptiert."
+      "note": "Kosovo-Form „don“ (du willst) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u05_modal_verbs_059",
@@ -1190,20 +1205,21 @@
       "type": "translate_free",
       "level": "A2.2",
       "difficulty": 3,
-      "skillTags": ["grammar.verbs.modal", "phrase.requests", "grammar.verbs.infinitive_me"],
-      "itemIds": ["item_mundesh", "item_me_ndihmue"],
-      "prompt": { "lang": "de", "text": "Kannst du mir helfen?" },
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "grammar.question_particle"],
+      "itemIds": ["item_duhet", "item_me_punue"],
+      "prompt": { "lang": "de", "text": "Musst du heute arbeiten?" },
       "answerLang": "sq",
-      "solutions": ["A mundesh me më ndihmue?", "Mundesh me më ndihmue?"],
-      "standardForms": ["A mund të më ndihmosh?", "Mund të më ndihmosh?"],
-      "explanation": "Nach „mundesh“ (du kannst) folgt „me“ + Partizip. Das Kurzwort „më“ (mir) steht zwischen „me“ und „ndihmue“. Standard: „A mund të më ndihmosh?“",
+      "solutions": ["A të duhet me punue sot?", "Të duhet me punue sot?", "A duhet me punue sot?", "Duhet me punue sot?"],
+      "standardForms": ["A duhet të punosh sot?", "A të duhet të punosh sot?"],
+      "explanation": "„Të duhet“ heisst „du musst“ (wörtlich „dir ist nötig“), danach folgt „me“ + Partizip. Standard: „A duhet të punosh sot?“",
       "errorHints": [
-        { "pattern": "ndihmoj(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me më ndihmue“." },
-        { "pattern": "me ndihmue m[eë](\\s|$)", "category": "grammar.clitics", "hint": "Das Kurzwort „më“ steht vor dem Partizip: „me më ndihmue“." }
+        { "pattern": "(^|\\s)m[eë] duhet", "category": "grammar.clitics", "hint": "„Më duhet“ heisst „ich muss“. Für „du musst“: „të duhet“." },
+        { "pattern": "(^|\\s)i duhet", "category": "grammar.clitics", "hint": "„I duhet“ heisst „er/sie muss“. Für „du musst“: „të duhet“." },
+        { "pattern": "me puno(j|n|sh)(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me punue“." }
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Form „mundesh“ (du kannst) im Kosovo-Gheg zu prüfen; im Alltag auch „mun“ gehört. Stellung des Klitikons in „me më ndihmue“ (auch „me m'ndihmue“ gehört) zu prüfen."
+      "note": "„të + Konjunktiv“ als Standard-Form gewertet (Sprachrichtlinie 7.2, offener Punkt 8) – zu prüfen."
     }
   ]
 }

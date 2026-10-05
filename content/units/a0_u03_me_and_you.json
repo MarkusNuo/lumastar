@@ -469,13 +469,13 @@
       "difficulty": 2,
       "skillTags": ["grammar.verbs.jam"],
       "itemIds": ["item_ata", "item_jane", "item_mire"],
-      "prompt": { "lang": "de", "text": "Ihnen geht es gut. (wörtlich: Sie sind gut.)" },
+      "prompt": { "lang": "de", "text": "Es geht ihnen gut. (wörtlich: „sie sind gut“, Mehrzahl)" },
       "answerLang": "sq",
       "text": "Ata ___ mirë.",
       "solutions": ["janë"],
       "explanation": "Zu „ata“ und „ato“ (sie, Mehrzahl) gehört „janë“.",
       "errorHints": [
-        { "pattern": "^(jemi|jeni|jam|je|[aâ]sht)$", "category": "grammar.verb_conjugation", "hint": "„Ata“ ist Mehrzahl (sie) – also „janë“." }
+        { "pattern": "^(jemi|jena|jeni|jam|je|[aâ]sht)$", "category": "grammar.verb_conjugation", "hint": "„Ata“ ist Mehrzahl (sie) – also „janë“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -652,7 +652,7 @@
       "itemIds": ["item_ne_pron", "item_jemi", "item_ne_shpi"],
       "prompt": { "lang": "de", "text": "Wir sind zu Hause." },
       "answerLang": "sq",
-      "solutions": ["Ne jemi në shpi.", "Jemi në shpi."],
+      "solutions": ["Ne jemi në shpi.", "Jemi në shpi.", "Ne jena në shpi.", "Jena në shpi."],
       "standardForms": ["Ne jemi në shtëpi.", "Jemi në shtëpi."],
       "explanation": "„Në shpi“ heisst „zu Hause“ (Standard: „në shtëpi“). „Jemi“ heisst „wir sind“.",
       "errorHints": [

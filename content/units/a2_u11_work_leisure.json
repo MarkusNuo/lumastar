@@ -589,16 +589,16 @@
       "id": "ex_a2_u11_work_leisure_025",
       "type": "translate_free",
       "level": "A2.3",
-      "difficulty": 1,
-      "skillTags": ["vocab.work", "grammar.verbs.present"],
-      "itemIds": ["item_ku", "item_punoj"],
-      "prompt": { "lang": "de", "text": "Wo arbeitest du?" },
+      "difficulty": 2,
+      "skillTags": ["vocab.work", "grammar.question_particle"],
+      "itemIds": ["item_punoj_si", "item_kamarier"],
+      "prompt": { "lang": "de", "text": "Arbeitest du als Kellnerin?" },
       "answerLang": "sq",
-      "solutions": ["Ku punon?", "Ti ku punon?", "Ku punon ti?"],
-      "explanation": "„Punon“ heisst „du arbeitest“, „ku“ heisst „wo“.",
+      "solutions": ["A punon si kamariere?", "Punon si kamariere?", "A punon ti si kamariere?"],
+      "explanation": "„Punoj si …“ heisst „ich arbeite als …“. Die feminine Berufsform endet auf -e: kamarier → kamariere.",
       "errorHints": [
-        { "pattern": "punoj", "category": "grammar.verb_conjugation", "hint": "„Punoj“ heisst „ich arbeite“. Du arbeitest: „punon“." },
-        { "pattern": "^kur ", "category": "vocab.confused", "hint": "„Kur“ heisst „wann“. Wo: „ku“." }
+        { "pattern": "kamarier$", "category": "grammar.gender", "hint": "Für eine Frau sagst du „kamariere“ (Kellnerin)." },
+        { "pattern": "punoj", "category": "grammar.verb_conjugation", "hint": "„Punoj“ heisst „ich arbeite“. Du arbeitest: „punon“." }
       ],
       "reviewed": false,
       "source": "manual"

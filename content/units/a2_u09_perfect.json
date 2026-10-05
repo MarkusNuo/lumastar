@@ -263,11 +263,12 @@
       "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle"],
       "itemIds": ["item_ardhe"],
       "prompt": { "lang": "de", "text": "Wie sagt man „Er ist gekommen.“?" },
-      "choices": ["Âsht ardhë.", "Ka ardhë.", "Kam ardhë.", "Ka shkue."],
+      "choices": ["Ke ardhë.", "Ka ardhë.", "Kam ardhë.", "Ka shkue."],
       "solutions": ["Ka ardhë."],
-      "explanation": "Im Gheg bildet auch „kommen“ das Perfekt mit „kam“: „Ka ardhë.“ (Standard: „ka ardhur“).",
+      "explanation": "Im Gheg bildet auch „kommen“ das Perfekt mit „kam“: „Ka ardhë.“ (Standard: „ka ardhur“). Für „er“ steht „ka“.",
       "errorHints": [
-        { "pattern": "^[aâ]sht ", "category": "grammar.verb_tense", "hint": "Das Perfekt von „kommen“ bildest du mit „ka“: „Ka ardhë.“" },
+        { "pattern": "^ke ", "category": "grammar.verb_conjugation", "hint": "„Ke ardhë“ heisst „du bist gekommen“. Für „er“: „Ka ardhë.“" },
+        { "pattern": "^kam ", "category": "grammar.verb_conjugation", "hint": "„Kam ardhë“ heisst „ich bin gekommen“. Für „er“: „Ka ardhë.“" },
         { "pattern": "shkue", "category": "vocab.confused", "hint": "„Shkue“ heisst „gegangen“." }
       ],
       "reviewed": false,
@@ -599,7 +600,7 @@
       "itemIds": ["item_punue"],
       "prompt": { "lang": "de", "text": "Wir haben gearbeitet." },
       "answerLang": "sq",
-      "solutions": ["Kemi punue.", "Ne kemi punue."],
+      "solutions": ["Kemi punue.", "Ne kemi punue.", "Kena punue.", "Ne kena punue."],
       "explanation": "„Kemi“ heisst „wir haben“, „punue“ ist das Gheg-Partizip (Standard: „punuar“).",
       "errorHints": [
         { "pattern": "^(ne )?kam ", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Für „wir haben“: „kemi“." },
@@ -676,10 +677,10 @@
       "itemIds": ["item_shkue"],
       "prompt": { "lang": "de", "text": "Wir sind nach Peja gegangen." },
       "answerLang": "sq",
-      "solutions": ["Kemi shkue në Pejë.", "Ne kemi shkue në Pejë."],
+      "solutions": ["Kemi shkue në Pejë.", "Ne kemi shkue në Pejë.", "Kena shkue në Pejë.", "Ne kena shkue në Pejë."],
       "explanation": "Im Deutschen „sind gegangen“, im Gheg „kemi shkue“ – das Perfekt steht mit „kam“.",
       "errorHints": [
-        { "pattern": "^(ne )?jemi ", "category": "grammar.verb_tense", "hint": "Das Perfekt von „gehen“ bildest du mit „kam“: „Kemi shkue“." },
+        { "pattern": "^(ne )?je(mi|na) ", "category": "grammar.verb_tense", "hint": "Das Perfekt von „gehen“ bildest du mit „kam“: „Kemi shkue“." },
         { "pattern": "shkoj", "category": "grammar.participle", "hint": "Im Perfekt steht das Partizip: „shkue“." }
       ],
       "standardForms": ["Kemi shkuar në Pejë.", "Ne kemi shkuar në Pejë."],

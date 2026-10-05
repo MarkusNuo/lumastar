@@ -13,7 +13,7 @@
     },
     {
       "title": "Wollen, können, müssen",
-      "explanation": "Nach diesen Wörtern folgt der Infinitiv mit **me**:\n\n- **du me …** – ich will …: *Du me punue.*\n- **don me …** – du willst / er will …: *A don me pi kafe?*\n- **muj me …** – ich kann …: *Muj me ardhë.* – *S'muj me ardhë.* (ich kann nicht kommen)\n- **duhet me …** / **më duhet me …** – man muss / ich muss …: *Më duhet me punue.*\n- **s'kam kohë me …** – ich habe keine Zeit zu …: *S'kam kohë me folë.*"
+      "explanation": "Nach diesen Wörtern folgt der Infinitiv mit **me**:\n\n- **du me …** – ich will …: *Du me punue.*\n- **don me …** (auch *do me …*) – du willst / er will …: *A don me pi kafe?*\n- **muj me …** – ich kann …: *Muj me ardhë.* – *S'muj me ardhë.* (ich kann nicht kommen)\n- **duhet me …** / **më duhet me …** – man muss / ich muss …: *Më duhet me punue.*\n- **s'kam kohë me …** – ich habe keine Zeit zu …: *S'kam kohë me folë.*"
     }
   ],
   "items": [
@@ -74,7 +74,8 @@
       "gheg": "don",
       "de": "du willst; er/sie will",
       "partOfSpeech": "verb",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen.",
+      "alternatives": ["do"],
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15.",
       "reviewed": false
     },
     {
@@ -304,7 +305,7 @@
       "prompt": { "lang": "de", "text": "Wie fragst du „Willst du Kaffee trinken?“?" },
       "choices": ["A don me pi kafe?", "A du me pi kafe?", "A pi kafe?", "A ke kafe?"],
       "solutions": ["A don me pi kafe?"],
-      "explanation": "„Don“ heisst „du willst“ (Kosovo-Form, Standard: „do“). „Du“ wäre „ich will“.",
+      "explanation": "„Don“ heisst „du willst“ (Kosovo-Form, auch „do“). „Du“ wäre „ich will“.",
       "errorHints": [
         {
           "pattern": "^a du ",
@@ -316,7 +317,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a1_u10_infinitive_me_011",
@@ -476,7 +477,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a1_u10_infinitive_me_018",
@@ -567,7 +568,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a1_u10_infinitive_me_022",
@@ -587,7 +588,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a1_u10_infinitive_me_023",
@@ -737,7 +738,7 @@
       "itemIds": ["item_don", "item_me_pi", "item_kafe"],
       "prompt": { "lang": "de", "text": "Willst du Kaffee trinken?" },
       "answerLang": "sq",
-      "solutions": ["A don me pi kafe?", "Don me pi kafe?"],
+      "solutions": ["A don me pi kafe?", "Don me pi kafe?", "A do me pi kafe?", "Do me pi kafe?"],
       "standardForms": ["A do të pish kafe?", "Do të pish kafe?"],
       "explanation": "„A don …?“ fragt „willst du …?“. Das Partizip von „pi“ (trinken) ist ebenfalls „pi“.",
       "errorHints": [
@@ -749,7 +750,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a1_u10_infinitive_me_031",
@@ -945,7 +946,7 @@
       "text": "A ___ me ardhë?",
       "solutions": ["don"],
       "choices": ["don", "du", "muj", "duhet"],
-      "explanation": "„Don“ heisst „du willst“ – so sagt man es im Kosovo (Standard: „do“).",
+      "explanation": "„Don“ heisst „du willst“ – so sagt man es im Kosovo (auch: „do“).",
       "errorHints": [
         {
           "pattern": "^du$",
@@ -956,7 +957,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a1_u10_infinitive_me_040",
@@ -1280,7 +1281,7 @@
       "explanation": "„A“ am Anfang macht daraus eine Ja/Nein-Frage. „Me ngrânë“ heisst „essen“.",
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a1_u10_infinitive_me_056",
@@ -1348,7 +1349,7 @@
       "explanation": "„Me dalë“ heisst „ausgehen, hinausgehen“, „sonte“ heisst „heute Abend“.",
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Form „don“ (du willst, er/sie will; Standard: do) zu prüfen."
+      "note": "Kosovo-Form „don“ (du willst, er/sie will) zu prüfen; „do“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a1_u10_infinitive_me_060",

@@ -1,6 +1,6 @@
 # Lingora – Gheg-Sprachrichtlinie
 
-**Status:** Entwurf 0.2 (M1: Toleranzregeln in Abschnitt 11 überarbeitet). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
+**Status:** Entwurf 0.3 (M6: Entscheide zu *makinë*, *do* und *kena/jena*; Abschnitt 13 nennt zu jeder wiederkehrenden unsicheren Form die betroffenen Einheiten). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
 
 Diese Richtlinie ist verbindlich für:
 
@@ -136,8 +136,8 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | Gheg (Lingora) | Standard (Tosk-Basis) | Deutsch | Hinweis |
 |---|---|---|---|
 | âsht | është | ist | |
-| jemi, jeni, janë | jemi, jeni, janë | wir sind, ihr seid, sie sind | im Kosovo-Alltag auch *jena* (zu prüfen) |
-| kemi | kemi | wir haben | im Kosovo-Alltag auch *kena* (zu prüfen) |
+| jemi, jeni, janë | jemi, jeni, janë | wir sind, ihr seid, sie sind | im Kosovo-Alltag auch *jena*: in getippten Antworten überall als weitere Lösung akzeptiert (Abschnitt 13, Nr. 15) |
+| kemi | kemi | wir haben | im Kosovo-Alltag auch *kena*: in getippten Antworten überall als weitere Lösung akzeptiert (Abschnitt 13, Nr. 15) |
 | bâj, bân, bâjnë | bëj, bën, bëjnë | machen | |
 | me punue | të punoj / për të punuar | arbeiten (Infinitiv) | Abschnitt 7.2 |
 | punue | punuar | gearbeitet | alle Partizipien auf -uar → -ue |
@@ -156,6 +156,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | kam me shkue | do të shkoj | ich werde gehen | Abschnitt 7.5 |
 | tue punue | duke punuar | beim Arbeiten, arbeitend | Kosovo *tu/tuj* (zu prüfen) |
 | du / due | dua | ich will, ich liebe | Schreibung zu prüfen |
+| don / do | do | du willst, er/sie will | *don* ist die Kosovo-Hauptform; *do* ist ebenfalls Gheg und wird in getippten Antworten überall akzeptiert (Abschnitt 13, Nr. 15) |
 | muj | mund, mundem | ich kann | Kosovo (zu prüfen) |
 | hangra | hëngra | ich ass | (zu prüfen) |
 | çohem | ngrihem | ich stehe auf | Kosovo-Wortschatz (zu prüfen) |
@@ -203,6 +204,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | i lodhun | i lodhur | müde | (zu prüfen) |
 | qumësht | qumësht | Milch | gleich wie Standard; *tamël* ist Nordwest-Gheg (regional) und steht nicht in Lösungen (zu prüfen) |
 | duer | duar | Hände | (zu prüfen) |
+| veturë, vetura / makinë, makina | makinë, makina | Auto, das Auto | *veturë* ist das typische Kosovo-Wort und steht in `solutions[0]`; *makinë* ist im Kosovo ebenfalls üblich und gilt als **Gheg** (weitere Lösung, nie in `standardForms`; Abschnitt 13, Nr. 14) |
 
 ### 5.4 Grüsse
 
@@ -264,6 +266,7 @@ Gheg hat einen echten Infinitiv: **me + Partizip**. Standardalbanisch hat keinen
 Gheg-Partizipien sind kürzer als die Standard-Partizipien. Regeln:
 
 - Verben auf **-oj**: Partizip auf **-ue** statt *-uar*: *punoj → punue, mësoj → mësue, shkoj → shkue*.
+- Verben auf **-uaj**: Partizip ebenfalls auf **-ue**: *shkruaj → shkrue, gatuaj → gatue*. Das Präsens schreibt Lingora wie im Standard auf *-uaj* (*gatuaj, shkruaj*, Abschnitt 7.1); Kosovo-Aussprachen wie *gatuej* oder *gatuj* werden nicht geschrieben (zu prüfen, Abschnitt 13, Nr. 16).
 - Standard-Partizipien auf **-ur** verlieren die Endung: *ardhur → ardhë, fjetur → fjetë, pasur → pasë*.
 - Standard-Partizipien auf **-ënë** werden zu **-ânë**: *dhënë → dhânë, thënë → thânë, ngrënë → ngrânë*.
 
@@ -479,8 +482,8 @@ Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 2. Schreibungen mit â: *mbrâmje, mirëmbrâma, lânë*; Verwendung von ê, î, ô, û.
 3. Rhotazismus-Formen, die im Kosovo oft durch Standard-Formen ersetzt werden: *emni/emri, emnin/emrin*.
 4. Formen der Familien-Einheit: *vlla, vllau, vllazën* als Kosovo-Formen (Standard *vëlla, vëllai, vëllezër*) und ob *vëlla* als weitere Schreibung akzeptiert bleibt oder als Standard-Form gilt, *gruja* (Standard *gruaja*), *axhë/axha* (Standard *xhaxhai*), *babai* oder *baba* als bestimmte Form, *jem/jeme* als Alternative zu *im/ime*, *dhe / edhe / e* für „und“, *çikë* neben *vajzë*.
-5. Verben: *du* oder *due* (wollen), *muj* (können), *hangra* (ich ass), *çohem* (aufstehen), *folë* oder *fol* (gesprochen), *pi* und *ditë* als Partizipien, *tue/tu/tuj* als Gerundium.
-6. Plural „sein/haben“ im Kosovo-Alltag: *jemi/jena*, *kemi/kena*.
+5. Verben: *du* oder *due* (wollen), *muj* (können), *hangra* (ich ass), *kânë/kjenë* (gewesen), *ngrânë* (gegessen), *çohem* (aufstehen), *folë* oder *fol* (gesprochen), *pi* und *ditë* als Partizipien, *tue/tu/tuj* als Gerundium.
+6. Plural „sein/haben“ im Kosovo-Alltag: *jemi/jena*, *kemi/kena* – welche Form die Hauptform ist (Entscheid zum Akzeptieren: Nr. 15).
 7. Funktionswörter: *po* als „aber“, *prej* für „von/aus“, *kah*, *veç*, *gja/gjâ*.
 8. Ob *të* + Konjunktiv (*du të punoj*) und *do të* + Konjunktiv (Zukunft) als Gheg-Lösung oder als Standard-Form gelten.
 9. Ausnahmen der Blockliste: *gëzuar* (Prost) und *duar* (Hände); Muster *-ënë*.
@@ -488,3 +491,24 @@ Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 11. Kurzformen mit Apostroph (*m'fal, t'lutem*) als zusätzliche Lösungen zulassen?
 12. Formen aus der Einstufungsbank (`placement.json`, vor allem B2–C2): Konditional *kisha me* + Partizip (*kisha me ardhë*), Bedingung mit *me pasë / me e pasë ditë*, Partizipien *ra* (von *bie*), *ble*, *vozitë*, *mbrojtë*, *ndezë*, *hedhë*, *gjetë*, *mërzitë*, *rritë*, *vendosë*, *qëndrue*, Passiv mit *prej* als Agens, *i lumtun*, *pare* (Geld), *veturë*, *me bâ muhabet*, Klitikon-Stellung in *për me të pa*, ironisches *Punë e madhe!*, Sprichwort *Gjuha kockë s'ka, po kockë thyen*. Die betroffenen Aufgaben haben eine `note`.
 13. Regionale Formen: *qumësht* (Milch) als Kosovo-Form; *tamël* ist Nordwest-Gheg und wird nicht verwendet.
+14. **Auto: *veturë* und *makinë*.** Entscheid (M6): *makinë* ist im Kosovo verbreitet und gilt überall als **Gheg-Lösung** neben *veturë*; in getippten Aufgaben mit *veturë* ist *makinë* immer als weitere Lösung hinterlegt, nie in `standardForms`. Bausteine und Auswahl zeigen nur *veturë*. Zu prüfen: *veturë* als Hauptform.
+15. **Varianten, die getippt überall akzeptiert werden.** Entscheid (M6): Wo *don* (du willst, er/sie will) in einer getippten Lösung steht, ist auch *do* hinterlegt; wo *kemi/jemi* steht, auch *kena/jena*. Bausteine und Auswahl bleiben bei *don*, *kemi*, *jemi*. Ausnahme: die feste Grussformel *ç'kemi?* (ohne *ç'kena?*). Zu prüfen: ob *do*, *kena*, *jena* Hauptform werden sollen (Nr. 6).
+16. **Verben auf -uaj:** Präsens *gatuaj* (wie *shkruaj*, *luaj*), Partizip *gatue*; die Kosovo-Aussprache *gatuej/gatuj* wird nicht geschrieben (Abschnitt 7.3).
+
+### 13.1 Wiederkehrende unsichere Formen: betroffene Einheiten
+
+Diese Formen kommen in vielen Aufgaben vor. Nicht jede Aufgabe trägt dazu eine eigene `note`; massgeblich ist diese Liste. Eine Entscheidung hier gilt für alle genannten Einheiten und wird danach überall angewendet. Zahlen: Aufgaben (+ Items) mit der Form in Gheg-Feldern, Stand M6; „Einstufung“ = `placement.json`.
+
+| Form | Standard | Punkt | Betroffene Einheiten |
+|---|---|---|---|
+| *du / due* (ich will) | dua | 5 | a1_u10 (25+1), a2_u05 (23), a1_u13 (8), a2_u06 (7), a2_u08 (3), a2_u11 (2), Einstufung (4) |
+| *don / do* (du willst, er/sie will) | do | 15 | a1_u10 (13+1), a2_u05 (11), a1_u13 (1), a2_u06 (1), Einstufung (1) |
+| *muj* (ich kann), *mundesh* (du kannst) | mund, mundem | 5 | a1_u10 (11+1), a2_u05 (17+1), a1_u13 (2) |
+| *hangra* (ich ass) | hëngra | 5 | a2_u02 (9+1); als Auswahl oder Ablenker auch a1_u10 (1), a2_u04 (1), a2_u09 (2) |
+| *kânë / kjenë* (gewesen) | qenë | 5 | a2_u09 (13+1), a2_u04 (3+1), Einstufung (2) |
+| *ngrânë* (gegessen) | ngrënë | 5 | a2_u09 (10+1), a1_u10 (5+1), a2_u04 (4+1), a2_u05 (2) |
+| *gatue* (gekocht), Präsens *gatuaj* | gatuar | 16 | a1_u10 (2+1), a2_u04 (2+1), a2_u05 (4), a2_u09 (1+1), a2_u11 (2) |
+| *mbrâmje, në mbrâmje, mirëmbrâma* | mbrëmje, mirëmbrëma | 2 | a2_u01 (5), a2_u02 (5), a1_u01 (4+1), a1_u12 (3+1), a2_u04 (1), a2_u09 (1), a2_u11 (1), Einstufung (1) |
+| *veturë / makinë* (Auto) | makinë | 14 | a1_u11 (13+1), a2_u08 (6), a2_u10 (5), a1_u13 (1), Einstufung (1) |
+| *kemi / kena* (wir haben) | kemi | 6, 15 | a1_u08 (13+1), a2_u09 (10), a2_u04 (9), a1_u13 (3), a1_u01 (5+1, nur *ç'kemi?*) |
+| *jemi / jena* (wir sind) | jemi | 6, 15 | a0_u03 (13+1), a1_u08 (11), a1_u09 (2), a1_u01 (1), Einstufung (1) |

@@ -9,7 +9,7 @@
     },
     {
       "title": "Doppelt gemoppelt: die Verdoppelung",
-      "explanation": "Ein bestimmtes Objekt wird oft **zusätzlich** mit der Kurzform genannt – auf Deutsch übersetzt man sie nicht:\n\n- *E njoh Artën.* – Ich kenne Arta.\n- *E pashë filmin.* – Ich sah den Film.\n- *I shkrova Artës.* – Ich schrieb Arta. (Dativ: fast immer mit *i*)"
+      "explanation": "Ein bestimmtes Objekt wird oft **zusätzlich** mit der Kurzform genannt – auf Deutsch übersetzt man sie nicht:\n\n- *E njoh Artën.* – Ich kenne Arta.\n- *E pashë filmin.* – Ich sah den Film.\n- *I shkrova Artës.* – Ich schrieb Arta. (Dativ: fast immer mit *i*)\n\n**Endungen der Namen:** Als Objekt bekommt ein Name eine Endung. Akkusativ (wen?) wie in der Einheit *Bestimmter Artikel*: *Arta → Artën*, *Blerimi → Blerimin*. Dativ (wem?): feminin **-ës** (*Arta → Artës*, *Besa → Besës*), maskulin **-it** (*Blerimi → Blerimit*, *Arbeni → Arbenit*). Mehr dazu in der Einheit *Dativ, Genitiv & Ablativ*."
     },
     {
       "title": "Verbindungen mit „e“ (es)",
@@ -912,8 +912,8 @@
         { "left": "më", "right": "mir, mich" },
         { "left": "të", "right": "dir, dich" },
         { "left": "na", "right": "uns" },
-        { "left": "ju", "right": "euch, Ihnen" },
-        { "left": "u", "right": "ihnen" }
+        { "left": "ju", "right": "euch" },
+        { "left": "u", "right": "ihnen (Dativ)" }
       ],
       "explanation": "Die Kurzformen stehen direkt vor dem Verb.",
       "reviewed": false,
@@ -1021,15 +1021,15 @@
       "level": "A2.2",
       "difficulty": 1,
       "skillTags": ["grammar.clitics", "grammar.negation"],
-      "itemIds": ["item_clitic_e"],
-      "prompt": { "lang": "de", "text": "Ich weiss es nicht." },
+      "itemIds": ["item_clitic_te", "item_njoh"],
+      "prompt": { "lang": "de", "text": "Ich kenne dich nicht." },
       "answerLang": "sq",
-      "tokens": ["Nuk", "e", "di"],
-      "solutions": ["Nuk e di."],
-      "explanation": "Reihenfolge: „nuk“ – Kurzform – Verb.",
+      "tokens": ["Nuk", "të", "njoh"],
+      "solutions": ["Nuk të njoh."],
+      "explanation": "Reihenfolge: „nuk“ – Kurzform „të“ (dich) – Verb „njoh“ (ich kenne).",
       "errorHints": [
-        { "pattern": "^e nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor der Kurzform: „Nuk e di.“" },
-        { "pattern": "^nuk di e$", "category": "grammar.word_order", "hint": "Die Kurzform steht vor dem Verb: „Nuk e di.“" }
+        { "pattern": "^t[eë] nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor der Kurzform: „Nuk të njoh.“" },
+        { "pattern": "^nuk njoh t[eë]$", "category": "grammar.word_order", "hint": "Die Kurzform steht vor dem Verb: „Nuk të njoh.“" }
       ],
       "reviewed": false,
       "source": "manual"

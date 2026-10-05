@@ -952,11 +952,11 @@
       "itemIds": ["item_kjo", "item_asht", "item_nji", "item_kange", "item_shqip"],
       "prompt": { "lang": "de", "text": "Das ist ein albanisches Lied." },
       "answerLang": "sq",
-      "tokens": ["Kjo", "âsht", "nji", "kângë", "shqip"],
-      "solutions": ["Kjo âsht nji kângë shqip."],
-      "explanation": "„Shqip“ heisst „albanisch, auf Albanisch“ und steht nach dem Nomen: „nji kângë shqip“.",
+      "tokens": ["Kjo", "âsht", "nji", "kângë", "shqipe"],
+      "solutions": ["Kjo âsht nji kângë shqipe."],
+      "explanation": "„Shqipe“ (albanisch) steht nach dem Nomen: „nji kângë shqipe“. „Shqip“ allein heisst „auf Albanisch“.",
       "errorHints": [
-        { "pattern": "nji shqip k", "category": "grammar.word_order", "hint": "„Shqip“ steht nach dem Nomen: „nji kângë shqip“." }
+        { "pattern": "nji shqipe k", "category": "grammar.word_order", "hint": "„Shqipe“ steht nach dem Nomen: „nji kângë shqipe“." }
       ],
       "reviewed": false,
       "source": "manual"

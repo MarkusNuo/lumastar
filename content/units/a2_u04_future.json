@@ -38,7 +38,7 @@
       "gheg": "kam me gatue",
       "de": "ich werde kochen",
       "partOfSpeech": "phrase",
-      "note": "Partizip „gatue“ (von gatuej, Standard: gatuar) zu prüfen.",
+      "note": "Partizip „gatue“ (von gatuaj, Standard: gatuar) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 16.",
       "reviewed": false
     },
     { "id": "item_kam_me_pa", "kind": "phrase", "gheg": "kam me pa", "de": "ich werde sehen", "partOfSpeech": "phrase", "reviewed": false },
@@ -430,7 +430,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“) laut Sprachrichtlinie zu prüfen."
+      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“, in getippten Antworten akzeptiert) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u04_future_019",
@@ -466,7 +466,7 @@
       "errorHints": [{ "pattern": "essen", "category": "vocab.confused", "hint": "„Gatue“ heisst „kochen“. Essen wäre „ngrânë“." }],
       "reviewed": false,
       "source": "manual",
-      "note": "Partizip „gatue“ (von gatuej, Standard: gatuar) zu prüfen."
+      "note": "Partizip „gatue“ (von gatuaj, Standard: gatuar) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 16."
     },
     {
       "id": "ex_a2_u04_future_021",
@@ -617,7 +617,16 @@
       "itemIds": ["item_te_shtunen", "item_kam_me_ardhe"],
       "prompt": { "lang": "de", "text": "Wir werden am Samstag kommen." },
       "answerLang": "sq",
-      "solutions": ["Të shtunën kemi me ardhë.", "Kemi me ardhë të shtunën.", "Ne kemi me ardhë të shtunën.", "Të shtunën ne kemi me ardhë."],
+      "solutions": [
+        "Të shtunën kemi me ardhë.",
+        "Kemi me ardhë të shtunën.",
+        "Ne kemi me ardhë të shtunën.",
+        "Të shtunën ne kemi me ardhë.",
+        "Të shtunën kena me ardhë.",
+        "Kena me ardhë të shtunën.",
+        "Ne kena me ardhë të shtunën.",
+        "Të shtunën ne kena me ardhë."
+      ],
       "standardForms": ["Të shtunën do të vijmë.", "Do të vijmë të shtunën.", "Ne do të vijmë të shtunën."],
       "explanation": "Für „wir“ heisst es „kemi me“ + Partizip: „kemi me ardhë“.",
       "errorHints": [
@@ -626,7 +635,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“) laut Sprachrichtlinie zu prüfen. „do të + Konjunktiv“ als Standard-Form gewertet (Sprachrichtlinie 7.5, offener Punkt 8) – zu prüfen."
+      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“, in getippten Antworten akzeptiert) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 15. „do të + Konjunktiv“ als Standard-Form gewertet (Sprachrichtlinie 7.5, offener Punkt 8) – zu prüfen."
     },
     {
       "id": "ex_a2_u04_future_029",
@@ -814,7 +823,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“) laut Sprachrichtlinie zu prüfen."
+      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“, in getippten Antworten akzeptiert) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u04_future_038",
@@ -1034,7 +1043,7 @@
       "explanation": "Nur „kam“ wird konjugiert – „me“ + Partizip bleibt gleich.",
       "reviewed": false,
       "source": "manual",
-      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“) laut Sprachrichtlinie zu prüfen."
+      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“, in getippten Antworten akzeptiert) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u04_future_049",
@@ -1092,7 +1101,7 @@
       "explanation": "Achte auf die kurzen Gheg-Partizipien: „pa“ (gesehen) und „kânë“ (gewesen).",
       "reviewed": false,
       "source": "manual",
-      "note": "Partizip „kânë / kjenë“ (Standard: qenë) laut Sprachrichtlinie zu prüfen. Partizip „gatue“ (von gatuej, Standard: gatuar) zu prüfen."
+      "note": "Partizip „kânë / kjenë“ (Standard: qenë) laut Sprachrichtlinie zu prüfen. Partizip „gatue“ (von gatuaj, Standard: gatuar) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 16."
     },
     {
       "id": "ex_a2_u04_future_052",
@@ -1173,7 +1182,7 @@
       "explanation": "„Kemi me takue“ heisst „wir werden treffen“. „Besën“ ist der Akkusativ von „Besa“.",
       "reviewed": false,
       "source": "manual",
-      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“) laut Sprachrichtlinie zu prüfen."
+      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“, in getippten Antworten akzeptiert) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u04_future_057",
@@ -1235,7 +1244,7 @@
       "explanation": "„Bashkë“ heisst „zusammen“, „ma vonë“ heisst „später“ (Standard: „më vonë“).",
       "reviewed": false,
       "source": "manual",
-      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“) laut Sprachrichtlinie zu prüfen."
+      "note": "1. Person Plural „kemi“ (im Kosovo auch „kena“, in getippten Antworten akzeptiert) zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 15."
     },
     {
       "id": "ex_a2_u04_future_061",

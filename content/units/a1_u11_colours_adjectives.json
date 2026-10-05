@@ -63,7 +63,7 @@
       "gender": "f",
       "definite": "vetura",
       "plural": "vetura",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen.",
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14.",
       "reviewed": false
     },
     { "id": "item_cante", "kind": "word", "gheg": "çantë", "de": "Tasche", "partOfSpeech": "noun", "gender": "f", "definite": "çanta", "plural": "çanta", "reviewed": false },
@@ -282,7 +282,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_011",
@@ -322,7 +322,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_013",
@@ -346,7 +346,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_014",
@@ -552,7 +552,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_024",
@@ -580,7 +580,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_025",
@@ -613,22 +613,24 @@
       "id": "ex_a1_u11_colours_adjectives_026",
       "type": "translate_free",
       "level": "A1.3",
-      "difficulty": 1,
+      "difficulty": 2,
       "skillTags": ["grammar.adjective_agreement", "grammar.linking_article"],
-      "itemIds": ["item_shpi", "item_i_madh"],
-      "prompt": { "lang": "de", "text": "Das Haus ist gross." },
+      "itemIds": ["item_shpi", "item_i_vjeter", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Das alte Haus ist gross." },
       "answerLang": "sq",
-      "solutions": ["Shpija âsht e madhe."],
-      "standardForms": ["Shtëpia është e madhe.", "Shpija është e madhe."],
-      "explanation": "„Shpija“ (das Haus) ist feminin: „e madhe“. Gheg sagt „shpi“ (Standard: „shtëpi“).",
+      "solutions": ["Shpija e vjetër âsht e madhe."],
+      "standardForms": ["Shtëpia e vjetër është e madhe.", "Shpija e vjetër është e madhe."],
+      "explanation": "Das Adjektiv steht nach dem Nomen: „shpija e vjetër“ (das alte Haus). „Shpija“ ist feminin – darum beide Male „e“.",
       "errorHints": [
         {
-          "pattern": "^shpi [aâ]sht",
+          "pattern": "^shpi e ",
           "category": "grammar.definite_article",
           "hint": "Der bestimmte Artikel wird angehängt: shpi → shpija."
         },
+        { "pattern": "(^|\\s)i vjet[eë]r", "category": "grammar.linking_article", "hint": "„Shpija“ ist feminin – darum „e vjetër“." },
         { "pattern": "(^|\\s)i madh", "category": "grammar.linking_article", "hint": "„Shpija“ ist feminin – darum „e madhe“." },
-        { "pattern": "(^|\\s)e madh$", "category": "grammar.gender", "hint": "Feminin heisst „gross“ „e madhe“." }
+        { "pattern": "(^|\\s)e madh$", "category": "grammar.gender", "hint": "Feminin heisst „gross“ „e madhe“." },
+        { "pattern": "^e vjet[eë]r shpi", "category": "grammar.word_order", "hint": "Das Adjektiv steht nach dem Nomen: „shpija e vjetër“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -679,7 +681,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen. „makinë“ ist deshalb als weitere Lösung akzeptiert."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls als Gheg-Lösung akzeptiert, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_029",
@@ -755,7 +757,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "„i kaltër / e kaltër“ für „blau“ (im Kosovo üblich, daneben „blu“) zu prüfen. Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "„i kaltër / e kaltër“ für „blau“ (im Kosovo üblich, daneben „blu“) zu prüfen. Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_032",
@@ -776,7 +778,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_033",
@@ -1073,7 +1075,7 @@
       "explanation": "Achtung beim Genus: „veturë“, „çantë“, „lule“ und „mace“ sind feminin, „libër“ ist maskulin.",
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_048",
@@ -1112,7 +1114,7 @@
       "explanation": "Maskulin mit „i“ (libri i zi, qeni i bardhë), feminin mit „e“ (vetura e kuqe, macja e zezë).",
       "reviewed": false,
       "source": "manual",
-      "note": "Kosovo-Wort „veturë“ (Standard und ebenfalls verbreitet: makinë) zu prüfen."
+      "note": "Kosovo-Wort „veturë“ zu prüfen; „makinë“ ist ebenfalls Gheg, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a1_u11_colours_adjectives_050",

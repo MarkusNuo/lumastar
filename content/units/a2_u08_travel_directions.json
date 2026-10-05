@@ -9,7 +9,7 @@
     },
     {
       "title": "Kleine Wörter für unterwegs",
-      "explanation": "| Gheg | Deutsch |\n|---|---|\n| me autobus, me tren, me veturë | mit dem Bus, Zug, Auto (ohne Artikel) |\n| në kâmbë | zu Fuss (Standard: *në këmbë*) |\n| nji biletë për Prizren | eine Fahrkarte nach Prizren |\n| në Pejë | in Peja, nach Peja |\n| te posta | bei der Post, zur Post (mit Artikel) |\n\n**Veturë** ist das Kosovo-Wort für „Auto“ (in Albanien: *makinë*)."
+      "explanation": "| Gheg | Deutsch |\n|---|---|\n| me autobus, me tren, me veturë | mit dem Bus, Zug, Auto (ohne Artikel) |\n| në kâmbë | zu Fuss (Standard: *në këmbë*) |\n| nji biletë për Prizren | eine Fahrkarte nach Prizren |\n| në Pejë | in Peja, nach Peja |\n| te posta | bei der Post, zur Post (mit Artikel) |\n\n**Veturë** ist das typische Kosovo-Wort für „Auto“; *makinë* hört man im Kosovo auch, beides ist richtig."
     },
     {
       "title": "In der Nähe von …",
@@ -132,10 +132,10 @@
       "prompt": { "lang": "de", "text": "Wie sagt man im Kosovo „das Auto“?" },
       "choices": ["treni", "bileta", "vetura", "rruga"],
       "solutions": ["vetura"],
-      "explanation": "„Veturë“ ist das Kosovo-Wort für „Auto“, mit Artikel „vetura“. In Albanien sagt man meist „makinë“.",
+      "explanation": "„Veturë“ ist das typische Kosovo-Wort für „Auto“, mit Artikel „vetura“. Auch „makinë“ (makina) ist im Kosovo üblich.",
       "reviewed": false,
       "source": "manual",
-      "note": "„veturë“ als Kosovo-Wort zu prüfen."
+      "note": "„veturë“ als Kosovo-Wort zu prüfen, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a2_u08_travel_directions_005",
@@ -562,16 +562,19 @@
         "Shkoj me veturë në Prizren.",
         "Shkoj në Prizren me veturë.",
         "Udhëtoj me veturë në Prizren.",
-        "Udhëtoj në Prizren me veturë."
+        "Udhëtoj në Prizren me veturë.",
+        "Shkoj me makinë në Prizren.",
+        "Shkoj në Prizren me makinë.",
+        "Udhëtoj me makinë në Prizren.",
+        "Udhëtoj në Prizren me makinë."
       ],
-      "explanation": "„Me veturë“ heisst „mit dem Auto“ – „veturë“ ist das Kosovo-Wort. „Në Prizren“ heisst hier „nach Prizren“.",
+      "explanation": "„Me veturë“ heisst „mit dem Auto“ – „veturë“ ist das typische Kosovo-Wort, „makinë“ geht auch. „Në Prizren“ heisst hier „nach Prizren“.",
       "errorHints": [
-        { "pattern": "me vetura", "category": "grammar.definite_article", "hint": "Nach „me“ steht das Verkehrsmittel ohne Artikel: „me veturë“." }
+        { "pattern": "me (vetura|makina)", "category": "grammar.definite_article", "hint": "Nach „me“ steht das Verkehrsmittel ohne Artikel: „me veturë“." }
       ],
-      "standardForms": ["Shkoj me makinë në Prizren.", "Shkoj në Prizren me makinë."],
       "reviewed": false,
       "source": "manual",
-      "note": "„makinë“ als Standard-/Albanien-Wort in standardForms – zu prüfen, ob es im Kosovo als Gheg gilt."
+      "note": "„veturë“ und „makinë“ sind beide als Gheg-Lösung akzeptiert, siehe LANGUAGE_GUIDE §13 Nr. 14."
     },
     {
       "id": "ex_a2_u08_travel_directions_028",
@@ -1173,7 +1176,7 @@
       "difficulty": 1,
       "skillTags": ["phrase.wishes", "vocab.travel"],
       "itemIds": ["item_rruge_te_mbare", "item_autobus"],
-      "prompt": { "lang": "de", "text": "Deine Freundin fährt mit dem Bus nach Pejë. Was wünschst du ihr?" },
+      "prompt": { "lang": "de", "text": "Deine Freundin fährt mit dem Bus nach Peja. Was wünschst du ihr?" },
       "choices": ["Shërim të shpejtë!", "Të bâftë mirë!", "Rrugë të mbarë!", "Mirë se erdhe!"],
       "solutions": ["Rrugë të mbarë!"],
       "explanation": "Vor einer Reise wünschst du „Rrugë të mbarë!“ – Gute Reise!",

@@ -389,8 +389,8 @@
         {
           "id": "b1_u03_opinions",
           "title": "Meinungen & Vergleiche",
-          "description": "Sagen, was man denkt, und Dinge vergleichen: ma i madh se …",
-          "goals": ["Ich kann meine Meinung begründen.", "Ich kann Dinge mit „ma … se“ vergleichen."],
+          "description": "Sagen, was man denkt, und genauer vergleichen: ma i madhi, aq … sa …",
+          "goals": ["Ich kann meine Meinung begründen.", "Ich kann den Superlativ (ma i madhi) und Vergleiche mit „aq … sa“ verwenden."],
           "skillTags": ["phrase.opinions", "grammar.comparison", "grammar.conjunctions"],
           "color": "sky",
           "icon": "message-circle",

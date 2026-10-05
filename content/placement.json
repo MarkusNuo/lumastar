@@ -1230,7 +1230,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "„me pasë“ als Bedingungssatz, Partizip „ble“ (Standard: blerë) und „veturë“ (Kosovo, Standard: makinë) zu prüfen."
+      "note": "„me pasë“ als Bedingungssatz, Partizip „ble“ (Standard: blerë) und „veturë“ (Kosovo, auch makinë; siehe LANGUAGE_GUIDE §13 Nr. 14) zu prüfen."
     },
     {
       "id": "pl_b2_1_005",
@@ -1372,7 +1372,7 @@
       "itemIds": [],
       "prompt": { "lang": "de", "text": "Wir sind gerade am Arbeiten." },
       "answerLang": "sq",
-      "solutions": ["Jemi tue punue.", "Ne jemi tue punue.", "Po punojmë.", "Ne po punojmë."],
+      "solutions": ["Jemi tue punue.", "Ne jemi tue punue.", "Po punojmë.", "Ne po punojmë.", "Jena tue punue.", "Ne jena tue punue."],
       "standardForms": ["Jemi duke punuar.", "Ne jemi duke punuar."],
       "explanation": "Kosovo-Gheg sagt „jemi tue punue“ (Standard: jemi duke punuar). Auch „po punojmë“ ist richtig.",
       "errorHints": [
