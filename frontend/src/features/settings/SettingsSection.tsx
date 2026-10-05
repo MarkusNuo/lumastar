@@ -1,27 +1,54 @@
 import { SpeakerHighIcon, VibrateIcon } from '@phosphor-icons/react';
+import { useQuery } from '@tanstack/react-query';
 import { ActionList, ToggleRow } from '../../components/ui/ActionList';
+import { LoadFailed } from '../../components/ui/LoadState';
 import { useDevicePreferences } from '../../lib/effects/devicePreferences';
 import { canVibrate, vibrate } from '../../lib/effects/haptics';
 import { soundPlayer } from '../../lib/effects/soundPlayer';
 import { PROFILE_COPY } from './copy';
+import { DailyGoalSetting } from './DailyGoalSetting';
+import { RetentionSetting } from './RetentionSetting';
+import { settingsQuery } from './settingsApi';
 
-const copy = PROFILE_COPY.device;
+const copy = PROFILE_COPY.settings;
 
 /**
- * "Einstellungen" of this device: sounds and vibration (PRD 12.4). Switching one on gives a sample
- * right away. The daily goal joins this group with backend M5.
+ * "Einstellungen": the daily goal and, as an advanced setting, the target retention of the
+ * reviews, both stored on the server; sounds and vibration belong to this device (PRD 12.4).
  */
-export function DeviceSettingsSection() {
+export function SettingsSection() {
+  const settings = useQuery(settingsQuery);
+
+  return (
+    <div className="flex flex-col gap-3">
+      <ActionList title={copy.title}>
+        <DailyGoalSetting />
+        <DeviceToggleRows />
+        <RetentionSetting />
+      </ActionList>
+      {settings.isError && (
+        <LoadFailed
+          message={copy.loadFailed}
+          retrying={settings.isFetching}
+          onRetry={() => void settings.refetch()}
+        />
+      )}
+    </div>
+  );
+}
+
+/** Switching one on gives a sample right away. */
+function DeviceToggleRows() {
   const sound = useDevicePreferences((state) => state.sound);
   const haptics = useDevicePreferences((state) => state.haptics);
   const setSound = useDevicePreferences((state) => state.setSound);
   const setHaptics = useDevicePreferences((state) => state.setHaptics);
 
   return (
-    <ActionList title={copy.title} note={copy.dailyGoalSoon}>
+    <>
       <ToggleRow
         icon={SpeakerHighIcon}
-        tone="secondary"
+        tone="primary"
         label={copy.sound.label}
         description={copy.sound.description}
         checked={sound}
@@ -43,6 +70,6 @@ export function DeviceSettingsSection() {
           }}
         />
       )}
-    </ActionList>
+    </>
   );
 }

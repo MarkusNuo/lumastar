@@ -124,6 +124,59 @@ export function ActionRow({
   );
 }
 
+export interface SettingRowIds {
+  labelId: string;
+  /** Present when the row has a description. */
+  descriptionId?: string;
+}
+
+export interface SettingRowProps {
+  icon: Icon;
+  tone?: Tone;
+  label: string;
+  description?: string;
+  /** Shown at the end of the title line, e.g. the current value. */
+  aside?: ReactNode;
+  /** The control below the title, labelled through the ids. */
+  children: (ids: SettingRowIds) => ReactNode;
+}
+
+/** A setting of an `ActionList` whose control sits below its title, e.g. a choice of a few values. */
+export function SettingRow({
+  icon,
+  tone = 'primary',
+  label,
+  description,
+  aside,
+  children,
+}: SettingRowProps) {
+  const id = useId();
+  const ids: SettingRowIds = {
+    labelId: `${id}-label`,
+    descriptionId: description ? `${id}-description` : undefined,
+  };
+
+  return (
+    <li className="flex flex-col gap-3 px-4 py-3">
+      <div className="flex min-h-12 items-center gap-4">
+        <RowIcon icon={icon} tone={tone} />
+        <div className="min-w-0 flex-1">
+          <p id={ids.labelId} className="text-body font-extrabold text-fg">
+            {label}
+          </p>
+          {description && (
+            <p id={ids.descriptionId} className="text-caption font-bold text-fg-muted">
+              {description}
+            </p>
+          )}
+        </div>
+        {aside}
+      </div>
+      {children(ids)}
+    </li>
+  );
+}
+
 export interface ToggleRowProps extends Omit<ToggleProps, 'className'> {
   icon: Icon;
   tone?: Tone;

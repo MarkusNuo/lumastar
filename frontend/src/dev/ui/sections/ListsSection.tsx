@@ -1,14 +1,18 @@
 import {
   ArticleIcon,
+  BrainIcon,
   DownloadSimpleIcon,
   SparkleIcon,
+  SpeakerHighIcon,
+  TimerIcon,
   UploadSimpleIcon,
 } from '@phosphor-icons/react';
 import { useId, useState } from 'react';
-import { ActionList, ActionRow } from '../../../components/ui/ActionList';
+import { ActionList, ActionRow, SettingRow, ToggleRow } from '../../../components/ui/ActionList';
 import { Button } from '../../../components/ui/Button';
 import { Card } from '../../../components/ui/Card';
 import { MarkdownView } from '../../../components/ui/MarkdownView';
+import { SegmentedControl } from '../../../components/ui/SegmentedControl';
 import { Sheet, SheetHeader } from '../../../components/ui/Sheet';
 import { Toast } from '../../../components/ui/Toast';
 import { showToast } from '../../../components/ui/toastStore';
@@ -53,9 +57,69 @@ function SheetDemo() {
   );
 }
 
+const GOALS = [5, 10, 15, 20].map((minutes) => ({ value: minutes, label: `${minutes} Min.` }));
+
+/** The settings rows of the profile with local state instead of the server. */
+function SettingsDemo() {
+  const [goal, setGoal] = useState(10);
+  const [sound, setSound] = useState(true);
+  const [retention, setRetention] = useState(90);
+
+  return (
+    <ActionList title="Einstellungen">
+      <SettingRow
+        icon={TimerIcon}
+        tone="secondary"
+        label="Tagesziel"
+        description={`${goal} Min. pro Tag`}
+      >
+        {({ labelId, descriptionId }) => (
+          <SegmentedControl
+            aria-labelledby={labelId}
+            aria-describedby={descriptionId}
+            options={GOALS}
+            value={goal}
+            onChange={setGoal}
+          />
+        )}
+      </SettingRow>
+      <ToggleRow
+        icon={SpeakerHighIcon}
+        label="Töne"
+        description="Klänge für richtig, falsch und Lektionsende"
+        checked={sound}
+        onChange={setSound}
+      />
+      <SettingRow
+        icon={BrainIcon}
+        tone="unit-indigo"
+        label="Ziel-Behaltensrate"
+        aside={<span className="text-label font-black text-fg-muted">{retention} %</span>}
+      >
+        {({ labelId }) => (
+          <input
+            type="range"
+            min={70}
+            max={99}
+            value={retention}
+            aria-labelledby={labelId}
+            aria-valuetext={`${retention} %`}
+            onChange={(event) => setRetention(Number(event.target.value))}
+            style={{ '--range-fill': `${((retention - 70) / 29) * 100}%` }}
+            className="range w-full"
+          />
+        )}
+      </SettingRow>
+    </ActionList>
+  );
+}
+
 export function ListsSection() {
   return (
     <>
+      <Specimen label="Einstellungen: Auswahl, Schalter, Schieberegler" layout="stack">
+        <SettingsDemo />
+      </Specimen>
       <Specimen label="Aktionsliste: normal, lädt, deaktiviert" layout="stack">
         <ActionList title="Lerndaten">
           <ActionRow

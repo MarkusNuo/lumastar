@@ -17,11 +17,34 @@ export const PROFILE_COPY = {
   level: (level: string) => `Niveau ${level}`,
   noLevel: 'Noch nicht eingestuft',
   loadFailed: 'Dein Profil konnte nicht geladen werden.',
-  device: {
+  settings: {
     title: 'Einstellungen',
+    loadFailed: 'Tagesziel und Behaltensrate konnten nicht geladen werden.',
     sound: { label: 'Töne', description: 'Klänge für richtig, falsch und Lektionsende' },
     haptics: { label: 'Vibration', description: 'Kurzes Vibrieren bei jeder Antwort' },
-    dailyGoalSoon: 'Das Tagesziel kannst du bald hier einstellen.',
+    dailyGoal: {
+      label: 'Tagesziel',
+      loading: 'Tagesziel wird geladen',
+      option: (minutes: number) => `${minutes} Min.`,
+      saveFailed: 'Dein Tagesziel konnte nicht gespeichert werden. Versuch es nochmals.',
+      planUpdated: 'Lernplan angepasst',
+      estimate: (band: string, day: string) => `${band} bis ca. ${day}`,
+      previously: (day: string) => `vorher ${day}`,
+    },
+    retention: {
+      label: 'Ziel-Behaltensrate',
+      description: 'Erweitert: wie oft Wörter wiederkommen',
+      toggle: 'Ziel-Behaltensrate anpassen',
+      percent: (percent: number) => `${percent} %`,
+      explanation:
+        'So sicher sollst du ein Wort noch wissen, wenn es zur Wiederholung kommt. Höher heisst: öfter wiederholen und besser behalten. Tiefer heisst: weniger Wiederholungen, aber mehr vergessen.',
+      less: 'Weniger Wiederholungen',
+      more: 'Besser behalten',
+      reset: (percent: number) => `Standard (${percent} %)`,
+      save: 'Speichern',
+      saved: (percent: number) => `Ziel-Behaltensrate gespeichert: ${percent} %`,
+      saveFailed: 'Die Behaltensrate konnte nicht gespeichert werden. Versuch es nochmals.',
+    },
   },
   learning: {
     title: 'Lernen',

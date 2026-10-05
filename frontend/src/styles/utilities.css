@@ -64,3 +64,59 @@
     var(--color-border) var(--answer-line-height)
   );
 }
+
+/*
+ * Range slider: a thick rounded track filled in the primary colour up to `--range-fill` and a big
+ * knob with a 3D edge. The input itself stays tall enough to be an easy touch target.
+ */
+@utility range {
+  --range-track: 0.75rem;
+  --range-knob: 1.75rem;
+  appearance: none;
+  height: 2.75rem;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+
+  &::-webkit-slider-runnable-track {
+    height: var(--range-track);
+    border-radius: 9999px;
+    background: linear-gradient(
+      to right,
+      var(--color-primary) var(--range-fill, 0%),
+      var(--color-surface-raised) var(--range-fill, 0%)
+    );
+  }
+  &::-moz-range-track {
+    height: var(--range-track);
+    border-radius: 9999px;
+    background: var(--color-surface-raised);
+  }
+  &::-moz-range-progress {
+    height: var(--range-track);
+    border-radius: 9999px;
+    background: var(--color-primary);
+  }
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: var(--range-knob);
+    height: var(--range-knob);
+    margin-top: calc((var(--range-track) - var(--range-knob)) / 2);
+    border: 3px solid var(--color-primary);
+    border-radius: 9999px;
+    background: var(--color-fg);
+    box-shadow: 0 var(--spacing-edge) 0 var(--color-primary-edge);
+  }
+  &::-moz-range-thumb {
+    width: var(--range-knob);
+    height: var(--range-knob);
+    border: 3px solid var(--color-primary);
+    border-radius: 9999px;
+    background: var(--color-fg);
+    box-shadow: 0 var(--spacing-edge) 0 var(--color-primary-edge);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
