@@ -3,11 +3,13 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, searchForWorkspaceRoot, type ProxyOptions } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
+import { BACKEND_PATHS, devServiceWorkerReset, pwaOptions, themeColorMeta } from './pwa.config.ts';
 
 const backendUrl = process.env.LINGORA_BACKEND_URL ?? 'http://localhost:8080';
 
 const backendProxy: Record<string, ProxyOptions> = Object.fromEntries(
-  ['/api', '/v3', '/actuator'].map((path) => [path, { target: backendUrl }]),
+  BACKEND_PATHS.map((path) => [path, { target: backendUrl }]),
 );
 
 // Dev and preview share one origin so the backend's session cookie and CSRF setup only know one.
@@ -19,7 +21,7 @@ const apiContractDir = fileURLToPath(new URL('../backend/openapi', import.meta.u
 const contentDir = fileURLToPath(new URL('../content', import.meta.url));
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), VitePWA(pwaOptions), themeColorMeta(), devServiceWorkerReset()],
   server: {
     port,
     strictPort: true,
