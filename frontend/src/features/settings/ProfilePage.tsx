@@ -4,14 +4,14 @@ import { Callout } from '../../components/ui/Callout';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { useLogout, useMe } from '../auth/authHooks';
 import { PROFILE_COPY } from './copy';
+import { DeviceSettingsSection } from './DeviceSettingsSection';
 import { LearningDataSection } from './LearningDataSection';
 import { LearningSection } from './LearningSection';
 import { ProfileHeader } from './ProfileHeader';
 
 /**
- * Profile tab: who is learning, the plan and a new placement, the learning data (PRD F11) and the
- * way out. The settings of later milestones (daily goal, sound and haptics) get their own
- * ActionList groups between the learning data and the logout.
+ * Profile tab: who is learning, the plan and a new placement, the learning data (PRD F11), the
+ * settings of this device and the way out.
  */
 export function ProfilePage() {
   const me = useMe();
@@ -33,7 +33,7 @@ export function ProfilePage() {
       )}
       <LearningSection />
       <LearningDataSection />
-      <p className="px-1 text-label text-fg-muted">{PROFILE_COPY.moreSettings}</p>
+      <DeviceSettingsSection />
       {logout.isError && <Callout tone="danger">{PROFILE_COPY.logoutFailed}</Callout>}
       <Button
         variant="neutral"

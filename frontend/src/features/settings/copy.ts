@@ -17,7 +17,12 @@ export const PROFILE_COPY = {
   level: (level: string) => `Niveau ${level}`,
   noLevel: 'Noch nicht eingestuft',
   loadFailed: 'Dein Profil konnte nicht geladen werden.',
-  moreSettings: 'Tagesziel, Ton und Haptik kannst du bald hier einstellen.',
+  device: {
+    title: 'Einstellungen',
+    sound: { label: 'Töne', description: 'Klänge für richtig, falsch und Lektionsende' },
+    haptics: { label: 'Vibration', description: 'Kurzes Vibrieren bei jeder Antwort' },
+    dailyGoalSoon: 'Das Tagesziel kannst du bald hier einstellen.',
+  },
   learning: {
     title: 'Lernen',
     plan: { label: 'Lernplan ansehen', description: 'Deine Zeitleiste bis C2' },
