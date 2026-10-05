@@ -10,13 +10,11 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * The learner's weak skill tags, weakest first (PRD F7): first the tags with wrong answers in the last 14 days, most
- * wrong answers first, then the tags below {@value #WEAK_BELOW} mastery, lowest first.
+ * The learner's weak skill tags, weakest first (PRD F7): first the tags with wrong answers in the
+ * {@linkplain SkillTagErrorRate#RECENT_PERIOD recent period}, most wrong answers first, then the tags not yet
+ * {@linkplain SkillMastery#MASTERED mastered}, lowest mastery first.
  */
 final class WeakSpots {
-
-    /** Below the mastery at which the plan skips a unit as mastered (PRD F3). */
-    static final double WEAK_BELOW = 0.8;
 
     private WeakSpots() {
     }
@@ -30,7 +28,7 @@ final class WeakSpots {
                         .thenComparing(rate -> rate.tag().id()))
                 .forEach(rate -> tags.add(rate.tag()));
         context.mastery().entries().entrySet().stream()
-                .filter(entry -> entry.getValue().mastery() < WEAK_BELOW)
+                .filter(entry -> !entry.getValue().isMastered())
                 .sorted(Comparator.comparingDouble((Map.Entry<SkillTag, SkillMastery.Entry> entry) -> entry.getValue().mastery())
                         .thenComparing(entry -> entry.getKey().id()))
                 .forEach(entry -> tags.add(entry.getKey()));

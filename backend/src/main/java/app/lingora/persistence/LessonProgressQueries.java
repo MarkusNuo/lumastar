@@ -7,6 +7,7 @@ import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -66,6 +67,25 @@ public class LessonProgressQueries {
                 .query((row, rowNumber) -> Map.entry(SkillTag.of(row.getString("tag")), row.getInt("lessons")))
                 .stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    /** A passed checkpoint: its stage, when it was finished and the share of correct first answers. */
+    public record PassedCheckpoint(Level level, Instant passedAt, double accuracy) {
+    }
+
+    /** The checkpoint the learner passed last among the stages below {@code level}. */
+    public Optional<PassedCheckpoint> lastPassedCheckpointBelow(UUID userId, Level level) {
+        String[] below = Arrays.stream(Level.values()).filter(level::isAbove).map(Level::code).toArray(String[]::new);
+        return jdbc.sql("""
+                        SELECT level, finished_at, accuracy FROM sessions
+                        WHERE user_id = :user AND kind = 'checkpoint' AND checkpoint_passed AND level = ANY (:levels)
+                        ORDER BY finished_at DESC
+                        LIMIT 1""")
+                .param("user", userId)
+                .param("levels", below)
+                .query((row, rowNumber) -> new PassedCheckpoint(Level.fromCode(row.getString("level")),
+                        SqlTimestamps.instant(row, "finished_at"), row.getDouble("accuracy")))
+                .optional();
     }
 
     /** The stages whose checkpoint the learner has passed. */

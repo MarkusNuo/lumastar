@@ -1285,6 +1285,35 @@
         ],
         "type": "string"
       },
+      "PassedStage": {
+        "description": "A stage whose checkpoint the learner has passed",
+        "properties": {
+          "accuracy": {
+            "description": "The share of correct first answers in the checkpoint",
+            "example": 0.87,
+            "format": "double",
+            "type": "number"
+          },
+          "level": {
+            "$ref": "#/components/schemas/Level"
+          },
+          "passedAt": {
+            "description": "When the checkpoint was passed",
+            "format": "date-time",
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "accuracy",
+          "level",
+          "passedAt",
+          "title"
+        ],
+        "type": "object"
+      },
       "PathResponse": {
         "description": "The learning path of the home screen (PRD 12.3): the plan up to C2 with the live progress",
         "properties": {
@@ -1302,6 +1331,10 @@
             },
             "description": "Per CEFR band (A1 … C2) of the plan the expected date by which it is done, e.g. {\"A2\": \"2026-11-10\"}",
             "type": "object"
+          },
+          "previousStage": {
+            "$ref": "#/components/schemas/PassedStage",
+            "description": "The stage passed last below the current level, to show collapsed with its trophy above the first stage; absent until a checkpoint below the current level is passed"
           },
           "stages": {
             "description": "From the current level up to C2.3",
@@ -1909,7 +1942,7 @@
         "type": "string"
       },
       "ReviewSummaryResponse": {
-        "description": "The learner's FSRS cards (PRD F8): what is due now and tomorrow",
+        "description": "The learner's FSRS cards (PRD F8): what is due now and tomorrow. Only cards that a lesson exercise can practise count, so a review lesson can be started exactly while dueNow is above 0",
         "properties": {
           "dueNow": {
             "description": "Cards due now, overdue ones included",
@@ -3895,7 +3928,7 @@
     },
     "/api/review/lessons": {
       "post": {
-        "description": "Up to 12 exercises at or below the learner's level that practise the most overdue items, one exercise per item and mixed types. It is played like any lesson: answers go to POST /api/lessons/{sessionId}/attempts and it is finished with POST /api/lessons/{sessionId}/complete.",
+        "description": "Up to 12 exercises that practise the most overdue items, one exercise per item and mixed types, at or below the learner's level; an item met only above it, e.g. before a re-placement downwards, is practised on the lowest level with exercises of it. It is played like any lesson: answers go to POST /api/lessons/{sessionId}/attempts and it is finished with POST /api/lessons/{sessionId}/complete.",
         "operationId": "startReviewLesson",
         "responses": {
           "201": {
@@ -3936,7 +3969,7 @@
                 }
               }
             },
-            "description": "Nothing is due that an exercise practises (code no_reviews_due)"
+            "description": "Nothing is due, i.e. dueNow of the summary is 0 (code no_reviews_due)"
           }
         },
         "security": [

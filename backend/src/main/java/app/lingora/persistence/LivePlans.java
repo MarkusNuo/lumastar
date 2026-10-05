@@ -21,8 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * The stored plan with the learner's progress since, as the path (PRD 12.3) and the plan document (PRD 8.3) show it.
  * A curriculum unit counts its completed lessons; a focus unit counts the completed focus lessons on its skill tag
- * since it was inserted into the plan. A focus unit is playable when lesson exercises with its tag exist at or below
- * the learner's level.
+ * since it was inserted into the plan. A focus unit is playable when its focus lesson has exercises, see
+ * {@link ContentCatalog#focusExercises}.
  */
 @Component
 public class LivePlans {
@@ -61,7 +61,7 @@ public class LivePlans {
                 completed.put(focus.id(), (int) focusLessons.stream()
                         .filter(lesson -> lesson.skillTags().contains(focus.tag()) && !lesson.startedAt().isBefore(since))
                         .count());
-                if (learnerLevel != null && !catalog.lessonExercisesWithSkillTag(focus.tag(), learnerLevel).isEmpty()) {
+                if (learnerLevel != null && !catalog.focusExercises(focus.tag(), learnerLevel).isEmpty()) {
                     playable.add(focus.id());
                 }
             }

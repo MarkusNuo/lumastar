@@ -27,7 +27,7 @@ class SchemaMigrationTest extends IntegrationTest {
         assertThat(history).containsExactly(Map.of("version", "1", "success", true), Map.of("version", "2", "success", true),
                 Map.of("version", "3", "success", true), Map.of("version", "4", "success", true),
                 Map.of("version", "5", "success", true), Map.of("version", "6", "success", true),
-                Map.of("version", "7", "success", true));
+                Map.of("version", "7", "success", true), Map.of("version", "8", "success", true));
     }
 
     @Test

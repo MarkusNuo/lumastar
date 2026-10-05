@@ -1,6 +1,7 @@
 package app.lingora.persistence;
 
 import app.lingora.core.lesson.ExerciseBank;
+import app.lingora.core.lesson.MetContent;
 import app.lingora.domain.Exercise;
 import app.lingora.domain.Item;
 import app.lingora.domain.Level;
@@ -94,10 +95,22 @@ public class ContentCatalog implements ExerciseBank {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Exercise> withItems(Collection<String> itemIds, Level maxLevel) {
-        return exercises.findLessonExercisesWithItems(itemIds.toArray(String[]::new), levelsUpTo(maxLevel)).stream()
+    public List<Exercise> withItems(Collection<String> itemIds) {
+        return exercises.findLessonExercisesWithItems(itemIds.toArray(String[]::new)).stream()
                 .map(this::toExercise)
                 .toList();
+    }
+
+    /**
+     * The exercises of a focus lesson on the tag: those up to the learner's level, or, for a tag met only above it, those
+     * of the lowest level with the tag (see {@link MetContent}).
+     */
+    @Transactional(readOnly = true)
+    public List<Exercise> focusExercises(SkillTag tag, Level learnerLevel) {
+        List<Level> levels = exercises.findLessonLevelsWithSkillTag(tag.id()).stream().map(Level::fromCode).toList();
+        return MetContent.maxLevel(learnerLevel, levels)
+                .map(maxLevel -> lessonExercisesWithSkillTag(tag, maxLevel))
+                .orElse(List.of());
     }
 
     /** The skill tags that active lesson exercises not above {@code maxLevel} practise. */

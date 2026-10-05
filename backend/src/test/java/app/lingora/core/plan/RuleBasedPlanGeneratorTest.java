@@ -289,6 +289,34 @@ class RuleBasedPlanGeneratorTest {
         }
 
         @Test
+        void aRequestTakesThePlaceOfTheOldestOpenFocusUnitWhoseTagIsNoLongerWeak() {
+            LearningPlan full = revise(live, new SkillTagErrorRate(ARTICLE, 10, 9), new SkillTagErrorRate(INFINITIVE, 10, 8));
+
+            LearningPlan revised = generator.revise(full, learner(Level.A1_2, 10), noMastery(),
+                    List.of(new SkillTagErrorRate(INFINITIVE, 10, 8)), List.of(new FocusRequest(PAST, 3)));
+
+            assertThat(full.units().filter(PlanUnit::isFocus).map(PlanUnit::unitId))
+                    .containsExactly("focus_grammar.definite_article.fem_1", "focus_grammar.infinitive_1");
+            assertThat(revised.units().filter(PlanUnit::isFocus).map(PlanUnit::unitId))
+                    .containsExactly("focus_grammar.infinitive_1", "focus_grammar.past_1");
+        }
+
+        @Test
+        void aRequestTakesThePlaceOfTheOldestOpenFocusUnitWhenAllAreStillWeak() {
+            List<SkillTagErrorRate> weak = List.of(new SkillTagErrorRate(ARTICLE, 10, 9), new SkillTagErrorRate(INFINITIVE, 10, 8));
+            LearningPlan full = generator.revise(live, learner(Level.A1_2, 10), noMastery(), weak, List.of());
+            LearningPlan movedOn = withStatuses(full, Map.of("a1_home", PlanUnitStatus.COMPLETED,
+                    "a1_infinitive", PlanUnitStatus.IN_PROGRESS));
+
+            LearningPlan revised = generator.revise(movedOn, learner(Level.A1_2, 10), noMastery(), weak,
+                    List.of(new FocusRequest(PAST, 4)));
+
+            assertThat(unitIds(revised)).containsExactly("a1_food", "a1_home", "focus_grammar.infinitive_1", "a1_infinitive",
+                    "focus_grammar.past_1", "a1_review", "a2_past", "b1_opinions");
+            assertThat(unit(revised, "focus_grammar.past_1").reason()).isEqualTo("4 Fehler in einer Lektion bei Vergangenheit");
+        }
+
+        @Test
         void countsTheFocusLessonsInTheEstimates() {
             LearningPlan revised = revise(live, new SkillTagErrorRate(INFINITIVE, 11, 5));
 

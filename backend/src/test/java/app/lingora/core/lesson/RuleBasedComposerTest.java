@@ -216,14 +216,41 @@ class RuleBasedComposerTest {
         }
 
         @Test
-        void takesWeakSpotsAndReviewsAtOrBelowTheLearnersLevelOnly() {
+        void takesWeakSpotsAtOrBelowTheLearnersLevelOnly() {
             P0_TYPES.forEach(type -> addToUnit(type, 1, 4));
-            addElsewhere("a2_cases", CASES, List.of("item_dy"), Level.A2_1, 6);
+            addElsewhere("a2_cases", CASES, List.of(), Level.A2_1, 6);
 
-            List<Exercise> lesson = compose(11, new LessonContext(LEARNER, mastery(), List.of(due("item_dy", 3)),
+            List<Exercise> lesson = compose(11, new LessonContext(LEARNER, mastery(), List.of(),
                     List.of(new SkillTagErrorRate(CASES, 10, 6)), Set.of(), List.of()));
 
             assertThat(lesson).hasSize(12).allMatch(unitExercises::contains);
+        }
+
+        @Test
+        void takesReviewsAtOrBelowTheLearnersLevelWhereTheItemHasExercisesThere() {
+            P0_TYPES.forEach(type -> addToUnit(type, 1, 4));
+            addElsewhere("a1_numbers", NUMBERS, List.of("item_dy"), Level.A1_1, 1);
+            addElsewhere("a2_numbers", NUMBERS, List.of("item_dy"), Level.A2_1, 6);
+
+            for (int seed = 0; seed < 20; seed++) {
+                List<Exercise> lesson = compose(seed, new LessonContext(LEARNER, mastery(), List.of(due("item_dy", 3)),
+                        List.of(), Set.of(), List.of()));
+
+                assertThat(lesson).hasSize(12).extracting(Exercise::level).containsOnly(Level.A1_1);
+                assertThat(lesson).extracting(Exercise::id).contains("ex_a1_numbers_001");
+            }
+        }
+
+        @Test
+        void takesTheReviewOfAnItemMetOnlyAboveTheLearnersLevel() {
+            P0_TYPES.forEach(type -> addToUnit(type, 1, 4));
+            addElsewhere("a2_numbers", NUMBERS, List.of("item_dy"), Level.A2_1, 2);
+
+            List<Exercise> lesson = compose(11, new LessonContext(LEARNER, mastery(), List.of(due("item_dy", 3)),
+                    List.of(), Set.of(), List.of()));
+
+            assertThat(lesson).hasSize(12).filteredOn(exercise -> !unitExercises.contains(exercise)).singleElement()
+                    .satisfies(review -> assertThat(review.itemIds()).containsExactly("item_dy"));
         }
 
         @Test
@@ -282,11 +309,45 @@ class RuleBasedComposerTest {
 
         @Test
         void areEmptyWhenNothingDueCanBePractised() {
-            addElsewhere("a2_words", GREETINGS, List.of("item_dy"), Level.A2_1, 2);
+            addElsewhere("a1_words", GREETINGS, List.of("item_po"), Level.A1_1, 2);
 
             assertThat(composer(4).composeReview(firstLesson())).isEmpty();
             assertThat(composer(4).composeReview(new LessonContext(LEARNER, mastery(), List.of(due("item_dy", 1)), List.of(),
                     Set.of(), List.of()))).isEmpty();
+        }
+
+        @Test
+        void stayAtOrBelowTheLearnersLevelForAnItemWithExercisesThere() {
+            addElsewhere("a1_words", GREETINGS, List.of("item_dy"), Level.A1_1, 2);
+            addElsewhere("a2_words", GREETINGS, List.of("item_dy"), Level.A2_1, 4);
+
+            for (int seed = 0; seed < 20; seed++) {
+                assertThat(composer(seed).composeReview(reviewOf("item_dy"))).singleElement()
+                        .satisfies(exercise -> assertThat(exercise.level()).isEqualTo(Level.A1_1));
+            }
+        }
+
+        @Test
+        void reachAnItemLearnedAboveTheLevelBeforeAReplacementDownwardsOnTheLowestLevelWithExercisesOfIt() {
+            addElsewhere("a1_words", GREETINGS, List.of("item_po"), Level.A1_1, 2);
+            addElsewhere("a2_words", GREETINGS, List.of("item_dy"), Level.A2_1, 2);
+            addElsewhere("b1_words", GREETINGS, List.of("item_dy"), Level.B1_1, 4);
+
+            for (int seed = 0; seed < 20; seed++) {
+                assertThat(composer(seed).composeReview(reviewOf("item_dy", "item_po"))).hasSize(2)
+                        .allSatisfy(exercise -> assertThat(exercise.level()).isIn(Level.A1_1, Level.A2_1))
+                        .flatExtracting(Exercise::itemIds).containsExactlyInAnyOrder("item_dy", "item_po");
+            }
+        }
+
+        @Test
+        void keepTheMostOverdueItemOnItsLevelEvenIfAHigherExerciseCoversMore() {
+            addElsewhere("a1_words", GREETINGS, List.of("item_po"), Level.A1_1, 1);
+            addElsewhere("a2_both", GREETINGS, List.of("item_dy", "item_po"), Level.A2_1, 1);
+
+            List<Exercise> lesson = composer(4).composeReview(reviewOf("item_po", "item_dy"));
+
+            assertThat(lesson).extracting(Exercise::id).containsExactlyInAnyOrder("ex_a1_words_001", "ex_a2_both_001");
         }
     }
 
@@ -352,6 +413,12 @@ class RuleBasedComposerTest {
 
     private static LessonContext firstLesson() {
         return LessonContext.firstLesson(LEARNER);
+    }
+
+    /** A learner on A1.1 with the items due, most overdue first. */
+    private static LessonContext reviewOf(String... itemIds) {
+        List<SrsCard> due = IntStream.range(0, itemIds.length).mapToObj(i -> due(itemIds[i], itemIds.length - i)).toList();
+        return new LessonContext(LEARNER, mastery(), due, List.of(), Set.of(), List.of());
     }
 
     private static LessonContext context(Set<String> practised, List<Double> recentAccuracies) {
@@ -422,7 +489,7 @@ class RuleBasedComposerTest {
         };
     }
 
-    /** The bank as the database serves it: by tag or item, not above the level, ordered by id. */
+    /** The bank as the database serves it: by tag not above the level or by item, ordered by id. */
     private record ListBank(List<Exercise> exercises) implements ExerciseBank {
 
         @Override
@@ -432,9 +499,9 @@ class RuleBasedComposerTest {
         }
 
         @Override
-        public List<Exercise> withItems(Collection<String> itemIds, Level maxLevel) {
+        public List<Exercise> withItems(Collection<String> itemIds) {
             return exercises.stream()
-                    .filter(exercise -> exercise.itemIds().stream().anyMatch(itemIds::contains) && !exercise.level().isAbove(maxLevel))
+                    .filter(exercise -> exercise.itemIds().stream().anyMatch(itemIds::contains))
                     .sorted(Comparator.comparing(Exercise::id)).toList();
         }
     }

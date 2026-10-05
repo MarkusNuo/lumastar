@@ -132,14 +132,14 @@ class LessonService {
         return LessonResponse.of(session, unit.id(), exercises);
     }
 
-    /** A focus unit of the current plan, played with the exercises of its skill tag up to the learner's level. */
+    /** A focus unit of the current plan, played with {@link ContentCatalog#focusExercises the exercises of its tag}. */
     private LessonResponse startFocus(UserEntity learner, String unitId, FocusUnitId focus) {
         Level level = learner.getCurrentLevel();
         PlanUnit planned = plans.current(learner.getId())
                 .flatMap(stored -> stored.plan().unit(unitId))
                 .filter(unit -> level != null)
                 .orElseThrow(() -> LessonProblems.unitNotFound(unitId));
-        List<Exercise> pool = catalog.lessonExercisesWithSkillTag(focus.tag(), level);
+        List<Exercise> pool = catalog.focusExercises(focus.tag(), level);
         if (pool.isEmpty()) {
             throw LessonProblems.unitWithoutContent(unitId);
         }
@@ -171,7 +171,7 @@ class LessonService {
         return LessonResponse.of(session, unitId, exercises);
     }
 
-    /** A lesson of the due items (PRD F8); there must be due items with exercises at or below the learner's level. */
+    /** A lesson of the due items (PRD F8); it starts exactly when the review summary counts cards due now. */
     @Transactional
     LessonResponse startReview(UserEntity learner) {
         Instant now = clock.instant();
@@ -277,7 +277,10 @@ class LessonService {
                 dailyProgress.ofLesson(userId, session.getId(), session.getFinishedAt()));
     }
 
-    /** A tag the lesson's first answers got wrong at least three times, if a focus lesson could practise it. */
+    /**
+     * A tag the lesson's first answers got wrong at least three times. The learner has met it now, so a focus lesson can
+     * practise it whenever lesson exercises carry it, at any level (see {@link ContentCatalog#focusExercises}).
+     */
     private Optional<FocusRequest> focusRequest(UUID userId, List<AttemptEntity> firstAttempts) {
         Level level = users.findById(userId).map(UserEntity::getCurrentLevel).orElse(null);
         if (level == null) {
@@ -286,7 +289,7 @@ class LessonService {
         return FocusSuggestion.of(firstAttempts.stream()
                         .map(attempt -> new FirstAnswer(attempt.getSkillTags(), !attempt.countsAsCorrect()))
                         .toList(),
-                catalog.lessonSkillTags(level));
+                catalog.lessonSkillTags(Level.highest()));
     }
 
     /** The suggestion is offered as the open focus unit of its tag in the plan. */

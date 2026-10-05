@@ -5,6 +5,7 @@ import app.lingora.domain.Level;
 import app.lingora.domain.PlanUnitStatus;
 import app.lingora.domain.UnitColor;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +18,21 @@ public record PathResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Per CEFR band (A1 … C2) of the plan the "
                 + "expected date by which it is done, e.g. {\"A2\": \"2026-11-10\"}")
         Map<String, LocalDate> estimates,
+        @Schema(description = "The stage passed last below the current level, to show collapsed with its trophy above "
+                + "the first stage; absent until a checkpoint below the current level is passed")
+        PassedStage previousStage,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "From the current level up to C2.3")
         List<PathStage> stages) {
+
+    @Schema(description = "A stage whose checkpoint the learner has passed")
+    public record PassedStage(
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) Level level,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String title,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "When the checkpoint was passed")
+            Instant passedAt,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "0.87", description = "The share of correct "
+                    + "first answers in the checkpoint") double accuracy) {
+    }
 
     public record PathStage(
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) Level level,

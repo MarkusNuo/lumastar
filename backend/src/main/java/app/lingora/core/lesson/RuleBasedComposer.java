@@ -27,7 +27,8 @@ import java.util.random.RandomGenerator;
  *   <li>new content of the unit (~60 %), which also fills what the other parts leave free: exercises not practised
  *       yet first, then those within the {@link DifficultyWindow}, the easier ones first and across all types.</li>
  * </ul>
- * Weak spots and reviews come from exercises at or below the learner's level (the unit's level before the placement).
+ * Weak spots come from exercises at or below the learner's level (the unit's level before the placement), and so do
+ * reviews, except for items met only above it (see {@link MetContent}).
  * Every lesson is played by rising difficulty with alternating types. Focus lessons use the new-content rule on the
  * exercises of their tag, review lessons cover due items only, and a checkpoint takes {@value #CHECKPOINT_SIZE}
  * exercises from all units of the stage in turn, difficulty 2 and 3 first.
@@ -103,7 +104,7 @@ public final class RuleBasedComposer implements LessonComposer {
         if (dueItems.isEmpty()) {
             return List.of();
         }
-        return ReviewCover.of(dueItems, shuffled(bank.withItems(dueItems, maxLevel)), count);
+        return ReviewCover.of(dueItems, shuffled(bank.withItems(dueItems)), maxLevel, count);
     }
 
     /** One exercise per weak tag in turn, from the tags' exercises the filter lets through. */

@@ -31,6 +31,15 @@ import tools.jackson.databind.json.JsonMapper;
 public class SrsCardStore {
 
     private static final String CARD_COLUMNS = "item_id, state, step, stability, difficulty, due, last_review, reps, lapses";
+    /**
+     * A card of the alias {@code c} can be reviewed while its item is active and a lesson exercise practises it: then
+     * {@link app.lingora.core.lesson.MetContent} finds a level for it, so the due counts and the review lessons agree.
+     */
+    private static final String REVIEWABLE = """
+            EXISTS (SELECT 1 FROM content_items ci WHERE ci.id = c.item_id AND ci.retired_at IS NULL)
+            AND EXISTS (SELECT 1 FROM exercises ce
+                        WHERE ce.pool = 'lesson' AND ce.owner_user_id IS NULL AND ce.retired_at IS NULL
+                          AND ce.item_ids @> ARRAY[c.item_id])""";
 
     private final JdbcClient jdbc;
     private final JsonMapper json;
@@ -60,21 +69,12 @@ public class SrsCardStore {
     }
 
     /**
-     * The target retention from the learner's settings ({@code requestRetention}, the default outside the accepted
-     * range) and the active optimised weights made for {@code schedulerVersion}, if any.
+     * The learner's target retention ({@link UserEntity#getRequestRetention}) with the active optimised weights made for
+     * {@code schedulerVersion}, if any.
      */
-    public SchedulerSettings settings(UUID userId, String schedulerVersion) {
-        List<Double> configured = jdbc.sql("""
-                        SELECT CASE WHEN jsonb_typeof(settings -> 'requestRetention') = 'number'
-                                    THEN (settings ->> 'requestRetention')::float8 END
-                        FROM users WHERE id = :user""")
-                .param("user", userId)
-                .query(Double.class)
-                .list();
-        Double retention = configured.isEmpty() ? null : configured.getFirst();
-        double requestRetention = retention != null && SrsSettings.isValidRetention(retention)
-                ? retention
-                : SrsSettings.DEFAULT_REQUEST_RETENTION;
+    public SchedulerSettings settings(UserEntity learner, String schedulerVersion) {
+        UUID userId = learner.getId();
+        double requestRetention = learner.getRequestRetention();
         return jdbc.sql("SELECT id, weights FROM fsrs_params WHERE user_id = :user AND active AND scheduler_version = :version")
                 .param("user", userId)
                 .param("version", schedulerVersion)
@@ -148,14 +148,13 @@ public class SrsCardStore {
                 .update();
     }
 
-    /** Cards of active items due at {@code now}, most overdue first. */
+    /** Reviewable cards due at {@code now}, most overdue first. */
     public List<SrsCard> dueCards(UUID userId, Instant now, int limit) {
         return jdbc.sql("""
                         SELECT %s FROM srs_cards c
-                        WHERE c.user_id = :user AND c.due <= :now
-                          AND EXISTS (SELECT 1 FROM content_items i WHERE i.id = c.item_id AND i.retired_at IS NULL)
+                        WHERE c.user_id = :user AND c.due <= :now AND %s
                         ORDER BY c.due, c.item_id
-                        LIMIT :limit""".formatted(CARD_COLUMNS))
+                        LIMIT :limit""".formatted(CARD_COLUMNS, REVIEWABLE))
                 .param("user", userId)
                 .param("now", SqlTimestamps.of(now))
                 .param("limit", limit)
@@ -163,25 +162,23 @@ public class SrsCardStore {
                 .list();
     }
 
-    /** Cards of active items due at {@code now}, overdue ones included. */
+    /** Reviewable cards due at {@code now}, overdue ones included. */
     public int dueNow(UUID userId, Instant now) {
-        return jdbc.sql("""
-                        SELECT count(*) FROM srs_cards c JOIN content_items i ON i.id = c.item_id
-                        WHERE c.user_id = :user AND i.retired_at IS NULL AND c.due <= :now""")
+        return jdbc.sql("SELECT count(*) FROM srs_cards c WHERE c.user_id = :user AND c.due <= :now AND " + REVIEWABLE)
                 .param("user", userId)
                 .param("now", SqlTimestamps.of(now))
                 .query(Integer.class)
                 .single();
     }
 
-    /** Cards of active items: due at {@code now}, due within {@code [tomorrow, dayAfter)} and in total. */
+    /** Reviewable cards: due at {@code now}, due within {@code [tomorrow, dayAfter)} and in total. */
     public DueCounts dueCounts(UUID userId, Instant now, Instant tomorrow, Instant dayAfter) {
         return jdbc.sql("""
                         SELECT count(*) FILTER (WHERE c.due <= :now) AS due_now,
                                count(*) FILTER (WHERE c.due >= :tomorrow AND c.due < :dayAfter) AS due_tomorrow,
                                count(*) AS total
-                        FROM srs_cards c JOIN content_items i ON i.id = c.item_id
-                        WHERE c.user_id = :user AND i.retired_at IS NULL""")
+                        FROM srs_cards c
+                        WHERE c.user_id = :user AND %s""".formatted(REVIEWABLE))
                 .param("user", userId)
                 .param("now", SqlTimestamps.of(now))
                 .param("tomorrow", SqlTimestamps.of(tomorrow))
@@ -191,15 +188,15 @@ public class SrsCardStore {
     }
 
     /**
-     * Cards of active items coming due per day of the learner's time zone (PRD F10 forecast), for {@code days} days
-     * from {@code today}; overdue cards count for today. Days without due cards are missing.
+     * Reviewable cards coming due per day of the learner's time zone (PRD F10 forecast), for {@code days} days from
+     * {@code today}; overdue cards count for today. Days without due cards are missing.
      */
     public Map<LocalDate, Integer> duePerDay(UUID userId, LocalDate today, int days, ZoneId zone) {
         return jdbc.sql("""
                         SELECT greatest((c.due AT TIME ZONE :zone)::date, :today) AS day, count(*) AS due
-                        FROM srs_cards c JOIN content_items i ON i.id = c.item_id
-                        WHERE c.user_id = :user AND i.retired_at IS NULL AND c.due < :end
-                        GROUP BY 1""")
+                        FROM srs_cards c
+                        WHERE c.user_id = :user AND c.due < :end AND %s
+                        GROUP BY 1""".formatted(REVIEWABLE))
                 .param("user", userId)
                 .param("zone", zone.getId())
                 .param("today", today)

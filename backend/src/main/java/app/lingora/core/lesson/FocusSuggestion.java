@@ -11,8 +11,9 @@ import java.util.TreeMap;
 
 /**
  * PRD F7: a skill tag with at least {@value #MIN_WRONG_ANSWERS} wrong first answers in one lesson suggests a focus
- * lesson. Only tags that lesson exercises at or below the learner's level practise qualify, since a focus lesson is
- * made of them; of several, the one with the most wrong answers wins, then the first by id.
+ * lesson. Only tags a focus lesson can practise qualify. A lesson suggests one focus lesson at most (one thing per
+ * screen): of several qualifying tags the one with the most wrong answers, of equals the first by id, so the same
+ * answers in any order always suggest the same tag.
  */
 public final class FocusSuggestion {
 

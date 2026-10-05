@@ -9,6 +9,7 @@ import app.lingora.SyntheticContent;
 import app.lingora.content.ContentSeeder;
 import app.lingora.domain.Level;
 import app.lingora.export.ZipFiles;
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -122,6 +123,23 @@ class CheckpointApiTest extends IntegrationTest {
     }
 
     @Test
+    void thePathShowsTheStagePassedLastAboveTheCurrentStage() {
+        assertThat(PlacementDriver.body(learner.get("/api/path")).has("previousStage")).isFalse();
+        completeUnit(SyntheticContent.wordsUnit(Level.A0));
+
+        play(PlacementDriver.body(startCheckpoint("A0")), "ja");
+
+        JsonNode previous = PlacementDriver.body(learner.get("/api/path")).get("previousStage");
+        assertThat(previous.get("level").asString()).isEqualTo("A0");
+        assertThat(previous.get("title").asString()).isEqualTo("Stufe A0");
+        assertThat(previous.get("accuracy").asDouble()).isEqualTo(1.0);
+        assertThat(Instant.parse(previous.get("passedAt").asString())).isBeforeOrEqualTo(Instant.now());
+        jdbc.sql("UPDATE users SET current_level = 'A0'").update();
+        assertThat(PlacementDriver.body(learner.get("/api/path")).has("previousStage"))
+                .as("a stage at or above the current level is on the path itself").isFalse();
+    }
+
+    @Test
     void failingKeepsTheLevelAndTheCheckpointAvailable() {
         completeUnit(SyntheticContent.wordsUnit(Level.A0));
 
@@ -134,6 +152,22 @@ class CheckpointApiTest extends IntegrationTest {
         JsonNode change = PlacementDriver.body(learner.get("/api/plan/changes")).get(0);
         assertThat(change.get("trigger").asString()).isEqualTo("checkpoint");
         assertThat(change.get("reason").asString()).isEqualTo("Checkpoint A0 nicht bestanden (0 %)");
+    }
+
+    @Test
+    void aFailedCheckpointLogsNoFocusRequestForATagWithAnOpenFocusUnit() {
+        play(PlacementDriver.body(learner.post("/api/lessons", """
+                {"unitId": "a0_words"}""")), "nein");
+        completeUnit(SyntheticContent.wordsUnit(Level.A0));
+
+        play(PlacementDriver.body(startCheckpoint("A0")), "nein");
+
+        JsonNode changes = PlacementDriver.body(learner.get("/api/plan/changes"));
+        int latest = changes.get(0).get("planVersion").asInt();
+        assertThat(changes).filteredOn(change -> change.get("planVersion").asInt() == latest)
+                .extracting(change -> change.get("reason").asString())
+                .containsExactly("Checkpoint A0 nicht bestanden (0 %)");
+        assertThat(PlacementDriver.body(learner.get("/api/path")).has("previousStage")).isFalse();
     }
 
     @Test

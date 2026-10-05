@@ -16,6 +16,7 @@ import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.SrsCardStore;
 import app.lingora.persistence.SrsCardStore.Review;
 import app.lingora.persistence.SrsCardStore.SchedulerSettings;
+import app.lingora.persistence.UserRepository;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -37,13 +38,15 @@ class CardReviews {
     private final SrsCardStore cards;
     private final AnswerTimeQueries answerTimes;
     private final ContentCatalog catalog;
+    private final UserRepository users;
     private final SpacedRepetitionSchedulerFactory schedulers;
 
-    CardReviews(SrsCardStore cards, AnswerTimeQueries answerTimes, ContentCatalog catalog,
+    CardReviews(SrsCardStore cards, AnswerTimeQueries answerTimes, ContentCatalog catalog, UserRepository users,
                 SpacedRepetitionSchedulerFactory schedulers) {
         this.cards = cards;
         this.answerTimes = answerTimes;
         this.catalog = catalog;
+        this.users = users;
         this.schedulers = schedulers;
     }
 
@@ -56,7 +59,7 @@ class CardReviews {
         Optional<Duration> typicalTime = RatingPolicy.typicalTime(
                 answerTimes.recentFirstAttempts(userId, exercise.type(), RatingPolicy.RECENT_ANSWERS, attemptId));
         AnswerRatings ratings = AnswerRatings.of(exercise, answer, outcome, typicalTime, known, pairItems(exercise));
-        SchedulerSettings settings = cards.settings(userId, schedulers.version());
+        SchedulerSettings settings = cards.settings(users.findById(userId).orElseThrow(), schedulers.version());
         SpacedRepetitionScheduler scheduler = schedulers.create(settings.settings());
         int responseMs = Math.toIntExact(answer.responseTime().toMillis());
         ratings.items().forEach((itemId, rating) -> {

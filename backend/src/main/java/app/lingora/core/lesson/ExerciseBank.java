@@ -12,6 +12,9 @@ public interface ExerciseBank {
     /** Active lesson exercises carrying the tag, not above {@code maxLevel}, in a stable order. */
     List<Exercise> withSkillTag(SkillTag tag, Level maxLevel);
 
-    /** Active lesson exercises practising at least one of the items, not above {@code maxLevel}, in a stable order. */
-    List<Exercise> withItems(Collection<String> itemIds, Level maxLevel);
+    /**
+     * Active lesson exercises practising at least one of the items, of every level, in a stable order; reviews choose
+     * the levels per item, see {@link MetContent}.
+     */
+    List<Exercise> withItems(Collection<String> itemIds);
 }

@@ -43,13 +43,15 @@ public class ReviewController {
     @PostMapping("/lessons")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(operationId = "startReviewLesson", summary = "Compose and start a review lesson of the due items",
-            description = "Up to 12 exercises at or below the learner's level that practise the most overdue items, one "
-                    + "exercise per item and mixed types. It is played like any lesson: answers go to "
-                    + "POST /api/lessons/{sessionId}/attempts and it is finished with POST /api/lessons/{sessionId}/complete.")
+            description = "Up to 12 exercises that practise the most overdue items, one exercise per item and mixed "
+                    + "types, at or below the learner's level; an item met only above it, e.g. before a re-placement "
+                    + "downwards, is practised on the lowest level with exercises of it. It is played like any lesson: "
+                    + "answers go to POST /api/lessons/{sessionId}/attempts and it is finished with "
+                    + "POST /api/lessons/{sessionId}/complete.")
     @ApiResponse(responseCode = "201", description = "The review lesson (kind review, unitId review)")
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "409", description = "Nothing is due that an exercise practises (code no_reviews_due)",
+    @ApiResponse(responseCode = "409", description = "Nothing is due, i.e. dueNow of the summary is 0 (code no_reviews_due)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public LessonResponse startReviewLesson(@AuthenticationPrincipal AuthenticatedUser principal) {
         return lessons.startReview(accounts.current(principal));

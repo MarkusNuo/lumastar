@@ -10,7 +10,9 @@ import app.lingora.content.ContentSeeder;
 import app.lingora.persistence.SqlTimestamps;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.StreamSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +54,22 @@ class PlanTriggersApiTest extends IntegrationTest {
         assertThat(changes.get(0).get("trigger").asString()).isEqualTo("lesson");
         assertThat(changes.get(0).get("reason").asString()).isEqualTo("Lektion mit 3 Fehlern bei ‚Wortschatz A0‘");
         assertThat(changes.get(1).get("reason").asString()).isEqualTo("Fokus-Lektion ‚Wortschatz A0‘ eingefügt, Fehlerquote 100 %");
+        assertThat(planVersion()).isEqualTo(2);
+    }
+
+    @Test
+    void aSuggestionTakesThePlaceOfTheOldestOpenFocusUnitWhenTwoAreOpen() {
+        openFocusUnits("grammar.a0", "phrase.a0");
+
+        JsonNode result = playA0Words("nein");
+
+        assertThat(result.get("focusSuggestion").get("unitId").asString()).isEqualTo("focus_vocab.a0_1");
+        assertThat(focusUnitsOnThePath()).containsExactly("focus_vocab.a0_1", "focus_phrase.a0_1");
+        assertThat(history()).filteredOn(change -> change.get("planVersion").asInt() == 2)
+                .extracting(change -> change.get("reason").asString())
+                .containsExactlyInAnyOrder("Lektion mit 3 Fehlern bei ‚Wortschatz A0‘",
+                        "Fokus-Lektion ‚Grammatik A0‘ ersetzt: höchstens 2 offene Fokus-Lektionen",
+                        "Fokus-Lektion ‚Wortschatz A0‘ eingefügt, Fehlerquote 100 %");
         assertThat(planVersion()).isEqualTo(2);
     }
 
@@ -127,6 +145,26 @@ class PlanTriggersApiTest extends IntegrationTest {
         periodicRevision.reviseDuePlans();
 
         assertThat(planVersion()).isEqualTo(1);
+    }
+
+    /** Appends open focus units for the tags, in this order, to the first stage of the stored plan. */
+    private void openFocusUnits(String... tags) {
+        for (String tag : tags) {
+            jdbc.sql("""
+                            UPDATE learning_plans SET plan = jsonb_insert(plan, '{stages,0,units,-1}', jsonb_build_object(
+                                'unitId', 'focus_' || :tag || '_1', 'title', 'Fokus', 'status', 'planned',
+                                'estimatedLessons', 1, 'reason', 'Fehlerquote 60 %'), true)""")
+                    .param("tag", tag)
+                    .update();
+        }
+    }
+
+    private List<String> focusUnitsOnThePath() {
+        return StreamSupport.stream(PlacementDriver.body(learner.get("/api/path")).get("stages").spliterator(), false)
+                .flatMap(stage -> StreamSupport.stream(stage.get("units").spliterator(), false))
+                .filter(unit -> unit.get("focus").asBoolean())
+                .map(unit -> unit.get("unitId").asString())
+                .toList();
     }
 
     private void planMadeDaysAgo(int days) {

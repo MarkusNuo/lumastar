@@ -9,7 +9,6 @@ import app.lingora.domain.PlanChangeKind;
 import app.lingora.domain.PlanTrigger;
 import app.lingora.domain.PlanUnitStatus;
 import app.lingora.domain.SkillTag;
-import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LearningPlanStore.StoredPlan;
 import app.lingora.persistence.LessonProgressQueries;
@@ -39,16 +38,14 @@ public class PlanTriggers {
     private final LearningPlanStore store;
     private final LivePlans livePlans;
     private final LessonProgressQueries lessons;
-    private final ContentCatalog catalog;
     private final UserRepository users;
 
     PlanTriggers(PlanService plans, LearningPlanStore store, LivePlans livePlans, LessonProgressQueries lessons,
-                 ContentCatalog catalog, UserRepository users) {
+                 UserRepository users) {
         this.plans = plans;
         this.store = store;
         this.livePlans = livePlans;
         this.lessons = lessons;
-        this.catalog = catalog;
         this.users = users;
     }
 
@@ -69,8 +66,7 @@ public class PlanTriggers {
                 .filter(request -> openFocusUnit(userId, current.get(), request.tag()).isEmpty())
                 .map(List::of)
                 .orElse(List.of());
-        requests.forEach(request -> causes.add(focusRequested(request)));
-        if (!causes.isEmpty()) {
+        if (!causes.isEmpty() || !requests.isEmpty()) {
             plans.revise(userId, learningDays >= LEARNING_DAYS ? PlanTrigger.PERIODIC : PlanTrigger.LESSON, causes, requests);
         }
     }
@@ -78,10 +74,7 @@ public class PlanTriggers {
     /** After a checkpoint, passed or not; the learner's level is already updated. */
     @Transactional
     public void afterCheckpoint(UUID userId, PlanChange cause, Optional<FocusRequest> focus) {
-        List<PlanChange> causes = new ArrayList<>(List.of(cause));
-        List<FocusRequest> requests = focus.map(List::of).orElse(List.of());
-        requests.forEach(request -> causes.add(focusRequested(request)));
-        plans.revise(userId, PlanTrigger.CHECKPOINT, causes, requests);
+        plans.revise(userId, PlanTrigger.CHECKPOINT, List.of(cause), focus.map(List::of).orElse(List.of()));
     }
 
     /** The daily safety net: revises the plan if {@value #LEARNING_DAYS} learning days have passed without a revision. */
@@ -119,12 +112,5 @@ public class PlanTriggers {
     private static PlanChange periodic(int learningDays) {
         return new PlanChange(PlanChangeKind.REPLANNED, "Regelmässige Anpassung nach %d Lerntagen".formatted(learningDays),
                 Map.of("learningDays", learningDays));
-    }
-
-    private PlanChange focusRequested(FocusRequest request) {
-        String label = catalog.skillTagLabels().getOrDefault(request.tag(), request.tag().id());
-        return new PlanChange(PlanChangeKind.REPLANNED,
-                "Lektion mit %d Fehlern bei ‚%s‘".formatted(request.wrongAnswers(), label),
-                Map.of("skillTag", request.tag().id(), "wrongAnswers", request.wrongAnswers()));
     }
 }

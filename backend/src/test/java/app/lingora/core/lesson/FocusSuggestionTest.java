@@ -6,7 +6,9 @@ import app.lingora.core.lesson.FocusSuggestion.FirstAnswer;
 import app.lingora.core.plan.FocusRequest;
 import app.lingora.domain.SkillTag;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
 
@@ -35,6 +37,17 @@ class FocusSuggestionTest {
                 wrong(FAMILY)), PRACTISABLE)).contains(new FocusRequest(FAMILY, 4));
         assertThat(FocusSuggestion.of(answers(wrong(FAMILY, CLITICS), wrong(FAMILY, CLITICS), wrong(FAMILY, CLITICS)),
                 PRACTISABLE)).contains(new FocusRequest(CLITICS, 3));
+    }
+
+    @Test
+    void theSameAnswersInAnyOrderSuggestTheSameSingleTag() {
+        List<FirstAnswer> answers = answers(wrong(FAMILY, CASES), wrong(CASES), wrong(FAMILY), wrong(CASES, CLITICS),
+                wrong(FAMILY), wrong(CLITICS), wrong(CLITICS));
+
+        for (int seed = 0; seed < 10; seed++) {
+            Collections.shuffle(answers, new Random(seed));
+            assertThat(FocusSuggestion.of(answers, PRACTISABLE)).contains(new FocusRequest(CASES, 3));
+        }
     }
 
     @Test

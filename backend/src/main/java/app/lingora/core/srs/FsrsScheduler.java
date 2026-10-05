@@ -62,10 +62,6 @@ public final class FsrsScheduler implements SpacedRepetitionScheduler {
         };
     }
 
-    public SrsSettings settings() {
-        return settings;
-    }
-
     private Scheduler scheduler(int fuzzSeed) {
         Scheduler.Builder builder = Scheduler.builder()
                 .desiredRetention(settings.requestRetention())

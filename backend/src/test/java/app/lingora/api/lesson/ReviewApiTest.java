@@ -102,6 +102,33 @@ class ReviewApiTest extends IntegrationTest {
     }
 
     @Test
+    void aCardOfAnItemAboveTheLevelAfterARePlacementDownwardsIsCountedAndReviewed() {
+        playLesson("a1_u02_family");
+        jdbc.sql("UPDATE users SET current_level = 'A0'").update();
+        jdbc.sql("UPDATE srs_cards SET due = now() - interval '1 day' WHERE item_id = 'item_nane'").update();
+
+        assertThat(learner.get("/api/review/summary")).bodyJson().extractingPath("$.dueNow").isEqualTo(1);
+        MvcTestResult started = learner.post("/api/review/lessons", "");
+
+        assertThat(started).hasStatus(HttpStatus.CREATED);
+        List<JsonNode> exercises = StreamSupport.stream(body(started).get("exercises").spliterator(), false).toList();
+        assertThat(exercises).isNotEmpty().allSatisfy(exercise -> assertThat(itemIds(exercise)).contains("item_nane"));
+        assertThat(exercises).extracting(exercise -> exercise.get("id").asString()).allMatch(id -> id.startsWith("ex_a1_u02_"));
+    }
+
+    @Test
+    void aCardWithoutAnyActiveExerciseIsNeitherCountedNorReviewed() {
+        playLesson("a1_u01_greetings");
+        jdbc.sql("UPDATE srs_cards SET due = now() - interval '1 day'").update();
+        jdbc.sql("UPDATE exercises SET retired_at = now() WHERE pool = 'lesson'").update();
+
+        assertThat(learner.get("/api/review/summary")).hasStatusOk().bodyJson().isStrictlyEqualTo("""
+                {"dueNow": 0, "dueTomorrow": 0, "totalCards": 0}""");
+        assertThat(learner.post("/api/review/lessons", "")).hasStatus(HttpStatus.CONFLICT)
+                .bodyJson().extractingPath("$.code").isEqualTo("no_reviews_due");
+    }
+
+    @Test
     void thereIsNoReviewLessonWhileNothingIsDue() {
         playLesson("a1_u01_greetings");
 

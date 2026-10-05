@@ -15,9 +15,9 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * The plan history entries of a new plan version compared to the previous one (PRD F3): inserted focus units,
- * newly skipped units and shortened units, each with its German reason. Derived from the plans alone, so the history
- * does not depend on the generator that produced them.
+ * The plan history entries of a new plan version compared to the previous one (PRD F3): replaced and inserted focus
+ * units, newly skipped units and shortened units, each with its German reason. Derived from the plans alone, so the
+ * history does not depend on the generator that produced them.
  */
 public final class PlanChanges {
 
@@ -32,6 +32,12 @@ public final class PlanChanges {
                                            List<SkillTagErrorRate> errorRates) {
         SkillTagLabels labels = new SkillTagLabels(skillTagLabels);
         List<PlanChange> changes = new ArrayList<>();
+        if (before != null) {
+            before.units()
+                    .filter(unit -> unit.isFocus() && unit.status() != PlanUnitStatus.COMPLETED)
+                    .filter(unit -> after.unit(unit.unitId()).isEmpty())
+                    .forEach(unit -> changes.add(focusReplaced(unit, labels)));
+        }
         after.units().forEach(unit -> {
             Optional<PlanUnit> previous = before == null ? Optional.empty() : before.unit(unit.unitId());
             Optional<FocusUnitId> focus = FocusUnitId.parse(unit.unitId());
@@ -48,6 +54,37 @@ public final class PlanChanges {
             }
         });
         return changes;
+    }
+
+    /**
+     * The history entry of every focus request (PRD F7) for whose tag the new plan inserted a focus unit; a request
+     * without one, e.g. for a tag with an open focus unit already, changed nothing and has no entry.
+     */
+    public static List<PlanChange> requestedFocus(LearningPlan before, LearningPlan after, List<FocusRequest> requests,
+                                                  Map<SkillTag, String> skillTagLabels) {
+        if (before == null) {
+            return List.of();
+        }
+        SkillTagLabels labels = new SkillTagLabels(skillTagLabels);
+        List<SkillTag> insertedFocus = after.units()
+                .filter(unit -> before.unit(unit.unitId()).isEmpty())
+                .flatMap(unit -> FocusUnitId.parse(unit.unitId()).stream())
+                .map(FocusUnitId::tag)
+                .toList();
+        return requests.stream()
+                .filter(request -> insertedFocus.contains(request.tag()))
+                .map(request -> new PlanChange(PlanChangeKind.REPLANNED,
+                        "Lektion mit %d Fehlern bei ‚%s‘".formatted(request.wrongAnswers(), labels.of(request.tag())),
+                        Map.of("skillTag", request.tag().id(), "wrongAnswers", request.wrongAnswers())))
+                .toList();
+    }
+
+    private static PlanChange focusReplaced(PlanUnit unit, SkillTagLabels labels) {
+        SkillTag tag = FocusUnitId.parse(unit.unitId()).orElseThrow().tag();
+        String reason = "Fokus-Lektion ‚%s‘ ersetzt: höchstens %d offene Fokus-Lektionen".formatted(labels.of(tag),
+                FocusPlanner.MAX_OPEN);
+        return new PlanChange(PlanChangeKind.REPLANNED, reason,
+                Map.of("unitId", unit.unitId(), "skillTag", tag.id()));
     }
 
     private static PlanChange focusInserted(PlanUnit unit, FocusUnitId focus, SkillTagLabels labels,

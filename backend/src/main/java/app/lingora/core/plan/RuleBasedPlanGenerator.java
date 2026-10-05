@@ -22,7 +22,7 @@ import java.util.Optional;
 /**
  * Phase 1 learning plan (PRD F3): every stage from the current level up to C2.3 with its units in curriculum order.
  * <ul>
- *   <li>A unit whose skill tags all have a mastery of at least {@value #MASTERED} is {@code skipped}; it stays
+ *   <li>A unit whose skill tags are all {@linkplain SkillMastery#MASTERED mastered} is {@code skipped}; it stays
  *       repeatable. All other units are {@code planned}.</li>
  *   <li>{@link #revise} regenerates the plan and keeps the progress of the previous plan: completed units stay
  *       completed with their lessons and reason (a skip reason no longer applies), and the unit in progress stays in
@@ -37,7 +37,6 @@ import java.util.Optional;
 public final class RuleBasedPlanGenerator implements PlanGenerator {
 
     public static final String ID = "rule_based_v1";
-    public static final double MASTERED = 0.8;
     public static final int DEFAULT_LESSONS_PER_UNIT = 4;
     static final String SKIPPED_REASON = "Bereits beherrscht";
 
@@ -137,7 +136,7 @@ public final class RuleBasedPlanGenerator implements PlanGenerator {
 
     private static boolean isMastered(SkillTag tag, SkillMastery mastery) {
         SkillMastery.Entry entry = mastery.entries().get(tag);
-        return entry != null && entry.mastery() >= MASTERED;
+        return entry != null && entry.isMastered();
     }
 
     private static Level currentLevel(LearnerProfile profile) {

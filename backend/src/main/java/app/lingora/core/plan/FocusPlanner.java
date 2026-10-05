@@ -21,8 +21,9 @@ import java.util.stream.Collectors;
  * Focus units for weak skill tags (PRD F3). A tag is weak with at least {@value #MIN_ANSWERS} recent answers and an
  * error rate of at least 40 %. At most {@value #MAX_OPEN} focus units are open at once: open focus units of the
  * previous plan stay, tags a lesson asked a focus unit for (PRD F7) come next, and the weakest tags without one fill
- * the remaining places. A new focus unit of a tag gets the next number after the tag's focus units in the previous
- * plan. Completed focus units leave the plan.
+ * the remaining places. A requested tag without an open focus unit always gets one, if need be in place of an open
+ * focus unit, so that the lesson's suggestion can be played. A new focus unit of a tag gets the next number after the
+ * tag's focus units in the previous plan. Completed focus units leave the plan.
  * <p>
  * Focus units are optional extras (see {@link PlanProgress}) that keep their place: right after the curriculum unit
  * they were inserted for, or at the start of the stage once that unit lies in an earlier stage, i.e. at the start of
@@ -71,36 +72,63 @@ final class FocusPlanner {
                         LinkedHashMap::new));
     }
 
+    /** The open focus units of the previous plan that stay, then those for the requests, then those for weak tags. */
     private List<PlanUnit> focusUnits(LearningPlan previous, List<FocusRequest> focusRequests,
                                       Map<SkillTag, SkillTagErrorRate> weakTags) {
         List<PlanUnit> previousFocus = previous.units().filter(PlanUnit::isFocus).toList();
-        List<PlanUnit> focus = new ArrayList<>();
-        List<SkillTag> covered = new ArrayList<>();
+        List<PlanUnit> kept = new ArrayList<>();
         for (PlanUnit unit : previousFocus) {
-            FocusUnitId id = FocusUnitId.parse(unit.unitId()).orElseThrow();
-            if (unit.status() != PlanUnitStatus.COMPLETED && focus.size() < MAX_OPEN) {
+            FocusUnitId id = idOf(unit);
+            if (unit.status() != PlanUnitStatus.COMPLETED && kept.size() < MAX_OPEN) {
                 SkillTagErrorRate weak = weakTags.get(id.tag());
-                focus.add(weak == null ? unit.withStatus(PlanUnitStatus.PLANNED) : focusUnit(id, weak));
-                covered.add(id.tag());
+                kept.add(weak == null ? unit.withStatus(PlanUnitStatus.PLANNED) : focusUnit(id, weak));
             }
         }
+        List<PlanUnit> requested = new ArrayList<>();
         for (FocusRequest request : focusRequests) {
-            if (focus.size() < MAX_OPEN && !covered.contains(request.tag())) {
-                String label = labels.of(request.tag());
-                FocusUnitId id = new FocusUnitId(request.tag(), nextNumber(request.tag(), previousFocus));
-                focus.add(new PlanUnit(id.id(), "Fokus: " + label, PlanUnitStatus.PLANNED, LESSONS, reason(request, label)));
-                covered.add(request.tag());
+            if (covers(kept, request.tag()) || covers(requested, request.tag())) {
+                continue;
             }
+            if (kept.size() + requested.size() == MAX_OPEN) {
+                if (kept.isEmpty()) {
+                    break;
+                }
+                kept.remove(toReplace(kept, weakTags));
+            }
+            String label = labels.of(request.tag());
+            FocusUnitId id = new FocusUnitId(request.tag(), nextNumber(request.tag(), previousFocus));
+            requested.add(new PlanUnit(id.id(), "Fokus: " + label, PlanUnitStatus.PLANNED, LESSONS, reason(request, label)));
         }
+        List<PlanUnit> focus = new ArrayList<>(kept);
+        focus.addAll(requested);
         for (SkillTagErrorRate weak : weakTags.values()) {
             if (focus.size() == MAX_OPEN) {
                 break;
             }
-            if (!covered.contains(weak.tag())) {
+            if (!covers(focus, weak.tag())) {
                 focus.add(focusUnit(new FocusUnitId(weak.tag(), nextNumber(weak.tag(), previousFocus)), weak));
             }
         }
         return focus;
+    }
+
+    /**
+     * The open focus unit a request takes the place of: the oldest one whose tag is no longer weak, else the oldest one.
+     * The oldest is the first on the path, since new focus units go to the learner's current place.
+     */
+    private static PlanUnit toReplace(List<PlanUnit> open, Map<SkillTag, SkillTagErrorRate> weakTags) {
+        return open.stream()
+                .filter(unit -> !weakTags.containsKey(idOf(unit).tag()))
+                .findFirst()
+                .orElse(open.getFirst());
+    }
+
+    private static boolean covers(List<PlanUnit> focusUnits, SkillTag tag) {
+        return focusUnits.stream().anyMatch(unit -> idOf(unit).tag().equals(tag));
+    }
+
+    private static FocusUnitId idOf(PlanUnit focusUnit) {
+        return FocusUnitId.parse(focusUnit.unitId()).orElseThrow();
     }
 
     private PlanUnit focusUnit(FocusUnitId id, SkillTagErrorRate weak) {

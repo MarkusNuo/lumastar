@@ -30,8 +30,8 @@ public class UserEntity {
 
     public static final int DEFAULT_DAILY_GOAL_MINUTES = 10;
     public static final String DEFAULT_TIME_ZONE = "Europe/Zurich";
-    /** The key of the FSRS target retention in {@code settings}, as {@link SrsCardStore} reads it. */
-    static final String REQUEST_RETENTION = "requestRetention";
+    /** The key of the FSRS target retention in {@code settings}. */
+    private static final String REQUEST_RETENTION = "requestRetention";
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

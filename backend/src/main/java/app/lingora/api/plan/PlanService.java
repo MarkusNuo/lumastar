@@ -23,7 +23,6 @@ import app.lingora.persistence.SkillMasteryStore;
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
 import java.time.Clock;
-import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +39,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class PlanService {
-
-    /** Weak skill tags are judged by the answers of this period. */
-    static final Duration ERROR_RATE_PERIOD = Duration.ofDays(14);
 
     private final UserRepository users;
     private final LearningPlanStore plans;
@@ -77,16 +73,20 @@ public class PlanService {
      */
     @Transactional
     public StoredPlan revise(UUID userId, PlanTrigger trigger, PlanChange cause) {
-        return revise(userId, trigger, List.of(cause), List.of());
+        return revise(userId, trigger, List.of(cause), List.of()).orElseThrow();
     }
 
     /**
-     * Like {@link #revise(UUID, PlanTrigger, PlanChange)} with several causes, and with focus units a lesson asked for.
+     * Like {@link #revise(UUID, PlanTrigger, PlanChange)} with several causes, and with focus units lessons asked for
+     * (PRD F7). A request is a cause only if the new version inserts a focus unit for its tag; without any cause, no
+     * version is stored.
      *
      * @param causes the first entries of the plan history for this version
+     * @return the new version, empty if there was no cause
      */
     @Transactional
-    public StoredPlan revise(UUID userId, PlanTrigger trigger, List<PlanChange> causes, List<FocusRequest> focusRequests) {
+    public Optional<StoredPlan> revise(UUID userId, PlanTrigger trigger, List<PlanChange> causes,
+                                       List<FocusRequest> focusRequests) {
         UserEntity learner = users.findForUpdateById(userId).orElseThrow();
         Instant now = clock.instant();
         LearnerProfile profile = learner.toProfile();
@@ -101,11 +101,15 @@ public class PlanService {
                 ? generator.generate(profile, provenMastery)
                 : generator.revise(before, profile, provenMastery, errorRates, focusRequests);
 
-        StoredPlan stored = plans.save(userId, plan, now);
         List<PlanChange> changes = new ArrayList<>(causes);
+        changes.addAll(PlanChanges.requestedFocus(before, plan, focusRequests, labels));
+        if (changes.isEmpty()) {
+            return Optional.empty();
+        }
+        StoredPlan stored = plans.save(userId, plan, now);
         changes.addAll(PlanChanges.between(before, plan, labels, errorRates));
         plans.logChanges(userId, stored.id(), trigger, changes, now);
-        return stored;
+        return Optional.of(stored);
     }
 
     /** The time estimates depend on the daily goal (PRD F3): a changed goal recalculates an existing plan. */
@@ -119,10 +123,13 @@ public class PlanService {
                 Map.of("dailyGoalMinutesBefore", goalBefore, "dailyGoalMinutes", goalAfter)));
     }
 
-    /** Recent error rates of the tags a focus lesson could practise, i.e. with lesson exercises up to the level. */
+    /**
+     * Recent error rates of the tags with lesson exercises up to the learner's level: of its own accord, the plan inserts
+     * no focus units above it, e.g. for the errors that led to a re-placement downwards.
+     */
     private List<SkillTagErrorRate> practisableErrorRates(UUID userId, LearnerProfile profile, Instant now) {
         Set<SkillTag> practisable = catalog.lessonSkillTags(profile.currentLevel());
-        return errors.errorRatesBySkillTag(userId, now.minus(ERROR_RATE_PERIOD)).stream()
+        return errors.errorRatesBySkillTag(userId, now.minus(SkillTagErrorRate.RECENT_PERIOD)).stream()
                 .filter(rate -> practisable.contains(rate.tag()))
                 .toList();
     }

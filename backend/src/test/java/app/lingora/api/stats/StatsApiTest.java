@@ -156,11 +156,13 @@ class StatsApiTest extends ClockedIntegrationTest {
         card("item_d", "2026-10-05T22:30:00Z", "learning");
         card("item_e", "2026-10-11T12:00:00Z", "review");
         card("item_f", "2026-10-11T22:30:00Z", "review");
+        card("item_g", "2026-10-04T12:00:00Z", "learning");
+        jdbc.sql("UPDATE exercises SET item_ids = array_remove(item_ids, 'item_g')").update();
 
         JsonNode stats = stats();
 
         JsonNode forecast = stats.get("forecast");
-        assertThat(forecast.get("dueNow").asInt()).isEqualTo(2);
+        assertThat(forecast.get("dueNow").asInt()).as("item_g has no exercise to review it with").isEqualTo(2);
         assertThat(forecast.get("dueToday").asInt()).isEqualTo(3);
         assertThat(forecast.get("dueTomorrow").asInt()).as("22:30 UTC is 00:30 in Zurich").isEqualTo(1);
         assertThat(forecast.get("days")).extracting(day -> day.get("due").asInt()).containsExactly(3, 1, 0, 0, 0, 0, 1);
@@ -203,8 +205,11 @@ class StatsApiTest extends ClockedIntegrationTest {
                 "{\"choice\": \"nein\"}", "wrong", "vocab.unknown", "ja", false, at));
     }
 
+    /** A card of a new word that an exercise of A0 practises, so that it can be reviewed. */
     private void card(String itemId, String due, String state) {
         jdbc.sql("INSERT INTO content_items (id, unit_id, kind, gheg, de) VALUES (:item, 'a0_words', 'word', 'po', 'ja')")
+                .param("item", itemId).update();
+        jdbc.sql("UPDATE exercises SET item_ids = array_append(item_ids, :item) WHERE id = 'ex_a0_001'")
                 .param("item", itemId).update();
         jdbc.sql("""
                         INSERT INTO srs_cards (user_id, item_id, state, due, reps, lapses)
