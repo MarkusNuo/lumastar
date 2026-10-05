@@ -8,6 +8,7 @@ import app.lingora.core.lesson.LessonComposer;
 import app.lingora.core.lesson.XpCalculator;
 import app.lingora.core.lesson.XpCalculator.FirstAttempt;
 import app.lingora.core.lesson.XpCalculator.LessonXp;
+import app.lingora.domain.Answer;
 import app.lingora.domain.EvaluationResult;
 import app.lingora.domain.Exercise;
 import app.lingora.domain.FocusUnitId;
@@ -15,7 +16,9 @@ import app.lingora.domain.Item;
 import app.lingora.domain.LearningPlan.PlanUnit;
 import app.lingora.domain.Level;
 import app.lingora.domain.Outcome;
+import app.lingora.domain.Rating;
 import app.lingora.domain.SkillMastery;
+import app.lingora.domain.SrsCard;
 import app.lingora.domain.Unit;
 import app.lingora.persistence.AttemptEntity;
 import app.lingora.persistence.AttemptRepository;
@@ -24,6 +27,7 @@ import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LessonSessionEntity;
 import app.lingora.persistence.LessonSessionRepository;
 import app.lingora.persistence.SkillMasteryStore;
+import app.lingora.persistence.SrsCardStore;
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
 import java.math.BigDecimal;
@@ -42,7 +46,8 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer together with the mastery of its
  * skill tags (PRD 8.2), finish with XP (F9). A focus unit of the plan (PRD F3) is played like a unit made of all lesson
- * exercises carrying its skill tag at or below the learner's level. FSRS reviews follow with the adaptivity milestone.
+ * exercises carrying its skill tag at or below the learner's level. Every first answer reviews the FSRS cards of its
+ * items (PRD F8); retries at the end of a lesson do not.
  */
 @Service
 class LessonService {
@@ -57,12 +62,14 @@ class LessonService {
     private final SkillMasteryStore mastery;
     private final LessonComposer composer;
     private final AnswerEvaluator evaluator;
+    private final CardReviews cardReviews;
+    private final SrsCardStore cards;
     private final String engineId;
     private final Clock clock;
 
     LessonService(ContentCatalog catalog, LessonSessionRepository sessions, AttemptRepository attempts, UserRepository users,
                   LearningPlanStore plans, SkillMasteryStore mastery, LessonComposer composer, AnswerEvaluator evaluator,
-                  EngineProperties engineProperties, Clock clock) {
+                  CardReviews cardReviews, SrsCardStore cards, EngineProperties engineProperties, Clock clock) {
         this.catalog = catalog;
         this.sessions = sessions;
         this.attempts = attempts;
@@ -71,6 +78,8 @@ class LessonService {
         this.mastery = mastery;
         this.composer = composer;
         this.evaluator = evaluator;
+        this.cardReviews = cardReviews;
+        this.cards = cards;
         this.engineId = engineProperties.engine().id();
         this.clock = clock;
     }
@@ -140,13 +149,19 @@ class LessonService {
             throw LessonProblems.retryAfterCorrectAnswer(exerciseId);
         }
         Exercise exercise = catalog.exercises(List.of(exerciseId)).get(exerciseId);
-        EvaluationResult result = evaluate(exercise, request);
+        Answer answer = request.answer().toDomain(request.responseTime());
+        EvaluationResult result = evaluate(exercise, answer);
         int position = Math.toIntExact(attempts.countBySessionId(sessionId)) + 1;
         Instant answeredAt = clock.instant();
-        attempts.save(new AttemptEntity(userId, sessionId, position, exercise, request.isRetry(), request.answer().toJson(),
-                request.responseTime(), result, engineId, answeredAt));
+        AttemptEntity attempt = attempts.saveAndFlush(new AttemptEntity(userId, sessionId, position, exercise,
+                request.isRetry(), request.answer().toJson(), request.responseTime(), result, engineId, answeredAt));
         mastery.recordAnswer(userId, exercise.skillTags(), result.outcome(), request.isRetry(), answeredAt);
-        return AttemptResponse.of(exerciseId, result);
+        Rating rating = result.rating();
+        if (!request.isRetry()) {
+            rating = cardReviews.review(userId, exercise, answer, result.outcome(), attempt.getId(), answeredAt);
+            attempt.rate(rating);
+        }
+        return AttemptResponse.of(exerciseId, result, rating);
     }
 
     /** Idempotent: a completed lesson returns its stored result and awards no XP again. */
@@ -156,7 +171,9 @@ class LessonService {
         if (!session.isFinished()) {
             finish(userId, session);
         }
-        return LessonResultResponse.of(session, learnedItems(session), users.xpTotalOf(userId));
+        List<Item> items = learnedItems(session);
+        Map<String, SrsCard> itemCards = cards.cards(userId, items.stream().map(Item::id).toList());
+        return LessonResultResponse.of(session, items, itemCards, cards.learnedWords(userId), users.xpTotalOf(userId));
     }
 
     private void finish(UUID userId, LessonSessionEntity session) {
@@ -175,9 +192,9 @@ class LessonService {
         users.addXp(userId, xp.total());
     }
 
-    private EvaluationResult evaluate(Exercise exercise, AttemptRequest request) {
+    private EvaluationResult evaluate(Exercise exercise, Answer answer) {
         try {
-            return evaluator.evaluate(exercise, request.answer().toDomain(request.responseTime()));
+            return evaluator.evaluate(exercise, answer);
         } catch (UnsupportedAnswerException e) {
             throw LessonProblems.answerTypeMismatch(e.getMessage());
         } catch (InvalidAnswerException e) {

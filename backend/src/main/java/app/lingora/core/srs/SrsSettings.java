@@ -9,12 +9,19 @@ import java.util.List;
 public record SrsSettings(double requestRetention, List<Double> weights) {
 
     public static final double DEFAULT_REQUEST_RETENTION = 0.90;
+    public static final double MIN_REQUEST_RETENTION = 0.70;
+    public static final double MAX_REQUEST_RETENTION = 0.99;
     public static final SrsSettings DEFAULT = new SrsSettings(DEFAULT_REQUEST_RETENTION, List.of());
 
     public SrsSettings {
-        if (!(requestRetention > 0 && requestRetention < 1)) {
-            throw new IllegalArgumentException("requestRetention must be between 0 and 1, found " + requestRetention);
+        if (!isValidRetention(requestRetention)) {
+            throw new IllegalArgumentException("requestRetention must be between %s and %s, found %s"
+                    .formatted(MIN_REQUEST_RETENTION, MAX_REQUEST_RETENTION, requestRetention));
         }
         weights = List.copyOf(weights);
+    }
+
+    public static boolean isValidRetention(double requestRetention) {
+        return requestRetention >= MIN_REQUEST_RETENTION && requestRetention <= MAX_REQUEST_RETENTION;
     }
 }

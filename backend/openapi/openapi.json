@@ -65,7 +65,7 @@
           },
           "rating": {
             "$ref": "#/components/schemas/Rating",
-            "description": "Provisional FSRS rating of the answer"
+            "description": "FSRS rating of the answer (PRD F8): again for wrong, hard for almost correct or slow, good for correct, easy for correct and fast on known items. The cards of its items are reviewed with it; a retry reviews no card."
           },
           "solution": {
             "description": "The accepted solution closest to the answer; absent for match_pairs",
@@ -446,12 +446,17 @@
           },
           "id": {
             "type": "string"
+          },
+          "known": {
+            "description": "Its FSRS card is in the review state, so the item counts as learned",
+            "type": "boolean"
           }
         },
         "required": [
           "de",
           "gheg",
-          "id"
+          "id",
+          "known"
         ],
         "type": "object"
       },
@@ -619,6 +624,11 @@
             },
             "type": "array"
           },
+          "learnedWordsTotal": {
+            "description": "Learned words of the learner: words and phrases whose FSRS card is in the review state (PRD F10)",
+            "format": "int32",
+            "type": "integer"
+          },
           "xpBreakdown": {
             "$ref": "#/components/schemas/XpBreakdown"
           },
@@ -638,6 +648,7 @@
           "durationMs",
           "exerciseCount",
           "learnedItems",
+          "learnedWordsTotal",
           "xpBreakdown",
           "xpEarned",
           "xpTotal"

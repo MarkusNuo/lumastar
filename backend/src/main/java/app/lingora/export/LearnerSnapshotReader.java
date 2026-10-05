@@ -13,6 +13,7 @@ import app.lingora.persistence.ErrorAnalysisQueries;
 import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LivePlans;
 import app.lingora.persistence.SkillMasteryStore;
+import app.lingora.persistence.SrsCardStore;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Clock;
@@ -43,16 +44,18 @@ public class LearnerSnapshotReader {
     private final ErrorAnalysisQueries errors;
     private final LearningPlanStore plans;
     private final LivePlans livePlans;
+    private final SrsCardStore cards;
     private final JsonMapper json;
     private final Clock clock;
 
     LearnerSnapshotReader(JdbcClient jdbc, SkillMasteryStore mastery, ErrorAnalysisQueries errors, LearningPlanStore plans,
-                          LivePlans livePlans, JsonMapper json, Clock clock) {
+                          LivePlans livePlans, SrsCardStore cards, JsonMapper json, Clock clock) {
         this.jdbc = jdbc;
         this.mastery = mastery;
         this.errors = errors;
         this.plans = plans;
         this.livePlans = livePlans;
+        this.cards = cards;
         this.json = json;
         this.clock = clock;
     }
@@ -71,7 +74,7 @@ public class LearnerSnapshotReader {
         return new LearnerSnapshot(now, account.timeZone(), account.profile(), streak(userId), mastery.effective(userId, now),
                 skillTagLabels(), errors.recentErrors(userId, RECENT_ERRORS),
                 errors.topErrorCategories(userId, now.minus(FREQUENT_ERRORS_PERIOD), FREQUENT_ERROR_CATEGORIES),
-                learnedWords(userId), plan.map(json::writeValueAsString).orElse(null), plan.flatMap(LearnerSnapshotReader::currentUnit).orElse(null));
+                cards.learnedWords(userId), plan.map(json::writeValueAsString).orElse(null), plan.flatMap(LearnerSnapshotReader::currentUnit).orElse(null));
     }
 
     private static Optional<CurrentUnit> currentUnit(LearningPlan plan) {
@@ -97,18 +100,6 @@ public class LearnerSnapshotReader {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    /** Words and phrases of the exercises answered correctly at least once; grammar rules are not counted. */
-    private int learnedWords(UUID userId) {
-        return jdbc.sql("""
-                        SELECT count(DISTINCT i.id)
-                        FROM attempts a
-                        JOIN exercises e ON e.id = a.exercise_id
-                        JOIN content_items i ON i.id = ANY (e.item_ids)
-                        WHERE a.user_id = :user AND a.is_correct AND i.kind IN ('word', 'phrase')""")
-                .param("user", userId)
-                .query(Integer.class)
-                .single();
-    }
 
     private static Account account(UUID userId, ResultSet row) throws SQLException {
         Set<Motivation> motivations = Arrays.stream((String[]) row.getArray("motivations").getArray())

@@ -94,7 +94,7 @@ class ProfileDocumentsApiTest extends IntegrationTest {
         assertThat(text(summary))
                 .startsWith("# Lernstand Erza – ")
                 .contains("""
-                        - Niveau: noch nicht eingestuft (Ziel C2), 0 Tage Streak, 1 Wort
+                        - Niveau: noch nicht eingestuft (Ziel C2), 0 Tage Streak, 0 Wörter
                         - Aktuelle Einheit: noch keine
                         - Stärken: noch keine
                         - Schwächen: noch keine

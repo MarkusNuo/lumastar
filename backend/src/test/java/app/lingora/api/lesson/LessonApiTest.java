@@ -429,13 +429,14 @@ class LessonApiTest extends IntegrationTest {
             assertThat(body.get("exerciseCount").asInt()).isEqualTo(5);
             assertThat(body.get("durationMs").asLong()).isNotNegative();
             assertThat(body.get("xpTotal").asInt()).isEqualTo(20);
+            assertThat(body.get("learnedWordsTotal").asInt()).as("practised in three exercises, they graduate").isEqualTo(2);
             assertThat(StreamSupport.stream(body.get("learnedItems").spliterator(), false).map(item -> item.get("id").asString()))
                     .containsExactlyInAnyOrder("item_miredita", "item_si_je", "item_mirupafshim", "item_faleminderit",
                             "item_po", "item_jo");
             assertThat(StreamSupport.stream(body.get("learnedItems").spliterator(), false)
                     .filter(item -> item.get("id").asString().equals("item_miredita")).findFirst().orElseThrow())
                     .isEqualTo(JSON.readTree("""
-                            {"id": "item_miredita", "gheg": "mirëdita", "de": "guten Tag"}"""));
+                            {"id": "item_miredita", "gheg": "mirëdita", "de": "guten Tag", "known": true}"""));
             assertThat(learner.get("/api/me")).bodyJson().extractingPath("$.xpTotal").isEqualTo(20);
         }
 

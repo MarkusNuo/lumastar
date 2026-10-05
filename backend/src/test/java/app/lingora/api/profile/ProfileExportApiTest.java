@@ -102,8 +102,8 @@ class ProfileExportApiTest extends IntegrationTest {
             assertThat(manifest.get("exportedAt").asString()).endsWith("Z");
             assertThat(manifest.get("counts")).isEqualTo(JSON.readTree("""
                     {"streaks": 1, "fsrsParams": 1, "learningPlans": 1, "planChanges": 1, "placementTests": 1,
-                     "placementAnswers": 1, "sessions": 1, "badges": 0, "attempts": 6, "skillMastery": 2, "srsCards": 1,
-                     "reviewLog": 1}"""));
+                     "placementAnswers": 1, "sessions": 1, "badges": 0, "attempts": 6, "skillMastery": 2, "srsCards": 6,
+                     "reviewLog": 11}"""));
         }
 
         @Test
@@ -364,17 +364,12 @@ class ProfileExportApiTest extends IntegrationTest {
                                                outcome, response_ms)
                 VALUES (:user, :test, 1, 'ex_a1_u01_001', 'A1.1', 'vocabulary', '{"choice": "Mirëdita"}', 'correct', 2500)""")
                 .param("user", learnerId).param("test", test).update();
-        UUID card = jdbc.sql("""
-                INSERT INTO srs_cards (user_id, item_id, state, step, stability, difficulty, due, last_review, reps)
-                VALUES (:user, 'item_miredita', 'review', 0, 3.1729999999999996, 5.28, '2026-09-28T10:00:00Z', now(), 1)
-                RETURNING id""").param("user", learnerId).query(UUID.class).single();
+        // a value that only survives the backup if doubles pass through unchanged
         jdbc.sql("""
-                INSERT INTO review_log (user_id, card_id, item_id, attempt_id, rating, reviewed_at, response_ms, state_before,
-                                        state_after, scheduler_version, fsrs_params_id, request_retention)
-                SELECT :user, :card, 'item_miredita', id, 'good', answered_at, response_ms, '{"state": "new"}',
-                       '{"state": "review", "stability": 3.173}', 'fsrs-6', :params, 0.9
-                FROM attempts WHERE exercise_id = 'ex_a1_u01_001'""")
-                .param("user", learnerId).param("card", card).param("params", params).update();
+                UPDATE srs_cards SET state = 'review', step = NULL, stability = 3.1729999999999996, difficulty = 5.28
+                WHERE item_id = 'item_miredita'""").update();
+        jdbc.sql("UPDATE review_log SET fsrs_params_id = :params WHERE item_id = 'item_miredita'")
+                .param("params", params).update();
     }
 
     private byte[] export() {

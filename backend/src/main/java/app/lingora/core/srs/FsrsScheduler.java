@@ -48,6 +48,20 @@ public final class FsrsScheduler implements SpacedRepetitionScheduler {
         return VERSION;
     }
 
+    public static SpacedRepetitionSchedulerFactory factory() {
+        return new SpacedRepetitionSchedulerFactory() {
+            @Override
+            public SpacedRepetitionScheduler create(SrsSettings settings) {
+                return new FsrsScheduler(settings);
+            }
+
+            @Override
+            public String version() {
+                return VERSION;
+            }
+        };
+    }
+
     public SrsSettings settings() {
         return settings;
     }

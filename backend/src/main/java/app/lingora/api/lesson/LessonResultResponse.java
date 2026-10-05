@@ -2,9 +2,11 @@ package app.lingora.api.lesson;
 
 import app.lingora.core.lesson.XpCalculator.LessonXp;
 import app.lingora.domain.Item;
+import app.lingora.domain.SrsCard;
 import app.lingora.persistence.LessonSessionEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
+import java.util.Map;
 
 @Schema(description = "Result of a finished lesson; completing it again returns the same result")
 public record LessonResultResponse(
@@ -19,6 +21,8 @@ public record LessonResultResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int exerciseCount,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Items practised in the lesson")
         List<LearnedItem> learnedItems,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Learned words of the learner: words and phrases "
+                + "whose FSRS card is in the review state (PRD F10)") int learnedWordsTotal,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "XP of the learner including this lesson")
         int xpTotal) {
 
@@ -33,15 +37,22 @@ public record LessonResultResponse(
     public record LearnedItem(
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String id,
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String gheg,
-            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String de) {
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String de,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Its FSRS card is in the review state, so "
+                    + "the item counts as learned") boolean known) {
     }
 
-    static LessonResultResponse of(LessonSessionEntity session, List<Item> learnedItems, int xpTotal) {
+    /** @param cards the learner's cards of the items by item id */
+    static LessonResultResponse of(LessonSessionEntity session, List<Item> learnedItems, Map<String, SrsCard> cards,
+                                   int learnedWordsTotal, int xpTotal) {
         LessonXp xp = session.xp();
         return new LessonResultResponse(xp.total(), new XpBreakdown(xp.base(), xp.perfectBonus(), xp.speedBonus()),
                 session.getAccuracy().doubleValue(), session.duration().toMillis(), session.getCorrectCount(),
                 session.getExerciseIds().size(),
-                learnedItems.stream().map(item -> new LearnedItem(item.id(), item.gheg(), item.de())).toList(),
-                xpTotal);
+                learnedItems.stream()
+                        .map(item -> new LearnedItem(item.id(), item.gheg(), item.de(),
+                                cards.containsKey(item.id()) && cards.get(item.id()).isKnown()))
+                        .toList(),
+                learnedWordsTotal, xpTotal);
     }
 }
