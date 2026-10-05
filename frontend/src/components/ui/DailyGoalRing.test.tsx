@@ -10,7 +10,7 @@ describe('DailyGoalRing', () => {
     expect(ring).toHaveAttribute('aria-valuemin', '0');
     expect(ring).toHaveAttribute('aria-valuemax', '100');
     expect(ring).toHaveAttribute('aria-valuenow', '60');
-    expect(ring).toHaveAttribute('aria-valuetext', '60 %');
+    expect(ring).toHaveAttribute('aria-valuetext', '60\u00a0%');
   });
 
   it('reads the minutes instead of the percentage when given', () => {

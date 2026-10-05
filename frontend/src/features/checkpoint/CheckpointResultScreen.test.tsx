@@ -117,7 +117,7 @@ describe('CheckpointResultScreen', () => {
       ),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('img', { name: 'Deine Genauigkeit: 67 %, 80 % zum Bestehen' }),
+      screen.getByRole('img', { name: 'Deine Genauigkeit: 67\u00a0%, 80\u00a0% zum Bestehen' }),
     ).toBeInTheDocument();
     expect(celebrate).not.toHaveBeenCalled();
 

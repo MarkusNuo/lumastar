@@ -514,7 +514,7 @@ export interface paths {
         put?: never;
         /**
          * Compose and start a review lesson of the due items
-         * @description Up to 12 exercises at or below the learner's level that practise the most overdue items, one exercise per item and mixed types. It is played like any lesson: answers go to POST /api/lessons/{sessionId}/attempts and it is finished with POST /api/lessons/{sessionId}/complete.
+         * @description Up to 12 exercises that practise the most overdue items, one exercise per item and mixed types, at or below the learner's level; an item met only above it, e.g. before a re-placement downwards, is practised on the lowest level with exercises of it. It is played like any lesson: answers go to POST /api/lessons/{sessionId}/attempts and it is finished with POST /api/lessons/{sessionId}/complete.
          */
         post: operations["startReviewLesson"];
         delete?: never;
@@ -1090,6 +1090,22 @@ export interface components {
         OnboardingStep: "profile" | "placement" | "done";
         /** @enum {string} */
         Outcome: "correct" | "almost_correct" | "correct_standard_form" | "wrong";
+        /** @description A stage whose checkpoint the learner has passed */
+        PassedStage: {
+            /**
+             * Format: double
+             * @description The share of correct first answers in the checkpoint
+             * @example 0.87
+             */
+            accuracy: number;
+            level: components["schemas"]["Level"];
+            /**
+             * Format: date-time
+             * @description When the checkpoint was passed
+             */
+            passedAt: string;
+            title: string;
+        };
         /** @description The learning path of the home screen (PRD 12.3): the plan up to C2 with the live progress */
         PathResponse: {
             currentLevel: components["schemas"]["Level"];
@@ -1099,6 +1115,8 @@ export interface components {
             estimates: {
                 [key: string]: string;
             };
+            /** @description The stage passed last below the current level, to show collapsed with its trophy above the first stage; absent until a checkpoint below the current level is passed */
+            previousStage?: components["schemas"]["PassedStage"];
             /** @description From the current level up to C2.3 */
             stages: components["schemas"]["PathStage"][];
             /** @example C2 */
@@ -1310,7 +1328,7 @@ export interface components {
         };
         /** @enum {string} */
         Rating: "again" | "hard" | "good" | "easy";
-        /** @description The learner's FSRS cards (PRD F8): what is due now and tomorrow */
+        /** @description The learner's FSRS cards (PRD F8): what is due now and tomorrow. Only cards that a lesson exercise can practise count, so a review lesson can be started exactly while dueNow is above 0 */
         ReviewSummaryResponse: {
             /**
              * Format: int32
@@ -2742,7 +2760,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Nothing is due that an exercise practises (code no_reviews_due) */
+            /** @description Nothing is due, i.e. dueNow of the summary is 0 (code no_reviews_due) */
             409: {
                 headers: {
                     [name: string]: unknown;

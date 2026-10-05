@@ -94,3 +94,35 @@ describe('LearningPathPage checkpoints', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 });
+
+describe('LearningPathPage passed stage', () => {
+  it('shows the stage passed last with its trophy above the current one', async () => {
+    renderPath({
+      ...SAMPLE_PATH,
+      previousStage: {
+        level: 'A1.1',
+        title: 'Erste Gespräche',
+        passedAt: '2026-10-05T09:30:00Z',
+        accuracy: 0.87,
+      },
+    });
+
+    const passed = await screen.findByRole('region', {
+      name: 'A1.1 · Erste Gespräche, bestanden',
+    });
+    expect(within(passed).getByText('Checkpoint am 05.10.2026 mit 87 %')).toBeInTheDocument();
+    const regions = screen
+      .getAllByRole('region')
+      .map((region) => region.getAttribute('aria-label'));
+    expect(regions.indexOf('A1.1 · Erste Gespräche, bestanden')).toBeLessThan(
+      regions.indexOf('A1.2 · Alltag zu Hause'),
+    );
+  });
+
+  it('shows none before the first checkpoint below the level is passed', async () => {
+    renderPath(SAMPLE_PATH);
+
+    await screen.findByRole('region', { name: 'A1.2 · Alltag zu Hause' });
+    expect(screen.queryByTestId('passed-stage')).not.toBeInTheDocument();
+  });
+});

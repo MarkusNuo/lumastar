@@ -47,7 +47,7 @@ describe('StatsPage', () => {
     expect(within(level).getByText('Danach: A1.3')).toBeInTheDocument();
     expect(
       within(level).getByRole('progressbar', { name: 'Fortschritt zur nächsten Stufe' }),
-    ).toHaveAttribute('aria-valuetext', '57 %');
+    ).toHaveAttribute('aria-valuetext', '57\u00a0%');
     expect(within(level).getByText('4 von 7 Einheiten geschafft')).toBeInTheDocument();
     expect(within(level).getByText('Checkpoint noch gesperrt')).toBeInTheDocument();
   });
@@ -72,7 +72,7 @@ describe('StatsPage', () => {
     ]);
     expect(within(mastery).getByRole('meter', { name: 'Wortschatz' })).toHaveAttribute(
       'aria-valuetext',
-      '72 %',
+      '72\u00a0%',
     );
     expect(within(mastery).getByRole('meter', { name: 'Lesen' })).toHaveAttribute(
       'aria-valuetext',
@@ -88,7 +88,7 @@ describe('StatsPage', () => {
     expect(within(errors).getByText('9 von 20 Antworten falsch · Artikel')).toBeVisible();
     expect(
       within(errors).getByRole('meter', { name: 'Fehlerquote Bestimmter Artikel' }),
-    ).toHaveAttribute('aria-valuetext', '45 %');
+    ).toHaveAttribute('aria-valuetext', '45\u00a0%');
 
     await user.click(within(errors).getByRole('button', { name: 'Gezielt üben: Nasalvokale' }));
 

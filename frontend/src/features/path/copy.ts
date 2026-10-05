@@ -21,6 +21,11 @@ export const PATH_COPY = {
     text: (level: string) =>
       `Für ${level} gibt es noch keine Übungen. Sie kommen bald – schau wieder vorbei!`,
   },
+  passedStage: {
+    eyebrow: 'Bestanden',
+    label: (level: string, title: string) => `${level} · ${title}, bestanden`,
+    detail: (day: string, accuracy: string) => `Checkpoint am ${day} mit ${accuracy}`,
+  },
   plan: {
     title: 'Dein Lernplan',
     goal: (band: string, date: string) => `${band} geschafft ca. am ${date}`,

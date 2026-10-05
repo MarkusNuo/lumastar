@@ -17,6 +17,7 @@ import {
   type PathCheckpointModel,
   type PathStageModel,
 } from './learningPath';
+import { PassedStageCard } from './PassedStageCard';
 import { PlanTeaser } from './PlanTeaser';
 import { UnitPath } from './UnitPath';
 
@@ -61,6 +62,7 @@ function LearningPathStages({ path }: { path: LearningPath }) {
   return (
     <>
       <PlanTeaser path={path} />
+      {path.previousStage && <PassedStageCard stage={path.previousStage} />}
       {!hasPlayableLesson(stages) && (
         <MascotMessage expression="thinking">
           <p>{PATH_COPY.waiting.title}</p>

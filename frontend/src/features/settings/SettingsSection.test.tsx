@@ -131,7 +131,7 @@ describe('SettingsSection', () => {
   describe('Ziel-Behaltensrate', () => {
     const openRetention = async (user: ReturnType<typeof userEvent.setup>) => {
       const toggle = await screen.findByRole('button', {
-        name: 'Ziel-Behaltensrate anpassen: 90 %',
+        name: 'Ziel-Behaltensrate anpassen: 90\u00a0%',
       });
       expect(toggle).toHaveAttribute('aria-expanded', 'false');
       await user.click(toggle);
@@ -151,7 +151,7 @@ describe('SettingsSection', () => {
       expect(slider).toHaveAttribute('min', '70');
       expect(slider).toHaveAttribute('max', '99');
       expect(slider).toHaveValue('90');
-      expect(slider).toHaveAttribute('aria-valuetext', '90 %');
+      expect(slider).toHaveAttribute('aria-valuetext', '90\u00a0%');
       expect(slider).toHaveAccessibleDescription(/Höher heisst: öfter wiederholen/);
       expect(screen.getByRole('button', { name: 'Speichern' })).toBeDisabled();
       expect(screen.queryByRole('button', { name: /Standard/ })).not.toBeInTheDocument();
@@ -163,13 +163,13 @@ describe('SettingsSection', () => {
 
       // jsdom does not move a range input with the arrow keys.
       fireEvent.change(slider, { target: { value: '85' } });
-      expect(slider).toHaveAttribute('aria-valuetext', '85 %');
+      expect(slider).toHaveAttribute('aria-valuetext', '85\u00a0%');
       await user.click(screen.getByRole('button', { name: 'Speichern' }));
 
       expect(await screen.findByText('Ziel-Behaltensrate gespeichert: 85 %')).toBeInTheDocument();
       expect(await saved()).toEqual({ ...SETTINGS, requestRetention: 0.85 });
       expect(
-        screen.getByRole('button', { name: 'Ziel-Behaltensrate anpassen: 85 %' }),
+        screen.getByRole('button', { name: 'Ziel-Behaltensrate anpassen: 85\u00a0%' }),
       ).toBeVisible();
     });
 
@@ -178,11 +178,11 @@ describe('SettingsSection', () => {
         'GET /api/settings': () => jsonResponse({ ...SETTINGS, requestRetention: 0.95 }),
       });
       const toggle = await screen.findByRole('button', {
-        name: 'Ziel-Behaltensrate anpassen: 95 %',
+        name: 'Ziel-Behaltensrate anpassen: 95\u00a0%',
       });
       await user.click(toggle);
 
-      await user.click(screen.getByRole('button', { name: 'Standard (90 %)' }));
+      await user.click(screen.getByRole('button', { name: 'Standard (90\u00a0%)' }));
 
       expect(screen.getByRole('slider')).toHaveValue('90');
       expect(screen.getByRole('button', { name: 'Speichern' })).toBeEnabled();

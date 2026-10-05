@@ -4,6 +4,7 @@ import { UNIT_COLORS, type UnitColor } from '../../../components/ui/tones';
 import { UnitBanner } from '../../../components/ui/UnitBanner';
 import { PATH_COPY } from '../../../features/path/copy';
 import { buildLearningPath, FOCUS_COLOR } from '../../../features/path/learningPath';
+import { PassedStageCard } from '../../../features/path/PassedStageCard';
 import { PlanTeaser } from '../../../features/path/PlanTeaser';
 import { UnitPath } from '../../../features/path/UnitPath';
 import { SAMPLE_PATH } from '../../../features/plan/samplePlan';
@@ -54,6 +55,16 @@ export function PathSection() {
           </div>
         </Specimen>
       ))}
+      <Specimen label="Zuletzt bestandene Stufe, eingeklappt über der aktuellen" layout="stack">
+        <PassedStageCard
+          stage={{
+            level: 'A1.1',
+            title: 'Erste Gespräche',
+            passedAt: '2026-10-05T09:30:00Z',
+            accuracy: 0.87,
+          }}
+        />
+      </Specimen>
       <Specimen label="Plan oben auf dem Lernpfad" layout="stack">
         <PlanTeaser path={SAMPLE_PATH} />
       </Specimen>

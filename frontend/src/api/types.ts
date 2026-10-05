@@ -63,6 +63,7 @@ export type SkillEstimate = Schemas['SkillEstimate'];
 export type LearningPath = Schemas['PathResponse'];
 export type LearningPathStage = Schemas['PathStage'];
 export type LearningPathUnit = Schemas['PathUnit'];
+export type PassedStage = Schemas['PassedStage'];
 export type CheckpointStatus = Schemas['CheckpointStatus'];
 export type PlanUnitStatus = Schemas['PlanUnitStatus'];
 export type PlanChange = Schemas['PlanChangeResponse'];

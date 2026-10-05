@@ -16,6 +16,7 @@ import { SegmentedControl } from '../../../components/ui/SegmentedControl';
 import { Sheet, SheetHeader } from '../../../components/ui/Sheet';
 import { Toast } from '../../../components/ui/Toast';
 import { showToast } from '../../../components/ui/toastStore';
+import { formatPercent } from '../../../lib/formatPercent';
 import { Specimen } from '../CatalogSection';
 
 // Synthetic learner in the shape of learner_summary.md.
@@ -94,7 +95,9 @@ function SettingsDemo() {
         icon={BrainIcon}
         tone="unit-indigo"
         label="Ziel-Behaltensrate"
-        aside={<span className="text-label font-black text-fg-muted">{retention} %</span>}
+        aside={
+          <span className="text-label font-black text-fg-muted">{formatPercent(retention)}</span>
+        }
       >
         {({ labelId }) => (
           <input
@@ -103,7 +106,7 @@ function SettingsDemo() {
             max={99}
             value={retention}
             aria-labelledby={labelId}
-            aria-valuetext={`${retention} %`}
+            aria-valuetext={formatPercent(retention)}
             onChange={(event) => setRetention(Number(event.target.value))}
             style={{ '--range-fill': `${((retention - 70) / 29) * 100}%` }}
             className="range w-full"
