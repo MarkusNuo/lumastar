@@ -17,8 +17,11 @@ import { ReviewLessonPage } from '../features/review/ReviewLessonPage';
 import { ReviewPage } from '../features/review/ReviewPage';
 import { REVIEW_ROUTES } from '../features/review/reviewRoutes';
 import { ProfilePage } from '../features/settings/ProfilePage';
+import { PracticeLessonPage } from '../features/stats/PracticeLessonPage';
+import { StatsPage } from '../features/stats/StatsPage';
+import { STATS_ROUTES } from '../features/stats/statsRoutes';
 import { AppShell } from './AppShell';
-import { PlaceholderPage } from './PlaceholderPage';
+import { NotFoundPage } from './NotFoundPage';
 import { SplashScreen } from './SplashScreen';
 
 export const routes: RouteObject[] = [
@@ -42,13 +45,15 @@ export const routes: RouteObject[] = [
             children: [
               { index: true, Component: LearningPathPage },
               { path: REVIEW_ROUTES.home, Component: ReviewPage },
+              { path: STATS_ROUTES.home, Component: StatsPage },
               { path: 'profil', Component: ProfilePage },
-              { path: '*', Component: PlaceholderPage },
+              { path: '*', Component: NotFoundPage },
             ],
           },
           // Full screens without the app navigation: one task per screen (PRD 12.1).
           { path: '/lesson/:unitId', Component: LessonPage },
           { path: REVIEW_ROUTES.lesson, Component: ReviewLessonPage },
+          { path: STATS_ROUTES.practice, Component: PracticeLessonPage },
           { path: CHECKPOINT_ROUTE, Component: CheckpointPage },
           { path: ONBOARDING_ROUTES.questions, Component: OnboardingPage },
           { path: ONBOARDING_ROUTES.placementIntro, Component: PlacementIntroPage },

@@ -1,12 +1,13 @@
 import { ArrowsClockwiseIcon, ChartBarIcon, PathIcon, UserCircleIcon } from '@phosphor-icons/react';
 import type { NavItem } from '../components/ui/BottomNav';
 import { REVIEW_ROUTES } from '../features/review/reviewRoutes';
+import { STATS_ROUTES } from '../features/stats/statsRoutes';
 import { APP_COPY } from './copy';
 
 export const NAV_ITEMS: readonly NavItem[] = [
   { to: '/', label: 'Lernen', icon: PathIcon, end: true },
   { to: REVIEW_ROUTES.home, label: 'Wiederholen', icon: ArrowsClockwiseIcon },
-  { to: '/statistik', label: 'Statistik', icon: ChartBarIcon },
+  { to: STATS_ROUTES.home, label: 'Statistik', icon: ChartBarIcon },
   { to: '/profil', label: 'Profil', icon: UserCircleIcon },
 ];
 

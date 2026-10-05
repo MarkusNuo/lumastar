@@ -115,6 +115,7 @@
   --color-mascot-tear: #7fd4ff;
 
   /* Radii: buttons 12-16 px, cards 16-24 px */
+  --radius-xs: 0.1875rem;
   --radius-sm: 0.5rem;
   --radius-chip: 0.75rem;
   --radius-button-sm: 0.75rem;
@@ -138,6 +139,9 @@
   --spacing-gutter: 1rem;
   --spacing-edge: 4px;
   --spacing-edge-node: 8px;
+  /* One heatmap day and the gap after it */
+  --spacing-heat-cell: 0.75rem;
+  --spacing-heat-step: 1rem;
   --spacing-path-swing: 4.5rem;
   --spacing-top-bar: 4rem;
   --spacing-nav: 4.5rem;

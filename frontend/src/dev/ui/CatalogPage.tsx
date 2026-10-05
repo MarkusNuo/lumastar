@@ -18,6 +18,7 @@ import { PlacementPlanSection } from './sections/PlacementPlanSection';
 import { ProgressSection } from './sections/ProgressSection';
 import { ResultSection } from './sections/ResultSection';
 import { ReviewCheckpointSection } from './sections/ReviewCheckpointSection';
+import { StatisticsSection } from './sections/StatisticsSection';
 import { SurfacesSection } from './sections/SurfacesSection';
 import { WordTilesSection } from './sections/WordTilesSection';
 
@@ -36,6 +37,7 @@ const SECTIONS = [
   { id: 'wiederholen', title: 'Wiederholen & Checkpoints', Content: ReviewCheckpointSection },
   { id: 'einstufung', title: 'Einstufung & Lernplan', Content: PlacementPlanSection },
   { id: 'belohnung', title: 'Streak, XP & Niveau', Content: GamificationSection },
+  { id: 'statistik', title: 'Statistik', Content: StatisticsSection },
   { id: 'navigation', title: 'Navigation', Content: NavigationSection },
   { id: 'listen', title: 'Listen, Sheets & Toasts', Content: ListsSection },
   { id: 'maskottchen', title: 'Maskottchen', Content: MascotSection },
