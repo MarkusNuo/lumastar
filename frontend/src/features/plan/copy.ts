@@ -24,7 +24,7 @@ export const PLAN_COPY = {
   timeline: 'Zeitleiste bis C2',
   /** Short names of the CEFR bands. */
   bands: {
-    A0: 'Erste Schritte',
+    A0: 'Start',
     A1: 'Einstieg',
     A2: 'Grundlagen',
     B1: 'Mittelstufe',

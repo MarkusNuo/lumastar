@@ -75,7 +75,7 @@ function BandItem({ band, today }: { band: TimelineBand; today: Date }) {
         aria-hidden="true"
         className="absolute top-4 bottom-0 left-9 w-1 -translate-x-1/2 bg-border"
       />
-      <span className="relative flex w-18 shrink-0 justify-center">
+      <span className="relative flex w-18 shrink-0 items-start justify-center">
         <LevelBadge level={band.band} size={band.current ? 'lg' : 'md'} />
       </span>
       <div className="flex min-w-0 flex-1 flex-col gap-2 pt-1">
@@ -83,7 +83,8 @@ function BandItem({ band, today }: { band: TimelineBand; today: Date }) {
           <h2 id={titleId} className="text-lead font-black">
             {copy.band(band.band, copy.bands[band.band])}
           </h2>
-          {band.current && <HereChip />}
+          {/* Expanded, the current stage carries the marker. */}
+          {band.current && !expanded && <HereChip />}
         </div>
         {band.day && (
           <p className="flex items-center gap-1.5 text-label font-bold text-fg-muted">

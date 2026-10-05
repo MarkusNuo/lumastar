@@ -57,7 +57,10 @@ describe('PlanPage', () => {
     const current = await bandItem('A1 · Einstieg');
     expect(current).toHaveAttribute('aria-current', 'step');
     const a1 = within(current);
-    expect(a1.getAllByText('Du bist hier')).toHaveLength(2);
+    expect(a1.getAllByText('Du bist hier')).toHaveLength(1);
+    expect(
+      a1.getByRole('heading', { name: 'A1.2 · Alltag zu Hause', level: 3 }),
+    ).toBeInTheDocument();
     expect(a1.getByRole('progressbar', { name: 'Lektionen in A1' })).toHaveAttribute(
       'aria-valuetext',
       '2 von 16 Lektionen',
