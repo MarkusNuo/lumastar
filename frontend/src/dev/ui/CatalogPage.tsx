@@ -13,6 +13,7 @@ import { ListsSection } from './sections/ListsSection';
 import { MascotSection } from './sections/MascotSection';
 import { NavigationSection } from './sections/NavigationSection';
 import { PathSection } from './sections/PathSection';
+import { PlacementPlanSection } from './sections/PlacementPlanSection';
 import { ProgressSection } from './sections/ProgressSection';
 import { ResultSection } from './sections/ResultSection';
 import { SurfacesSection } from './sections/SurfacesSection';
@@ -30,6 +31,7 @@ const SECTIONS = [
   { id: 'uebungen', title: 'Übungen', Content: ExercisesSection },
   { id: 'lektionsende', title: 'Lektionsende', Content: ResultSection },
   { id: 'lernpfad', title: 'Lernpfad', Content: PathSection },
+  { id: 'einstufung', title: 'Einstufung & Lernplan', Content: PlacementPlanSection },
   { id: 'belohnung', title: 'Streak, XP & Niveau', Content: GamificationSection },
   { id: 'navigation', title: 'Navigation', Content: NavigationSection },
   { id: 'listen', title: 'Listen, Sheets & Toasts', Content: ListsSection },

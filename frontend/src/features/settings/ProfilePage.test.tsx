@@ -1,5 +1,6 @@
 import { act, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { createMemoryRouter, RouterProvider } from 'react-router';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ImportResult, Profile } from '../../api/types';
 import { Toaster } from '../../components/ui/Toast';
@@ -53,18 +54,29 @@ type Routes = Parameters<typeof stubApi>[0];
 function renderProfile(routes: Routes = {}) {
   const requests = stubApi({ 'GET /api/me': () => jsonResponse(PROFILE), ...routes });
   const user = userEvent.setup();
-  const view = renderWithQueryClient(
-    <>
-      <ProfilePage />
-      <Toaster />
-    </>,
+  const router = createMemoryRouter(
+    [
+      {
+        path: '/profil',
+        element: (
+          <>
+            <ProfilePage />
+            <Toaster />
+          </>
+        ),
+      },
+      { path: '/einstufung', element: <h1>Einstufung</h1> },
+      { path: '/plan', element: <h1>Lernplan</h1> },
+    ],
+    { initialEntries: ['/profil'] },
   );
+  const view = renderWithQueryClient(<RouterProvider router={router} />);
   const row = (name: string) => screen.getByRole('button', { name });
   const fileInput = () => screen.getByLabelText<HTMLInputElement>('Backup-Datei wählen');
   const count = (key: string) =>
     requests.filter((request) => `${request.method} ${new URL(request.url).pathname}` === key)
       .length;
-  return { ...view, requests, user, row, fileInput, count };
+  return { ...view, router, requests, user, row, fileInput, count };
 }
 
 async function backupFile(size?: number): Promise<File> {
@@ -90,6 +102,22 @@ describe('ProfilePage', () => {
     expect(screen.getByText('Niveau A1.2')).toBeInTheDocument();
     expect(screen.getByText(`${(1234).toLocaleString('de-CH')} XP`)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Abmelden' })).toBeEnabled();
+  });
+
+  it('starts a new placement from "Neu einstufen"', async () => {
+    const { user, row, router } = renderProfile();
+
+    await user.click(row('Neu einstufen'));
+
+    expect(router.state.location.pathname).toBe('/einstufung');
+  });
+
+  it('opens the plan timeline', async () => {
+    const { user, row, router } = renderProfile();
+
+    await user.click(row('Lernplan ansehen'));
+
+    expect(router.state.location.pathname).toBe('/plan');
   });
 
   describe('KI-Zusammenfassung kopieren', () => {

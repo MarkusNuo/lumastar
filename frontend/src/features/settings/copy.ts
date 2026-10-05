@@ -17,7 +17,12 @@ export const PROFILE_COPY = {
   level: (level: string) => `Niveau ${level}`,
   noLevel: 'Noch nicht eingestuft',
   loadFailed: 'Dein Profil konnte nicht geladen werden.',
-  moreSettings: 'Einstufung, Tagesziel, Ton und Haptik kannst du bald hier einstellen.',
+  moreSettings: 'Tagesziel, Ton und Haptik kannst du bald hier einstellen.',
+  learning: {
+    title: 'Lernen',
+    plan: { label: 'Lernplan ansehen', description: 'Deine Zeitleiste bis C2' },
+    placement: { label: 'Neu einstufen', description: 'Einstufungstest wiederholen' },
+  },
   logout: 'Abmelden',
   logoutFailed: 'Abmelden hat nicht geklappt. Prüfe deine Verbindung und versuch es nochmals.',
   learningData: {
