@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
  */
 public final class AnswerNormalizer {
 
+    private static final Pattern APOSTROPHES = Pattern.compile("['’‘ʼ]");
     private static final Pattern NEITHER_LETTER_DIGIT_NOR_SPACE =
             Pattern.compile("[^\\p{L}\\p{N}\\s]", Pattern.UNICODE_CHARACTER_CLASS);
     private static final Pattern WHITESPACE = Pattern.compile("\\s+", Pattern.UNICODE_CHARACTER_CLASS);
@@ -20,10 +21,15 @@ public final class AnswerNormalizer {
     private AnswerNormalizer() {
     }
 
-    /** Unicode NFC, lower case, every character that is not a letter, a digit or whitespace removed, single spaces. */
+    /**
+     * Unicode NFC and lower case; apostrophes removed ({@code s'ka} → {@code ska}), every other character that is not a
+     * letter, a digit or whitespace replaced by a space ({@code Jo,faleminderit} → {@code jo faleminderit}); trimmed,
+     * single spaces.
+     */
     public static String normalize(String text) {
         String lowerCase = Normalizer.normalize(text, Normalizer.Form.NFC).toLowerCase(Locale.ROOT);
-        String lettersDigitsAndSpaces = NEITHER_LETTER_DIGIT_NOR_SPACE.matcher(lowerCase).replaceAll("");
+        String withoutApostrophes = APOSTROPHES.matcher(lowerCase).replaceAll("");
+        String lettersDigitsAndSpaces = NEITHER_LETTER_DIGIT_NOR_SPACE.matcher(withoutApostrophes).replaceAll(" ");
         return WHITESPACE.matcher(lettersDigitsAndSpaces).replaceAll(" ").strip();
     }
 

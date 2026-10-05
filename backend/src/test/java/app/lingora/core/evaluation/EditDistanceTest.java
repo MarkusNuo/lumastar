@@ -8,27 +8,48 @@ class EditDistanceTest {
 
     @Test
     void identicalTextsHaveNoDistance() {
-        assertThat(EditDistance.between("shpija", "shpija")).isZero();
-        assertThat(EditDistance.between("", "")).isZero();
+        assertThat(exact("shpija", "shpija")).isZero();
+        assertThat(exact("", "")).isZero();
     }
 
     @Test
     void countsInsertionsDeletionsAndSubstitutions() {
-        assertThat(EditDistance.between("shpja", "shpija")).isEqualTo(1);
-        assertThat(EditDistance.between("shpija", "shpja")).isEqualTo(1);
-        assertThat(EditDistance.between("madhe", "madhi")).isEqualTo(1);
-        assertThat(EditDistance.between("", "jam")).isEqualTo(3);
+        assertThat(exact("shpja", "shpija")).isEqualTo(1);
+        assertThat(exact("shpija", "shpja")).isEqualTo(1);
+        assertThat(exact("madhe", "madhi")).isEqualTo(1);
+        assertThat(exact("", "jam")).isEqualTo(3);
     }
 
     @Test
     void countsASwapOfAdjacentLettersAsOneEdit() {
-        assertThat(EditDistance.between("mahde", "madhe")).isEqualTo(1);
-        assertThat(EditDistance.between("faleminderti", "faleminderit")).isEqualTo(1);
+        assertThat(exact("mahde", "madhe")).isEqualTo(1);
+        assertThat(exact("faleminderti", "faleminderit")).isEqualTo(1);
     }
 
     @Test
     void neverEditsASwappedPairTwice() {
         // Optimal string alignment: "ca" → "abc" needs three edits, not two.
-        assertThat(EditDistance.between("ca", "abc")).isEqualTo(3);
+        assertThat(exact("ca", "abc")).isEqualTo(3);
+    }
+
+    @Test
+    void charactersAcceptedByTheMatchCostNothing() {
+        assertThat(missingDiacriticsFree("ban", "bân")).isZero();
+        assertThat(missingDiacriticsFree("mirmbrama", "mirëmbrâma")).isEqualTo(1);
+        assertThat(missingDiacriticsFree("cak", "çka")).isEqualTo(1);
+    }
+
+    @Test
+    void theMatchIsDirectedFromTheWrittenToTheExpectedCharacter() {
+        assertThat(missingDiacriticsFree("jâm", "jam")).isEqualTo(1);
+        assertThat(missingDiacriticsFree("mirêdita", "mirëdita")).isEqualTo(1);
+    }
+
+    private static int exact(String written, String expected) {
+        return EditDistance.between(written, expected, (a, b) -> a == b);
+    }
+
+    private static int missingDiacriticsFree(String written, String expected) {
+        return EditDistance.between(written, expected, MissingDiacritics::sameOrMissing);
     }
 }

@@ -26,8 +26,8 @@ class RuleBasedEngineConfig {
     }
 
     @Bean
-    LessonComposer lessonComposer() {
-        return new RuleBasedLessonComposer(new Random());
+    LessonComposer lessonComposer(LessonProperties properties) {
+        return new RuleBasedLessonComposer(properties.random());
     }
 
     @Bean

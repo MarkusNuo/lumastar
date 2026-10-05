@@ -27,7 +27,26 @@ record Phrase(String text, String normalized, String folded, List<String> words,
     }
 
     int letterCount() {
-        return folded.replace(" ", "").length();
+        return normalized.replace(" ", "").length();
+    }
+
+    /** The edits from this answer to {@code expected}; a missing diacritic costs nothing, an added or wrong one does. */
+    int editsTo(Phrase expected) {
+        return EditDistance.between(normalized, expected.normalized, MissingDiacritics::sameOrMissing);
+    }
+
+    /** The candidate with the fewest edits from this answer; the earlier candidate wins a tie. */
+    Phrase closestOf(List<Phrase> candidates) {
+        Phrase closest = candidates.getFirst();
+        int fewestEdits = editsTo(closest);
+        for (Phrase candidate : candidates.subList(1, candidates.size())) {
+            int edits = editsTo(candidate);
+            if (edits < fewestEdits) {
+                closest = candidate;
+                fewestEdits = edits;
+            }
+        }
+        return closest;
     }
 
     private static List<String> words(String normalized) {

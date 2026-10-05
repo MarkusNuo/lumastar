@@ -1,5 +1,6 @@
 package app.lingora.core.evaluation;
 
+import app.lingora.domain.MatchPair;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,12 +42,16 @@ final class FeedbackHints {
         return "Die Wörter stimmen, aber die Reihenfolge noch nicht.";
     }
 
-    static String onePairMismatched() {
-        return "Ein Paar hast du zuerst falsch zugeordnet.";
+    static String pairsMismatched(int mistakes) {
+        return mistakes == 1
+                ? "Ein Paar hast du zuerst falsch zugeordnet."
+                : "Du hast %d Paare zuerst falsch zugeordnet.".formatted(mistakes);
     }
 
-    static String pairsMismatched(int mistakes) {
-        return "Du hast %d Paare zuerst falsch zugeordnet.".formatted(mistakes);
+    /** The correct pairs of the items the learner confused, e.g. „Richtig ist: **ujë** = Wasser und **qumësht** = Milch.“ */
+    static String confusedPairs(List<MatchPair> pairs) {
+        List<String> phrases = pairs.stream().map(pair -> "**%s** = %s".formatted(pair.left(), pair.right())).toList();
+        return "Richtig ist: %s.".formatted(enumerate(phrases));
     }
 
     private static String bold(List<String> words) {

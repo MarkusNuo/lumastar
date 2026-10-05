@@ -72,7 +72,7 @@ public class ErrorAnalysisQueries {
     /**
      * The latest errors, newest first, as in {@code recent_errors.json}. {@code expected} is the solution shown with
      * the feedback (the first solution of the exercise for answers recorded before it was stored); {@code given} is
-     * the answer as text.
+     * the answer as text, the wrong matches of match_pairs as "left → right".
      */
     public List<ErrorEntry> recentErrors(UUID userId, int limit) {
         return jdbc.sql("""
@@ -80,7 +80,9 @@ public class ErrorAnalysisQueries {
                                coalesce(a.expected, e.payload -> 'solutions' ->> 0) AS expected,
                                coalesce(a.answer ->> 'text', a.answer ->> 'choice',
                                         (SELECT string_agg(t.token, ' ' ORDER BY t.n)
-                                         FROM jsonb_array_elements_text(a.answer -> 'tokens') WITH ORDINALITY AS t (token, n))
+                                         FROM jsonb_array_elements_text(a.answer -> 'tokens') WITH ORDINALITY AS t (token, n)),
+                                        (SELECT string_agg((m.match ->> 'left') || ' → ' || (m.match ->> 'right'), ', ' ORDER BY m.n)
+                                         FROM jsonb_array_elements(a.answer -> 'wrongMatches') WITH ORDINALITY AS m (match, n))
                                        ) AS given,
                                (a.answer ->> 'mistakes')::integer AS mistakes
                         FROM attempts a JOIN exercises e ON e.id = a.exercise_id

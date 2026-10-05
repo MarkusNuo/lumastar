@@ -1,6 +1,7 @@
 package app.lingora.api.lesson;
 
 import app.lingora.domain.AnswerLang;
+import app.lingora.domain.ErrorCategory;
 import app.lingora.domain.Exercise;
 import app.lingora.domain.ExercisePayload;
 import app.lingora.domain.ExercisePayload.FillGap;
@@ -35,6 +36,12 @@ public record LessonExercise(
         @Schema(description = "Accepted solutions, the first one is canonical; absent for match_pairs") List<String> solutions,
         @Schema(description = "Standard Albanian variants that count as correct with a hint (variant.standard_form)")
         List<String> standardForms,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Known wrong answers; the first one whose "
+                + "pattern matches classifies a wrong answer. Typed answers (translate_free, fill_gap without choices) are "
+                + "checked in this order: exact, Standard form, missing diacritics only, Standard form with missing "
+                + "diacritics, errorHints, same words reordered (grammar.word_order), typo, wrong. Picked options: exact, "
+                + "errorHints, wrong. Word tiles: exact, same tokens reordered (grammar.word_order), errorHints, wrong.")
+        List<ErrorHint> errorHints,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "German explanation for the feedback sheet")
         String explanation,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) List<String> skillTags,
@@ -46,6 +53,14 @@ public record LessonExercise(
     public record Prompt(
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) AnswerLang lang,
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String text) {
+    }
+
+    @Schema(name = "ExerciseErrorHint", description = "A typical wrong answer: pattern is a regular expression matched "
+            + "case-insensitively (Unicode) against the normalised answer, diacritics kept (docs/CONTENT_FORMAT.md points 1–3)")
+    public record ErrorHint(
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String pattern,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) ErrorCategory category,
+            @Schema(description = "German hint for the feedback sheet") String hint) {
     }
 
     @Schema(name = "ExercisePair", description = "A Gheg expression and its German meaning")
@@ -82,6 +97,7 @@ public record LessonExercise(
         return new LessonExercise(exercise.id(), exercise.type(), exercise.level(), exercise.difficulty(),
                 new Prompt(exercise.prompt().lang(), exercise.prompt().text()), fields.answerLang(), fields.choices(),
                 fields.wordBank(), fields.tokens(), fields.text(), fields.pairs(), fields.solutions(), fields.standardForms(),
+                exercise.errorHints().stream().map(hint -> new ErrorHint(hint.pattern(), hint.category(), hint.hint())).toList(),
                 exercise.explanation(), exercise.skillTags().stream().map(SkillTag::id).toList(), exercise.itemIds(),
                 exercise.reviewed());
     }

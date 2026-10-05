@@ -2,7 +2,6 @@ package app.lingora.core.evaluation;
 
 import app.lingora.core.evaluation.TextAnswerCheck.Expected;
 import app.lingora.domain.Answer;
-import app.lingora.domain.ErrorCategory;
 import app.lingora.domain.EvaluationResult;
 import app.lingora.domain.Exercise;
 import app.lingora.domain.ExercisePayload.FillGap;
@@ -14,8 +13,8 @@ import app.lingora.domain.ExercisePayload.WordOrder;
 import java.util.List;
 
 /**
- * Phase 1 evaluator with Gheg tolerance (PRD F5, F6, chapter 4). Choice exercises compare the picked option, text
- * exercises go through the tolerant {@link TextAnswerCheck}, match_pairs uses the number of wrong matches.
+ * Phase 1 evaluator with Gheg tolerance (PRD F5, F6, chapter 4). Only typed answers are tolerant
+ * ({@link TextAnswerCheck}); picked options, word tiles and matched pairs are exact (docs/CONTENT_FORMAT.md point 7).
  */
 public final class RuleBasedAnswerEvaluator implements AnswerEvaluator {
 
@@ -35,19 +34,9 @@ public final class RuleBasedAnswerEvaluator implements AnswerEvaluator {
                     new Expected(gap.answerLang(), gap.solutions(), gap.standardForms()), typed(exercise, answer));
             case TranslateFree free -> textCheck.evaluate(exercise,
                     new Expected(free.answerLang(), free.solutions(), free.standardForms()), typed(exercise, answer));
-            case TranslateWordbank bank -> textCheck.evaluate(exercise,
-                    new Expected(bank.answerLang(), bank.solutions(), List.of()), assembled(exercise, answer));
-            case WordOrder order -> textCheck.evaluate(exercise,
-                    new Expected(order.answerLang(), order.solutions(), List.of()), assembled(exercise, answer));
-            case MatchPairs _ -> matchedPairs(exercise, mistakes(exercise, answer));
-        };
-    }
-
-    private static EvaluationResult matchedPairs(Exercise exercise, int mistakes) {
-        return switch (mistakes) {
-            case 0 -> Results.correct(exercise, null);
-            case 1 -> Results.almostCorrect(exercise, ErrorCategory.VOCAB_CONFUSED, null, FeedbackHints.onePairMismatched());
-            default -> Results.wrong(exercise, ErrorCategory.VOCAB_CONFUSED, null, FeedbackHints.pairsMismatched(mistakes));
+            case TranslateWordbank bank -> TileAnswerCheck.evaluate(exercise, bank.solutions(), tiles(exercise, answer));
+            case WordOrder order -> TileAnswerCheck.evaluate(exercise, order.solutions(), tiles(exercise, answer));
+            case MatchPairs pairs -> matched(exercise, pairs, answer);
         };
     }
 
@@ -65,18 +54,18 @@ public final class RuleBasedAnswerEvaluator implements AnswerEvaluator {
         throw new UnsupportedAnswerException(exercise, "text", answer);
     }
 
-    /** The word chips joined into the sentence they form. */
-    private static String assembled(Exercise exercise, Answer answer) {
+    private static List<String> tiles(Exercise exercise, Answer answer) {
         if (answer instanceof Answer.Tokens tokens) {
-            return String.join(" ", tokens.tokens());
+            return tokens.tokens();
         }
         throw new UnsupportedAnswerException(exercise, "tokens", answer);
     }
 
-    private static int mistakes(Exercise exercise, Answer answer) {
-        if (answer instanceof Answer.PairMistakes pairs) {
-            return pairs.mistakes();
-        }
-        throw new UnsupportedAnswerException(exercise, "mistakes", answer);
+    private static EvaluationResult matched(Exercise exercise, MatchPairs pairs, Answer answer) {
+        return switch (answer) {
+            case Answer.WrongMatches wrong -> PairAnswerCheck.evaluate(exercise, pairs, wrong.matches());
+            case Answer.PairMistakes counted -> PairAnswerCheck.evaluate(exercise, counted.mistakes());
+            default -> throw new UnsupportedAnswerException(exercise, "wrongMatches", answer);
+        };
     }
 }

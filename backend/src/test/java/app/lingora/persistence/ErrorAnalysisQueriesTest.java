@@ -129,6 +129,16 @@ class ErrorAnalysisQueriesTest extends IntegrationTest {
     }
 
     @Test
+    void showsTheReportedWrongMatchesOfPairsAsTheGivenAnswer() {
+        answer(new Answer("ex_a1_u01_004", "match_pairs", List.of("vocab.greetings", "phrase.politeness"), """
+                {"wrongMatches": [{"left": "Po", "right": "Nein"}, {"left": "Jo", "right": "Ja"}]}""",
+                "wrong", "vocab.confused", null, false, daysAgo(1)));
+
+        assertThat(queries.recentErrors(learner, 1)).singleElement().extracting(ErrorEntry::given, ErrorEntry::expected)
+                .containsExactly("Po → Nein, Jo → Ja", null);
+    }
+
+    @Test
     void fallsBackToTheFirstSolutionOfTheExerciseForAnswersRecordedWithoutIt() {
         answer(new Answer("ex_a1_u02_002", "translate_free", HOUSE_TAGS, """
                 {"text": "Shpi"}""", "wrong", "grammar.definite_article", null, false, daysAgo(1)));

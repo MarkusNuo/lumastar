@@ -2,6 +2,7 @@ package app.lingora.api.lesson;
 
 import app.lingora.config.EngineProperties;
 import app.lingora.core.evaluation.AnswerEvaluator;
+import app.lingora.core.evaluation.InvalidAnswerException;
 import app.lingora.core.evaluation.UnsupportedAnswerException;
 import app.lingora.core.lesson.LessonComposer;
 import app.lingora.core.lesson.XpCalculator;
@@ -179,6 +180,8 @@ class LessonService {
             return evaluator.evaluate(exercise, request.answer().toDomain(request.responseTime()));
         } catch (UnsupportedAnswerException e) {
             throw LessonProblems.answerTypeMismatch(e.getMessage());
+        } catch (InvalidAnswerException e) {
+            throw LessonProblems.invalidAnswer(e.getMessage());
         }
     }
 

@@ -32,7 +32,7 @@ public final class GhegBlocklistReader {
     private record WordDocument(String standard, String gheg) {
     }
 
-    private record PatternDocument(String pattern, String gheg, List<ExceptionDocument> exceptions) {
+    private record PatternDocument(String id, String pattern, String gheg, List<ExceptionDocument> exceptions) {
     }
 
     private record ExceptionDocument(String word) {
@@ -52,7 +52,8 @@ public final class GhegBlocklistReader {
                 .map(word -> new StandardFormLexicon.Word(word.standard(), alternatives(word.gheg())))
                 .toList();
         List<StandardFormLexicon.WordPattern> patterns = orEmpty(blocklist.patterns()).stream()
-                .map(pattern -> new StandardFormLexicon.WordPattern(pattern.pattern(), alternatives(pattern.gheg()),
+                .map(pattern -> new StandardFormLexicon.WordPattern(pattern.id(), pattern.pattern(),
+                        alternatives(pattern.gheg()).stream().map(StandardFormLexicon.Replacement::parse).toList(),
                         orEmpty(pattern.exceptions()).stream().map(ExceptionDocument::word).toList()))
                 .toList();
         return StandardFormLexicon.of(words, patterns);

@@ -13,9 +13,18 @@ class AnswerNormalizerTest {
     }
 
     @Test
+    void punctuationBetweenWordsSeparatesThem() {
+        assertThat(AnswerNormalizer.normalize("Jo,faleminderit")).isEqualTo("jo faleminderit");
+        assertThat(AnswerNormalizer.normalize("Po–faleminderit!Mirë")).isEqualTo("po faleminderit mirë");
+        assertThat(AnswerNormalizer.normalize("Po , faleminderit")).isEqualTo("po faleminderit");
+    }
+
+    @Test
     void removesApostrophesInsideWords() {
         assertThat(AnswerNormalizer.normalize("S'ka përse.")).isEqualTo("ska përse");
         assertThat(AnswerNormalizer.normalize("S’ka përse.")).isEqualTo("ska përse");
+        assertThat(AnswerNormalizer.normalize("S‘ka përse.")).isEqualTo("ska përse");
+        assertThat(AnswerNormalizer.normalize("Sʼka përse.")).isEqualTo("ska përse");
     }
 
     @Test

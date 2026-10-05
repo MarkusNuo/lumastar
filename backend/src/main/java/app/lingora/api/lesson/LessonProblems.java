@@ -56,4 +56,8 @@ final class LessonProblems {
     static ApiProblemException answerTypeMismatch(String detail) {
         return new ApiProblemException(HttpStatus.UNPROCESSABLE_CONTENT, "answer_type_mismatch", detail + ".");
     }
+
+    static ApiProblemException invalidAnswer(String detail) {
+        return new ApiProblemException(HttpStatus.UNPROCESSABLE_CONTENT, "invalid_answer", detail + ".");
+    }
 }

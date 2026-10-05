@@ -12,8 +12,9 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
- * Tolerant check of a typed or assembled sentence (PRD F5, LANGUAGE_GUIDE section 11), in this order: exact match,
- * Standard form, missing diacritics, Standard form without diacritics, known error, word order, typo, wrong.
+ * Tolerant check of a typed answer (PRD F5, LANGUAGE_GUIDE section 11, docs/CONTENT_FORMAT.md points 4, 6 and 7), in
+ * this order: exact match, Standard form, missing diacritics, Standard form with missing diacritics, known error, word
+ * order, typo, wrong. Only missing diacritics are tolerated; an added or wrong diacritic counts as a typo.
  */
 final class TextAnswerCheck {
 
@@ -27,6 +28,16 @@ final class TextAnswerCheck {
     record Expected(AnswerLang answerLang, List<String> solutions, List<String> standardForms) {
     }
 
+    /** How a written word or text is compared with an expected one. */
+    private enum Comparison {
+        EXACT,
+        MISSING_DIACRITICS;
+
+        boolean matches(String written, String expected) {
+            return this == EXACT ? written.equals(expected) : MissingDiacritics.atMost(written, expected);
+        }
+    }
+
     TextAnswerCheck(StandardFormLexicon lexicon) {
         this.lexicon = lexicon;
     }
@@ -37,30 +48,27 @@ final class TextAnswerCheck {
         List<Phrase> standardForms = expected.standardForms().stream().map(Phrase::of).toList();
         boolean gheg = expected.answerLang() == AnswerLang.GHEG;
 
-        Optional<Phrase> exact = first(solutions, solution -> solution.normalized().equals(answer.normalized()));
+        Optional<Phrase> exact = first(solutions, solution -> Comparison.EXACT.matches(answer.normalized(), solution.normalized()));
         if (exact.isPresent()) {
             return Results.correct(exercise, exact.get().text());
         }
-        Optional<EvaluationResult> standardForm = standardForm(exercise, answer, solutions, standardForms, gheg, false);
+        Optional<EvaluationResult> standardForm = standardForm(exercise, answer, solutions, standardForms, gheg, Comparison.EXACT);
         if (standardForm.isPresent()) {
             return standardForm.get();
         }
-        Optional<Phrase> withoutDiacritics = first(solutions, solution -> solution.folded().equals(answer.folded()));
+        Optional<Phrase> withoutDiacritics = first(solutions,
+                solution -> Comparison.MISSING_DIACRITICS.matches(answer.normalized(), solution.normalized()));
         if (withoutDiacritics.isPresent()) {
             return missingDiacritics(exercise, answer, withoutDiacritics.get());
         }
-        Optional<EvaluationResult> foldedStandardForm = standardForm(exercise, answer, solutions, standardForms, gheg, true);
-        if (foldedStandardForm.isPresent()) {
-            return foldedStandardForm.get();
-        }
-        return mistake(exercise, answer, solutions);
+        return standardForm(exercise, answer, solutions, standardForms, gheg, Comparison.MISSING_DIACRITICS)
+                .orElseGet(() -> mistake(exercise, answer, solutions));
     }
 
     private Optional<EvaluationResult> standardForm(Exercise exercise, Phrase answer, List<Phrase> solutions,
-                                                    List<Phrase> standardForms, boolean gheg, boolean folded) {
-        Optional<Phrase> listed = first(standardForms, form -> form(form, folded).equals(form(answer, folded)));
-        if (listed.isPresent()) {
-            Phrase solution = closest(solutions, answer);
+                                                    List<Phrase> standardForms, boolean gheg, Comparison comparison) {
+        if (standardForms.stream().anyMatch(form -> comparison.matches(answer.normalized(), form.normalized()))) {
+            Phrase solution = answer.closestOf(solutions);
             return Optional.of(Results.standardForm(exercise, solution.text(),
                     FeedbackHints.standardForm(swaps(answer, solution), solution.text())));
         }
@@ -68,7 +76,7 @@ final class TextAnswerCheck {
             return Optional.empty();
         }
         for (Phrase solution : solutions) {
-            Optional<List<WordSwap>> swaps = lexiconSwaps(answer, solution, folded);
+            Optional<List<WordSwap>> swaps = lexiconSwaps(answer, solution, comparison);
             if (swaps.isPresent()) {
                 return Optional.of(Results.standardForm(exercise, solution.text(),
                         FeedbackHints.standardForm(swaps.get(), solution.text())));
@@ -78,23 +86,27 @@ final class TextAnswerCheck {
     }
 
     /** The word swaps if every word that differs from the solution is a Standard form of the solution word. */
-    private Optional<List<WordSwap>> lexiconSwaps(Phrase answer, Phrase solution, boolean folded) {
-        List<String> answerWords = folded ? answer.foldedWords() : answer.words();
-        List<String> solutionWords = folded ? solution.foldedWords() : solution.words();
-        if (answerWords.size() != solutionWords.size()) {
+    private Optional<List<WordSwap>> lexiconSwaps(Phrase answer, Phrase solution, Comparison comparison) {
+        if (answer.words().size() != solution.words().size()) {
             return Optional.empty();
         }
         List<WordSwap> swaps = new ArrayList<>();
-        for (int i = 0; i < answerWords.size(); i++) {
-            if (answerWords.get(i).equals(solutionWords.get(i))) {
+        for (int i = 0; i < answer.words().size(); i++) {
+            if (comparison.matches(answer.words().get(i), solution.words().get(i))) {
                 continue;
             }
-            if (!lexicon.isStandardFormOf(answerWords.get(i), solutionWords.get(i), folded)) {
+            if (!isStandardFormOf(answer, solution, i, comparison)) {
                 return Optional.empty();
             }
             swaps.add(new WordSwap(solution.words().get(i), answer.words().get(i)));
         }
         return Optional.of(swaps);
+    }
+
+    private boolean isStandardFormOf(Phrase answer, Phrase solution, int word, Comparison comparison) {
+        return comparison == Comparison.EXACT
+                ? lexicon.isStandardFormOf(answer.words().get(word), solution.words().get(word), false)
+                : lexicon.isStandardFormOf(answer.foldedWords().get(word), solution.foldedWords().get(word), true);
     }
 
     private static EvaluationResult missingDiacritics(Exercise exercise, Phrase answer, Phrase solution) {
@@ -119,7 +131,7 @@ final class TextAnswerCheck {
 
     /** Known errors and reorderings are real mistakes, so they are classified before any typo tolerance. */
     private static EvaluationResult mistake(Exercise exercise, Phrase answer, List<Phrase> solutions) {
-        Phrase closest = closest(solutions, answer);
+        Phrase closest = answer.closestOf(solutions);
         Optional<ErrorHint> hint = WrongAnswers.matchingHint(exercise, answer.normalized());
         if (hint.isPresent()) {
             return Results.wrong(exercise, hint.get().category(), closest.text(), hint.get().hint());
@@ -129,7 +141,7 @@ final class TextAnswerCheck {
         }
         List<Phrase> withinTypoTolerance = solutions.stream().filter(solution -> isTypo(answer, solution)).toList();
         if (!withinTypoTolerance.isEmpty()) {
-            Phrase solution = closest(withinTypoTolerance, answer);
+            Phrase solution = answer.closestOf(withinTypoTolerance);
             return Results.almostCorrect(exercise, ErrorCategory.SPELLING_OTHER, solution.text(),
                     FeedbackHints.typo(differingWords(answer, solution)));
         }
@@ -137,14 +149,16 @@ final class TextAnswerCheck {
                 closest.text(), null);
     }
 
+    /** The same words, compared without diacritics, in another order. */
     private static boolean isReordering(Phrase answer, Phrase solution) {
-        return sorted(answer.foldedWords()).equals(sorted(solution.foldedWords()));
+        return !answer.foldedWords().equals(solution.foldedWords())
+                && sorted(answer.foldedWords()).equals(sorted(solution.foldedWords()));
     }
 
     private static boolean isTypo(Phrase answer, Phrase solution) {
         int letters = solution.letterCount();
         int allowedEdits = letters >= TWO_TYPOS_MIN_LETTERS ? 2 : letters >= ONE_TYPO_MIN_LETTERS ? 1 : 0;
-        return allowedEdits > 0 && EditDistance.between(answer.folded(), solution.folded()) <= allowedEdits;
+        return allowedEdits > 0 && answer.editsTo(solution) <= allowedEdits;
     }
 
     /** The solution words the answer got wrong, or the whole solution if the word counts differ. */
@@ -172,24 +186,6 @@ final class TextAnswerCheck {
             }
         }
         return swaps;
-    }
-
-    /** The solution with the fewest edits to the answer; the earlier solution wins a tie. */
-    private static Phrase closest(List<Phrase> solutions, Phrase answer) {
-        Phrase closest = solutions.getFirst();
-        int fewestEdits = EditDistance.between(answer.folded(), closest.folded());
-        for (Phrase solution : solutions.subList(1, solutions.size())) {
-            int edits = EditDistance.between(answer.folded(), solution.folded());
-            if (edits < fewestEdits) {
-                closest = solution;
-                fewestEdits = edits;
-            }
-        }
-        return closest;
-    }
-
-    private static String form(Phrase phrase, boolean folded) {
-        return folded ? phrase.folded() : phrase.normalized();
     }
 
     private static List<String> sorted(List<String> words) {

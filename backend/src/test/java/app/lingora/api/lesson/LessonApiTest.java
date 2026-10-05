@@ -38,7 +38,7 @@ class LessonApiTest extends IntegrationTest {
             "ex_a1_u01_003", """
                     {"tokens": ["Guten", "Tag", "wie", "geht", "es", "dir"]}""",
             "ex_a1_u01_004", """
-                    {"mistakes": 0}""",
+                    {"wrongMatches": []}""",
             "ex_a1_u01_005", """
                     {"tokens": ["Mirëdita", "si", "je"]}""");
 
@@ -105,7 +105,10 @@ class LessonApiTest extends IntegrationTest {
                     {"id": "ex_a1_u02_001", "type": "fill_gap", "level": "A1.1", "difficulty": 1,
                      "prompt": {"lang": "de", "text": "Die Mutter ist zu Hause."}, "answerLang": "sq",
                      "choices": ["âsht", "jam", "je"], "text": "Nâna ___ në shpi.", "solutions": ["âsht"],
-                     "standardForms": ["është"], "explanation": "„Ist“ heisst auf Gheg „âsht“.",
+                     "standardForms": ["është"],
+                     "errorHints": [{"pattern": "^asht$", "category": "spelling.nasal_vowel",
+                                     "hint": "Achte auf den Zirkumflex: âsht."}],
+                     "explanation": "„Ist“ heisst auf Gheg „âsht“.",
                      "skillTags": ["grammar.verb_be", "vocab.family"], "itemIds": ["item_nane", "item_asht", "item_shpi"],
                      "reviewed": false}"""));
             assertThat(jdbc.sql("""
@@ -131,6 +134,7 @@ class LessonApiTest extends IntegrationTest {
 
             assertThat(exercise(lesson, "ex_a1_u01_004").get("pairs")).hasSize(5);
             assertThat(exercise(lesson, "ex_a1_u01_004").has("solutions")).isFalse();
+            assertThat(exercise(lesson, "ex_a1_u01_004").get("errorHints")).isEmpty();
             assertThat(exercise(lesson, "ex_a1_u01_005").get("tokens").toString()).isEqualTo("[\"Mirëdita\",\"si\",\"je\"]");
         }
 
@@ -217,6 +221,49 @@ class LessonApiTest extends IntegrationTest {
                                     + "|wrong|false|grammar.definite_article|again|6400|rule_based_v1",
                             "2|ex_a1_u02_002|translate_free|grammar.definite_article.fem,vocab.home|true|Shpija asht e madhe"
                                     + "|almost_correct|true|spelling.nasal_vowel|hard|3100|rule_based_v1");
+        }
+
+        @Test
+        void evaluatesTheWrongMatchesOfPairsAndStoresThem() {
+            String lesson = start(GREETINGS);
+
+            MvcTestResult attempt = answer(lesson, "ex_a1_u01_004", """
+                    {"wrongMatches": [{"left": "Po", "right": "Nein"}]}""", FAST_MS, false);
+
+            assertThat(attempt).hasStatusOk().bodyJson().isStrictlyEqualTo("""
+                    {"exerciseId": "ex_a1_u01_004", "outcome": "wrong", "countsAsCorrect": false,
+                     "errorCategory": "vocab.confused", "hint": "Richtig ist: **Po** = Ja und **Jo** = Nein.",
+                     "explanation": "Diese Wörter brauchst du bei jeder Begegnung.", "rating": "again"}""");
+            assertThat(jdbc.sql("SELECT answer::text || '|' || (expected IS NULL) FROM attempts").query(String.class).single())
+                    .isEqualTo("{\"wrongMatches\": [{\"left\": \"Po\", \"right\": \"Nein\"}]}|true");
+        }
+
+        @Test
+        void rejectsWrongMatchesThatThePairsCannotShow() {
+            String lesson = start(GREETINGS);
+
+            MvcTestResult correctPair = answer(lesson, "ex_a1_u01_004", """
+                    {"wrongMatches": [{"left": "Po", "right": "Ja"}]}""", FAST_MS, false);
+            MvcTestResult unknownSide = answer(lesson, "ex_a1_u01_004", """
+                    {"wrongMatches": [{"left": "Ujë", "right": "Ja"}]}""", FAST_MS, false);
+            MvcTestResult blankSide = answer(lesson, "ex_a1_u01_004", """
+                    {"wrongMatches": [{"left": " ", "right": "Ja"}]}""", FAST_MS, false);
+
+            assertProblem(correctPair, HttpStatus.UNPROCESSABLE_CONTENT, "invalid_answer");
+            assertProblem(unknownSide, HttpStatus.UNPROCESSABLE_CONTENT, "invalid_answer");
+            assertProblem(blankSide, HttpStatus.BAD_REQUEST, "validation_failed");
+            assertThat(jdbc.sql("SELECT count(*) FROM attempts").query(Integer.class).single()).isZero();
+        }
+
+        @Test
+        void stillAcceptsTheDeprecatedMistakeCountOfPairs() {
+            String lesson = start(GREETINGS);
+
+            MvcTestResult attempt = answer(lesson, "ex_a1_u01_004", """
+                    {"mistakes": 1}""", FAST_MS, false);
+
+            assertThat(attempt).bodyJson().extractingPath("$.outcome").isEqualTo("wrong");
+            assertThat(attempt).bodyJson().extractingPath("$.hint").isEqualTo("Ein Paar hast du zuerst falsch zugeordnet.");
         }
 
         @Test

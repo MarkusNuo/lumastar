@@ -36,7 +36,16 @@ public sealed interface Answer {
         }
     }
 
-    /** Wrong matches the learner made before all pairs were matched: match_pairs. */
+    /** Every wrong match the learner made before all pairs were matched, in order: match_pairs. */
+    record WrongMatches(List<MatchPair> matches, Duration responseTime) implements Answer {
+
+        public WrongMatches {
+            matches = List.copyOf(matches);
+            requireValid(responseTime);
+        }
+    }
+
+    /** The number of wrong matches only: match_pairs answered by an app that does not report them yet. */
     record PairMistakes(int mistakes, Duration responseTime) implements Answer {
 
         public PairMistakes {

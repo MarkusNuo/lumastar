@@ -10,6 +10,7 @@ import app.lingora.domain.ErrorCategory;
 import app.lingora.domain.ErrorHint;
 import app.lingora.domain.EvaluationResult;
 import app.lingora.domain.Exercise;
+import app.lingora.domain.MatchPair;
 import app.lingora.domain.Outcome;
 import app.lingora.domain.Rating;
 import java.nio.file.Path;
@@ -122,6 +123,16 @@ class RuleBasedAnswerEvaluatorTest {
 
             assertThat(result.errorCategory()).isEqualTo(ErrorCategory.SPELLING_DIACRITICS);
             assertThat(result.hint()).isEqualTo("Achte auf die Sonderzeichen: **Çka**, **bân**");
+        }
+
+        @Test
+        void anAddedDiacriticIsNotAlmostCorrect() {
+            Exercise iAm = TestExercises.typedGap(List.of("jam"), List.of());
+
+            EvaluationResult result = typed(iAm, "jâm");
+
+            assertThat(result.outcome()).isEqualTo(Outcome.WRONG);
+            assertThat(result.errorCategory()).isEqualTo(ErrorCategory.GRAMMAR_VERB_CONJUGATION);
         }
 
         @Test
@@ -320,14 +331,29 @@ class RuleBasedAnswerEvaluatorTest {
         }
 
         @Test
-        void typosAreComparedAfterFolding() {
+        void aMissingDiacriticCostsNothingInTheTypoDistance() {
             assertThat(typed(thanks, "Faleminderti shume").errorCategory()).isEqualTo(ErrorCategory.SPELLING_OTHER);
             assertThat(typed(thanks, "Faleminderit shume").errorCategory()).isEqualTo(ErrorCategory.SPELLING_DIACRITICS);
+        }
+
+        @Test
+        void anAddedOrWrongDiacriticCostsAnEdit() {
+            Exercise goodDay = TestExercises.translateFree(List.of("Mirëdita!"), List.of());
+
+            assertThat(typed(goodDay, "Mirêdita").errorCategory()).isEqualTo(ErrorCategory.SPELLING_OTHER);
+            assertThat(typed(goodDay, "Mîrêdita").outcome()).isEqualTo(Outcome.WRONG);
+        }
+
+        @Test
+        void aMissingSpaceIsATypo() {
+            Exercise yesThanks = TestExercises.translateFree(List.of("Po, faleminderit."), List.of());
+
+            assertThat(typed(yesThanks, "Pofaleminderit").errorCategory()).isEqualTo(ErrorCategory.SPELLING_OTHER);
         }
     }
 
     @Nested
-    class AssembledSentences {
+    class Tiles {
 
         @Test
         void wordChipsAreJoinedToASentence() {
@@ -345,6 +371,47 @@ class RuleBasedAnswerEvaluatorTest {
 
             assertThat(tokens(fine, "Jam", "mirë", "faleminderit").outcome()).isEqualTo(Outcome.CORRECT);
             assertThat(tokens(fine, "faleminderit", "jam", "Mirë").errorCategory()).isEqualTo(ErrorCategory.GRAMMAR_WORD_ORDER);
+        }
+
+        @Test
+        void aDistractorIsWrongEvenIfItLooksLikeATypo() {
+            Exercise sister = TestExercises.germanTranslation(List.of("Das ist meine Schwester."),
+                    List.of("Das", "ist", "meine", "Schwester", "mein", "Bruder"));
+
+            EvaluationResult result = tokens(sister, "Das", "ist", "mein", "Schwester");
+
+            assertThat(result.outcome()).isEqualTo(Outcome.WRONG);
+            assertThat(result.errorCategory()).isEqualTo(ErrorCategory.VOCAB_UNKNOWN);
+            assertThat(result.solution()).isEqualTo("Das ist meine Schwester.");
+        }
+
+        @Test
+        void tilesHaveNoDiacriticToleranceAndNoStandardForms() {
+            Exercise house = TestExercises.wordOrder(List.of("Shpija", "âsht", "e", "madhe"), List.of("Shpija âsht e madhe."));
+
+            assertThat(tokens(house, "Shpija", "asht", "e", "madhe").outcome()).isEqualTo(Outcome.WRONG);
+            assertThat(tokens(house, "Shpija", "është", "e", "madhe").outcome()).isEqualTo(Outcome.WRONG);
+        }
+
+        @Test
+        void theSameTilesInAnotherOrderAreAWordOrderErrorShowingThatOrdering() {
+            Exercise fine = TestExercises.wordOrder(List.of("Mirë", "jam", "faleminderit"),
+                    List.of("Mirë jam, faleminderit.", "Jam mirë, faleminderit."));
+
+            EvaluationResult result = tokens(fine, "faleminderit", "mirë", "jam");
+
+            assertThat(result.outcome()).isEqualTo(Outcome.WRONG);
+            assertThat(result.errorCategory()).isEqualTo(ErrorCategory.GRAMMAR_WORD_ORDER);
+            assertThat(result.hint()).isEqualTo("Die Wörter stimmen, aber die Reihenfolge noch nicht.");
+            assertThat(result.solution()).isEqualTo("Mirë jam, faleminderit.");
+        }
+
+        @Test
+        void aReorderingIsAWordOrderErrorBeforeAnyErrorHint() {
+            Exercise fine = TestExercises.wordOrder(List.of("Mirë", "jam"), List.of("Mirë jam."),
+                    new ErrorHint("^jam ", ErrorCategory.GRAMMAR_VERB_CONJUGATION, "Hinweis"));
+
+            assertThat(tokens(fine, "jam", "Mirë").errorCategory()).isEqualTo(ErrorCategory.GRAMMAR_WORD_ORDER);
         }
 
         @Test
@@ -408,33 +475,64 @@ class RuleBasedAnswerEvaluatorTest {
     class MatchedPairs {
 
         @Test
-        void noMistakeIsCorrect() {
-            EvaluationResult result = pairs(0);
+        void noWrongMatchIsCorrect() {
+            EvaluationResult result = wrongMatches();
 
             assertThat(result.outcome()).isEqualTo(Outcome.CORRECT);
+            assertThat(result.solution()).isNull();
+            assertThat(result.hint()).isNull();
+        }
+
+        @Test
+        void aWrongMatchIsAConfusionThatNamesBothConfusedPairs() {
+            EvaluationResult result = wrongMatches(new MatchPair("po", "nein"));
+
+            assertThat(result.outcome()).isEqualTo(Outcome.WRONG);
+            assertThat(result.errorCategory()).isEqualTo(ErrorCategory.VOCAB_CONFUSED);
+            assertThat(result.rating()).isEqualTo(Rating.AGAIN);
+            assertThat(result.hint()).isEqualTo("Richtig ist: **po** = ja und **jo** = nein.");
             assertThat(result.solution()).isNull();
         }
 
         @Test
-        void oneMistakeIsAlmostCorrect() {
-            EvaluationResult result = pairs(1);
+        void everyConfusedPairIsNamedOnceInTheOrderOfTheExercise() {
+            EvaluationResult result = wrongMatches(new MatchPair("faleminderit", "guten Tag"),
+                    new MatchPair("mirëdita", "danke"), new MatchPair("faleminderit", "guten Tag"));
 
-            assertThat(result.outcome()).isEqualTo(Outcome.ALMOST_CORRECT);
-            assertThat(result.errorCategory()).isEqualTo(ErrorCategory.VOCAB_CONFUSED);
-            assertThat(result.rating()).isEqualTo(Rating.HARD);
+            assertThat(result.outcome()).isEqualTo(Outcome.WRONG);
+            assertThat(result.hint()).isEqualTo("Richtig ist: **mirëdita** = guten Tag und **faleminderit** = danke.");
         }
 
         @Test
-        void twoOrMoreMistakesAreWrong() {
-            EvaluationResult result = pairs(3);
-
-            assertThat(result.outcome()).isEqualTo(Outcome.WRONG);
-            assertThat(result.errorCategory()).isEqualTo(ErrorCategory.VOCAB_CONFUSED);
-            assertThat(result.hint()).isEqualTo("Du hast 3 Paare zuerst falsch zugeordnet.");
-            assertThat(pairs(2).outcome()).isEqualTo(Outcome.WRONG);
+        void comparesTheReportedSidesNormalised() {
+            assertThat(wrongMatches(new MatchPair("Mirëdita", "Danke")).outcome()).isEqualTo(Outcome.WRONG);
         }
 
-        private EvaluationResult pairs(int mistakes) {
+        @Test
+        void rejectsAWrongMatchThatTheExerciseCannotShow() {
+            assertThatThrownBy(() -> wrongMatches(new MatchPair("ujë", "ja")))
+                    .isInstanceOf(InvalidAnswerException.class)
+                    .hasMessage("match_pairs ex_test_unit_001: the wrong match ujë → ja is not made of its pairs");
+            assertThatThrownBy(() -> wrongMatches(new MatchPair("po", "Wasser"))).isInstanceOf(InvalidAnswerException.class);
+            assertThatThrownBy(() -> wrongMatches(new MatchPair("po", "ja")))
+                    .isInstanceOf(InvalidAnswerException.class)
+                    .hasMessage("match_pairs ex_test_unit_001: po → ja is a correct pair, not a wrong match");
+        }
+
+        @Test
+        void theDeprecatedMistakeCountIsJudgedTheSameWay() {
+            assertThat(mistakes(0).outcome()).isEqualTo(Outcome.CORRECT);
+            assertThat(mistakes(1).outcome()).isEqualTo(Outcome.WRONG);
+            assertThat(mistakes(1).hint()).isEqualTo("Ein Paar hast du zuerst falsch zugeordnet.");
+            assertThat(mistakes(3).errorCategory()).isEqualTo(ErrorCategory.VOCAB_CONFUSED);
+            assertThat(mistakes(3).hint()).isEqualTo("Du hast 3 Paare zuerst falsch zugeordnet.");
+        }
+
+        private EvaluationResult wrongMatches(MatchPair... matches) {
+            return evaluator.evaluate(TestExercises.matchPairs(), new Answer.WrongMatches(List.of(matches), TIME));
+        }
+
+        private EvaluationResult mistakes(int mistakes) {
             return evaluator.evaluate(TestExercises.matchPairs(), new Answer.PairMistakes(mistakes, TIME));
         }
     }

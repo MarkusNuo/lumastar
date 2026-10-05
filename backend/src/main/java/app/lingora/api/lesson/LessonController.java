@@ -35,9 +35,10 @@ public class LessonController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(operationId = "startLesson", summary = "Compose and start a lesson of a unit",
-            description = "The exercises include their solutions and accepted variants so that the app can pre-check "
-                    + "answers instantly (PRD 11.2). A focus unit of the current plan (focus_<skill tag>_<n>) is "
-                    + "composed of the exercises carrying its skill tag at or below the learner's level.")
+            description = "The exercises include their solutions, accepted variants and error hints so that the app can "
+                    + "pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit "
+                    + "of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or "
+                    + "below the learner's level.")
     @ApiResponse(responseCode = "201", description = "The lesson with its exercises")
     @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
@@ -67,9 +68,9 @@ public class LessonController {
             + "first answer or retried after a correct answer (codes lesson_completed, exercise_already_answered, "
             + "retry_before_first_attempt, exercise_already_correct)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "422", description = "Exercise not in the lesson or answer field not fitting its type "
-            + "(codes exercise_not_in_lesson, answer_type_mismatch)", content = @Content(
-            mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
+    @ApiResponse(responseCode = "422", description = "Exercise not in the lesson, answer field not fitting its type or "
+            + "wrong matches not made of its pairs (codes exercise_not_in_lesson, answer_type_mismatch, invalid_answer)",
+            content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public AttemptResponse submitAttempt(@AuthenticationPrincipal AuthenticatedUser principal, @PathVariable UUID sessionId,
                                          @Valid @RequestBody AttemptRequest body) {
         return lessons.submitAttempt(principal.userId(), sessionId, body);
