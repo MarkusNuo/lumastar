@@ -4,7 +4,7 @@ import { LessonPlayer } from '../../pages/LessonPlayer.ts';
 import { LessonResultScreen } from '../../pages/LessonResultScreen.ts';
 import { StatsPage, type StatsSection } from '../../pages/StatsPage.ts';
 import { mostWrongableTag } from '../../support/lessonAnswers.ts';
-import { finishViaApi, startViaApi, type LessonResponse } from '../../support/lessonApi.ts';
+import { finishViaApi, startViaApi, type LessonExercise, type LessonResponse } from '../../support/lessonApi.ts';
 import { openLesson, playOpenedLesson } from '../../support/lessonFlow.ts';
 import { fetchPath, unitOfLearnerStage } from '../../support/planApi.ts';
 import { fetchTodayProgress } from '../../support/progressApi.ts';
@@ -24,7 +24,7 @@ import {
  * The tab "Statistik" (PRD F10): the streak and learned words, the level with the way to the next
  * stage, mastery per area, the five most frequent errors with "Gezielt üben", the learning days of
  * the last year and the FSRS forecast. Each test first makes mistakes on one skill tag of the
- * learner's stage through the API, so the top errors have an entry it caused, whatever ran before.
+ * learner's stage through the API, so the top errors have an entry it added to, whatever ran before.
  */
 
 const TOP_BAR_GAP = 88;
@@ -42,26 +42,42 @@ function heatLevel(day: HeatmapDay): string {
 }
 
 /**
+ * The tag to make mistakes on: one the lesson can answer wrong that is a practisable top error
+ * already, the most frequent first, since more mistakes keep it there. Late in a run the errors of
+ * earlier tests outrank a fresh tag for many lessons; only without such a tag the lesson's most
+ * wrongable one starts from nothing.
+ */
+function tagToMiss(exercises: readonly LessonExercise[], topErrors: readonly FrequentError[]): string | undefined {
+  const listed = topErrors.filter((error) => error.practice).map((error) => error.skillTag);
+  return listed.find((tag) => mostWrongableTag(exercises, tag)) ?? mostWrongableTag(exercises)?.tag;
+}
+
+/**
  * Plays lessons of a unit of the learner's stage through the API, every exercise of one skill tag
  * answered wrong (and right on its retry), until the tag is among the top errors with a practice
- * lesson. Returns the tag's entry.
+ * lesson. Returns the tag's entry, which counts the mistakes made here.
  */
 async function makeMistakesOnOneTag(request: APIRequestContext): Promise<FrequentError> {
+  const before = (await fetchStats(request)).topErrors;
   let tag: string | undefined;
+  let mistakes = 0;
   for (let lesson = 1; lesson <= MAX_MISTAKE_LESSONS; lesson += 1) {
     const started = await startViaApi(request, { unitId: unitOfLearnerStage(await fetchPath(request)).unitId });
     expect(started.status(), await started.text()).toBe(201);
     const played = (await started.json()) as LessonResponse;
-    const plan = mostWrongableTag(played.exercises, tag);
-    tag ??= plan?.tag;
-    const wrong = new Set(plan?.candidates.map((exercise) => exercise.id));
+    tag ??= tagToMiss(played.exercises, before);
+    const wrong = new Set(mostWrongableTag(played.exercises, tag)?.candidates.map((exercise) => exercise.id));
+    mistakes += wrong.size;
     await finishViaApi(request, played, (exercise) => (wrong.has(exercise.id) ? 'wrong' : 'correct'));
     const entry = (await fetchStats(request)).topErrors.find((error) => error.skillTag === tag);
-    if (entry) {
+    if (entry && mistakes > 0) {
       expect(entry.practice, `${tag} has exercises at the learner's level`).toEqual({
         kind: 'practice',
         skillTag: tag,
       });
+      const listedBefore = before.find((error) => error.skillTag === tag);
+      if (listedBefore) expect(entry.errors, `${tag}: the mistakes made here`).toBe(listedBefore.errors + mistakes);
+      else expect(entry.errors, `${tag}: the mistakes made here`).toBeGreaterThanOrEqual(mistakes);
       return entry;
     }
   }

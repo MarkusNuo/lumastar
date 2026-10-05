@@ -15,9 +15,9 @@ export const DOCUMENTS = [
 ] as const;
 
 /** The export format this Lingora writes; an import upgrades older ones and rejects newer ones (PRD 13). */
-export const EXPORT_FORMAT = 3;
+export const EXPORT_FORMAT = 4;
 
-/** Learner tables of export format 3; data/profile.json holds the account row without its identity. */
+/** Learner tables of export format 4; data/profile.json holds the account row without its identity. */
 export const DATA_TABLES = [
   'streaks',
   'fsrs_params',
@@ -167,13 +167,17 @@ export interface BadgeRow {
   awardedAt: string;
 }
 
-/** A row of data/streak_days.json (format 3): a day that counted for the streak (PRD F9). */
+/**
+ * A row of data/streak_days.json (since format 3): a day that counted for the streak (PRD F9). The
+ * lesson or (since format 4) the placement test whose completion met its goal, if one did.
+ */
 export interface StreakDayRow {
   id: string;
   day: string;
   kind: 'goal_met' | 'freeze';
   goalMinutes: number | null;
   sessionId: string | null;
+  placementTestId: string | null;
 }
 
 /** A row of data/srs_cards.json: the FSRS card of an item. */
@@ -274,11 +278,19 @@ function withoutColumn(entries: BackupEntries, table: DataTable, column: string)
 }
 
 /**
- * The export as a Lingora of M4 wrote it (format 2): without data/streak_days.json, new in format 3.
- * Format 2 could not hold the days of the streak, so an import of it restores none.
+ * The export as a Lingora of M5 wrote it (format 3): without the placement test that met the goal
+ * of a streak day, new in format 4. An import of it restores the days, met by no placement test.
+ */
+export function asFormat3(backup: BackupArchive): BackupEntries {
+  return withVersion(withoutColumn(entriesOf(backup), 'streak_days', 'placementTestId'), 3);
+}
+
+/**
+ * The export as a Lingora of M4 wrote it (format 2): format 3 without data/streak_days.json, new in
+ * format 3. Format 2 could not hold the days of the streak, so an import of it restores none.
  */
 export function asFormat2(backup: BackupArchive): BackupEntries {
-  return withVersion(withoutTable(entriesOf(backup), 'streak_days'), 2);
+  return withVersion(withoutTable(asFormat3(backup), 'streak_days'), 2);
 }
 
 /**

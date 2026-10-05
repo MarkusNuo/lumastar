@@ -67,6 +67,12 @@ again. It is the slowest test (about five minutes). Every other test leaves a le
 e.g. in a run past midnight. Its lesson is the first of a fresh instance and is composed the same in
 every run, so it also gives the screenshots of every exercise type and feedback sheet at both sizes.
 
+A finished placement test counts as practice time too, and the level reveal of a test that first meets
+the goal is followed by the same celebration. One day can only be met once, and the lesson above meets
+it, so `tests/placement` checks the `dailyGoal` and `streak` of the placement result against
+`GET /api/progress/today` and that the reveal leads straight to the plan (the frontend's unit tests
+cover the flame after the reveal).
+
 ## Platform tests
 
 `tests/platform` checks PRD 13: the web app manifest and the service worker of the production build

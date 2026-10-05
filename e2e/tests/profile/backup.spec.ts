@@ -5,6 +5,7 @@ import { fetchAuthStatus } from '../../support/auth.ts';
 import {
   asFormat1,
   asFormat2,
+  asFormat3,
   BackupArchive,
   countKey,
   DATA_TABLES,
@@ -85,7 +86,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
   await test.step('entries and manifest', () => {
     expect(backup.names().sort()).toEqual([...EXPECTED_ENTRIES].sort());
     const manifest = backup.manifest();
-    expect(manifest.schemaVersion, 'format 3 since M5').toBe(EXPORT_FORMAT);
+    expect(manifest.schemaVersion, 'format 4: a placement test may meet the daily goal').toBe(EXPORT_FORMAT);
     expect(manifest.exportedAt).toMatch(ISO_INSTANT);
     expect(typeof manifest.appVersion).toBe('string');
     expect(keysOf(manifest.counts)).toEqual(DATA_TABLES.map(countKey).sort());
@@ -244,15 +245,23 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     );
   });
 
-  await test.step('format 3: the days that counted for the streak', () => {
+  await test.step('since format 3: the days that counted for the streak, the completion that met each', () => {
     const sessionIds = new Set(backup.rows<SessionRow>('sessions').map((session) => session.id));
+    const placementIds = new Set(backup.rows<PlacementTestRow>('placement_tests').map((placement) => placement.id));
     for (const day of backup.rows<StreakDayRow>('streak_days')) {
       expect(day.day, `streak day ${day.id}`).toMatch(ISO_DATE);
       expect(['goal_met', 'freeze']).toContain(day.kind);
       expect(day.goalMinutes !== null, `${day.day}: only a met goal has its minutes`).toBe(
         day.kind === 'goal_met',
       );
+      expect(day.sessionId === null || day.placementTestId === null, `${day.day}: a lesson or a placement test`).toBe(
+        true,
+      );
       if (day.sessionId !== null) expect(sessionIds, `${day.day}: the lesson that met it`).toContain(day.sessionId);
+      if (day.placementTestId !== null) {
+        expect(day.kind, `${day.day}: a placement test only meets a goal`).toBe('goal_met');
+        expect(placementIds, `${day.day}: the placement test that met it (format 4)`).toContain(day.placementTestId);
+      }
     }
   });
 
@@ -383,13 +392,15 @@ test('importing the downloaded backup restores the same state and keeps the acco
 
 /**
  * Imports an older format made from the current export through the UI and checks that the import
- * upgrades it: the rows of the current format come back, the streak days (new in format 3) empty.
+ * upgrades it: the rows of the current format come back, the streak days as the older format held
+ * them (none before format 3, met by no placement test before format 4).
  */
 async function importUpgraded(
   page: Page,
   file: string,
   current: BackupArchive,
   schemaVersion: number,
+  streakDays: StreakDayRow[],
 ): Promise<void> {
   const manifest = current.manifest();
   const profile = new ProfilePage(page);
@@ -403,19 +414,33 @@ async function importUpgraded(
   expect(result, 'the version of the file, the rows of the current format').toEqual({
     schemaVersion,
     exportedAt: manifest.exportedAt,
-    imported: { ...manifest.counts, streakDays: 0 },
+    imported: { ...manifest.counts, streakDays: streakDays.length },
   });
   await expect(profile.toast(importedMessage(result))).toBeVisible();
 
   const upgraded = await fetchExport(page.request);
   expect(upgraded.manifest().schemaVersion, 'exported again in the current format').toBe(EXPORT_FORMAT);
-  expect(upgraded.rows<StreakDayRow>('streak_days'), 'older formats hold no streak days').toEqual([]);
+  expect(upgraded.rows<StreakDayRow>('streak_days'), `the streak days format ${schemaVersion} held`).toEqual(
+    streakDays,
+  );
   // Compared as JSON: an upgrader may write a JSONB number like 1.0 of a review state as 1.
   for (const name of current.names().filter((entry) => entry.startsWith('data/'))) {
     if (name === 'data/streak_days.json') continue;
     expect(upgraded.json(name), `${name} after the upgrade`).toEqual(current.json(name));
   }
 }
+
+test('a backup of export format 3 is upgraded on import and restores the same state (PRD 13)', async ({
+  page,
+}, testInfo) => {
+  // Format 3 holds everything but the placement test that met a day's goal, so any state will do.
+  // The days come back, met by the same lessons and by no placement test.
+  const current = await fetchExport(page.request);
+  const formatThree = testInfo.outputPath('lingora-export-format-3.zip');
+  await writeZip(formatThree, asFormat3(current));
+  const days = current.rows<StreakDayRow>('streak_days');
+  await importUpgraded(page, formatThree, current, 3, days.map((day) => ({ ...day, placementTestId: null })));
+});
 
 test('a backup of export format 2 is upgraded on import and restores the same state (PRD 13)', async ({
   page,
@@ -424,7 +449,7 @@ test('a backup of export format 2 is upgraded on import and restores the same st
   const current = await fetchExport(page.request);
   const formatTwo = testInfo.outputPath('lingora-export-format-2.zip');
   await writeZip(formatTwo, asFormat2(current));
-  await importUpgraded(page, formatTwo, current, 2);
+  await importUpgraded(page, formatTwo, current, 2, []);
 });
 
 test('a backup of export format 1 is upgraded on import and restores the same state (PRD 13)', async ({
@@ -441,7 +466,7 @@ test('a backup of export format 1 is upgraded on import and restores the same st
   ).toEqual([]);
   const formatOne = testInfo.outputPath('lingora-export-format-1.zip');
   await writeZip(formatOne, asFormat1(current));
-  await importUpgraded(page, formatOne, current, 1);
+  await importUpgraded(page, formatOne, current, 1, []);
 });
 
 test('an invalid backup is rejected with a German message and changes nothing', async ({

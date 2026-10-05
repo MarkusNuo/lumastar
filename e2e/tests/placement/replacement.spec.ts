@@ -5,6 +5,7 @@ import { PlacementIntroPage } from '../../pages/PlacementIntroPage.ts';
 import { PlacementTestScreen } from '../../pages/PlacementTestScreen.ts';
 import { PlanPage } from '../../pages/PlanPage.ts';
 import { ProfilePage } from '../../pages/ProfilePage.ts';
+import { StreakCelebration } from '../../pages/StreakCelebration.ts';
 import type { PlacementAnswerRow, PlacementTestRow } from '../../support/backup.ts';
 import { START_LEVEL } from '../../support/learner.ts';
 import {
@@ -27,6 +28,7 @@ import {
   type LearningPath,
 } from '../../support/planApi.ts';
 import { fetchExport } from '../../support/profileApi.ts';
+import { fetchTodayProgress } from '../../support/progressApi.ts';
 import { escapeRegExp } from '../../support/regex.ts';
 import { snap } from '../../support/screenshots.ts';
 
@@ -35,7 +37,10 @@ import { snap } from '../../support/screenshots.ts';
  * test answers every item wrong for sure (content/placement.json knows the solutions): the staircase
  * then walks down to A0 and ends there, so the level stays the same in every run, whichever items
  * the (seeded) engine picks. The plan is revised with the mastery proven in the lessons so far,
- * never by the placement alone, and the change shows up in the "Plan-Verlauf" (PRD F3).
+ * never by the placement alone, and the change shows up in the "Plan-Verlauf" (PRD F3). The finished
+ * test counts as practice time like a lesson (PRD F9): had it met today's goal first, the streak
+ * flame would follow the reveal. The daily-goal project has met it already in every run, so here the
+ * reveal leads straight to the plan.
  */
 
 /** PRD F2: a beginner lands on A0/A1.1 after 6 items at the latest. */
@@ -50,6 +55,7 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
   const changesBefore = await fetchPlanChanges(page.request);
   const pathBefore = await fetchPath(page.request);
   const unitBefore = currentUnit(pathBefore);
+  const progressBefore = await fetchTodayProgress(page.request);
   expect(planBefore.startLevel, 'the setup placed the learner at A0').toBe(START_LEVEL);
 
   await test.step('profile → "Neu einstufen"', async () => {
@@ -111,7 +117,7 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
   });
 
   const reveal = new LevelRevealPage(page);
-  await test.step('level reveal with the weaknesses', async () => {
+  const result = await test.step('level reveal with the weaknesses', async () => {
     const loaded = await resultLoaded;
     expect(loaded.status()).toBe(200);
     const result = (await loaded.json()) as PlacementResult;
@@ -147,10 +153,27 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
       buttonBox?.y ?? 0,
     );
     await snap(page, 'reveal-replacement-scrolled', { fullPage: false });
+    return result;
+  });
+
+  await test.step('the test counts towards the daily goal; only the first to meet it extends the streak', () => {
+    const { dailyGoal, streak } = result;
+    expect(dailyGoal.goalMinutes).toBe(progressBefore.goalMinutes);
+    expect(dailyGoal.minutesToday, 'the practice time of today, the test included').toBeGreaterThanOrEqual(
+      progressBefore.minutesToday,
+    );
+    expect(dailyGoal.goalMet).toBe(dailyGoal.minutesToday >= dailyGoal.goalMinutes);
+    expect(dailyGoal.justMet, 'the test met the goal of a day not extended yet').toBe(
+      dailyGoal.goalMet && !progressBefore.streak.extendedToday,
+    );
+    expect(streak.extendedToday).toBe(progressBefore.streak.extendedToday || dailyGoal.justMet);
+    if (!dailyGoal.justMet) expect(streak.current, 'the streak stays').toBe(progressBefore.streak.current);
   });
 
   await test.step('the revised plan and its new history entry', async () => {
     await reveal.continueButton.click();
+    // The streak flame follows the reveal only when the test met today's goal.
+    await new StreakCelebration(page).continueIfDue(result);
     const plan = new PlanPage(page);
     await plan.expectVisible();
     expect((await fetchPlan(page.request)).version, 'a new plan version').toBe(planBefore.version + 1);

@@ -4,7 +4,7 @@ import type { Response } from '@playwright/test';
 import { normalizeAnswer } from './answers.ts';
 import { WRONG_TEXT } from './lessonAnswers.ts';
 import { PATHS } from './env.ts';
-import type { ExerciseType, Lang } from './lessonApi.ts';
+import type { ExerciseType, Lang, LessonDailyGoal, LessonStreak } from './lessonApi.ts';
 
 /*
  * The placement test of PRD F2 as the e2e tests see it: the API responses the screens are built
@@ -57,6 +57,9 @@ export interface PlacementResult {
   strengths: SkillEstimate[];
   weaknesses: SkillEstimate[];
   competences: { competence: Competence; answered: number; correct: number }[];
+  /** A completed test counts as practice time like a lesson; a skipped one does not (PRD F9). */
+  dailyGoal: LessonDailyGoal;
+  streak: LessonStreak;
 }
 
 const pathOf = (response: Response) => new URL(response.url()).pathname;
