@@ -8,4 +8,7 @@ import java.time.Instant;
 public interface SpacedRepetitionScheduler {
 
     SrsCard review(SrsCard card, Rating rating, Instant now);
+
+    /** Stored with every review, e.g. {@code fsrs-6/java-fsrs-1.0.0}; a change calls for a replay of the review log. */
+    String version();
 }

@@ -27,6 +27,7 @@ springBoot {
 val springdocVersion = "3.1.1"
 val bouncyCastleVersion = "1.86"
 val archUnitVersion = "1.5.0"
+val fsrsVersion = "1.0.0"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
@@ -39,6 +40,7 @@ dependencies {
     implementation("org.flywaydb:flyway-database-postgresql")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocVersion")
     implementation("org.bouncycastle:bcprov-jdk18on:$bouncyCastleVersion")
+    implementation("io.github.open-spaced-repetition:fsrs:$fsrsVersion")
     runtimeOnly("org.postgresql:postgresql")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 

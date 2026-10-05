@@ -47,7 +47,6 @@ class XpCalculatorTest {
 
     @Test
     void theMedianOfAnEvenCountIsTheMeanOfTheMiddleValues() {
-        assertThat(XpCalculator.median(List.of(seconds(30), seconds(4), seconds(9), seconds(7)))).isEqualTo(seconds(8));
         assertThat(XpCalculator.calculate(List.of(wrong(seconds(4)), wrong(seconds(8)), wrong(seconds(9)), wrong(seconds(30))))
                 .speedBonus()).isZero();
     }

@@ -1,5 +1,6 @@
 package app.lingora.core.lesson;
 
+import app.lingora.core.Durations;
 import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
@@ -39,15 +40,7 @@ public final class XpCalculator {
             throw new IllegalArgumentException("a lesson has at least one exercise");
         }
         boolean perfect = firstAttempts.stream().allMatch(FirstAttempt::countsAsCorrect);
-        boolean fast = median(firstAttempts.stream().map(FirstAttempt::responseTime).toList()).compareTo(SPEED_LIMIT) <= 0;
+        boolean fast = Durations.median(firstAttempts.stream().map(FirstAttempt::responseTime).toList()).compareTo(SPEED_LIMIT) <= 0;
         return new LessonXp(BASE_XP, perfect ? PERFECT_BONUS : 0, fast ? SPEED_BONUS : 0);
-    }
-
-    static Duration median(List<Duration> durations) {
-        List<Duration> sorted = durations.stream().sorted().toList();
-        int middle = sorted.size() / 2;
-        return sorted.size() % 2 == 1
-                ? sorted.get(middle)
-                : sorted.get(middle - 1).plus(sorted.get(middle)).dividedBy(2);
     }
 }
