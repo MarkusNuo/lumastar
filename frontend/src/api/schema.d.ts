@@ -75,6 +75,46 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/badges": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * The level badges earned so far, in band order
+         * @description The schema LevelBadge lists every badge there is, so that the app can show the ones still to earn.
+         */
+        get: operations["getBadges"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/checkpoints": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Compose and start the checkpoint of a stage
+         * @description Up to 15 exercises from all units of the stage, harder ones first. It is played like any lesson (POST /api/lessons/{sessionId}/attempts, POST /api/lessons/{sessionId}/complete); the result tells whether it is passed (accuracy at least 80 %), the new level and the level badges earned.
+         */
+        post: operations["startCheckpoint"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/content/standard-forms": {
         parameters: {
             query?: never;
@@ -560,9 +600,30 @@ export interface components {
             /** Format: int32 */
             streaks: number;
         };
+        /** @description A level badge (PRD F9), earned by the checkpoint that completes a CEFR band */
+        BadgeResponse: {
+            /** Format: date-time */
+            awardedAt: string;
+            code: components["schemas"]["LevelBadge"];
+        };
         Checkpoint: {
-            /** @description locked until checkpoints arrive (M4) */
+            /** @description available once every unit of the stage that has exercises is completed or skipped; start it with POST /api/checkpoints */
             status: components["schemas"]["CheckpointStatus"];
+        };
+        /** @description A checkpoint passed with the required accuracy moves the learner up (PRD chapter 5); a failed one stays available */
+        CheckpointResult: {
+            /** @description Level badges awarded by this checkpoint (PRD F9), e.g. A1 for passing A1.3 */
+            badges: components["schemas"]["LevelBadge"][];
+            /** @description The stage of the checkpoint */
+            level: components["schemas"]["Level"];
+            /** @description The learner's level after a pass; absent after a failure */
+            newLevel?: components["schemas"]["Level"];
+            passed: boolean;
+            /**
+             * Format: double
+             * @example 0.8
+             */
+            requiredAccuracy: number;
         };
         /** @enum {string} */
         CheckpointStatus: "locked" | "available" | "passed";
@@ -702,7 +763,7 @@ export interface components {
             kind: components["schemas"]["LessonKind"];
             /** Format: uuid */
             sessionId: string;
-            /** @description The unit or focus unit played; review for a review lesson */
+            /** @description The unit or focus unit played; review for a review lesson, checkpoint_<level> (e.g. checkpoint_A1.2) for a checkpoint */
             unitId: string;
         };
         /** @description Result of a finished lesson; completing it again returns the same result */
@@ -712,6 +773,8 @@ export interface components {
              * @description Share of exercises answered correctly at the first attempt, 0 to 1
              */
             accuracy: number;
+            /** @description The result of a checkpoint; absent for other lessons */
+            checkpoint?: components["schemas"]["CheckpointResult"];
             /**
              * Format: int32
              * @description Exercises answered correctly at the first attempt
@@ -745,6 +808,8 @@ export interface components {
         };
         /** @enum {string} */
         Level: "A0" | "A1.1" | "A1.2" | "A1.3" | "A2.1" | "A2.2" | "A2.3" | "B1.1" | "B1.2" | "B1.3" | "B2.1" | "B2.2" | "B2.3" | "C1.1" | "C1.2" | "C1.3" | "C2.1" | "C2.2" | "C2.3";
+        /** @enum {string} */
+        LevelBadge: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
         LoginRequest: {
             password: string;
         };
@@ -1070,6 +1135,10 @@ export interface components {
              */
             pattern: string;
         };
+        StartCheckpointRequest: {
+            /** @description The stage whose checkpoint to take, as listed by GET /api/path */
+            level: components["schemas"]["Level"];
+        };
         StartLessonRequest: {
             /**
              * @description A curriculum unit or a focus unit of the current plan, as listed by GET /api/path
@@ -1293,6 +1362,104 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuthStatusResponse"];
+                };
+            };
+        };
+    };
+    getBadges: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The earned badges; empty before the first one */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BadgeResponse"][];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    startCheckpoint: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StartCheckpointRequest"];
+            };
+        };
+        responses: {
+            /** @description The checkpoint (kind checkpoint) */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LessonResponse"];
+                };
+            };
+            /** @description Invalid request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description The plan has no such stage (code checkpoint_not_found) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Units of the stage are still to do, or it is passed already (codes checkpoint_locked, checkpoint_passed) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
         };
