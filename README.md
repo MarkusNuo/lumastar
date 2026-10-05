@@ -14,7 +14,12 @@ cd backend && ./gradlew bootRun         # API on http://localhost:8080 (Windows:
 cd frontend && npm install && npm run dev   # app on http://localhost:5173
 ```
 
+On this Windows machine the JDK cannot open its loopback socket in the default temp folder; run Gradle
+with a project-local temp dir (PowerShell: `$env:TEMP=$env:TMP='C:\dev\lingora\.tmp'`).
+
 Open http://localhost:5173, create your account (first start only) and start learning.
+The production build (`npm run build`) is an installable PWA; hosting it behind a TLS reverse proxy
+is not part of M0–M6 (see `QUESTIONS.md`).
 The content in `/content` is imported into the database on every backend start.
 
 A throwaway demo without the compose database: `cd backend && ./gradlew bootTestRun`
