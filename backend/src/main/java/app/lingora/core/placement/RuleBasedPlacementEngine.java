@@ -21,10 +21,9 @@ import java.util.stream.Collectors;
  * Phase 1 placement test (PRD F2): the {@link Staircase} over the 19 stages with at most {@value #MAX_ITEMS} items.
  * <p>
  * Item selection: an unused item of the current stage whose competence follows the competence of the previous item
- * in the rotation vocabulary → grammar → translation → reading, skipping competences without an unused item there
- * (the bank has reading items from A2.1). If the current stage is used up, the nearest stage with unused items is
- * taken, the lower one on a tie. The injected random generator picks among equal candidates. The test also ends when
- * the whole bank is used up.
+ * in the rotation vocabulary → grammar → translation → reading, skipping competences without an unused item there.
+ * If the current stage is used up, the nearest stage with unused items is taken, the lower one on a tie. The injected
+ * random generator picks among equal candidates. The test also ends when the whole bank is used up.
  */
 public final class RuleBasedPlacementEngine implements PlacementEngine {
 
