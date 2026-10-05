@@ -6,7 +6,7 @@ package app.lingora.export;
  */
 public final class ExportFormat {
 
-    public static final int SCHEMA_VERSION = 1;
+    public static final int SCHEMA_VERSION = 2;
 
     static final String MANIFEST = "manifest.json";
     static final String DOCUMENTS = "documents/";

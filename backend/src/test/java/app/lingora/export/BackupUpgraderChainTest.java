@@ -19,9 +19,9 @@ class BackupUpgraderChainTest {
 
     @Test
     void passesAnExportOfTheCurrentVersionThroughUnchanged() {
-        BackupUpgraderChain chain = new BackupUpgraderChain(ExportFormat.SCHEMA_VERSION, List.of());
+        BackupUpgraderChain chain = new BackupUpgraderChain(ExportFormat.SCHEMA_VERSION, List.of(new ExportV1Upgrader()));
 
-        assertThat(chain.upgrade(1, VERSION_1_FILES)).isSameAs(VERSION_1_FILES);
+        assertThat(chain.upgrade(ExportFormat.SCHEMA_VERSION, VERSION_1_FILES)).isSameAs(VERSION_1_FILES);
     }
 
     @Test
@@ -39,7 +39,7 @@ class BackupUpgraderChainTest {
 
     @Test
     void rejectsAnExportOfANewerOrAnUnknownVersion() {
-        BackupUpgraderChain chain = new BackupUpgraderChain(ExportFormat.SCHEMA_VERSION, List.of());
+        BackupUpgraderChain chain = new BackupUpgraderChain(ExportFormat.SCHEMA_VERSION, List.of(new ExportV1Upgrader()));
 
         assertThatThrownBy(() -> chain.upgrade(ExportFormat.SCHEMA_VERSION + 1, VERSION_1_FILES))
                 .isInstanceOfSatisfying(BackupRejectedException.class,

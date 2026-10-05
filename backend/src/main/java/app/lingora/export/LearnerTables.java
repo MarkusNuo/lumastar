@@ -37,7 +37,9 @@ final class LearnerTables {
                     Map.of("unit_id", ContentKind.UNIT, "exercise_ids", ContentKind.EXERCISE), Map.of(),
                     "id", "kind", "unit_id", "level", "focus_skill_tags", "composed_by", "exercise_ids", "started_at",
                     "finished_at", "exercise_count", "correct_count", "accuracy", "xp_earned", "xp_base", "xp_perfect_bonus",
-                    "xp_speed_bonus"),
+                    "xp_speed_bonus", "checkpoint_passed"),
+            table("badges", "code", Map.of(), Map.of("session_id", "sessions"),
+                    "id", "code", "session_id", "awarded_at"),
             table("attempts", "answered_at, session_id, position", Map.of("exercise_id", ContentKind.EXERCISE),
                     Map.of("session_id", "sessions"),
                     "id", "session_id", "position", "exercise_id", "exercise_type", "skill_tags", "is_retry", "answer",
@@ -50,7 +52,7 @@ final class LearnerTables {
             table("review_log", "reviewed_at, id", Map.of("item_id", ContentKind.ITEM),
                     Map.of("card_id", "srs_cards", "attempt_id", "attempts", "fsrs_params_id", "fsrs_params"),
                     "id", "card_id", "item_id", "attempt_id", "rating", "reviewed_at", "response_ms", "state_before",
-                    "state_after", "scheduler_version", "fsrs_params_id"));
+                    "state_after", "scheduler_version", "fsrs_params_id", "request_retention"));
 
     private LearnerTables() {
     }

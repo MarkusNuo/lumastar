@@ -47,12 +47,15 @@ class StoredExportImportTest extends IntegrationTest {
 
         assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(1);
         assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
-                Map.entry("streaks", 1), Map.entry("fsrsParams", 1), Map.entry("learningPlans", 1), Map.entry("planChanges", 1),
-                Map.entry("placementTests", 1), Map.entry("placementAnswers", 1), Map.entry("sessions", 1),
-                Map.entry("attempts", 6), Map.entry("skillMastery", 2), Map.entry("srsCards", 1), Map.entry("reviewLog", 1)));
-        assertThat(jdbc.sql("SELECT display_name || '|' || current_level || '|' || xp_total FROM users").query(String.class).single())
-                .isEqualTo("Erza|A1.2|15");
-        assertThat(jdbc.sql("SELECT unit_id FROM sessions").query(String.class).single()).isEqualTo("a1_u01_greetings");
+                Map.entry("streaks", 1), Map.entry("fsrsParams", 1), Map.entry("learningPlans", 1),
+                Map.entry("planChanges", 1), Map.entry("placementTests", 1), Map.entry("placementAnswers", 1),
+                Map.entry("sessions", 1), Map.entry("badges", 0), Map.entry("attempts", 6), Map.entry("skillMastery", 2),
+                Map.entry("srsCards", 1), Map.entry("reviewLog", 1)));
+        assertThat(jdbc.sql("SELECT display_name || '|' || current_level || '|' || xp_total FROM users")
+                .query(String.class).single()).isEqualTo("Erza|A1.2|15");
+        assertThat(jdbc.sql("SELECT unit_id || '|' || (checkpoint_passed IS NULL) FROM sessions").query(String.class).single())
+                .isEqualTo("a1_u01_greetings|true");
+        assertThat(jdbc.sql("SELECT request_retention FROM review_log").query(Double.class).single()).isEqualTo(0.9);
         assertThat(learner.get("/api/profile/export")).hasStatusOk();
     }
 

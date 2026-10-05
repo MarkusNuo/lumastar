@@ -41,7 +41,7 @@ class ProfileExportApiTest extends IntegrationTest {
     private static final JsonMapper JSON = JsonMapper.builder().build();
     private static final List<String> DATA_FILES = List.of("data/profile.json", "data/streaks.json", "data/fsrs_params.json",
             "data/learning_plans.json", "data/plan_changes.json", "data/placement_tests.json", "data/placement_answers.json",
-            "data/sessions.json", "data/attempts.json", "data/skill_mastery.json", "data/srs_cards.json",
+            "data/sessions.json", "data/badges.json", "data/attempts.json", "data/skill_mastery.json", "data/srs_cards.json",
             "data/review_log.json");
     private static final Map<String, String> CORRECT_GREETINGS_ANSWERS = Map.of(
             "ex_a1_u01_001", """
@@ -97,12 +97,13 @@ class ProfileExportApiTest extends IntegrationTest {
         void describesTheContentInTheManifest() {
             JsonNode manifest = JSON.readTree(entries(export()).get("manifest.json"));
 
-            assertThat(manifest.get("schemaVersion").asInt()).isEqualTo(1);
+            assertThat(manifest.get("schemaVersion").asInt()).isEqualTo(2);
             assertThat(manifest.get("appVersion").asString()).isEqualTo("0.1.0-SNAPSHOT");
             assertThat(manifest.get("exportedAt").asString()).endsWith("Z");
             assertThat(manifest.get("counts")).isEqualTo(JSON.readTree("""
                     {"streaks": 1, "fsrsParams": 1, "learningPlans": 1, "planChanges": 1, "placementTests": 1,
-                     "placementAnswers": 1, "sessions": 1, "attempts": 6, "skillMastery": 2, "srsCards": 1, "reviewLog": 1}"""));
+                     "placementAnswers": 1, "sessions": 1, "badges": 0, "attempts": 6, "skillMastery": 2, "srsCards": 1,
+                     "reviewLog": 1}"""));
         }
 
         @Test
@@ -143,7 +144,7 @@ class ProfileExportApiTest extends IntegrationTest {
             Map<String, String> before = entries(first);
             JsonNode manifest = JSON.readTree(before.get("manifest.json"));
             assertThat(imported).bodyJson().isStrictlyEqualTo("""
-                    {"schemaVersion": 1, "exportedAt": "%s", "imported": %s}"""
+                    {"schemaVersion": 2, "exportedAt": "%s", "imported": %s}"""
                     .formatted(manifest.get("exportedAt").asString(), manifest.get("counts")));
             Map<String, String> after = entries(second);
             assertThat(withoutManifest(after)).isEqualTo(withoutManifest(before));
@@ -209,12 +210,12 @@ class ProfileExportApiTest extends IntegrationTest {
         @Test
         void rejectsAnExportOfANewerVersion() {
             byte[] future = ZipFiles.zip(Map.of("manifest.json", """
-                    {"schemaVersion": 2, "exportedAt": "2027-01-01T00:00:00Z"}"""));
+                    {"schemaVersion": 3, "exportedAt": "2027-01-01T00:00:00Z"}"""));
 
             MvcTestResult rejected = learner.upload(IMPORT, "file", future);
 
             assertProblem(rejected, HttpStatus.UNPROCESSABLE_CONTENT, "unsupported_schema_version");
-            assertThat(rejected).bodyJson().extractingPath("$.detail").asString().contains("version 2");
+            assertThat(rejected).bodyJson().extractingPath("$.detail").asString().contains("version 3");
         }
 
         @Test
@@ -369,9 +370,9 @@ class ProfileExportApiTest extends IntegrationTest {
                 RETURNING id""").param("user", learnerId).query(UUID.class).single();
         jdbc.sql("""
                 INSERT INTO review_log (user_id, card_id, item_id, attempt_id, rating, reviewed_at, response_ms, state_before,
-                                        state_after, scheduler_version, fsrs_params_id)
+                                        state_after, scheduler_version, fsrs_params_id, request_retention)
                 SELECT :user, :card, 'item_miredita', id, 'good', answered_at, response_ms, '{"state": "new"}',
-                       '{"state": "review", "stability": 3.173}', 'fsrs-6', :params
+                       '{"state": "review", "stability": 3.173}', 'fsrs-6', :params, 0.9
                 FROM attempts WHERE exercise_id = 'ex_a1_u01_001'""")
                 .param("user", learnerId).param("card", card).param("params", params).update();
     }

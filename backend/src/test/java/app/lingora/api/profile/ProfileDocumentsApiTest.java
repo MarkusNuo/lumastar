@@ -58,7 +58,7 @@ class ProfileDocumentsApiTest extends IntegrationTest {
     @Test
     void theLearnerProfileOfANewAccount() {
         assertThat(learner.get(DOCUMENTS + "learner_profile.json")).bodyJson().isStrictlyEqualTo("""
-                {"schemaVersion": 1, "displayName": "Erza", "variety": "gheg-kosovo", "motivation": [],
+                {"schemaVersion": 2, "displayName": "Erza", "variety": "gheg-kosovo", "motivation": [],
                  "dailyGoalMinutes": 10, "currentLevel": null, "targetLevel": "C2", "xpTotal": 0,
                  "streak": {"current": 0, "longest": 0}}""");
     }

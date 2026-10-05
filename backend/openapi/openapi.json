@@ -109,6 +109,11 @@
             "format": "int32",
             "type": "integer"
           },
+          "badges": {
+            "description": "Level badges",
+            "format": "int32",
+            "type": "integer"
+          },
           "fsrsParams": {
             "format": "int32",
             "type": "integer"
@@ -153,6 +158,7 @@
         },
         "required": [
           "attempts",
+          "badges",
           "fsrsParams",
           "learningPlans",
           "placementAnswers",
