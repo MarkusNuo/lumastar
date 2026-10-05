@@ -143,13 +143,15 @@ Shared by the backend evaluator, the frontend pre-check and the content validato
    diacritic, e.g. *jâm* for *jam*, is not "almost correct").
 5. Word-bank and word-order tokens: split the sentence on whitespace, strip surrounding punctuation from each
    token, compare case-insensitively.
-6. Tolerance (diacritic folding, typo distance) applies to **typed** answers only (`translate_free`, `fill_gap`
+6. Typo distance (Damerau-Levenshtein ≤ 1 for solutions with ≥ 6 letters, ≤ 2 for ≥ 16) is computed so that a
+   missing diacritic costs 0 and an added or wrong one costs 1.
+7. Tolerance (diacritic folding, typo distance) applies to **typed** answers only (`translate_free`, `fill_gap`
    without choices). Answers built from tiles or choices (`translate_wordbank`, `word_order`, `multiple_choice`,
    `fill_gap` with choices, `match_pairs`) are exact: correct, or wrong (same tokens in another order →
    `grammar.word_order`).
-7. The Standard-form lexicon (`content/gheg_blocklist.json`) is applied identically in backend and frontend;
+8. The Standard-form lexicon (`content/gheg_blocklist.json`) is applied identically in backend and frontend;
    the backend serves it to the frontend, and lesson exercise views include `errorHints`.
-8. `match_pairs` answers report the wrong matches (`[{ left, right }]`); the backend derives the mistake count
+9. `match_pairs` answers report the wrong matches (`[{ left, right }]`); the backend derives the mistake count
    and the confused items from them.
 
 Shared evaluator test cases live in `content/fixtures/evaluator-cases.json` and are run by the backend and
