@@ -1,23 +1,16 @@
-import { ArrowLeftIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 import { isApiError } from '../../api/ApiError';
 import { FocusScreen } from '../../components/ui/FocusScreen';
-import { IconButton } from '../../components/ui/IconButton';
-import { ProgressBar } from '../../components/ui/ProgressBar';
 import { celebrate } from '../../lib/celebrate';
 import { useSetupAccount } from '../auth/authHooks';
 import { SETUP_COPY } from './copy';
+import { ACCOUNT_STEPS } from './onboardingSteps';
 import { normalizeDisplayName } from './setupRules';
+import { StepHeader } from './StepHeader';
 import { NameStep } from './steps/NameStep';
 import { PasswordStep } from './steps/PasswordStep';
 import { WelcomeStep } from './steps/WelcomeStep';
 import { useStepFlow } from './useStepFlow';
-
-/*
- * First start (PRD F1). This milestone only creates the account; motivation, daily goal and
- * self-assessment (M3) are appended to SETUP_STEPS and rendered below like the other steps.
- */
-const SETUP_STEPS = ['welcome', 'name', 'password'] as const;
 
 function failureMessage(error: Error | null): string | undefined {
   if (!error) return undefined;
@@ -26,8 +19,12 @@ function failureMessage(error: Error | null): string | undefined {
   return SETUP_COPY.failure.failed;
 }
 
+/**
+ * First start, part one (PRD F1): the account. Once it exists the learner is signed in and the
+ * onboarding guard continues with the questions on /onboarding.
+ */
 export function SetupPage() {
-  const flow = useStepFlow(SETUP_STEPS);
+  const flow = useStepFlow(ACCOUNT_STEPS);
   const setupAccount = useSetupAccount();
   const [displayName, setDisplayName] = useState('');
 
@@ -43,21 +40,7 @@ export function SetupPage() {
   return (
     <FocusScreen
       header={
-        <>
-          <IconButton
-            icon={ArrowLeftIcon}
-            label={SETUP_COPY.back}
-            variant="ghost"
-            disabled={setupAccount.isPending}
-            onClick={flow.back}
-          />
-          <ProgressBar
-            label={SETUP_COPY.progressLabel}
-            value={flow.index}
-            max={flow.count}
-            valueText={SETUP_COPY.progressValue(flow.index, flow.count - 1)}
-          />
-        </>
+        <StepHeader step={flow.step} onBack={flow.back} backDisabled={setupAccount.isPending} />
       }
     >
       {flow.step === 'name' && (

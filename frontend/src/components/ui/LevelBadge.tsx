@@ -8,14 +8,25 @@ export interface LevelBadgeProps {
   level: CefrLevel;
   /** Sub-stage within the level (A1.1-A1.3), shown as pips from size md. */
   sublevel?: LevelSublevel;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   /** Not yet reached: rendered grey. */
   locked?: boolean;
   className?: string;
 }
 
-const sizeClass = { sm: 'w-8', md: 'w-12', lg: 'w-18' } as const;
-const textClass = { sm: 'text-micro', md: 'text-label', lg: 'text-title' } as const;
+const sizeClass = { sm: 'w-8', md: 'w-12', lg: 'w-18', xl: 'w-36' } as const;
+const textClass = {
+  sm: 'text-micro',
+  md: 'text-label',
+  lg: 'text-title',
+  xl: 'text-display',
+} as const;
+const pipClass = {
+  sm: '',
+  md: 'mt-1 gap-0.5 *:size-1.5',
+  lg: 'mt-1 gap-0.5 *:size-1.5',
+  xl: 'mt-2 gap-1.5 *:size-3',
+} as const;
 const SUBLEVELS: readonly LevelSublevel[] = [1, 2, 3];
 
 // Pointy-top hexagon; the edge copy sits 4 units lower to create the 3D base.
@@ -61,11 +72,11 @@ export function LevelBadge({
       >
         <span className={cx('leading-none font-black', textClass[size])}>{level}</span>
         {showPips && (
-          <span className="mt-1 flex gap-0.5">
+          <span className={cx('flex', pipClass[size])}>
             {SUBLEVELS.map((pip) => (
               <span
                 key={pip}
-                className={cx('size-1.5 rounded-full bg-tone-on', pip > sublevel && 'opacity-30')}
+                className={cx('rounded-full bg-tone-on', pip > sublevel && 'opacity-30')}
               />
             ))}
           </span>

@@ -1,13 +1,14 @@
 import { XIcon } from '@phosphor-icons/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ConfirmDialog } from '../../components/ui/ConfirmDialog';
 import { FocusScreen } from '../../components/ui/FocusScreen';
 import { IconButton } from '../../components/ui/IconButton';
 import { ProgressBar } from '../../components/ui/ProgressBar';
+import { WaitingScreen } from '../../components/ui/WaitingScreen';
+import { useEscapeKey } from '../../lib/useEscapeKey';
 import { LESSON_COPY } from './copy';
 import { ExerciseScreen } from './ExerciseScreen';
 import { seedFrom } from './exercises/shuffle';
-import { LessonStatusScreen } from './LessonStatusScreen';
 import type { Lesson, LessonResult } from './model';
 import { LessonResultScreen } from './result/LessonResultScreen';
 import { useLessonSession } from './session/useLessonSession';
@@ -25,14 +26,7 @@ export function LessonPlayer({ lesson, onQuit, onFinish }: LessonPlayerProps) {
   const { completion, entry, progress } = session;
   const playing = completion.status === 'playing' && entry !== undefined;
 
-  useEffect(() => {
-    if (!playing || quitOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setQuitOpen(true);
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [playing, quitOpen]);
+  useEscapeKey(playing && !quitOpen, () => setQuitOpen(true));
 
   if (completion.status === 'finished') {
     return (
@@ -44,7 +38,7 @@ export function LessonPlayer({ lesson, onQuit, onFinish }: LessonPlayerProps) {
       />
     );
   }
-  if (!playing) return <LessonStatusScreen label={LESSON_COPY.saving} />;
+  if (!playing) return <WaitingScreen label={LESSON_COPY.saving} />;
 
   return (
     <FocusScreen

@@ -1,10 +1,9 @@
-import { motion } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../../components/ui/Button';
 import { FeedbackSheet, type FeedbackVariant } from '../../components/ui/FeedbackSheet';
 import { ScreenFooter } from '../../components/ui/FocusScreen';
-import { springs } from '../../styles/motion';
 import { LESSON_COPY } from './copy';
+import { ExerciseStage } from './ExerciseStage';
 import { needsCheckButton } from './exercises/exerciseProps';
 import { ExerciseView } from './exercises/ExerciseView';
 import type { Answer, LessonExercise, Outcome, Verdict } from './model';
@@ -47,7 +46,6 @@ export function ExerciseScreen({
 }: ExerciseScreenProps) {
   const { exercise, verdict, retry } = entry;
   const [answer, setAnswer] = useState<Answer | null>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
 
   const check = () => {
     if (answer && !verdict) onCheck(answer);
@@ -63,26 +61,9 @@ export function ExerciseScreen({
     return true;
   });
 
-  // Screen readers start at the new task, unless the exercise put the cursor into its input.
-  useEffect(() => {
-    const active = document.activeElement;
-    if (active && active !== document.body && contentRef.current?.contains(active)) return;
-    contentRef.current
-      ?.querySelector<HTMLElement>('[data-exercise-title]')
-      ?.focus({ preventScroll: true });
-  }, []);
-
   return (
     <>
-      <motion.div
-        ref={contentRef}
-        data-exercise-id={exercise.id}
-        data-exercise-type={exercise.type}
-        initial={{ opacity: 0, x: 32 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={springs.snappy}
-        className="flex-1 pt-2 pb-8"
-      >
+      <ExerciseStage exercise={exercise}>
         <ExerciseView
           exercise={exercise}
           retry={retry}
@@ -91,7 +72,7 @@ export function ExerciseScreen({
           onSubmit={onCheck}
           shuffleSeed={shuffleSeed}
         />
-      </motion.div>
+      </ExerciseStage>
       {needsCheckButton(exercise) && (
         <ScreenFooter>
           <Button

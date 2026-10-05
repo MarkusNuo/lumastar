@@ -11,6 +11,10 @@ export interface ExercisePrompt {
   text: string;
 }
 
+/**
+ * The lesson player's exercises. Placement items use the same shapes with empty `solutions` and
+ * `explanation`, because the placement test gives no feedback.
+ */
 interface ExerciseBase {
   id: string;
   prompt: ExercisePrompt;

@@ -1,14 +1,14 @@
 import { motion } from 'motion/react';
-import { FocusScreen } from '../../components/ui/FocusScreen';
-import { LoadingDots } from '../../components/ui/LoadingDots';
-import { Mascot } from '../../components/ui/Mascot';
 import { durations } from '../../styles/motion';
+import { FocusScreen } from './FocusScreen';
+import { LoadingDots } from './LoadingDots';
+import { Mascot } from './Mascot';
 
 /**
- * Waiting before or after a lesson. It fades in after a moment, so a fast answer switches straight
- * to the next screen instead of flashing this one.
+ * Full-screen wait, e.g. before or after a lesson. It fades in after a moment, so a fast answer
+ * switches straight to the next screen instead of flashing this one.
  */
-export function LessonStatusScreen({ label }: { label: string }) {
+export function WaitingScreen({ label }: { label: string }) {
   return (
     <FocusScreen className="items-center justify-center">
       <div role="status" className="flex flex-col items-center gap-4 text-primary-soft">

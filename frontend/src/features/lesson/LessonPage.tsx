@@ -1,15 +1,13 @@
-import { ArrowClockwiseIcon } from '@phosphor-icons/react';
 import { queryOptions, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router';
 import { isApiError } from '../../api/ApiError';
-import { Button } from '../../components/ui/Button';
-import { FocusScreen } from '../../components/ui/FocusScreen';
-import { Mascot } from '../../components/ui/Mascot';
+import { FailureScreen } from '../../components/ui/FailureScreen';
+import { WaitingScreen } from '../../components/ui/WaitingScreen';
 import { meQuery } from '../auth/authHooks';
+import { PLAN_QUERY_KEY } from '../plan/planQueries';
 import { LESSON_COPY } from './copy';
 import { startLesson } from './lessonApi';
 import { LessonPlayer } from './LessonPlayer';
-import { LessonStatusScreen } from './LessonStatusScreen';
 
 const copy = LESSON_COPY.failure;
 
@@ -44,48 +42,29 @@ export function LessonPage() {
         lesson={lesson.data}
         onQuit={backToPath}
         onFinish={() => {
-          // The top bar shows the new XP total.
+          // The top bar shows the new XP total, the path the completed lesson.
           void queryClient.invalidateQueries({ queryKey: meQuery.queryKey });
+          void queryClient.invalidateQueries({ queryKey: PLAN_QUERY_KEY });
           backToPath();
         }}
       />
     );
   }
 
-  if (!lesson.isError) return <LessonStatusScreen label={LESSON_COPY.loading} />;
+  if (!lesson.isError) return <WaitingScreen label={LESSON_COPY.loading} />;
 
   const retryable = !isApiError(lesson.error) || lesson.error.isTransient;
   return (
-    <FocusScreen
-      className="items-center justify-center gap-4 text-center"
-      footer={
-        <div className="flex flex-col gap-3">
-          {retryable && (
-            <Button
-              variant="primary"
-              size="lg"
-              fullWidth
-              icon={ArrowClockwiseIcon}
-              loading={lesson.isFetching}
-              onClick={() => void lesson.refetch()}
-            >
-              {copy.retry}
-            </Button>
-          )}
-          <Button
-            variant={retryable ? 'ghost' : 'primary'}
-            size="lg"
-            fullWidth
-            onClick={backToPath}
-          >
-            {copy.back}
-          </Button>
-        </div>
+    <FailureScreen
+      title={copy.title}
+      text={failureText(lesson.error)}
+      retry={
+        retryable
+          ? { label: copy.retry, onRetry: () => void lesson.refetch(), retrying: lesson.isFetching }
+          : undefined
       }
-    >
-      <Mascot expression="sad" size="xl" />
-      <h1 className="text-headline font-black">{copy.title}</h1>
-      <p className="max-w-xs text-body text-fg-muted">{failureText(lesson.error)}</p>
-    </FocusScreen>
+      backLabel={copy.back}
+      onBack={backToPath}
+    />
   );
 }

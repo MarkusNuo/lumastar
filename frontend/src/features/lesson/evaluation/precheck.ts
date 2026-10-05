@@ -59,6 +59,8 @@ export function precheck(exercise: LessonExercise, answer: Answer): Verdict {
 }
 
 function evaluate(exercise: LessonExercise, answer: Answer): Evaluation {
+  // Placement items come without solutions, so nothing can match.
+  if ('solutions' in exercise && exercise.solutions.length === 0) return { outcome: 'wrong' };
   switch (exercise.type) {
     case 'multiple_choice':
       return checkChoice(exercise.solutions, expect(answer, 'choice').choice);

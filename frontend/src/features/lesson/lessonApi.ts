@@ -123,7 +123,7 @@ export function toExercise(response: LessonExerciseResponse): LessonExercise {
   }
 }
 
-function toSubmittedAnswer(answer: Answer): SubmittedAnswer {
+export function toSubmittedAnswer(answer: Answer): SubmittedAnswer {
   switch (answer.kind) {
     case 'choice':
       return { choice: answer.choice };
