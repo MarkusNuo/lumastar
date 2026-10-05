@@ -62,14 +62,10 @@ describe('UnitPath', () => {
   });
 
   it('shows a focus unit with its reason and starts it by its focus id', async () => {
-    const focus = unit('focus_grammar_definite_article');
-    const router = renderUnit({
-      ...focus,
-      nodes: [{ id: 'focus-0', kind: 'focus', status: 'current', label: 'Fokus-Lektion 1' }],
-    });
+    const router = renderUnit(unit('focus_grammar_definite_article'));
 
     expect(screen.getByText('Fehlerquote 45 % bei Bestimmter Artikel')).toBeInTheDocument();
-    await userEvent.click(screen.getByRole('button', { name: 'Fokus-Lektion 1, als Nächstes' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Fokus-Lektion 1, verfügbar' }));
 
     expect(router.state.location.pathname).toBe('/lesson/focus_grammar_definite_article');
   });

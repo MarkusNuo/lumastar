@@ -1,11 +1,11 @@
-import type { ErrorCategory } from '../../api/types';
+import type { CheckpointResult, ErrorCategory, FocusSuggestion, LessonKind } from '../../api/types';
 
 /*
  * View model of the lesson player. Screens and logic only depend on these types; lessonApi.ts maps
  * the generated API types onto them, so a contract change stays in that one file.
  */
 
-export type { ErrorCategory };
+export type { CheckpointResult, ErrorCategory, FocusSuggestion, LessonKind };
 
 /** "sq" is Gheg (the app never teaches Standard Albanian), "de" German. */
 export type Lang = 'sq' | 'de';
@@ -105,7 +105,9 @@ export const GAP_MARKER = '___';
 
 export interface Lesson {
   sessionId: string;
+  /** The unit or focus unit played; "review" or "checkpoint_<level>" for those kinds. */
   unitId: string;
+  kind: LessonKind;
   exercises: LessonExercise[];
 }
 
@@ -154,6 +156,7 @@ export interface XpBreakdown {
 }
 
 export interface LessonResult {
+  kind: LessonKind;
   /** Absent when the result could not be saved and was computed on the device. */
   xp?: { earned: number; breakdown: XpBreakdown; total: number };
   /** Share of exercises answered correctly at the first attempt, 0 to 1. */
@@ -163,4 +166,8 @@ export interface LessonResult {
   durationMs: number;
   learnedItems: LearnedItem[];
   saved: boolean;
+  /** A focus lesson on a skill tag answered wrongly three times or more (PRD F7). */
+  focusSuggestion?: FocusSuggestion;
+  /** Passed or not, the new level and the badges earned; only for a saved checkpoint. */
+  checkpoint?: CheckpointResult;
 }

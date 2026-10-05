@@ -24,9 +24,17 @@ export interface LessonPlayerProps {
   /** Leaving before the end; the lesson's progress is lost. */
   onQuit: () => void;
   onFinish: (result: LessonResult) => void;
+  /** Starts the focus lesson the result suggests. */
+  onStartFocus: (unitId: string) => void;
 }
 
-export function LessonPlayer({ lesson, lexicon, onQuit, onFinish }: LessonPlayerProps) {
+export function LessonPlayer({
+  lesson,
+  lexicon,
+  onQuit,
+  onFinish,
+  onStartFocus,
+}: LessonPlayerProps) {
   const session = useLessonSession(lesson, lexicon);
   const [quitOpen, setQuitOpen] = useState(false);
   const { completion, entry, progress, streak } = session;
@@ -42,6 +50,7 @@ export function LessonPlayer({ lesson, lexicon, onQuit, onFinish }: LessonPlayer
       <LessonResultScreen
         result={completion.result}
         onContinue={() => onFinish(completion.result)}
+        onStartFocus={onStartFocus}
         onRetrySave={completion.retrySave}
         retrying={completion.retrying}
       />

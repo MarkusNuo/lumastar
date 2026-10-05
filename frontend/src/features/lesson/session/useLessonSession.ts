@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   useCallback,
   useEffect,
@@ -13,6 +13,7 @@ import { precheck } from '../evaluation/precheck';
 import type { StandardFormLexicon } from '../evaluation/standardFormLexicon';
 import { completeLesson, submitAttempt } from '../lessonApi';
 import type { Answer, Lesson, LessonResult } from '../model';
+import { refreshLearnerData } from '../refreshLearnerData';
 import { AttemptOutbox } from './attemptOutbox';
 import {
   correctStreak,
@@ -87,7 +88,7 @@ export function useLessonSession(lesson: Lesson, lexicon: StandardFormLexicon) {
   useEffect(() => {
     if (readyToSave) dispatch({ type: 'finalized' });
   }, [readyToSave]);
-  const completion = useCompletion(state, readyToSave, outboxRef, sessionId);
+  const completion = useCompletion(state, readyToSave, outboxRef, lesson);
 
   return {
     entry,
@@ -130,8 +131,9 @@ function useCompletion(
   state: LessonQueueState,
   readyToSave: boolean,
   outboxRef: RefObject<AttemptOutbox | null>,
-  sessionId: string,
+  { sessionId, kind }: Lesson,
 ): LessonCompletion {
+  const queryClient = useQueryClient();
   const [startedAt] = useState(() => Date.now());
   const [finishedAt, setFinishedAt] = useState(startedAt);
   const [waitingForAnswers, setWaitingForAnswers] = useState(false);
@@ -148,6 +150,11 @@ function useCompletion(
     retry: (failures, error) =>
       failures < COMPLETE_RETRIES && isApiError(error) && error.isTransient,
   });
+
+  const saved = result.data;
+  useEffect(() => {
+    if (saved) refreshLearnerData(queryClient, saved);
+  }, [queryClient, saved]);
 
   if (!readyToSave) return { status: lessonPhase(state) === 'done' ? 'saving' : 'playing' };
   if (result.data) {
@@ -166,16 +173,21 @@ function useCompletion(
   };
   return {
     status: 'finished',
-    result: localResult(state, finishedAt - startedAt),
+    result: localResult(state, kind, finishedAt - startedAt),
     retrySave,
     retrying: waitingForAnswers || result.isFetching,
   };
 }
 
 /** What the device knows when the backend could not save the lesson: no XP, no word list. */
-function localResult(state: LessonQueueState, durationMs: number): LessonResult {
+function localResult(
+  state: LessonQueueState,
+  kind: Lesson['kind'],
+  durationMs: number,
+): LessonResult {
   const { exerciseCount, correctCount } = firstAttemptSummary(state);
   return {
+    kind,
     accuracy: exerciseCount > 0 ? correctCount / exerciseCount : 0,
     correctCount,
     exerciseCount,

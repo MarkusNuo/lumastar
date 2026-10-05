@@ -21,6 +21,7 @@ import {
 const LESSON: Lesson = {
   sessionId: 'session-1',
   unitId: 'a1_u01_greetings',
+  kind: 'lesson',
   exercises: [SAMPLE_MULTIPLE_CHOICE, SAMPLE_WORDBANK, SAMPLE_FILL_GAP_CHOICES],
 };
 

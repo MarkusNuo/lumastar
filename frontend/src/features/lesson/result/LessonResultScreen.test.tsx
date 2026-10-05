@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { celebrate } from '../../../lib/celebrate';
@@ -8,6 +8,7 @@ import { LessonResultScreen } from './LessonResultScreen';
 vi.mock('../../../lib/celebrate', () => ({ celebrate: vi.fn() }));
 
 const SAVED: LessonResult = {
+  kind: 'lesson',
   xp: { earned: 20, breakdown: { base: 10, perfectBonus: 5, speedBonus: 5 }, total: 140 },
   accuracy: 1,
   correctCount: 12,
@@ -21,7 +22,7 @@ const SAVED: LessonResult = {
 };
 
 function renderResult(result: LessonResult) {
-  const handlers = { onContinue: vi.fn(), onRetrySave: vi.fn() };
+  const handlers = { onContinue: vi.fn(), onRetrySave: vi.fn(), onStartFocus: vi.fn() };
   render(<LessonResultScreen result={result} retrying={false} {...handlers} />);
   return { user: userEvent.setup(), ...handlers };
 }
@@ -84,6 +85,39 @@ describe('LessonResultScreen', () => {
     );
   });
 
+  it.each([
+    ['focus', 'Fokus-Lektion geschafft!'],
+    ['review', 'Wiederholung geschafft!'],
+  ] as const)('names a finished %s lesson', (kind, title) => {
+    renderResult({ ...SAVED, kind, correctCount: 10 });
+
+    expect(screen.getByRole('heading', { name: title, level: 1 })).toBeInTheDocument();
+  });
+
+  it('suggests a focus lesson and starts it', async () => {
+    const { user, onStartFocus } = renderResult({
+      ...SAVED,
+      focusSuggestion: {
+        skillTag: 'grammar.definite_article',
+        label: 'Bestimmter Artikel',
+        unitId: 'focus_grammar.definite_article_1',
+      },
+    });
+
+    const card = screen.getByRole('region', {
+      name: 'Fokus-Lektion vorgeschlagen: Bestimmter Artikel',
+    });
+    await user.click(within(card).getByRole('button', { name: 'Fokus-Lektion starten' }));
+
+    expect(onStartFocus).toHaveBeenCalledWith('focus_grammar.definite_article_1');
+  });
+
+  it('shows no focus card without a suggestion', () => {
+    renderResult(SAVED);
+
+    expect(screen.queryByRole('region', { name: /Fokus-Lektion/ })).not.toBeInTheDocument();
+  });
+
   it('lists a short set of words without a toggle', () => {
     renderResult(SAVED);
 
@@ -92,6 +126,7 @@ describe('LessonResultScreen', () => {
 
   it('offers to save again when the result could not be saved', async () => {
     const { user, onRetrySave } = renderResult({
+      kind: 'lesson',
       accuracy: 0.5,
       correctCount: 6,
       exerciseCount: 12,

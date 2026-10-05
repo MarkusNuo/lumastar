@@ -19,6 +19,7 @@ const COMPLETE = `POST /api/lessons/${SESSION_ID}/complete`;
 const LESSON: Lesson = {
   sessionId: SESSION_ID,
   unitId: 'a1_u01_greetings',
+  kind: 'lesson',
   exercises: [SAMPLE_MULTIPLE_CHOICE, SAMPLE_FILL_GAP_CHOICES],
 };
 
@@ -68,10 +69,17 @@ function answerLikePrecheck(request: Request): Promise<Response> {
 function renderPlayer(lesson: Lesson = LESSON) {
   const onFinish = vi.fn();
   const onQuit = vi.fn();
-  renderWithQueryClient(
-    <LessonPlayer lesson={lesson} lexicon={EMPTY_LEXICON} onQuit={onQuit} onFinish={onFinish} />,
+  const onStartFocus = vi.fn();
+  const { queryClient } = renderWithQueryClient(
+    <LessonPlayer
+      lesson={lesson}
+      lexicon={EMPTY_LEXICON}
+      onQuit={onQuit}
+      onFinish={onFinish}
+      onStartFocus={onStartFocus}
+    />,
   );
-  return { user: userEvent.setup(), onFinish, onQuit };
+  return { user: userEvent.setup(), onFinish, onQuit, onStartFocus, queryClient };
 }
 
 const feedback = () => screen.findByRole('dialog');
@@ -161,6 +169,49 @@ describe('LessonPlayer', () => {
 
     await user.click(screen.getByRole('button', { name: 'Weiter' }));
     expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ saved: true }));
+  });
+
+  it('refreshes XP, level, plan and review counts once the result is saved', async () => {
+    stubApi({ [ATTEMPTS]: answerLikePrecheck, [COMPLETE]: () => jsonResponse(RESULT) });
+    const { user, queryClient } = renderPlayer({ ...LESSON, exercises: [SAMPLE_MULTIPLE_CHOICE] });
+    const invalidate = vi.spyOn(queryClient, 'invalidateQueries');
+
+    await user.click(screen.getByRole('button', { name: /mirëdita/ }));
+    await user.click(screen.getByRole('button', { name: 'Prüfen' }));
+    await user.click(await screen.findByRole('button', { name: 'Weiter' }));
+    await screen.findByRole('heading', { name: 'Lektion geschafft!' });
+
+    expect(invalidate.mock.calls.map(([filters]) => filters?.queryKey)).toEqual([
+      ['me'],
+      ['plan'],
+      ['review'],
+    ]);
+  });
+
+  it('starts the focus lesson the result suggests', async () => {
+    stubApi({
+      [ATTEMPTS]: answerLikePrecheck,
+      [COMPLETE]: () =>
+        jsonResponse({
+          ...RESULT,
+          focusSuggestion: {
+            skillTag: 'vocab.greetings',
+            label: 'Begrüssungen',
+            unitId: 'focus_vocab.greetings_1',
+          },
+        }),
+    });
+    const { user, onStartFocus } = renderPlayer({ ...LESSON, exercises: [SAMPLE_MULTIPLE_CHOICE] });
+
+    await user.click(screen.getByRole('button', { name: /mirëdita/ }));
+    await user.click(screen.getByRole('button', { name: 'Prüfen' }));
+    await user.click(await screen.findByRole('button', { name: 'Weiter' }));
+    const suggestion = await screen.findByRole('region', {
+      name: 'Fokus-Lektion vorgeschlagen: Begrüssungen',
+    });
+    await user.click(within(suggestion).getByRole('button', { name: 'Fokus-Lektion starten' }));
+
+    expect(onStartFocus).toHaveBeenCalledWith('focus_vocab.greetings_1');
   });
 
   it('asks before leaving the lesson', async () => {

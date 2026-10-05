@@ -12,6 +12,7 @@ import { playCue } from '../../../lib/effects/playCue';
 import { durations, springs } from '../../../styles/motion';
 import { LESSON_COPY } from '../copy';
 import type { LearnedItem, LessonResult, XpBreakdown } from '../model';
+import { FocusSuggestionCard } from './FocusSuggestionCard';
 import { formatDuration, formatPercent } from './format';
 import { useCountUp } from './useCountUp';
 
@@ -23,6 +24,8 @@ const COLLAPSED_WORDS = 6;
 export interface LessonResultScreenProps {
   result: LessonResult;
   onContinue: () => void;
+  /** Starts the suggested focus lesson. */
+  onStartFocus: (unitId: string) => void;
   /** Offered when the result could not be saved. */
   onRetrySave: () => void;
   retrying: boolean;
@@ -32,6 +35,7 @@ export interface LessonResultScreenProps {
 export function LessonResultScreen({
   result,
   onContinue,
+  onStartFocus,
   onRetrySave,
   retrying,
 }: LessonResultScreenProps) {
@@ -64,7 +68,7 @@ export function LessonResultScreen({
       </motion.div>
       <div className="flex flex-col gap-1">
         <h1 className="text-headline font-black text-xp">
-          {perfect ? copy.perfectTitle : copy.title}
+          {perfect ? copy.perfectTitle : copy.titles[result.kind]}
         </h1>
         <p className="text-body text-fg-muted">
           {copy.summary(result.correctCount, result.exerciseCount)}
@@ -106,6 +110,11 @@ export function LessonResultScreen({
           </Button>
         </div>
       )}
+      {result.focusSuggestion && (
+        <StatEntrance order={3}>
+          <FocusSuggestionCard suggestion={result.focusSuggestion} onStart={onStartFocus} />
+        </StatEntrance>
+      )}
       {result.learnedItems.length > 0 && <LearnedWords items={result.learnedItems} />}
     </FocusScreen>
   );
@@ -118,7 +127,7 @@ function StatEntrance({ order, children }: { order: number; children: ReactNode 
       initial={{ opacity: 0, y: 24, scale: 0.85 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ ...springs.bouncy, delay: durations.base + order * durations.press }}
-      className="min-w-0"
+      className="w-full min-w-0"
     >
       {children}
     </motion.div>

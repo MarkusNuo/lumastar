@@ -1,4 +1,4 @@
-import type { ExerciseType, WordPair } from './model';
+import type { ExerciseType, LessonKind, WordPair } from './model';
 
 /** Quotes a word the German way, as the backend's hint texts do. */
 const quote = (text: string) => `„${text}“`;
@@ -37,7 +37,12 @@ export const LESSON_COPY = {
   },
   saving: 'Ergebnis wird gespeichert',
   result: {
-    title: 'Lektion geschafft!',
+    titles: {
+      lesson: 'Lektion geschafft!',
+      focus: 'Fokus-Lektion geschafft!',
+      review: 'Wiederholung geschafft!',
+      checkpoint: 'Checkpoint beendet',
+    } satisfies Record<LessonKind, string>,
     perfectTitle: 'Fehlerfrei!',
     summary: (correct: number, total: number) =>
       `${correct} von ${total} Übungen hast du auf Anhieb richtig gelöst.`,
@@ -58,6 +63,11 @@ export const LESSON_COPY = {
       'Dein Ergebnis konnte noch nicht gespeichert werden. XP und geübte Wörter erscheinen, sobald es geklappt hat.',
     retrySave: 'Nochmals speichern',
     continue: 'Weiter',
+    focus: {
+      eyebrow: 'Fokus-Lektion vorgeschlagen',
+      text: 'Hier hattest du mehrere Fehler. Eine kurze Fokus-Lektion festigt genau das.',
+      start: 'Fokus-Lektion starten',
+    },
   },
   /** Exercises whose prompt is not a question show this as their title. */
   instructions: {

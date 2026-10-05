@@ -55,6 +55,10 @@ describe('buildLearningPath', () => {
     ]);
   });
 
+  it('opens a planned focus unit at once, because it is extra practice', () => {
+    expect(statuses('focus_grammar_definite_article')).toEqual(['available', 'available']);
+  });
+
   it('numbers the curriculum units per stage, without the focus units', () => {
     expect(a12?.units.map((u) => u.eyebrow)).toEqual([
       'A1.2 · Einheit 1',

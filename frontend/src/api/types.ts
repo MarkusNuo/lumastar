@@ -16,6 +16,14 @@ export type AttemptResponse = Schemas['AttemptResponse'];
 export type ErrorCategory = Schemas['ErrorCategory'];
 export type StandardForms = Schemas['StandardFormsResponse'];
 export type LessonResultResponse = Schemas['LessonResultResponse'];
+export type LessonKind = Schemas['LessonKind'];
+export type FocusSuggestion = Schemas['FocusSuggestion'];
+export type CheckpointResult = Schemas['CheckpointResult'];
+
+export type ReviewSummary = Schemas['ReviewSummaryResponse'];
+
+export type LevelBadgeCode = Schemas['LevelBadge'];
+export type EarnedBadge = Schemas['BadgeResponse'];
 
 export type ImportResult = Schemas['ImportResult'];
 export type BackupCounts = Schemas['BackupCounts'];

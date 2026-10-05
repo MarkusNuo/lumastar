@@ -126,8 +126,9 @@ function lessonStatus(unit: LearningPathUnit, lesson: number): PathNodeStatus {
     case 'completed':
     case 'skipped':
       return 'available';
+    // A focus unit is extra practice, open as soon as the plan inserts it (PRD F7).
     case 'planned':
-      return 'locked';
+      return unit.focus ? 'available' : 'locked';
   }
 }
 

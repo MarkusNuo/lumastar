@@ -62,6 +62,7 @@ export function toLesson(response: LessonResponse): Lesson {
   return {
     sessionId: response.sessionId,
     unitId: response.unitId,
+    kind: response.kind,
     exercises: response.exercises.map(toExercise),
   };
 }
@@ -164,6 +165,7 @@ export function toVerdict(response: AttemptResponse): Verdict {
 
 export function toLessonResult(response: LessonResultResponse): LessonResult {
   return {
+    kind: response.kind,
     xp: { earned: response.xpEarned, breakdown: response.xpBreakdown, total: response.xpTotal },
     accuracy: response.accuracy,
     correctCount: response.correctCount,
@@ -171,5 +173,7 @@ export function toLessonResult(response: LessonResultResponse): LessonResult {
     durationMs: response.durationMs,
     learnedItems: response.learnedItems,
     saved: true,
+    focusSuggestion: response.focusSuggestion,
+    checkpoint: response.checkpoint,
   };
 }
