@@ -176,12 +176,40 @@ class RuleBasedPlanGeneratorTest {
         }
 
         @Test
-        void skipsTheUnitInProgressOnceItIsMastered() {
+        void neverSkipsTheUnitInProgressButShortensItOnceMastered() {
             LearningPlan live = withStatuses(first, Map.of("a1_food", PlanUnitStatus.IN_PROGRESS));
 
             LearningPlan revised = generator.revise(live, learner(Level.A1_2, 10), mastery(FOOD, 0.85), List.of(), List.of());
 
-            assertThat(unit(revised, "a1_food").status()).isEqualTo(PlanUnitStatus.SKIPPED);
+            assertThat(unit(revised, "a1_food")).isEqualTo(new PlanUnit("a1_food", "Essen & Trinken", PlanUnitStatus.IN_PROGRESS,
+                    4, "Verkürzt: Essen bereits beherrscht"));
+        }
+
+        @Test
+        void skipsAMasteredUnitStillToDo() {
+            LearningPlan live = withStatuses(first, Map.of("a1_food", PlanUnitStatus.IN_PROGRESS));
+
+            LearningPlan revised = generator.revise(live, learner(Level.A1_2, 10), mastery(HOME, 0.9, PREPOSITIONS, 0.85),
+                    List.of(), List.of());
+
+            assertThat(unit(revised, "a1_home")).isEqualTo(new PlanUnit("a1_home", "Zuhause", PlanUnitStatus.SKIPPED, 4,
+                    "Bereits beherrscht"));
+        }
+
+        @Test
+        void aCompletedUnitKeepsItsLessonsAndOnlyAReasonThatStillApplies() {
+            LearningPlan skippedThenPlayed = withStatuses(generator.generate(learner(Level.A1_2, 10), mastery(FOOD, 0.9)),
+                    Map.of("a1_food", PlanUnitStatus.COMPLETED));
+            LearningPlan shortenedThenPlayed = withStatuses(
+                    generator.revise(first, learner(Level.A1_2, 10), mastery(HOME, 0.9), List.of(), List.of()),
+                    Map.of("a1_home", PlanUnitStatus.COMPLETED));
+
+            assertThat(unit(generator.revise(skippedThenPlayed, learner(Level.A1_2, 10), mastery(FOOD, 0.9), List.of(),
+                    List.of()), "a1_food")).isEqualTo(new PlanUnit("a1_food", "Essen & Trinken", PlanUnitStatus.COMPLETED, 5,
+                    null));
+            assertThat(unit(generator.revise(shortenedThenPlayed, learner(Level.A1_2, 10), noMastery(), List.of(), List.of()),
+                    "a1_home")).isEqualTo(new PlanUnit("a1_home", "Zuhause", PlanUnitStatus.COMPLETED, 3,
+                    "Verkürzt: Zuhause bereits beherrscht"));
         }
 
         @Test

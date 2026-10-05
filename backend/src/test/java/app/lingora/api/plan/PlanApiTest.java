@@ -110,6 +110,27 @@ class PlanApiTest extends IntegrationTest {
         }
     }
 
+    /** {@code answers} correct first answers to the tag, split over two lessons, and a mastery of 0.9 from them. */
+    private void practisedInTwoLessons(String skillTag, int answers) {
+        LearnerFixture fixture = new LearnerFixture(jdbc);
+        Instant recently = Instant.now().minus(Duration.ofHours(2));
+        UUID[] lessons = {fixture.lesson(learnerId(), SyntheticContent.wordsUnit(Level.A0), recently),
+                fixture.lesson(learnerId(), SyntheticContent.wordsUnit(Level.A0), recently.plusSeconds(600))};
+        for (int i = 0; i < answers; i++) {
+            fixture.answer(learnerId(), lessons[i % 2], new LearnerFixture.Answer("ex_a0_001", "multiple_choice",
+                    List.of(skillTag), "{\"choice\": \"ja\"}", "correct", null, "ja", false, recently.plusSeconds(i)));
+        }
+        jdbc.sql("""
+                        INSERT INTO skill_mastery (user_id, skill_tag, mastery, attempts, correct, last_practiced_at)
+                        VALUES (:user, :tag, 0.9, :answers, :answers, now())
+                        ON CONFLICT (user_id, skill_tag) DO UPDATE SET mastery = 0.9, attempts = :answers, correct = :answers,
+                            last_practiced_at = now()""")
+                .param("user", learnerId())
+                .param("tag", skillTag)
+                .param("answers", answers)
+                .update();
+    }
+
     private void changeDailyGoal(int minutes) {
         assertThat(learner.put("/api/onboarding", """
                 {"motivations": ["family"], "dailyGoalMinutes": %d, "selfAssessment": "nothing"}""".formatted(minutes)))
@@ -132,9 +153,10 @@ class PlanApiTest extends IntegrationTest {
                     .hasSize(17).startsWith("A1.2", "A1.3", "A2.1").endsWith("C2.3");
             assertThat(plan.get("stages").get(0).get("title").asString()).isEqualTo("Stufe A1.2");
             assertThat(plan.get("estimates").propertyNames()).containsExactly("A1", "A2", "B1", "B2", "C1", "C2");
+            // placement estimates alone skip nothing (PRD F3: skipping needs practice)
             assertThat(unit(plan, "a1_2_words")).isEqualTo(PlacementDriver.JSON.readTree("""
-                    {"unitId": "a1_2_words", "title": "Wörter A1.2", "status": "skipped", "estimatedLessons": 4,
-                     "reason": "Bereits beherrscht", "focus": false}"""));
+                    {"unitId": "a1_2_words", "title": "Wörter A1.2", "status": "planned", "estimatedLessons": 4,
+                     "focus": false}"""));
             assertThat(unit(plan, "a1_2_grammar").get("status").asString()).isEqualTo("planned");
         }
 
@@ -145,9 +167,8 @@ class PlanApiTest extends IntegrationTest {
             MvcTestResult changes = learner.get("/api/plan/changes");
 
             assertThat(changes).hasStatusOk().bodyJson().extractingPath("$[*].reason").isEqualTo(List.of(
-                    "Lernplan nach der Einstufung erstellt: A1.2 bis C2",
-                    "Einheit ‚Wörter A1.2‘ übersprungen: bereits beherrscht"));
-            assertThat(changes).bodyJson().extractingPath("$[*].type").isEqualTo(List.of("plan_created", "unit_skipped"));
+                    "Lernplan nach der Einstufung erstellt: A1.2 bis C2"));
+            assertThat(changes).bodyJson().extractingPath("$[*].type").isEqualTo(List.of("plan_created"));
             assertThat(changes).bodyJson().extractingPath("$[0].trigger").isEqualTo("placement");
             assertThat(changes).bodyJson().extractingPath("$[0].planVersion").isEqualTo(1);
         }
@@ -158,19 +179,39 @@ class PlanApiTest extends IntegrationTest {
 
             driver.place(level -> !level.isAbove(Level.A1_2));
 
-            // from A0 the test answers grammar.a1_2 and phrase.a1_2 correctly on A1.2, so that unit is mastered
             JsonNode plan = get("/api/plan");
             assertThat(plan.get("version").asInt()).isEqualTo(2);
             assertThat(plan.get("startLevel").asString()).isEqualTo("A1.2");
-            assertThat(unit(plan, "a1_2_grammar").get("status").asString()).isEqualTo("skipped");
+            assertThat(unit(plan, "a1_2_grammar").get("status").asString()).isEqualTo("planned");
             assertThat(get("/api/plan/changes")).extracting(change -> change.get("reason").asString()).containsExactly(
                     "Neueinstufung: A0 → A1.2",
-                    "Einheit ‚Grammatik A1.2‘ übersprungen: bereits beherrscht",
                     "Lernplan ab A0 erstellt, Einstufung übersprungen");
             assertThat(get("/api/plan/changes")).extracting(change -> change.get("type").asString())
-                    .containsExactly("level_changed", "unit_skipped", "plan_created");
+                    .containsExactly("level_changed", "plan_created");
             assertThat(get("/api/plan/changes")).extracting(change -> change.get("planVersion").asInt())
-                    .containsExactly(2, 2, 1);
+                    .containsExactly(2, 1);
+        }
+
+        @Test
+        void practisedMasterySkipsAUnitAtTheNextRevision() {
+            placeOnA1_2();
+            practisedInTwoLessons("vocab.a1_2", 8);
+
+            changeDailyGoal(15);
+
+            assertThat(unit(get("/api/plan"), "a1_2_words").get("status").asString()).isEqualTo("skipped");
+            assertThat(get("/api/plan/changes")).extracting(change -> change.get("reason").asString())
+                    .contains("Einheit ‚Wörter A1.2‘ übersprungen: bereits beherrscht");
+        }
+
+        @Test
+        void sevenCorrectAnswersAreNotEnoughToSkipAUnit() {
+            placeOnA1_2();
+            practisedInTwoLessons("vocab.a1_2", 7);
+
+            changeDailyGoal(15);
+
+            assertThat(unit(get("/api/plan"), "a1_2_words").get("status").asString()).isEqualTo("planned");
         }
 
         @Test
@@ -198,8 +239,7 @@ class PlanApiTest extends IntegrationTest {
             assertThat(document.get("generatedBy").asString()).isEqualTo("rule_based_v1");
             assertThat(document.get("startLevel").asString()).isEqualTo("A1.2");
             assertThat(document.get("stages").get(0).get("units").get(0)).isEqualTo(PlacementDriver.JSON.readTree("""
-                    {"unitId": "a1_2_words", "title": "Wörter A1.2", "status": "skipped", "estimatedLessons": 4,
-                     "reason": "Bereits beherrscht"}"""));
+                    {"unitId": "a1_2_words", "title": "Wörter A1.2", "status": "planned", "estimatedLessons": 4}"""));
             assertThat(document.get("estimates").has("C2")).isTrue();
         }
 
@@ -241,7 +281,7 @@ class PlanApiTest extends IntegrationTest {
             assertThat(unit(path, "a1_2_grammar")).isEqualTo(PlacementDriver.JSON.readTree("""
                     {"unitId": "a1_2_grammar", "title": "Grammatik A1.2", "color": "teal", "icon": "star", "status": "planned",
                      "focus": false, "estimatedLessons": 5, "lessonsCompleted": 0, "hasContent": false}"""));
-            assertThat(unit(path, "a1_2_words").get("status").asString()).isEqualTo("skipped");
+            assertThat(unit(path, "a1_2_words").get("status").asString()).isEqualTo("planned");
         }
 
         @Test
@@ -353,7 +393,7 @@ class PlanApiTest extends IntegrationTest {
         assertThat(plans).hasSize(1);
         assertThat(plans.get(0).get("plan").get("startLevel").asString()).isEqualTo("A1.2");
         assertThat(PlacementDriver.JSON.readTree(files.get("data/plan_changes.json")))
-                .extracting(change -> change.get("kind").asString()).containsExactlyInAnyOrder("plan_created", "unit_skipped");
+                .extracting(change -> change.get("kind").asString()).containsExactly("plan_created");
         assertThat(PlacementDriver.JSON.readTree(files.get("documents/learning_plan.json")).get("startLevel").asString())
                 .isEqualTo("A1.2");
     }

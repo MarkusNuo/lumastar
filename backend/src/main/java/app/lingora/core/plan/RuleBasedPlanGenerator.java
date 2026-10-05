@@ -24,13 +24,15 @@ import java.util.Optional;
  * <ul>
  *   <li>A unit whose skill tags all have a mastery of at least {@value #MASTERED} is {@code skipped}; it stays
  *       repeatable. All other units are {@code planned}.</li>
- *   <li>{@link #revise} regenerates the plan and keeps the progress of the previous plan (completed units stay
- *       completed, the unit in progress stays in progress). It shortens a unit by one lesson (to at least one) when
- *       some, but not all, of its skill tags are mastered, and inserts focus units for requested and weak tags (see
+ *   <li>{@link #revise} regenerates the plan and keeps the progress of the previous plan: completed units stay
+ *       completed with their lessons and reason (a skip reason no longer applies), and the unit in progress stays in
+ *       progress, mastered or not. It shortens a unit still to do, the one in progress included, by one lesson (to at
+ *       least one) when some of its skill tags are mastered, and inserts focus units for requested and weak tags (see
  *       {@link FocusPlanner}).</li>
  *   <li>Estimates: see {@link PlanEstimates} and {@link EstimateRules}.</li>
  * </ul>
- * A unit without a lesson estimate in the curriculum is planned with {@value #DEFAULT_LESSONS_PER_UNIT} lessons.
+ * The mastery passed in decides what counts as mastered; callers pass the {@link ProvenMastery}. A unit without a
+ * lesson estimate in the curriculum is planned with {@value #DEFAULT_LESSONS_PER_UNIT} lessons.
  */
 public final class RuleBasedPlanGenerator implements PlanGenerator {
 
@@ -94,14 +96,19 @@ public final class RuleBasedPlanGenerator implements PlanGenerator {
                 : new PlanUnit(unit.id(), unit.title(), PlanUnitStatus.PLANNED, lessons, null);
     }
 
-    /** Completed stays completed; the unit in progress stays in progress unless it is mastered by now. */
+    /** Completed stays completed as it was done; the unit in progress stays in progress, even if mastered by now. */
     private static PlanUnit withProgress(PlanUnit unit, LearningPlan previous) {
-        Optional<PlanUnitStatus> before = previous.unit(unit.unitId()).map(PlanUnit::status);
-        if (before.equals(Optional.of(PlanUnitStatus.COMPLETED))) {
-            return unit.withStatus(PlanUnitStatus.COMPLETED);
+        Optional<PlanUnit> before = previous.unit(unit.unitId());
+        if (before.isEmpty()) {
+            return unit;
         }
-        if (before.equals(Optional.of(PlanUnitStatus.IN_PROGRESS)) && unit.status() == PlanUnitStatus.PLANNED) {
-            return unit.withStatus(PlanUnitStatus.IN_PROGRESS);
+        PlanUnit earlier = before.get();
+        if (earlier.status() == PlanUnitStatus.COMPLETED) {
+            String reason = SKIPPED_REASON.equals(earlier.reason()) ? null : earlier.reason();
+            return new PlanUnit(unit.unitId(), unit.title(), PlanUnitStatus.COMPLETED, earlier.estimatedLessons(), reason);
+        }
+        if (earlier.status() == PlanUnitStatus.IN_PROGRESS) {
+            return new PlanUnit(unit.unitId(), unit.title(), PlanUnitStatus.IN_PROGRESS, unit.estimatedLessons(), null);
         }
         return unit;
     }
@@ -112,7 +119,7 @@ public final class RuleBasedPlanGenerator implements PlanGenerator {
         }
         List<SkillTag> tags = unitTags(unit.unitId());
         List<SkillTag> mastered = tags.stream().filter(tag -> isMastered(tag, mastery)).toList();
-        if (mastered.isEmpty() || mastered.size() == tags.size()) {
+        if (mastered.isEmpty()) {
             return unit;
         }
         return new PlanUnit(unit.unitId(), unit.title(), unit.status(), unit.lessonCount() - 1,

@@ -13,7 +13,7 @@ import java.util.Set;
  * The live status of the units of a plan (PRD 12.3), derived from the lessons completed since. A unit is
  * {@code completed} once it has been completed before or as many lessons as it takes are completed; otherwise a
  * skipped unit stays {@code skipped}. The first remaining unit that has exercises is {@code in_progress}, all others
- * are {@code planned}.
+ * are {@code planned}. A skipped unit played to its end loses its skip reason.
  */
 public final class PlanProgress {
 
@@ -42,7 +42,9 @@ public final class PlanProgress {
                 } else {
                     status = PlanUnitStatus.PLANNED;
                 }
-                units.add(unit.withStatus(status));
+                units.add(unit.status() == PlanUnitStatus.SKIPPED && status != PlanUnitStatus.SKIPPED
+                        ? new PlanUnit(unit.unitId(), unit.title(), status, unit.estimatedLessons(), null)
+                        : unit.withStatus(status));
             }
             stages.add(new PlanStage(stage.level(), units));
         }

@@ -4,6 +4,7 @@ import app.lingora.core.plan.FocusRequest;
 import app.lingora.core.plan.PlanChanges;
 import app.lingora.core.plan.PlanGenerator;
 import app.lingora.core.plan.PlanGeneratorFactory;
+import app.lingora.core.plan.ProvenMastery;
 import app.lingora.domain.LearnerProfile;
 import app.lingora.domain.LearningPlan;
 import app.lingora.domain.PlanChange;
@@ -15,6 +16,7 @@ import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.ErrorAnalysisQueries;
 import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LearningPlanStore.StoredPlan;
+import app.lingora.persistence.LessonProgressQueries;
 import app.lingora.persistence.LivePlans;
 import app.lingora.persistence.SkillMasteryStore;
 import app.lingora.persistence.UserEntity;
@@ -48,17 +50,20 @@ public class PlanService {
     private final ContentCatalog catalog;
     private final SkillMasteryStore mastery;
     private final ErrorAnalysisQueries errors;
+    private final LessonProgressQueries lessons;
     private final PlanGeneratorFactory generators;
     private final Clock clock;
 
     PlanService(UserRepository users, LearningPlanStore plans, LivePlans livePlans, ContentCatalog catalog,
-                SkillMasteryStore mastery, ErrorAnalysisQueries errors, PlanGeneratorFactory generators, Clock clock) {
+                SkillMasteryStore mastery, ErrorAnalysisQueries errors, LessonProgressQueries lessons,
+                PlanGeneratorFactory generators, Clock clock) {
         this.users = users;
         this.plans = plans;
         this.livePlans = livePlans;
         this.catalog = catalog;
         this.mastery = mastery;
         this.errors = errors;
+        this.lessons = lessons;
         this.generators = generators;
         this.clock = clock;
     }
@@ -85,7 +90,7 @@ public class PlanService {
         UserEntity learner = users.findForUpdateById(userId).orElseThrow();
         Instant now = clock.instant();
         LearnerProfile profile = learner.toProfile();
-        SkillMastery currentMastery = mastery.effective(userId, now);
+        SkillMastery provenMastery = ProvenMastery.of(mastery.effective(userId, now), lessons.lessonsPerSkillTag(userId));
         Map<SkillTag, String> labels = catalog.skillTagLabels();
         PlanGenerator generator = generators.create(catalog.curriculumOutline(), labels);
 
@@ -93,8 +98,8 @@ public class PlanService {
         LearningPlan before = previous.map(stored -> livePlans.live(userId, stored, profile.currentLevel())).orElse(null);
         List<SkillTagErrorRate> errorRates = practisableErrorRates(userId, profile, now);
         LearningPlan plan = before == null
-                ? generator.generate(profile, currentMastery)
-                : generator.revise(before, profile, currentMastery, errorRates, focusRequests);
+                ? generator.generate(profile, provenMastery)
+                : generator.revise(before, profile, provenMastery, errorRates, focusRequests);
 
         StoredPlan stored = plans.save(userId, plan, now);
         List<PlanChange> changes = new ArrayList<>(causes);

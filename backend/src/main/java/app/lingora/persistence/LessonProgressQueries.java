@@ -55,6 +55,19 @@ public class LessonProgressQueries {
                 .single();
     }
 
+    /** Per skill tag, the number of lessons with first answers to it. */
+    public Map<SkillTag, Integer> lessonsPerSkillTag(UUID userId) {
+        return jdbc.sql("""
+                        SELECT tag, count(DISTINCT a.session_id) AS lessons
+                        FROM attempts a CROSS JOIN LATERAL unnest(a.skill_tags) AS tag
+                        WHERE a.user_id = :user AND NOT a.is_retry
+                        GROUP BY tag""")
+                .param("user", userId)
+                .query((row, rowNumber) -> Map.entry(SkillTag.of(row.getString("tag")), row.getInt("lessons")))
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
     /** The stages whose checkpoint the learner has passed. */
     public Set<Level> passedCheckpoints(UUID userId) {
         return jdbc.sql("SELECT DISTINCT level FROM sessions WHERE user_id = :user AND kind = 'checkpoint' AND checkpoint_passed")
