@@ -14,23 +14,24 @@ import {
   type LearnerProfileDocument,
   type LearningPlanDocument,
   type MasteryDocument,
+  type PlacementTestRow,
   type ProfileData,
   type RecentError,
   type SessionRow,
 } from '../../support/backup.ts';
-import { LEARNER } from '../../support/learner.ts';
+import { LEARNER, ONBOARDING } from '../../support/learner.ts';
 import { choiceFor } from '../../support/lessonAnswers.ts';
 import { fetchMe, P0_EXERCISE_TYPES, playLessonViaApi } from '../../support/lessonApi.ts';
+import { currentUnit, fetchPath } from '../../support/planApi.ts';
 import { fetchExport, fetchSummary, isImport, type ImportResult } from '../../support/profileApi.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * "Backup herunterladen" and "Backup importieren" (PRD F11, 8.3, 13). Each test first records one
- * lesson through the API (one wrong answer, retried), so the export always has sessions, attempts,
- * an error and mastery to show, whichever test runs first.
+ * "Backup herunterladen" and "Backup importieren" (PRD F11, 8.3, 13). Each test first records the
+ * next lesson of the path through the API (one wrong answer, retried), so the export always has
+ * sessions, attempts, an error and mastery to show, whichever test runs first.
  */
 
-const UNIT_ID = 'a1_u01_greetings';
 const FILENAME = /^lingora-export-\d{4}-\d{2}-\d{2}\.zip$/;
 const ISO_INSTANT = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/;
 /** Timestamps of the data files, as PostgreSQL writes them in UTC. */
@@ -53,7 +54,8 @@ const count = (value: number, singular: string, plural: string) =>
 test('the downloaded backup holds the manifest, the five profile documents and all learner data', async ({
   page,
 }, testInfo) => {
-  const played = await playLessonViaApi(page.request, UNIT_ID);
+  const unitId = currentUnit(await fetchPath(page.request)).unitId;
+  const played = await playLessonViaApi(page.request, unitId);
   const me = await fetchMe(page.request);
   const profile = new ProfilePage(page);
   await profile.goto();
@@ -102,8 +104,10 @@ test('the downloaded backup holds the manifest, the five profile documents and a
       targetLevel: 'C2',
       xpTotal: me.xpTotal,
     });
-    expect(Array.isArray(document.motivation)).toBe(true);
-    expect([5, 10, 15, 20]).toContain(document.dailyGoalMinutes);
+    expect(document, 'the answers of the onboarding (PRD F1)').toMatchObject({
+      motivation: ONBOARDING.motivations.map(({ value }) => value),
+      dailyGoalMinutes: ONBOARDING.dailyGoal.minutes,
+    });
     expect(keysOf(document.streak)).toEqual(['current', 'longest']);
     expect(document.streak.longest).toBeGreaterThanOrEqual(document.streak.current);
   });
@@ -114,14 +118,27 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     const document = backup.document<Record<string, MasteryDocument>>('skill_mastery.json');
     const firstAnswers = attempts.filter((attempt) => !attempt.isRetry);
     const practisedTags = new Set(attempts.flatMap((attempt) => attempt.skillTags));
+    // A placement test seeds an initial mastery for the tags of its items (PRD F2).
+    const placedTags = new Set(
+      backup
+        .rows<PlacementTestRow>('placement_tests')
+        .flatMap((test) => Object.keys(test.result?.initialMastery ?? {})),
+    );
     expect(practisedTags.size, 'the lesson practised skill tags').toBeGreaterThan(0);
-    expect(keysOf(document), 'one entry per practised skill tag').toEqual([...practisedTags].sort());
+    expect(keysOf(document), 'every practised skill tag has an entry').toEqual(
+      expect.arrayContaining([...practisedTags]),
+    );
 
     for (const [tag, entry] of Object.entries(document)) {
       expect(keysOf(entry), tag).toEqual(['attempts', 'correct', 'lastPracticed', 'mastery']);
       expect(entry.mastery, tag).toBeGreaterThanOrEqual(0);
       expect(entry.mastery, tag).toBeLessThanOrEqual(1);
       expect(Math.round(entry.mastery * 100) / 100, `${tag} has two decimals`).toBe(entry.mastery);
+      if (!practisedTags.has(tag)) {
+        expect(placedTags, `${tag} is only an estimate of a placement test`).toContain(tag);
+        expect(entry, tag).toMatchObject({ attempts: 0, correct: 0, lastPracticed: null });
+        continue;
+      }
       expect(entry.lastPracticed, tag).toMatch(ISO_DATE);
       // Retries move the mastery a little but are not counted, like in the lesson accuracy.
       const answers = firstAnswers.filter((attempt) => attempt.skillTags.includes(tag));
@@ -160,24 +177,23 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     expect(played.wrongExercise.solutions ?? []).toContain(latest?.expected);
   });
 
-  await test.step('learning_plan.json', () => {
+  await test.step('learning_plan.json: the plan of the path, up to C2', async () => {
     const plan = backup.document<LearningPlanDocument>('learning_plan.json');
+    const path = await fetchPath(page.request);
     expect(keysOf(plan)).toEqual(
       ['generatedAt', 'generatedBy', 'startLevel', 'stages', 'estimates'].sort(),
     );
-    expect(Array.isArray(plan.stages)).toBe(true);
-    expect(typeof plan.estimates).toBe('object');
-    for (const stage of plan.stages) {
-      expect(typeof stage.level).toBe('string');
-      for (const unit of stage.units) {
-        expect(unit).toEqual(
-          expect.objectContaining({
-            unitId: expect.any(String),
-            title: expect.any(String),
-            status: expect.any(String),
-          }),
-        );
-      }
+    expect(plan).toMatchObject({ generatedBy: 'rule_based_v1', startLevel: me.currentLevel });
+    expect(plan.generatedAt).toMatch(ISO_INSTANT);
+    expect(plan.stages.map((stage) => stage.level)).toEqual(path.stages.map((stage) => stage.level));
+    expect(plan.stages.at(-1)?.level).toBe('C2.3');
+    expect(plan.estimates).toEqual(path.estimates);
+    for (const [index, stage] of plan.stages.entries()) {
+      const units = path.stages[index]?.units ?? [];
+      expect(
+        stage.units.map(({ unitId, status }) => ({ unitId, status })),
+        `${stage.level}: the live statuses of the path`,
+      ).toEqual(units.map(({ unitId, status }) => ({ unitId, status })));
     }
   });
 
@@ -214,7 +230,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
       .rows<SessionRow>('sessions')
       .find((row) => row.id === played.lesson.sessionId);
     expect(session, 'the played lesson').toMatchObject({
-      unitId: UNIT_ID,
+      unitId,
       exerciseCount: played.lesson.exercises.length,
       xpEarned: played.result.xpEarned,
     });
@@ -240,7 +256,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
 test('importing the downloaded backup restores the same state and keeps the account', async ({
   page,
 }, testInfo) => {
-  await playLessonViaApi(page.request, UNIT_ID);
+  await playLessonViaApi(page.request, currentUnit(await fetchPath(page.request)).unitId);
   const profile = new ProfilePage(page);
   await profile.goto();
   const download = await profile.downloadBackup(testInfo.outputDir);
@@ -251,7 +267,7 @@ test('importing the downloaded backup restores the same state and keeps the acco
   await profile.chooseBackup(download.path);
   const dialog = profile.importConfirm;
   await expect(dialog).toContainText(
-    'Alle aktuellen Lerndaten werden durch das Backup ersetzt. Fortfahren?',
+    `Alle aktuellen Lerndaten werden durch das Backup „${download.filename}“ ersetzt. Fortfahren?`,
   );
   await expect(dialog.getByRole('button', { name: 'Abbrechen' }), 'the safe choice').toBeFocused();
   await expect(dialog).toBeInViewport({ ratio: 1 });

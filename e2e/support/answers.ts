@@ -16,12 +16,16 @@ const FOLDED: Readonly<Record<string, string>> = {
   û: 'u',
 };
 
-/** NFC, lower case, only letters, digits and single spaces. */
+/**
+ * Point 1 of the format contract: NFC, lower case, apostrophes removed ("s'ka" → "ska"), every other
+ * character that is no letter, digit or space replaced by a space, single spaces.
+ */
 export function normalizeAnswer(text: string): string {
   return text
     .normalize('NFC')
     .toLowerCase()
-    .replace(/[^\p{L}\p{N}\s]/gu, '')
+    .replace(/['’‘ʼ]/gu, '')
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
     .replace(/\s+/gu, ' ')
     .trim();
 }

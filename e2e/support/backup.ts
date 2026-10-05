@@ -123,6 +123,26 @@ export interface AttemptRow {
   errorCategory: string | null;
 }
 
+/** A row of data/placement_tests.json; `result` holds the initial mastery per skill tag (PRD F2). */
+export interface PlacementTestRow {
+  id: string;
+  status: 'in_progress' | 'completed' | 'skipped' | 'abandoned';
+  startLevel: string;
+  resultLevel: string | null;
+  result: { initialMastery: Record<string, number>; strengths: string[]; weaknesses: string[] } | null;
+  finishedAt: string | null;
+}
+
+/** A row of data/placement_answers.json. */
+export interface PlacementAnswerRow {
+  placementTestId: string;
+  position: number;
+  exerciseId: string;
+  level: string;
+  competence: string;
+  outcome: string;
+}
+
 /** A row of data/sessions.json. */
 export interface SessionRow {
   id: string;

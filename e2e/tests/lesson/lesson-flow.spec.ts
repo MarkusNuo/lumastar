@@ -9,6 +9,7 @@ import {
 } from '../../pages/LessonPlayer.ts';
 import { LessonResultScreen } from '../../pages/LessonResultScreen.ts';
 import { isSpecialChar } from '../../support/answers.ts';
+import { AttemptGate } from '../../support/attemptGate.ts';
 import {
   almostAnswer,
   choiceFor,
@@ -30,15 +31,16 @@ import {
   type LessonResultResponse,
   type Outcome,
 } from '../../support/lessonApi.ts';
+import { currentUnit, fetchPath } from '../../support/planApi.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * A whole lesson of the first unit through the real UI (PRD F4, F5, F9). The backend composes the
- * lesson at random, so the start response tells the test each exercise's type and solutions. One
- * choice is answered wrong, one text without its diacritics, one with a Standard form; the rest right.
+ * The next lesson of the learning path through the real UI (PRD F4, F5, F9). The backend composes
+ * the lesson from the learner profile, so the start response tells the test each exercise's type and
+ * solutions. One choice is answered wrong, one text without its diacritics, one with a Standard form;
+ * the rest right. Every answer is held back from the backend until the instant feedback sheet of the
+ * pre-check is on screen, so each verdict shows that the pre-check and the backend agree (PRD 11.2).
  */
-
-const UNIT = 'Begrüssung & Höflichkeit';
 const BASE_XP = 10;
 /** The result screen lists this many practised words until "Alle <n> anzeigen" is tapped. */
 const COLLAPSED_WORDS = 6;
@@ -81,8 +83,13 @@ function planIntents(exercises: readonly LessonExercise[]): Map<string, Intent> 
 
 /** A typed Gheg answer whose solution has ë, ç, â…, i.e. one typed through the special-character bar. */
 function needsBar(exercise: LessonExercise): boolean {
-  if (!isTyped(exercise) || exercise.answerLang !== 'sq') return false;
-  return [...textFor(exercise, 'correct')].some(isSpecialChar);
+  return usesBar(exercise, 'correct');
+}
+
+/** Whether answering with the intent types ë, ç, â… through the bar; "almost" leaves them out. */
+function usesBar(exercise: LessonExercise, intent: Intent): boolean {
+  if (!isTyped(exercise) || exercise.answerLang !== 'sq' || intent === 'almost') return false;
+  return [...textFor(exercise, intent)].some(isSpecialChar);
 }
 
 /** Screenshot name per exercise type; the two ways of filling a gap look different. */
@@ -117,16 +124,19 @@ test('a full lesson with every exercise type, all feedback states, the retry and
   const resultScreen = new LessonResultScreen(page);
   const attemptResponses = recordResponses(page, isAttempt);
   const completions = recordResponses(page, isCompletion);
+  const gate = await AttemptGate.install(page);
 
   await path.goto();
   const xpBefore = await fetchXpTotal(page.request);
   await expect(shell.xpLabel).toHaveText(`${xpBefore} XP`);
+  const nextUnit = currentUnit(await fetchPath(page.request));
 
   const started = page.waitForResponse(isLessonStart);
-  await path.lessonNode(UNIT, 1).tap();
+  await path.startCurrentLesson();
   const startResponse = await started;
   expect(startResponse.status()).toBe(201);
   const lesson = (await startResponse.json()) as LessonResponse;
+  expect(lesson.unitId, 'the current node starts the unit in progress').toBe(nextUnit.unitId);
   await expect(page).toHaveURL(new RegExp(`/lesson/${lesson.unitId}$`));
 
   const total = lesson.exercises.length;
@@ -140,6 +150,10 @@ test('a full lesson with every exercise type, all feedback states, the retry and
   );
   const expectedVariants = new Set<FeedbackVariant>(['correct', ...planned]);
   const byId = new Map(lesson.exercises.map((exercise) => [exercise.id, exercise]));
+  // A lesson whose only Gheg answer with ë, ç, â… is the "almost" one tries the bar out instead.
+  const barAnswerPlanned = lesson.exercises.some((exercise) =>
+    usesBar(exercise, intents.get(exercise.id) ?? 'correct'),
+  );
 
   await expect(player.progress).toHaveAttribute('aria-valuemax', String(total));
   await expect(player.progress).toHaveAttribute('aria-valuenow', '0');
@@ -180,11 +194,19 @@ test('a full lesson with every exercise type, all feedback states, the retry and
       if (exercise.type === 'match_pairs') {
         await player.matchPairs(exercise.pairs ?? [], beforeCheck);
       } else {
+        if (!barAnswerPlanned && charsFromBar === 0 && isTyped(exercise) && exercise.answerLang === 'sq') {
+          charsFromBar += await player.tryOutSpecialChars(player.textField(exercise));
+        }
         charsFromBar += await player.enterAnswer(exercise, intent);
         await beforeCheck();
         await player.check();
       }
 
+      const instant = await player.shownFeedback();
+      await expect
+        .poll(() => gate.heldCount, { message: 'the sheet came before the backend verdict' })
+        .toBe(1);
+      await gate.release();
       const attemptResponse = await attempt;
       expect(attemptResponse.ok(), 'the backend accepts the attempt').toBe(true);
       expect(attemptResponse.request().postDataJSON() as AttemptRequest).toMatchObject({
@@ -197,6 +219,7 @@ test('a full lesson with every exercise type, all feedback states, the retry and
       const variant = VARIANT_OF[verdict.outcome];
       const sheet = player.feedbackSheet(variant);
       await expect(sheet).toBeVisible();
+      expect(instant, 'the instant pre-check shows the verdict of the backend').toBe(variant);
       await expect(sheet).toHaveAttribute('data-tone', FEEDBACK[variant].tone);
       if (variant !== 'correct' && verdict.solution) {
         await expect(sheet).toContainText(`${FEEDBACK[variant].solutionLabel}:`);
@@ -272,6 +295,12 @@ test('a full lesson with every exercise type, all feedback states, the retry and
     await resultScreen.continueButton.click();
     await shell.expectHome();
     await expect(shell.xpLabel, 'the top bar shows the new XP').toHaveText(`${result.xpTotal} XP`);
+    const next = currentUnit(await fetchPath(page.request));
+    const kind = next.focus ? 'Fokus-Lektion' : 'Lektion';
+    await expect(
+      path.unit(next.title).locator('button[aria-current="step"]'),
+      'the path moves on to the next lesson right away',
+    ).toHaveAccessibleName(`${kind} ${next.lessonsCompleted + 1}, als Nächstes`);
     await snap(page, 'home-after-lesson', { fullPage: false });
   });
 });

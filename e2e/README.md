@@ -30,6 +30,18 @@ Locally, working-tree mode reuses servers already listening on 8181/5183 (the se
 instead of creating the account). `head` mode never reuses them: stop such servers first, otherwise the
 run fails with "port already used".
 
+## One learner per run
+
+The instance has a single account, so the first start can only be seen once per run: the `setup`
+project creates the account, answers the onboarding questions with "Ich kann kein Wort", skips the
+placement test (A0) and stores the session for both phone projects. Every other test starts from the
+learner's real state and stays independent of the order: lessons start from the current node of the
+path, and expectations come from the API (`GET /api/path`, `/api/plan/changes`, …).
+
+"Neu einstufen" runs a full placement test through the UI. The API sends no solutions, so the test
+reads `placement.json` of the seeded content (`PATHS.content`) and answers every item wrong for sure:
+the staircase ends at A0 whichever items the (unseeded) engine picks.
+
 ## Screenshots
 
 Every core screen is saved to `screenshots/<milestone>/<width>x<height>/` for the visual review

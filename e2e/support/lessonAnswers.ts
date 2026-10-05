@@ -2,9 +2,13 @@ import { firstBuildableChips, normalizeAnswer, withoutDiacritics } from './answe
 import type { LessonExercise, SubmittedAnswer } from './lessonApi.ts';
 
 /*
- * How a test answers an exercise of the lesson response: right, almost right (diacritics left out),
- * with a Standard form or wrong. Shared by the UI flow (LessonPlayer) and the API flow (lessonApi).
+ * How a test answers an exercise of the lesson response: right, almost right (diacritics left out or
+ * one typo), with a Standard form or wrong. Shared by the UI flow (LessonPlayer) and the API flow
+ * (lessonApi).
  */
+
+/** Point 6 of the format contract: one typo is tolerated in solutions with at least 6 letters. */
+const ONE_TYPO_MIN_LETTERS = 6;
 
 export type Intent = 'correct' | 'almost' | 'standard' | 'wrong';
 
@@ -16,14 +20,31 @@ export const hasChoices = (exercise: LessonExercise) => exercise.choices !== und
 export const isTyped = (exercise: LessonExercise) =>
   exercise.type === 'translate_free' || (exercise.type === 'fill_gap' && !hasChoices(exercise));
 
-/** A solution typed without ë, ç, â…, which neither is a solution nor a Standard form by itself. */
+/**
+ * An answer the evaluator calls almost correct (contract points 4 and 6): a solution typed without
+ * ë, ç, â…, or else a solution of at least 6 letters with its last letter doubled. It is neither a
+ * solution nor a Standard form itself and matches no error hint, which would be checked first.
+ */
 export function almostAnswer(exercise: LessonExercise): string | undefined {
   const taken = new Set(
     [...solutionsOf(exercise), ...(exercise.standardForms ?? [])].map(normalizeAnswer),
   );
-  return solutionsOf(exercise)
-    .map(withoutDiacritics)
-    .find((answer) => !taken.has(normalizeAnswer(answer)));
+  const hints = (exercise.errorHints ?? []).map((hint) => new RegExp(hint.pattern, 'u'));
+  const withoutAccents = solutionsOf(exercise).map(withoutDiacritics);
+  const withTypo = solutionsOf(exercise).filter(hasTypoTolerance).map(doubleLastLetter);
+  return [...withoutAccents, ...withTypo].find((answer) => {
+    const normalized = normalizeAnswer(answer);
+    return !taken.has(normalized) && !hints.some((hint) => hint.test(normalized));
+  });
+}
+
+function hasTypoTolerance(solution: string): boolean {
+  return [...solution].filter((char) => /\p{L}/u.test(char)).length >= ONE_TYPO_MIN_LETTERS;
+}
+
+/** "Mirëdita." → "Mirëditaa.": one inserted letter, a single edit. */
+function doubleLastLetter(solution: string): string {
+  return solution.replace(/(\p{L})(\P{L}*)$/u, '$1$1$2');
 }
 
 /** A right choice, or a wrong one for the intent "wrong". */

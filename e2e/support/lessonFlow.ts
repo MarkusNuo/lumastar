@@ -15,11 +15,11 @@ import {
 } from './lessonApi.ts';
 
 /**
- * Plays lesson `lesson` of the unit through the UI, from the learning path back to it: the first
+ * Plays the next lesson of the learning path through the UI, from the path back to it: the first
  * exercise with choices is answered wrong and repeated at the end, every other one right. The
  * detailed checks of the player live in tests/lesson; this is the way to get there and back.
  */
-export async function playLessonInUi(page: Page, unitTitle: string, lesson = 1): Promise<PlayedLesson> {
+export async function playLessonInUi(page: Page): Promise<PlayedLesson> {
   const path = new LearningPathPage(page);
   const player = new LessonPlayer(page);
   const resultScreen = new LessonResultScreen(page);
@@ -28,7 +28,7 @@ export async function playLessonInUi(page: Page, unitTitle: string, lesson = 1):
   // Sent as the result screen appears; no timeout of its own, the test timeout bounds the lesson.
   const completion = page.waitForResponse(isCompletion, { timeout: 0 });
   const started = page.waitForResponse(isLessonStart);
-  await path.lessonNode(unitTitle, lesson).tap();
+  await path.startCurrentLesson();
   const startResponse = await started;
   expect(startResponse.status()).toBe(201);
   const response = (await startResponse.json()) as LessonResponse;

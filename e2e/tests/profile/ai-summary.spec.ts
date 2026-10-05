@@ -4,17 +4,20 @@ import { choiceFor } from '../../support/lessonAnswers.ts';
 import { fetchMe } from '../../support/lessonApi.ts';
 import { playLessonInUi } from '../../support/lessonFlow.ts';
 import { LEARNER } from '../../support/learner.ts';
+import { currentUnit, fetchPath } from '../../support/planApi.ts';
 import { fetchSummary, isSummaryRequest } from '../../support/profileApi.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
  * "KI-Zusammenfassung kopieren" and "Zusammenfassung ansehen" (PRD F11, 8.3): after a lesson with one
- * wrong answer the summary names the level and shows that mistake as a typical error.
+ * wrong answer the summary frames the request for the AI, names the level and the current unit and
+ * shows that mistake as a typical error.
  */
 
-const UNIT = 'Begrüssung & Höflichkeit';
 const HEADING = `Lernstand ${LEARNER.displayName} – \\d{2}\\.\\d{2}\\.\\d{4} \\(Gheg, Kosovo\\)`;
 const COPIED = 'Kopiert! Füge sie in einen KI-Chat ein.';
+const FRAMING =
+  'Ich spreche Deutsch und lerne Gheg-Albanisch (Kosovo). Bitte antworte auf Deutsch und verwende auf Albanisch nur Gheg-Formen, keine Standard-Formen (z. B. *âsht* statt *është*).';
 
 test.use({ permissions: ['clipboard-read', 'clipboard-write'] });
 
@@ -26,8 +29,11 @@ test('after a lesson the AI summary is copied to the clipboard and shown formatt
 }) => {
   test.setTimeout(3 * 60_000);
   const profile = new ProfilePage(page);
-  const { wrongExercise } = await playLessonInUi(page, UNIT);
+  const { wrongExercise } = await playLessonInUi(page);
   const me = await fetchMe(page.request);
+  const path = await fetchPath(page.request);
+  const unit = currentUnit(path);
+  const unitLevel = path.stages.find((stage) => stage.units.includes(unit))?.level;
   const level = `Niveau: ${me.currentLevel ?? 'noch nicht eingestuft'} (Ziel C2)`;
   const typicalError = `„${withoutFinalPeriod(choiceFor(wrongExercise, 'wrong'))}“ → „`;
 
@@ -51,10 +57,15 @@ test('after a lesson the AI summary is copied to the clipboard and shown formatt
 
     // The Windows clipboard stores line breaks as CRLF; the text itself is the same.
     const copied = (await page.evaluate(() => navigator.clipboard.readText())).replace(/\r\n/g, '\n');
-    const [title, ...lines] = copied.split('\n');
+    const [title, framing, blank, ...lines] = copied.split('\n');
     expect(copied.startsWith('# Lernstand')).toBe(true);
     expect(title, JSON.stringify(title)).toMatch(new RegExp(`^# ${HEADING}$`));
+    expect(framing, 'it asks the AI for German answers and Gheg forms only (PRD 4)').toBe(FRAMING);
+    expect(blank).toBe('');
     expect(lines[0]?.startsWith(`- ${level},`), `the level comes first: ${lines[0]}`).toBe(true);
+    expect(lines[1], 'the unit the path continues with').toBe(
+      `- Aktuelle Einheit: ${unit.title} (${unitLevel})`,
+    );
     expect(lines.some((line) => line.startsWith('- Stärken: '))).toBe(true);
     expect(lines.some((line) => line.startsWith('- Schwächen: '))).toBe(true);
     expect(lines).toContain('- Letzte typische Fehler:');

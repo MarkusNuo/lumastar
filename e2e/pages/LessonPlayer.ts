@@ -3,7 +3,8 @@ import { firstBuildableChips, isSpecialChar } from '../support/answers.ts';
 import { choiceFor, solutionsOf, textFor, type Intent } from '../support/lessonAnswers.ts';
 import type { ExerciseType, LessonExercise, Outcome } from '../support/lessonApi.ts';
 
-export type FeedbackVariant = 'correct' | 'almost' | 'standard' | 'wrong';
+export const FEEDBACK_VARIANTS = ['correct', 'almost', 'standard', 'wrong'] as const;
+export type FeedbackVariant = (typeof FEEDBACK_VARIANTS)[number];
 
 /** The feedback sheet the player shows for the binding outcome of the backend. */
 export const VARIANT_OF: Record<Outcome, FeedbackVariant> = {
@@ -61,6 +62,17 @@ export class LessonPlayer {
 
   feedbackSheet(variant: FeedbackVariant): Locator {
     return this.page.getByRole('dialog', { name: FEEDBACK[variant].title, exact: true });
+  }
+
+  /** The variant of the feedback sheet on screen: its colour tone, confirmed by its title. */
+  async shownFeedback(): Promise<FeedbackVariant> {
+    const sheet = this.page.locator('[role="dialog"][data-tone]');
+    await expect(sheet).toBeVisible();
+    const tone = await sheet.getAttribute('data-tone');
+    const variant = FEEDBACK_VARIANTS.find((candidate) => FEEDBACK[candidate].tone === tone);
+    if (!variant) throw new Error(`No feedback variant has the tone ${tone}`);
+    await expect(this.feedbackSheet(variant)).toBeVisible();
+    return variant;
   }
 
   /** A multiple-choice card; its accessible name also holds the number key, so match its label. */
@@ -122,6 +134,23 @@ export class LessonPlayer {
     return fromBar;
   }
 
+  /**
+   * Tries the special-character bar on an empty field: "ë", then a shifted "Ç" go in at the cursor,
+   * the focus stays, then the field is cleared again. Returns how many characters came from the bar.
+   */
+  async tryOutSpecialChars(field: Locator): Promise<number> {
+    await expect(field).toHaveValue('');
+    const tried = 'ëÇ';
+    const fromBar = await this.typeAnswer(field, tried, { useBar: true });
+    await field.fill('');
+    return fromBar;
+  }
+
+  /** The text field of a typed exercise: the gap, or the answer field in the answer language. */
+  textField(exercise: LessonExercise): Locator {
+    return exercise.type === 'fill_gap' ? this.gapField() : this.answerField(exercise.answerLang ?? 'sq');
+  }
+
   private async setShift(shift: Locator, on: boolean): Promise<void> {
     if ((await shift.getAttribute('aria-pressed')) === String(on)) return;
     await shift.tap();
@@ -181,18 +210,18 @@ export class LessonPlayer {
           await expect(this.exercise.getByRole('group', { name: 'Lücke' })).toHaveText(choice);
           return 0;
         }
-        return this.typeText(this.gapField(), exercise, intent);
+        return this.typeText(exercise, intent);
       case 'translate_free':
-        return this.typeText(this.answerField(exercise.answerLang ?? 'sq'), exercise, intent);
+        return this.typeText(exercise, intent);
       case 'match_pairs':
         throw new Error('Match pairs are answered by matchPairs');
     }
   }
 
   /** A learner who types "almost" right skips the special characters; the others use the bar. */
-  private typeText(field: Locator, exercise: LessonExercise, intent: Intent): Promise<number> {
+  private typeText(exercise: LessonExercise, intent: Intent): Promise<number> {
     const useBar = exercise.answerLang === 'sq' && intent !== 'almost';
-    return this.typeAnswer(field, textFor(exercise, intent), { useBar });
+    return this.typeAnswer(this.textField(exercise), textFor(exercise, intent), { useBar });
   }
 
   async check(): Promise<void> {

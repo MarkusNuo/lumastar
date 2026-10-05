@@ -39,6 +39,8 @@ export interface LessonExercise {
   solutions?: string[];
   standardForms?: string[];
   explanation: string;
+  /** Known mistakes, matched against the normalised answer before any tolerance. */
+  errorHints?: { pattern: string; category: string; hint: string }[];
 }
 
 export interface LessonResponse {

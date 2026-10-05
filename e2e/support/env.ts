@@ -13,7 +13,7 @@ export const BACKEND_URL = `http://${HOST}:${BACKEND_PORT}`;
 export const FRONTEND_URL = `http://${HOST}:${FRONTEND_PORT}`;
 
 /** Screenshots land in screenshots/<milestone>/; bump per milestone or override via env. */
-export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm2';
+export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm3';
 
 /**
  * Which code the servers run: the working tree (default) or the last commit (E2E_SOURCE=head), which
@@ -45,6 +45,8 @@ export const PATHS = {
   gradleTemp: fromE2eRoot('../.tmp'),
   /** Export of HEAD for E2E_SOURCE=head (inside the gitignored .tmp). */
   headExport: fromE2eRoot('../.tmp/e2e-head'),
+  /** The content the backend seeds: of the exported commit in HEAD mode, else of the working tree. */
+  content: fromE2eRoot(SOURCE === 'head' ? '../.tmp/e2e-head/content' : '../content'),
   /** Own build output, so e2e never overwrites frontend/dist while the frontend is being worked on. */
   frontendDist: fromE2eRoot('.frontend-dist'),
   authState: fromE2eRoot('.auth/learner.json'),

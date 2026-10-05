@@ -13,6 +13,16 @@ export interface SnapOptions {
 }
 
 /**
+ * Scrolls the page so the element starts `offset` px below the top of the viewport, e.g. below a
+ * sticky top bar, so a viewport capture shows what follows it.
+ */
+export async function scrollToTop(element: Locator, offset = 0): Promise<void> {
+  await element.evaluate((node, gap) => {
+    window.scrollTo(0, node.getBoundingClientRect().top + window.scrollY - gap);
+  }, offset);
+}
+
+/**
  * Saves a PNG for the visual design review (PRD 12.5) to
  * screenshots/<milestone>/<width>x<height>/<name>.png and returns its path.
  */

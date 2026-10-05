@@ -5,8 +5,6 @@ import { LessonPlayer } from '../../pages/LessonPlayer.ts';
 import { isLessonStart } from '../../support/lessonApi.ts';
 import { snap } from '../../support/screenshots.ts';
 
-const UNIT = 'Begrüssung & Höflichkeit';
-
 test('closing a lesson asks first: cancel keeps the lesson, confirm returns home', async ({ page }) => {
   const path = new LearningPathPage(page);
   const player = new LessonPlayer(page);
@@ -14,7 +12,7 @@ test('closing a lesson asks first: cancel keeps the lesson, confirm returns home
 
   await path.goto();
   const started = page.waitForResponse(isLessonStart);
-  await path.lessonNode(UNIT, 1).tap();
+  await path.startCurrentLesson();
   expect((await started).status()).toBe(201);
   const { id } = await player.current();
 

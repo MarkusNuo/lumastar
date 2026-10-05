@@ -1,6 +1,9 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-/** First-start setup (/setup): welcome, name and password step (PRD F1, F13). */
+/**
+ * First-start setup (/setup): welcome, name and password step (PRD F1, F13). Its progress bar runs on
+ * through the onboarding questions, see OnboardingPage.
+ */
 export class SetupPage {
   readonly page: Page;
   readonly welcomeHeading: Locator;

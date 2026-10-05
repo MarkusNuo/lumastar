@@ -1,33 +1,57 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { escapeRegExp } from '../support/regex.ts';
 
-/** Home tab (/): the learning path with its unit banners and lesson nodes (PRD 12.3). */
+/** Home tab (/): the personal learning path with stages, unit banners and lesson nodes (PRD 12.3). */
 export class LearningPathPage {
   readonly page: Page;
+  /** The next lesson: it pulses with the "Start" bubble; its name ends with "als Nächstes". */
+  readonly currentNode: Locator;
+  /** The card at the top that opens the plan timeline. */
+  readonly planTeaser: Locator;
 
   constructor(page: Page) {
     this.page = page;
+    this.currentNode = page.getByRole('main').locator('button[aria-current="step"]');
+    this.planTeaser = page.getByRole('link', { name: /Dein Lernplan/ });
   }
 
   async goto(): Promise<void> {
     await this.page.goto('/');
-    await expect(this.page.getByRole('heading', { name: 'Lernpfad' })).toBeAttached();
+    await this.expectVisible();
+  }
+
+  async expectVisible(): Promise<void> {
+    await expect(this.page).toHaveURL(/\/$/);
+    await expect(this.page.getByRole('heading', { name: 'Lernpfad', level: 1 })).toBeAttached();
+    await expect(this.planTeaser).toBeVisible();
+  }
+
+  /** A stage of the plan, e.g. "A0 · Erste Schritte", with its units and its checkpoint. */
+  stage(level: string, title: string): Locator {
+    return this.page.getByRole('region', { name: `${level} · ${title}`, exact: true });
+  }
+
+  /** A unit: its banner (the title is a level-3 heading) and its lesson nodes. */
+  unit(title: string): Locator {
+    return this.page.getByRole('region', { name: title, exact: true });
   }
 
   /**
-   * The unit's section: its banner and its list of lesson nodes. The unit section has no accessible
-   * name, so it is told apart from the banner (no list) and the stage around it (a level-2 heading).
+   * The lesson nodes of a unit, named "Lektion <n>, <status>" (e.g. "Lektion 1, als Nächstes"); a
+   * focus unit names them "Fokus-Lektion <n>, …".
    */
-  unit(title: string): Locator {
-    const page = this.page;
-    return page
-      .locator('section')
-      .filter({ has: page.getByRole('heading', { name: title, level: 3, exact: true }) })
-      .filter({ has: page.getByRole('list') })
-      .filter({ hasNot: page.getByRole('heading', { level: 2 }) });
+  lessonNodes(unit: Locator): Locator {
+    return unit.getByRole('listitem').getByRole('button', { name: /^(Fokus-)?Lektion \d+, / });
   }
 
-  /** Node "Lektion <n>"; its accessible name ends with the status, e.g. "Lektion 1, als Nächstes". */
-  lessonNode(unitTitle: string, lesson: number): Locator {
-    return this.unit(unitTitle).getByRole('button', { name: new RegExp(`^Lektion ${lesson},`) });
+  /** The test at the end of a stage, e.g. "Checkpoint A0, gesperrt". */
+  checkpoint(level: string): Locator {
+    return this.page.getByRole('button', { name: new RegExp(`^Checkpoint ${escapeRegExp(level)}, `) });
+  }
+
+  /** Starts the next lesson from the path, as a learner does. */
+  async startCurrentLesson(): Promise<void> {
+    await this.currentNode.scrollIntoViewIfNeeded();
+    await this.currentNode.tap();
   }
 }
