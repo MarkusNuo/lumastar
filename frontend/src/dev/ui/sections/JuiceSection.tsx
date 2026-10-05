@@ -168,10 +168,10 @@ function ComboDemo() {
       </p>
       <div className="grid grid-cols-2 gap-2">
         <Button variant="success" size="sm" icon={CheckIcon} onClick={() => answer(true)}>
-          Richtige Antwort
+          Richtig
         </Button>
         <Button variant="danger" size="sm" icon={XIcon} onClick={() => answer(false)}>
-          Falsche Antwort
+          Falsch
         </Button>
       </div>
     </div>
@@ -222,7 +222,7 @@ export function JuiceSection() {
         <LessonEndDemo />
       </Specimen>
       <Specimen label="Lernpfad-Knoten antippen: verfügbar · gesperrt">
-        <div className="flex w-full justify-around pt-12">
+        <div className="flex w-full justify-around pt-12 pb-4">
           <PathNode status="current" color="violet" label="Lektion 4" />
           <PathNode status="locked" color="violet" label="Lektion 5" />
         </div>
