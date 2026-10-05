@@ -172,15 +172,67 @@
         ],
         "type": "object"
       },
+      "BadgeResponse": {
+        "description": "A level badge (PRD F9), earned by the checkpoint that completes a CEFR band",
+        "properties": {
+          "awardedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "code": {
+            "$ref": "#/components/schemas/LevelBadge"
+          }
+        },
+        "required": [
+          "awardedAt",
+          "code"
+        ],
+        "type": "object"
+      },
       "Checkpoint": {
         "properties": {
           "status": {
             "$ref": "#/components/schemas/CheckpointStatus",
-            "description": "locked until checkpoints arrive (M4)"
+            "description": "available once every unit of the stage that has exercises is completed or skipped; start it with POST /api/checkpoints"
           }
         },
         "required": [
           "status"
+        ],
+        "type": "object"
+      },
+      "CheckpointResult": {
+        "description": "A checkpoint passed with the required accuracy moves the learner up (PRD chapter 5); a failed one stays available",
+        "properties": {
+          "badges": {
+            "description": "Level badges awarded by this checkpoint (PRD F9), e.g. A1 for passing A1.3",
+            "items": {
+              "$ref": "#/components/schemas/LevelBadge"
+            },
+            "type": "array"
+          },
+          "level": {
+            "$ref": "#/components/schemas/Level",
+            "description": "The stage of the checkpoint"
+          },
+          "newLevel": {
+            "$ref": "#/components/schemas/Level",
+            "description": "The learner's level after a pass; absent after a failure"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "requiredAccuracy": {
+            "example": 0.8,
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "required": [
+          "badges",
+          "level",
+          "passed",
+          "requiredAccuracy"
         ],
         "type": "object"
       },
@@ -621,7 +673,7 @@
             "type": "string"
           },
           "unitId": {
-            "description": "The unit or focus unit played; review for a review lesson",
+            "description": "The unit or focus unit played; review for a review lesson, checkpoint_<level> (e.g. checkpoint_A1.2) for a checkpoint",
             "type": "string"
           }
         },
@@ -640,6 +692,10 @@
             "description": "Share of exercises answered correctly at the first attempt, 0 to 1",
             "format": "double",
             "type": "number"
+          },
+          "checkpoint": {
+            "$ref": "#/components/schemas/CheckpointResult",
+            "description": "The result of a checkpoint; absent for other lessons"
           },
           "correctCount": {
             "description": "Exercises answered correctly at the first attempt",
@@ -722,6 +778,17 @@
           "C2.1",
           "C2.2",
           "C2.3"
+        ],
+        "type": "string"
+      },
+      "LevelBadge": {
+        "enum": [
+          "A1",
+          "A2",
+          "B1",
+          "B2",
+          "C1",
+          "C2"
         ],
         "type": "string"
       },
@@ -1647,6 +1714,18 @@
         ],
         "type": "object"
       },
+      "StartCheckpointRequest": {
+        "properties": {
+          "level": {
+            "$ref": "#/components/schemas/Level",
+            "description": "The stage whose checkpoint to take, as listed by GET /api/path"
+          }
+        },
+        "required": [
+          "level"
+        ],
+        "type": "object"
+      },
       "StartLessonRequest": {
         "properties": {
           "unitId": {
@@ -2006,6 +2085,129 @@
         "summary": "Whether setup is required and whether the caller is signed in",
         "tags": [
           "auth"
+        ]
+      }
+    },
+    "/api/badges": {
+      "get": {
+        "description": "The schema LevelBadge lists every badge there is, so that the app can show the ones still to earn.",
+        "operationId": "getBadges",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/BadgeResponse"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "The earned badges; empty before the first one"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "The level badges earned so far, in band order",
+        "tags": [
+          "badges"
+        ]
+      }
+    },
+    "/api/checkpoints": {
+      "post": {
+        "description": "Up to 15 exercises from all units of the stage, harder ones first. It is played like any lesson (POST /api/lessons/{sessionId}/attempts, POST /api/lessons/{sessionId}/complete); the result tells whether it is passed (accuracy at least 80 %), the new level and the level badges earned.",
+        "operationId": "startCheckpoint",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartCheckpointRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonResponse"
+                }
+              }
+            },
+            "description": "The checkpoint (kind checkpoint)"
+          },
+          "400": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Invalid request"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "404": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "The plan has no such stage (code checkpoint_not_found)"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Units of the stage are still to do, or it is passed already (codes checkpoint_locked, checkpoint_passed)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Compose and start the checkpoint of a stage",
+        "tags": [
+          "checkpoints"
         ]
       }
     },
@@ -3218,6 +3420,14 @@
     {
       "description": "First-start setup, sign-in and sign-out of the single account",
       "name": "auth"
+    },
+    {
+      "description": "Level badges A1 … C2",
+      "name": "badges"
+    },
+    {
+      "description": "The test at the end of a stage; passing it moves the learner up",
+      "name": "checkpoints"
     },
     {
       "description": "Content shared by the backend evaluator and the app's pre-check",

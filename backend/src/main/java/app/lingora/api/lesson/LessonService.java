@@ -1,5 +1,7 @@
 package app.lingora.api.lesson;
 
+import app.lingora.api.plan.CheckpointStatuses;
+import app.lingora.api.plan.CheckpointStatuses.StageCheckpoint;
 import app.lingora.api.plan.PlanTriggers;
 import app.lingora.config.EngineProperties;
 import app.lingora.core.evaluation.AnswerEvaluator;
@@ -11,8 +13,10 @@ import app.lingora.core.lesson.LessonComposer;
 import app.lingora.core.lesson.XpCalculator;
 import app.lingora.core.lesson.XpCalculator.FirstAttempt;
 import app.lingora.core.lesson.XpCalculator.LessonXp;
+import app.lingora.core.plan.CheckpointRule;
 import app.lingora.core.plan.FocusRequest;
 import app.lingora.domain.Answer;
+import app.lingora.domain.CheckpointStatus;
 import app.lingora.domain.EvaluationResult;
 import app.lingora.domain.Exercise;
 import app.lingora.domain.FocusUnitId;
@@ -21,6 +25,7 @@ import app.lingora.domain.LearningPlan.PlanUnit;
 import app.lingora.domain.Level;
 import app.lingora.domain.Outcome;
 import app.lingora.domain.Rating;
+import app.lingora.domain.Stage;
 import app.lingora.domain.SrsCard;
 import app.lingora.domain.Unit;
 import app.lingora.persistence.AttemptEntity;
@@ -29,6 +34,7 @@ import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LessonSessionEntity;
 import app.lingora.persistence.LessonSessionRepository;
+import app.lingora.persistence.SessionKind;
 import app.lingora.persistence.SkillMasteryStore;
 import app.lingora.persistence.SrsCardStore;
 import app.lingora.persistence.UserEntity;
@@ -49,8 +55,9 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer together with the mastery of its
  * skill tags (PRD 8.2), finish with XP (F9). Lessons of a unit, focus lessons on a weak skill tag (PRD F3) and review
- * lessons of the due items (PRD F8) share this flow. Every first answer reviews the FSRS cards of its items; retries at
- * the end of a lesson do not. A completed lesson may suggest a focus lesson (PRD F7) and revise the plan (PRD F3).
+ * lessons of the due items (PRD F8) and the checkpoints at the end of a stage (PRD chapter 5) share this flow. Every
+ * first answer reviews the FSRS cards of its items; retries at the end of a lesson do not. A completed lesson may suggest
+ * a focus lesson (PRD F7) and revise the plan (PRD F3); a completed checkpoint may move the learner up.
  */
 @Service
 class LessonService {
@@ -69,12 +76,15 @@ class LessonService {
     private final SrsCardStore cards;
     private final LessonContexts contexts;
     private final PlanTriggers planTriggers;
+    private final CheckpointStatuses checkpoints;
+    private final CheckpointCompletion checkpointCompletion;
     private final String engineId;
     private final Clock clock;
 
     LessonService(ContentCatalog catalog, LessonSessionRepository sessions, AttemptRepository attempts, UserRepository users,
                   LearningPlanStore plans, SkillMasteryStore mastery, LessonComposer composer, AnswerEvaluator evaluator,
                   CardReviews cardReviews, SrsCardStore cards, LessonContexts contexts, PlanTriggers planTriggers,
+                  CheckpointStatuses checkpoints, CheckpointCompletion checkpointCompletion,
                   EngineProperties engineProperties, Clock clock) {
         this.catalog = catalog;
         this.sessions = sessions;
@@ -88,6 +98,8 @@ class LessonService {
         this.cards = cards;
         this.contexts = contexts;
         this.planTriggers = planTriggers;
+        this.checkpoints = checkpoints;
+        this.checkpointCompletion = checkpointCompletion;
         this.engineId = engineProperties.engine().id();
         this.clock = clock;
     }
@@ -143,6 +155,30 @@ class LessonService {
         return LessonResponse.of(session, LessonResponse.REVIEW_UNIT_ID, exercises);
     }
 
+    /** The checkpoint of a stage of the plan, once it is available, made of the exercises of the stage's units. */
+    @Transactional
+    LessonResponse startCheckpoint(UserEntity learner, Level level) {
+        StageCheckpoint checkpoint = checkpoints.stage(learner.getId(), level)
+                .orElseThrow(() -> LessonProblems.checkpointNotFound(level));
+        if (checkpoint.status() == CheckpointStatus.LOCKED) {
+            throw LessonProblems.checkpointLocked(level);
+        }
+        if (checkpoint.status() == CheckpointStatus.PASSED) {
+            throw LessonProblems.checkpointPassed(level);
+        }
+        List<Unit> units = checkpoint.stage().units().stream()
+                .filter(unit -> !unit.isFocus())
+                .flatMap(unit -> catalog.activeUnit(unit.unitId()).stream())
+                .filter(unit -> !unit.isSkeleton())
+                .toList();
+        Instant now = clock.instant();
+        List<Exercise> exercises = composer.composeCheckpoint(new Stage(level, level.code(), units),
+                contexts.of(learner, now, null));
+        LessonSessionEntity session = sessions.save(LessonSessionEntity.checkpoint(learner.getId(), level, ids(exercises),
+                engineId, now));
+        return LessonResponse.of(session, LessonResponse.checkpointUnitId(level), exercises);
+    }
+
     private static List<String> ids(List<Exercise> exercises) {
         return exercises.stream().map(Exercise::id).toList();
     }
@@ -193,14 +229,20 @@ class LessonService {
         LessonSessionEntity session = lockedSession(userId, sessionId);
         List<AttemptEntity> firstAttempts = attempts.findBySessionIdAndRetryFalseOrderByPosition(session.getId());
         Optional<FocusRequest> focus = focusRequest(userId, firstAttempts);
+        boolean checkpoint = session.getKind() == SessionKind.CHECKPOINT;
         if (!session.isFinished()) {
             finish(userId, session, firstAttempts);
-            planTriggers.afterLesson(userId, focus);
+            if (checkpoint) {
+                checkpointCompletion.apply(userId, session, focus, clock.instant());
+            } else {
+                planTriggers.afterLesson(userId, focus);
+            }
         }
         List<Item> items = learnedItems(session);
         Map<String, SrsCard> itemCards = cards.cards(userId, items.stream().map(Item::id).toList());
         return LessonResultResponse.of(session, items, itemCards, cards.learnedWords(userId), users.xpTotalOf(userId),
-                focus.flatMap(request -> focusSuggestion(userId, request)).orElse(null));
+                focus.flatMap(request -> focusSuggestion(userId, request)).orElse(null),
+                checkpoint ? checkpointCompletion.result(session) : null);
     }
 
     /** A tag the lesson's first answers got wrong at least three times, if a focus lesson could practise it. */
@@ -234,6 +276,9 @@ class LessonService {
         BigDecimal accuracy = BigDecimal.valueOf(correct)
                 .divide(BigDecimal.valueOf(firstAttempts.size()), ACCURACY_SCALE, RoundingMode.HALF_UP);
         session.finish(clock.instant(), correct, accuracy, xp);
+        if (session.getKind() == SessionKind.CHECKPOINT) {
+            session.recordCheckpoint(CheckpointRule.passes(accuracy.doubleValue()));
+        }
         users.addXp(userId, xp.total());
     }
 

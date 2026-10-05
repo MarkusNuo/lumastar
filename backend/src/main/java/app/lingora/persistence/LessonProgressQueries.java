@@ -1,5 +1,6 @@
 package app.lingora.persistence;
 
+import app.lingora.domain.Level;
 import app.lingora.domain.SkillTag;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -52,6 +53,15 @@ public class LessonProgressQueries {
                 .param("zone", zone.getId())
                 .query(Integer.class)
                 .single();
+    }
+
+    /** The stages whose checkpoint the learner has passed. */
+    public Set<Level> passedCheckpoints(UUID userId) {
+        return jdbc.sql("SELECT DISTINCT level FROM sessions WHERE user_id = :user AND kind = 'checkpoint' AND checkpoint_passed")
+                .param("user", userId)
+                .query((row, rowNumber) -> Level.fromCode(row.getString("level")))
+                .stream()
+                .collect(Collectors.toSet());
     }
 
     /** The exercises the learner has answered at least once, retries aside. */

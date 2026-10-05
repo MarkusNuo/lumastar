@@ -1,6 +1,7 @@
 package app.lingora.api.lesson;
 
 import app.lingora.api.error.ApiProblemException;
+import app.lingora.domain.Level;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 
@@ -17,6 +18,22 @@ final class LessonProblems {
     static ApiProblemException unitWithoutContent(String unitId) {
         return new ApiProblemException(HttpStatus.CONFLICT, "unit_without_content",
                 "Unit '%s' has no exercises yet.".formatted(unitId));
+    }
+
+    static ApiProblemException checkpointNotFound(Level level) {
+        return new ApiProblemException(HttpStatus.NOT_FOUND, "checkpoint_not_found",
+                "The current plan has no stage %s.".formatted(level.code()));
+    }
+
+    static ApiProblemException checkpointLocked(Level level) {
+        return new ApiProblemException(HttpStatus.CONFLICT, "checkpoint_locked",
+                "The checkpoint %s opens once every unit of the stage with exercises is completed or skipped."
+                        .formatted(level.code()));
+    }
+
+    static ApiProblemException checkpointPassed(Level level) {
+        return new ApiProblemException(HttpStatus.CONFLICT, "checkpoint_passed",
+                "The checkpoint %s has been passed already.".formatted(level.code()));
     }
 
     static ApiProblemException nothingDue() {

@@ -1,9 +1,9 @@
 package app.lingora.api.plan;
 
+import app.lingora.domain.CheckpointStatus;
 import app.lingora.domain.Level;
 import app.lingora.domain.PlanUnitStatus;
 import app.lingora.domain.UnitColor;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDate;
 import java.util.List;
@@ -29,25 +29,9 @@ public record PathResponse(
     }
 
     public record Checkpoint(
-            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "locked until checkpoints arrive (M4)")
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "available once every unit of the stage "
+                    + "that has exercises is completed or skipped; start it with POST /api/checkpoints")
             CheckpointStatus status) {
-    }
-
-    public enum CheckpointStatus {
-        LOCKED("locked"),
-        AVAILABLE("available"),
-        PASSED("passed");
-
-        private final String code;
-
-        CheckpointStatus(String code) {
-            this.code = code;
-        }
-
-        @JsonValue
-        public String code() {
-            return code;
-        }
     }
 
     @Schema(description = "A node group of the path: a curriculum unit or an inserted focus unit")

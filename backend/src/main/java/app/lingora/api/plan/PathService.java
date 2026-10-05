@@ -2,10 +2,10 @@ package app.lingora.api.plan;
 
 import app.lingora.api.error.ApiProblemException;
 import app.lingora.api.plan.PathResponse.Checkpoint;
-import app.lingora.api.plan.PathResponse.CheckpointStatus;
 import app.lingora.api.plan.PathResponse.PathStage;
 import app.lingora.api.plan.PathResponse.PathUnit;
 import app.lingora.core.plan.PlanProgress;
+import app.lingora.domain.CheckpointStatus;
 import app.lingora.domain.LearningPlan;
 import app.lingora.domain.LearningPlan.PlanUnit;
 import app.lingora.domain.Level;
@@ -39,14 +39,16 @@ class PathService {
     private final LivePlans livePlans;
     private final StageRepository stages;
     private final UnitRepository units;
+    private final CheckpointStatuses checkpoints;
 
     PathService(UserRepository users, LearningPlanStore plans, LivePlans livePlans, StageRepository stages,
-                UnitRepository units) {
+                UnitRepository units, CheckpointStatuses checkpoints) {
         this.users = users;
         this.plans = plans;
         this.livePlans = livePlans;
         this.stages = stages;
         this.units = units;
+        this.checkpoints = checkpoints;
     }
 
     @Transactional(readOnly = true)
@@ -68,11 +70,12 @@ class PathService {
         Map<String, UnitEntity> unitsById = units.findAllById(live.units().map(PlanUnit::unitId).toList()).stream()
                 .collect(Collectors.toMap(UnitEntity::getId, Function.identity()));
         Map<Level, String> titles = stageTitles();
+        Map<Level, CheckpointStatus> checkpointStatuses = checkpoints.of(userId, live);
         return new PathResponse(learner.getCurrentLevel(), TARGET_LEVEL, learner.getDailyGoalMinutes(),
                 PlanResponse.estimates(live.estimates()),
                 live.stages().stream()
                         .map(stage -> new PathStage(stage.level(), titles.getOrDefault(stage.level(), stage.level().code()),
-                                new Checkpoint(CheckpointStatus.LOCKED),
+                                new Checkpoint(checkpointStatuses.get(stage.level())),
                                 stage.units().stream().map(unit -> pathUnit(unit, unitsById.get(unit.unitId()), progress)).toList()))
                         .toList());
     }

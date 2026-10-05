@@ -2,6 +2,8 @@ package app.lingora.api.lesson;
 
 import app.lingora.core.lesson.XpCalculator.LessonXp;
 import app.lingora.domain.Item;
+import app.lingora.domain.Level;
+import app.lingora.domain.LevelBadge;
 import app.lingora.domain.SrsCard;
 import app.lingora.persistence.LessonSessionEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -27,7 +29,8 @@ public record LessonResultResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "XP of the learner including this lesson")
         int xpTotal,
         @Schema(description = "A focus lesson for a skill tag answered wrongly at least three times in this lesson "
-                + "(PRD F7); absent otherwise") FocusSuggestion focusSuggestion) {
+                + "(PRD F7); absent otherwise") FocusSuggestion focusSuggestion,
+        @Schema(description = "The result of a checkpoint; absent for other lessons") CheckpointResult checkpoint) {
 
     public record XpBreakdown(
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int base,
@@ -35,6 +38,17 @@ public record LessonResultResponse(
             int perfectBonus,
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED,
                     description = "Median first-attempt response time of at most 8 seconds") int speedBonus) {
+    }
+
+    @Schema(description = "A checkpoint passed with the required accuracy moves the learner up (PRD chapter 5); a failed "
+            + "one stays available")
+    public record CheckpointResult(
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The stage of the checkpoint") Level level,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) boolean passed,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "0.8") double requiredAccuracy,
+            @Schema(description = "The learner's level after a pass; absent after a failure") Level newLevel,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Level badges awarded by this checkpoint "
+                    + "(PRD F9), e.g. A1 for passing A1.3") List<LevelBadge> badges) {
     }
 
     @Schema(description = "The focus unit of the plan for the weak skill tag; start it with POST /api/lessons")
@@ -54,7 +68,8 @@ public record LessonResultResponse(
 
     /** @param cards the learner's cards of the items by item id */
     static LessonResultResponse of(LessonSessionEntity session, List<Item> learnedItems, Map<String, SrsCard> cards,
-                                   int learnedWordsTotal, int xpTotal, FocusSuggestion focusSuggestion) {
+                                   int learnedWordsTotal, int xpTotal, FocusSuggestion focusSuggestion,
+                                   CheckpointResult checkpoint) {
         LessonXp xp = session.xp();
         return new LessonResultResponse(LessonKind.of(session.getKind()), xp.total(), new XpBreakdown(xp.base(), xp.perfectBonus(), xp.speedBonus()),
                 session.getAccuracy().doubleValue(), session.duration().toMillis(), session.getCorrectCount(),
@@ -63,6 +78,6 @@ public record LessonResultResponse(
                         .map(item -> new LearnedItem(item.id(), item.gheg(), item.de(),
                                 cards.containsKey(item.id()) && cards.get(item.id()).isKnown()))
                         .toList(),
-                learnedWordsTotal, xpTotal, focusSuggestion);
+                learnedWordsTotal, xpTotal, focusSuggestion, checkpoint);
     }
 }

@@ -59,6 +59,8 @@ public class LessonSessionEntity {
 
     private int xpSpeedBonus;
 
+    private Boolean checkpointPassed;
+
     protected LessonSessionEntity() {
     }
 
@@ -91,6 +93,22 @@ public class LessonSessionEntity {
         return session;
     }
 
+    /** The checkpoint at the end of the stage {@code level} (PRD chapter 5). */
+    public static LessonSessionEntity checkpoint(UUID userId, Level level, List<String> exerciseIds, String composedBy,
+                                                 Instant startedAt) {
+        LessonSessionEntity session = new LessonSessionEntity(userId, null, level, exerciseIds, composedBy, startedAt);
+        session.kind = SessionKind.CHECKPOINT;
+        return session;
+    }
+
+    /** Records whether the finished checkpoint was passed. */
+    public void recordCheckpoint(boolean passed) {
+        if (kind != SessionKind.CHECKPOINT || !isFinished()) {
+            throw new IllegalStateException("only a finished checkpoint has a result");
+        }
+        checkpointPassed = passed;
+    }
+
     /** Records the result of the lesson; {@code accuracy} counts first attempts only. */
     public void finish(Instant at, int correct, BigDecimal accuracyOfFirstAttempts, LessonXp xp) {
         finishedAt = at;
@@ -121,6 +139,15 @@ public class LessonSessionEntity {
 
     public SessionKind getKind() {
         return kind;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    /** {@code null} unless the session is a finished checkpoint. */
+    public Boolean getCheckpointPassed() {
+        return checkpointPassed;
     }
 
     public String getUnitId() {

@@ -81,6 +81,14 @@ public class UserEntity {
         }
     }
 
+    /** Moves the learner up after a passed checkpoint (PRD chapter 5). */
+    public void levelUp(Level level) {
+        if (currentLevel == null || !level.isAbove(currentLevel)) {
+            throw new IllegalArgumentException("a level-up goes above the current level " + currentLevel);
+        }
+        currentLevel = level;
+    }
+
     public OnboardingStep onboardingStep() {
         if (selfAssessment == null) {
             return OnboardingStep.PROFILE;
