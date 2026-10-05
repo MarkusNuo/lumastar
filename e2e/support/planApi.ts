@@ -101,3 +101,31 @@ export function currentUnit(path: LearningPath): PathUnit {
   if (!unit) throw new Error('The learning path has no unit in progress');
   return unit;
 }
+
+export function stageOf(path: LearningPath, level: string): PathStage {
+  const stage = path.stages.find((candidate) => candidate.level === level);
+  if (!stage) throw new Error(`The learning path has no stage ${level}`);
+  return stage;
+}
+
+/**
+ * The stage whose open checkpoint the path shows as the next step instead of a lesson, as the
+ * frontend decides it: the first open checkpoint, unless a unit lesson of its stage or of an earlier
+ * one is still to do. Focus lessons are extra practice and never hold a checkpoint back (PRD 5, F7).
+ */
+export function checkpointAsNextStep(path: LearningPath): PathStage | undefined {
+  const open = path.stages.findIndex((stage) => stage.checkpoint.status === 'available');
+  if (open < 0) return undefined;
+  const lessonFirst = path.stages
+    .slice(0, open + 1)
+    .some((stage) =>
+      stage.units.some((unit) => !unit.focus && unit.hasContent && unit.status === 'in_progress'),
+    );
+  return lessonFirst ? undefined : path.stages[open];
+}
+
+/** Focus units not played yet: each takes one focus lesson (PRD F3). */
+export const openFocusUnits = (path: LearningPath) =>
+  path.stages
+    .flatMap((stage) => stage.units)
+    .filter((unit) => unit.focus && unit.hasContent && unit.status !== 'completed');

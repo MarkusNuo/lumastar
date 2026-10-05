@@ -26,8 +26,14 @@ const LISTED_SKILLS = 3;
 
 test.use({ permissions: ['clipboard-read', 'clipboard-write'] });
 
-/** The summary writes a sentence without its final period. */
-const withoutFinalPeriod = (text: string) => text.trim().replace(/\.$/u, '');
+/** The summary writes a text on one line, its lines joined by " / ", and without its final period. */
+const inline = (text: string) =>
+  text
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join(' / ')
+    .replace(/\.$/u, '');
 
 /** "- Stärken: Grundwortschatz 88 %, Begrüssungen 75 %" or "- Stärken: noch keine". */
 function skillsLine(name: 'Stärken' | 'Schwächen'): RegExp {
@@ -38,7 +44,7 @@ function skillsLine(name: 'Stärken' | 'Schwächen'): RegExp {
 
 /** The latest typical error: '  - Aufgabe „<prompt>“: „<given>“ → „<solution>“ (<category>)'. */
 function latestTypicalError(exercise: LessonExercise): RegExp {
-  const literal = (text: string) => escapeRegExp(withoutFinalPeriod(text));
+  const literal = (text: string) => escapeRegExp(inline(text));
   const solution = solutionsOf(exercise).map(literal).join('|');
   return new RegExp(
     `^  - Aufgabe „${literal(exercise.prompt.text)}“: „${literal(choiceFor(exercise, 'wrong'))}“ ` +

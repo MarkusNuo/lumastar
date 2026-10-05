@@ -1,6 +1,12 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { firstBuildableChips, isSpecialChar } from '../support/answers.ts';
-import { choiceFor, solutionsOf, textFor, type Intent } from '../support/lessonAnswers.ts';
+import {
+  canAnswerWrong,
+  choiceFor,
+  solutionsOf,
+  textFor,
+  type Intent,
+} from '../support/lessonAnswers.ts';
 import type { ExerciseType, LessonExercise, Outcome } from '../support/lessonApi.ts';
 
 export const FEEDBACK_VARIANTS = ['correct', 'almost', 'standard', 'wrong'] as const;
@@ -187,6 +193,9 @@ export class LessonPlayer {
    * characters were typed through the special-character bar.
    */
   async enterAnswer(exercise: LessonExercise, intent: Intent): Promise<number> {
+    if (intent === 'wrong' && !canAnswerWrong(exercise)) {
+      throw new Error(`${exercise.id} (${exercise.type}) cannot be answered wrong for sure`);
+    }
     switch (exercise.type) {
       case 'multiple_choice':
         await this.chooseOption(choiceFor(exercise, intent));

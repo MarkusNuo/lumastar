@@ -57,17 +57,26 @@ export function choiceFor(exercise: LessonExercise, intent: Intent): string {
   return choice;
 }
 
-/** The text to type for a right, almost right or Standard answer. */
+/** Far from every solution, so not even the typo tolerance accepts it. */
+export const WRONG_TEXT = 'qqqq zzzz';
+
+/** The text to type for a right, almost right, Standard or wrong answer. */
 export function textFor(exercise: LessonExercise, intent: Intent): string {
   const text =
     intent === 'almost'
       ? almostAnswer(exercise)
       : intent === 'standard'
         ? exercise.standardForms?.[0]
-        : solutionsOf(exercise)[0];
+        : intent === 'wrong'
+          ? WRONG_TEXT
+          : solutionsOf(exercise)[0];
   if (text === undefined) throw new Error(`No ${intent} text for ${exercise.id}`);
   return text;
 }
+
+/** Exercises the tests can answer wrong for sure: a wrong choice or a nonsense text. */
+export const canAnswerWrong = (exercise: LessonExercise) =>
+  hasChoices(exercise) || isTyped(exercise);
 
 /** The first exercise to answer wrong: a multiple choice if there is one, else any with choices. */
 export function firstWrongCandidate(exercises: readonly LessonExercise[]): LessonExercise {
@@ -79,9 +88,12 @@ export function firstWrongCandidate(exercises: readonly LessonExercise[]): Lesso
 
 /**
  * The answer body of POST /api/lessons/{id}/attempts. Wrong answers are only planned for exercises
- * with choices; typed exercises take the intents correct, almost and standard.
+ * with choices or a typed answer (see canAnswerWrong); typed exercises also take almost and standard.
  */
 export function submittedAnswer(exercise: LessonExercise, intent: Intent): SubmittedAnswer {
+  if (intent === 'wrong' && !canAnswerWrong(exercise)) {
+    throw new Error(`${exercise.id} (${exercise.type}) cannot be answered wrong for sure`);
+  }
   switch (exercise.type) {
     case 'multiple_choice':
       return { choice: choiceFor(exercise, intent) };

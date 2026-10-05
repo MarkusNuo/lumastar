@@ -15,9 +15,9 @@ export const DOCUMENTS = [
 ] as const;
 
 /** The export format this Lingora writes; an import upgrades older ones and rejects newer ones (PRD 13). */
-export const EXPORT_FORMAT = 2;
+export const EXPORT_FORMAT = 3;
 
-/** Learner tables of export format 2; data/profile.json holds the account row without its identity. */
+/** Learner tables of export format 3; data/profile.json holds the account row without its identity. */
 export const DATA_TABLES = [
   'streaks',
   'fsrs_params',
@@ -27,6 +27,7 @@ export const DATA_TABLES = [
   'placement_answers',
   'sessions',
   'badges',
+  'streak_days',
   'attempts',
   'skill_mastery',
   'srs_cards',
@@ -147,7 +148,7 @@ export interface PlacementAnswerRow {
   outcome: string;
 }
 
-/** A row of data/sessions.json; only a finished checkpoint has a result (format 2). */
+/** A row of data/sessions.json; only a finished checkpoint has a result (since format 2). */
 export interface SessionRow {
   id: string;
   kind: string;
@@ -158,12 +159,21 @@ export interface SessionRow {
   checkpointPassed: boolean | null;
 }
 
-/** A row of data/badges.json (format 2): a level badge, awarded by the checkpoint that completes a band. */
+/** A row of data/badges.json (since format 2): a level badge, awarded by the checkpoint that completes a band. */
 export interface BadgeRow {
   id: string;
   code: string;
   sessionId: string | null;
   awardedAt: string;
+}
+
+/** A row of data/streak_days.json (format 3): a day that counted for the streak (PRD F9). */
+export interface StreakDayRow {
+  id: string;
+  day: string;
+  kind: 'goal_met' | 'freeze';
+  goalMinutes: number | null;
+  sessionId: string | null;
 }
 
 /** A row of data/srs_cards.json: the FSRS card of an item. */
@@ -173,7 +183,7 @@ export interface SrsCardRow {
   state: 'new' | 'learning' | 'review' | 'relearning';
 }
 
-/** A row of data/review_log.json; the target retention it was scheduled with is new in format 2. */
+/** A row of data/review_log.json; the target retention it was scheduled with is there since format 2. */
 export interface ReviewLogRow {
   id: string;
   itemId: string;
@@ -231,31 +241,59 @@ function omit(row: Record<string, unknown>, key: string): Record<string, unknown
   return Object.fromEntries(Object.entries(row).filter(([name]) => name !== key));
 }
 
+/** The text entries of a backup, e.g. to turn it into an older format before zipping it again. */
+export type BackupEntries = Record<string, string>;
+
+function entriesOf(backup: BackupArchive): BackupEntries {
+  return Object.fromEntries(backup.names().map((name) => [name, backup.text(name)]));
+}
+
+/** Manifest and learner_profile.json name the version of the format (PRD 13). */
+function withVersion(entries: BackupEntries, schemaVersion: number): BackupEntries {
+  const versioned = { ...entries };
+  for (const name of ['manifest.json', 'documents/learner_profile.json']) {
+    const document = JSON.parse(entries[name] ?? '{}') as Record<string, unknown>;
+    versioned[name] = JSON.stringify({ ...document, schemaVersion });
+  }
+  return versioned;
+}
+
+/** The entries without a learner table and without its row count in the manifest. */
+function withoutTable(entries: BackupEntries, table: DataTable): BackupEntries {
+  const rest = Object.fromEntries(Object.entries(entries).filter(([name]) => name !== `data/${table}.json`));
+  const manifest = JSON.parse(entries['manifest.json'] ?? '{}') as Manifest;
+  rest['manifest.json'] = JSON.stringify({ ...manifest, counts: omit(manifest.counts, countKey(table)) });
+  return rest;
+}
+
+/** The entries with a column taken out of every row of a learner table. */
+function withoutColumn(entries: BackupEntries, table: DataTable, column: string): BackupEntries {
+  const file = `data/${table}.json`;
+  const rows = JSON.parse(entries[file] ?? '[]') as Record<string, unknown>[];
+  return { ...entries, [file]: JSON.stringify(rows.map((row) => omit(row, column))) };
+}
+
 /**
- * The export as a Lingora before M4 wrote it (format 1): without data/badges.json, without the
- * checkpoint result of each session and the target retention of each review. Format 1 could hold
+ * The export as a Lingora of M4 wrote it (format 2): without data/streak_days.json, new in format 3.
+ * Format 2 could not hold the days of the streak, so an import of it restores none.
+ */
+export function asFormat2(backup: BackupArchive): BackupEntries {
+  return withVersion(withoutTable(entriesOf(backup), 'streak_days'), 2);
+}
+
+/**
+ * The export as a Lingora before M4 wrote it (format 1): format 2 without data/badges.json, without
+ * the checkpoint result of each session and the target retention of each review. Format 1 could hold
  * neither badges nor checkpoints, so only an export without them can be turned back.
  */
-export function asFormat1(backup: BackupArchive): Record<string, string> {
-  const entries: Record<string, string> = {};
-  for (const name of backup.names().filter((entry) => entry !== 'data/badges.json')) {
-    entries[name] = backup.text(name);
-  }
-  const manifest = backup.manifest();
-  entries['manifest.json'] = JSON.stringify({
-    ...manifest,
-    schemaVersion: 1,
-    counts: omit(manifest.counts, 'badges'),
-  });
-  const withoutColumn = (table: DataTable, column: string) =>
-    JSON.stringify(backup.rows<Record<string, unknown>>(table).map((row) => omit(row, column)));
-  entries['data/sessions.json'] = withoutColumn('sessions', 'checkpointPassed');
-  entries['data/review_log.json'] = withoutColumn('review_log', 'requestRetention');
-  return entries;
+export function asFormat1(backup: BackupArchive): BackupEntries {
+  const withoutBadges = withoutTable(asFormat2(backup), 'badges');
+  const withoutResults = withoutColumn(withoutBadges, 'sessions', 'checkpointPassed');
+  return withVersion(withoutColumn(withoutResults, 'review_log', 'requestRetention'), 1);
 }
 
 /** Writes a ZIP with the given text entries, e.g. a hand-made broken backup. */
-export async function writeZip(file: string, entries: Record<string, string>): Promise<void> {
+export async function writeZip(file: string, entries: BackupEntries): Promise<void> {
   const files = Object.fromEntries(
     Object.entries(entries).map(([name, content]) => [name, strToU8(content)]),
   );

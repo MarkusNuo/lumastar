@@ -1,9 +1,10 @@
 import { writeFile } from 'node:fs/promises';
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { ProfilePage } from '../../pages/ProfilePage.ts';
 import { fetchAuthStatus } from '../../support/auth.ts';
 import {
   asFormat1,
+  asFormat2,
   BackupArchive,
   countKey,
   DATA_TABLES,
@@ -23,6 +24,7 @@ import {
   type ReviewLogRow,
   type SessionRow,
   type SrsCardRow,
+  type StreakDayRow,
 } from '../../support/backup.ts';
 import { isVocabulary, readItemKinds } from '../../support/content.ts';
 import { LEARNER, ONBOARDING } from '../../support/learner.ts';
@@ -83,7 +85,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
   await test.step('entries and manifest', () => {
     expect(backup.names().sort()).toEqual([...EXPECTED_ENTRIES].sort());
     const manifest = backup.manifest();
-    expect(manifest.schemaVersion, 'format 2 since M4').toBe(EXPORT_FORMAT);
+    expect(manifest.schemaVersion, 'format 3 since M5').toBe(EXPORT_FORMAT);
     expect(manifest.exportedAt).toMatch(ISO_INSTANT);
     expect(typeof manifest.appVersion).toBe('string');
     expect(keysOf(manifest.counts)).toEqual(DATA_TABLES.map(countKey).sort());
@@ -242,7 +244,19 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     );
   });
 
-  await test.step('format 2: checkpoint results, level badges, the target retention of every review', () => {
+  await test.step('format 3: the days that counted for the streak', () => {
+    const sessionIds = new Set(backup.rows<SessionRow>('sessions').map((session) => session.id));
+    for (const day of backup.rows<StreakDayRow>('streak_days')) {
+      expect(day.day, `streak day ${day.id}`).toMatch(ISO_DATE);
+      expect(['goal_met', 'freeze']).toContain(day.kind);
+      expect(day.goalMinutes !== null, `${day.day}: only a met goal has its minutes`).toBe(
+        day.kind === 'goal_met',
+      );
+      if (day.sessionId !== null) expect(sessionIds, `${day.day}: the lesson that met it`).toContain(day.sessionId);
+    }
+  });
+
+  await test.step('since format 2: checkpoint results, level badges, the target retention of every review', () => {
     const sessions = backup.rows<SessionRow>('sessions');
     for (const session of sessions.filter((row) => row.kind !== 'checkpoint')) {
       expect(session.checkpointPassed, `the ${session.kind} ${session.id} is no checkpoint`).toBeNull();
@@ -367,13 +381,59 @@ test('importing the downloaded backup restores the same state and keeps the acco
   }
 });
 
+/**
+ * Imports an older format made from the current export through the UI and checks that the import
+ * upgrades it: the rows of the current format come back, the streak days (new in format 3) empty.
+ */
+async function importUpgraded(
+  page: Page,
+  file: string,
+  current: BackupArchive,
+  schemaVersion: number,
+): Promise<void> {
+  const manifest = current.manifest();
+  const profile = new ProfilePage(page);
+  await profile.goto();
+  const imported = page.waitForResponse(isImport);
+  await profile.chooseBackup(file);
+  await profile.confirmImport();
+  const response = await imported;
+  expect(response.status(), await response.text()).toBe(200);
+  const result = (await response.json()) as ImportResult;
+  expect(result, 'the version of the file, the rows of the current format').toEqual({
+    schemaVersion,
+    exportedAt: manifest.exportedAt,
+    imported: { ...manifest.counts, streakDays: 0 },
+  });
+  await expect(profile.toast(importedMessage(result))).toBeVisible();
+
+  const upgraded = await fetchExport(page.request);
+  expect(upgraded.manifest().schemaVersion, 'exported again in the current format').toBe(EXPORT_FORMAT);
+  expect(upgraded.rows<StreakDayRow>('streak_days'), 'older formats hold no streak days').toEqual([]);
+  // Compared as JSON: an upgrader may write a JSONB number like 1.0 of a review state as 1.
+  for (const name of current.names().filter((entry) => entry.startsWith('data/'))) {
+    if (name === 'data/streak_days.json') continue;
+    expect(upgraded.json(name), `${name} after the upgrade`).toEqual(current.json(name));
+  }
+}
+
+test('a backup of export format 2 is upgraded on import and restores the same state (PRD 13)', async ({
+  page,
+}, testInfo) => {
+  // Format 2 holds everything but the streak days, so any state of the learner will do.
+  const current = await fetchExport(page.request);
+  const formatTwo = testInfo.outputPath('lingora-export-format-2.zip');
+  await writeZip(formatTwo, asFormat2(current));
+  await importUpgraded(page, formatTwo, current, 2);
+});
+
 test('a backup of export format 1 is upgraded on import and restores the same state (PRD 13)', async ({
   page,
 }, testInfo) => {
   await playLessonViaApi(page.request, currentUnit(await fetchPath(page.request)).unitId);
   const current = await fetchExport(page.request);
-  const manifest = current.manifest();
-  // Format 1 could hold neither, so the upgraded file must come back as it was exported.
+  // Format 1 could hold neither, so the upgraded file must come back as it was exported: no badges,
+  // no checkpoint results, the default target retention for every review.
   expect(current.rows<BadgeRow>('badges'), 'no level badge yet').toEqual([]);
   expect(
     current.rows<SessionRow>('sessions').filter((session) => session.kind === 'checkpoint'),
@@ -381,28 +441,7 @@ test('a backup of export format 1 is upgraded on import and restores the same st
   ).toEqual([]);
   const formatOne = testInfo.outputPath('lingora-export-format-1.zip');
   await writeZip(formatOne, asFormat1(current));
-
-  const profile = new ProfilePage(page);
-  await profile.goto();
-  const imported = page.waitForResponse(isImport);
-  await profile.chooseBackup(formatOne);
-  await profile.confirmImport();
-  const response = await imported;
-  expect(response.status(), await response.text()).toBe(200);
-  const result = (await response.json()) as ImportResult;
-  expect(result, 'the version of the file, the rows of format 2').toEqual({
-    schemaVersion: 1,
-    exportedAt: manifest.exportedAt,
-    imported: { ...manifest.counts, badges: 0 },
-  });
-  await expect(profile.toast(importedMessage(result))).toBeVisible();
-
-  const upgraded = await fetchExport(page.request);
-  expect(upgraded.manifest().schemaVersion, 'exported again in the current format').toBe(EXPORT_FORMAT);
-  for (const name of current.names().filter((entry) => entry.startsWith('data/'))) {
-    // No badges, no checkpoint results, the default target retention for every review.
-    expect(upgraded.text(name), `${name} after the upgrade`).toBe(current.text(name));
-  }
+  await importUpgraded(page, formatOne, current, 1);
 });
 
 test('an invalid backup is rejected with a German message and changes nothing', async ({

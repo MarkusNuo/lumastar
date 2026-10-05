@@ -31,7 +31,8 @@ import {
   type LessonResultResponse,
   type Outcome,
 } from '../../support/lessonApi.ts';
-import { currentUnit, fetchPath } from '../../support/planApi.ts';
+import { checkpointAsNextStep, currentUnit, fetchPath } from '../../support/planApi.ts';
+import { finishOpenFocusUnits } from '../../support/progression.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
@@ -125,6 +126,8 @@ test('a full lesson with every exercise type, all feedback states, the retry and
   const attemptResponses = recordResponses(page, isAttempt);
   const completions = recordResponses(page, isCompletion);
   const gate = await AttemptGate.install(page);
+  // A focus lesson practises one skill tag; the lesson of a curriculum unit has every exercise type.
+  await finishOpenFocusUnits(page.request);
 
   await path.goto();
   const xpBefore = await fetchXpTotal(page.request);
@@ -136,7 +139,7 @@ test('a full lesson with every exercise type, all feedback states, the retry and
   const startResponse = await started;
   expect(startResponse.status()).toBe(201);
   const lesson = (await startResponse.json()) as LessonResponse;
-  expect(lesson.unitId, 'the current node starts the unit in progress').toBe(nextUnit.unitId);
+  expect(lesson.unitId, 'the next node starts the unit in progress').toBe(nextUnit.unitId);
   await expect(page).toHaveURL(new RegExp(`/lesson/${lesson.unitId}$`));
 
   const total = lesson.exercises.length;
@@ -295,12 +298,19 @@ test('a full lesson with every exercise type, all feedback states, the retry and
     await resultScreen.continueButton.click();
     await shell.expectHome();
     await expect(shell.xpLabel, 'the top bar shows the new XP').toHaveText(`${result.xpTotal} XP`);
-    const next = currentUnit(await fetchPath(page.request));
+    const pathAfter = await fetchPath(page.request);
+    const next = currentUnit(pathAfter);
     const kind = next.focus ? 'Fokus-Lektion' : 'Lektion';
-    await expect(
-      path.unit(next.title).locator('button[aria-current="step"]'),
-      'the path moves on to the next lesson right away',
-    ).toHaveAccessibleName(`${kind} ${next.lessonsCompleted + 1}, als Nächstes`);
+    // The lesson may have finished the stage: then its open checkpoint is the next step (PRD 5).
+    const checkpoint = checkpointAsNextStep(pathAfter);
+    await expect(path.currentNode, 'the path moves on to the next step right away').toHaveAccessibleName(
+      checkpoint
+        ? `Checkpoint ${checkpoint.level}, als Nächstes`
+        : `${kind} ${next.lessonsCompleted + 1}, als Nächstes`,
+    );
+    if (!checkpoint) {
+      await expect(path.unit(next.title).locator('button[aria-current="step"]')).toHaveCount(1);
+    }
     await snap(page, 'home-after-lesson', { fullPage: false });
   });
 });

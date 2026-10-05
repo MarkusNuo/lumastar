@@ -45,6 +45,30 @@ the staircase ends at A0 whichever items the engine picks. The seed makes the it
 reproducible, but a fixed answer per screen would still break with every content change, so the test
 keeps reading the solutions.
 
+As the tests play lessons, the learner's stage fills up: once its units are done, the path shows the
+open checkpoint as the next step and the lessons after it stay playable. The path tests follow the
+frontend's rule for that (`checkpointAsNextStep`), and lessons start from the next node of the unit in
+progress. Focus units the plan holds open are played through the API first where a test needs a
+lesson of a curriculum unit (`finishOpenFocusUnits`).
+
+## Level-up projects
+
+Passing a checkpoint moves the learner up for good, so `tests/levelup/` runs in the projects
+`levelup-phone-390` and `levelup-phone-360`, after both phone projects (and one after the other).
+They play the lessons of the stage through the API (`support/progression.ts`) and the checkpoint
+itself through the UI: a failed try, then the level-up. The badge test passes stages through the
+API until a checkpoint completes a CEFR band (A1.3, then A2.3 in the second project): it plays more
+lessons than any other test (about half a minute) and is tagged `@slow`;
+`npx playwright test --grep-invert @slow` leaves it out. A failure in a phone project skips the
+level-up projects (they depend on it).
+
+Reviews (`tests/review`): the backend has no test clock, so the test relies on the FSRS learning steps
+(a wrong answer is due again after one minute). Cards left by earlier tests usually are due already;
+a run that starts with this test waits up to two minutes for one. Known backend issue: cards of
+items above the learner's level count as due, but no review lesson practises them. When the run
+reaches that state (lessons of the next stage played before its checkpoint), the test documents the
+screen and is marked as an expected failure (`test.fail`) instead of failing the run.
+
 ## Screenshots
 
 Every core screen is saved to `screenshots/<milestone>/<width>x<height>/` for the visual review

@@ -13,7 +13,7 @@ export const BACKEND_URL = `http://${HOST}:${BACKEND_PORT}`;
 export const FRONTEND_URL = `http://${HOST}:${FRONTEND_PORT}`;
 
 /** Screenshots land in screenshots/<milestone>/; bump per milestone or override via env. */
-export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm3';
+export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm4';
 
 /**
  * Which code the servers run: the working tree (default) or the last commit (E2E_SOURCE=head), which

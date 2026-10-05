@@ -46,6 +46,17 @@ export class ProfilePage {
     return this.learningData.getByRole('button', { name: label, exact: true });
   }
 
+  /** The level badges A1 … C2 (PRD F9): one row each, earned ones with their day. */
+  badges(): Locator {
+    return this.page.getByRole('region', { name: 'Abzeichen', exact: true }).getByRole('listitem');
+  }
+
+  /** A badge; one not earned yet is named "Abzeichen B1, noch nicht verdient". */
+  badge(band: string, earned: boolean): Locator {
+    const name = earned ? `Abzeichen ${band}` : `Abzeichen ${band}, noch nicht verdient`;
+    return this.page.getByRole('region', { name: 'Abzeichen', exact: true }).getByRole('img', { name, exact: true });
+  }
+
   /** The XP chip of the header, e.g. "1’240 XP" in Swiss number format. */
   xpChip(xp: number): Locator {
     return this.page.getByRole('main').getByText(`${xp.toLocaleString('de-CH')} XP`, { exact: true });

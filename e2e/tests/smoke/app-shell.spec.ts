@@ -32,12 +32,14 @@ test('the profile tab shows the signed-in learner', async ({ page }) => {
   await snap(page, 'profile', { fullPage: false });
 });
 
+// "Statistik" is the last tab of a later milestone (M5); "Wiederholen" is real since M4 (tests/review).
 test('tabs of later milestones show a placeholder', async ({ page }) => {
   const shell = new AppShell(page);
   await page.goto('/');
-  await shell.navLink('Wiederholen').click();
-  await expect(page).toHaveURL(/\/wiederholen$/);
-  await expect(page.getByRole('heading', { name: 'Wiederholen', level: 1 })).toBeVisible();
+  await shell.navLink('Statistik').click();
+  await expect(page).toHaveURL(/\/statistik$/);
+  await expect(shell.navLink('Statistik')).toHaveAttribute('aria-current', 'page');
+  await expect(page.getByRole('heading', { name: 'Statistik', level: 1 })).toBeVisible();
   await expect(page.getByText('Kommt bald')).toBeVisible();
   await snap(page, 'placeholder-tab', { fullPage: false });
 });

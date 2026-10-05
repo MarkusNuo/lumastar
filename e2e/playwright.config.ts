@@ -74,10 +74,26 @@ function frontendServer(cwd: string): WebServer {
   };
 }
 
+/** Checkpoints move the single learner up for good, so they run last: after every other test. */
+const LEVEL_UP = /[\\/]levelup[\\/].*\.spec\.ts$/;
+
 const signedInPhones = Object.entries(PHONES).map(([name, phone]) => ({
   name,
   testMatch: /\.spec\.ts$/,
+  testIgnore: LEVEL_UP,
   dependencies: ['setup'],
+  use: { ...phone, storageState: PATHS.authState },
+}));
+
+/**
+ * The level-up tests per phone, one project after the other: each passes the checkpoint of the
+ * learner's stage, so the second one continues where the first left the learner.
+ */
+const phoneNames = Object.keys(PHONES);
+const levelUpPhones = Object.entries(PHONES).map(([name, phone], index) => ({
+  name: `levelup-${name}`,
+  testMatch: LEVEL_UP,
+  dependencies: index === 0 ? phoneNames : [`levelup-${phoneNames[index - 1]}`],
   use: { ...phone, storageState: PATHS.authState },
 }));
 
@@ -107,5 +123,6 @@ export default defineConfig({
     // Runs first and exactly once: sees the empty instance, creates the account, saves its session.
     { name: 'setup', testMatch: /\.setup\.ts$/, use: { ...PHONES['phone-390'] } },
     ...signedInPhones,
+    ...levelUpPhones,
   ],
 });

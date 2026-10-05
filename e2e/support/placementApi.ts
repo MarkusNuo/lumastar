@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import type { Response } from '@playwright/test';
 import { normalizeAnswer } from './answers.ts';
+import { WRONG_TEXT } from './lessonAnswers.ts';
 import { PATHS } from './env.ts';
 import type { ExerciseType, Lang } from './lessonApi.ts';
 
@@ -94,9 +95,6 @@ export type PlacementAnswer =
   | { kind: 'chips'; chips: string[] }
   | { kind: 'text'; text: string };
 
-/** Far from every solution, so not even the typo tolerance accepts it. */
-const NONSENSE = 'qqqq zzzz';
-
 /**
  * An answer that is wrong for sure: the solutions are known, so neither a lucky choice nor a chip
  * that happens to be a whole solution slips through. Wrong answers walk the staircase down to A0,
@@ -118,9 +116,11 @@ export function wrongAnswer(item: PlacementItem, bank: ReadonlyMap<string, BankI
     case 'multiple_choice':
       return { kind: 'option', choice: wrongChoice() };
     case 'fill_gap':
-      return item.choices ? { kind: 'gap-chip', choice: wrongChoice() } : { kind: 'text', text: NONSENSE };
+      return item.choices
+        ? { kind: 'gap-chip', choice: wrongChoice() }
+        : { kind: 'text', text: WRONG_TEXT };
     case 'translate_free':
-      return { kind: 'text', text: NONSENSE };
+      return { kind: 'text', text: WRONG_TEXT };
     case 'translate_wordbank':
     case 'word_order': {
       const chips = (item.type === 'word_order' ? item.tokens : item.wordBank) ?? [];

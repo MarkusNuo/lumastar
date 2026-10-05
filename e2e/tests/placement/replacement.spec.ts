@@ -19,6 +19,7 @@ import {
   type StartPlacementResponse,
 } from '../../support/placementApi.ts';
 import {
+  checkpointAsNextStep,
   currentUnit,
   fetchPath,
   fetchPlan,
@@ -186,7 +187,14 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
     await path.expectVisible();
     const pathAfter = await fetchPath(page.request);
     const unitAfter = currentUnit(pathAfter);
-    await expect(path.unit(unitAfter.title).locator('button[aria-current="step"]')).toBeVisible();
+    // A stage whose units are all done offers its checkpoint as the next step (PRD 5).
+    const checkpoint = checkpointAsNextStep(pathAfter);
+    await expect(path.currentNode).toHaveAccessibleName(
+      checkpoint
+        ? `Checkpoint ${checkpoint.level}, als Nächstes`
+        : new RegExp(`^(Fokus-)?Lektion ${unitAfter.lessonsCompleted + 1}, als Nächstes$`),
+    );
+    await expect(path.nextLessonNode(unitAfter), 'the unit in progress goes on').toBeAttached();
 
     const before = unitsById(pathBefore);
     const after = unitsById(pathAfter);

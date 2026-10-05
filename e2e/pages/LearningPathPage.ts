@@ -1,4 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { currentUnit, fetchPath, type PathUnit } from '../support/planApi.ts';
 import { escapeRegExp } from '../support/regex.ts';
 
 /** Home tab (/): the personal learning path with stages, unit banners and lesson nodes (PRD 12.3). */
@@ -49,9 +50,21 @@ export class LearningPathPage {
     return this.page.getByRole('button', { name: new RegExp(`^Checkpoint ${escapeRegExp(level)}, `) });
   }
 
-  /** Starts the next lesson from the path, as a learner does. */
+  /**
+   * The node of the next lesson of a unit: the current one, or an open one while a checkpoint is the
+   * next step of the path (the lessons after it stay playable).
+   */
+  nextLessonNode(unit: PathUnit): Locator {
+    const kind = unit.focus ? 'Fokus-Lektion' : 'Lektion';
+    return this.unit(unit.title).getByRole('button', {
+      name: new RegExp(`^${kind} ${unit.lessonsCompleted + 1}, (als Nächstes|verfügbar)$`),
+    });
+  }
+
+  /** Starts the next lesson of the unit in progress from the path, as a learner does. */
   async startCurrentLesson(): Promise<void> {
-    await this.currentNode.scrollIntoViewIfNeeded();
-    await this.currentNode.tap();
+    const node = this.nextLessonNode(currentUnit(await fetchPath(this.page.request)));
+    await node.scrollIntoViewIfNeeded();
+    await node.tap();
   }
 }
