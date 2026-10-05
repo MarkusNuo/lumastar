@@ -11,6 +11,9 @@ import { PlacementIntroPage } from '../features/placement/PlacementIntroPage';
 import { PlacementTestPage } from '../features/placement/PlacementTestPage';
 import { LevelRevealPage } from '../features/placement/reveal/LevelRevealPage';
 import { PlanPage } from '../features/plan/PlanPage';
+import { ReviewLessonPage } from '../features/review/ReviewLessonPage';
+import { ReviewPage } from '../features/review/ReviewPage';
+import { REVIEW_ROUTES } from '../features/review/reviewRoutes';
 import { ProfilePage } from '../features/settings/ProfilePage';
 import { AppShell } from './AppShell';
 import { PlaceholderPage } from './PlaceholderPage';
@@ -36,12 +39,14 @@ export const routes: RouteObject[] = [
             Component: AppShell,
             children: [
               { index: true, Component: LearningPathPage },
+              { path: REVIEW_ROUTES.home, Component: ReviewPage },
               { path: 'profil', Component: ProfilePage },
               { path: '*', Component: PlaceholderPage },
             ],
           },
           // Full screens without the app navigation: one task per screen (PRD 12.1).
           { path: '/lesson/:unitId', Component: LessonPage },
+          { path: REVIEW_ROUTES.lesson, Component: ReviewLessonPage },
           { path: ONBOARDING_ROUTES.questions, Component: OnboardingPage },
           { path: ONBOARDING_ROUTES.placementIntro, Component: PlacementIntroPage },
           { path: ONBOARDING_ROUTES.placementTest, Component: PlacementTestPage },

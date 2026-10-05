@@ -21,7 +21,7 @@ export function LessonPage() {
   const { unitId = '' } = useParams();
   return (
     <LessonRunner
-      lessonKey={[unitId]}
+      lessonKey={['unit', unitId]}
       start={() => startLesson(unitId)}
       exitTo="/"
       failure={FAILURE}
