@@ -1,5 +1,6 @@
 import { ShieldCheckIcon } from '@phosphor-icons/react';
 import { motion } from 'motion/react';
+import { useState, type ReactNode } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { FocusScreen } from '../../../components/ui/FocusScreen';
 import { PopNumber } from '../../../components/ui/PopNumber';
@@ -9,7 +10,7 @@ import { useOnceWhen } from '../../../lib/useOnceWhen';
 import { REVEAL_DELAY_MS, useRevealMoment } from '../../../lib/useRevealMoment';
 import { durations, springs } from '../../../styles/motion';
 import { LESSON_COPY } from '../copy';
-import type { LessonStreak } from '../model';
+import type { LessonDailyGoal, LessonStreak } from '../model';
 
 const copy = LESSON_COPY.result.streak;
 
@@ -72,4 +73,31 @@ export function StreakCelebration({ streak, onContinue }: StreakCelebrationProps
       )}
     </FocusScreen>
   );
+}
+
+export interface WithStreakCelebrationProps {
+  dailyGoal: LessonDailyGoal | undefined;
+  streak: LessonStreak | undefined;
+  onContinue: () => void;
+  /** The screen before the flame, given what its continue button does. */
+  children: (onContinue: () => void) => ReactNode;
+}
+
+/**
+ * A lesson's or placement's end screen, followed by the streak flame when it met today's goal:
+ * one moment per screen.
+ */
+export function WithStreakCelebration({
+  dailyGoal,
+  streak,
+  onContinue,
+  children,
+}: WithStreakCelebrationProps) {
+  const [celebrating, setCelebrating] = useState(false);
+  const grownStreak = dailyGoal?.justMet ? streak : undefined;
+
+  if (celebrating && grownStreak) {
+    return <StreakCelebration streak={grownStreak} onContinue={onContinue} />;
+  }
+  return children(grownStreak ? () => setCelebrating(true) : onContinue);
 }

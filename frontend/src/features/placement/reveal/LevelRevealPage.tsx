@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import { isApiError } from '../../../api/ApiError';
 import { FailureScreen } from '../../../components/ui/FailureScreen';
 import { WaitingScreen } from '../../../components/ui/WaitingScreen';
+import { WithStreakCelebration } from '../../lesson/result/StreakCelebration';
 import { ONBOARDING_ROUTES } from '../../onboarding/onboardingRoutes';
 import { PLACEMENT_COPY } from '../copy';
 import { placementResultQuery } from '../placementApi';
@@ -10,18 +11,25 @@ import { LevelReveal } from './LevelReveal';
 
 const copy = PLACEMENT_COPY.reveal;
 
-/** Route `/einstufung/ergebnis/:testId`: the reveal, then the plan (PRD 6). */
+/**
+ * Route `/einstufung/ergebnis/:testId`: the reveal, then the plan (PRD 6). A test that met today's
+ * goal counts like a lesson, so the streak flame follows the reveal.
+ */
 export function LevelRevealPage() {
   const { testId = '' } = useParams();
   const navigate = useNavigate();
   const result = useQuery(placementResultQuery(testId));
+  const placed = result.data;
 
-  if (result.data) {
+  if (placed) {
     return (
-      <LevelReveal
-        result={result.data}
+      <WithStreakCelebration
+        dailyGoal={placed.dailyGoal}
+        streak={placed.streak}
         onContinue={() => void navigate(ONBOARDING_ROUTES.plan, { replace: true })}
-      />
+      >
+        {(onContinue) => <LevelReveal result={placed} onContinue={onContinue} />}
+      </WithStreakCelebration>
     );
   }
   if (!result.isError) return <WaitingScreen label={copy.loading} />;

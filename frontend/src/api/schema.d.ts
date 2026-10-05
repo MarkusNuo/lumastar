@@ -901,12 +901,12 @@ export interface components {
             /** @description Its FSRS card is in the review state, so the item counts as learned */
             known: boolean;
         };
-        /** @description The daily goal on the day of the lesson, up to and including the lesson (PRD F9) */
+        /** @description The daily goal on the day of the lesson or placement test, up to and including it (PRD F9) */
         LessonDailyGoal: {
             goalMet: boolean;
             /** Format: int32 */
             goalMinutes: number;
-            /** @description This lesson met the goal of its day and so extended the streak; time to celebrate */
+            /** @description This lesson or placement test met the goal of its day and so extended the streak; time to celebrate */
             justMet: boolean;
             /** Format: int32 */
             minutesToday: number;
@@ -1002,13 +1002,13 @@ export interface components {
              */
             xpTotal: number;
         };
-        /** @description The streak after the lesson (PRD F9) */
+        /** @description The streak after the lesson or placement test (PRD F9) */
         LessonStreak: {
             /** Format: int32 */
             current: number;
             /** @description Today's goal is met and has extended the streak */
             extendedToday: boolean;
-            /** @description This lesson extended the streak over the missed day before, which the weekly streak freeze bridged */
+            /** @description This lesson or placement test extended the streak over the missed day before, which the weekly streak freeze bridged */
             freezeUsed: boolean;
         };
         /** @enum {string} */
@@ -1202,6 +1202,8 @@ export interface components {
             answeredCount: number;
             /** @description All four competences in the order vocabulary, grammar, reading, translation */
             competences: components["schemas"]["CompetenceResult"][];
+            /** @description A completed test counts as practice time, a skipped one does not */
+            dailyGoal: components["schemas"]["LessonDailyGoal"];
             /** Format: date-time */
             finishedAt: string;
             /** @example A1.2 */
@@ -1214,6 +1216,7 @@ export interface components {
             /** @description true if the test was skipped (start at A0) */
             skipped: boolean;
             startLevel: components["schemas"]["Level"];
+            streak: components["schemas"]["LessonStreak"];
             /** @description Top 3 strengths, strongest first */
             strengths: components["schemas"]["SkillEstimate"][];
             /** Format: uuid */
