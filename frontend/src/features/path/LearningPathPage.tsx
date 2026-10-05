@@ -2,10 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect, useMemo, useRef } from 'react';
 import type { LearningPath } from '../../api/types';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
+import { MascotMessage } from '../../components/ui/MascotMessage';
 import { PathNode } from '../../components/ui/PathNode';
 import { pathQuery } from '../plan/planQueries';
 import { PATH_COPY } from './copy';
-import { buildLearningPath, type PathStageModel } from './learningPath';
+import { buildLearningPath, hasPlayableLesson, type PathStageModel } from './learningPath';
 import { PlanTeaser } from './PlanTeaser';
 import { UnitPath } from './UnitPath';
 
@@ -37,6 +38,14 @@ function LearningPathStages({ path }: { path: LearningPath }) {
   return (
     <>
       <PlanTeaser path={path} />
+      {!hasPlayableLesson(stages) && (
+        <MascotMessage expression="thinking">
+          <p>{PATH_COPY.waiting.title}</p>
+          <p className="text-label font-bold text-fg-muted">
+            {PATH_COPY.waiting.text(path.currentLevel)}
+          </p>
+        </MascotMessage>
+      )}
       {stages.map((stage) => (
         <StageSection key={stage.level} stage={stage} />
       ))}

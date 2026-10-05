@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { SAMPLE_PATH } from '../plan/samplePlan';
-import { buildLearningPath, FOCUS_COLOR } from './learningPath';
+import { buildLearningPath, FOCUS_COLOR, hasPlayableLesson } from './learningPath';
 
 describe('buildLearningPath', () => {
   const stages = buildLearningPath(SAMPLE_PATH);
@@ -102,5 +102,21 @@ describe('buildLearningPath', () => {
       'completed',
     ]);
     expect(stage?.checkpoint.status).toBe('completed');
+  });
+});
+
+describe('hasPlayableLesson', () => {
+  it('is true while a lesson can be started and false when no unit has exercises yet', () => {
+    expect(hasPlayableLesson(buildLearningPath(SAMPLE_PATH))).toBe(true);
+
+    const skeleton = SAMPLE_PATH.stages.filter((stage) =>
+      stage.units.every((unit) => !unit.hasContent),
+    );
+    expect(skeleton.map((stage) => stage.level)).toEqual(['B1.1', 'C2.3']);
+    expect(
+      hasPlayableLesson(
+        buildLearningPath({ ...SAMPLE_PATH, currentLevel: 'B1.1', stages: skeleton }),
+      ),
+    ).toBe(false);
   });
 });

@@ -22,7 +22,8 @@ export function useOpenPlacementResult(): (
     // Placing sets the level, completes the onboarding and (re)creates the plan.
     await Promise.all([
       queryClient.invalidateQueries({ queryKey: meQuery.queryKey }),
-      queryClient.invalidateQueries({ queryKey: PLAN_QUERY_KEY }),
+      // Also the plan queries no screen shows right now, so the plan after the reveal is the new one.
+      queryClient.invalidateQueries({ queryKey: PLAN_QUERY_KEY, refetchType: 'all' }),
     ]);
     await navigate(ONBOARDING_ROUTES.placementResult(testId), { replace: true });
   };

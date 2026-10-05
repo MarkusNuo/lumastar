@@ -72,7 +72,13 @@ function PlanOverview({ path }: { path: LearningPath }) {
           {copy.dailyGoal(path.dailyGoalMinutes)}
         </p>
       </MascotMessage>
-      <PlanTimeline bands={buildPlanTimeline(path)} targetLevel={path.targetLevel} today={today} />
+      {/* A new level opens its own band, so the timeline starts afresh. */}
+      <PlanTimeline
+        key={path.currentLevel}
+        bands={buildPlanTimeline(path)}
+        targetLevel={path.targetLevel}
+        today={today}
+      />
     </>
   );
 }

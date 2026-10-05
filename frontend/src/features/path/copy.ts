@@ -16,6 +16,11 @@ export const PATH_COPY = {
     skipped: 'Übersprungen',
     comingSoon: 'Bald verfügbar',
   } satisfies Record<UnitBadge, string>,
+  waiting: {
+    title: 'Hier entsteht gerade etwas',
+    text: (level: string) =>
+      `Für ${level} gibt es noch keine Übungen. Sie kommen bald – schau wieder vorbei!`,
+  },
   plan: {
     title: 'Dein Lernplan',
     goal: (band: string, date: string) => `${band} geschafft ca. am ${date}`,

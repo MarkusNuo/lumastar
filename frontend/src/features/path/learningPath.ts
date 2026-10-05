@@ -139,3 +139,10 @@ function toCheckpoint(stage: LearningPathStage, color: UnitColor): PathCheckpoin
     color,
   };
 }
+
+/** Whether any lesson can be started; above A2 the exercises are still being written. */
+export function hasPlayableLesson(stages: readonly PathStageModel[]): boolean {
+  return stages.some((stage) =>
+    stage.units.some((unit) => unit.nodes.some((node) => node.status !== 'locked')),
+  );
+}
