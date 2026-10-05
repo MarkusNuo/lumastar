@@ -33,12 +33,12 @@ export function createSchemaValidator(schemaDir) {
 }
 
 // Arrays whose entries are skipped individually when they break the schema, so one broken
-// exercise does not hide the findings (or the items) of the rest of the file.
-const ENTRY_COLLECTIONS = new Set(['items', 'exercises']);
+// exercise (or evaluator case) does not hide the findings (or the items) of the rest of the file.
+const ENTRY_COLLECTIONS = new Set(['items', 'exercises', 'cases']);
 
 /**
  * Schema-validates every document. A document is `valid` when its structure outside single entries is
- * sound; broken items and exercises are listed in `invalidEntries` and skipped by the semantic checks.
+ * sound; broken items, exercises and evaluator cases are listed in `invalidEntries` and skipped by the semantic checks.
  */
 export function checkSchemas(docs, schemaValidator, report) {
   for (const doc of docs) {

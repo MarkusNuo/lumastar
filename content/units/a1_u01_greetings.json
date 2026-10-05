@@ -105,13 +105,13 @@
       "difficulty": 1,
       "skillTags": ["vocab.greetings"],
       "itemIds": ["item_miredita"],
-      "prompt": { "lang": "de", "text": "Wie sagt man „guten Tag“?" },
+      "prompt": { "lang": "de", "text": "Wie sagt man „Guten Tag“?" },
       "choices": ["mirëdita", "mirupafshim", "natën e mirë", "faleminderit"],
       "solutions": ["mirëdita"],
       "explanation": "„Mirëdita“ ist der übliche Gruss am Tag. Im Kosovo sagt man es oft auch einfach als „Hallo“.",
       "errorHints": [
         { "pattern": "nat[eë]n e mir", "category": "vocab.confused", "hint": "„Natën e mirë“ sagt man am Abend zum Abschied: „Gute Nacht“." },
-        { "pattern": "^mirupafshim$", "category": "vocab.confused", "hint": "„Mirupafshim“ heisst „auf Wiedersehen“." }
+        { "pattern": "^mirupafshim$", "category": "vocab.confused", "hint": "„Mirupafshim“ heisst „Auf Wiedersehen“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -160,9 +160,9 @@
       "prompt": { "lang": "de", "text": "Welcher Gruss passt am Abend?" },
       "choices": ["mirëmbrâma", "mirëmëngjes", "mirëdita", "tung"],
       "solutions": ["mirëmbrâma"],
-      "explanation": "„Mirëmbrâma“ heisst „guten Abend“. Das â ist ein Nasalvokal, typisch für Gheg (Standard: „mirëmbrëma“).",
+      "explanation": "„Mirëmbrâma“ heisst „Guten Abend“. Das â ist ein Nasalvokal, typisch für Gheg (Standard: „mirëmbrëma“).",
       "errorHints": [
-        { "pattern": "^mir[eë]m[eë]ngjes$", "category": "vocab.confused", "hint": "„Mirëmëngjes“ heisst „guten Morgen“." }
+        { "pattern": "^mir[eë]m[eë]ngjes$", "category": "vocab.confused", "hint": "„Mirëmëngjes“ heisst „Guten Morgen“." }
       ],
       "reviewed": false,
       "source": "manual",
@@ -458,13 +458,13 @@
       "difficulty": 1,
       "skillTags": ["vocab.greetings"],
       "itemIds": ["item_miremengjes"],
-      "prompt": { "lang": "de", "text": "Wie sagt man „guten Morgen“?" },
+      "prompt": { "lang": "de", "text": "Wie sagt man „Guten Morgen“?" },
       "choices": ["mirëmëngjes", "mirëmbrâma", "mirëdita", "natën e mirë"],
       "solutions": ["mirëmëngjes"],
       "explanation": "„Mirëmëngjes“ ist der Gruss am Morgen, wörtlich „guter Morgen“.",
       "errorHints": [
-        { "pattern": "^mir[eë]mbr", "category": "vocab.confused", "hint": "„Mirëmbrâma“ heisst „guten Abend“." },
-        { "pattern": "^mir[eë]dita$", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „guten Tag“." }
+        { "pattern": "^mir[eë]mbr", "category": "vocab.confused", "hint": "„Mirëmbrâma“ heisst „Guten Abend“." },
+        { "pattern": "^mir[eë]dita$", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „Guten Tag“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -479,7 +479,7 @@
       "prompt": { "lang": "de", "text": "Was bedeutet „mirupafshim“?" },
       "choices": ["auf Wiedersehen", "guten Tag", "danke", "willkommen"],
       "solutions": ["auf Wiedersehen"],
-      "explanation": "„Mirupafshim“ heisst „auf Wiedersehen“ – wörtlich „auf dass wir uns gut wiedersehen“.",
+      "explanation": "„Mirupafshim“ heisst „Auf Wiedersehen“ – wörtlich „auf dass wir uns gut wiedersehen“.",
       "reviewed": false,
       "source": "manual"
     },
@@ -512,7 +512,7 @@
       "solutions": ["Ditën e mirë!"],
       "explanation": "„Ditën e mirë!“ heisst „Schönen Tag!“. Wie „natën e mirë“ steht der Wunsch im Akkusativ.",
       "errorHints": [
-        { "pattern": "^nat[eë]n", "category": "vocab.confused", "hint": "„Natën e mirë“ heisst „gute Nacht“." }
+        { "pattern": "^nat[eë]n", "category": "vocab.confused", "hint": "„Natën e mirë“ heisst „Gute Nacht“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -562,7 +562,7 @@
       "prompt": { "lang": "de", "text": "Was bedeutet „pafshim“?" },
       "choices": ["tschüss", "bitte", "gute Nacht", "guten Morgen"],
       "solutions": ["tschüss"],
-      "explanation": "„Pafshim“ ist die kurze, lockere Form von „mirupafshim“ (auf Wiedersehen).",
+      "explanation": "„Pafshim“ ist die kurze, lockere Form von „mirupafshim“ (Auf Wiedersehen).",
       "reviewed": false,
       "source": "manual"
     },
@@ -596,7 +596,7 @@
       "wordBank": ["Mirëmëngjes", "Arta", "mirëdita", "natën"],
       "explanation": "„Mirëmëngjes“ ist ein Wort: „mirë“ (gut) + „mëngjes“ (Morgen).",
       "errorHints": [
-        { "pattern": "^mir[eë]dita", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „guten Tag“." }
+        { "pattern": "^mir[eë]dita", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „Guten Tag“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -740,7 +740,7 @@
       "solutions": ["Mirëmëngjes!"],
       "explanation": "„Mirëmëngjes“ wird zusammengeschrieben: „mirë“ + „mëngjes“.",
       "errorHints": [
-        { "pattern": "^mir[eë]dita$", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „guten Tag“. „Guten Morgen“ heisst „mirëmëngjes“." }
+        { "pattern": "^mir[eë]dita$", "category": "vocab.confused", "hint": "„Mirëdita“ heisst „Guten Tag“. „Guten Morgen“ heisst „mirëmëngjes“." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -844,7 +844,7 @@
       "choices": ["Mirëmëngjes", "Mirëmbrâma", "Natën", "Tung"],
       "explanation": "„Mirëmëngjes“ sagst du am Morgen.",
       "errorHints": [
-        { "pattern": "^mir[eë]mbr", "category": "vocab.confused", "hint": "„Mirëmbrâma“ heisst „guten Abend“." }
+        { "pattern": "^mir[eë]mbr", "category": "vocab.confused", "hint": "„Mirëmbrâma“ heisst „Guten Abend“." }
       ],
       "reviewed": false,
       "source": "manual"

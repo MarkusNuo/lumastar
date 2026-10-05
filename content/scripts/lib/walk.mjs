@@ -20,6 +20,11 @@ export function* exercisesOf(content) {
   for (const doc of exerciseDocs(content)) yield* validEntries(doc, 'exercises', 'exercise');
 }
 
+/** Yields every schema-valid case of content/fixtures/evaluator-cases.json with its JSON pointer. */
+export function* evaluatorCasesOf(content) {
+  if (content.evaluatorCases?.valid) yield* validEntries(content.evaluatorCases, 'cases', 'testCase');
+}
+
 /** True for exercises of a unit file (as opposed to placement.json). */
 export function isUnitDoc(doc) {
   return doc.schema === 'unit';

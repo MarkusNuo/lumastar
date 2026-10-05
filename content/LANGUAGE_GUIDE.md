@@ -1,11 +1,11 @@
 # Lingora – Gheg-Sprachrichtlinie
 
-**Status:** Entwurf 0.1 (M0). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
+**Status:** Entwurf 0.2 (M1: Toleranzregeln in Abschnitt 11 überarbeitet). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
 
 Diese Richtlinie ist verbindlich für:
 
 - **Content-Erstellung** (`content/units/*.json`, `content/placement.json`),
-- **Antwortprüfung** im Backend (Toleranzregeln, Abschnitt 11),
+- **Antwortprüfung** im Backend und in der Vorprüfung des Frontends (Toleranzregeln, Abschnitt 11),
 - **KI-Prompts** in Phase 2 (die Richtlinie wird jedem Prompt mitgegeben).
 
 Das technische Format der Dateien steht in `docs/CONTENT_FORMAT.md`. Die maschinenlesbare Blockliste der Standard-Formen ist `content/gheg_blocklist.json` (Abschnitt 10). `npm run validate` in `/content` prüft beides.
@@ -84,7 +84,7 @@ Das albanische Alphabet hat 36 Buchstaben, darunter 9 Doppelbuchstaben (dh, gj, 
 ### 4.1 ë und ç
 
 - **ë** und **ç** werden immer geschrieben, auch wenn das End-ë stumm ist: *mirë, nânë, shumë, motër*.
-- Formen ohne End-ë (*mir, shum*) stehen nicht in `solutions`. Der Evaluator wertet sie derzeit über die Tippfehler-Toleranz: ab 6 Buchstaben der Lösung „fast richtig“, bei kürzeren Wörtern falsch (Abschnitt 11; zu prüfen, Abschnitt 13).
+- Formen ohne End-ë (*mir, shum*) stehen nicht in `solutions`. Ein ganz weggelassenes ë ist kein fehlendes Sonderzeichen, sondern ein fehlender Buchstabe: In getippten Antworten wertet der Evaluator es über die Tippfehler-Toleranz, ab 6 Buchstaben der Lösung „fast richtig“, bei kürzeren Wörtern falsch (Abschnitt 11; zu prüfen, Abschnitt 13).
 
 ### 4.2 Nasalvokale (Zirkumflex)
 
@@ -118,14 +118,14 @@ Der Zirkumflex markiert einen Nasalvokal. **Faustregel:** Wo Standardalbanisch e
 
 ### 4.3 Apostroph und Kurzformen
 
-- Apostroph immer als gerades Zeichen `'` schreiben: *s'ka, ç'kemi*. Der Evaluator entfernt beim Normalisieren jeden Apostroph (’ wie '), *s'ka* und *ska* gelten also als gleich (Abschnitt 11).
+- Apostroph immer als gerades Zeichen `'` schreiben: *s'ka, ç'kemi*. Der Evaluator entfernt beim Normalisieren jeden Apostroph (`'` `’` `‘` `ʼ`), *s'ka* und *ska* gelten also als gleich (Abschnitt 11).
 - Umgangssprachliche Verkürzungen von Pronomen und Präpositionen (*m'fal, t'lutem, n'shpi*) stehen nicht in `solutions[0]`. Sie dürfen als weitere Lösung aufgenommen werden (zu prüfen).
 
 ### 4.4 Gross- und Kleinschreibung, Satzzeichen
 
 - Sätze beginnen gross und enden mit Satzzeichen: *Mirë, po ti?*
 - Items (Wörter und Wendungen) werden klein geschrieben, ausser Eigennamen: *mirëdita, si je?, Prishtinë*.
-- Der Evaluator ignoriert Gross-/Kleinschreibung, Satzzeichen und alle anderen Zeichen ausser Buchstaben und Ziffern (Abschnitt 11).
+- Der Evaluator ignoriert Gross-/Kleinschreibung. Apostrophe entfernt er, alle anderen Satzzeichen und Symbole liest er als Leerzeichen: *Jo,faleminderit* gilt wie *Jo, faleminderit* (Abschnitt 11).
 
 ## 5. Gheg und Standard im Vergleich
 
@@ -381,37 +381,58 @@ Vor Adjektiven und Genitiven steht ein **Verbindungsartikel**, der sich nach dem
 
 ## 11. Toleranzregeln der Antwortprüfung
 
-Diese Regeln gelten für Text-Antworten: `translate_free` und `fill_gap` ohne Auswahl, sinngemäss auch für die zusammengesetzten Sätze bei `translate_wordbank` und `word_order` (dort ohne `standardForms`). Umgesetzt werden sie im Backend (`AnswerEvaluator`, PRD F5). Reihenfolge – die erste zutreffende Regel entscheidet:
+Verbindlich ist `docs/CONTENT_FORMAT.md`, Abschnitt „Answer normalisation and tokenisation“ (Punkte 1–8, DECISIONS.md #43–45). Umgesetzt werden die Regeln im Backend (`AnswerEvaluator`, PRD F5) und gleich in der Vorprüfung des Frontends. Beide prüfen sich gegen dieselben Testfälle: `content/fixtures/evaluator-cases.json`.
 
-1. **Normalisieren** (verbindlich: `docs/CONTENT_FORMAT.md`, Abschnitt „Answer normalisation and tokenisation“, DECISIONS.md #26): Unicode NFC, Kleinschreibung; dann wird **jedes Zeichen entfernt, das kein Buchstabe, keine Ziffer und kein Leerraum ist** – alle Satzzeichen, Symbole und Apostrophe, es gibt keine feste Zeichenliste. Danach werden Leerräume getrimmt und zu einfachen Leerzeichen zusammengefasst: *S'ka përse!* → *ska përse*, *Mirë – po ti?* → *mirë po ti*. Sonderzeichen (ë, ç, â …) bleiben erhalten.
-2. **Exakt gleich** einer Lösung aus `solutions` → **richtig**.
-3. **Standard-Form** → **„richtig, aber Standard“**, Tag `variant.standard_form`, kein Punktabzug; der Hinweis zeigt die Gheg-Lösung. Als Standard-Form gilt:
+**Grundsatz:** Toleranz (fehlende Sonderzeichen, Tippfehler, Standard-Formen) gibt es nur bei **getippten** Antworten: `translate_free` und `fill_gap` ohne `choices`. Antworten aus Bausteinen oder einer Auswahl (`translate_wordbank`, `word_order`, `multiple_choice`, `fill_gap` mit `choices`, `match_pairs`) sind **exakt**: richtig oder falsch.
+
+### 11.1 Normalisieren (alle Übungstypen)
+
+Unicode NFC, Kleinschreibung. **Apostrophe** (`'` `’` `‘` `ʼ`) werden entfernt: *S'ka përse!* → *ska përse*. **Jedes andere Zeichen**, das kein Buchstabe, keine Ziffer und kein Leerraum ist, wird zu einem **Leerzeichen**: *Jo,faleminderit* → *jo faleminderit*, *Mirë – po ti?* → *mirë po ti*. Danach werden Leerräume getrimmt und zu einfachen Leerzeichen zusammengefasst. Sonderzeichen (ë, ç, â …) bleiben erhalten.
+
+### 11.2 Getippte Antworten
+
+Die erste zutreffende Regel entscheidet:
+
+1. **Exakt gleich** einer Lösung aus `solutions` → **richtig**.
+2. **Standard-Form** → **„richtig, aber Standard“**, Tag `variant.standard_form`, kein Punktabzug; der Hinweis zeigt die Gheg-Lösung. Als Standard-Form gilt:
    - eine Form aus `standardForms`, oder
-   - bei Antworten auf Albanisch: jedes Wort, das von der Lösung abweicht, ist laut `gheg_blocklist.json` die Standard-Form des Lösungsworts (z. B. *është* für *âsht*, *punuar* für *punue*, *shtëpia* für *shpija*; DECISIONS.md #32, zu prüfen).
-4. **Nur Sonderzeichen fehlen** (nach dem Weglassen der Sonderzeichen, `ë→e`, `ç→c`, `â→a`, `ê→e`, `î→i`, `ô→o`, `û→u`, gleich einer Lösung) → **fast richtig**:
-   - nur der Zirkumflex fehlt (*asht* statt *âsht*) → Tag `spelling.nasal_vowel`,
-   - ë oder ç fehlt (*shume* statt *shumë*, *cka* statt *çka*) → Tag `spelling.diacritics`,
-   - fehlen in derselben Antwort Zirkumflex **und** ë/ç (*asht shume* statt *âsht shumë*), gilt `spelling.diacritics` (DECISIONS.md #30, zu prüfen).
-5. **Standard-Form ohne Sonderzeichen** (*eshte* statt *është*, *nje* statt *një*) → trotzdem **„richtig, aber Standard“** wie in 3.
-6. **Bekannter Fehler:** Trifft ein Muster aus `errorHints` (regulärer Ausdruck, ohne Beachtung der Gross-/Kleinschreibung, auf die normalisierte Antwort mit Sonderzeichen) → **falsch** mit Fehlerkategorie und Hinweis des Musters.
-7. **Wortstellung:** dieselben Wörter wie eine Lösung (Sonderzeichen nicht beachtet), aber in anderer Reihenfolge → **falsch**, Tag `grammar.word_order`.
-8. **Tippfehler:** Nach dem Weglassen der Sonderzeichen ist die Damerau-Levenshtein-Distanz zu einer Lösung (Einfügen, Löschen, Ersetzen eines Zeichens oder Vertauschen zweier Nachbarzeichen kostet je 1)
+   - bei Antworten auf Albanisch: jedes Wort, das von der Lösung abweicht, ist laut `gheg_blocklist.json` die Standard-Form des Lösungsworts (*është* für *âsht*, *punuar* für *punue*, *shtëpia* für *shpija*; DECISIONS.md #32, zu prüfen).
+3. **Nur fehlende Sonderzeichen** → **fast richtig**. Jedes Zeichen, in dem die Antwort von der Lösung abweicht, muss der Grundbuchstabe des Lösungszeichens sein (`ë→e`, `ç→c`, `â→a`, `ê→e`, `î→i`, `ô→o`, `û→u`):
+   - nur der Zirkumflex fehlt (*asht* statt *âsht*) → `spelling.nasal_vowel`,
+   - ë oder ç fehlt (*shume* statt *shumë*, *cka* statt *çka*) → `spelling.diacritics`,
+   - Zirkumflex **und** ë/ç fehlen (*asht shume*) → `spelling.diacritics` (DECISIONS.md #30, zu prüfen).
+
+   **Nicht** darunter fallen hinzugefügte oder falsche Sonderzeichen (*jâm* statt *jam*, *mirêdita* statt *mirëdita*) und ganz weggelassene Buchstaben (*mirdita* statt *mirëdita*: das ë fehlt als Buchstabe). Sie zählen höchstens als Tippfehler (Regel 7).
+4. **Standard-Form mit fehlenden Sonderzeichen** (*eshte* statt *është*, *Cfare po ben*, auch *Çfarë po ban*) → trotzdem **„richtig, aber Standard“** wie in 2.
+5. **Bekannter Fehler:** Trifft ein Muster aus `errorHints` (regulärer Ausdruck, ohne Beachtung der Gross-/Kleinschreibung, auf die normalisierte Antwort mit Sonderzeichen) → **falsch** mit Fehlerkategorie und Hinweis des Musters.
+6. **Wortstellung:** dieselben Wörter wie eine Lösung (Sonderzeichen nicht beachtet), aber in anderer Reihenfolge → **falsch**, Tag `grammar.word_order`.
+7. **Tippfehler:** Die Damerau-Levenshtein-Distanz zwischen normalisierter Antwort und Lösung (Einfügen, Löschen, Ersetzen eines Zeichens oder Vertauschen zweier Nachbarzeichen kostet je 1, Leerzeichen zählen mit; ein **fehlendes** Sonderzeichen kostet 0, ein hinzugefügtes oder falsches 1) ist
    - **≤ 1** bei Lösungen mit **mindestens 6 Buchstaben**,
    - **≤ 2** bei Lösungen mit **mindestens 16 Buchstaben**
-   (Buchstaben und Ziffern der Lösung ohne Leerzeichen) → **fast richtig**, Tag `spelling.other`. Lösungen mit weniger als 6 Buchstaben haben keine Tippfehler-Toleranz: *mir* statt *mirë* (als ganze Antwort) ist falsch, *mirdita* statt *mirëdita* fast richtig.
-9. **Sonst falsch.** Die Fehlerkategorie leitet der Evaluator aus den `skillTags` der Aufgabe ab, sonst `vocab.unknown`.
 
-Wichtig für Content-Autoren: Weil 6 und 7 **vor** 8 geprüft werden, zählt ein vorhersehbarer Grammatikfehler nie als Tippfehler – *nâna im* statt *nâna ime* ist mit passendem `errorHint` falsch (`grammar.gender`), ohne Hint aber „fast richtig“ (Distanz 1). Vorhersehbare Fehler, die nur einen Buchstaben ausmachen, brauchen deshalb einen `errorHint` (DECISIONS.md #31).
+   (gezählt werden Buchstaben und Ziffern der Lösung ohne Leerzeichen) → **fast richtig**, Tag `spelling.other`. Lösungen mit weniger als 6 Buchstaben haben keine Tippfehler-Toleranz: *mir* statt *mirë* (als ganze Antwort) ist falsch, *mirdita* statt *mirëdita* fast richtig, *Asht mrie* statt *Âsht mirë* auch (ein Vertauschen; die fehlenden Sonderzeichen kosten nichts).
+8. **Sonst falsch.** Die Fehlerkategorie kommt aus den `skillTags` (11.4), sonst `vocab.unknown`.
 
-Andere Übungstypen: Bei `multiple_choice` und `fill_gap` mit `choices` zählt nur die gewählte Option (sonst falsch, Kategorie aus `errorHints`, den `skillTags` oder `vocab.confused`). Bei `match_pairs` ist ein falsch zugeordnetes Paar „fast richtig“, mehrere sind falsch (`vocab.confused`).
+Wichtig für Content-Autoren: Weil 5 und 6 **vor** 7 geprüft werden, zählt ein vorhersehbarer Grammatikfehler nie als Tippfehler – *nâna im* statt *nâna ime* ist mit passendem `errorHint` falsch (`grammar.gender`), ohne Hint aber „fast richtig“ (Distanz 1). Ebenso *Shpi âsht e madhe* statt *Shpija âsht e madhe*: zwei Zeichen bei 16 Buchstaben wären ein Tippfehler, mit Hint ist es `grammar.definite_article`. Vorhersehbare Fehler, die nur ein oder zwei Buchstaben ausmachen, brauchen deshalb einen `errorHint` (DECISIONS.md #31). Umgekehrt greift ein Muster nie bei einer Antwort, der nur Sonderzeichen fehlen (Regel 3 kommt vorher).
+
+### 11.3 Bausteine, Auswahl und Paare (exakt)
+
+- **`translate_wordbank`, `word_order`:** Die gelegten Bausteine werden mit den Tokens jeder Lösung verglichen (Satzzeichen am Rand weg, Gross-/Kleinschreibung egal). Gleich → **richtig**. Sonst **falsch**: Kategorie aus `errorHints` (auf die normalisierte, aus den Bausteinen zusammengesetzte Antwort), sonst dieselben Bausteine in anderer Reihenfolge → `grammar.word_order`, sonst aus den `skillTags`, sonst `vocab.unknown`. Ein falscher Baustein ist falsch, auch wenn er sich nur um einen Buchstaben unterscheidet (*mein* statt *meine*).
+- **`multiple_choice`, `fill_gap` mit `choices`:** Nur die gewählte Option zählt. Sonst **falsch**, Kategorie aus `errorHints`, den `skillTags` oder `vocab.confused`. Eine Option ohne Sonderzeichen (*asht*, *c*) ist falsch, nicht fast richtig.
+- **`match_pairs`:** Die App meldet die falschen Zuordnungen (`[{ left, right }]`). Keine falsche Zuordnung → **richtig**, sonst **falsch** (`vocab.confused`); das Backend leitet daraus die Zahl der Fehler und die verwechselten Wörter ab.
+
+### 11.4 Fehlerkategorie aus den Skill-Tags
+
+Trifft kein Muster, nimmt der Evaluator den ersten Skill-Tag der Aufgabe (in ihrer Reihenfolge), der zu einer Kategorie passt: `grammar.definite_article…` → `grammar.definite_article`, `grammar.linking_article…` → `grammar.linking_article`, `grammar.case…` → `grammar.case`, `grammar.clitics…` → `grammar.clitics`, `grammar.adjective_agreement…` → `grammar.gender`, `grammar.infinitive…` und `grammar.verbs.infinitive…` → `grammar.infinitive`, `grammar.participle…` und `grammar.verbs.participle…` → `grammar.participle`, Zeitformen unter `grammar.verbs.` (`past_simple`, `perfect`, `imperfect`, `future`, `subjunctive`, `conditional`, `admirative`, `optative`) → `grammar.verb_tense`, übrige `grammar.verbs…` → `grammar.verb_conjugation`. `vocab.*`, `phrase.*`, `spelling.*`, `reading.*` und z. B. `grammar.possessive` ergeben keine Kategorie.
 
 „Fast richtig“ zählt als richtig, aber mit Hinweis (FSRS-Bewertung *Hard*, PRD F8). Mehrere Gheg-Schreibweisen können als Lösung hinterlegt sein.
 
 **errorHints schreiben:**
 
 - `\b` funktioniert in JavaScript nicht zuverlässig neben ë, ç oder â. Stattdessen `(^|\s)` und `(\s|$)` verwenden.
-- Muster laufen auf die normalisierte Antwort **mit** Sonderzeichen, aber **ohne** jedes Zeichen ausser Buchstaben, Ziffern und Leerzeichen: `^ska p[eë]rse` statt `^s'ka përse`. Ein Muster mit Apostroph, Anführungszeichen oder anderen Satzzeichen als Literal kann nie treffen; `npm run validate` meldet das. Weil Lernende Sonderzeichen oft weglassen, trotzdem beide Varianten abdecken, z. B. `n[aâ]n[eë]`.
+- Muster laufen auf die normalisierte Antwort **mit** Sonderzeichen: ohne Apostrophe und mit Leerzeichen statt aller anderen Satzzeichen. Also `^ska p[eë]rse` statt `^s'ka përse`; `^jo ` trifft auch „Jo,faleminderit“. Ein Muster mit Apostroph, Anführungszeichen oder anderen Satzzeichen als Literal kann nie treffen; `npm run validate` meldet das. Weil Lernende Sonderzeichen oft weglassen, trotzdem beide Varianten abdecken, z. B. `n[aâ]n[eë]`.
 - Ein Muster darf keine Lösung aus `solutions` treffen (sonst ist es zu breit); `npm run validate` prüft das. Es sollte auch keine blossen Tippfehler der Lösung treffen, sonst wird aus „fast richtig“ ein Fehler.
+- Bei Bausteinen und Auswahl gibt es keine Toleranz; Muster liefern dort nur Kategorie und Hinweis. Ablenker, die einen typischen Fehler zeigen (*nânë* statt *nâna*, *asht* statt *âsht*), sollten ein Muster haben.
 - Nur Syntax verwenden, die in JavaScript und Java gleich funktioniert (Zeichenklassen, Gruppen, `^`, `$`, `(?!…)`).
 - Standard-Formen gehören nicht in `errorHints`, sondern in `standardForms` (sie sind kein Fehler).
 
@@ -428,15 +449,15 @@ Andere Übungstypen: Bei `multiple_choice` und `fill_gap` mit `choices` zählt n
 **Lösungen und Varianten**
 
 - **`solutions[0]`** ist die kanonische, natürlichste Gheg-Form. Sie wird als Lösung angezeigt; aus ihr entstehen Wortbank und Satzbausteine.
-- **Weitere `solutions`:** andere Gheg-Schreibweisen (*faleminderit / falemnderit*), Synonyme (*Si je? / Qysh je?*) und andere natürliche Wortstellungen (*Mirë jam / Jam mirë*). **Nicht** aufnehmen: Varianten, die sich nur durch fehlende Sonderzeichen unterscheiden (das erledigt der Evaluator) und Standard-Formen.
+- **Weitere `solutions`:** andere Gheg-Schreibweisen (*faleminderit / falemnderit*), Synonyme (*Si je? / Qysh je?*) und andere natürliche Wortstellungen (*Mirë jam / Jam mirë*). **Nicht** aufnehmen: Varianten, die sich nur durch fehlende Sonderzeichen unterscheiden (das erledigt der Evaluator bei getippten Antworten) und Standard-Formen.
 - **`standardForms`** (bei `translate_free` und `fill_gap`): die wahrscheinlichen Standard-Varianten, vollständig wie eine Lösung geschrieben (*Një kafe, ju lutem.*).
 - **Item-`alternatives`:** weitere akzeptierte Schreibweisen desselben Wortes (*vëlla* zu *vlla*), keine Synonyme.
 
 **Übungstypen**
 
 - **`prompt`**: bei `translate_*` und `word_order` der zu übersetzende Satz; bei `fill_gap` die deutsche Bedeutung des ganzen Satzes, bei Bedarf mit Hinweis in Klammern; bei `multiple_choice` die Frage; bei `match_pairs` eine kurze Anweisung.
-- **`multiple_choice`**: 4 Antworten, genau eine richtig, plausible Ablenker.
-- **`translate_wordbank`**: Wortbank = Wörter von `solutions[0]` ohne Satzzeichen, in der Schreibung des Satzes, plus 2–4 plausible **Gheg**-Ablenker (möglichst gleiche Wortart). Nie Standard-Formen als Ablenker.
+- **`multiple_choice`**: 4 Antworten, genau eine richtig, plausible Ablenker. Auswahl ist exakt: ein Ablenker ohne Sonderzeichen (*asht*) ist falsch, nicht „fast richtig“.
+- **`translate_wordbank`**: Wortbank = Wörter von `solutions[0]` ohne Satzzeichen, in der Schreibung des Satzes, plus 2–4 plausible **Gheg**-Ablenker (möglichst gleiche Wortart). Nie Standard-Formen als Ablenker. Bausteine sind exakt: ein Ablenker, der sich nur um einen Buchstaben unterscheidet (*mein* / *meine*), ist ein echter Fehler.
 - **`word_order`**: `tokens` = Wörter von `solutions[0]` in richtiger Reihenfolge; alle weiteren Lösungen verwenden genau dieselben Wörter.
 - **`fill_gap`**: genau eine Lücke `___`; `choices` enthalten `solutions[0]` und plausible Gheg-Ablenker. Eine Standard-Form ist nie ein Ablenker (sie wäre „richtig, aber Standard“).
 - **`match_pairs`**: genau 5 Paare, links Gheg, rechts Deutsch, beide Seiten eindeutig.
@@ -463,7 +484,7 @@ Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 7. Funktionswörter: *po* als „aber“, *prej* für „von/aus“, *kah*, *veç*, *gja/gjâ*.
 8. Ob *të* + Konjunktiv (*du të punoj*) und *do të* + Konjunktiv (Zukunft) als Gheg-Lösung oder als Standard-Form gelten.
 9. Ausnahmen der Blockliste: *gëzuar* (Prost) und *duar* (Hände); Muster *-ënë*.
-10. Evaluator: Bewertung von Formen ohne End-ë (*mir*) und von lautnahen Schreibungen (*osht, nona*), die derzeit je nach Länge falsch oder Tippfehler sind; Schwellen der Tippfehler-Toleranz (6 und 16 Buchstaben); Tag `spelling.diacritics`, wenn Zirkumflex und ë/ç zugleich fehlen (DECISIONS.md #30); automatische Erkennung von Standard-Formen über die Blockliste (DECISIONS.md #32).
+10. Evaluator: Bewertung von Formen ohne End-ë (*mir*) und von lautnahen Schreibungen (*osht, nona*), die in getippten Antworten je nach Länge falsch oder Tippfehler sind; Schwellen der Tippfehler-Toleranz (6 und 16 Buchstaben); Tag `spelling.diacritics`, wenn Zirkumflex und ë/ç zugleich fehlen (DECISIONS.md #30); automatische Erkennung von Standard-Formen über die Blockliste (DECISIONS.md #32); `match_pairs` mit einer falschen Zuordnung ist falsch statt „fast richtig“ (DECISIONS.md #43).
 11. Kurzformen mit Apostroph (*m'fal, t'lutem*) als zusätzliche Lösungen zulassen?
 12. Formen aus der Einstufungsbank (`placement.json`, vor allem B2–C2): Konditional *kisha me* + Partizip (*kisha me ardhë*), Bedingung mit *me pasë / me e pasë ditë*, Partizipien *ra* (von *bie*), *ble*, *vozitë*, *mbrojtë*, *ndezë*, *hedhë*, *gjetë*, *mërzitë*, *rritë*, *vendosë*, *qëndrue*, Passiv mit *prej* als Agens, *i lumtun*, *pare* (Geld), *veturë*, *me bâ muhabet*, Klitikon-Stellung in *për me të pa*, ironisches *Punë e madhe!*, Sprichwort *Gjuha kockë s'ka, po kockë thyen*. Die betroffenen Aufgaben haben eine `note`.
 13. Regionale Formen: *qumësht* (Milch) als Kosovo-Form; *tamël* ist Nordwest-Gheg und wird nicht verwendet.

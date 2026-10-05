@@ -1,0 +1,1444 @@
+{
+  "schemaVersion": 1,
+  "description": "Shared evaluator cases, run by the backend (JUnit) and the frontend (Vitest); the binding rules are docs/CONTENT_FORMAT.md, \"Answer normalisation and tokenisation\" (points 1-8), and content/LANGUAGE_GUIDE.md section 11. Each case evaluates `answer` against `exercise` and expects `outcome` (correct, almost_correct, correct_standard_form, wrong) and, for every outcome except correct, the recorded `errorCategory`. Answers: `text` for translate_free and fill_gap without choices (typed: the only answers with tolerance), `choice` for multiple_choice and fill_gap with choices, `tokens` (the tiles in the order placed) for translate_wordbank and word_order, `wrongMatches` for match_pairs; tiles, choices and pairs are exact (correct or wrong). Typed answers, first matching rule wins: equal to a solution; Standard form (standardForms, or for answerLang sq every differing word is the Standard form of the solution word in the lexicon content/gheg_blocklist.json); only missing diacritics (spelling.nasal_vowel if only circumflexes are missing, else spelling.diacritics); Standard form with only missing diacritics; errorHints; same words (diacritics ignored) in another order (grammar.word_order); typo (spelling.other): Damerau-Levenshtein distance on the normalised texts, where a missing diacritic costs 0 and an added or wrong one 1, at most 1 for solutions with at least 6 and at most 2 for solutions with at least 16 letters and digits. Wrong answers without a matching hint take the category of the first exercise skill tag that maps to one (grammar.definite_article.* -> grammar.definite_article, grammar.verbs.jam -> grammar.verb_conjugation; vocab.*, phrase.*, spelling.* and grammar.possessive map to none), else vocab.unknown (typed answers, tiles) or vocab.confused (choices, match_pairs). Answers written with \\u escapes are deliberately not in Unicode NFC.",
+  "cases": [
+    {
+      "id": "norm_exact_solution",
+      "description": "The first solution typed exactly is correct.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "Po, faleminderit." },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_other_solution",
+      "description": "Every listed solution is accepted (other Gheg spelling).",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "Po, falemnderit" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_case_and_punctuation",
+      "description": "Case and trailing punctuation are ignored.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "po FALEMINDERIT!!!" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_comma_without_space",
+      "description": "Punctuation becomes a space: \"Po,faleminderit\" = \"Po, faleminderit\".",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "Po,faleminderit" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_comma_without_space_hint",
+      "description": "M1 review (ex_a0_u02_first_words_031): \"Jo,faleminderit\" splits into \"jo faleminderit\", so the hint ^jo matches.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "Jo,faleminderit" },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.confused" }
+    },
+    {
+      "id": "norm_multiple_spaces",
+      "description": "Leading, trailing and repeated spaces collapse; a space before the comma does not matter.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "  Po ,   faleminderit  " },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_quotes_and_dash",
+      "description": "Quotes, dashes and exclamation marks become spaces.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "„Po – faleminderit!“" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_merged_words_are_a_typo",
+      "description": "A missing space is one edit, not a normalisation difference (14 letters: typo).",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "Pofaleminderit" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "norm_only_punctuation",
+      "description": "An answer that is empty after normalisation is wrong.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": " ?! " },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.unknown" }
+    },
+    {
+      "id": "norm_apostrophe_ascii",
+      "description": "The ASCII apostrophe is removed: s'ka = ska.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["S'ka përse."],
+        "skillTags": ["phrase.politeness"]
+      },
+      "answer": { "text": "s'ka përse" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_apostrophe_left_out",
+      "description": "Leaving the apostrophe out is correct.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["S'ka përse."],
+        "skillTags": ["phrase.politeness"]
+      },
+      "answer": { "text": "ska përse" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_apostrophe_typographic",
+      "description": "The typographic apostrophe U+2019 is removed.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["S'ka përse."],
+        "skillTags": ["phrase.politeness"]
+      },
+      "answer": { "text": "S’ka përse!" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_apostrophe_left_quote",
+      "description": "U+2018 is removed like an apostrophe.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["S'ka përse."],
+        "skillTags": ["phrase.politeness"]
+      },
+      "answer": { "text": "S‘ka përse" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_apostrophe_modifier_letter",
+      "description": "U+02BC (a letter in Unicode) is removed like an apostrophe.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["S'ka përse."],
+        "skillTags": ["phrase.politeness"]
+      },
+      "answer": { "text": "Sʼka përse" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_apostrophe_as_space",
+      "description": "A space instead of the apostrophe is one edit (8 letters: typo).",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["S'ka përse."],
+        "skillTags": ["phrase.politeness"]
+      },
+      "answer": { "text": "S ka përse" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "norm_uppercase_diacritics",
+      "description": "Uppercase Ç and Â are lower-cased with their diacritics.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "ÇKA PO BÂN?" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_uppercase_e_diaeresis",
+      "description": "Uppercase Ë is lower-cased to ë.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Faleminderit shumë!"],
+        "skillTags": ["phrase.politeness"]
+      },
+      "answer": { "text": "FALEMINDERIT SHUMË" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_decomposed_input",
+      "description": "Decomposed input (c + U+0327, a + U+0302) is compared in NFC.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "C\u0327ka po ba\u0302n?" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "norm_decomposed_missing_circumflex",
+      "description": "NFC happens before the diacritic comparison: decomposed ç, plain a.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "C\u0327ka po ban" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.nasal_vowel" }
+    },
+    {
+      "id": "diacritics_missing_circumflex",
+      "description": "Only the circumflex is missing: spelling.nasal_vowel.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "Çka po ban?" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.nasal_vowel" }
+    },
+    {
+      "id": "diacritics_missing_cedilla",
+      "description": "Only ç is missing: spelling.diacritics.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "Cka po bân" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.diacritics" }
+    },
+    {
+      "id": "diacritics_missing_both",
+      "description": "Circumflex and ç missing in one answer: spelling.diacritics.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "Cka po ban" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.diacritics" }
+    },
+    {
+      "id": "diacritics_missing_e_short_word",
+      "description": "Missing diacritics are tolerated whatever the length (5 letters).",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["zemër"],
+        "skillTags": ["vocab.basics"]
+      },
+      "answer": { "text": "zemer" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.diacritics" }
+    },
+    {
+      "id": "diacritics_missing_in_gap",
+      "description": "Typed gap: a without circumflex is almost correct.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "___sht",
+        "solutions": ["â"],
+        "errorHints": [
+          {
+            "pattern": "^o$",
+            "category": "spelling.nasal_vowel",
+            "hint": "Es klingt oft wie „oscht“, geschrieben wird aber „âsht“."
+          },
+          {
+            "pattern": "^[eë]$",
+            "category": "spelling.nasal_vowel",
+            "hint": "Standard schreibt „është“. Im Gheg steht hier â: „âsht“."
+          }
+        ],
+        "skillTags": ["spelling.nasal_vowels"]
+      },
+      "answer": { "text": "a" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.nasal_vowel" }
+    },
+    {
+      "id": "diacritics_missing_before_hints",
+      "description": "Only-missing diacritics are checked before errorHints, even if a hint matches.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Âsht mirë."],
+        "errorHints": [{ "pattern": "^asht ", "category": "spelling.nasal_vowel", "hint": "Mit Zirkumflex: „âsht“." }],
+        "skillTags": ["spelling.nasal_vowels"]
+      },
+      "answer": { "text": "Asht mirë" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.nasal_vowel" }
+    },
+    {
+      "id": "diacritics_added_short",
+      "description": "\"jâm\" for \"jam\": an added diacritic is not almost correct, and 3 letters have no typo tolerance; no hint matches, so the grammar skill tag decides.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "Po, ___ mirë.",
+        "solutions": ["jam"],
+        "errorHints": [
+          {
+            "pattern": "^(je|[aâ]sht)$",
+            "category": "grammar.verb_conjugation",
+            "hint": "Du sprichst von dir selbst – also „jam“."
+          }
+        ],
+        "skillTags": ["grammar.verbs.jam"]
+      },
+      "answer": { "text": "jâm" },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.verb_conjugation" }
+    },
+    {
+      "id": "diacritics_wrong_one_is_a_typo",
+      "description": "ê instead of ë is an edit, not a missing diacritic: one edit, 8 letters, so a typo.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Mirëdita!"],
+        "skillTags": ["vocab.greetings"]
+      },
+      "answer": { "text": "Mirêdita" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "diacritics_wrong_two_are_wrong",
+      "description": "Two added or wrong diacritics are two edits; 8 letters allow one. The words are the same once folded, but in the same order, so no word-order mistake.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Mirëdita!"],
+        "skillTags": ["vocab.greetings"]
+      },
+      "answer": { "text": "Mîrêdita" },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.unknown" }
+    },
+    {
+      "id": "diacritics_missing_plus_typo",
+      "description": "Missing diacritics cost nothing in the typo distance: \"Asht mrie\" is one swap from \"âsht mirë\" (8 letters); â and ë without diacritics are free.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Âsht mirë."],
+        "skillTags": ["spelling.nasal_vowels"]
+      },
+      "answer": { "text": "Asht mrie" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "standard_listed",
+      "description": "A form from standardForms is correct_standard_form.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "Çfarë po bën?" },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_lexicon_mixed",
+      "description": "M1 review (ex_a1_u01_greetings_010): \"Çfarë po bân?\" – çfarë is the Standard form of çka (lexicon).",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "Çfarë po bân?" },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_listed_without_diacritics",
+      "description": "A listed Standard form without diacritics is still correct_standard_form.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "Cfare po ben" },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_lexicon_with_missing_circumflex",
+      "description": "Lexicon Standard form çfarë plus a Gheg word that only lacks its circumflex (ban for bân): still correct_standard_form.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "Çfarë po ban" },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_lexicon_eshte_in_sentence",
+      "description": "\"është\" for \"âsht\" inside a sentence is recognised by the lexicon (no standardForms).",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Kjo âsht motra ime."],
+        "skillTags": ["vocab.family", "grammar.possessive"]
+      },
+      "answer": { "text": "Kjo është motra ime." },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_lexicon_without_diacritics",
+      "description": "\"eshte\" is the lexicon form without diacritics.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Kjo âsht motra ime."],
+        "skillTags": ["vocab.family", "grammar.possessive"]
+      },
+      "answer": { "text": "Kjo eshte motra ime" },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_lexicon_participle_pattern",
+      "description": "Pattern -uar → -ue: \"punuar\" for \"punue\".",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Kam punue sot."],
+        "skillTags": ["grammar.verbs.perfect"]
+      },
+      "answer": { "text": "Kam punuar sot." },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_lexicon_house_pattern",
+      "description": "Pattern shtëpi- → shpi- (with glide j): \"shtëpia\" for \"shpija\".",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Shpija âsht e madhe."],
+        "skillTags": ["vocab.home"]
+      },
+      "answer": { "text": "Shtëpia âsht e madhe." },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_lexicon_next_to_wrong_word",
+      "description": "Standard words next to a wrong word: the whole answer is wrong.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Nâna âsht në shpi."],
+        "skillTags": ["vocab.family"]
+      },
+      "answer": { "text": "Nëna është në punë." },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.unknown" }
+    },
+    {
+      "id": "standard_gap_listed",
+      "description": "Typed gap: the listed Standard form.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "Ai ___ Arben.",
+        "solutions": ["âsht"],
+        "standardForms": ["është"],
+        "errorHints": [
+          {
+            "pattern": "^(je|jam|jemi|jeni|jan[eë]?)$",
+            "category": "grammar.verb_conjugation",
+            "hint": "Es geht um „er“ – also „âsht“."
+          }
+        ],
+        "skillTags": ["grammar.verbs.jam", "spelling.nasal_vowels"]
+      },
+      "answer": { "text": "është" },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "standard_gap_lexicon",
+      "description": "Typed gap without standardForms: the lexicon recognises \"është\".",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "Ajo ___ Drita.",
+        "solutions": ["âsht"],
+        "skillTags": ["grammar.verbs.jam"]
+      },
+      "answer": { "text": "është" },
+      "expected": { "outcome": "correct_standard_form", "errorCategory": "variant.standard_form" }
+    },
+    {
+      "id": "hint_missing_article",
+      "description": "M1 review: \"Shpi âsht e madhe\" is 2 edits from a 16-letter solution, but the hint wins.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Shpija âsht e madhe."],
+        "standardForms": ["Shtëpia është e madhe."],
+        "errorHints": [
+          {
+            "pattern": "^shpi [aâe]",
+            "category": "grammar.definite_article",
+            "hint": "Der bestimmte Artikel wird angehängt: shpi → shpija."
+          },
+          {
+            "pattern": "(^|\\s)i madh(\\s|$)",
+            "category": "grammar.linking_article",
+            "hint": "„Shpija“ ist feminin – darum „e madhe“."
+          }
+        ],
+        "skillTags": ["vocab.home", "grammar.definite_article.fem"]
+      },
+      "answer": { "text": "Shpi âsht e madhe" },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.definite_article" }
+    },
+    {
+      "id": "hint_linking_article",
+      "description": "\"i madh\" would be a 2-edit typo; the hint makes it grammar.linking_article.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Shpija âsht e madhe."],
+        "standardForms": ["Shtëpia është e madhe."],
+        "errorHints": [
+          {
+            "pattern": "^shpi [aâe]",
+            "category": "grammar.definite_article",
+            "hint": "Der bestimmte Artikel wird angehängt: shpi → shpija."
+          },
+          {
+            "pattern": "(^|\\s)i madh(\\s|$)",
+            "category": "grammar.linking_article",
+            "hint": "„Shpija“ ist feminin – darum „e madhe“."
+          }
+        ],
+        "skillTags": ["vocab.home", "grammar.definite_article.fem"]
+      },
+      "answer": { "text": "Shpija âsht i madh." },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.linking_article" }
+    },
+    {
+      "id": "hint_gender_one_letter",
+      "description": "\"im\" for \"ime\" is one edit; the hint makes it grammar.gender.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Nâna ime quhet Drita."],
+        "standardForms": ["Nëna ime quhet Drita."],
+        "errorHints": [
+          {
+            "pattern": "^n[aâeë]n[eë] ime",
+            "category": "grammar.definite_article",
+            "hint": "Mit „ime“ braucht das Nomen den bestimmten Artikel: nânë → nâna."
+          },
+          {
+            "pattern": "^ime n",
+            "category": "grammar.word_order",
+            "hint": "Das Possessivpronomen steht nach dem Nomen: „nâna ime“."
+          },
+          {
+            "pattern": "^n[aâeë]na im(\\s|$)",
+            "category": "grammar.gender",
+            "hint": "„Nâna“ ist feminin – darum „ime“."
+          }
+        ],
+        "skillTags": ["vocab.family", "grammar.definite_article.fem", "grammar.possessive", "spelling.nasal_vowels"]
+      },
+      "answer": { "text": "Nâna im quhet Drita." },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.gender" }
+    },
+    {
+      "id": "hint_verb_form",
+      "description": "\"bâj\" for \"bân\" is caught by the hint.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Çka po bân?", "Çka bân?"],
+        "standardForms": ["Çfarë po bën?", "Çfarë bën?", "Çka po bën?"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)b[aâ]j$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Bâj“ heisst „ich mache“. Für „du machst“ sagst du „bân“."
+          }
+        ],
+        "skillTags": ["phrase.small_talk"]
+      },
+      "answer": { "text": "Çka po bâj?" },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.verb_conjugation" }
+    },
+    {
+      "id": "hint_confused_word",
+      "description": "M1 review (ex_a0_u02_first_words_031): \"Jo, faleminderit\" for \"Po, faleminderit\".",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Po, faleminderit.", "Po, falemnderit."],
+        "errorHints": [
+          {
+            "pattern": "^jo ",
+            "category": "vocab.confused",
+            "hint": "„Jo“ heisst „nein“. Für „ja“ sagst du „po“."
+          }
+        ],
+        "skillTags": ["vocab.basics", "phrase.politeness"]
+      },
+      "answer": { "text": "Jo, faleminderit" },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.confused" }
+    },
+    {
+      "id": "hint_in_gap",
+      "description": "Typed gap: a hint pattern on the whole gap.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "___sht",
+        "solutions": ["â"],
+        "errorHints": [
+          {
+            "pattern": "^o$",
+            "category": "spelling.nasal_vowel",
+            "hint": "Es klingt oft wie „oscht“, geschrieben wird aber „âsht“."
+          },
+          {
+            "pattern": "^[eë]$",
+            "category": "spelling.nasal_vowel",
+            "hint": "Standard schreibt „është“. Im Gheg steht hier â: „âsht“."
+          }
+        ],
+        "skillTags": ["spelling.nasal_vowels"]
+      },
+      "answer": { "text": "o" },
+      "expected": { "outcome": "wrong", "errorCategory": "spelling.nasal_vowel" }
+    },
+    {
+      "id": "order_typed",
+      "description": "Same words in another order: grammar.word_order.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Shpija âsht e madhe."],
+        "skillTags": ["vocab.home"]
+      },
+      "answer": { "text": "Âsht shpija e madhe." },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.word_order" }
+    },
+    {
+      "id": "order_typed_without_diacritics",
+      "description": "Word order is compared on folded words.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Shpija âsht e madhe."],
+        "skillTags": ["vocab.home"]
+      },
+      "answer": { "text": "Asht shpija e madhe" },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.word_order" }
+    },
+    {
+      "id": "typo_under_six_letters",
+      "description": "A 3-letter solution has no typo tolerance.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "Po, ___ mirë.",
+        "solutions": ["jam"],
+        "errorHints": [
+          {
+            "pattern": "^(je|[aâ]sht)$",
+            "category": "grammar.verb_conjugation",
+            "hint": "Du sprichst von dir selbst – also „jam“."
+          }
+        ],
+        "skillTags": ["grammar.verbs.jam"]
+      },
+      "answer": { "text": "jem" },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.verb_conjugation" }
+    },
+    {
+      "id": "typo_counts_solution_letters",
+      "description": "The threshold uses the solution (5 letters), not the 6-letter answer.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["zemër"],
+        "skillTags": ["vocab.basics"]
+      },
+      "answer": { "text": "zzemër" },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.unknown" }
+    },
+    {
+      "id": "typo_six_letters_one_edit",
+      "description": "Six letters allow one edit (swap of two neighbours).",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["shpija"],
+        "skillTags": ["vocab.home"]
+      },
+      "answer": { "text": "shpjia" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "typo_six_letters_two_edits",
+      "description": "Six letters do not allow two edits.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["shpija"],
+        "skillTags": ["vocab.home"]
+      },
+      "answer": { "text": "shpjai" },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.unknown" }
+    },
+    {
+      "id": "typo_left_out_e_is_an_edit",
+      "description": "A left-out ë is a missing letter, not a missing diacritic: \"Mirdita\" is one edit from \"mirëdita\" (8 letters), so spelling.other.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Mirëdita!"],
+        "skillTags": ["vocab.greetings"]
+      },
+      "answer": { "text": "Mirdita" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "typo_left_out_e_short_word",
+      "description": "\"mir\" for \"mirë\": the solution has 4 letters, so a left-out ë is wrong.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["mirë"],
+        "skillTags": ["vocab.basics"]
+      },
+      "answer": { "text": "mir" },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.unknown" }
+    },
+    {
+      "id": "typo_fifteen_letters_one_edit",
+      "description": "15 letters allow one edit.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Djathi âsht i mirë."],
+        "standardForms": ["Djathi është i mirë."],
+        "errorHints": [
+          {
+            "pattern": "^djath[eë] ",
+            "category": "grammar.definite_article",
+            "hint": "„Der Käse“ braucht den Artikel: djathë → djathi."
+          },
+          {
+            "pattern": "(^|\\s)e mir",
+            "category": "grammar.linking_article",
+            "hint": "„Djathi“ ist maskulin – darum „i mirë“."
+          }
+        ],
+        "skillTags": ["vocab.food", "grammar.definite_article.masc", "grammar.linking_article"]
+      },
+      "answer": { "text": "Djathi âsht i mrië." },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "typo_fifteen_letters_two_edits",
+      "description": "15 letters do not allow two edits; the category comes from the first grammar skill tag.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Djathi âsht i mirë."],
+        "standardForms": ["Djathi është i mirë."],
+        "errorHints": [
+          {
+            "pattern": "^djath[eë] ",
+            "category": "grammar.definite_article",
+            "hint": "„Der Käse“ braucht den Artikel: djathë → djathi."
+          },
+          {
+            "pattern": "(^|\\s)e mir",
+            "category": "grammar.linking_article",
+            "hint": "„Djathi“ ist maskulin – darum „i mirë“."
+          }
+        ],
+        "skillTags": ["vocab.food", "grammar.definite_article.masc", "grammar.linking_article"]
+      },
+      "answer": { "text": "Djahti âsht i mrië." },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.definite_article" }
+    },
+    {
+      "id": "typo_sixteen_letters_two_edits",
+      "description": "16 letters allow two edits.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Shpija âsht e madhe."],
+        "standardForms": ["Shtëpia është e madhe."],
+        "errorHints": [
+          {
+            "pattern": "^shpi [aâe]",
+            "category": "grammar.definite_article",
+            "hint": "Der bestimmte Artikel wird angehängt: shpi → shpija."
+          },
+          {
+            "pattern": "(^|\\s)i madh(\\s|$)",
+            "category": "grammar.linking_article",
+            "hint": "„Shpija“ ist feminin – darum „e madhe“."
+          }
+        ],
+        "skillTags": ["vocab.home", "grammar.definite_article.fem"]
+      },
+      "answer": { "text": "Shpjia âsht e mahde" },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "typo_sixteen_letters_three_edits",
+      "description": "Three edits are wrong; category from the grammar skill tag.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "sq",
+        "solutions": ["Shpija âsht e madhe."],
+        "standardForms": ["Shtëpia është e madhe."],
+        "errorHints": [
+          {
+            "pattern": "^shpi [aâe]",
+            "category": "grammar.definite_article",
+            "hint": "Der bestimmte Artikel wird angehängt: shpi → shpija."
+          },
+          {
+            "pattern": "(^|\\s)i madh(\\s|$)",
+            "category": "grammar.linking_article",
+            "hint": "„Shpija“ ist feminin – darum „e madhe“."
+          }
+        ],
+        "skillTags": ["vocab.home", "grammar.definite_article.fem"]
+      },
+      "answer": { "text": "Shpjia âsth e mahde" },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.definite_article" }
+    },
+    {
+      "id": "typo_german_typed_answer",
+      "description": "Typed German answers get the same typo tolerance: \"mein\" for \"meine\" is one edit, 20 letters allow two.",
+      "exercise": {
+        "type": "translate_free",
+        "answerLang": "de",
+        "solutions": ["Das ist meine Schwester.", "Dies ist meine Schwester."],
+        "skillTags": ["vocab.family", "grammar.possessive"]
+      },
+      "answer": { "text": "Das ist mein Schwester." },
+      "expected": { "outcome": "almost_correct", "errorCategory": "spelling.other" }
+    },
+    {
+      "id": "gap_typed_other_solution",
+      "description": "Typed gap: any listed solution.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "Bukë ___ ujë.",
+        "solutions": ["dhe", "edhe", "e"],
+        "errorHints": [
+          {
+            "pattern": "^apo$",
+            "category": "vocab.confused",
+            "hint": "„Apo“ heisst „oder“. „Und“ heisst „dhe“."
+          }
+        ],
+        "skillTags": ["vocab.basics"]
+      },
+      "answer": { "text": "edhe" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "gap_typed_hint",
+      "description": "Typed gap: a confused word caught by a hint.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "Bukë ___ ujë.",
+        "solutions": ["dhe", "edhe", "e"],
+        "errorHints": [
+          {
+            "pattern": "^apo$",
+            "category": "vocab.confused",
+            "hint": "„Apo“ heisst „oder“. „Und“ heisst „dhe“."
+          }
+        ],
+        "skillTags": ["vocab.basics"]
+      },
+      "answer": { "text": "apo" },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.confused" }
+    },
+    {
+      "id": "tiles_bank_exact",
+      "description": "Word bank: the tokens of the solution in order.",
+      "exercise": {
+        "type": "translate_wordbank",
+        "answerLang": "de",
+        "solutions": ["Das ist meine Schwester.", "Dies ist meine Schwester."],
+        "wordBank": ["Das", "ist", "meine", "Schwester", "mein", "Bruder", "Mutter"],
+        "errorHints": [
+          {
+            "pattern": "bruder",
+            "category": "vocab.confused",
+            "hint": "„Motra“ ist die Schwester, der Bruder heisst „vlla“."
+          }
+        ],
+        "skillTags": ["vocab.family", "grammar.possessive"]
+      },
+      "answer": { "tokens": ["Das", "ist", "meine", "Schwester"] },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "tiles_bank_distractor_is_wrong",
+      "description": "M1 review (ex_a1_u04_family_007): the distractor tile \"mein\" instead of \"meine\" is wrong, not a typo; grammar.possessive maps to no category.",
+      "exercise": {
+        "type": "translate_wordbank",
+        "answerLang": "de",
+        "solutions": ["Das ist meine Schwester.", "Dies ist meine Schwester."],
+        "wordBank": ["Das", "ist", "meine", "Schwester", "mein", "Bruder", "Mutter"],
+        "errorHints": [
+          {
+            "pattern": "bruder",
+            "category": "vocab.confused",
+            "hint": "„Motra“ ist die Schwester, der Bruder heisst „vlla“."
+          }
+        ],
+        "skillTags": ["vocab.family", "grammar.possessive"]
+      },
+      "answer": { "tokens": ["Das", "ist", "mein", "Schwester"] },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.unknown" }
+    },
+    {
+      "id": "tiles_bank_distractor_hint",
+      "description": "Word bank: a distractor caught by a hint.",
+      "exercise": {
+        "type": "translate_wordbank",
+        "answerLang": "de",
+        "solutions": ["Das ist meine Schwester.", "Dies ist meine Schwester."],
+        "wordBank": ["Das", "ist", "meine", "Schwester", "mein", "Bruder", "Mutter"],
+        "errorHints": [
+          {
+            "pattern": "bruder",
+            "category": "vocab.confused",
+            "hint": "„Motra“ ist die Schwester, der Bruder heisst „vlla“."
+          }
+        ],
+        "skillTags": ["vocab.family", "grammar.possessive"]
+      },
+      "answer": { "tokens": ["Das", "ist", "meine", "Bruder"] },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.confused" }
+    },
+    {
+      "id": "tiles_bank_reordered",
+      "description": "Word bank: the same tokens in another order.",
+      "exercise": {
+        "type": "translate_wordbank",
+        "answerLang": "de",
+        "solutions": ["Das ist meine Schwester.", "Dies ist meine Schwester."],
+        "wordBank": ["Das", "ist", "meine", "Schwester", "mein", "Bruder", "Mutter"],
+        "errorHints": [
+          {
+            "pattern": "bruder",
+            "category": "vocab.confused",
+            "hint": "„Motra“ ist die Schwester, der Bruder heisst „vlla“."
+          }
+        ],
+        "skillTags": ["vocab.family", "grammar.possessive"]
+      },
+      "answer": { "tokens": ["ist", "Das", "meine", "Schwester"] },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.word_order" }
+    },
+    {
+      "id": "tiles_bank_missing_token",
+      "description": "Word bank: a token left out.",
+      "exercise": {
+        "type": "translate_wordbank",
+        "answerLang": "de",
+        "solutions": ["Das ist meine Schwester.", "Dies ist meine Schwester."],
+        "wordBank": ["Das", "ist", "meine", "Schwester", "mein", "Bruder", "Mutter"],
+        "errorHints": [
+          {
+            "pattern": "bruder",
+            "category": "vocab.confused",
+            "hint": "„Motra“ ist die Schwester, der Bruder heisst „vlla“."
+          }
+        ],
+        "skillTags": ["vocab.family", "grammar.possessive"]
+      },
+      "answer": { "tokens": ["Das", "ist", "Schwester"] },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.unknown" }
+    },
+    {
+      "id": "tiles_bank_gheg_hint",
+      "description": "Gheg word bank: indefinite distractor \"nânë\" caught by a hint.",
+      "exercise": {
+        "type": "translate_wordbank",
+        "answerLang": "sq",
+        "solutions": ["Kjo âsht nâna."],
+        "wordBank": ["Kjo", "âsht", "nâna", "ky", "nânë", "babai"],
+        "errorHints": [
+          {
+            "pattern": "(^|\\s)n[aâ]n[eë]$",
+            "category": "grammar.definite_article",
+            "hint": "„Die Mutter“ heisst „nâna“ – der Artikel hängt hinten dran."
+          },
+          { "pattern": "^ky ", "category": "grammar.gender", "hint": "Für eine Frau sagt man „kjo“." }
+        ],
+        "skillTags": ["spelling.nasal_vowels", "vocab.basics"]
+      },
+      "answer": { "tokens": ["Kjo", "âsht", "nânë"] },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.definite_article" }
+    },
+    {
+      "id": "tiles_bank_other_solution",
+      "description": "Gheg word bank: the tiles of another listed solution; tiles compare case-insensitively (\"të … Çaj\").",
+      "exercise": {
+        "type": "translate_wordbank",
+        "answerLang": "sq",
+        "solutions": ["Çaj, të lutem.", "Të lutem, çaj."],
+        "wordBank": ["Çaj", "të", "lutem", "ujë", "jo", "mirë"],
+        "skillTags": ["phrase.politeness", "vocab.drinks"]
+      },
+      "answer": { "tokens": ["të", "lutem", "Çaj"] },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "tiles_bank_unlisted_order",
+      "description": "Gheg word bank: an order that no solution lists.",
+      "exercise": {
+        "type": "translate_wordbank",
+        "answerLang": "sq",
+        "solutions": ["Çaj, të lutem.", "Të lutem, çaj."],
+        "wordBank": ["Çaj", "të", "lutem", "ujë", "jo", "mirë"],
+        "skillTags": ["phrase.politeness", "vocab.drinks"]
+      },
+      "answer": { "tokens": ["lutem", "të", "Çaj"] },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.word_order" }
+    },
+    {
+      "id": "tiles_order_exact",
+      "description": "Word order: the tokens in order.",
+      "exercise": {
+        "type": "word_order",
+        "answerLang": "sq",
+        "tokens": ["Kjo", "âsht", "nji", "zemër"],
+        "solutions": ["Kjo âsht nji zemër."],
+        "skillTags": ["spelling.special_letters", "vocab.basics"]
+      },
+      "answer": { "tokens": ["Kjo", "âsht", "nji", "zemër"] },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "tiles_order_other_solution",
+      "description": "Word order: another listed ordering (tokens compared case-insensitively).",
+      "exercise": {
+        "type": "word_order",
+        "answerLang": "sq",
+        "tokens": ["Kafe", "apo", "çaj"],
+        "solutions": ["Kafe apo çaj?", "Çaj apo kafe?"],
+        "skillTags": ["vocab.basics"]
+      },
+      "answer": { "tokens": ["çaj", "apo", "Kafe"] },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "tiles_order_wrong",
+      "description": "Word order: two tokens swapped.",
+      "exercise": {
+        "type": "word_order",
+        "answerLang": "sq",
+        "tokens": ["Kjo", "âsht", "nji", "zemër"],
+        "solutions": ["Kjo âsht nji zemër."],
+        "skillTags": ["spelling.special_letters", "vocab.basics"]
+      },
+      "answer": { "tokens": ["âsht", "Kjo", "nji", "zemër"] },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.word_order" }
+    },
+    {
+      "id": "choice_mc_correct",
+      "description": "Multiple choice: the solution.",
+      "exercise": {
+        "type": "multiple_choice",
+        "choices": ["âsht", "osht", "asht", "âshtë"],
+        "solutions": ["âsht"],
+        "errorHints": [
+          {
+            "pattern": "^osht$",
+            "category": "spelling.nasal_vowel",
+            "hint": "So klingt es oft. Geschrieben wird aber „âsht“."
+          },
+          {
+            "pattern": "^asht$",
+            "category": "spelling.nasal_vowel",
+            "hint": "Hier fehlt der Zirkumflex: „âsht“."
+          },
+          { "pattern": "^âsht[eë]$", "category": "spelling.other", "hint": "„Âsht“ hat kein End-ë." }
+        ],
+        "skillTags": ["spelling.nasal_vowels"]
+      },
+      "answer": { "choice": "âsht" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "choice_mc_missing_circumflex_is_wrong",
+      "description": "Multiple choice: an option without the circumflex is wrong, not almost correct.",
+      "exercise": {
+        "type": "multiple_choice",
+        "choices": ["âsht", "osht", "asht", "âshtë"],
+        "solutions": ["âsht"],
+        "errorHints": [
+          {
+            "pattern": "^osht$",
+            "category": "spelling.nasal_vowel",
+            "hint": "So klingt es oft. Geschrieben wird aber „âsht“."
+          },
+          {
+            "pattern": "^asht$",
+            "category": "spelling.nasal_vowel",
+            "hint": "Hier fehlt der Zirkumflex: „âsht“."
+          },
+          { "pattern": "^âsht[eë]$", "category": "spelling.other", "hint": "„Âsht“ hat kein End-ë." }
+        ],
+        "skillTags": ["spelling.nasal_vowels"]
+      },
+      "answer": { "choice": "asht" },
+      "expected": { "outcome": "wrong", "errorCategory": "spelling.nasal_vowel" }
+    },
+    {
+      "id": "choice_mc_hint",
+      "description": "Multiple choice: a wrong option caught by a hint.",
+      "exercise": {
+        "type": "multiple_choice",
+        "choices": ["Jo, faleminderit.", "Po, faleminderit.", "Pak, të lutem.", "Hajde!"],
+        "solutions": ["Jo, faleminderit."],
+        "errorHints": [
+          {
+            "pattern": "^po ",
+            "category": "vocab.confused",
+            "hint": "„Po“ heisst „ja“. Für „nein“ sagst du „jo“."
+          }
+        ],
+        "skillTags": ["phrase.politeness", "vocab.basics"]
+      },
+      "answer": { "choice": "Po, faleminderit." },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.confused" }
+    },
+    {
+      "id": "choice_mc_default_category",
+      "description": "Multiple choice: a wrong option without hint or grammar tag is vocab.confused.",
+      "exercise": {
+        "type": "multiple_choice",
+        "choices": ["Haus", "Hund", "Herz", "Stern"],
+        "solutions": ["Haus"],
+        "skillTags": ["spelling.alphabet", "vocab.basics"]
+      },
+      "answer": { "choice": "Hund" },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.confused" }
+    },
+    {
+      "id": "choice_gap_correct",
+      "description": "Gap with choices: the solution.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "___ka?",
+        "solutions": ["ç"],
+        "choices": ["ç", "c", "q", "s"],
+        "errorHints": [
+          {
+            "pattern": "^c$",
+            "category": "spelling.diacritics",
+            "hint": "Ohne Häkchen wäre es ein „z“. Für „tsch“ brauchst du ç."
+          }
+        ],
+        "skillTags": ["spelling.special_letters"]
+      },
+      "answer": { "choice": "ç" },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "choice_gap_missing_cedilla_is_wrong",
+      "description": "Gap with choices: \"c\" for \"ç\" is wrong, not almost correct.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "___ka?",
+        "solutions": ["ç"],
+        "choices": ["ç", "c", "q", "s"],
+        "errorHints": [
+          {
+            "pattern": "^c$",
+            "category": "spelling.diacritics",
+            "hint": "Ohne Häkchen wäre es ein „z“. Für „tsch“ brauchst du ç."
+          }
+        ],
+        "skillTags": ["spelling.special_letters"]
+      },
+      "answer": { "choice": "c" },
+      "expected": { "outcome": "wrong", "errorCategory": "spelling.diacritics" }
+    },
+    {
+      "id": "choice_gap_grammar_tag",
+      "description": "Gap with choices: category from the grammar skill tag.",
+      "exercise": {
+        "type": "fill_gap",
+        "answerLang": "sq",
+        "text": "Unë ___ Arta.",
+        "solutions": ["jam"],
+        "choices": ["jam", "je", "âsht", "jemi"],
+        "errorHints": [
+          {
+            "pattern": "^je$",
+            "category": "grammar.verb_conjugation",
+            "hint": "„Je“ heisst „du bist“. Zu „unë“ gehört „jam“."
+          }
+        ],
+        "skillTags": ["grammar.verbs.jam"]
+      },
+      "answer": { "choice": "jemi" },
+      "expected": { "outcome": "wrong", "errorCategory": "grammar.verb_conjugation" }
+    },
+    {
+      "id": "pairs_no_wrong_match",
+      "description": "Match pairs without a wrong match.",
+      "exercise": {
+        "type": "match_pairs",
+        "pairs": [
+          { "left": "ujë", "right": "Wasser" },
+          { "left": "bukë", "right": "Brot" },
+          { "left": "kafe", "right": "Kaffee" },
+          { "left": "çaj", "right": "Tee" },
+          { "left": "qumësht", "right": "Milch" }
+        ],
+        "skillTags": ["vocab.basics", "vocab.food", "vocab.drinks"]
+      },
+      "answer": { "wrongMatches": [] },
+      "expected": { "outcome": "correct" }
+    },
+    {
+      "id": "pairs_one_wrong_match",
+      "description": "Match pairs are exact: one wrong match is wrong.",
+      "exercise": {
+        "type": "match_pairs",
+        "pairs": [
+          { "left": "ujë", "right": "Wasser" },
+          { "left": "bukë", "right": "Brot" },
+          { "left": "kafe", "right": "Kaffee" },
+          { "left": "çaj", "right": "Tee" },
+          { "left": "qumësht", "right": "Milch" }
+        ],
+        "skillTags": ["vocab.basics", "vocab.food", "vocab.drinks"]
+      },
+      "answer": { "wrongMatches": [{ "left": "ujë", "right": "Milch" }] },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.confused" }
+    },
+    {
+      "id": "pairs_two_wrong_matches",
+      "description": "Two wrong matches are wrong.",
+      "exercise": {
+        "type": "match_pairs",
+        "pairs": [
+          { "left": "ujë", "right": "Wasser" },
+          { "left": "bukë", "right": "Brot" },
+          { "left": "kafe", "right": "Kaffee" },
+          { "left": "çaj", "right": "Tee" },
+          { "left": "qumësht", "right": "Milch" }
+        ],
+        "skillTags": ["vocab.basics", "vocab.food", "vocab.drinks"]
+      },
+      "answer": {
+        "wrongMatches": [{ "left": "ujë", "right": "Milch" }, { "left": "qumësht", "right": "Wasser" }]
+      },
+      "expected": { "outcome": "wrong", "errorCategory": "vocab.confused" }
+    }
+  ]
+}

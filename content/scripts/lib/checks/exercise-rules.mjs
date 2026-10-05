@@ -1,24 +1,24 @@
 import { at } from '../report.mjs';
-import { REMOVED_BY_NORMALISATION, missingFromMultiset, normalizeAnswer, sameToken, tokenize } from '../text.mjs';
+import { ABSENT_AFTER_NORMALISATION, missingFromMultiset, normalizeAnswer, sameToken, tokenize } from '../text.mjs';
 import { exercisesOf, isUnitDoc } from '../walk.mjs';
 
 const GAP = '___';
 const WORD_BANK_DISTRACTORS = { min: 2, max: 4 };
-// Regex metacharacters plus the punctuation that quantifiers, groups and lookarounds use. Every other
-// character that normalisation removes is a literal that can never match a normalised answer.
+// Regex metacharacters plus the punctuation that quantifiers, groups and lookarounds use. Every other character
+// that normalisation removes or turns into a space is a literal that can never match a normalised answer.
 const REGEX_SYNTAX = new Set([...'\\^$.|?*+()[]{}-,:!=<>']);
 
 /** Per-type rules that JSON Schema cannot express, plus error-hint and standard-form sanity checks. */
 export function checkExerciseRules(content, report) {
   for (const { doc, exercise, pointer } of exercisesOf(content)) {
-    const findings = [
-      ...(TYPE_RULES[exercise.type]?.(exercise) ?? []),
-      ...errorHintProblems(exercise),
-      ...standardFormProblems(exercise),
-    ];
-    for (const { path, message } of findings) report.error(doc.path, at(`${pointer}${path}`, exercise.id), message);
+    for (const { path, message } of exerciseProblems(exercise)) report.error(doc.path, at(`${pointer}${path}`, exercise.id), message);
     if (isUnitDoc(doc)) warnOnUnitMismatch(doc, exercise, pointer, report);
   }
+}
+
+/** Problems of one exercise as `{ path, message }` (path relative to the exercise); also used for fixture exercises. */
+export function exerciseProblems(exercise) {
+  return [...(TYPE_RULES[exercise.type]?.(exercise) ?? []), ...errorHintProblems(exercise), ...standardFormProblems(exercise)];
 }
 
 const TYPE_RULES = {
@@ -101,7 +101,7 @@ function errorHintProblems(exercise) {
     }
     const removed = literalsRemovedByNormalisation(hint.pattern);
     if (removed.length > 0) {
-      return [{ path, message: `Pattern contains ${quoteAll(removed)}, which normalisation removes from every answer, so it can never match.` }];
+      return [{ path, message: `Pattern contains ${quoteAll(removed)}, which normalisation removes (apostrophes) or turns into a space (other punctuation) in every answer, so it can never match.` }];
     }
     const matchedSolution = solutions.find((solution) => regex.test(normalizeAnswer(solution)));
     return matchedSolution
@@ -111,7 +111,7 @@ function errorHintProblems(exercise) {
 }
 
 function literalsRemovedByNormalisation(pattern) {
-  return [...new Set([...pattern].filter((character) => REMOVED_BY_NORMALISATION.test(character) && !REGEX_SYNTAX.has(character)))];
+  return [...new Set([...pattern].filter((character) => ABSENT_AFTER_NORMALISATION.test(character) && !REGEX_SYNTAX.has(character)))];
 }
 
 function standardFormProblems(exercise) {

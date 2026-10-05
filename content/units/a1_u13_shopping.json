@@ -753,7 +753,7 @@
       "itemIds": ["item_du", "item_me_ble", "item_buke"],
       "prompt": { "lang": "de", "text": "Ich will Brot kaufen." },
       "answerLang": "sq",
-      "solutions": ["Du me ble bukë.", "Unë du me ble bukë."],
+      "solutions": ["Du me ble bukë.", "Due me ble bukë.", "Unë du me ble bukë.", "Unë due me ble bukë."],
       "standardForms": ["Dua të blej bukë.", "Unë dua të blej bukë.", "Du të blej bukë."],
       "explanation": "„Me ble“ ist der Gheg-Infinitiv von „blej“ (kaufen). Standard: „Dua të blej bukë.“",
       "errorHints": [
@@ -761,7 +761,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen."
+      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen. Schreibung „du“ / „due“ (ich will; Standard: dua) ebenfalls zu prüfen."
     },
     {
       "id": "ex_a1_u13_shopping_031",

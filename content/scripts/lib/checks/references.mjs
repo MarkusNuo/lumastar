@@ -1,5 +1,5 @@
 import { at } from '../report.mjs';
-import { curriculumUnits, exercisesOf, itemsOf } from '../walk.mjs';
+import { curriculumUnits, evaluatorCasesOf, exercisesOf, itemsOf } from '../walk.mjs';
 
 /** Skill tags must be registered (and consistent with their area); itemIds must point to existing items. */
 export function checkReferences(content, report) {
@@ -30,6 +30,9 @@ function checkSkillTagUsage(content, registeredTags, report) {
   };
   for (const { unit, pointer } of curriculumUnits(content.curriculum)) checkTags(content.curriculum.path, pointer, unit.id, unit.skillTags);
   for (const { doc, exercise, pointer } of exercisesOf(content)) checkTags(doc.path, pointer, exercise.id, exercise.skillTags);
+  for (const { doc, testCase, pointer } of evaluatorCasesOf(content)) {
+    checkTags(doc.path, `${pointer}/exercise`, testCase.id, testCase.exercise.skillTags);
+  }
 }
 
 function checkItemReferences(content, report) {

@@ -1,10 +1,11 @@
 import { at } from '../report.mjs';
 import { wordsOf } from '../text.mjs';
-import { exercisesOf, itemsOf } from '../walk.mjs';
+import { evaluatorCasesOf, exercisesOf, itemsOf } from '../walk.mjs';
 
 /**
  * Standard-only forms (content/gheg_blocklist.json) must never appear in Gheg texts: solutions, tokens,
- * word-bank entries, gap texts and choices, Gheg prompts, left sides of pairs and item forms.
+ * word-bank entries, gap texts and choices, Gheg prompts, left sides of pairs and item forms, also in the exercises
+ * of the evaluator fixture.
  * standardForms, explanations and error-hint patterns are deliberately not checked.
  */
 export function checkGhegBlocklist(content, report) {
@@ -22,6 +23,9 @@ export function checkGhegBlocklist(content, report) {
   }
   for (const { doc, exercise, pointer } of exercisesOf(content)) {
     for (const [path, text] of ghegTextsOfExercise(exercise)) checkText(doc.path, at(`${pointer}${path}`, exercise.id), text);
+  }
+  for (const { doc, testCase, pointer } of evaluatorCasesOf(content)) {
+    for (const [path, text] of ghegTextsOfExercise(testCase.exercise)) checkText(doc.path, at(`${pointer}/exercise${path}`, testCase.id), text);
   }
 }
 
@@ -65,7 +69,7 @@ function* ghegTextsOfItem(item) {
 }
 
 function* ghegTextsOfExercise(exercise) {
-  if (exercise.prompt.lang === 'sq') yield ['/prompt/text', exercise.prompt.text];
+  if (exercise.prompt?.lang === 'sq') yield ['/prompt/text', exercise.prompt.text];
   if (exercise.type === 'match_pairs') {
     for (const [index, pair] of exercise.pairs.entries()) yield [`/pairs/${index}/left`, pair.left];
   }

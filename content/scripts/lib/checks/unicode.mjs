@@ -10,7 +10,8 @@ export function checkUnicodeNormalisation(docs, report) {
   }
 }
 
-function* stringsOf(value, pointer) {
+/** Yields every string of a JSON value with its JSON pointer. */
+export function* stringsOf(value, pointer) {
   if (typeof value === 'string') {
     yield { pointer, text: value };
   } else if (Array.isArray(value)) {

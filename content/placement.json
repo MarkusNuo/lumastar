@@ -12,7 +12,7 @@
       "prompt": { "lang": "de", "text": "Was bedeutet „mirëdita“?" },
       "choices": ["Guten Tag", "Gute Nacht", "Danke", "Auf Wiedersehen"],
       "solutions": ["Guten Tag"],
-      "explanation": "„Mirëdita“ heisst „guten Tag“ – wörtlich „guter Tag“.",
+      "explanation": "„Mirëdita“ heisst „Guten Tag“ – wörtlich „guter Tag“.",
       "errorHints": [{ "pattern": "nacht", "category": "vocab.confused", "hint": "„Gute Nacht“ heisst „natën e mirë“." }],
       "reviewed": false,
       "source": "manual"
@@ -28,8 +28,8 @@
       "prompt": { "lang": "de", "text": "Wie sagt man „danke“?" },
       "choices": ["mirupafshim", "faleminderit", "po", "jo"],
       "solutions": ["faleminderit"],
-      "explanation": "„Faleminderit“ heisst „danke“. „Mirupafshim“ ist „auf Wiedersehen“.",
-      "errorHints": [{ "pattern": "^mirupafshim$", "category": "vocab.confused", "hint": "„Mirupafshim“ heisst „auf Wiedersehen“." }],
+      "explanation": "„Faleminderit“ heisst „danke“. „Mirupafshim“ ist „Auf Wiedersehen“.",
+      "errorHints": [{ "pattern": "^mirupafshim$", "category": "vocab.confused", "hint": "„Mirupafshim“ heisst „Auf Wiedersehen“." }],
       "reviewed": false,
       "source": "manual"
     },

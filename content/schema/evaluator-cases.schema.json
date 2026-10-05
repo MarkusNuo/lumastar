@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lingora.invalid/schema/evaluator-cases.schema.json",
+  "title": "Lingora shared evaluator cases",
+  "description": "content/fixtures/evaluator-cases.json: self-contained answer-evaluation cases run by the backend (JUnit) and the frontend (Vitest), see docs/CONTENT_FORMAT.md \"Answer normalisation and tokenisation\".",
+  "type": "object",
+  "required": ["schemaVersion", "description", "cases"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "$ref": "common.schema.json#/$defs/schemaVersion" },
+    "description": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+    "cases": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/case" } }
+  },
+  "$defs": {
+    "case": {
+      "type": "object",
+      "required": ["id", "description", "exercise", "answer", "expected"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "description": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "exercise": { "$ref": "#/$defs/exercise" },
+        "answer": { "$ref": "#/$defs/answer" },
+        "expected": { "$ref": "#/$defs/expected" }
+      }
+    },
+    "exercise": {
+      "description": "The evaluator-relevant fields of an exercise, with the same type rules as in unit files.",
+      "type": "object",
+      "required": ["type", "skillTags"],
+      "properties": {
+        "type": { "$ref": "common.schema.json#/$defs/exerciseType" },
+        "skillTags": { "$ref": "common.schema.json#/$defs/skillTagList" },
+        "errorHints": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/errorHint" } }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "multiple_choice" } } },
+          "then": {
+            "required": ["choices", "solutions"],
+            "properties": {
+              "choices": {
+                "type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true,
+                "items": { "$ref": "common.schema.json#/$defs/nonEmptyString" }
+              },
+              "solutions": {
+                "type": "array", "minItems": 1, "maxItems": 1,
+                "items": { "$ref": "common.schema.json#/$defs/nonEmptyString" }
+              }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "translate_wordbank" } } },
+          "then": {
+            "required": ["answerLang", "solutions", "wordBank"],
+            "properties": {
+              "answerLang": { "$ref": "common.schema.json#/$defs/answerLang" },
+              "solutions": { "$ref": "common.schema.json#/$defs/textList" },
+              "wordBank": { "type": "array", "minItems": 3, "items": { "$ref": "common.schema.json#/$defs/nonEmptyString" } }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "translate_free" } } },
+          "then": {
+            "required": ["answerLang", "solutions"],
+            "properties": {
+              "answerLang": { "$ref": "common.schema.json#/$defs/answerLang" },
+              "solutions": { "$ref": "common.schema.json#/$defs/textList" },
+              "standardForms": { "$ref": "common.schema.json#/$defs/textList" }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "fill_gap" } } },
+          "then": {
+            "required": ["answerLang", "text", "solutions"],
+            "properties": {
+              "answerLang": { "$ref": "common.schema.json#/$defs/answerLang" },
+              "text": { "type": "string", "pattern": "___" },
+              "solutions": { "$ref": "common.schema.json#/$defs/textList" },
+              "choices": {
+                "type": "array", "minItems": 2, "uniqueItems": true,
+                "items": { "$ref": "common.schema.json#/$defs/nonEmptyString" }
+              },
+              "standardForms": { "$ref": "common.schema.json#/$defs/textList" }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "match_pairs" } } },
+          "then": {
+            "required": ["pairs"],
+            "properties": {
+              "pairs": { "type": "array", "minItems": 5, "maxItems": 5, "items": { "$ref": "common.schema.json#/$defs/pair" } }
+            }
+          }
+        },
+        {
+          "if": { "required": ["type"], "properties": { "type": { "const": "word_order" } } },
+          "then": {
+            "required": ["answerLang", "tokens", "solutions"],
+            "properties": {
+              "answerLang": { "$ref": "common.schema.json#/$defs/answerLang" },
+              "tokens": { "type": "array", "minItems": 2, "items": { "$ref": "common.schema.json#/$defs/nonEmptyString" } },
+              "solutions": { "$ref": "common.schema.json#/$defs/textList" }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "answer": {
+      "description": "Exactly one field: text (typed), choice (picked option), tokens (tiles in the order placed) or wrongMatches (match_pairs).",
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string" },
+        "choice": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "tokens": { "type": "array", "minItems": 1, "items": { "$ref": "common.schema.json#/$defs/nonEmptyString" } },
+        "wrongMatches": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/pair" } }
+      }
+    },
+    "expected": {
+      "description": "errorCategory is given for every outcome except correct; correct_standard_form always has variant.standard_form.",
+      "type": "object",
+      "required": ["outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "outcome": { "enum": ["correct", "almost_correct", "correct_standard_form", "wrong"] },
+        "errorCategory": { "$ref": "common.schema.json#/$defs/errorCategory" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "outcome": { "const": "correct" } } },
+          "then": { "properties": { "errorCategory": false } },
+          "else": {
+            "required": ["errorCategory"],
+            "properties": { "errorCategory": { "$ref": "common.schema.json#/$defs/errorCategory" } }
+          }
+        },
+        {
+          "if": { "properties": { "outcome": { "const": "correct_standard_form" } } },
+          "then": { "properties": { "errorCategory": { "const": "variant.standard_form" } } }
+        }
+      ]
+    }
+  }
+}

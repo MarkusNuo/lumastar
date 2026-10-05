@@ -5,6 +5,7 @@ const REQUIRED_FILES = {
   curriculum: 'curriculum.json',
   skillTags: 'skill_tags.json',
   blocklist: 'gheg_blocklist.json',
+  evaluatorCases: 'fixtures/evaluator-cases.json',
 };
 const OPTIONAL_FILES = { placement: 'placement.json' };
 const UNITS_DIR = 'units';
@@ -12,7 +13,7 @@ const UNITS_DIR = 'units';
 /**
  * @typedef {{ path: string, schema: string, data: any, valid: boolean, invalidEntries: Set<string> }} ContentDoc
  * @typedef {{ curriculum: ContentDoc?, skillTags: ContentDoc?, blocklist: ContentDoc?,
- *             placement: ContentDoc?, units: ContentDoc[] }} Content
+ *             placement: ContentDoc?, evaluatorCases: ContentDoc?, units: ContentDoc[] }} Content
  */
 
 /** Loads and parses every content file; missing or unparsable files are reported and returned as null. */
@@ -32,9 +33,14 @@ export function loadContent(contentDir, report) {
   return content;
 }
 
-/** All successfully parsed documents of the content set. */
+/** All successfully parsed learning-content documents (the evaluator fixture is not learning content). */
 export function allDocs(content) {
   return [content.curriculum, content.skillTags, content.blocklist, content.placement, ...content.units].filter(Boolean);
+}
+
+/** Test fixtures shared with the backend and frontend test suites. */
+export function fixtureDocs(content) {
+  return [content.evaluatorCases].filter(Boolean);
 }
 
 /** Unit and placement documents that passed schema validation, i.e. the documents holding exercises. */
