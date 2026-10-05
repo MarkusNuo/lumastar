@@ -15,7 +15,7 @@ class ProfileDocumentRendererTest {
     void learnerProfile() {
         assertThat(render(ProfileDocument.LEARNER_PROFILE, LearnerSnapshots.erza())).isEqualTo("""
                 {
-                  "schemaVersion": 3,
+                  "schemaVersion": 4,
                   "displayName": "Erza",
                   "variety": "gheg-kosovo",
                   "motivation": [
@@ -37,7 +37,7 @@ class ProfileDocumentRendererTest {
     void learnerProfileBeforeThePlacementTest() {
         assertThat(json(ProfileDocument.LEARNER_PROFILE, LearnerSnapshots.newLearner(LearnerSnapshots.TAKEN_AT, 0, 0)))
                 .isStrictlyEqualTo("""
-                        {"schemaVersion": 3, "displayName": "Erza", "variety": "gheg-kosovo", "motivation": [],
+                        {"schemaVersion": 4, "displayName": "Erza", "variety": "gheg-kosovo", "motivation": [],
                          "dailyGoalMinutes": 10, "currentLevel": null, "targetLevel": "C2", "xpTotal": 0,
                          "streak": {"current": 0, "longest": 0}}""");
     }

@@ -2,6 +2,7 @@ package app.lingora.api.onboarding;
 
 import app.lingora.api.plan.PlanService;
 import app.lingora.api.progress.DailyProgress;
+import app.lingora.persistence.PracticeCompletion;
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
 import java.util.UUID;
@@ -33,7 +34,7 @@ class OnboardingService {
         if (previousGoal != request.dailyGoalMinutes()) {
             users.flush();
             plans.reviseAfterDailyGoalChange(userId, previousGoal, request.dailyGoalMinutes());
-            dailyProgress.evaluate(userId, null);
+            dailyProgress.evaluate(userId, PracticeCompletion.NONE);
         }
         return new OnboardingResponse(user.placementStartLevel(), user.maySkipPlacement());
     }

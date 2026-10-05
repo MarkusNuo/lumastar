@@ -21,6 +21,7 @@ import app.lingora.persistence.PlacementAnswerRepository;
 import app.lingora.persistence.PlacementStatus;
 import app.lingora.persistence.PlacementTestEntity;
 import app.lingora.persistence.PlacementTestRepository;
+import app.lingora.persistence.PracticeCompletion;
 import app.lingora.persistence.SkillMasteryStore;
 import app.lingora.persistence.StageRepository;
 import app.lingora.persistence.StageEntity;
@@ -123,7 +124,7 @@ class PlacementService {
         PlacementResult placement = engine.evaluate(answered);
         test.complete(answered, placement, now);
         place(learner, placement, false, now);
-        dailyProgress.evaluate(userId, null);
+        dailyProgress.evaluate(userId, PracticeCompletion.placementTest(testId));
         return new PlacementAnswerResponse(true, null, position);
     }
 
@@ -137,7 +138,7 @@ class PlacementService {
         tests.abandonUnfinished(userId, now);
         PlacementTestEntity test = tests.save(PlacementTestEntity.skipped(userId, engineId, Level.lowest(), now));
         place(learner, test.placementResult(), true, now);
-        return resultOf(test);
+        return resultOf(userId, test);
     }
 
     @Transactional(readOnly = true)
@@ -147,7 +148,7 @@ class PlacementService {
         if (!test.hasResult()) {
             throw PlacementProblems.testWithoutResult(testId);
         }
-        return resultOf(test);
+        return resultOf(userId, test);
     }
 
     /** Sets the level, raises the mastery estimates and creates or revises the plan (PRD F2, F3). */
@@ -174,11 +175,12 @@ class PlacementService {
                 Map.of("from", previous.code(), "to", placed.code()));
     }
 
-    private PlacementResultResponse resultOf(PlacementTestEntity test) {
+    private PlacementResultResponse resultOf(UUID userId, PlacementTestEntity test) {
         PlacementResult result = test.placementResult();
         String levelTitle = stages.findById(result.level().code()).map(StageEntity::getTitle).orElse(result.level().code());
         return PlacementResultResponse.of(test.getId(), test.getStatus() == PlacementStatus.SKIPPED, levelTitle,
-                test.getStartLevel(), test.answeredCount(), result, catalog.skillTagLabels(), test.getFinishedAt());
+                test.getStartLevel(), test.answeredCount(), result, catalog.skillTagLabels(), test.getFinishedAt(),
+                dailyProgress.ofCompletion(userId, PracticeCompletion.placementTest(test.getId()), test.getFinishedAt()));
     }
 
     private EvaluationResult evaluate(Exercise item, PlacementAnswerRequest request) {

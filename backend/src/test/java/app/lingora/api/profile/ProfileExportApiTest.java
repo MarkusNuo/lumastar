@@ -97,7 +97,7 @@ class ProfileExportApiTest extends IntegrationTest {
         void describesTheContentInTheManifest() {
             JsonNode manifest = JSON.readTree(entries(export()).get("manifest.json"));
 
-            assertThat(manifest.get("schemaVersion").asInt()).isEqualTo(3);
+            assertThat(manifest.get("schemaVersion").asInt()).isEqualTo(4);
             assertThat(manifest.get("appVersion").asString()).isEqualTo("0.1.0-SNAPSHOT");
             assertThat(manifest.get("exportedAt").asString()).endsWith("Z");
             assertThat(manifest.get("counts")).isEqualTo(JSON.readTree("""
@@ -144,7 +144,7 @@ class ProfileExportApiTest extends IntegrationTest {
             Map<String, String> before = entries(first);
             JsonNode manifest = JSON.readTree(before.get("manifest.json"));
             assertThat(imported).bodyJson().isStrictlyEqualTo("""
-                    {"schemaVersion": 3, "exportedAt": "%s", "imported": %s}"""
+                    {"schemaVersion": 4, "exportedAt": "%s", "imported": %s}"""
                     .formatted(manifest.get("exportedAt").asString(), manifest.get("counts")));
             Map<String, String> after = entries(second);
             assertThat(withoutManifest(after)).isEqualTo(withoutManifest(before));
@@ -210,12 +210,12 @@ class ProfileExportApiTest extends IntegrationTest {
         @Test
         void rejectsAnExportOfANewerVersion() {
             byte[] future = ZipFiles.zip(Map.of("manifest.json", """
-                    {"schemaVersion": 4, "exportedAt": "2027-01-01T00:00:00Z"}"""));
+                    {"schemaVersion": 5, "exportedAt": "2027-01-01T00:00:00Z"}"""));
 
             MvcTestResult rejected = learner.upload(IMPORT, "file", future);
 
             assertProblem(rejected, HttpStatus.UNPROCESSABLE_CONTENT, "unsupported_schema_version");
-            assertThat(rejected).bodyJson().extractingPath("$.detail").asString().contains("version 4");
+            assertThat(rejected).bodyJson().extractingPath("$.detail").asString().contains("version 5");
         }
 
         @Test

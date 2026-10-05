@@ -77,6 +77,24 @@ class StoredExportImportTest extends IntegrationTest {
         assertThat(learner.get("/api/profile/export")).hasStatusOk();
     }
 
+    @Test
+    void importsAnExportOfFormatVersion3() throws IOException {
+        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("lingora-export-v3.zip"));
+
+        assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(3);
+        assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
+                Map.entry("streaks", 1), Map.entry("fsrsParams", 1), Map.entry("learningPlans", 1),
+                Map.entry("planChanges", 1), Map.entry("placementTests", 1), Map.entry("placementAnswers", 1),
+                Map.entry("sessions", 1), Map.entry("badges", 0), Map.entry("streakDays", 3), Map.entry("attempts", 6),
+                Map.entry("skillMastery", 2), Map.entry("srsCards", 6), Map.entry("reviewLog", 11)));
+        assertThat(jdbc.sql("""
+                        SELECT string_agg(day || ':' || kind || ':' || (session_id IS NOT NULL) || ':'
+                                          || (placement_test_id IS NOT NULL), ',' ORDER BY day)
+                        FROM streak_days""").query(String.class).single())
+                .isEqualTo("2026-10-03:goal_met:false:false,2026-10-04:freeze:false:false,2026-10-05:goal_met:true:false");
+        assertThat(learner.get("/api/profile/export")).hasStatusOk();
+    }
+
     private static byte[] stored(String file) throws IOException {
         try (InputStream export = StoredExportImportTest.class.getResourceAsStream("/exports/" + file)) {
             assertThat(export).as(file).isNotNull();

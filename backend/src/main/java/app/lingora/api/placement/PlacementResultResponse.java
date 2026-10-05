@@ -1,5 +1,8 @@
 package app.lingora.api.placement;
 
+import app.lingora.api.progress.DailyProgress.CompletionProgress;
+import app.lingora.api.progress.LessonDailyGoal;
+import app.lingora.api.progress.LessonStreak;
 import app.lingora.domain.Competence;
 import app.lingora.domain.Level;
 import app.lingora.domain.PlacementResult;
@@ -29,7 +32,10 @@ public record PlacementResultResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED,
                 description = "All four competences in the order vocabulary, grammar, reading, translation")
         List<CompetenceResult> competences,
-        @Schema(requiredMode = Schema.RequiredMode.REQUIRED) Instant finishedAt) {
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED) Instant finishedAt,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "A completed test counts as practice time, a "
+                + "skipped one does not") LessonDailyGoal dailyGoal,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED) LessonStreak streak) {
 
     public record SkillEstimate(
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String skillTag,
@@ -45,11 +51,12 @@ public record PlacementResultResponse(
     }
 
     static PlacementResultResponse of(UUID testId, boolean skipped, String levelTitle, Level startLevel, int answeredCount,
-                                      PlacementResult result, Map<SkillTag, String> labels, Instant finishedAt) {
+                                      PlacementResult result, Map<SkillTag, String> labels, Instant finishedAt,
+                                      CompletionProgress progress) {
         return new PlacementResultResponse(testId, skipped, result.level(), levelTitle, startLevel, answeredCount,
                 estimates(result.strengths(), result, labels), estimates(result.weaknesses(), result, labels),
                 Arrays.stream(Competence.values()).map(competence -> competenceResult(competence, result)).toList(),
-                finishedAt);
+                finishedAt, progress.dailyGoal(), progress.streak());
     }
 
     private static List<SkillEstimate> estimates(List<SkillTag> tags, PlacementResult result, Map<SkillTag, String> labels) {

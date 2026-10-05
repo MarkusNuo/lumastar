@@ -1,14 +1,13 @@
 package app.lingora.export;
 
+import static app.lingora.export.DataRows.withField;
+
 import app.lingora.core.srs.SrsSettings;
 import java.math.BigDecimal;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.function.Consumer;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
-import tools.jackson.databind.node.ArrayNode;
-import tools.jackson.databind.node.ObjectNode;
 
 /**
  * Format 1 → 2 (adaptivity, M4): level badges ({@code data/badges.json}, none before), the result of a checkpoint
@@ -32,19 +31,5 @@ class ExportV1Upgrader implements BackupUpgrader {
                 (file, reviews) -> withField(reviews, row -> row.put("requestRetention", BigDecimal.valueOf(SrsSettings.DEFAULT_REQUEST_RETENTION))));
         upgraded.putIfAbsent(ExportFormat.DATA + "badges.json", DocumentJson.MAPPER.createArrayNode());
         return upgraded;
-    }
-
-    /** A copy of the rows with the field added to each; anything but an array of objects is left to the validator. */
-    private static JsonNode withField(JsonNode rows, Consumer<ObjectNode> addField) {
-        if (!(rows instanceof ArrayNode array)) {
-            return rows;
-        }
-        ArrayNode copy = array.deepCopy();
-        copy.forEach(row -> {
-            if (row instanceof ObjectNode object) {
-                addField.accept(object);
-            }
-        });
-        return copy;
     }
 }

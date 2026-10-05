@@ -28,8 +28,11 @@ public class StreakStore {
         this.jdbc = jdbc;
     }
 
-    /** A day that counted for the streak; {@code goalMinutes} and {@code sessionId} are set for a met goal only. */
-    public record StreakDay(LocalDate day, StreakDayKind kind, Integer goalMinutes, UUID sessionId) {
+    /**
+     * A day that counted for the streak; {@code goalMinutes} is set for a met goal only, and {@code metBy} is
+     * {@link PracticeCompletion#NONE} unless the completion of a lesson or a placement test met it.
+     */
+    public record StreakDay(LocalDate day, StreakDayKind kind, Integer goalMinutes, PracticeCompletion metBy) {
     }
 
     public Streak streak(UUID userId) {
@@ -73,19 +76,18 @@ public class StreakStore {
                 .update();
     }
 
-    /** @param sessionId the lesson whose completion met the goal, {@code null} for none */
-    public void recordGoalMet(UUID userId, LocalDate day, int goalMinutes, UUID sessionId, Instant at) {
-        record(userId, new StreakDay(day, StreakDayKind.GOAL_MET, goalMinutes, sessionId), at);
+    public void recordGoalMet(UUID userId, LocalDate day, int goalMinutes, PracticeCompletion metBy, Instant at) {
+        record(userId, new StreakDay(day, StreakDayKind.GOAL_MET, goalMinutes, metBy), at);
     }
 
     public void recordFreeze(UUID userId, LocalDate day, Instant at) {
-        record(userId, new StreakDay(day, StreakDayKind.FREEZE, null, null), at);
+        record(userId, new StreakDay(day, StreakDayKind.FREEZE, null, PracticeCompletion.NONE), at);
     }
 
     /** The recorded days within {@code [from, to]}, in date order. */
     public List<StreakDay> days(UUID userId, LocalDate from, LocalDate to) {
         return jdbc.sql("""
-                        SELECT day, kind, goal_minutes, session_id FROM streak_days
+                        SELECT day, kind, goal_minutes, session_id, placement_test_id FROM streak_days
                         WHERE user_id = :user AND day BETWEEN :from AND :to
                         ORDER BY day""")
                 .param("user", userId)
@@ -95,24 +97,28 @@ public class StreakStore {
                 .list();
     }
 
-    /** The day whose goal the completion of the lesson met, if it did. */
-    public Optional<LocalDate> dayMetBy(UUID userId, UUID sessionId) {
-        return jdbc.sql("SELECT day FROM streak_days WHERE user_id = :user AND session_id = :session")
+    /** The day whose goal the completion met, if it did. */
+    public Optional<LocalDate> dayMetBy(UUID userId, PracticeCompletion completion) {
+        return jdbc.sql("""
+                        SELECT day FROM streak_days
+                        WHERE user_id = :user AND (session_id = :session OR placement_test_id = :placementTest)""")
                 .param("user", userId)
-                .param("session", sessionId)
+                .param("session", completion.sessionId())
+                .param("placementTest", completion.placementTestId())
                 .query(LocalDate.class)
                 .optional();
     }
 
     private void record(UUID userId, StreakDay day, Instant at) {
         jdbc.sql("""
-                        INSERT INTO streak_days (user_id, day, kind, goal_minutes, session_id, recorded_at)
-                        VALUES (:user, :day, :kind, :goalMinutes, :session, :at)""")
+                        INSERT INTO streak_days (user_id, day, kind, goal_minutes, session_id, placement_test_id, recorded_at)
+                        VALUES (:user, :day, :kind, :goalMinutes, :session, :placementTest, :at)""")
                 .param("user", userId)
                 .param("day", day.day())
                 .param("kind", day.kind().code())
                 .param("goalMinutes", day.goalMinutes())
-                .param("session", day.sessionId())
+                .param("session", day.metBy().sessionId())
+                .param("placementTest", day.metBy().placementTestId())
                 .param("at", SqlTimestamps.of(at))
                 .update();
     }
@@ -126,6 +132,6 @@ public class StreakStore {
     private static StreakDay streakDay(ResultSet row, int rowNumber) throws SQLException {
         return new StreakDay(row.getObject("day", LocalDate.class),
                 Coded.fromCode(StreakDayKind.class, row.getString("kind")), row.getObject("goal_minutes", Integer.class),
-                row.getObject("session_id", UUID.class));
+                new PracticeCompletion(row.getObject("session_id", UUID.class), row.getObject("placement_test_id", UUID.class)));
     }
 }

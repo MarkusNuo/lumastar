@@ -36,6 +36,7 @@ import app.lingora.persistence.ContentCatalog;
 import app.lingora.persistence.LearningPlanStore;
 import app.lingora.persistence.LessonSessionEntity;
 import app.lingora.persistence.LessonSessionRepository;
+import app.lingora.persistence.PracticeCompletion;
 import app.lingora.persistence.SessionKind;
 import app.lingora.persistence.SkillMasteryStore;
 import app.lingora.persistence.SrsCardStore;
@@ -259,6 +260,7 @@ class LessonService {
         List<AttemptEntity> firstAttempts = attempts.findBySessionIdAndRetryFalseOrderByPosition(session.getId());
         Optional<FocusRequest> focus = focusRequest(userId, firstAttempts);
         boolean checkpoint = session.getKind() == SessionKind.CHECKPOINT;
+        PracticeCompletion completion = PracticeCompletion.lesson(session.getId());
         if (!session.isFinished()) {
             finish(userId, session, firstAttempts);
             if (checkpoint) {
@@ -267,14 +269,14 @@ class LessonService {
                 planTriggers.afterLesson(userId, focus);
             }
             sessions.flush();
-            dailyProgress.evaluate(userId, session.getId());
+            dailyProgress.evaluate(userId, completion);
         }
         List<Item> items = learnedItems(session);
         Map<String, SrsCard> itemCards = cards.cards(userId, items.stream().map(Item::id).toList());
         return LessonResultResponse.of(session, items, itemCards, cards.learnedWords(userId), users.xpTotalOf(userId),
                 focus.flatMap(request -> focusSuggestion(userId, request)).orElse(null),
                 checkpoint ? checkpointCompletion.result(session) : null,
-                dailyProgress.ofLesson(userId, session.getId(), session.getFinishedAt()));
+                dailyProgress.ofCompletion(userId, completion, session.getFinishedAt()));
     }
 
     /**

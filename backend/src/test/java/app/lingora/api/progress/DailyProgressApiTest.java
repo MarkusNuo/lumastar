@@ -10,6 +10,7 @@ import app.lingora.SyntheticContent;
 import app.lingora.content.ContentSeeder;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -205,17 +206,68 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
     }
 
     @Test
-    void aCompletedPlacementTestCountsAsPractice() {
-        PlacementDriver placement = new PlacementDriver(learner, jdbc);
-        JsonNode started = placement.start();
-        clock.advance(Duration.ofMinutes(12));
+    void aCompletedPlacementTestCountsAsPracticeAndItsResultCelebratesTheGoalItMet() {
+        JsonNode result = placementOf(Duration.ofMinutes(12)).result();
 
-        placement.finish(started, level -> false);
-
+        assertThat(result.get("dailyGoal")).isEqualTo(json("""
+                {"minutesToday": 12, "goalMinutes": 10, "goalMet": true, "justMet": true}"""));
+        assertThat(result.get("streak")).isEqualTo(json("""
+                {"current": 1, "extendedToday": true, "freezeUsed": false}"""));
         JsonNode today = today();
         assertThat(today.get("minutesToday").asInt()).isEqualTo(12);
         assertThat(today.get("lessonsToday").asInt()).isZero();
         assertThat(today.get("streak").get("current").asInt()).isEqualTo(1);
+        assertThat(jdbc.sql("SELECT (placement_test_id IS NOT NULL) || '|' || (session_id IS NULL) FROM streak_days")
+                .query(String.class).single()).isEqualTo("true|true");
+    }
+
+    @Test
+    void aPlacementTestAfterTheGoalWasMetDoesNotMeetItAgain() {
+        lessonOf(Duration.ofMinutes(11));
+
+        JsonNode result = placementOf(Duration.ofMinutes(5)).result();
+
+        assertThat(result.get("dailyGoal")).isEqualTo(json("""
+                {"minutesToday": 16, "goalMinutes": 10, "goalMet": true, "justMet": false}"""));
+        assertThat(result.get("streak")).isEqualTo(json("""
+                {"current": 1, "extendedToday": true, "freezeUsed": false}"""));
+    }
+
+    @Test
+    void aPlacementTestThatMeetsTheGoalAfterAMissedDayUsesTheStreakFreeze() {
+        lessonOf(Duration.ofMinutes(11));
+        clock.advance(DAY.multipliedBy(2));
+
+        JsonNode result = placementOf(Duration.ofMinutes(12)).result();
+
+        assertThat(result.get("dailyGoal").get("justMet").asBoolean()).isTrue();
+        assertThat(result.get("streak")).isEqualTo(json("""
+                {"current": 2, "extendedToday": true, "freezeUsed": true}"""));
+    }
+
+    @Test
+    void thePlacementResultReportsTheDayOfTheTestWhenReadLater() {
+        PlacementDriver.Placement placement = placementOf(Duration.ofMinutes(12));
+        clock.advance(DAY);
+
+        MvcTestResult later = learner.get("/api/placement/" + placement.testId() + "/result");
+
+        assertThat(later).hasStatusOk();
+        JsonNode result = PlacementDriver.body(later);
+        assertThat(result.get("dailyGoal")).isEqualTo(placement.result().get("dailyGoal"));
+        assertThat(result.get("streak").get("extendedToday").asBoolean()).as("the streak as it stands today").isFalse();
+    }
+
+    @Test
+    void aSkippedPlacementTestIsNoPractice() {
+        String skipped = jdbc.sql("SELECT id FROM placement_tests WHERE status = 'skipped'").query(String.class).single();
+
+        MvcTestResult result = learner.get("/api/placement/" + skipped + "/result");
+
+        assertThat(result).hasStatusOk().bodyJson().extractingPath("$.dailyGoal").isEqualTo(Map.of(
+                "minutesToday", 0, "goalMinutes", 10, "goalMet", false, "justMet", false));
+        assertThat(result).bodyJson().extractingPath("$.streak").isEqualTo(Map.of(
+                "current", 0, "extendedToday", false, "freezeUsed", false));
     }
 
     @Test
@@ -243,6 +295,14 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         clock.advance(duration);
         lessons.answerAll(lesson, "ja");
         return lessons.complete(lesson);
+    }
+
+    /** A placement test ("Neu einstufen") answered wrongly throughout, over {@code duration}. */
+    private PlacementDriver.Placement placementOf(Duration duration) {
+        PlacementDriver placement = new PlacementDriver(learner, jdbc);
+        JsonNode started = placement.start();
+        clock.advance(duration);
+        return placement.finish(started, level -> false);
     }
 
     private JsonNode today() {

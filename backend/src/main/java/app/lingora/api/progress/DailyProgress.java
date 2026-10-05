@@ -3,6 +3,7 @@ package app.lingora.api.progress;
 import app.lingora.core.progress.DailyGoal;
 import app.lingora.core.progress.StreakRule;
 import app.lingora.core.progress.StreakRule.Extension;
+import app.lingora.persistence.PracticeCompletion;
 import app.lingora.persistence.PracticeQueries;
 import app.lingora.persistence.PracticeQueries.DayPractice;
 import app.lingora.persistence.StreakDayKind;
@@ -38,18 +39,18 @@ public class DailyProgress {
         this.clock = clock;
     }
 
-    /** The daily goal and the streak as a lesson result shows them. */
-    public record LessonProgress(LessonDailyGoal dailyGoal, LessonStreak streak) {
+    /** The daily goal and the streak as the result of a lesson or a placement test shows them. */
+    public record CompletionProgress(LessonDailyGoal dailyGoal, LessonStreak streak) {
     }
 
     /**
-     * Extends the streak if today's goal is met and has not extended it yet. Completed lessons must be flushed, since
+     * Extends the streak if today's goal is met and has not extended it yet. Completions must be flushed, since
      * the practice time is read with SQL.
      *
-     * @param completedLesson the lesson whose completion is evaluated, {@code null} for anything else
+     * @param completion the completion that is evaluated, {@link PracticeCompletion#NONE} for anything else
      */
     @Transactional
-    public void evaluate(UUID userId, UUID completedLesson) {
+    public void evaluate(UUID userId, PracticeCompletion completion) {
         UserEntity learner = users.findById(userId).orElseThrow();
         Instant now = clock.instant();
         ZoneId zone = learner.getTimeZone();
@@ -64,7 +65,7 @@ public class DailyProgress {
         }
         streaks.save(userId, extension.streak(), now);
         extension.bridgedDay().ifPresent(day -> streaks.recordFreeze(userId, day, now));
-        streaks.recordGoalMet(userId, today, goal.goalMinutes(), completedLesson, now);
+        streaks.recordGoalMet(userId, today, goal.goalMinutes(), completion, now);
     }
 
     @Transactional(readOnly = true)
@@ -81,20 +82,21 @@ public class DailyProgress {
     }
 
     /**
-     * The progress of the lesson's day up to and including the lesson, and the streak today. Completing a lesson
-     * again later returns the same daily goal, unless the goal itself has been changed since.
+     * The progress of the completion's day up to and including the completion, and the streak today. Asking again
+     * later returns the same daily goal, unless the goal itself has been changed since.
      */
     @Transactional(readOnly = true)
-    public LessonProgress ofLesson(UUID userId, UUID lessonId, Instant finishedAt) {
+    public CompletionProgress ofCompletion(UUID userId, PracticeCompletion completion, Instant finishedAt) {
         UserEntity learner = users.findById(userId).orElseThrow();
         ZoneId zone = learner.getTimeZone();
-        LocalDate lessonDay = LocalDate.ofInstant(finishedAt, zone);
-        DailyGoal goal = DailyGoal.of(practice.onUntil(userId, lessonDay, zone, finishedAt).practised(),
+        LocalDate completionDay = LocalDate.ofInstant(finishedAt, zone);
+        DailyGoal goal = DailyGoal.of(practice.onUntil(userId, completionDay, zone, finishedAt).practised(),
                 learner.getDailyGoalMinutes());
-        Optional<LocalDate> metByLesson = streaks.dayMetBy(userId, lessonId);
-        boolean freezeUsed = metByLesson.filter(day -> isFrozen(userId, day.minusDays(1))).isPresent();
+        Optional<LocalDate> metByCompletion = streaks.dayMetBy(userId, completion);
+        boolean freezeUsed = metByCompletion.filter(day -> isFrozen(userId, day.minusDays(1))).isPresent();
         StreakRule.Status streak = StreakRule.status(streaks.streak(userId), LocalDate.ofInstant(clock.instant(), zone));
-        return new LessonProgress(new LessonDailyGoal(goal.minutes(), goal.goalMinutes(), goal.met(), metByLesson.isPresent()),
+        return new CompletionProgress(
+                new LessonDailyGoal(goal.minutes(), goal.goalMinutes(), goal.met(), metByCompletion.isPresent()),
                 new LessonStreak(streak.current(), streak.extendedToday(), freezeUsed));
     }
 

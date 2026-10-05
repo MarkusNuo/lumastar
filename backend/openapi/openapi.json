@@ -764,7 +764,7 @@
         "type": "object"
       },
       "LessonDailyGoal": {
-        "description": "The daily goal on the day of the lesson, up to and including the lesson (PRD F9)",
+        "description": "The daily goal on the day of the lesson or placement test, up to and including it (PRD F9)",
         "properties": {
           "goalMet": {
             "type": "boolean"
@@ -774,7 +774,7 @@
             "type": "integer"
           },
           "justMet": {
-            "description": "This lesson met the goal of its day and so extended the streak; time to celebrate",
+            "description": "This lesson or placement test met the goal of its day and so extended the streak; time to celebrate",
             "type": "boolean"
           },
           "minutesToday": {
@@ -1022,7 +1022,7 @@
         "type": "object"
       },
       "LessonStreak": {
-        "description": "The streak after the lesson (PRD F9)",
+        "description": "The streak after the lesson or placement test (PRD F9)",
         "properties": {
           "current": {
             "format": "int32",
@@ -1033,7 +1033,7 @@
             "type": "boolean"
           },
           "freezeUsed": {
-            "description": "This lesson extended the streak over the missed day before, which the weekly streak freeze bridged",
+            "description": "This lesson or placement test extended the streak over the missed day before, which the weekly streak freeze bridged",
             "type": "boolean"
           }
         },
@@ -1561,6 +1561,10 @@
             },
             "type": "array"
           },
+          "dailyGoal": {
+            "$ref": "#/components/schemas/LessonDailyGoal",
+            "description": "A completed test counts as practice time, a skipped one does not"
+          },
           "finishedAt": {
             "format": "date-time",
             "type": "string"
@@ -1580,6 +1584,9 @@
           },
           "startLevel": {
             "$ref": "#/components/schemas/Level"
+          },
+          "streak": {
+            "$ref": "#/components/schemas/LessonStreak"
           },
           "strengths": {
             "description": "Top 3 strengths, strongest first",
@@ -1603,11 +1610,13 @@
         "required": [
           "answeredCount",
           "competences",
+          "dailyGoal",
           "finishedAt",
           "level",
           "levelTitle",
           "skipped",
           "startLevel",
+          "streak",
           "strengths",
           "testId",
           "weaknesses"

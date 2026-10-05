@@ -1,6 +1,6 @@
 package app.lingora.api.lesson;
 
-import app.lingora.api.progress.DailyProgress.LessonProgress;
+import app.lingora.api.progress.DailyProgress.CompletionProgress;
 import app.lingora.api.progress.LessonDailyGoal;
 import app.lingora.api.progress.LessonStreak;
 import app.lingora.core.lesson.XpCalculator.LessonXp;
@@ -74,7 +74,7 @@ public record LessonResultResponse(
     /** @param cards the learner's cards of the items by item id */
     static LessonResultResponse of(LessonSessionEntity session, List<Item> learnedItems, Map<String, SrsCard> cards,
                                    int learnedWordsTotal, int xpTotal, FocusSuggestion focusSuggestion,
-                                   CheckpointResult checkpoint, LessonProgress progress) {
+                                   CheckpointResult checkpoint, CompletionProgress progress) {
         LessonXp xp = session.xp();
         return new LessonResultResponse(LessonKind.of(session.getKind()), xp.total(), new XpBreakdown(xp.base(), xp.perfectBonus(), xp.speedBonus()),
                 session.getAccuracy().doubleValue(), session.duration().toMillis(), session.getCorrectCount(),

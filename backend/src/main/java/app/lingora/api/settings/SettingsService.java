@@ -2,6 +2,7 @@ package app.lingora.api.settings;
 
 import app.lingora.api.plan.PlanService;
 import app.lingora.api.progress.DailyProgress;
+import app.lingora.persistence.PracticeCompletion;
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
 import java.time.ZoneId;
@@ -36,7 +37,7 @@ class SettingsService {
         users.flush();
         plans.reviseAfterDailyGoalChange(userId, previousGoal, request.dailyGoalMinutes());
         if (previousGoal != request.dailyGoalMinutes() || !previousZone.equals(zone)) {
-            dailyProgress.evaluate(userId, null);
+            dailyProgress.evaluate(userId, PracticeCompletion.NONE);
         }
         return SettingsResponse.of(learner);
     }
