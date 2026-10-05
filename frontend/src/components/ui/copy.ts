@@ -4,6 +4,7 @@ import type { PathNodeStatus } from './PathNode';
 /** Built-in copy of the shared UI components (German, Swiss orthography). */
 export const UI_COPY = {
   bottomNav: 'Hauptnavigation',
+  combo: (count: number) => `${count} richtig in Folge!`,
   dailyGoal: 'Tagesziel',
   feedback: {
     continue: 'Weiter',

@@ -2,6 +2,7 @@ import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import type { AttemptResponse, LessonResultResponse } from '../../api/types';
+import { playCue } from '../../lib/effects/playCue';
 import { jsonResponse, renderWithQueryClient, stubApi } from '../../test/http';
 import { EMPTY_LEXICON } from './evaluation/standardFormLexicon';
 import { LessonPlayer } from './LessonPlayer';
@@ -9,6 +10,7 @@ import type { Lesson } from './model';
 import { SAMPLE_FILL_GAP_CHOICES, SAMPLE_MULTIPLE_CHOICE } from './sampleExercises';
 
 vi.mock('../../lib/celebrate', () => ({ celebrate: vi.fn() }));
+vi.mock('../../lib/effects/playCue', () => ({ playCue: vi.fn() }));
 
 const SESSION_ID = '5b0c8a4e-0000-4000-8000-000000000001';
 const ATTEMPTS = `POST /api/lessons/${SESSION_ID}/attempts`;
@@ -61,11 +63,11 @@ function answerLikePrecheck(request: Request): Promise<Response> {
     });
 }
 
-function renderPlayer() {
+function renderPlayer(lesson: Lesson = LESSON) {
   const onFinish = vi.fn();
   const onQuit = vi.fn();
   renderWithQueryClient(
-    <LessonPlayer lesson={LESSON} lexicon={EMPTY_LEXICON} onQuit={onQuit} onFinish={onFinish} />,
+    <LessonPlayer lesson={lesson} lexicon={EMPTY_LEXICON} onQuit={onQuit} onFinish={onFinish} />,
   );
   return { user: userEvent.setup(), onFinish, onQuit };
 }
@@ -172,5 +174,54 @@ describe('LessonPlayer', () => {
     await user.keyboard('{Escape}');
     await user.click(await screen.findByRole('button', { name: 'Beenden' }));
     expect(onQuit).toHaveBeenCalledOnce();
+  });
+
+  it('cheers three correct answers in a row with a combo badge and the combo sound', async () => {
+    const lesson: Lesson = {
+      ...LESSON,
+      exercises: [
+        SAMPLE_MULTIPLE_CHOICE,
+        SAMPLE_FILL_GAP_CHOICES,
+        { ...SAMPLE_MULTIPLE_CHOICE, id: 'ex_a1_u01_greetings_099' },
+      ],
+    };
+    stubApi({ [ATTEMPTS]: answerLikePrecheck });
+    const { user } = renderPlayer(lesson);
+    const combo = () => screen.queryByText('3 richtig in Folge!');
+
+    await user.click(screen.getByRole('button', { name: /mirëdita/ }));
+    await user.click(screen.getByRole('button', { name: 'Prüfen' }));
+    await user.click(await screen.findByRole('button', { name: 'Weiter' }));
+    await user.click(await screen.findByRole('button', { name: 'po' }));
+    await user.click(screen.getByRole('button', { name: 'Prüfen' }));
+    expect(combo()).not.toBeInTheDocument();
+    await user.click(await screen.findByRole('button', { name: 'Weiter' }));
+    await user.click(await screen.findByRole('button', { name: /mirëdita/ }));
+    await user.click(screen.getByRole('button', { name: 'Prüfen' }));
+
+    expect(await screen.findByText('3 richtig in Folge!')).toBeInTheDocument();
+    expect(vi.mocked(playCue).mock.calls.filter(([cue]) => cue !== 'tap')).toEqual([
+      ['correct'],
+      ['correct'],
+      ['combo'],
+    ]);
+    await user.click(screen.getByRole('button', { name: 'Weiter' }));
+    await waitFor(() => expect(combo()).not.toBeInTheDocument());
+  });
+
+  it('encourages after a wrong answer: mascot on the sheet and the soft wrong sound', async () => {
+    stubApi({ [ATTEMPTS]: answerLikePrecheck });
+    const { user } = renderPlayer();
+
+    await user.click(screen.getByRole('button', { name: /mirupafshim/ }));
+    await user.click(screen.getByRole('button', { name: 'Prüfen' }));
+
+    const sheet = await feedback();
+    expect(sheet.querySelector('[data-expression="encouraging"]')).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+    expect(playCue).toHaveBeenLastCalledWith('wrong');
+    expect(playCue).toHaveBeenCalledWith('tap');
   });
 });

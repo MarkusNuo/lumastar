@@ -8,6 +8,8 @@ import {
   type Icon,
 } from '@phosphor-icons/react';
 import { cx } from '../../lib/cx';
+import { playCue } from '../../lib/effects/playCue';
+import { useShake } from '../../lib/useShake';
 import { unitTone, type Tone, type UnitColor } from './tones';
 import { UI_COPY } from './copy';
 
@@ -21,6 +23,7 @@ export interface PathNodeProps {
   /** Accessible name, e.g. "Lektion 3"; the status is appended automatically. */
   label: string;
   bubbleLabel?: string;
+  /** Not called for locked nodes: they shake their head instead. */
   onClick?: () => void;
   className?: string;
 }
@@ -52,6 +55,17 @@ export function PathNode({
   const isCheckpoint = kind === 'checkpoint';
   // Lessons show a crown and checkpoints turn gold when done; the other kinds get a check badge.
   const showDoneBadge = status === 'completed' && (kind === 'focus' || kind === 'review');
+  const [shakeScope, shake] = useShake<HTMLButtonElement>();
+
+  const press = () => {
+    if (status === 'locked') {
+      playCue('locked');
+      shake();
+      return;
+    }
+    playCue('tap');
+    onClick?.();
+  };
 
   return (
     <div
@@ -83,8 +97,9 @@ export function PathNode({
         </>
       )}
       <button
+        ref={shakeScope}
         type="button"
-        onClick={onClick}
+        onClick={press}
         aria-label={`${label}, ${UI_COPY.pathNode.status[status]}`}
         aria-current={isCurrent ? 'step' : undefined}
         className={cx(

@@ -6,9 +6,11 @@ import {
   SAMPLE_WORDBANK,
 } from '../sampleExercises';
 import {
+  correctStreak,
   createLessonQueue,
   currentEntry,
   firstAttemptSummary,
+  isComboMilestone,
   lessonPhase,
   lessonProgress,
   lessonQueueReducer,
@@ -222,5 +224,48 @@ describe('backend verdict', () => {
     expect(
       lessonQueueReducer(state, { type: 'serverVerdict', key: 99, verdict: verdict('correct') }),
     ).toBe(state);
+  });
+});
+
+describe('correct answers in a row', () => {
+  it('counts the checked answers in a row, including the one on screen', () => {
+    expect(correctStreak(createLessonQueue(LESSON))).toBe(0);
+    expect(correctStreak(play(...answer('correct')))).toBe(1);
+    expect(
+      correctStreak(play(...answer('correct'), { type: 'checked', verdict: verdict('correct') })),
+    ).toBe(2);
+  });
+
+  it('counts answers that are almost right and starts over after a wrong one', () => {
+    expect(correctStreak(play(...answer('almost_correct'), ...answer('correct')))).toBe(2);
+    expect(correctStreak(play(...answer('correct'), ...answer('wrong')))).toBe(0);
+    expect(
+      correctStreak(play(...answer('correct'), ...answer('wrong'), ...answer('correct'))),
+    ).toBe(1);
+  });
+
+  it('continues the run with the repetitions at the end', () => {
+    const state = play(
+      ...answer('wrong'),
+      ...answer('correct'),
+      ...answer('correct'),
+      ...answer('correct'),
+    );
+
+    expect(state.entries.at(-1)?.retry).toBe(true);
+    expect(lessonPhase(state)).toBe('done');
+    expect(correctStreak(state)).toBe(3);
+  });
+
+  it.each([
+    [2, false],
+    [3, true],
+    [4, false],
+    [5, true],
+    [7, false],
+    [10, true],
+    [15, true],
+  ])('celebrates a run of %d: %s', (streak, milestone) => {
+    expect(isComboMilestone(streak)).toBe(milestone);
   });
 });

@@ -8,10 +8,11 @@ import {
 } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useId, useRef } from 'react';
-import { springs } from '../../styles/motion';
+import { durations, springs } from '../../styles/motion';
 import { Button } from './Button';
 import { EmphasisText } from './EmphasisText';
 import type { ButtonVariant } from './buttonStyles';
+import { Mascot, type MascotExpression } from './Mascot';
 import type { Tone } from './tones';
 import { UI_COPY } from './copy';
 
@@ -65,6 +66,8 @@ export interface FeedbackSheetProps {
   /** Words wrapped in `**` are set in bold. */
   hint?: string;
   continueLabel?: string;
+  /** The mascot peeks over the sheet with this expression, where no other mascot is on screen. */
+  mascot?: MascotExpression;
   onContinue: () => void;
 }
 
@@ -82,6 +85,7 @@ function FeedbackPanel({
   explanation,
   hint,
   continueLabel = UI_COPY.feedback.continue,
+  mascot,
   onContinue,
 }: Omit<FeedbackSheetProps, 'open'>) {
   const config = VARIANTS[variant];
@@ -107,6 +111,16 @@ function FeedbackPanel({
       transition={springs.sheet}
       className="fixed inset-x-0 bottom-0 z-(--z-sheet) mx-auto max-w-app rounded-t-sheet bg-tone-surface px-gutter pt-5 pb-[calc(var(--safe-bottom)+1.25rem)] shadow-sheet"
     >
+      {mascot && (
+        <motion.span
+          initial={{ y: 28, scale: 0.6, opacity: 0 }}
+          animate={{ y: 0, scale: 1, opacity: 1 }}
+          transition={{ ...springs.bouncy, delay: durations.fast }}
+          className="pointer-events-none absolute right-gutter bottom-full -mb-4"
+        >
+          <Mascot expression={mascot} size="sm" decorative />
+        </motion.span>
+      )}
       {/* Live region: the backend's verdict can replace the instant one while the sheet is open. */}
       <div aria-live="polite">
         <div className="flex items-center gap-3">

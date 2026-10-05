@@ -1,5 +1,6 @@
 import { motion, type TargetAndTransition } from 'motion/react';
 import { cx } from '../../lib/cx';
+import { playCue } from '../../lib/effects/playCue';
 import { durations, springs } from '../../styles/motion';
 import type { Tone } from './tones';
 import { UI_COPY } from './copy';
@@ -68,12 +69,18 @@ export function WordTile({
       type="button"
       layoutId={layoutId}
       layout="position"
-      transition={springs.bouncy}
+      transition={{ ...springs.bouncy, layout: springs.flight }}
       animate={stateMotion[state]}
       disabled={state === 'disabled'}
       aria-pressed={pressed}
       data-tone={stateTone[state]}
-      onClick={onClick}
+      onClick={
+        onClick &&
+        (() => {
+          playCue('tap');
+          onClick();
+        })
+      }
       lang={lang}
       className={cx(
         tileShape,

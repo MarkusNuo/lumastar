@@ -9,6 +9,7 @@ import { ExercisesSection } from './sections/ExercisesSection';
 import { FeedbackSection } from './sections/FeedbackSection';
 import { GamificationSection } from './sections/GamificationSection';
 import { InputsSection } from './sections/InputsSection';
+import { JuiceSection } from './sections/JuiceSection';
 import { ListsSection } from './sections/ListsSection';
 import { MascotSection } from './sections/MascotSection';
 import { NavigationSection } from './sections/NavigationSection';
@@ -36,6 +37,7 @@ const SECTIONS = [
   { id: 'navigation', title: 'Navigation', Content: NavigationSection },
   { id: 'listen', title: 'Listen, Sheets & Toasts', Content: ListsSection },
   { id: 'maskottchen', title: 'Maskottchen', Content: MascotSection },
+  { id: 'juice', title: 'Juice & Sound', Content: JuiceSection },
 ] as const;
 
 /** Component catalog (PRD 12.5): every design-system component in all variants and states. */

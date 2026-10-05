@@ -4,7 +4,7 @@ import { FeedbackSheet, type FeedbackVariant } from '../../components/ui/Feedbac
 import { ScreenFooter } from '../../components/ui/FocusScreen';
 import { LESSON_COPY } from './copy';
 import { ExerciseStage } from './ExerciseStage';
-import { needsCheckButton } from './exercises/exerciseProps';
+import { hasPromptBubble, mascotFor, needsCheckButton } from './exercises/exerciseProps';
 import { ExerciseView } from './exercises/ExerciseView';
 import type { Answer, LessonExercise, Outcome, Verdict } from './model';
 import type { QueueEntry } from './session/lessonQueue';
@@ -94,6 +94,7 @@ export function ExerciseScreen({
           solutionLang={answerLang(exercise)}
           hint={verdict.hint}
           explanation={verdict.explanation}
+          mascot={hasPromptBubble(exercise) ? undefined : mascotFor(verdict)}
           continueLabel={LESSON_COPY.continue}
           onContinue={onContinue}
         />

@@ -15,8 +15,10 @@ export const durations = {
 export const springs = {
   /** Toggles, knobs, small state changes. */
   snappy: { type: 'spring', visualDuration: durations.fast, bounce: 0.2 },
-  /** Pops and hops: counters, correct answers, tiles landing. */
+  /** Pops and hops: counters, correct answers, the mascot. */
   bouncy: { type: 'spring', visualDuration: durations.base, bounce: 0.45 },
+  /** Word tiles flying between bank and answer line: a soft landing without a big overshoot. */
+  flight: { type: 'spring', visualDuration: durations.base, bounce: 0.22 },
   /** Progress fills and rings. */
   gentle: { type: 'spring', visualDuration: durations.slow, bounce: 0.15 },
   /** Bottom sheets sliding in. */

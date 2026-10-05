@@ -1,5 +1,6 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react';
+import type { ComponentPropsWithRef, MouseEvent, ReactNode } from 'react';
 import { cx } from '../../lib/cx';
+import { playCue } from '../../lib/effects/playCue';
 import type { Tone } from './tones';
 
 export type OptionResult = 'correct' | 'wrong';
@@ -30,12 +31,20 @@ export function OptionCard({
   labelLang,
   type = 'button',
   className,
+  onClick,
   ...rest
 }: OptionCardProps) {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    // Locked options (after checking) stay focusable but no longer answer with a tap sound.
+    if (!rest['aria-disabled']) playCue('tap');
+    onClick?.(event);
+  };
+
   return (
     <button
       {...rest}
       type={type}
+      onClick={handleClick}
       aria-pressed={selected}
       data-tone={optionTone(selected, result)}
       className={cx(

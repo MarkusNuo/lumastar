@@ -1,5 +1,6 @@
 import { XIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
+import { ComboBadge } from '../../components/ui/ComboBadge';
 import { ConfirmDialog } from '../../components/ui/ConfirmDialog';
 import { FocusScreen } from '../../components/ui/FocusScreen';
 import { IconButton } from '../../components/ui/IconButton';
@@ -12,7 +13,9 @@ import { ExerciseScreen } from './ExerciseScreen';
 import { seedFrom } from './exercises/shuffle';
 import type { Lesson, LessonResult } from './model';
 import { LessonResultScreen } from './result/LessonResultScreen';
+import { isComboMilestone } from './session/lessonQueue';
 import { useLessonSession } from './session/useLessonSession';
+import { useAnswerCue } from './useAnswerCue';
 
 export interface LessonPlayerProps {
   lesson: Lesson;
@@ -26,8 +29,11 @@ export interface LessonPlayerProps {
 export function LessonPlayer({ lesson, lexicon, onQuit, onFinish }: LessonPlayerProps) {
   const session = useLessonSession(lesson, lexicon);
   const [quitOpen, setQuitOpen] = useState(false);
-  const { completion, entry, progress } = session;
+  const { completion, entry, progress, streak } = session;
   const playing = completion.status === 'playing' && entry !== undefined;
+  // Shown while the feedback of the answer that completed the run is open.
+  const combo = entry?.verdict && isComboMilestone(streak) ? streak : null;
+  useAnswerCue(entry, combo !== null);
 
   useEscapeKey(playing && !quitOpen, () => setQuitOpen(true));
 
@@ -53,12 +59,16 @@ export function LessonPlayer({ lesson, lexicon, onQuit, onFinish }: LessonPlayer
             variant="ghost"
             onClick={() => setQuitOpen(true)}
           />
-          <ProgressBar
-            label={LESSON_COPY.progressLabel}
-            value={progress.completed}
-            max={progress.total}
-            valueText={LESSON_COPY.progressValue(progress.completed, progress.total)}
-          />
+          <div className="relative flex-1">
+            <ProgressBar
+              label={LESSON_COPY.progressLabel}
+              value={progress.completed}
+              max={progress.total}
+              valueText={LESSON_COPY.progressValue(progress.completed, progress.total)}
+              burstKey={combo ?? undefined}
+            />
+            <ComboBadge count={combo} className="absolute inset-x-0 top-full z-(--z-bar) mt-2" />
+          </div>
         </>
       }
     >

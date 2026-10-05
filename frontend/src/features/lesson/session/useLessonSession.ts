@@ -15,6 +15,7 @@ import { completeLesson, submitAttempt } from '../lessonApi';
 import type { Answer, Lesson, LessonResult } from '../model';
 import { AttemptOutbox } from './attemptOutbox';
 import {
+  correctStreak,
   createLessonQueue,
   currentEntry,
   firstAttemptSummary,
@@ -92,6 +93,7 @@ export function useLessonSession(lesson: Lesson, lexicon: StandardFormLexicon) {
     entry,
     phase: lessonPhase(state),
     progress: lessonProgress(state),
+    streak: correctStreak(state),
     check,
     proceed,
     completion,

@@ -28,11 +28,16 @@ export function reactionOf(verdict: Verdict | undefined): Reaction {
   return verdict.countsAsCorrect ? 'success' : 'error';
 }
 
-/** The mascot in the speech bubble reacts to the verdict (PRD F9). */
+/** The mascot reacts to the verdict (PRD F9); a wrong answer gets encouragement, never sadness. */
 export function mascotFor(verdict: Verdict | undefined): MascotExpression {
   if (!verdict) return 'happy';
   if (verdict.outcome === 'correct') return 'celebrating';
-  return verdict.countsAsCorrect ? 'encouraging' : 'sad';
+  return verdict.countsAsCorrect ? 'happy' : 'encouraging';
+}
+
+/** The mascot speaks these prompts in a bubble; the other types show it in the feedback sheet. */
+export function hasPromptBubble(exercise: LessonExercise): boolean {
+  return exercise.type !== 'multiple_choice' && exercise.type !== 'match_pairs';
 }
 
 /** Match pairs finish by themselves; every other type is checked with "Prüfen". */

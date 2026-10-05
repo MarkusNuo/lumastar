@@ -8,6 +8,7 @@ import { FocusScreen } from '../../../components/ui/FocusScreen';
 import { LevelBadgePop } from '../../../components/ui/LevelBadgePop';
 import { Mascot } from '../../../components/ui/Mascot';
 import { celebrate } from '../../../lib/celebrate';
+import { playCue } from '../../../lib/effects/playCue';
 import { durations, springs } from '../../../styles/motion';
 import { PLACEMENT_COPY } from '../copy';
 import { SkillList } from './SkillList';
@@ -91,12 +92,13 @@ export function LevelReveal({ result, onContinue }: LevelRevealProps) {
   );
 }
 
-/** Confetti once the level shows; celebrate() itself skips it for reduced motion. */
+/** Confetti and the level-up sound once the level shows; celebrate() skips reduced motion. */
 function useCelebration(revealed: boolean) {
   const celebrated = useRef(false);
   useEffect(() => {
     if (!revealed || celebrated.current) return;
     celebrated.current = true;
     celebrate();
+    playCue('levelUp');
   }, [revealed]);
 }

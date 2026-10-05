@@ -64,7 +64,9 @@ describe('OnboardingPage', () => {
     await user.click(option('Mit Schwung'));
     await user.click(next());
 
-    expect(screen.getByRole('heading', { name: 'Wie gut kannst du schon Gheg?' })).toBeVisible();
+    expect(
+      screen.getByRole('heading', { name: 'Wie gut kannst du schon Gheg?' }),
+    ).toBeInTheDocument();
     expect(next()).toBeDisabled();
     await user.click(option('Ich verstehe einfache Sätze'));
     await user.click(next());

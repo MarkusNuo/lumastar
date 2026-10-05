@@ -1,6 +1,16 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { ProgressBar } from './ProgressBar';
+
+const motionPreference = vi.hoisted(() => ({ reduced: false }));
+vi.mock('motion/react', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('motion/react')>()),
+  useReducedMotion: () => motionPreference.reduced,
+}));
+
+beforeEach(() => {
+  motionPreference.reduced = false;
+});
 
 describe('ProgressBar', () => {
   it('exposes its value, range and name to assistive technology', () => {
@@ -30,5 +40,23 @@ describe('ProgressBar', () => {
     render(<ProgressBar value={value} max={12} label="Fortschritt" />);
 
     expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', expected);
+  });
+
+  it('sets off a burst of sparks for a combo', () => {
+    const { rerender } = render(<ProgressBar value={3} max={12} label="Fortschritt" />);
+    expect(screen.queryByTestId('progress-burst')).not.toBeInTheDocument();
+
+    rerender(<ProgressBar value={3} max={12} label="Fortschritt" burstKey={3} />);
+
+    expect(screen.getByTestId('progress-burst')).toBeInTheDocument();
+  });
+
+  it('keeps still for users who prefer reduced motion', () => {
+    motionPreference.reduced = true;
+
+    render(<ProgressBar value={3} max={12} label="Fortschritt" burstKey={3} />);
+
+    expect(screen.queryByTestId('progress-burst')).not.toBeInTheDocument();
+    expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '3');
   });
 });

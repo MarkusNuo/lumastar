@@ -132,6 +132,24 @@ export function lessonProgress(state: LessonQueueState): LessonProgress {
   return { completed: completed.size, total: exerciseIds.size };
 }
 
+/**
+ * Answers in a row that counted as correct, ending with the one on screen once it is checked.
+ * Repetitions count like any other answer.
+ */
+export function correctStreak(state: LessonQueueState): number {
+  let streak = 0;
+  for (const entry of state.entries.slice(0, state.current + 1)) {
+    if (!entry.verdict) break;
+    streak = entry.verdict.countsAsCorrect ? streak + 1 : 0;
+  }
+  return streak;
+}
+
+/** Runs that earn the combo badge: 3, then every fifth answer (5, 10, 15, ...). */
+export function isComboMilestone(streak: number): boolean {
+  return streak === 3 || (streak >= 5 && streak % 5 === 0);
+}
+
 export interface FirstAttemptSummary {
   exerciseCount: number;
   correctCount: number;

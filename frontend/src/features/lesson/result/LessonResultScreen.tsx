@@ -1,6 +1,6 @@
 import { ArrowClockwiseIcon, LightningIcon, TargetIcon, TimerIcon } from '@phosphor-icons/react';
 import { motion } from 'motion/react';
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { Callout } from '../../../components/ui/Callout';
 import { Card } from '../../../components/ui/Card';
@@ -8,7 +8,8 @@ import { FocusScreen } from '../../../components/ui/FocusScreen';
 import { Mascot } from '../../../components/ui/Mascot';
 import { StatCard } from '../../../components/ui/StatCard';
 import { celebrate } from '../../../lib/celebrate';
-import { springs } from '../../../styles/motion';
+import { playCue } from '../../../lib/effects/playCue';
+import { durations, springs } from '../../../styles/motion';
 import { LESSON_COPY } from '../copy';
 import type { LearnedItem, LessonResult, XpBreakdown } from '../model';
 import { formatDuration, formatPercent } from './format';
@@ -39,6 +40,7 @@ export function LessonResultScreen({
     if (celebrated.current) return;
     celebrated.current = true;
     celebrate();
+    playCue('complete');
   }, []);
 
   const perfect = result.exerciseCount > 0 && result.correctCount === result.exerciseCount;
@@ -70,18 +72,24 @@ export function LessonResultScreen({
       </div>
 
       <div className="grid w-full grid-cols-3 gap-3">
-        <StatCard label={copy.xp} icon={LightningIcon} tone="xp">
-          {result.xp ? <XpValue xp={result.xp.earned} /> : '–'}
-          <span className="sr-only">
-            {result.xp ? copy.xpValue(result.xp.earned) : copy.xpUnknown}
-          </span>
-        </StatCard>
-        <StatCard label={copy.accuracy} icon={TargetIcon} tone="success">
-          {formatPercent(result.accuracy)}
-        </StatCard>
-        <StatCard label={copy.time} icon={TimerIcon} tone="secondary">
-          {formatDuration(result.durationMs)}
-        </StatCard>
+        <StatEntrance order={0}>
+          <StatCard label={copy.xp} icon={LightningIcon} tone="xp">
+            {result.xp ? <XpValue xp={result.xp.earned} /> : '–'}
+            <span className="sr-only">
+              {result.xp ? copy.xpValue(result.xp.earned) : copy.xpUnknown}
+            </span>
+          </StatCard>
+        </StatEntrance>
+        <StatEntrance order={1}>
+          <StatCard label={copy.accuracy} icon={TargetIcon} tone="success">
+            {formatPercent(result.accuracy)}
+          </StatCard>
+        </StatEntrance>
+        <StatEntrance order={2}>
+          <StatCard label={copy.time} icon={TimerIcon} tone="secondary">
+            {formatDuration(result.durationMs)}
+          </StatCard>
+        </StatEntrance>
       </div>
       {result.xp && <XpBreakdownLine breakdown={result.xp.breakdown} />}
 
@@ -100,6 +108,20 @@ export function LessonResultScreen({
       )}
       {result.learnedItems.length > 0 && <LearnedWords items={result.learnedItems} />}
     </FocusScreen>
+  );
+}
+
+/** The result cards spring in one after another, after the mascot. */
+function StatEntrance({ order, children }: { order: number; children: ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24, scale: 0.85 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ ...springs.bouncy, delay: durations.base + order * durations.press }}
+      className="min-w-0"
+    >
+      {children}
+    </motion.div>
   );
 }
 
