@@ -11,12 +11,12 @@ describe('navItems', () => {
 
     expect(items.find((item) => item.label === 'Wiederholen')?.badge).toEqual({
       count: 3,
-      description: '3 Wörter fällig',
+      description: '3 Karten fällig',
     });
     expect(items.filter((item) => item.badge)).toHaveLength(1);
   });
 
-  it('names a single due word in the singular', () => {
-    expect(navItems(1)[1]?.badge?.description).toBe('1 Wort fällig');
+  it('names a single due card in the singular', () => {
+    expect(navItems(1)[1]?.badge?.description).toBe('1 Karte fällig');
   });
 });

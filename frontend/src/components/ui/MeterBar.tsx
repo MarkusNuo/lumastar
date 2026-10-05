@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { clamp } from '../../lib/clamp';
 import { cx } from '../../lib/cx';
+import { useMotionTransition } from '../../lib/useMotionTransition';
 import { springs } from '../../styles/motion';
 
 export type MeterTone = 'aurora' | 'danger';
@@ -27,6 +28,7 @@ const fillClass: Record<MeterTone, string> = {
  */
 export function MeterBar({ value, label, valueText, tone = 'aurora', className }: MeterBarProps) {
   const share = clamp(value, 0, 1);
+  const fill = useMotionTransition(springs.gentle);
 
   return (
     <div
@@ -41,7 +43,7 @@ export function MeterBar({ value, label, valueText, tone = 'aurora', className }
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: `${share * 100}%` }}
-        transition={springs.gentle}
+        transition={fill}
         className={cx('h-full rounded-full', share > 0 && 'min-w-3', fillClass[tone])}
       />
     </div>

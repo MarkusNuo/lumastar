@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useMotionTransition } from '../../lib/useMotionTransition';
 import { springs } from '../../styles/motion';
 import { CHECKPOINT_COPY } from './copy';
 
@@ -16,6 +17,7 @@ const percent = (share: number) => `${share * 100}%`;
 
 /** How close a failed checkpoint came: the accuracy as a bar with the pass mark on it. */
 export function AccuracyGoal({ accuracy, required }: AccuracyGoalProps) {
+  const fill = useMotionTransition(springs.gentle);
   return (
     <div
       role="img"
@@ -26,7 +28,7 @@ export function AccuracyGoal({ accuracy, required }: AccuracyGoalProps) {
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: percent(accuracy) }}
-          transition={springs.gentle}
+          transition={fill}
           data-tone="warning"
           className="h-full rounded-full tone-solid"
         />

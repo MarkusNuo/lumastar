@@ -19,11 +19,8 @@ export function NavigationSection() {
       </Specimen>
       <Specimen label="Fällige Wiederholungen auf dem Tab · ab 100 gekürzt" layout="stack">
         <div className="-mx-gutter flex flex-col gap-3">
-          <BottomNav items={catalogItems(7)} label="Beispielnavigation mit 7 fälligen Wörtern" />
-          <BottomNav
-            items={catalogItems(140)}
-            label="Beispielnavigation mit 140 fälligen Wörtern"
-          />
+          <BottomNav items={catalogItems(7)} label="Beispielnavigation mit 7 fälligen Karten" />
+          <BottomNav items={catalogItems(140)} label="Beispielnavigation mit 140 fälligen Karten" />
         </div>
       </Specimen>
     </>

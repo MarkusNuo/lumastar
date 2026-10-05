@@ -34,7 +34,7 @@ describe('LessonResultScreen', () => {
     expect(screen.getByRole('heading', { name: 'Fehlerfrei!' })).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Maskottchen feiert' })).toBeInTheDocument();
     expect(screen.getByText('20 XP verdient')).toBeInTheDocument();
-    expect(screen.getByText('100%')).toBeInTheDocument();
+    expect(screen.getByText('100 %')).toBeInTheDocument();
     expect(screen.getByText('2:15')).toBeInTheDocument();
     expect(screen.getByText('mirëdita')).toHaveAttribute('lang', 'sq');
     expect(screen.getByText('danke')).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe('LessonResultScreen', () => {
     });
 
     expect(screen.getByRole('heading', { name: 'Lektion geschafft!' })).toBeInTheDocument();
-    expect(screen.getByText('75%')).toBeInTheDocument();
+    expect(screen.getByText('75 %')).toBeInTheDocument();
     expect(screen.getByText('Tempo')).toBeInTheDocument();
     expect(screen.queryByText('Fehlerfrei')).not.toBeInTheDocument();
   });

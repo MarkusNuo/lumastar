@@ -53,7 +53,7 @@ describe('LevelReveal', () => {
       within(weaknesses)
         .getAllByRole('listitem')
         .map((item) => item.textContent),
-    ).toEqual(['Bestimmter Artikel30%', 'Verb kam30%', 'Essen & Trinken40%']);
+    ).toEqual(['Bestimmter Artikel30 %', 'Verb kam30 %', 'Essen & Trinken40 %']);
   });
 
   it('greets a skipped test as a fresh start at A0, without strengths and weaknesses', () => {

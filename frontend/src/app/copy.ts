@@ -1,7 +1,7 @@
 /** App-wide UI copy (German, Swiss orthography). */
 export const APP_COPY = {
   loading: 'Lingora wird geladen',
-  reviewsDue: (count: number) => `${count} ${count === 1 ? 'Wort' : 'Wörter'} fällig`,
+  reviewsDue: (count: number) => `${count} ${count === 1 ? 'Karte' : 'Karten'} fällig`,
   connection: {
     title: 'Keine Verbindung',
     text: 'Lingora erreicht den Server gerade nicht. Prüfe deine Verbindung und versuch es nochmals.',

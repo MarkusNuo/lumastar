@@ -3,6 +3,8 @@ import { motion, useReducedMotion } from 'motion/react';
 import { useId } from 'react';
 import { clamp } from '../../lib/clamp';
 import { cx } from '../../lib/cx';
+import { formatPercent } from '../../lib/formatPercent';
+import { useMotionTransition } from '../../lib/useMotionTransition';
 import { durations, springs } from '../../styles/motion';
 import { UI_COPY } from './copy';
 import { SparkBurst } from './SparkBurst';
@@ -46,6 +48,7 @@ export function DailyGoalRing({
   const complete = share >= 1;
   const gradientId = useId();
   const reduceMotion = useReducedMotion();
+  const fill = useMotionTransition({ ...springs.gentle, delay });
   const ResultIcon = complete ? CheckIcon : TimerIcon;
 
   return (
@@ -55,7 +58,7 @@ export function DailyGoalRing({
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={percent}
-      aria-valuetext={valueText ?? `${percent} %`}
+      aria-valuetext={valueText ?? formatPercent(percent)}
       className={cx('relative inline-grid shrink-0 place-items-center', sizeClass[size], className)}
     >
       <svg aria-hidden="true" viewBox={`0 0 ${VIEWBOX} ${VIEWBOX}`} className="absolute inset-0">
@@ -85,7 +88,7 @@ export function DailyGoalRing({
           className={complete ? 'stroke-success' : undefined}
           initial={{ pathLength: 0 }}
           animate={{ pathLength: share, opacity: share > 0 ? 1 : 0 }}
-          transition={{ ...springs.gentle, delay }}
+          transition={fill}
         />
       </svg>
       <motion.span

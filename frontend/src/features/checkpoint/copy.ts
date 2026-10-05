@@ -1,5 +1,4 @@
-/** 0.8 → "80 %", as the plan's reasons write shares. */
-const share = (value: number) => `${Math.round(value * 100)} %`;
+import { formatShare as share } from '../../lib/formatPercent';
 
 const swissDate = new Intl.DateTimeFormat('de-CH', { dateStyle: 'medium' });
 
@@ -13,7 +12,7 @@ export const CHECKPOINT_COPY = {
       `~${exercises} Aufgaben · ${share(required)} zum Bestehen`,
     levelUp: (next: string) => `Bestehst du, steigst du auf ${next} auf.`,
     lastStage: 'Bestehst du, hast du C2 geschafft.',
-    text: 'Aufgaben aus allen Einheiten der Stufe, die schwierigeren zuerst. Du kannst ihn so oft versuchen, wie du willst.',
+    text: 'Aufgaben aus allen Einheiten der Stufe, von leicht bis schwer. Du kannst ihn so oft versuchen, wie du willst.',
     start: 'Checkpoint starten',
     later: 'Später',
   },
@@ -36,7 +35,7 @@ export const CHECKPOINT_COPY = {
     eyebrow: (count: number) => (count === 1 ? 'Neues Abzeichen!' : `${count} neue Abzeichen!`),
     title: (codes: readonly string[]) => `Niveau ${bands(codes)} geschafft!`,
     text: (codes: readonly string[]) =>
-      `Du hast alle Stufen von ${bands(codes)} bestanden. Im Profil findest du alle Abzeichen.`,
+      `Niveau ${bands(codes)} abgeschlossen. Im Profil findest du alle Abzeichen.`,
     continue: 'Weiter',
   },
   failed: {

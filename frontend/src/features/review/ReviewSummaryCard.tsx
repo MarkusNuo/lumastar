@@ -86,7 +86,7 @@ function ReviewHeadline({ state, summary, titleId }: ReviewHeadlineProps) {
         {allDone ? REVIEW_COPY.allDone.title : REVIEW_COPY.empty.title}
       </h2>
       <p className="text-body font-bold text-fg-muted">
-        {allDone ? REVIEW_COPY.allDone.text(summary.dueTomorrow) : REVIEW_COPY.empty.text}
+        {allDone ? REVIEW_COPY.allDone.text : REVIEW_COPY.empty.text}
       </p>
     </div>
   );

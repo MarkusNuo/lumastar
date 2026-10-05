@@ -28,9 +28,9 @@ describe('ReviewPage', () => {
     const { router, user } = renderReview(summary({ dueNow: 12, dueTomorrow: 8, totalCards: 54 }));
 
     expect(screen.getByRole('heading', { name: 'Wiederholen', level: 1 })).toBeInTheDocument();
-    const card = await screen.findByRole('region', { name: '12 Wörter fällig' });
+    const card = await screen.findByRole('region', { name: '12 Karten fällig' });
     expect(within(card).getByText('Morgen fällig').nextSibling).toHaveTextContent('8');
-    expect(within(card).getByText('Wörter gesamt').nextSibling).toHaveTextContent('54');
+    expect(within(card).getByText('Karten gesamt').nextSibling).toHaveTextContent('54');
     expect(within(card).getByRole('img', { name: 'Maskottchen ermutigt dich' })).toBeVisible();
 
     await user.click(within(card).getByRole('button', { name: 'Wiederholung starten' }));
@@ -42,7 +42,12 @@ describe('ReviewPage', () => {
     const { router, user } = renderReview(summary({ dueNow: 0, dueTomorrow: 5, totalCards: 30 }));
 
     const card = await screen.findByRole('region', { name: 'Alles wiederholt!' });
-    expect(within(card).getByText('Morgen fällig: 5')).toBeInTheDocument();
+    expect(
+      within(card).getByText('Für heute ist alles aufgefrischt. Schau morgen wieder vorbei!'),
+    ).toBeInTheDocument();
+    // Tomorrow's count shows once, in its card.
+    expect(within(card).getAllByText(/Morgen fällig/)).toHaveLength(1);
+    expect(within(card).getByText('Morgen fällig').nextSibling).toHaveTextContent('5');
     expect(within(card).getByRole('img', { name: 'Maskottchen feiert' })).toBeVisible();
     expect(screen.queryByRole('button', { name: 'Wiederholung starten' })).not.toBeInTheDocument();
 
@@ -51,17 +56,18 @@ describe('ReviewPage', () => {
     expect(router.state.location.pathname).toBe('/');
   });
 
-  it('says when nothing is due tomorrow either', async () => {
+  it('shows when nothing is due tomorrow either', async () => {
     renderReview(summary({ dueNow: 0, dueTomorrow: 0, totalCards: 30 }));
 
-    expect(await screen.findByText('Morgen ist nichts fällig.')).toBeInTheDocument();
+    const card = await screen.findByRole('region', { name: 'Alles wiederholt!' });
+    expect(within(card).getByText('Morgen fällig').nextSibling).toHaveTextContent('0');
   });
 
   it('explains the tab before the first lesson', async () => {
     renderReview(summary({}));
 
     const card = await screen.findByRole('region', { name: 'Noch nichts zu wiederholen' });
-    expect(within(card).queryByText('Wörter gesamt')).not.toBeInTheDocument();
+    expect(within(card).queryByText('Karten gesamt')).not.toBeInTheDocument();
     expect(within(card).getByRole('button', { name: 'Zur ersten Lektion' })).toBeInTheDocument();
   });
 

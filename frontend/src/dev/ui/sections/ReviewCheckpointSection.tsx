@@ -109,7 +109,7 @@ function ShiningBadge() {
 export function ReviewCheckpointSection() {
   return (
     <>
-      <Specimen label="Wiederholen: Wörter fällig" layout="stack">
+      <Specimen label="Wiederholen: Karten fällig" layout="stack">
         <ReviewSummaryCard
           summary={{ dueNow: 12, dueTomorrow: 8, totalCards: 54 }}
           onStart={noop}

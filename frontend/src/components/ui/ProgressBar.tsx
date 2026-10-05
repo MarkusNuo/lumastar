@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { clamp } from '../../lib/clamp';
 import { cx } from '../../lib/cx';
+import { useMotionTransition } from '../../lib/useMotionTransition';
 import { springs } from '../../styles/motion';
 import { SparkBurst } from './SparkBurst';
 
@@ -36,6 +37,7 @@ export function ProgressBar({
   const current = clamp(value, 0, max);
   const percent = max > 0 ? (current / max) * 100 : 0;
   const reduceMotion = useReducedMotion();
+  const fill = useMotionTransition(springs.gentle);
 
   return (
     <div
@@ -50,7 +52,7 @@ export function ProgressBar({
       <motion.div
         initial={false}
         animate={{ width: `${percent}%` }}
-        transition={springs.gentle}
+        transition={fill}
         className={cx(
           'relative h-full overflow-hidden rounded-full',
           percent > 0 && 'min-w-4',

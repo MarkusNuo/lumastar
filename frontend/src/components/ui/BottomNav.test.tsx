@@ -14,7 +14,7 @@ const review = (count: number): NavItem => ({
   to: '/wiederholen',
   label: 'Wiederholen',
   icon: ArrowsClockwiseIcon,
-  badge: { count, description: `${count} Wörter fällig` },
+  badge: { count, description: `${count} Karten fällig` },
 });
 
 describe('BottomNav', () => {
@@ -22,7 +22,7 @@ describe('BottomNav', () => {
     renderNav([learn, review(3)]);
 
     const tab = screen.getByRole('link', { name: 'Wiederholen' });
-    expect(tab).toHaveAccessibleDescription('3 Wörter fällig');
+    expect(tab).toHaveAccessibleDescription('3 Karten fällig');
     expect(screen.getByTestId('nav-badge')).toHaveTextContent('3');
     expect(screen.getByRole('link', { name: 'Lernen' })).not.toHaveAccessibleDescription();
   });

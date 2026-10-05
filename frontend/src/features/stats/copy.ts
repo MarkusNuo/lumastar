@@ -1,4 +1,5 @@
 import type { CheckpointStatus } from '../../api/types';
+import { formatPercent } from '../../lib/formatPercent';
 
 const count = (value: number) => value.toLocaleString('de-CH');
 
@@ -19,7 +20,7 @@ export const STATS_COPY = {
     title: 'Niveau',
     stage: (level: string, title: string) => `${level} · ${title}`,
     progressLabel: 'Fortschritt zur nächsten Stufe',
-    progressValue: (percent: number) => `${percent} %`,
+    progressValue: formatPercent,
     units: (done: number, total: number) =>
       `${done} von ${total} ${total === 1 ? 'Einheit' : 'Einheiten'} geschafft`,
     next: (level: string) => `Danach: ${level}`,
@@ -35,14 +36,14 @@ export const STATS_COPY = {
   mastery: {
     title: 'Können pro Bereich',
     hint: 'Aus deinen Antworten und dem Einstufungstest.',
-    percent: (percent: number) => `${percent} %`,
+    percent: formatPercent,
     noData: 'noch offen',
     noDataValue: 'noch keine Daten',
   },
   errors: {
     title: 'Häufigste Fehler',
     subtitle: 'Letzte 30 Tage',
-    rate: (percent: number) => `${percent} %`,
+    rate: formatPercent,
     rateLabel: (label: string) => `Fehlerquote ${label}`,
     detail: (errors: number, attempts: number) =>
       `${count(errors)} von ${count(attempts)} ${attempts === 1 ? 'Antwort' : 'Antworten'} falsch`,
@@ -80,7 +81,7 @@ export const STATS_COPY = {
     dueNow: (value: number) =>
       value > 0 ? `Jetzt fällig: ${count(value)}` : 'Gerade ist nichts fällig.',
     review: 'Jetzt wiederholen',
-    chart: 'Fällige Wörter in den nächsten 7 Tagen',
+    chart: 'Fällige Karten in den nächsten 7 Tagen',
     today: 'Heute',
     bar: (day: string, value: number) => `${day}: ${count(value)} fällig`,
   },

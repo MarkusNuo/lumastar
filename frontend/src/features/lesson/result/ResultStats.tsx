@@ -7,7 +7,8 @@ import { springs } from '../../../styles/motion';
 import { LESSON_COPY } from '../copy';
 import type { LessonResult } from '../model';
 import { entranceDelay } from './entrance';
-import { formatDuration, formatPercent } from './format';
+import { formatShare } from '../../../lib/formatPercent';
+import { formatDuration } from './format';
 import { useCountUp } from './useCountUp';
 
 const copy = LESSON_COPY.result;
@@ -34,7 +35,7 @@ export function ResultStats({ result, accuracyTone = 'success', delay = 0 }: Res
       </StatEntrance>
       <StatEntrance order={1} delay={delay}>
         <StatCard label={copy.accuracy} icon={TargetIcon} tone={accuracyTone}>
-          {formatPercent(result.accuracy)}
+          {formatShare(result.accuracy)}
         </StatCard>
       </StatEntrance>
       <StatEntrance order={2} delay={delay}>

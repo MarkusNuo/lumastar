@@ -3,7 +3,7 @@ import { useId } from 'react';
 import type { SkillEstimate } from '../../../api/types';
 import { ProgressBar, type ProgressBarTone } from '../../../components/ui/ProgressBar';
 import type { Tone } from '../../../components/ui/tones';
-import { formatPercent } from '../../lesson/result/format';
+import { formatShare } from '../../../lib/formatPercent';
 
 export interface SkillListProps {
   title: string;
@@ -40,13 +40,13 @@ export function SkillList({ title, icon: TitleIcon, tone, skills }: SkillListPro
             <span className="flex items-baseline justify-between gap-3">
               <span className="min-w-0 text-body font-extrabold text-fg">{skill.label}</span>
               <span className="shrink-0 text-label font-black text-fg-muted tabular-nums">
-                {formatPercent(skill.mastery)}
+                {formatShare(skill.mastery)}
               </span>
             </span>
             <ProgressBar
               label={skill.label}
               value={Math.round(skill.mastery * 100)}
-              valueText={formatPercent(skill.mastery)}
+              valueText={formatShare(skill.mastery)}
               tone={barTone[tone]}
               className="h-2.5"
             />

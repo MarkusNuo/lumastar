@@ -1,4 +1,5 @@
 import type { ImportResult } from '../../api/types';
+import { formatPercent } from '../../lib/formatPercent';
 import { MAX_BACKUP_MB } from './backupFile';
 
 const count = (value: number, singular: string, plural: string) =>
@@ -35,14 +36,14 @@ export const PROFILE_COPY = {
       label: 'Ziel-Behaltensrate',
       description: 'Erweitert: wie oft Wörter wiederkommen',
       toggle: 'Ziel-Behaltensrate anpassen',
-      percent: (percent: number) => `${percent} %`,
+      percent: formatPercent,
       explanation:
         'So sicher sollst du ein Wort noch wissen, wenn es zur Wiederholung kommt. Höher heisst: öfter wiederholen und besser behalten. Tiefer heisst: weniger Wiederholungen, aber mehr vergessen.',
       less: 'Weniger Wiederholungen',
       more: 'Besser behalten',
-      reset: (percent: number) => `Standard (${percent} %)`,
+      reset: (percent: number) => `Standard (${formatPercent(percent)})`,
       save: 'Speichern',
-      saved: (percent: number) => `Ziel-Behaltensrate gespeichert: ${percent} %`,
+      saved: (percent: number) => `Ziel-Behaltensrate gespeichert: ${formatPercent(percent)}`,
       saveFailed: 'Die Behaltensrate konnte nicht gespeichert werden. Versuch es nochmals.',
     },
   },

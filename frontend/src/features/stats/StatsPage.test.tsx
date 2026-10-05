@@ -136,7 +136,7 @@ describe('StatsPage', () => {
     expect(within(forecast).getByText('Morgen fällig: 34')).toBeInTheDocument();
     expect(within(forecast).getByText('Jetzt fällig: 5')).toBeInTheDocument();
     const days = within(
-      within(forecast).getByRole('list', { name: 'Fällige Wörter in den nächsten 7 Tagen' }),
+      within(forecast).getByRole('list', { name: 'Fällige Karten in den nächsten 7 Tagen' }),
     ).getAllByRole('listitem');
     expect(days).toHaveLength(7);
     expect(days[0]).toHaveTextContent('Heute: 8 fällig');
