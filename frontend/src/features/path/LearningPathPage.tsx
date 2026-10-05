@@ -49,7 +49,12 @@ function LearningPathStages({ path }: { path: LearningPath }) {
   const [intro, setIntro] = useState<CheckpointIntro>();
   const [introOpen, setIntroOpen] = useState(false);
   const openIntro = (checkpoint: PathCheckpointModel) => {
-    setIntro({ level: checkpoint.level, nextLevel: checkpoint.nextLevel });
+    setIntro({
+      level: checkpoint.level,
+      nextLevel: checkpoint.nextLevel,
+      exerciseCount: checkpoint.exerciseCount,
+      requiredAccuracy: checkpoint.requiredAccuracy,
+    });
     setIntroOpen(true);
   };
 

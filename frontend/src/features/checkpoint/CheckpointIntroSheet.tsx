@@ -3,7 +3,6 @@ import { useId, useRef } from 'react';
 import type { Level } from '../../api/types';
 import { Button } from '../../components/ui/Button';
 import { Sheet } from '../../components/ui/Sheet';
-import { CHECKPOINT_EXERCISES, PASS_ACCURACY } from './checkpointRules';
 import { CHECKPOINT_COPY } from './copy';
 
 const copy = CHECKPOINT_COPY.intro;
@@ -13,6 +12,10 @@ export interface CheckpointIntro {
   level: Level;
   /** The level a pass leads to; absent for the last stage. */
   nextLevel?: Level;
+  /** 15, or all exercises of the stage if it has fewer. */
+  exerciseCount: number;
+  /** Share of first answers that must be correct to pass, e.g. 0.8. */
+  requiredAccuracy: number;
 }
 
 export interface CheckpointIntroSheetProps {
@@ -59,7 +62,7 @@ export function CheckpointIntroSheet({
             data-tone="xp"
             className="rounded-full tone-outline px-4 py-1.5 text-label font-black tabular-nums"
           >
-            {copy.facts(CHECKPOINT_EXERCISES, PASS_ACCURACY)}
+            {copy.facts(checkpoint.exerciseCount, checkpoint.requiredAccuracy)}
           </p>
           <div id={textId} className="flex flex-col gap-1">
             <p className="text-body font-extrabold text-fg">

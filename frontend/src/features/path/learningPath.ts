@@ -44,6 +44,8 @@ export interface PathCheckpointModel {
   level: Level;
   /** The level a pass leads to; absent for the last stage. */
   nextLevel?: Level;
+  exerciseCount: number;
+  requiredAccuracy: number;
   status: PathNodeStatus;
   label: string;
   color: UnitColor;
@@ -150,6 +152,8 @@ function toCheckpoint(
     id: `checkpoint-${stage.level}`,
     level: stage.level,
     nextLevel,
+    exerciseCount: stage.checkpoint.exerciseCount,
+    requiredAccuracy: stage.checkpoint.requiredAccuracy,
     status: CHECKPOINT_STATUS[stage.checkpoint.status],
     label: PATH_COPY.checkpointLabel(stage.level),
     color,

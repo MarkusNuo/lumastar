@@ -30,7 +30,7 @@ export const SAMPLE_PATH: LearningPath = {
     {
       level: 'A1.2',
       title: 'Alltag zu Hause',
-      checkpoint: { status: 'locked' },
+      checkpoint: { status: 'locked', exerciseCount: 15, requiredAccuracy: 0.8 },
       units: [
         unit({
           unitId: 'a1_u05_food_drink',
@@ -66,7 +66,7 @@ export const SAMPLE_PATH: LearningPath = {
     {
       level: 'A1.3',
       title: 'Tun & beschreiben',
-      checkpoint: { status: 'locked' },
+      checkpoint: { status: 'locked', exerciseCount: 15, requiredAccuracy: 0.8 },
       units: [
         unit({
           unitId: 'a1_u09_present_regular',
@@ -79,7 +79,7 @@ export const SAMPLE_PATH: LearningPath = {
     {
       level: 'A2.1',
       title: 'Mein Alltag',
-      checkpoint: { status: 'locked' },
+      checkpoint: { status: 'locked', exerciseCount: 15, requiredAccuracy: 0.8 },
       units: [
         unit({
           unitId: 'a2_u01_daily_routine',
@@ -92,7 +92,7 @@ export const SAMPLE_PATH: LearningPath = {
     {
       level: 'B1.1',
       title: 'Erzählen & wohnen',
-      checkpoint: { status: 'locked' },
+      checkpoint: { status: 'locked', exerciseCount: 15, requiredAccuracy: 0.8 },
       units: [
         unit({
           unitId: 'b1_u01_imperfect',
@@ -106,7 +106,7 @@ export const SAMPLE_PATH: LearningPath = {
     {
       level: 'C2.3',
       title: 'Meisterschaft',
-      checkpoint: { status: 'locked' },
+      checkpoint: { status: 'locked', exerciseCount: 15, requiredAccuracy: 0.8 },
       units: [
         unit({
           unitId: 'c2_u05_style',

@@ -47,7 +47,7 @@ describe('buildPlanTimeline', () => {
         {
           level: 'A0',
           title: 'Erste Schritte',
-          checkpoint: { status: 'locked' },
+          checkpoint: { status: 'locked', exerciseCount: 15, requiredAccuracy: 0.8 },
           units: [],
         },
         ...SAMPLE_PATH.stages,

@@ -8,7 +8,10 @@ import { SAMPLE_PATH } from '../plan/samplePlan';
 import { LearningPathPage } from './LearningPathPage';
 
 /** The sample path with every unit of its first stage done and that stage's checkpoint. */
-function pathWithFirstCheckpoint(status: CheckpointStatus): LearningPath {
+function pathWithFirstCheckpoint(
+  status: CheckpointStatus,
+  facts = { exerciseCount: 15, requiredAccuracy: 0.8 },
+): LearningPath {
   const [first, ...rest] = SAMPLE_PATH.stages;
   if (!first) throw new Error('The sample path has stages');
   return {
@@ -16,7 +19,7 @@ function pathWithFirstCheckpoint(status: CheckpointStatus): LearningPath {
     stages: [
       {
         ...first,
-        checkpoint: { status },
+        checkpoint: { status, ...facts },
         units: first.units.map((unit) => ({
           ...unit,
           status: 'completed',
@@ -53,6 +56,17 @@ describe('LearningPathPage checkpoints', () => {
     await user.click(within(sheet).getByRole('button', { name: 'Checkpoint starten' }));
 
     expect(router.state.location.pathname).toBe('/checkpoint/A1.2');
+  });
+
+  it('tells the size and pass mark of the checkpoint as the plan reports them', async () => {
+    const { user } = renderPath(
+      pathWithFirstCheckpoint('available', { exerciseCount: 9, requiredAccuracy: 0.75 }),
+    );
+
+    await user.click(await screen.findByRole('button', { name: 'Checkpoint A1.2, als Nächstes' }));
+
+    const sheet = await screen.findByRole('dialog', { name: 'Checkpoint A1.2' });
+    expect(within(sheet).getByText('~9 Aufgaben · 75 % zum Bestehen')).toBeInTheDocument();
   });
 
   it('closes the intro without starting', async () => {

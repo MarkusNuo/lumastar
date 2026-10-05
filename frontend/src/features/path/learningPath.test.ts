@@ -73,6 +73,8 @@ describe('buildLearningPath', () => {
       id: 'checkpoint-A1.2',
       level: 'A1.2',
       nextLevel: 'A1.3',
+      exerciseCount: 15,
+      requiredAccuracy: 0.8,
       status: 'locked',
       label: 'Checkpoint A1.2',
       color: 'indigo',
@@ -86,7 +88,7 @@ describe('buildLearningPath', () => {
         {
           level: 'A1.1',
           title: 'Erste Gespräche',
-          checkpoint: { status: 'passed' },
+          checkpoint: { status: 'passed', exerciseCount: 15, requiredAccuracy: 0.8 },
           units: [
             {
               unitId: 'a1_u01_greetings',
@@ -116,7 +118,7 @@ describe('buildLearningPath with an open checkpoint', () => {
   if (!first || !second) throw new Error('The sample path needs two stages');
   const done = (stage: typeof first) => ({
     ...stage,
-    checkpoint: { status: 'available' as const },
+    checkpoint: { status: 'available' as const, exerciseCount: 15, requiredAccuracy: 0.8 },
     units: stage.units.map((unit) => ({
       ...unit,
       status: 'completed' as const,

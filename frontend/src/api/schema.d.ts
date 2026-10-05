@@ -673,7 +673,19 @@ export interface components {
             code: components["schemas"]["LevelBadge"];
         };
         Checkpoint: {
-            /** @description available once every unit of the stage that has exercises is completed or skipped; start it with POST /api/checkpoints */
+            /**
+             * Format: int32
+             * @description The exercises the checkpoint will have: 15, or all exercises of the stage if it has fewer
+             * @example 15
+             */
+            exerciseCount: number;
+            /**
+             * Format: double
+             * @description The share of first answers that must be correct to pass
+             * @example 0.8
+             */
+            requiredAccuracy: number;
+            /** @description available once every curriculum unit of the stage that has exercises is completed or skipped; start it with POST /api/checkpoints */
             status: components["schemas"]["CheckpointStatus"];
         };
         /** @description A checkpoint passed with the required accuracy moves the learner up (PRD chapter 5); a failed one stays available */
@@ -1105,7 +1117,7 @@ export interface components {
             color?: components["schemas"]["UnitColor"];
             /** Format: int32 */
             estimatedLessons: number;
-            /** @description A focus unit for a weak skill tag */
+            /** @description A focus unit for a weak skill tag: optional extra practice that can be played at once and holds back neither later units nor the checkpoint */
             focus: boolean;
             /** @description false while the unit has no exercises yet; it cannot be started */
             hasContent: boolean;
@@ -1118,7 +1130,7 @@ export interface components {
             lessonsCompleted: number;
             /** @description Why the plan skipped, shortened or inserted the unit, in German */
             reason?: string;
-            /** @description Live status: in_progress is the first unit that is neither completed nor skipped and has exercises */
+            /** @description Live status: in_progress is the first curriculum unit that is neither completed nor skipped and has exercises; a focus unit is never in_progress */
             status: components["schemas"]["PlanUnitStatus"];
             title: string;
             /** @description Start its lessons with POST /api/lessons */

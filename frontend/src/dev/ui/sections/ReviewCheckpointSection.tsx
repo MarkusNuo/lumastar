@@ -82,7 +82,7 @@ function IntroDemo() {
       </Button>
       <CheckpointIntroSheet
         open={open}
-        checkpoint={{ level: 'A1.2', nextLevel: 'A1.3' }}
+        checkpoint={{ level: 'A1.2', nextLevel: 'A1.3', exerciseCount: 15, requiredAccuracy: 0.8 }}
         onStart={() => setOpen(false)}
         onClose={() => setOpen(false)}
       />
