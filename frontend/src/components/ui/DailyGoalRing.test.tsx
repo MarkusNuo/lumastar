@@ -13,6 +13,24 @@ describe('DailyGoalRing', () => {
     expect(ring).toHaveAttribute('aria-valuetext', '60 %');
   });
 
+  it('reads the minutes instead of the percentage when given', () => {
+    render(<DailyGoalRing progress={0.6} valueText="3 von 5 Min." />);
+
+    expect(screen.getByRole('progressbar', { name: 'Tagesziel' })).toHaveAttribute(
+      'aria-valuetext',
+      '3 von 5 Min.',
+    );
+  });
+
+  it('bursts only once it is full', () => {
+    const { rerender } = render(<DailyGoalRing progress={0.8} burst />);
+    expect(screen.queryByTestId('goal-burst')).not.toBeInTheDocument();
+
+    rerender(<DailyGoalRing progress={1} burst />);
+
+    expect(screen.getByTestId('goal-burst')).toBeInTheDocument();
+  });
+
   it.each([
     [1.7, '100'],
     [-0.4, '0'],

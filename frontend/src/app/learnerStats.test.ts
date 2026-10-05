@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Profile } from '../api/types';
+import { todayProgress } from '../test/fixtures';
 import { isLevel, parseLevel, topBarStats } from './learnerStats';
 
 const PROFILE: Profile = {
@@ -33,7 +34,7 @@ describe('isLevel', () => {
 
 describe('topBarStats', () => {
   it('shows the level and XP of the profile', () => {
-    expect(topBarStats({ ...PROFILE, currentLevel: 'A1.2' })).toMatchObject({
+    expect(topBarStats({ ...PROFILE, currentLevel: 'A1.2' }, undefined)).toMatchObject({
       level: 'A1',
       sublevel: 2,
       levelLocked: false,
@@ -42,10 +43,36 @@ describe('topBarStats', () => {
   });
 
   it('greys the level out before the placement test', () => {
-    expect(topBarStats(PROFILE)).toMatchObject({ level: 'A0', levelLocked: true });
+    expect(topBarStats(PROFILE, undefined)).toMatchObject({ level: 'A0', levelLocked: true });
   });
 
-  it('starts at zero while the profile loads', () => {
-    expect(topBarStats(undefined)).toMatchObject({ xp: 0, streakDays: 0, dailyGoalProgress: 0 });
+  it('starts at zero while profile and progress load', () => {
+    expect(topBarStats(undefined, undefined)).toMatchObject({
+      xp: 0,
+      streakDays: 0,
+      streakActive: false,
+      streakFreezes: 0,
+      minutesToday: 0,
+      goalMinutes: 0,
+    });
+  });
+
+  it("takes the goal from the profile until today's progress is there", () => {
+    expect(topBarStats(PROFILE, undefined)).toMatchObject({ minutesToday: 0, goalMinutes: 10 });
+  });
+
+  it("shows the streak, its freeze and today's minutes", () => {
+    const today = todayProgress(
+      { minutesToday: 6, goalMinutes: 5, goalMet: true },
+      { current: 4, extendedToday: true, freezesLeft: 1 },
+    );
+
+    expect(topBarStats(PROFILE, today)).toMatchObject({
+      streakDays: 4,
+      streakActive: true,
+      streakFreezes: 1,
+      minutesToday: 6,
+      goalMinutes: 5,
+    });
   });
 });

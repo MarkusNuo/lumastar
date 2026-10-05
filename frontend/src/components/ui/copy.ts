@@ -45,8 +45,12 @@ export const UI_COPY = {
   },
   retry: 'Nochmals versuchen',
   sheet: { close: 'Schliessen' },
-  streak: (days: number, active: boolean) =>
-    `Streak: ${days} ${days === 1 ? 'Tag' : 'Tage'}${active ? '' : ', heute noch nicht gelernt'}`,
+  streak: (days: number, active: boolean, freezes = 0) =>
+    `Streak: ${days} ${days === 1 ? 'Tag' : 'Tage'}${active ? '' : ', heute noch nicht gelernt'}${freezes > 0 ? ', Streak-Schutz bereit' : ''}`,
+  dailyGoalValue: (minutes: number, goalMinutes: number) =>
+    minutes >= goalMinutes
+      ? `erreicht, ${minutes} Min. geübt`
+      : `${minutes} von ${goalMinutes} Min.`,
   toast: { dismiss: 'Meldung schliessen' },
   unitBanner: { guidebook: 'Lernhilfe öffnen' },
   wordTile: { correct: 'richtig', wrong: 'falsch' },

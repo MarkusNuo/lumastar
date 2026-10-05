@@ -1,4 +1,4 @@
-import type { Level, Profile } from '../api/types';
+import type { DailyProgress, Level, Profile } from '../api/types';
 import type { LevelSublevel } from '../components/ui/LevelBadge';
 import { CEFR_LEVELS, type CefrLevel } from '../components/ui/levels';
 import type { TopBarProps } from './TopBar';
@@ -28,18 +28,24 @@ export function parseLevel(level: Level): LevelParts {
 }
 
 /**
- * Top-bar values from the profile. Streak and daily goal have no API before M5 and start at zero;
- * without a placement result the badge shows A0 greyed out.
+ * Top-bar values from the profile and today's progress, each zero while it loads; without a
+ * placement result the badge shows A0 greyed out.
  */
-export function topBarStats(profile: Profile | undefined): TopBarProps {
+export function topBarStats(
+  profile: Profile | undefined,
+  today: DailyProgress | undefined,
+): TopBarProps {
   const level = profile?.currentLevel ? parseLevel(profile.currentLevel) : undefined;
   return {
     level: level?.level ?? 'A0',
     sublevel: level?.sublevel,
     levelLocked: level === undefined,
-    streakDays: 0,
-    streakActive: false,
+    streakDays: today?.streak.current ?? 0,
+    streakActive: today?.streak.extendedToday ?? false,
+    streakFreezes: today?.streak.freezesLeft ?? 0,
     xp: profile?.xpTotal ?? 0,
-    dailyGoalProgress: 0,
+    minutesToday: today?.minutesToday ?? 0,
+    // The profile knows the goal before today's progress has loaded.
+    goalMinutes: today?.goalMinutes ?? profile?.dailyGoalMinutes ?? 0,
   };
 }

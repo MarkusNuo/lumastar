@@ -1,4 +1,10 @@
-import type { LessonResponse, OnboardingOptions, Profile } from '../api/types';
+import type {
+  DailyProgress,
+  LessonResponse,
+  OnboardingOptions,
+  Profile,
+  Streak,
+} from '../api/types';
 import { SAMPLE_MULTIPLE_CHOICE } from '../features/lesson/sampleExercises';
 
 /** A learner right after creating the account; override what a test needs. */
@@ -11,6 +17,31 @@ export function profile(fields: Partial<Profile> = {}): Profile {
     onboardingStep: 'profile',
     xpTotal: 0,
     ...fields,
+  };
+}
+
+/** GET /api/progress/today of a learner with a 3-day streak who has not practised yet today. */
+export function todayProgress(
+  fields: Partial<Omit<DailyProgress, 'streak'>> = {},
+  streak: Partial<Streak> = {},
+): DailyProgress {
+  return {
+    date: '2026-10-05',
+    minutesToday: 0,
+    goalMinutes: 10,
+    goalMet: false,
+    xpToday: 0,
+    lessonsToday: 0,
+    ...fields,
+    streak: {
+      current: 3,
+      longest: 7,
+      extendedToday: false,
+      freezesLeft: 1,
+      freezeUsedYesterday: false,
+      lastActiveDate: '2026-10-04',
+      ...streak,
+    },
   };
 }
 

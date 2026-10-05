@@ -19,9 +19,9 @@ function TopBarDemo() {
       <Card variant="outline" padding="sm">
         <div className="flex items-center justify-between px-1">
           <LevelBadge level="A1" sublevel={2} size="sm" />
-          <StreakCounter days={streak} active />
+          <StreakCounter days={streak} active freezes={1} />
           <XpCounter xp={xp} />
-          <DailyGoalRing progress={0.6} />
+          <DailyGoalRing progress={0.6} valueText="3 von 5 Min." />
         </div>
       </Card>
       <div className="grid grid-cols-2 gap-3">
@@ -46,10 +46,11 @@ export function GamificationSection() {
       <Specimen label="Obere Leiste: interaktiv" layout="stack">
         <TopBarDemo />
       </Specimen>
-      <Specimen label="Streak: aktiv · heute noch offen · 1 Tag">
+      <Specimen label="Streak: aktiv · heute noch offen · 1 Tag · mit Streak-Schutz">
         <StreakCounter days={12} active />
         <StreakCounter days={12} active={false} />
         <StreakCounter days={1} active />
+        <StreakCounter days={4} active={false} freezes={1} />
       </Specimen>
       <Specimen label="Niveau A0 bis C2 (obere Leiste, Einstufung)">
         {CEFR_LEVELS.map((level) => (

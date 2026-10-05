@@ -66,6 +66,11 @@
   --color-xp-edge: #d19a00;
   --color-xp-surface: #3a3012;
   --color-on-xp: #2d1f00;
+  /* Streak freeze ("Streak-Schutz"): ice blue, never confused with the flame */
+  --color-freeze: #6ccfff;
+  --color-freeze-edge: #2b93cf;
+  --color-freeze-surface: #10293a;
+  --color-on-freeze: #04202f;
 
   /* Locked and disabled */
   --color-locked: #384461;

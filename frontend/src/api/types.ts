@@ -20,7 +20,27 @@ export type LessonKind = Schemas['LessonKind'];
 export type FocusSuggestion = Schemas['FocusSuggestion'];
 export type CheckpointResult = Schemas['CheckpointResult'];
 
+export type LessonDailyGoal = Schemas['LessonDailyGoal'];
+export type LessonStreak = Schemas['LessonStreak'];
+
 export type ReviewSummary = Schemas['ReviewSummaryResponse'];
+
+export type DailyProgress = Schemas['DailyProgressResponse'];
+export type Streak = Schemas['StreakResponse'];
+
+export type Stats = Schemas['StatsResponse'];
+export type LevelProgress = Schemas['LevelProgress'];
+export type MasteryArea = Schemas['MasteryArea'];
+export type SkillArea = Schemas['SkillArea'];
+export type FrequentError = Schemas['FrequentError'];
+export type PracticeTarget = Schemas['PracticeTarget'];
+export type Heatmap = Schemas['Heatmap'];
+export type HeatmapDay = Schemas['HeatmapDay'];
+export type DueForecast = Schemas['DueForecast'];
+export type DueDay = Schemas['DueDay'];
+
+export type Settings = Schemas['SettingsResponse'];
+export type SettingsRequest = Schemas['SettingsRequest'];
 
 export type LevelBadgeCode = Schemas['LevelBadge'];
 export type EarnedBadge = Schemas['BadgeResponse'];

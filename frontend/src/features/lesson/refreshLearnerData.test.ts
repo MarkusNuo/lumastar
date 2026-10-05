@@ -21,8 +21,14 @@ function invalidatedKeys(result: LessonResult): unknown[] {
 }
 
 describe('refreshLearnerData', () => {
-  it('refreshes profile, plan and reviews after every lesson', () => {
-    expect(invalidatedKeys({ ...RESULT, kind: 'lesson' })).toEqual([['me'], ['plan'], ['review']]);
+  it('refreshes profile, plan, reviews, daily progress and statistics after every lesson', () => {
+    expect(invalidatedKeys({ ...RESULT, kind: 'lesson' })).toEqual([
+      ['me'],
+      ['plan'],
+      ['review'],
+      ['progress'],
+      ['stats'],
+    ]);
   });
 
   it('also refreshes the badges after a passed checkpoint', () => {
@@ -37,7 +43,7 @@ describe('refreshLearnerData', () => {
       },
     });
 
-    expect(passed).toEqual([['me'], ['plan'], ['review'], ['badges']]);
+    expect(passed).toContainEqual(['badges']);
   });
 
   it('leaves the badges alone after a failed checkpoint', () => {
