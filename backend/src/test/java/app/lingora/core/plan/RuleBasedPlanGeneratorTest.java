@@ -118,6 +118,36 @@ class RuleBasedPlanGeneratorTest {
         }
 
         @Test
+        void aBeginnerNeedsTheGuidedLearningHoursOfEveryBand() {
+            LearningPlan plan = PlanFixtures.generator(EstimateRules.DEFAULT).generate(learner(Level.A0, 10), noMastery());
+
+            // A1 90 h, A2 190 h, B1 375 h from zero at 10 minutes a day: 540, 1140 and 2250 days
+            assertThat(plan.estimates()).containsExactly(
+                    Map.entry(CefrBand.A1, LocalDate.parse("2028-03-18")),
+                    Map.entry(CefrBand.A2, LocalDate.parse("2029-11-08")),
+                    Map.entry(CefrBand.B1, LocalDate.parse("2032-11-22")));
+        }
+
+        @Test
+        void theGuidedLearningHoursStartAtTheLearnersStage() {
+            LearningPlan plan = PlanFixtures.generator(EstimateRules.DEFAULT).generate(learner(Level.A1_2, 15), noMastery());
+
+            // A1.2 starts a third into A1 (30 h): 60, 160 and 345 h left at 15 minutes a day
+            assertThat(plan.estimates()).containsExactly(
+                    Map.entry(CefrBand.A1, LocalDate.parse("2027-05-23")),
+                    Map.entry(CefrBand.A2, LocalDate.parse("2028-06-26")),
+                    Map.entry(CefrBand.B1, LocalDate.parse("2030-07-06")));
+        }
+
+        @Test
+        void theLessonsCountWhenTheyTakeLongerThanTheHours() {
+            EstimateRules fewHours = new EstimateRules(4, 1, 1, 1, 1, 1, 1);
+
+            assertThat(PlanFixtures.generator(fewHours).generate(learner(Level.A1_2, 10), noMastery()).estimates())
+                    .isEqualTo(generator.generate(learner(Level.A1_2, 10), noMastery()).estimates());
+        }
+
+        @Test
         void aBandAlreadyDoneIsReachedToday() {
             LearningPlan plan = generator.generate(learner(Level.A1_3, 10), mastery(INFINITIVE, 0.9));
             LearningPlan done = generator.revise(withStatuses(plan, Map.of("a1_review", PlanUnitStatus.COMPLETED)),

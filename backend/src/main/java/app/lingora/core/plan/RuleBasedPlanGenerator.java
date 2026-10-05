@@ -28,7 +28,7 @@ import java.util.Optional;
  *       completed, the unit in progress stays in progress). It shortens a unit by one lesson (to at least one) when
  *       some, but not all, of its skill tags are mastered, and inserts focus units for weak tags (see
  *       {@link FocusPlanner}).</li>
- *   <li>Estimates: see {@link PlanEstimates}.</li>
+ *   <li>Estimates: see {@link PlanEstimates} and {@link EstimateRules}.</li>
  * </ul>
  * A unit without a lesson estimate in the curriculum is planned with {@value #DEFAULT_LESSONS_PER_UNIT} lessons.
  */
@@ -42,11 +42,18 @@ public final class RuleBasedPlanGenerator implements PlanGenerator {
     private final List<Stage> curriculum;
     private final SkillTagLabels labels;
     private final Clock clock;
+    private final EstimateRules estimateRules;
 
     public RuleBasedPlanGenerator(List<Stage> curriculum, Map<SkillTag, String> skillTagLabels, Clock clock) {
+        this(curriculum, skillTagLabels, clock, EstimateRules.DEFAULT);
+    }
+
+    RuleBasedPlanGenerator(List<Stage> curriculum, Map<SkillTag, String> skillTagLabels, Clock clock,
+                           EstimateRules estimateRules) {
         this.curriculum = List.copyOf(curriculum);
         this.labels = new SkillTagLabels(skillTagLabels);
         this.clock = clock;
+        this.estimateRules = estimateRules;
     }
 
     @Override
@@ -69,7 +76,7 @@ public final class RuleBasedPlanGenerator implements PlanGenerator {
         Instant now = clock.instant().truncatedTo(ChronoUnit.SECONDS);
         LocalDate today = LocalDate.ofInstant(now, clock.getZone());
         return new LearningPlan(now, ID, currentLevel(profile), stages,
-                PlanEstimates.of(stages, profile.dailyGoalMinutes(), today));
+                PlanEstimates.of(stages, currentLevel(profile), profile.dailyGoalMinutes(), today, estimateRules));
     }
 
     private List<PlanStage> curriculumFrom(Level level, SkillMastery mastery) {

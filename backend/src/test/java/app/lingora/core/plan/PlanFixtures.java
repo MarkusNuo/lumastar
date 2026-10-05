@@ -61,8 +61,15 @@ final class PlanFixtures {
     private PlanFixtures() {
     }
 
+    /** Estimates by the lessons alone, so that the small curriculum shows their effect. */
+    static final EstimateRules LESSONS_ONLY = new EstimateRules(4, 0, 0, 0, 0, 0, 0);
+
     static RuleBasedPlanGenerator generator() {
-        return new RuleBasedPlanGenerator(CURRICULUM, LABELS, CLOCK);
+        return generator(LESSONS_ONLY);
+    }
+
+    static RuleBasedPlanGenerator generator(EstimateRules rules) {
+        return new RuleBasedPlanGenerator(CURRICULUM, LABELS, CLOCK, rules);
     }
 
     static LearnerProfile learner(Level level, int dailyGoalMinutes) {
