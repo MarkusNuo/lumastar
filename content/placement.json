@@ -105,6 +105,21 @@
       "source": "manual"
     },
     {
+      "id": "pl_a0_007",
+      "type": "multiple_choice",
+      "level": "A0",
+      "competence": "reading",
+      "difficulty": 1,
+      "skillTags": ["reading.dialogues", "vocab.greetings", "phrase.politeness"],
+      "itemIds": [],
+      "prompt": { "lang": "sq", "text": "Arben: Mirëdita, Besa! Si je?\nBesa: Mirë, faleminderit.\n\nFrage: Wie geht es Besa?" },
+      "choices": ["Schlecht.", "Gut.", "Es geht so.", "Sie ist müde."],
+      "solutions": ["Gut."],
+      "explanation": "„Mirë, faleminderit“ heisst „gut, danke“ – Besas Antwort auf „Si je?“ (Wie geht es dir?).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
       "id": "pl_a1_1_001",
       "type": "multiple_choice",
       "level": "A1.1",
@@ -214,6 +229,22 @@
       "reviewed": false,
       "source": "manual",
       "note": "„emnin“ (Gheg) vs. „emrin“ (im Kosovo verbreitet) – zu prüfen, ob „Si e ke emrin?“ nicht auch als Gheg-Lösung gelten soll."
+    },
+    {
+      "id": "pl_a1_1_007",
+      "type": "multiple_choice",
+      "level": "A1.1",
+      "competence": "reading",
+      "difficulty": 1,
+      "skillTags": ["reading.short_texts", "vocab.family", "vocab.numbers"],
+      "itemIds": [],
+      "prompt": { "lang": "sq", "text": "Unë jam Drita. Kam nji vlla dhe dy motra.\n\nFrage: Wie viele Schwestern hat Drita?" },
+      "choices": ["Eine.", "Zwei.", "Drei.", "Keine."],
+      "solutions": ["Zwei."],
+      "explanation": "„Dy motra“ heisst „zwei Schwestern“, „nji vlla“ ist „ein Bruder“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vlla“ (Standard: vëlla) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "pl_a1_2_001",
@@ -327,6 +358,21 @@
       "source": "manual"
     },
     {
+      "id": "pl_a1_2_007",
+      "type": "multiple_choice",
+      "level": "A1.2",
+      "competence": "reading",
+      "difficulty": 2,
+      "skillTags": ["reading.short_texts", "vocab.drinks", "grammar.negation"],
+      "itemIds": [],
+      "prompt": { "lang": "sq", "text": "Arben nuk pi kafe. Ai pi çaj me qumësht.\n\nFrage: Was trinkt Arben?" },
+      "choices": ["Kaffee.", "Wasser.", "Tee mit Milch.", "Kaffee mit Milch."],
+      "solutions": ["Tee mit Milch."],
+      "explanation": "„Nuk pi kafe“ heisst „trinkt keinen Kaffee“. Arben trinkt „çaj me qumësht“, Tee mit Milch.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
       "id": "pl_a1_3_001",
       "type": "multiple_choice",
       "level": "A1.3",
@@ -428,6 +474,22 @@
       "errorHints": [{ "pattern": "(^|\\s)(dy|kat[eë]r)(\\s|$)", "category": "vocab.confused", "hint": "„Drei“ heisst „tre“." }],
       "reviewed": false,
       "source": "manual"
+    },
+    {
+      "id": "pl_a1_3_007",
+      "type": "multiple_choice",
+      "level": "A1.3",
+      "competence": "reading",
+      "difficulty": 2,
+      "skillTags": ["reading.short_texts", "vocab.colours", "vocab.shopping"],
+      "itemIds": [],
+      "prompt": { "lang": "sq", "text": "Besa shkon në dyqan. Ajo don me ble nji çantë të kuqe.\n\nFrage: Was will Besa kaufen?" },
+      "choices": ["Eine schwarze Tasche.", "Ein rotes Kleid.", "Eine rote Tasche.", "Rote Schuhe."],
+      "solutions": ["Eine rote Tasche."],
+      "explanation": "„Don me ble“ heisst „will kaufen“, „nji çantë të kuqe“ ist „eine rote Tasche“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„don“ (sie will) und Gheg-Partizip „ble“ in „me ble“ (Standard: të blejë) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "pl_a2_1_001",
