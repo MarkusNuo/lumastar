@@ -571,6 +571,16 @@
         ],
         "type": "object"
       },
+      "LessonKind": {
+        "description": "lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8) or checkpoint at the end of a stage (PRD chapter 5)",
+        "enum": [
+          "lesson",
+          "focus",
+          "review",
+          "checkpoint"
+        ],
+        "type": "string"
+      },
       "LessonResponse": {
         "description": "A started lesson; its exercises are in the order they are played",
         "properties": {
@@ -580,16 +590,21 @@
             },
             "type": "array"
           },
+          "kind": {
+            "$ref": "#/components/schemas/LessonKind"
+          },
           "sessionId": {
             "format": "uuid",
             "type": "string"
           },
           "unitId": {
+            "description": "The unit or focus unit played; review for a review lesson",
             "type": "string"
           }
         },
         "required": [
           "exercises",
+          "kind",
           "sessionId",
           "unitId"
         ],
@@ -616,6 +631,9 @@
           "exerciseCount": {
             "format": "int32",
             "type": "integer"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/LessonKind"
           },
           "learnedItems": {
             "description": "Items practised in the lesson",
@@ -647,6 +665,7 @@
           "correctCount",
           "durationMs",
           "exerciseCount",
+          "kind",
           "learnedItems",
           "learnedWordsTotal",
           "xpBreakdown",
@@ -1418,6 +1437,32 @@
           "easy"
         ],
         "type": "string"
+      },
+      "ReviewSummaryResponse": {
+        "description": "The learner's FSRS cards (PRD F8): what is due now and tomorrow",
+        "properties": {
+          "dueNow": {
+            "description": "Cards due now, overdue ones included",
+            "format": "int32",
+            "type": "integer"
+          },
+          "dueTomorrow": {
+            "description": "Cards that come due during tomorrow, in the learner's time zone",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCards": {
+            "description": "All cards, i.e. items practised so far",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "dueNow",
+          "dueTomorrow",
+          "totalCards"
+        ],
+        "type": "object"
       },
       "SelfAssessment": {
         "enum": [
@@ -3040,6 +3085,95 @@
           "profile"
         ]
       }
+    },
+    "/api/review/lessons": {
+      "post": {
+        "description": "Up to 12 exercises at or below the learner's level that practise the most overdue items, one exercise per item and mixed types. It is played like any lesson: answers go to POST /api/lessons/{sessionId}/attempts and it is finished with POST /api/lessons/{sessionId}/complete.",
+        "operationId": "startReviewLesson",
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonResponse"
+                }
+              }
+            },
+            "description": "The review lesson (kind review, unitId review)"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          },
+          "403": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Missing or invalid CSRF token"
+          },
+          "409": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Nothing is due that an exercise practises (code no_reviews_due)"
+          }
+        },
+        "security": [
+          {
+            "csrfHeader": [],
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Compose and start a review lesson of the due items",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/api/review/summary": {
+      "get": {
+        "operationId": "getReviewSummary",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewSummaryResponse"
+                }
+              }
+            },
+            "description": "The counts"
+          },
+          "401": {
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            },
+            "description": "Not signed in"
+          }
+        },
+        "summary": "Items due for review now and tomorrow",
+        "tags": [
+          "review"
+        ]
+      }
     }
   },
   "security": [
@@ -3085,6 +3219,10 @@
     {
       "description": "The signed-in learner",
       "name": "profile"
+    },
+    {
+      "description": "Spaced repetition with FSRS: due items and review lessons",
+      "name": "review"
     }
   ]
 }

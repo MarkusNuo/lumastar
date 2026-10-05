@@ -10,6 +10,7 @@ import java.util.Map;
 
 @Schema(description = "Result of a finished lesson; completing it again returns the same result")
 public record LessonResultResponse(
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED) LessonKind kind,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int xpEarned,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) XpBreakdown xpBreakdown,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED,
@@ -46,7 +47,7 @@ public record LessonResultResponse(
     static LessonResultResponse of(LessonSessionEntity session, List<Item> learnedItems, Map<String, SrsCard> cards,
                                    int learnedWordsTotal, int xpTotal) {
         LessonXp xp = session.xp();
-        return new LessonResultResponse(xp.total(), new XpBreakdown(xp.base(), xp.perfectBonus(), xp.speedBonus()),
+        return new LessonResultResponse(LessonKind.of(session.getKind()), xp.total(), new XpBreakdown(xp.base(), xp.perfectBonus(), xp.speedBonus()),
                 session.getAccuracy().doubleValue(), session.duration().toMillis(), session.getCorrectCount(),
                 session.getExerciseIds().size(),
                 learnedItems.stream()

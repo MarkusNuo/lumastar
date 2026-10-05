@@ -83,6 +83,14 @@ public class LessonSessionEntity {
         return session;
     }
 
+    /** A review lesson of due items (PRD F8); it belongs to no unit. {@code level} is {@code null} before the placement. */
+    public static LessonSessionEntity review(UUID userId, Level level, List<String> exerciseIds, String composedBy,
+                                             Instant startedAt) {
+        LessonSessionEntity session = new LessonSessionEntity(userId, null, level, exerciseIds, composedBy, startedAt);
+        session.kind = SessionKind.REVIEW;
+        return session;
+    }
+
     /** Records the result of the lesson; {@code accuracy} counts first attempts only. */
     public void finish(Instant at, int correct, BigDecimal accuracyOfFirstAttempts, LessonXp xp) {
         finishedAt = at;
@@ -109,6 +117,10 @@ public class LessonSessionEntity {
 
     public UUID getId() {
         return id;
+    }
+
+    public SessionKind getKind() {
+        return kind;
     }
 
     public String getUnitId() {

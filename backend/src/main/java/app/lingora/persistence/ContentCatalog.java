@@ -1,5 +1,6 @@
 package app.lingora.persistence;
 
+import app.lingora.core.lesson.ExerciseBank;
 import app.lingora.domain.Exercise;
 import app.lingora.domain.Item;
 import app.lingora.domain.Level;
@@ -17,9 +18,9 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-/** Reads seeded content as domain records for the engines. */
+/** Reads seeded content as domain records for the engines; it is the composer's bank of all units (PRD F7). */
 @Component
-public class ContentCatalog {
+public class ContentCatalog implements ExerciseBank {
 
     private final StageRepository stages;
     private final UnitRepository units;
@@ -80,6 +81,20 @@ public class ContentCatalog {
     @Transactional(readOnly = true)
     public List<Exercise> lessonExercisesWithSkillTag(SkillTag tag, Level maxLevel) {
         return exercises.findLessonExercisesWithSkillTag(tag.id(), levelsUpTo(maxLevel)).stream().map(this::toExercise).toList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Exercise> withSkillTag(SkillTag tag, Level maxLevel) {
+        return lessonExercisesWithSkillTag(tag, maxLevel);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Exercise> withItems(Collection<String> itemIds, Level maxLevel) {
+        return exercises.findLessonExercisesWithItems(itemIds.toArray(String[]::new), levelsUpTo(maxLevel)).stream()
+                .map(this::toExercise)
+                .toList();
     }
 
     /** The skill tags that active lesson exercises not above {@code maxLevel} practise. */

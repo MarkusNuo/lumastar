@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -19,12 +20,13 @@ import java.util.stream.Collectors;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-/** The learner account. Settings and time zone are mapped once a feature needs them. */
+/** The learner account. The settings are read where a feature needs them (e.g. the FSRS target retention). */
 @Entity
 @Table(name = "users")
 public class UserEntity {
 
     public static final int DEFAULT_DAILY_GOAL_MINUTES = 10;
+    public static final String DEFAULT_TIME_ZONE = "Europe/Zurich";
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -45,6 +47,8 @@ public class UserEntity {
 
     private int xpTotal;
 
+    private String timeZone;
+
     private Instant onboardingCompletedAt;
 
     private Instant createdAt;
@@ -57,6 +61,7 @@ public class UserEntity {
         this.passwordHash = passwordHash;
         this.motivations = List.of();
         this.dailyGoalMinutes = DEFAULT_DAILY_GOAL_MINUTES;
+        this.timeZone = DEFAULT_TIME_ZONE;
         this.createdAt = createdAt;
     }
 
@@ -127,6 +132,11 @@ public class UserEntity {
 
     public int getXpTotal() {
         return xpTotal;
+    }
+
+    /** The learner's time zone; it decides what "today" and "tomorrow" are. */
+    public ZoneId getTimeZone() {
+        return ZoneId.of(timeZone);
     }
 
     public boolean isOnboardingCompleted() {

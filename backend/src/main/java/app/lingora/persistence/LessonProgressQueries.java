@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import org.springframework.jdbc.core.simple.JdbcClient;
@@ -38,6 +39,28 @@ public class LessonProgressQueries {
                 .query((row, rowNumber) -> Map.entry(row.getString("unit_id"), row.getInt("lessons")))
                 .stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    /** The exercises the learner has answered at least once, retries aside. */
+    public Set<String> practisedExercises(UUID userId) {
+        return Set.copyOf(jdbc.sql("SELECT DISTINCT exercise_id FROM attempts WHERE user_id = :user AND NOT is_retry")
+                .param("user", userId)
+                .query(String.class)
+                .list());
+    }
+
+    /** The accuracy of the last completed lessons of the unit, newest first. */
+    public List<Double> recentAccuracies(UUID userId, String unitId, int lessons) {
+        return jdbc.sql("""
+                        SELECT accuracy FROM sessions
+                        WHERE user_id = :user AND kind = 'lesson' AND unit_id = :unit AND finished_at IS NOT NULL
+                        ORDER BY finished_at DESC
+                        LIMIT :lessons""")
+                .param("user", userId)
+                .param("unit", unitId)
+                .param("lessons", lessons)
+                .query(Double.class)
+                .list();
     }
 
     public List<FocusLesson> completedFocusLessons(UUID userId) {

@@ -19,6 +19,11 @@ final class LessonProblems {
                 "Unit '%s' has no exercises yet.".formatted(unitId));
     }
 
+    static ApiProblemException nothingDue() {
+        return new ApiProblemException(HttpStatus.CONFLICT, "no_reviews_due",
+                "No item is due for review that an exercise at or below the learner's level practises.");
+    }
+
     static ApiProblemException lessonNotFound(UUID sessionId) {
         return new ApiProblemException(HttpStatus.NOT_FOUND, "lesson_not_found", "There is no lesson %s.".formatted(sessionId));
     }

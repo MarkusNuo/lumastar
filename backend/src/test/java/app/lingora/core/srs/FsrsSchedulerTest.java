@@ -112,6 +112,14 @@ class FsrsSchedulerTest {
     }
 
     @Test
+    void acceptsTargetRetentionsFromSeventyToNinetyNinePercent() {
+        assertThat(SrsSettings.isValidRetention(0.70)).isTrue();
+        assertThat(SrsSettings.isValidRetention(0.99)).isTrue();
+        assertThat(SrsSettings.isValidRetention(0.69)).isFalse();
+        assertThatIllegalArgumentException().isThrownBy(() -> new SrsSettings(1.0, List.of()));
+    }
+
+    @Test
     void rejectsAWeightSetOfAnotherFsrsVersion() {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> new FsrsScheduler(new SrsSettings(0.9, List.of(0.4, 0.6, 2.4, 5.8))))

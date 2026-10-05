@@ -17,7 +17,6 @@ import app.lingora.domain.LearningPlan.PlanUnit;
 import app.lingora.domain.Level;
 import app.lingora.domain.Outcome;
 import app.lingora.domain.Rating;
-import app.lingora.domain.SkillMastery;
 import app.lingora.domain.SrsCard;
 import app.lingora.domain.Unit;
 import app.lingora.persistence.AttemptEntity;
@@ -45,9 +44,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer together with the mastery of its
- * skill tags (PRD 8.2), finish with XP (F9). A focus unit of the plan (PRD F3) is played like a unit made of all lesson
- * exercises carrying its skill tag at or below the learner's level. Every first answer reviews the FSRS cards of its
- * items (PRD F8); retries at the end of a lesson do not.
+ * skill tags (PRD 8.2), finish with XP (F9). Lessons of a unit, focus lessons on a weak skill tag (PRD F3) and review
+ * lessons of the due items (PRD F8) share this flow. Every first answer reviews the FSRS cards of its items; retries at
+ * the end of a lesson do not.
  */
 @Service
 class LessonService {
@@ -64,12 +63,14 @@ class LessonService {
     private final AnswerEvaluator evaluator;
     private final CardReviews cardReviews;
     private final SrsCardStore cards;
+    private final LessonContexts contexts;
     private final String engineId;
     private final Clock clock;
 
     LessonService(ContentCatalog catalog, LessonSessionRepository sessions, AttemptRepository attempts, UserRepository users,
                   LearningPlanStore plans, SkillMasteryStore mastery, LessonComposer composer, AnswerEvaluator evaluator,
-                  CardReviews cardReviews, SrsCardStore cards, EngineProperties engineProperties, Clock clock) {
+                  CardReviews cardReviews, SrsCardStore cards, LessonContexts contexts, EngineProperties engineProperties,
+                  Clock clock) {
         this.catalog = catalog;
         this.sessions = sessions;
         this.attempts = attempts;
@@ -80,6 +81,7 @@ class LessonService {
         this.evaluator = evaluator;
         this.cardReviews = cardReviews;
         this.cards = cards;
+        this.contexts = contexts;
         this.engineId = engineProperties.engine().id();
         this.clock = clock;
     }
@@ -95,10 +97,10 @@ class LessonService {
             throw LessonProblems.unitWithoutContent(unitId);
         }
         Instant now = clock.instant();
-        List<Exercise> exercises = compose(learner, unit, now);
+        List<Exercise> exercises = composer.compose(unit, contexts.of(learner, now, unit.id()));
         LessonSessionEntity session = sessions.save(new LessonSessionEntity(learner.getId(), unit.id(), unit.level(),
-                exercises.stream().map(Exercise::id).toList(), engineId, now));
-        return new LessonResponse(session.getId(), unit.id(), exercises.stream().map(LessonExercise::of).toList());
+                ids(exercises), engineId, now));
+        return LessonResponse.of(session, unit.id(), exercises);
     }
 
     /** A focus unit of the current plan, played with the exercises of its skill tag up to the learner's level. */
@@ -116,15 +118,27 @@ class LessonService {
         Unit unit = new Unit(unitId.replace('.', '_'), level, planned.title(), null, List.of(), List.of(focus.tag()), null,
                 null, planned.lessonCount(), List.of(), List.of(), pool);
         Instant now = clock.instant();
-        List<Exercise> exercises = compose(learner, unit, now);
+        List<Exercise> exercises = composer.composeFocus(unit, contexts.of(learner, now, null));
         LessonSessionEntity session = sessions.save(LessonSessionEntity.focus(learner.getId(), focus.tag(), level,
-                exercises.stream().map(Exercise::id).toList(), engineId, now));
-        return new LessonResponse(session.getId(), unitId, exercises.stream().map(LessonExercise::of).toList());
+                ids(exercises), engineId, now));
+        return LessonResponse.of(session, unitId, exercises);
     }
 
-    private List<Exercise> compose(UserEntity learner, Unit unit, Instant now) {
-        SkillMastery current = mastery.effective(learner.getId(), now);
-        return composer.compose(unit, learner.toProfile(), current, List.of(), List.of());
+    /** A lesson of the due items (PRD F8); there must be due items with exercises at or below the learner's level. */
+    @Transactional
+    LessonResponse startReview(UserEntity learner) {
+        Instant now = clock.instant();
+        List<Exercise> exercises = composer.composeReview(contexts.of(learner, now, null));
+        if (exercises.isEmpty()) {
+            throw LessonProblems.nothingDue();
+        }
+        LessonSessionEntity session = sessions.save(LessonSessionEntity.review(learner.getId(), learner.getCurrentLevel(),
+                ids(exercises), engineId, now));
+        return LessonResponse.of(session, LessonResponse.REVIEW_UNIT_ID, exercises);
+    }
+
+    private static List<String> ids(List<Exercise> exercises) {
+        return exercises.stream().map(Exercise::id).toList();
     }
 
     @Transactional

@@ -75,8 +75,9 @@ tasks.test {
 }
 
 tasks.named<org.springframework.boot.gradle.tasks.run.BootRun>("bootTestRun") {
-    // Reproducible lessons for the e2e tests; --args=--lingora.lesson.random-seed=… overrides it.
+    // Reproducible lessons and placement tests for the e2e tests; --args=--lingora.lesson.random-seed=… overrides it.
     systemProperty("lingora.lesson.random-seed", "20260925")
+    systemProperty("lingora.placement.random-seed", "20260925")
 }
 
 tasks.register<Test>("exportOpenApi") {

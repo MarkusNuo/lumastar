@@ -3,14 +3,15 @@ package app.lingora.config;
 import app.lingora.core.evaluation.AnswerEvaluator;
 import app.lingora.core.evaluation.RuleBasedAnswerEvaluator;
 import app.lingora.core.evaluation.StandardFormLexicon;
+import app.lingora.core.lesson.ExerciseBank;
 import app.lingora.core.lesson.LessonComposer;
-import app.lingora.core.lesson.RuleBasedLessonComposer;
+import app.lingora.core.lesson.RuleBasedComposer;
 import app.lingora.core.placement.PlacementEngineFactory;
 import app.lingora.core.placement.RuleBasedPlacementEngine;
 import app.lingora.core.plan.PlanGeneratorFactory;
 import app.lingora.core.plan.RuleBasedPlanGenerator;
 import java.time.Clock;
-import java.util.Random;
+import java.util.random.RandomGenerator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,13 +27,14 @@ class RuleBasedEngineConfig {
     }
 
     @Bean
-    LessonComposer lessonComposer(LessonProperties properties) {
-        return new RuleBasedLessonComposer(properties.random());
+    LessonComposer lessonComposer(LessonProperties properties, ExerciseBank bank) {
+        return new RuleBasedComposer(properties.random(), bank);
     }
 
     @Bean
-    PlacementEngineFactory placementEngineFactory() {
-        return itemBank -> new RuleBasedPlacementEngine(itemBank, new Random());
+    PlacementEngineFactory placementEngineFactory(PlacementProperties properties) {
+        RandomGenerator random = properties.random();
+        return itemBank -> new RuleBasedPlacementEngine(itemBank, random);
     }
 
     @Bean

@@ -1,53 +1,32 @@
 package app.lingora.core.lesson;
 
-import app.lingora.domain.ErrorEntry;
 import app.lingora.domain.Exercise;
 import app.lingora.domain.ExerciseType;
-import app.lingora.domain.LearnerProfile;
-import app.lingora.domain.SkillMastery;
-import app.lingora.domain.SrsCard;
-import app.lingora.domain.Unit;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.random.RandomGenerator;
 
-/**
- * Phase 1 composer: up to {@value #LESSON_SIZE} exercises of the unit, picked across all exercise types after a
- * shuffle and ordered by rising difficulty, avoiding the same type twice in a row where possible. Profile, mastery,
- * due reviews and errors are not used yet; the 60/25/15 mix of PRD F7 follows with the adaptivity milestone.
- */
-public final class RuleBasedLessonComposer implements LessonComposer {
+/** Selection across exercise types and the play order of a lesson: rising difficulty, types alternating. */
+final class LessonOrder {
 
-    public static final int LESSON_SIZE = 12;
-
-    private final RandomGenerator random;
-
-    public RuleBasedLessonComposer(RandomGenerator random) {
-        this.random = random;
+    private LessonOrder() {
     }
 
-    @Override
-    public List<Exercise> compose(Unit unit, LearnerProfile profile, SkillMastery mastery, List<SrsCard> due,
-                                  List<ErrorEntry> errors) {
-        List<Exercise> shuffled = new ArrayList<>(unit.exercises());
-        Collections.shuffle(shuffled, random);
-        return byRisingDifficulty(pickAcrossTypes(shuffled));
-    }
-
-    /** Takes one exercise of each type in turn, so that a lesson shows as many types as the unit offers. */
-    private static List<Exercise> pickAcrossTypes(List<Exercise> shuffled) {
-        Map<ExerciseType, Deque<Exercise>> byType = groupByType(shuffled);
+    /**
+     * Takes up to {@code count} exercises, one of each type in turn, so that a lesson shows as many types as the
+     * candidates offer; within a type the candidates keep their order.
+     */
+    static List<Exercise> acrossTypes(List<Exercise> candidates, int count) {
+        Map<ExerciseType, Deque<Exercise>> byType = groupByType(candidates);
         List<Exercise> picked = new ArrayList<>();
-        while (picked.size() < LESSON_SIZE && !byType.isEmpty()) {
+        while (picked.size() < count && !byType.isEmpty()) {
             var types = byType.values().iterator();
-            while (types.hasNext() && picked.size() < LESSON_SIZE) {
+            while (types.hasNext() && picked.size() < count) {
                 Deque<Exercise> ofType = types.next();
                 picked.add(ofType.removeFirst());
                 if (ofType.isEmpty()) {
@@ -58,7 +37,7 @@ public final class RuleBasedLessonComposer implements LessonComposer {
         return picked;
     }
 
-    private static List<Exercise> byRisingDifficulty(List<Exercise> picked) {
+    static List<Exercise> byRisingDifficulty(List<Exercise> picked) {
         Map<Integer, List<Exercise>> byDifficulty = new TreeMap<>();
         picked.forEach(exercise -> byDifficulty.computeIfAbsent(exercise.difficulty(), key -> new ArrayList<>()).add(exercise));
         List<Exercise> ordered = new ArrayList<>();
