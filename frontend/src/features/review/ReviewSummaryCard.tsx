@@ -24,31 +24,28 @@ const mascot: Record<ReviewState, MascotExpression> = {
 
 const count = (value: number) => value.toLocaleString('de-CH');
 
-/** The review tab's card (PRD F8): what is due now, tomorrow and in total, and one action. */
+/** The review tab's card (PRD F8): what is due now, tomorrow and in total, then one action. */
 export function ReviewSummaryCard({ summary, onStart, onLearn }: ReviewSummaryCardProps) {
   const state = reviewState(summary);
   const titleId = useId();
 
   return (
-    <Card
-      variant="raised"
-      padding="lg"
-      role="region"
-      aria-labelledby={titleId}
-      className="flex flex-col items-center gap-5 text-center"
-    >
-      <Mascot expression={mascot[state]} size="lg" />
-      <ReviewHeadline state={state} summary={summary} titleId={titleId} />
-      {state !== 'empty' && (
-        <div className="grid w-full grid-cols-2 gap-3">
-          <StatCard label={REVIEW_COPY.stats.tomorrow} icon={CalendarCheckIcon} tone="secondary">
-            {count(summary.dueTomorrow)}
-          </StatCard>
-          <StatCard label={REVIEW_COPY.stats.total} icon={CardsIcon} tone="primary">
-            {count(summary.totalCards)}
-          </StatCard>
-        </div>
-      )}
+    <section aria-labelledby={titleId} className="flex flex-col gap-5">
+      <Card variant="raised" padding="lg" className="flex flex-col items-center gap-5 text-center">
+        <Mascot expression={mascot[state]} size="lg" />
+        <ReviewHeadline state={state} summary={summary} titleId={titleId} />
+        {state !== 'empty' && (
+          <div className="grid w-full grid-cols-2 gap-3">
+            <StatCard label={REVIEW_COPY.stats.tomorrow} icon={CalendarCheckIcon} tone="secondary">
+              {count(summary.dueTomorrow)}
+            </StatCard>
+            <StatCard label={REVIEW_COPY.stats.total} icon={CardsIcon} tone="primary">
+              {count(summary.totalCards)}
+            </StatCard>
+          </div>
+        )}
+      </Card>
+      {/* Below the card, so the big label fits on one line at 360 px. */}
       {state === 'due' ? (
         <Button variant="primary" size="lg" fullWidth icon={ArrowsClockwiseIcon} onClick={onStart}>
           {REVIEW_COPY.due.start}
@@ -58,7 +55,7 @@ export function ReviewSummaryCard({ summary, onStart, onLearn }: ReviewSummaryCa
           {state === 'allDone' ? REVIEW_COPY.allDone.learn : REVIEW_COPY.empty.learn}
         </Button>
       )}
-    </Card>
+    </section>
   );
 }
 

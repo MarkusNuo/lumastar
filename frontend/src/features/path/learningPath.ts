@@ -41,6 +41,9 @@ export interface PathUnitModel {
 
 export interface PathCheckpointModel {
   id: string;
+  level: Level;
+  /** The level a pass leads to; absent for the last stage. */
+  nextLevel?: Level;
   status: PathNodeStatus;
   label: string;
   color: UnitColor;
@@ -64,7 +67,7 @@ const CHECKPOINT_STATUS: Record<CheckpointStatus, PathNodeStatus> = {
 
 export function buildLearningPath(path: LearningPath): PathStageModel[] {
   let unitIndex = 0;
-  return path.stages.map((stage) => {
+  const stages = path.stages.map((stage, stageIndex) => {
     let unitNumber = 0;
     const units = stage.units.map((unit) => {
       const color = unitColor(unit, unitIndex++);
@@ -77,9 +80,14 @@ export function buildLearningPath(path: LearningPath): PathStageModel[] {
       level: stage.level,
       title: stage.title,
       units,
-      checkpoint: toCheckpoint(stage, units.at(-1)?.color ?? 'violet'),
+      checkpoint: toCheckpoint(
+        stage,
+        path.stages[stageIndex + 1]?.level,
+        units.at(-1)?.color ?? 'violet',
+      ),
     };
   });
+  return withCheckpointAsNextStep(stages);
 }
 
 function unitColor(unit: LearningPathUnit, index: number): UnitColor {
@@ -132,13 +140,45 @@ function lessonStatus(unit: LearningPathUnit, lesson: number): PathNodeStatus {
   }
 }
 
-function toCheckpoint(stage: LearningPathStage, color: UnitColor): PathCheckpointModel {
+function toCheckpoint(
+  stage: LearningPathStage,
+  nextLevel: Level | undefined,
+  color: UnitColor,
+): PathCheckpointModel {
   return {
     id: `checkpoint-${stage.level}`,
+    level: stage.level,
+    nextLevel,
     status: CHECKPOINT_STATUS[stage.checkpoint.status],
     label: PATH_COPY.checkpointLabel(stage.level),
     color,
   };
+}
+
+/**
+ * The plan's next lesson may lie in a later stage while the checkpoint of an earlier one is open:
+ * then that checkpoint is the next step (it moves the learner up), and the lesson stays playable.
+ */
+function withCheckpointAsNextStep(stages: PathStageModel[]): PathStageModel[] {
+  const open = stages.findIndex((stage) => stage.checkpoint.status === 'available');
+  if (open < 0) return stages;
+  const currentStage = stages.findIndex((stage) =>
+    stage.units.some((unit) => unit.nodes.some((node) => node.status === 'current')),
+  );
+  if (currentStage >= 0 && currentStage <= open) return stages;
+  return stages.map((stage, index) => {
+    if (index === open) return { ...stage, checkpoint: { ...stage.checkpoint, status: 'current' } };
+    if (index !== currentStage) return stage;
+    return {
+      ...stage,
+      units: stage.units.map((unit) => ({
+        ...unit,
+        nodes: unit.nodes.map((node) =>
+          node.status === 'current' ? { ...node, status: 'available' } : node,
+        ),
+      })),
+    };
+  });
 }
 
 /** Whether any lesson can be started; above A2 the exercises are still being written. */

@@ -13,6 +13,8 @@ export const UI_COPY = {
     standard: { title: 'Richtig, aber Standard', solutionLabel: 'Auf Gheg' },
     wrong: { title: 'Nicht ganz', solutionLabel: 'Richtige Lösung' },
   },
+  bandBadge: (band: string, locked: boolean) =>
+    `Abzeichen ${band}${locked ? ', noch nicht verdient' : ''}`,
   levelBadge: (name: string, locked: boolean) =>
     `Niveau ${name}${locked ? ', noch nicht erreicht' : ''}`,
   mascot: {

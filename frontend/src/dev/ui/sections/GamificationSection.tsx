@@ -51,7 +51,7 @@ export function GamificationSection() {
         <StreakCounter days={12} active={false} />
         <StreakCounter days={1} active />
       </Specimen>
-      <Specimen label="Niveau-Abzeichen A0 bis C2">
+      <Specimen label="Niveau A0 bis C2 (obere Leiste, Einstufung)">
         {CEFR_LEVELS.map((level) => (
           <LevelBadge key={level} level={level} />
         ))}

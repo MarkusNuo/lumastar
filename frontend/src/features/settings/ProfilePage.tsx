@@ -3,6 +3,7 @@ import { Button } from '../../components/ui/Button';
 import { Callout } from '../../components/ui/Callout';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { useLogout, useMe } from '../auth/authHooks';
+import { BadgesSection } from './BadgesSection';
 import { PROFILE_COPY } from './copy';
 import { DeviceSettingsSection } from './DeviceSettingsSection';
 import { LearningDataSection } from './LearningDataSection';
@@ -10,7 +11,7 @@ import { LearningSection } from './LearningSection';
 import { ProfileHeader } from './ProfileHeader';
 
 /**
- * Profile tab: who is learning, the plan and a new placement, the learning data (PRD F11), the
+ * Profile tab: who is learning, the level badges, the plan and a new placement, the learning data (PRD F11), the
  * settings of this device and the way out.
  */
 export function ProfilePage() {
@@ -31,6 +32,7 @@ export function ProfilePage() {
       ) : (
         <LoadingBlock label={PROFILE_COPY.loading} className="h-56" />
       )}
+      <BadgesSection />
       <LearningSection />
       <LearningDataSection />
       <DeviceSettingsSection />

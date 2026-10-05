@@ -5,7 +5,7 @@ import { LevelBadgePop } from '../../../components/ui/LevelBadgePop';
 import { ProgressBar } from '../../../components/ui/ProgressBar';
 import { PLACEMENT_COPY } from '../../../features/placement/copy';
 import { SkillList } from '../../../features/placement/reveal/SkillList';
-import { useRevealMoment } from '../../../features/placement/reveal/useRevealMoment';
+import { useRevealMoment } from '../../../lib/useRevealMoment';
 import { SAMPLE_PLACEMENT_RESULT } from '../../../features/placement/samplePlacement';
 import { PlanChangeList } from '../../../features/plan/PlanHistory';
 import { PlanTimeline } from '../../../features/plan/PlanTimeline';

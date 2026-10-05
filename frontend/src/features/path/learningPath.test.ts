@@ -68,9 +68,11 @@ describe('buildLearningPath', () => {
     ]);
   });
 
-  it('ends every stage with its checkpoint, locked until checkpoints arrive', () => {
+  it('ends every stage with its checkpoint, locked while units of the stage are open', () => {
     expect(a12?.checkpoint).toEqual({
       id: 'checkpoint-A1.2',
+      level: 'A1.2',
+      nextLevel: 'A1.3',
       status: 'locked',
       label: 'Checkpoint A1.2',
       color: 'indigo',
@@ -106,6 +108,56 @@ describe('buildLearningPath', () => {
       'completed',
     ]);
     expect(stage?.checkpoint.status).toBe('completed');
+  });
+});
+
+describe('buildLearningPath with an open checkpoint', () => {
+  const [first, second] = SAMPLE_PATH.stages;
+  if (!first || !second) throw new Error('The sample path needs two stages');
+  const done = (stage: typeof first) => ({
+    ...stage,
+    checkpoint: { status: 'available' as const },
+    units: stage.units.map((unit) => ({
+      ...unit,
+      status: 'completed' as const,
+      lessonsCompleted: unit.estimatedLessons,
+    })),
+  });
+  const inProgress = {
+    ...second,
+    units: second.units.map((unit, index) => ({
+      ...unit,
+      status: index === 0 ? ('in_progress' as const) : ('planned' as const),
+      lessonsCompleted: 0,
+      hasContent: true,
+    })),
+  };
+
+  it('makes an open checkpoint before the next lesson the next step', () => {
+    const [stage, next] = buildLearningPath({ ...SAMPLE_PATH, stages: [done(first), inProgress] });
+
+    expect(stage?.checkpoint.status).toBe('current');
+    const nodes = next?.units.flatMap((unit) => unit.nodes.map((node) => node.status)) ?? [];
+    expect(nodes).not.toContain('current');
+    expect(nodes[0], 'the lesson stays playable').toBe('available');
+  });
+
+  it('keeps the checkpoint open but not current when the next lesson comes first', () => {
+    const [stage, later] = buildLearningPath({
+      ...SAMPLE_PATH,
+      stages: [first, done(second)],
+    });
+
+    expect(later?.checkpoint.status).toBe('available');
+    expect(stage?.units.some((unit) => unit.nodes.some((node) => node.status === 'current'))).toBe(
+      true,
+    );
+  });
+
+  it('names no next level after the last stage', () => {
+    const stages = buildLearningPath(SAMPLE_PATH);
+
+    expect(stages.at(-1)?.checkpoint).toMatchObject({ level: 'C2.3', nextLevel: undefined });
   });
 });
 

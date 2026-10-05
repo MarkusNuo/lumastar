@@ -1,12 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useNavigate } from 'react-router';
 import type { LearningPath } from '../../api/types';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { MascotMessage } from '../../components/ui/MascotMessage';
 import { PathNode } from '../../components/ui/PathNode';
+import { cx } from '../../lib/cx';
+import { CheckpointIntroSheet, type CheckpointIntro } from '../checkpoint/CheckpointIntroSheet';
+import { checkpointRoute } from '../checkpoint/checkpointRoutes';
+import { CHECKPOINT_COPY } from '../checkpoint/copy';
 import { pathQuery } from '../plan/planQueries';
 import { PATH_COPY } from './copy';
-import { buildLearningPath, hasPlayableLesson, type PathStageModel } from './learningPath';
+import {
+  buildLearningPath,
+  hasPlayableLesson,
+  type PathCheckpointModel,
+  type PathStageModel,
+} from './learningPath';
 import { PlanTeaser } from './PlanTeaser';
 import { UnitPath } from './UnitPath';
 
@@ -35,6 +45,14 @@ export function LearningPathPage() {
 
 function LearningPathStages({ path }: { path: LearningPath }) {
   const stages = useMemo(() => buildLearningPath(path), [path]);
+  const navigate = useNavigate();
+  const [intro, setIntro] = useState<CheckpointIntro>();
+  const [introOpen, setIntroOpen] = useState(false);
+  const openIntro = (checkpoint: PathCheckpointModel) => {
+    setIntro({ level: checkpoint.level, nextLevel: checkpoint.nextLevel });
+    setIntroOpen(true);
+  };
+
   return (
     <>
       <PlanTeaser path={path} />
@@ -47,8 +65,14 @@ function LearningPathStages({ path }: { path: LearningPath }) {
         </MascotMessage>
       )}
       {stages.map((stage) => (
-        <StageSection key={stage.level} stage={stage} />
+        <StageSection key={stage.level} stage={stage} onOpenCheckpoint={openIntro} />
       ))}
+      <CheckpointIntroSheet
+        open={introOpen}
+        checkpoint={intro}
+        onClose={() => setIntroOpen(false)}
+        onStart={(level) => void navigate(checkpointRoute(level))}
+      />
     </>
   );
 }
@@ -63,8 +87,15 @@ function useScrollToCurrentNode(ready: boolean) {
   }, [ready]);
 }
 
-function StageSection({ stage }: { stage: PathStageModel }) {
+interface StageSectionProps {
+  stage: PathStageModel;
+  onOpenCheckpoint: (checkpoint: PathCheckpointModel) => void;
+}
+
+function StageSection({ stage, onOpenCheckpoint }: StageSectionProps) {
   const { checkpoint } = stage;
+  // Locked ones shake their head; a passed one has nothing more to take.
+  const startable = checkpoint.status === 'available' || checkpoint.status === 'current';
   return (
     <section aria-label={PATH_COPY.stage(stage.level, stage.title)} className="flex flex-col gap-8">
       <h2 className="flex items-center gap-3 text-caption font-black tracking-wider text-fg-subtle uppercase before:h-0.5 before:flex-1 before:bg-border after:h-0.5 after:flex-1 after:bg-border">
@@ -73,13 +104,14 @@ function StageSection({ stage }: { stage: PathStageModel }) {
       {stage.units.map((unit) => (
         <UnitPath key={unit.id} unit={unit} />
       ))}
-      {/* The test at the end of the stage; its flow arrives with M4, until then it stays locked. */}
-      <div className="flex justify-center pb-2">
+      <div className={cx('flex justify-center pb-2', checkpoint.status === 'current' && 'pt-12')}>
         <PathNode
           kind="checkpoint"
           status={checkpoint.status}
           color={checkpoint.color}
           label={checkpoint.label}
+          bubbleLabel={CHECKPOINT_COPY.bubble}
+          onClick={startable ? () => onOpenCheckpoint(checkpoint) : undefined}
         />
       </div>
     </section>

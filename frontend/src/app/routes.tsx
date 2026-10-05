@@ -1,6 +1,8 @@
 import type { RouteObject } from 'react-router';
 import { AuthGuard } from '../features/auth/AuthGuard';
 import { LoginPage } from '../features/auth/LoginPage';
+import { CheckpointPage } from '../features/checkpoint/CheckpointPage';
+import { CHECKPOINT_ROUTE } from '../features/checkpoint/checkpointRoutes';
 import { LessonPage } from '../features/lesson/LessonPage';
 import { OnboardingGuard } from '../features/onboarding/OnboardingGuard';
 import { OnboardingPage } from '../features/onboarding/OnboardingPage';
@@ -47,6 +49,7 @@ export const routes: RouteObject[] = [
           // Full screens without the app navigation: one task per screen (PRD 12.1).
           { path: '/lesson/:unitId', Component: LessonPage },
           { path: REVIEW_ROUTES.lesson, Component: ReviewLessonPage },
+          { path: CHECKPOINT_ROUTE, Component: CheckpointPage },
           { path: ONBOARDING_ROUTES.questions, Component: OnboardingPage },
           { path: ONBOARDING_ROUTES.placementIntro, Component: PlacementIntroPage },
           { path: ONBOARDING_ROUTES.placementTest, Component: PlacementTestPage },

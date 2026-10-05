@@ -12,7 +12,7 @@ import type { StandardFormLexicon } from './evaluation/standardFormLexicon';
 import { ExerciseScreen } from './ExerciseScreen';
 import { seedFrom } from './exercises/shuffle';
 import type { Lesson, LessonResult } from './model';
-import { LessonResultScreen } from './result/LessonResultScreen';
+import { LessonEnd } from './result/LessonEnd';
 import { isComboMilestone } from './session/lessonQueue';
 import { useLessonSession } from './session/useLessonSession';
 import { useAnswerCue } from './useAnswerCue';
@@ -47,7 +47,7 @@ export function LessonPlayer({
 
   if (completion.status === 'finished') {
     return (
-      <LessonResultScreen
+      <LessonEnd
         result={completion.result}
         onContinue={() => onFinish(completion.result)}
         onStartFocus={onStartFocus}

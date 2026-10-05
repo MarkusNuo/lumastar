@@ -10,6 +10,14 @@ export interface LevelParts {
 
 const SUBLEVELS: Record<string, LevelSublevel> = { '1': 1, '2': 2, '3': 3 };
 
+/** The shape of every Level: A0, or a band from A1 to C2 with sub-stage 1 to 3. */
+const LEVEL_PATTERN = /^(?:A0|[ABC][12]\.[123])$/u;
+
+/** For levels from outside the API, e.g. a URL. */
+export function isLevel(value: string): value is Level {
+  return LEVEL_PATTERN.test(value);
+}
+
 /** "A1.2" → { level: 'A1', sublevel: 2 }; "A0" has no sub-stages. */
 export function parseLevel(level: Level): LevelParts {
   const [cefr, sub] = level.split('.');

@@ -1,18 +1,16 @@
 import { SparkleIcon, TargetIcon } from '@phosphor-icons/react';
 import { motion } from 'motion/react';
-import { useEffect, useRef } from 'react';
 import type { PlacementResult } from '../../../api/types';
 import { parseLevel } from '../../../app/learnerStats';
 import { Button } from '../../../components/ui/Button';
 import { FocusScreen } from '../../../components/ui/FocusScreen';
 import { LevelBadgePop } from '../../../components/ui/LevelBadgePop';
 import { Mascot } from '../../../components/ui/Mascot';
-import { celebrate } from '../../../lib/celebrate';
-import { playCue } from '../../../lib/effects/playCue';
+import { useCelebration } from '../../../lib/useCelebration';
 import { durations, springs } from '../../../styles/motion';
 import { PLACEMENT_COPY } from '../copy';
 import { SkillList } from './SkillList';
-import { useRevealMoment } from './useRevealMoment';
+import { useRevealMoment } from '../../../lib/useRevealMoment';
 
 const copy = PLACEMENT_COPY.reveal;
 
@@ -30,7 +28,7 @@ const shown = { opacity: 1, y: 0 };
  */
 export function LevelReveal({ result, onContinue }: LevelRevealProps) {
   const revealed = useRevealMoment();
-  useCelebration(revealed);
+  useCelebration(revealed, 'levelUp');
   const { level, sublevel } = parseLevel(result.level);
   const details = { ...springs.gentle, delay: durations.base };
 
@@ -90,15 +88,4 @@ export function LevelReveal({ result, onContinue }: LevelRevealProps) {
       )}
     </FocusScreen>
   );
-}
-
-/** Confetti and the level-up sound once the level shows; celebrate() skips reduced motion. */
-function useCelebration(revealed: boolean) {
-  const celebrated = useRef(false);
-  useEffect(() => {
-    if (!revealed || celebrated.current) return;
-    celebrated.current = true;
-    celebrate();
-    playCue('levelUp');
-  }, [revealed]);
 }

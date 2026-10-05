@@ -53,7 +53,11 @@ const summaryResponse = () =>
 type Routes = Parameters<typeof stubApi>[0];
 
 function renderProfile(routes: Routes = {}) {
-  const requests = stubApi({ 'GET /api/me': () => jsonResponse(PROFILE), ...routes });
+  const requests = stubApi({
+    'GET /api/me': () => jsonResponse(PROFILE),
+    'GET /api/badges': () => jsonResponse([]),
+    ...routes,
+  });
   const user = userEvent.setup();
   const router = createMemoryRouter(
     [
@@ -103,6 +107,22 @@ describe('ProfilePage', () => {
     expect(screen.getByText('Niveau A1.2')).toBeInTheDocument();
     expect(screen.getByText(`${(1234).toLocaleString('de-CH')} XP`)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Abmelden' })).toBeEnabled();
+  });
+
+  it('shows the earned level badges and the ones still to reach', async () => {
+    renderProfile({
+      'GET /api/badges': () => jsonResponse([{ code: 'A1', awardedAt: '2026-10-05T09:30:00Z' }]),
+    });
+
+    const section = await screen.findByRole('region', { name: 'Abzeichen' });
+    expect(await within(section).findByRole('img', { name: 'Abzeichen A1' })).toBeInTheDocument();
+    expect(within(section).getByText('seit 05.10.2026')).toBeInTheDocument();
+    expect(
+      within(section).getAllByRole('img', {
+        name: /^Abzeichen (A2|B1|B2|C1|C2), noch nicht verdient$/,
+      }),
+    ).toHaveLength(5);
+    expect(within(section).getAllByText('noch offen')).toHaveLength(5);
   });
 
   it('starts a new placement from "Neu einstufen"', async () => {

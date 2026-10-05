@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { celebrate } from '../../../lib/celebrate';
 import { SAMPLE_PLACEMENT_RESULT } from '../samplePlacement';
 import { LevelReveal } from './LevelReveal';
-import { REVEAL_DELAY_MS } from './useRevealMoment';
+import { REVEAL_DELAY_MS } from '../../../lib/useRevealMoment';
 
 vi.mock('../../../lib/celebrate', () => ({ celebrate: vi.fn() }));
 

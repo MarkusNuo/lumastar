@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Profile } from '../api/types';
-import { parseLevel, topBarStats } from './learnerStats';
+import { isLevel, parseLevel, topBarStats } from './learnerStats';
 
 const PROFILE: Profile = {
   displayName: 'Erza',
@@ -18,6 +18,16 @@ describe('parseLevel', () => {
 
   it('keeps A0 without sub-stage', () => {
     expect(parseLevel('A0')).toEqual({ level: 'A0' });
+  });
+});
+
+describe('isLevel', () => {
+  it.each(['A0', 'A1.1', 'B2.3', 'C2.3'])('accepts %s', (value) => {
+    expect(isLevel(value)).toBe(true);
+  });
+
+  it.each(['', 'A1', 'A0.1', 'D1.1', 'C3.1', 'A1.4', 'a1.2', 'A1.2x'])('rejects %j', (value) => {
+    expect(isLevel(value)).toBe(false);
   });
 });
 

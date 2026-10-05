@@ -14,3 +14,15 @@ export const levelTone: Record<CefrLevel, Tone> = {
   C1: 'unit-rose',
   C2: 'xp',
 };
+
+/** The CEFR bands with a level badge (Niveau-Abzeichen), earned at their last checkpoint (PRD F9). */
+export const BADGE_BANDS = [
+  'A1',
+  'A2',
+  'B1',
+  'B2',
+  'C1',
+  'C2',
+] as const satisfies readonly CefrLevel[];
+
+export type BadgeBand = (typeof BADGE_BANDS)[number];

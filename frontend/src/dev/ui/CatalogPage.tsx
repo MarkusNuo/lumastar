@@ -17,7 +17,7 @@ import { PathSection } from './sections/PathSection';
 import { PlacementPlanSection } from './sections/PlacementPlanSection';
 import { ProgressSection } from './sections/ProgressSection';
 import { ResultSection } from './sections/ResultSection';
-import { ReviewSection } from './sections/ReviewSection';
+import { ReviewCheckpointSection } from './sections/ReviewCheckpointSection';
 import { SurfacesSection } from './sections/SurfacesSection';
 import { WordTilesSection } from './sections/WordTilesSection';
 
@@ -33,7 +33,7 @@ const SECTIONS = [
   { id: 'uebungen', title: 'Übungen', Content: ExercisesSection },
   { id: 'lektionsende', title: 'Lektionsende', Content: ResultSection },
   { id: 'lernpfad', title: 'Lernpfad', Content: PathSection },
-  { id: 'wiederholen', title: 'Wiederholen', Content: ReviewSection },
+  { id: 'wiederholen', title: 'Wiederholen & Checkpoints', Content: ReviewCheckpointSection },
   { id: 'einstufung', title: 'Einstufung & Lernplan', Content: PlacementPlanSection },
   { id: 'belohnung', title: 'Streak, XP & Niveau', Content: GamificationSection },
   { id: 'navigation', title: 'Navigation', Content: NavigationSection },
