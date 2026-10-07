@@ -1,17 +1,26 @@
-import type { AuthStatus } from '../../api/types';
+import type { AuthStatus } from './interimApi';
 
-/** The three parts of the app; each one is only reachable in its matching auth state. */
-export type AuthArea = 'setup' | 'signedOut' | 'signedIn';
+/** Routes of the signed-out area; the two token links are the paths the backend's mails use. */
+export const AUTH_ROUTES = {
+  welcome: '/willkommen',
+  register: '/registrieren',
+  login: '/anmelden',
+  legacyLogin: '/anmelden/frueheres-konto',
+  forgotPassword: '/passwort-vergessen',
+  resetPassword: '/reset-password',
+  verifyEmail: '/verify-email',
+} as const;
+
+/** The two parts of the app; each one is only reachable in its matching auth state. */
+export type AuthArea = 'signedOut' | 'signedIn';
 
 export const AREA_ENTRY: Record<AuthArea, string> = {
-  setup: '/setup',
-  signedOut: '/login',
+  signedOut: AUTH_ROUTES.welcome,
   signedIn: '/',
 };
 
 export function areaFor(status: AuthStatus): AuthArea {
-  if (status.authenticated) return 'signedIn';
-  return status.setupRequired ? 'setup' : 'signedOut';
+  return status.authenticated ? 'signedIn' : 'signedOut';
 }
 
 /** Where to send the user when `area` does not match the auth state, or undefined to stay. */

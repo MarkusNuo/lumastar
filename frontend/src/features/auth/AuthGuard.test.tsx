@@ -1,38 +1,36 @@
 import { screen } from '@testing-library/react';
-import { createMemoryRouter, RouterProvider } from 'react-router';
 import { describe, expect, it } from 'vitest';
-import type { AuthStatus } from '../../api/types';
-import { jsonResponse, renderWithQueryClient, stubApi } from '../../test/http';
+import { authStatus } from '../../test/fixtures';
+import { jsonResponse, stubApi } from '../../test/http';
+import { renderRoutes, screenNamed } from '../../test/router';
 import { AuthGuard } from './AuthGuard';
 import { authRedirect, type AuthArea } from './authRoutes';
+import type { AuthStatus } from './interimApi';
 
-const SETUP_REQUIRED: AuthStatus = { authenticated: false, setupRequired: true };
-const SIGNED_OUT: AuthStatus = { authenticated: false, setupRequired: false };
-const SIGNED_IN: AuthStatus = { authenticated: true, setupRequired: false, displayName: 'Erza' };
+const SIGNED_OUT = authStatus();
+const SIGNED_IN = authStatus({ authenticated: true, displayName: 'Erza' });
 
 function renderApp(path: string) {
-  const router = createMemoryRouter(
+  return renderRoutes(
     [
       {
-        element: <AuthGuard area="setup" />,
-        children: [{ path: '/setup', element: <h1>Einrichtung</h1> }],
-      },
-      {
         element: <AuthGuard area="signedOut" />,
-        children: [{ path: '/login', element: <h1>Anmeldung</h1> }],
+        children: [
+          { path: '/willkommen', element: screenNamed('Willkommen') },
+          { path: '/anmelden', element: screenNamed('Anmeldung') },
+          { path: '/registrieren', element: screenNamed('Registrierung') },
+        ],
       },
       {
         element: <AuthGuard area="signedIn" />,
         children: [
-          { path: '/', element: <h1>Lernpfad</h1> },
-          { path: '/profil', element: <h1>Profil</h1> },
+          { path: '/', element: screenNamed('Lernpfad') },
+          { path: '/profil', element: screenNamed('Profil') },
         ],
       },
     ],
-    { initialEntries: [path] },
-  );
-  renderWithQueryClient(<RouterProvider router={router} />);
-  return router;
+    path,
+  ).router;
 }
 
 function answerStatus(status: AuthStatus) {
@@ -40,37 +38,24 @@ function answerStatus(status: AuthStatus) {
 }
 
 describe('AuthGuard', () => {
-  it('sends a fresh instance to the setup', async () => {
-    answerStatus(SETUP_REQUIRED);
-    const router = renderApp('/');
-
-    expect(await screen.findByRole('heading', { name: 'Einrichtung' })).toBeInTheDocument();
-    expect(router.state.location.pathname).toBe('/setup');
-  });
-
-  it('sends a signed-out visitor to the login', async () => {
+  it('sends a visitor without a session to the welcome screen', async () => {
     answerStatus(SIGNED_OUT);
     const router = renderApp('/profil');
 
-    expect(await screen.findByRole('heading', { name: 'Anmeldung' })).toBeInTheDocument();
-    expect(router.state.location.pathname).toBe('/login');
+    expect(await screen.findByRole('heading', { name: 'Willkommen' })).toBeInTheDocument();
+    expect(router.state.location.pathname).toBe('/willkommen');
   });
 
-  it('keeps the setup closed once an account exists', async () => {
-    answerStatus(SIGNED_OUT);
-    const router = renderApp('/setup');
+  it.each(['/willkommen', '/anmelden', '/registrieren'])(
+    'sends a signed-in user from %s into the app',
+    async (path) => {
+      answerStatus(SIGNED_IN);
+      const router = renderApp(path);
 
-    expect(await screen.findByRole('heading', { name: 'Anmeldung' })).toBeInTheDocument();
-    expect(router.state.location.pathname).toBe('/login');
-  });
-
-  it('sends a signed-in user from the login into the app', async () => {
-    answerStatus(SIGNED_IN);
-    const router = renderApp('/login');
-
-    expect(await screen.findByRole('heading', { name: 'Lernpfad' })).toBeInTheDocument();
-    expect(router.state.location.pathname).toBe('/');
-  });
+      expect(await screen.findByRole('heading', { name: 'Lernpfad' })).toBeInTheDocument();
+      expect(router.state.location.pathname).toBe('/');
+    },
+  );
 
   it('lets a signed-in user open the requested page', async () => {
     answerStatus(SIGNED_IN);
@@ -98,13 +83,8 @@ describe('AuthGuard', () => {
 
 describe('authRedirect', () => {
   it.each<[AuthStatus, AuthArea, string | undefined]>([
-    [SETUP_REQUIRED, 'setup', undefined],
-    [SETUP_REQUIRED, 'signedOut', '/setup'],
-    [SETUP_REQUIRED, 'signedIn', '/setup'],
-    [SIGNED_OUT, 'setup', '/login'],
     [SIGNED_OUT, 'signedOut', undefined],
-    [SIGNED_OUT, 'signedIn', '/login'],
-    [SIGNED_IN, 'setup', '/'],
+    [SIGNED_OUT, 'signedIn', '/willkommen'],
     [SIGNED_IN, 'signedOut', '/'],
     [SIGNED_IN, 'signedIn', undefined],
   ])('status %o in area %s redirects to %s', (status, area, expected) => {

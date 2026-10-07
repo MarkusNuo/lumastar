@@ -5,7 +5,24 @@ import type {
   Profile,
   Streak,
 } from '../api/types';
+import type { Account, AuthStatus } from '../features/auth/interimApi';
 import { SAMPLE_MULTIPLE_CHOICE } from '../features/lesson/sampleExercises';
+
+/** GET /api/auth/status of a visitor without a session on an installation open for everyone. */
+export function authStatus(fields: Partial<AuthStatus> = {}): AuthStatus {
+  return { authenticated: false, registrationMode: 'open', legacyLoginAvailable: false, ...fields };
+}
+
+/** GET /api/account of a learner with a confirmed address. */
+export function account(fields: Partial<Account> = {}): Account {
+  return {
+    email: 'erza@example.ch',
+    emailVerified: true,
+    displayName: 'Erza',
+    createdAt: '2026-10-07T08:00:00Z',
+    ...fields,
+  };
+}
 
 /** A learner right after creating the account; override what a test needs. */
 export function profile(fields: Partial<Profile> = {}): Profile {

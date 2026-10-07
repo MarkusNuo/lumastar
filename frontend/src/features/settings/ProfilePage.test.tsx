@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ImportResult, Profile } from '../../api/types';
 import { Toaster } from '../../components/ui/Toast';
 import { useToastStore } from '../../components/ui/toastStore';
-import { ONBOARDING_OPTIONS } from '../../test/fixtures';
+import { account, ONBOARDING_OPTIONS } from '../../test/fixtures';
 import { jsonResponse, problemResponse, renderWithQueryClient, stubApi } from '../../test/http';
 import { switchToNodeFileApi } from '../../test/nodeFileApi';
 import { SAMPLE_PATH } from '../plan/samplePlan';
@@ -63,6 +63,7 @@ function renderProfile(routes: Routes = {}) {
       jsonResponse({ dailyGoalMinutes: 10, requestRetention: 0.9, timeZone: 'Europe/Zurich' }),
     'GET /api/onboarding/options': () => jsonResponse(ONBOARDING_OPTIONS),
     'GET /api/path': () => jsonResponse(SAMPLE_PATH),
+    'GET /api/account': () => jsonResponse(account()),
     ...routes,
   });
   const user = userEvent.setup();

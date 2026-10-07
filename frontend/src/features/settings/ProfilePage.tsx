@@ -2,7 +2,9 @@ import { SignOutIcon } from '@phosphor-icons/react';
 import { Button } from '../../components/ui/Button';
 import { Callout } from '../../components/ui/Callout';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
+import { AccountSection } from '../account/AccountSection';
 import { useLogout, useMe } from '../auth/authHooks';
+import { LegalLinks } from '../legal/LegalLinks';
 import { BadgesSection } from './BadgesSection';
 import { PROFILE_COPY } from './copy';
 import { LearningDataSection } from './LearningDataSection';
@@ -12,7 +14,8 @@ import { SettingsSection } from './SettingsSection';
 
 /**
  * Profile tab: who is learning, the level badges, the plan and a new placement, the learning data
- * (PRD F11), the settings (daily goal, sounds, vibration, target retention) and the way out.
+ * (PRD F11), the settings (daily goal, sounds, vibration, target retention), the account and the
+ * way out.
  */
 export function ProfilePage() {
   const me = useMe();
@@ -36,6 +39,7 @@ export function ProfilePage() {
       <LearningSection />
       <LearningDataSection />
       <SettingsSection />
+      <AccountSection />
       {logout.isError && <Callout tone="danger">{PROFILE_COPY.logoutFailed}</Callout>}
       <Button
         variant="neutral"
@@ -47,6 +51,7 @@ export function ProfilePage() {
       >
         {PROFILE_COPY.logout}
       </Button>
+      <LegalLinks />
     </div>
   );
 }

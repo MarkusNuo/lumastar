@@ -56,6 +56,8 @@ export interface ActionRowProps extends Omit<
   tone?: Tone;
   label: string;
   description?: string;
+  /** Shown below the description, e.g. a status chip; never interactive. */
+  status?: ReactNode;
   /** Shows animated dots instead of the caret and ignores clicks. */
   loading?: boolean;
 }
@@ -66,6 +68,7 @@ export function ActionRow({
   tone = 'primary',
   label,
   description,
+  status,
   loading = false,
   disabled = false,
   type = 'button',
@@ -76,6 +79,8 @@ export function ActionRow({
   const id = useId();
   const labelId = `${id}-label`;
   const descriptionId = `${id}-description`;
+  const statusId = `${id}-status`;
+  const describedBy = cx(description && descriptionId, status !== undefined && statusId);
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     if (loading) return;
@@ -89,7 +94,7 @@ export function ActionRow({
         type={type}
         disabled={disabled}
         aria-labelledby={labelId}
-        aria-describedby={description ? descriptionId : undefined}
+        aria-describedby={describedBy || undefined}
         aria-disabled={loading || undefined}
         aria-busy={loading || undefined}
         onClick={handleClick}
@@ -104,8 +109,16 @@ export function ActionRow({
             {label}
           </span>
           {description && (
-            <span id={descriptionId} className="block text-caption font-bold text-fg-muted">
+            <span
+              id={descriptionId}
+              className="block text-caption font-bold wrap-break-word text-fg-muted"
+            >
               {description}
+            </span>
+          )}
+          {status !== undefined && (
+            <span id={statusId} className="mt-1 flex">
+              {status}
             </span>
           )}
         </span>

@@ -2,6 +2,7 @@ import { ArrowLeftIcon } from '@phosphor-icons/react';
 import { Link } from 'react-router';
 import { buttonClass } from '../../components/ui/buttonStyles';
 import { CatalogSection } from './CatalogSection';
+import { AccountSection } from './sections/AccountSection';
 import { ButtonsSection } from './sections/ButtonsSection';
 import { ChoicesSection } from './sections/ChoicesSection';
 import { ColorsSection } from './sections/ColorsSection';
@@ -38,6 +39,7 @@ const SECTIONS = [
   { id: 'einstufung', title: 'Einstufung & Lernplan', Content: PlacementPlanSection },
   { id: 'belohnung', title: 'Streak, XP & Niveau', Content: GamificationSection },
   { id: 'statistik', title: 'Statistik', Content: StatisticsSection },
+  { id: 'konto', title: 'Konto & Anmeldung', Content: AccountSection },
   { id: 'navigation', title: 'Navigation', Content: NavigationSection },
   { id: 'listen', title: 'Listen, Sheets & Toasts', Content: ListsSection },
   { id: 'maskottchen', title: 'Maskottchen', Content: MascotSection },

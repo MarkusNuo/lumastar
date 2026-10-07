@@ -1,7 +1,7 @@
 import { ArrowLeftIcon } from '@phosphor-icons/react';
 import { IconButton } from '../../components/ui/IconButton';
 import { ProgressBar } from '../../components/ui/ProgressBar';
-import { SETUP_COPY } from './copy';
+import { ONBOARDING_COPY } from './copy';
 import {
   COUNTED_STEPS,
   stepProgress,
@@ -24,7 +24,7 @@ export function StepHeader({ step, onBack, backDisabled = false }: StepHeaderPro
       {onBack ? (
         <IconButton
           icon={ArrowLeftIcon}
-          label={SETUP_COPY.back}
+          label={ONBOARDING_COPY.back}
           variant="ghost"
           disabled={backDisabled}
           onClick={onBack}
@@ -34,10 +34,10 @@ export function StepHeader({ step, onBack, backDisabled = false }: StepHeaderPro
         <span aria-hidden="true" className="size-12 shrink-0" />
       )}
       <ProgressBar
-        label={SETUP_COPY.progressLabel}
+        label={ONBOARDING_COPY.progressLabel}
         value={progress.value}
         max={progress.max}
-        valueText={SETUP_COPY.progressValue(progress.number, COUNTED_STEPS)}
+        valueText={ONBOARDING_COPY.progressValue(progress.number, COUNTED_STEPS)}
       />
     </>
   );

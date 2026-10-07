@@ -4,26 +4,24 @@ import {
   useMutation,
   useQuery,
   useQueryClient,
+  type QueryClient,
 } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { isApiError } from '../../api/ApiError';
-import { api, unwrap } from '../../api/client';
-import type { AuthStatus, SetupRequest } from '../../api/types';
 import { onUnauthorized } from '../../api/unauthorized';
+import { call, type AuthStatus, type Me, type RegisterRequest } from './interimApi';
 
 export const authStatusQuery = queryOptions({
   queryKey: ['auth', 'status'],
-  queryFn: () => unwrap(api.GET('/api/auth/status')),
-  // Only changes through setup, login, logout or a 401, and each of those refreshes it explicitly.
+  queryFn: () => call<AuthStatus>('GET', '/api/auth/status'),
+  // Only changes through sign-in, registration, sign-out or a 401; each of them refreshes it.
   staleTime: Infinity,
 });
 
 export const meQuery = queryOptions({
   queryKey: ['me'],
-  queryFn: () => unwrap(api.GET('/api/me')),
+  queryFn: () => call<Me>('GET', '/api/me'),
 });
-
-const SIGNED_OUT: AuthStatus = { authenticated: false, setupRequired: false };
 
 export function useAuthStatus() {
   return useQuery(authStatusQuery);
@@ -33,36 +31,59 @@ export function useMe() {
   return useQuery(meQuery);
 }
 
-export function useSetupAccount() {
+export interface Credentials {
+  email: string;
+  password: string;
+}
+
+/**
+ * Signs in and keeps the mutation pending until the guards can leave the sign-in screen, which
+ * unmounts it: whatever should happen on success therefore runs in `onSignedIn`, before that.
+ */
+function useSignIn<Variables>(
+  request: (variables: Variables) => Promise<unknown>,
+  onSignedIn?: (variables: Variables) => void,
+) {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (request: SetupRequest) => unwrap(api.POST('/api/auth/setup', { body: request })),
-    onSuccess: (profile) => {
-      queryClient.setQueryData(meQuery.queryKey, profile);
-      queryClient.setQueryData(authStatusQuery.queryKey, {
-        authenticated: true,
-        setupRequired: false,
-        displayName: profile.displayName,
-      });
+    mutationFn: async (variables: Variables) => {
+      await request(variables);
     },
-    onError: (error) => {
-      // Someone else finished the setup in the meantime: the refreshed status leads to the login.
-      if (isApiError(error, 'account_exists')) {
-        void queryClient.invalidateQueries({ queryKey: authStatusQuery.queryKey });
-      }
+    onSuccess: (_, variables) => {
+      onSignedIn?.(variables);
+      return queryClient.invalidateQueries({ queryKey: authStatusQuery.queryKey });
     },
   });
 }
 
 export function useLogin() {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: async (password: string) => {
-      await api.POST('/api/auth/login', { body: { password } });
-    },
-    // Returning the refetch keeps the mutation pending until the guards can leave the login screen.
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: authStatusQuery.queryKey }),
+  return useSignIn((credentials: Credentials) => call('POST', '/api/auth/login', credentials));
+}
+
+/** The account of the former single-user version signs in with its password alone. */
+export function useLegacyLogin() {
+  return useSignIn((password: string) => call('POST', '/api/auth/login', { password }));
+}
+
+/** Creates the account and signs in; the verification mail is on its way. */
+export function useRegister(onCreated: (request: RegisterRequest) => void) {
+  return useSignIn(
+    (request: RegisterRequest) => call('POST', '/api/auth/register', request),
+    onCreated,
+  );
+}
+
+/** Forgets everything of the session except the auth status, which turns to signed out. */
+export function endSession(queryClient: QueryClient): void {
+  queryClient.setQueryData(
+    authStatusQuery.queryKey,
+    (status) => status && { ...status, authenticated: false, displayName: undefined },
+  );
+  queryClient.removeQueries({
+    predicate: (query) => !matchQuery({ queryKey: authStatusQuery.queryKey }, query),
   });
+  // Registration mode and legacy sign-in may have changed while signed in.
+  void queryClient.invalidateQueries({ queryKey: authStatusQuery.queryKey });
 }
 
 export function useLogout() {
@@ -70,18 +91,13 @@ export function useLogout() {
   return useMutation({
     mutationFn: async () => {
       try {
-        await api.POST('/api/auth/logout');
+        await call('POST', '/api/auth/logout');
       } catch (error) {
         // An expired session is signed out already, which is what the user asked for.
         if (!isApiError(error) || error.status !== 401) throw error;
       }
     },
-    onSuccess: () => {
-      queryClient.setQueryData(authStatusQuery.queryKey, SIGNED_OUT);
-      queryClient.removeQueries({
-        predicate: (query) => !matchQuery({ queryKey: authStatusQuery.queryKey }, query),
-      });
-    },
+    onSuccess: () => endSession(queryClient),
   });
 }
 
