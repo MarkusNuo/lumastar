@@ -37,7 +37,6 @@ class ProfileExportApiTest extends IntegrationTest {
 
     private static final String EXPORT = "/api/profile/export";
     private static final String IMPORT = "/api/profile/import";
-    private static final String PASSWORD = "shpija-e-madhe";
     private static final JsonMapper JSON = JsonMapper.builder().build();
     private static final List<String> DATA_FILES = List.of("data/profile.json", "data/streaks.json", "data/fsrs_params.json",
             "data/learning_plans.json", "data/plan_changes.json", "data/placement_tests.json", "data/placement_answers.json",
@@ -62,6 +61,7 @@ class ProfileExportApiTest extends IntegrationTest {
     private ContentSeeder seeder;
 
     private SpaClient learner;
+    private String learnerEmail;
     private UUID learnerId;
 
     @BeforeEach
@@ -69,7 +69,8 @@ class ProfileExportApiTest extends IntegrationTest {
         jdbc.sql("TRUNCATE content_skill_tags, content_stages, content_units, content_items, exercises CASCADE").update();
         jdbc.sql("DELETE FROM users").update();
         seeder.seed(loader.load(ContentFixture.path()));
-        learner = signedUp("Erza");
+        learner = new SpaClient(mvc);
+        learnerEmail = learner.register("Erza");
         learnerId = jdbc.sql("SELECT id FROM users").query(UUID.class).single();
         playGreetingsLessonWithOneRetry();
         addPlacementPlanAndReviewData();
@@ -107,7 +108,7 @@ class ProfileExportApiTest extends IntegrationTest {
         }
 
         @Test
-        void containsTheCompleteLearnerDataButNeverThePasswordHash() {
+        void containsTheCompleteLearnerDataButNeverTheAccountIdentity() {
             Map<String, String> entries = entries(export());
 
             assertThat(JSON.readTree(entries.get("data/profile.json"))).isEqualTo(JSON.readTree("""
@@ -120,7 +121,7 @@ class ProfileExportApiTest extends IntegrationTest {
                     "exerciseType", "skillTags", "isRetry", "answer", "outcome", "errorCategory", "fsrsRating", "responseMs",
                     "evaluatedBy", "answeredAt", "expected");
             assertThat(String.join("\n", entries.values())).doesNotContain("argon2", "passwordHash", "password_hash",
-                    learnerId.toString());
+                    learnerId.toString(), learnerEmail);
         }
 
         @Test
@@ -168,14 +169,16 @@ class ProfileExportApiTest extends IntegrationTest {
             SpaClient anotherBrowser = new SpaClient(mvc);
             anotherBrowser.get("/api/auth/status");
             assertThat(anotherBrowser.post("/api/auth/login", """
-                    {"password": "%s"}""".formatted(PASSWORD))).hasStatus(HttpStatus.NO_CONTENT);
+                    {"email": "%s", "password": "%s"}""".formatted(learnerEmail, SpaClient.PASSWORD)))
+                    .hasStatus(HttpStatus.NO_CONTENT);
         }
 
         @Test
         void restoresTheLearningStateIntoAnotherAccount() {
             byte[] backup = export();
             jdbc.sql("DELETE FROM users").update();
-            SpaClient newInstance = signedUp("Arta");
+            SpaClient newInstance = new SpaClient(mvc);
+            newInstance.register("Arta");
             UUID newAccount = jdbc.sql("SELECT id FROM users").query(UUID.class).single();
 
             assertThat(newInstance.upload(IMPORT, "file", backup)).hasStatusOk();
@@ -300,14 +303,6 @@ class ProfileExportApiTest extends IntegrationTest {
             assertThat(rejected).bodyJson().extractingPath("$.errors[0].message").asString().contains("another learner");
             assertThat(count("attempts")).isEqualTo(6);
         }
-    }
-
-    private SpaClient signedUp(String displayName) {
-        SpaClient client = new SpaClient(mvc);
-        client.get("/api/auth/status");
-        assertThat(client.post("/api/auth/setup", """
-                {"displayName": "%s", "password": "%s"}""".formatted(displayName, PASSWORD))).hasStatus(HttpStatus.CREATED);
-        return client;
     }
 
     /** Five first answers, one of them wrong and retried, then completed for 15 XP (slow, not perfect: 10 + 0 + 5). */

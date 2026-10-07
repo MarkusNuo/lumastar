@@ -25,15 +25,15 @@ class PasswordCheckLimitTest {
         List<Future<Boolean>> slowChecks = new ArrayList<>();
         try (ExecutorService pool = Executors.newFixedThreadPool(PasswordCheckLimit.MAX_CONCURRENT_CHECKS)) {
             for (int i = 0; i < PasswordCheckLimit.MAX_CONCURRENT_CHECKS; i++) {
-                slowChecks.add(pool.submit(() -> limit.check(() -> {
+                slowChecks.add(pool.submit(() -> limit.run(() -> {
                     running.countDown();
                     return awaitQuietly(release);
                 })));
             }
             assertThat(running.await(10, TimeUnit.SECONDS)).isTrue();
 
-            assertThatThrownBy(() -> limit.check(() -> true))
-                    .isInstanceOfSatisfying(LoginThrottledException.class, exception -> {
+            assertThatThrownBy(() -> limit.run(() -> true))
+                    .isInstanceOfSatisfying(ThrottledException.class, exception -> {
                         assertThat(exception.getStatusCode()).isEqualTo(HttpStatus.TOO_MANY_REQUESTS);
                         assertThat(exception.getHeaders().getFirst(HttpHeaders.RETRY_AFTER)).isEqualTo("1");
                     });
@@ -43,18 +43,18 @@ class PasswordCheckLimitTest {
                 assertThat(check.get()).isTrue();
             }
         }
-        assertThat(limit.check(() -> false)).isFalse();
+        assertThat(limit.run(() -> false)).isFalse();
     }
 
     @Test
     void releasesThePermitWhenTheCheckFails() {
         for (int i = 0; i < PasswordCheckLimit.MAX_CONCURRENT_CHECKS + 1; i++) {
-            assertThatThrownBy(() -> limit.check(() -> {
+            assertThatThrownBy(() -> limit.run(() -> {
                 throw new IllegalStateException("hashing failed");
             })).isInstanceOf(IllegalStateException.class);
         }
 
-        assertThat(limit.check(() -> true)).isTrue();
+        assertThat(limit.run(() -> true)).isTrue();
     }
 
     private static boolean awaitQuietly(CountDownLatch latch) {

@@ -14,9 +14,14 @@ import org.junit.jupiter.api.Test;
  */
 class LearnerTablesTest extends IntegrationTest {
 
-    /** Usage log of the AI requests (Phase 2), not learner state; an import leaves it alone. */
-    private static final Set<String> NOT_EXPORTED = Set.of("ai_requests");
-    private static final Set<String> ACCOUNT_COLUMNS = Set.of("id", "password_hash", "created_at");
+    /**
+     * Usage log of the AI requests (Phase 2), not learner state, and the links of account mails, which belong to the
+     * account rather than to its learning state; an import leaves both alone.
+     */
+    private static final Set<String> NOT_EXPORTED = Set.of("ai_requests", "account_tokens");
+    /** The identity of the account, which an import into another account must not take over. */
+    private static final Set<String> ACCOUNT_COLUMNS = Set.of("id", "password_hash", "created_at", "email",
+            "email_verified_at", "pending_email");
 
     @Test
     void everyTableWithLearnerDataIsExportedOrDeliberatelyLeftOut() {

@@ -18,7 +18,7 @@ import org.springframework.security.web.savedrequest.NullRequestCache;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 /**
- * Single-user JSON API security (PRD F13): session cookie, CSRF with the SPA cookie pattern
+ * JSON API security (PRD F13, M8 accounts): session cookie, CSRF with the SPA cookie pattern
  * ({@code XSRF-TOKEN} cookie, {@code X-XSRF-TOKEN} header) and RFC 9457 problem responses instead of redirects.
  */
 @Configuration(proxyBeanMethods = false)
@@ -39,7 +39,8 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers(HttpMethod.GET, "/api/auth/status").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/auth/setup", "/api/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/register", "/api/auth/login", "/api/auth/verify-email",
+                                "/api/auth/password-reset", "/api/auth/password-reset/confirm").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                         .requestMatchers("/actuator/health", "/actuator/health/**", "/error").permitAll()
                         .anyRequest().authenticated())

@@ -111,7 +111,8 @@ public class ProfileExportController {
     @PostMapping(path = "/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(operationId = "importProfile", summary = "Restore an export",
             description = "Replaces all learning data of the signed-in account with the content of the file in one "
-                    + "transaction; the account and its password stay. Exports of older versions are upgraded.")
+                    + "transaction; the account (e-mail, password) stays. Exports of older versions are upgraded; an "
+                    + "export of another account can be imported as well.")
     @ApiResponse(responseCode = "200", description = "The rows restored per table")
     @ApiResponse(responseCode = "400", description = "No file part (code bad_request)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))

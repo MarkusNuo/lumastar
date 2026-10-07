@@ -22,9 +22,7 @@ class StandardFormsApiTest extends IntegrationTest {
     void signedInLearner() {
         jdbc.sql("DELETE FROM users").update();
         learner = new SpaClient(mvc);
-        learner.get("/api/auth/status");
-        assertThat(learner.post("/api/auth/setup", """
-                {"displayName": "Erza", "password": "shpija-e-madhe"}""")).hasStatus(HttpStatus.CREATED);
+        learner.register("Erza");
     }
 
     @Test

@@ -20,7 +20,6 @@ import org.springframework.boot.web.server.context.WebServerApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
-import org.springframework.http.HttpStatus;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
 /** HTTP sessions live in PostgreSQL, so a restarted server still knows a signed-in browser. */
@@ -37,9 +36,7 @@ class SessionPersistenceTest extends IntegrationTest {
     @Test
     void aSignedInSessionSurvivesAServerRestart() throws IOException, InterruptedException {
         SpaClient browser = new SpaClient(mvc);
-        browser.get("/api/auth/status");
-        assertThat(browser.post("/api/auth/setup", """
-                {"displayName": "Erza", "password": "shpija-e-madhe"}""")).hasStatus(HttpStatus.CREATED);
+        browser.register("Erza");
 
         try (ConfigurableApplicationContext restarted = startSecondServer()) {
             int port = ((WebServerApplicationContext) restarted).getWebServer().getPort();

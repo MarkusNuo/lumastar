@@ -1,19 +1,21 @@
 package app.lingora.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import app.lingora.IntegrationTest;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.DuplicateKeyException;
 
 /** The context only starts if Flyway migrated and Hibernate validated the mapped entities against the schema. */
 class SchemaMigrationTest extends IntegrationTest {
 
     private static final List<String> LEARNER_TABLES = List.of("streaks", "placement_tests", "placement_answers",
             "learning_plans", "plan_changes", "sessions", "attempts", "skill_mastery", "srs_cards", "review_log",
-            "fsrs_params", "ai_requests", "badges", "streak_days");
+            "fsrs_params", "ai_requests", "badges", "streak_days", "account_tokens");
     private static final List<String> HTTP_SESSION_TABLES = List.of("spring_session", "spring_session_attributes");
     private static final List<String> CONTENT_TABLES = List.of("content_skill_tags", "content_stages", "content_units",
             "content_items", "exercises");
@@ -28,7 +30,7 @@ class SchemaMigrationTest extends IntegrationTest {
                 Map.of("version", "3", "success", true), Map.of("version", "4", "success", true),
                 Map.of("version", "5", "success", true), Map.of("version", "6", "success", true),
                 Map.of("version", "7", "success", true), Map.of("version", "8", "success", true),
-                Map.of("version", "9", "success", true));
+                Map.of("version", "9", "success", true), Map.of("version", "10", "success", true));
     }
 
     @Test
@@ -67,6 +69,18 @@ class SchemaMigrationTest extends IntegrationTest {
                 .query(String.class).list();
 
         assertThat(contentTablesWithUserId).isEmpty();
+    }
+
+    @Test
+    void signInAddressesAreUniqueRegardlessOfCase() {
+        jdbc.sql("DELETE FROM users").update();
+        jdbc.sql("INSERT INTO users (display_name, password_hash, email) VALUES ('Erza', 'hash', 'Erza@Example.com')").update();
+
+        assertThatThrownBy(() -> jdbc.sql("""
+                        INSERT INTO users (display_name, password_hash, email) VALUES ('Arta', 'hash', 'erza@example.COM')""")
+                .update())
+                .isInstanceOf(DuplicateKeyException.class)
+                .hasMessageContaining("users_email_key");
     }
 
     @Test

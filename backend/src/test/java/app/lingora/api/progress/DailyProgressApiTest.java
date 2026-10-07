@@ -39,9 +39,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         jdbc.sql("DELETE FROM users").update();
         seeder.seed(SyntheticContent.bundle());
         learner = new SpaClient(mvc);
-        learner.get("/api/auth/status");
-        assertThat(learner.post("/api/auth/setup", """
-                {"displayName": "Erza", "password": "shpija-e-madhe"}""")).hasStatus(HttpStatus.CREATED);
+        learner.register("Erza");
         new PlacementDriver(learner, jdbc).answerOnboarding("nothing");
         assertThat(learner.post("/api/placement/skip", "")).hasStatusOk();
         lessons = new LessonDriver(learner);

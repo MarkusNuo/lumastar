@@ -59,7 +59,7 @@ public class OpenApiConfig {
                                 .type(SecurityScheme.Type.APIKEY)
                                 .in(SecurityScheme.In.COOKIE)
                                 .name(sessionCookieName)
-                                .description("httpOnly session cookie set by setup and login"))
+                                .description("httpOnly session cookie set by registration and login"))
                         .addSecuritySchemes(CSRF_HEADER, new SecurityScheme()
                                 .type(SecurityScheme.Type.APIKEY)
                                 .in(SecurityScheme.In.HEADER)
@@ -122,7 +122,7 @@ public class OpenApiConfig {
         problem.addProperty("code", new StringSchema().description("Stable, machine-readable error code, e.g. invalid_credentials"));
         problem.addProperty("errors", new ArraySchema().items(fieldError).description("Invalid fields (code validation_failed)"));
         problem.addProperty("retryAfterSeconds",
-                new IntegerSchema().description("Seconds until the next login attempt (code login_throttled)"));
+                new IntegerSchema().description("Seconds until the next attempt (codes login_throttled, too_many_requests)"));
         problem.addProperty("unknownReferences", unknownReferencesSchema());
         problem.setRequired(List.of("code", "status", "title"));
         return problem;

@@ -10,8 +10,14 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepository extends JpaRepository<UserEntity, UUID> {
 
-    /** The account of this single-user instance, if it has been set up. */
-    Optional<UserEntity> findFirstByOrderByCreatedAtAsc();
+    /** The account signing in with this address, regardless of case (index {@code users_email_key}). */
+    @Query("select u from UserEntity u where lower(u.email) = lower(:email)")
+    Optional<UserEntity> findByEmail(String email);
+
+    /** The account of the single-user instance before M8, which signs in without e-mail until it adds one. */
+    Optional<UserEntity> findFirstByEmailIsNullOrderByCreatedAtAsc();
+
+    boolean existsByEmailIsNull();
 
     /** Locks the account row: placement, plan and onboarding changes of one learner run one after another. */
     @Lock(LockModeType.PESSIMISTIC_WRITE)

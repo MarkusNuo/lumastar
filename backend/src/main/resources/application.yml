@@ -13,6 +13,16 @@ spring:
       # Backup imports (POST /api/profile/import); the importer checks lingora.backup limits as well.
       max-file-size: ${lingora.backup.max-archive-size}
       max-request-size: 21MB
+  mail:
+    # Local default: Mailpit of docker-compose.yml. A real server needs SPRING_MAIL_USERNAME and SPRING_MAIL_PASSWORD too.
+    host: ${LINGORA_MAIL_HOST:localhost}
+    port: ${LINGORA_MAIL_PORT:1025}
+    properties:
+      "[mail.smtp.auth]": ${LINGORA_MAIL_SMTP_AUTH:false}
+      "[mail.smtp.starttls.enable]": ${LINGORA_MAIL_STARTTLS:false}
+      "[mail.smtp.connectiontimeout]": 5000
+      "[mail.smtp.timeout]": 10000
+      "[mail.smtp.writetimeout]": 10000
   session:
     jdbc:
       # The tables are created by Flyway (V2__spring_session.sql).
@@ -30,6 +40,8 @@ spring:
         order_updates: true
 
 server:
+  # Behind a reverse proxy on the same host (e.g. Caddy) set "native", so that throttling sees the client addresses.
+  forward-headers-strategy: ${LINGORA_FORWARD_HEADERS_STRATEGY:none}
   servlet:
     session:
       timeout: 7d
@@ -41,6 +53,10 @@ server:
         max-age: 7d
 
 management:
+  health:
+    mail:
+      # An unreachable SMTP server delays account mails but does not make the app unhealthy.
+      enabled: false
   endpoints:
     web:
       exposure:
@@ -70,3 +86,11 @@ lingora:
   content:
     path: ${LINGORA_CONTENT_PATH:../content}
     seed-on-startup: true
+  # Base of the links in account mails (pages /verify-email and /reset-password of the web app).
+  public-url: ${LINGORA_PUBLIC_URL:http://localhost:5173}
+  mail:
+    from: ${LINGORA_MAIL_FROM:Lingora <noreply@lingora.local>}
+  registration:
+    # open, invite (needs the invite code) or closed
+    mode: ${LINGORA_REGISTRATION_MODE:open}
+    invite-code: ${LINGORA_REGISTRATION_INVITE_CODE:}

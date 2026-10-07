@@ -61,10 +61,18 @@ public class UserEntity {
 
     private Instant createdAt;
 
+    private String email;
+
+    private Instant emailVerifiedAt;
+
+    private String pendingEmail;
+
     protected UserEntity() {
     }
 
-    public UserEntity(String displayName, String passwordHash, Instant createdAt) {
+    /** A new account; its e-mail address is unverified until the link of the verification mail is opened. */
+    public UserEntity(String email, String displayName, String passwordHash, Instant createdAt) {
+        this.email = email;
         this.displayName = displayName;
         this.passwordHash = passwordHash;
         this.motivations = List.of();
@@ -72,6 +80,59 @@ public class UserEntity {
         this.timeZone = DEFAULT_TIME_ZONE;
         this.settings = Map.of();
         this.createdAt = createdAt;
+    }
+
+    public void rename(String newDisplayName) {
+        displayName = newDisplayName;
+    }
+
+    public void changePassword(String newPasswordHash) {
+        passwordHash = newPasswordHash;
+    }
+
+    /** Whether {@code address} is the sign-in address of the account; e-mail addresses are compared regardless of case. */
+    public boolean hasEmail(String address) {
+        return email != null && email.equalsIgnoreCase(address);
+    }
+
+    public boolean hasPendingEmail(String address) {
+        return pendingEmail != null && pendingEmail.equalsIgnoreCase(address);
+    }
+
+    public void verifyEmail(Instant at) {
+        if (emailVerifiedAt == null) {
+            emailVerifiedAt = at;
+        }
+    }
+
+    /**
+     * Starts a change of the sign-in address. A verified address stays until the new one is confirmed, so that a typo
+     * never locks the learner out; an unverified (or missing) address is replaced at once.
+     *
+     * @return whether the new address is pending, i.e. needs the confirmation of an e-mail change
+     */
+    public boolean changeEmail(String newEmail) {
+        if (isEmailVerified()) {
+            pendingEmail = newEmail;
+            return true;
+        }
+        email = newEmail;
+        pendingEmail = null;
+        return false;
+    }
+
+    public void cancelEmailChange() {
+        pendingEmail = null;
+    }
+
+    /** The pending address, confirmed by the link sent to it, becomes the verified sign-in address. */
+    public void confirmEmailChange(Instant at) {
+        if (pendingEmail == null) {
+            throw new IllegalStateException("no e-mail change is pending");
+        }
+        email = pendingEmail;
+        emailVerifiedAt = at;
+        pendingEmail = null;
     }
 
     /** The answers of the onboarding questions (PRD F1); they can be changed again later. */
@@ -177,5 +238,27 @@ public class UserEntity {
 
     public boolean isOnboardingCompleted() {
         return onboardingCompletedAt != null;
+    }
+
+    /** The sign-in address; {@code null} only for the account of the single-user instance before M8. */
+    public String getEmail() {
+        return email;
+    }
+
+    public boolean isEmailVerified() {
+        return emailVerifiedAt != null;
+    }
+
+    /** An account from before M8 signs in without e-mail until it adds one. */
+    public boolean isEmailRequired() {
+        return email == null;
+    }
+
+    public String getPendingEmail() {
+        return pendingEmail;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
     }
 }

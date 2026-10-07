@@ -40,9 +40,7 @@ class ProfileDocumentsApiTest extends IntegrationTest {
         jdbc.sql("DELETE FROM users").update();
         seeder.seed(loader.load(ContentFixture.path()));
         learner = new SpaClient(mvc);
-        learner.get("/api/auth/status");
-        assertThat(learner.post("/api/auth/setup", """
-                {"displayName": "Erza", "password": "shpija-e-madhe"}""")).hasStatus(HttpStatus.CREATED);
+        learner.register("Erza");
     }
 
     @Test

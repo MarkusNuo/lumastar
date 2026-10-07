@@ -41,7 +41,7 @@ class LoginThrottleTest {
     void doesNotCountAttemptsRejectedDuringTheLock() {
         failTimes(LoginThrottle.FREE_ATTEMPTS);
         for (int i = 0; i < 10; i++) {
-            assertThatThrownBy(() -> throttle.admit(CLIENT, ACCOUNT)).isInstanceOf(LoginThrottledException.class);
+            assertThatThrownBy(() -> throttle.admit(CLIENT, ACCOUNT)).isInstanceOf(ThrottledException.class);
         }
         clock.advance(LoginThrottle.FIRST_LOCK);
 
@@ -118,7 +118,7 @@ class LoginThrottleTest {
                     try {
                         throttle.admit(CLIENT, ACCOUNT);
                         return true;
-                    } catch (LoginThrottledException e) {
+                    } catch (ThrottledException e) {
                         return false;
                     }
                 }));
@@ -146,7 +146,7 @@ class LoginThrottleTest {
     private Duration retryAfter(String client) {
         try {
             throttle.admit(client, ACCOUNT);
-        } catch (LoginThrottledException e) {
+        } catch (ThrottledException e) {
             return Duration.ofSeconds(Long.parseLong(e.getHeaders().getFirst(HttpHeaders.RETRY_AFTER)));
         }
         throw new AssertionError("expected " + client + " to be locked out");

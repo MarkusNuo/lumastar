@@ -43,17 +43,17 @@ class SessionCookieTest extends IntegrationTest {
                 HttpResponse.BodyHandlers.ofString());
         String csrfToken = cookieValue(status.headers().allValues("Set-Cookie"), "XSRF-TOKEN");
 
-        HttpResponse<String> setup = http.send(HttpRequest.newBuilder(uri("/api/auth/setup"))
+        HttpResponse<String> registration = http.send(HttpRequest.newBuilder(uri("/api/auth/register"))
                         .header("Content-Type", "application/json")
                         .header("Cookie", "XSRF-TOKEN=" + csrfToken)
                         .header("X-XSRF-TOKEN", csrfToken)
                         .POST(HttpRequest.BodyPublishers.ofString("""
-                                {"displayName": "Erza", "password": "shpija-e-madhe"}"""))
+                                {"email": "cookie@lingora.test", "password": "shpija-e-madhe", "displayName": "Erza"}"""))
                         .build(),
                 HttpResponse.BodyHandlers.ofString());
 
-        assertThat(setup.statusCode()).isEqualTo(201);
-        assertThat(setup.headers().allValues("Set-Cookie")).filteredOn(cookie -> cookie.startsWith("LINGORA_SESSION="))
+        assertThat(registration.statusCode()).isEqualTo(201);
+        assertThat(registration.headers().allValues("Set-Cookie")).filteredOn(cookie -> cookie.startsWith("LINGORA_SESSION="))
                 .singleElement().asString()
                 .contains("HttpOnly", "SameSite=Lax", "Path=/")
                 .doesNotContain("Secure");

@@ -37,6 +37,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-flyway")
     implementation("org.springframework.boot:spring-boot-starter-session-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
     implementation("org.flywaydb:flyway-database-postgresql")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocVersion")
     implementation("org.bouncycastle:bcprov-jdk18on:$bouncyCastleVersion")
@@ -78,6 +79,11 @@ tasks.named<org.springframework.boot.gradle.tasks.run.BootRun>("bootTestRun") {
     // Reproducible lessons and placement tests for the e2e tests; --args=--lingora.lesson.random-seed=… overrides it.
     systemProperty("lingora.lesson.random-seed", "20260925")
     systemProperty("lingora.placement.random-seed", "20260925")
+    // The e2e tests register and reset many accounts from one address, far beyond the limits for real clients.
+    systemProperty("lingora.throttle.registrations-per-hour", "1000")
+    systemProperty("lingora.throttle.password-resets-per-hour", "1000")
+    systemProperty("lingora.throttle.password-resets-per-email-per-hour", "100")
+    systemProperty("lingora.throttle.account-mails-per-hour", "100")
 }
 
 tasks.register<Test>("exportOpenApi") {

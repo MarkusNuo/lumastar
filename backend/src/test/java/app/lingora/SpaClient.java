@@ -1,5 +1,7 @@
 package app.lingora;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import jakarta.servlet.http.Cookie;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
@@ -25,7 +28,10 @@ public final class SpaClient {
     public static final String SESSION_COOKIE = "LINGORA_SESSION";
     public static final String CSRF_COOKIE = "XSRF-TOKEN";
     public static final String CSRF_HEADER = "X-XSRF-TOKEN";
+    /** The password of the accounts that {@link #register} creates. */
+    public static final String PASSWORD = "shpija-e-madhe";
     private static final AtomicInteger CLIENT_COUNT = new AtomicInteger();
+    private static final AtomicInteger ACCOUNT_COUNT = new AtomicInteger();
 
     private final MockMvcTester mvc;
     private final String remoteAddress;
@@ -55,6 +61,28 @@ public final class SpaClient {
             request.header(CSRF_HEADER, csrfToken());
         }
         return exchange(request);
+    }
+
+    public MvcTestResult delete(String uri, String json) {
+        MockMvcRequestBuilder request = mvc.delete().uri(uri).contentType(MediaType.APPLICATION_JSON).content(json);
+        if (csrfToken() != null) {
+            request.header(CSRF_HEADER, csrfToken());
+        }
+        return exchange(request);
+    }
+
+    /**
+     * Registers an account with a new address and stays signed in, as the registration form does.
+     *
+     * @return the e-mail address of the account
+     */
+    public String register(String displayName) {
+        String email = "learner-%d@lingora.test".formatted(ACCOUNT_COUNT.incrementAndGet());
+        get("/api/auth/status");
+        assertThat(post("/api/auth/register", """
+                {"email": "%s", "password": "%s", "displayName": "%s"}"""
+                .formatted(email, PASSWORD, displayName))).hasStatus(HttpStatus.CREATED);
+        return email;
     }
 
     public MvcTestResult putWithoutCsrfHeader(String uri, String json) {

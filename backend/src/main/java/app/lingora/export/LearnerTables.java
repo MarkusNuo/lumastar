@@ -6,9 +6,9 @@ import java.util.Map;
 
 /**
  * The learner data of a backup (export format version {@value ExportFormat#SCHEMA_VERSION}). The account row itself
- * is exported as {@link #PROFILE_COLUMNS}, without id, password hash and creation time. A new column in one of these
- * tables changes the format: {@code LearnerTablesTest} fails until it is listed here and, if older exports cannot
- * provide it, a {@link BackupUpgrader} fills it in.
+ * is exported as {@link #PROFILE_COLUMNS}, without its identity (id, e-mail, password hash, creation time).
+ * A new column in one of these tables changes the format: {@code LearnerTablesTest} fails until it is listed here and,
+ * if older exports cannot provide it, a {@link BackupUpgrader} fills it in.
  */
 final class LearnerTables {
 

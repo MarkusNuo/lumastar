@@ -13,7 +13,6 @@ import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
 /**
@@ -36,9 +35,7 @@ class StoredExportImportTest extends IntegrationTest {
         jdbc.sql("DELETE FROM users").update();
         seeder.seed(loader.load(ContentFixture.path()));
         learner = new SpaClient(mvc);
-        learner.get("/api/auth/status");
-        assertThat(learner.post("/api/auth/setup", """
-                {"displayName": "Arta", "password": "shpija-e-madhe"}""")).hasStatus(HttpStatus.CREATED);
+        learner.register("Arta");
     }
 
     @Test

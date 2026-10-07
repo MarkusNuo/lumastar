@@ -14,21 +14,21 @@ import org.springframework.test.web.servlet.assertj.MvcTestResult;
 class OnboardingApiTest extends IntegrationTest {
 
     private SpaClient learner;
+    private String email;
 
     @BeforeEach
     void signedInLearner() {
         jdbc.sql("DELETE FROM users").update();
         learner = new SpaClient(mvc);
-        learner.get("/api/auth/status");
-        assertThat(learner.post("/api/auth/setup", """
-                {"displayName": "Erza", "password": "shpija-e-madhe"}""")).hasStatus(HttpStatus.CREATED);
+        email = learner.register("Erza");
     }
 
     @Test
     void aNewAccountStartsWithTheProfileQuestions() {
         assertThat(learner.get("/api/me")).hasStatusOk().bodyJson().isStrictlyEqualTo("""
                 {"displayName": "Erza", "xpTotal": 0, "dailyGoalMinutes": 10, "onboardingCompleted": false,
-                 "onboardingStep": "profile", "motivations": []}""");
+                 "onboardingStep": "profile", "motivations": [], "email": "%s", "emailVerified": false,
+                 "emailRequired": false}""".formatted(email));
     }
 
     @Test
@@ -40,7 +40,8 @@ class OnboardingApiTest extends IntegrationTest {
                 {"startLevel": "A1.3", "placementSkippable": false}""");
         assertThat(learner.get("/api/me")).bodyJson().isStrictlyEqualTo("""
                 {"displayName": "Erza", "xpTotal": 0, "dailyGoalMinutes": 15, "onboardingCompleted": false,
-                 "onboardingStep": "placement", "motivations": ["family", "travel"], "selfAssessment": "simple_sentences"}""");
+                 "onboardingStep": "placement", "motivations": ["family", "travel"], "selfAssessment": "simple_sentences",
+                 "email": "%s", "emailVerified": false, "emailRequired": false}""".formatted(email));
         assertThat(jdbc.sql("SELECT array_to_string(motivations, ',') || '|' || self_assessment FROM users")
                 .query(String.class).single()).isEqualTo("family,travel|simple_sentences");
     }

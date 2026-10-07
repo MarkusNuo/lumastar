@@ -2,42 +2,26 @@ package app.lingora.api.auth;
 
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
-import java.time.Clock;
 import java.util.Optional;
 import java.util.UUID;
-import org.springframework.jdbc.core.simple.JdbcClient;
+import org.springframework.core.NestedExceptionUtils;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/** The single account of this instance: first-start setup and password check (PRD F13). */
+/** The accounts of this instance: the signed-in one, sign-in by e-mail and password (PRD F13, M8). */
 @Service
 public class AccountService {
 
-    // Serialises concurrent setup requests so that at most one account is ever created.
-    private static final long ACCOUNT_SETUP_LOCK = 0x4c494e474f5241L;
+    private static final String UNIQUE_EMAIL_INDEX = "users_email_key";
 
     private final UserRepository users;
-    private final PasswordEncoder passwordEncoder;
-    private final LoginThrottle loginThrottle;
-    private final PasswordCheckLimit passwordCheckLimit;
-    private final JdbcClient jdbcClient;
-    private final Clock clock;
+    private final Passwords passwords;
 
-    AccountService(UserRepository users, PasswordEncoder passwordEncoder, LoginThrottle loginThrottle,
-                   PasswordCheckLimit passwordCheckLimit, JdbcClient jdbcClient, Clock clock) {
+    AccountService(UserRepository users, Passwords passwords) {
         this.users = users;
-        this.passwordEncoder = passwordEncoder;
-        this.loginThrottle = loginThrottle;
-        this.passwordCheckLimit = passwordCheckLimit;
-        this.jdbcClient = jdbcClient;
-        this.clock = clock;
-    }
-
-    @Transactional(readOnly = true)
-    public boolean isSetUp() {
-        return users.count() > 0;
+        this.passwords = passwords;
     }
 
     @Transactional(readOnly = true)
@@ -48,31 +32,52 @@ public class AccountService {
     /** The signed-in account; a session whose account no longer exists counts as not signed in. */
     @Transactional(readOnly = true)
     public UserEntity current(AuthenticatedUser principal) {
-        return find(principal).orElseThrow(() -> new AuthenticationCredentialsNotFoundException("No signed-in account"));
+        return find(principal).orElseThrow(AccountService::notSignedIn);
     }
 
-    @Transactional
-    UserEntity createAccount(String displayName, String password) {
-        jdbcClient.sql("SELECT pg_advisory_xact_lock(:key)").param("key", ACCOUNT_SETUP_LOCK).query().listOfRows();
-        if (users.count() > 0) {
-            throw new AccountAlreadyExistsException();
-        }
-        return users.save(new UserEntity(displayName.strip(), passwordEncoder.encode(password), clock.instant()));
-    }
-
-    /** The attempt is counted as failed before the password is checked (see {@link LoginThrottle}). */
     @Transactional(readOnly = true)
-    UserEntity authenticate(String password, String client) {
-        Optional<UserEntity> account = users.findFirstByOrderByCreatedAtAsc();
-        UUID accountId = account.map(UserEntity::getId).orElse(null);
-        boolean matches = passwordCheckLimit.check(() -> {
-            loginThrottle.admit(client, accountId);
-            return account.filter(user -> passwordEncoder.matches(password, user.getPasswordHash())).isPresent();
-        });
-        if (!matches) {
-            throw new InvalidCredentialsException();
+    boolean legacyLoginAvailable() {
+        return users.existsByEmailIsNull();
+    }
+
+    /**
+     * The account with this e-mail address and password. Without an address the account from before M8, which has
+     * none yet, signs in. Every attempt counts against the {@link LoginThrottle} until it succeeds.
+     */
+    @Transactional(readOnly = true)
+    UserEntity authenticate(String email, String password, String client) {
+        Optional<UserEntity> account = email == null || email.isBlank()
+                ? users.findFirstByEmailIsNullOrderByCreatedAtAsc()
+                : users.findByEmail(email.strip());
+        if (!passwords.matches(account, password, client)) {
+            throw AccountProblems.invalidCredentials();
         }
-        loginThrottle.recordSuccess(client, accountId);
-        return account.get();
+        return account.orElseThrow();
+    }
+
+    /** The account row, locked until the end of the caller's transaction. */
+    UserEntity lock(UUID userId) {
+        return users.findForUpdateById(userId).orElseThrow(AccountService::notSignedIn);
+    }
+
+    /** Writes the account at once, so that two accounts claiming the same address at the same time end in a conflict. */
+    UserEntity saveWithUniqueEmail(UserEntity account) {
+        try {
+            return users.saveAndFlush(account);
+        } catch (DataIntegrityViolationException e) {
+            if (String.valueOf(NestedExceptionUtils.getMostSpecificCause(e).getMessage()).contains(UNIQUE_EMAIL_INDEX)) {
+                throw AccountProblems.emailTaken();
+            }
+            throw e;
+        }
+    }
+
+    /** Whether another account than {@code account} signs in with this address. */
+    boolean isTakenByAnother(String email, UUID account) {
+        return users.findByEmail(email).filter(owner -> !owner.getId().equals(account)).isPresent();
+    }
+
+    private static AuthenticationCredentialsNotFoundException notSignedIn() {
+        return new AuthenticationCredentialsNotFoundException("No signed-in account");
     }
 }

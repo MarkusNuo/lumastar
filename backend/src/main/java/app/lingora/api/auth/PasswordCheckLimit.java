@@ -2,12 +2,13 @@ package app.lingora.api.auth;
 
 import java.time.Duration;
 import java.util.concurrent.Semaphore;
-import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
 import org.springframework.stereotype.Component;
 
 /**
- * Every Argon2id check allocates 19 MiB. At most {@value #MAX_CONCURRENT_CHECKS} run at the same time; a request
- * beyond that is answered with 429 at once instead of queueing, so that a flood of sign-ins cannot exhaust the memory.
+ * Every Argon2id hash or check allocates 19 MiB. At most {@value #MAX_CONCURRENT_CHECKS} run at the same time; a
+ * request beyond that is answered with 429 at once instead of queueing, so that a flood of sign-ins or registrations
+ * cannot exhaust the memory.
  */
 @Component
 class PasswordCheckLimit {
@@ -17,12 +18,12 @@ class PasswordCheckLimit {
 
     private final Semaphore permits = new Semaphore(MAX_CONCURRENT_CHECKS);
 
-    boolean check(BooleanSupplier passwordCheck) {
+    <T> T run(Supplier<T> hashing) {
         if (!permits.tryAcquire()) {
-            throw new LoginThrottledException(RETRY_AFTER);
+            throw ThrottledException.login(RETRY_AFTER);
         }
         try {
-            return passwordCheck.getAsBoolean();
+            return hashing.get();
         } finally {
             permits.release();
         }

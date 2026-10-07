@@ -19,11 +19,17 @@ public record ProfileResponse(
         OnboardingStep onboardingStep,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Empty until the onboarding questions are answered")
         List<Motivation> motivations,
-        @Schema(description = "Absent until the onboarding questions are answered") SelfAssessment selfAssessment) {
+        @Schema(description = "Absent until the onboarding questions are answered") SelfAssessment selfAssessment,
+        @Schema(description = "Sign-in address; absent while emailRequired") String email,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED) boolean emailVerified,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The account from before multi-user support "
+                + "has no e-mail address yet; the app asks for one (PUT /api/account/email) before anything else")
+        boolean emailRequired) {
 
     public static ProfileResponse of(UserEntity user) {
         return new ProfileResponse(user.getDisplayName(), user.getCurrentLevel(), user.getXpTotal(),
                 user.getDailyGoalMinutes(), user.isOnboardingCompleted(), user.onboardingStep(),
-                user.getMotivations().stream().sorted().toList(), user.getSelfAssessment());
+                user.getMotivations().stream().sorted().toList(), user.getSelfAssessment(), user.getEmail(),
+                user.isEmailVerified(), user.isEmailRequired());
     }
 }
