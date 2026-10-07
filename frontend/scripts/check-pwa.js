@@ -1,6 +1,7 @@
 // Installability check of the production build (part of `npm run verify`, after `vite build`):
 // web manifest with name, language, standalone display, token colours and icons; a service worker
-// that precaches the app shell but never the API; index.html linking all of it.
+// that precaches the app shell but never the API and shows the push reminders; index.html linking
+// all of it.
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { readColorTokens } from './designTokens.ts';
@@ -12,7 +13,9 @@ const expect = (condition, message) => {
 };
 const read = (file) => readFileSync(join(dist, file), 'utf8');
 
-for (const file of ['manifest.webmanifest', 'sw.js', 'index.html', 'favicon.svg']) {
+// The reminders name the status-bar badge (DECISIONS #85); the app icon is checked below.
+const files = ['manifest.webmanifest', 'sw.js', 'index.html', 'favicon.svg', 'icons/badge-96.png'];
+for (const file of files) {
   expect(existsSync(join(dist, file)), `${file} is missing`);
 }
 
@@ -37,8 +40,15 @@ if (problems.length === 0) {
 
   const worker = read('sw.js');
   expect(worker.includes('index.html'), 'the service worker does not precache index.html');
-  expect(!/url:"\/?api\//.test(worker), 'the service worker precaches API responses');
-  expect(worker.includes('denylist:[/^\\/api'), 'navigations to /api fall back to the app shell');
+  expect(!/"url":"\/?api\//.test(worker), 'the service worker precaches API responses');
+  expect(
+    worker.includes('denylist') && /[`'"]\/api[`'"]/.test(worker),
+    'navigations to /api fall back to the app shell',
+  );
+  for (const event of ['push', 'notificationclick', 'pushsubscriptionchange']) {
+    const listens = new RegExp(`addEventListener\\([\`'"]${event}[\`'"]`).test(worker);
+    expect(listens, `the service worker does not handle ${event}`);
+  }
 
   const html = read('index.html');
   expect(html.includes('rel="manifest"'), 'index.html does not link the manifest');

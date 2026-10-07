@@ -664,6 +664,109 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/push/config": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Whether web push is available, and the key to subscribe with */
+        get: operations["getPushConfig"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/push/subscriptions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** The learner's devices that get reminders, oldest first */
+        get: operations["listPushSubscriptions"];
+        put?: never;
+        /**
+         * Register this device for reminders
+         * @description Send it after pushManager.subscribe() and again on every app start, since browsers may renew a subscription. A known endpoint is updated; one that another account registered moves to this account (one browser profile has one subscription). Remove it before signing out on a shared device. Endpoints must belong to a known push service (Google, Mozilla, Apple, Microsoft).
+         */
+        post: operations["subscribePush"];
+        /**
+         * Stop reminders on this device
+         * @description Idempotent; another account's subscription with the endpoint is left alone.
+         */
+        delete: operations["unsubscribePush"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/push/test": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Send a test notification to all the learner's devices
+         * @description At most 10 per hour.
+         */
+        post: operations["sendTestPush"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/reminders": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** The learner's reminders */
+        get: operations["getReminders"];
+        /**
+         * Change the reminders
+         * @description Reminders go to every device registered with POST /api/push/subscriptions, at most one daily reminder and one streak rescue a day (plus one per snooze), and none once the daily goal is met.
+         */
+        put: operations["updateReminders"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/reminders/snooze": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Get a reminder again later (notification action "In 1 Stunde")
+         * @description For the service worker: needs neither the session nor the CSRF header, only the snoozeToken of the notification. It stays valid until the end of the learner's day and is replaced by the next notification of the same kind. The reminder comes again unless the daily goal is met by then.
+         */
+        post: operations["snoozeReminder"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/review/lessons": {
         parameters: {
             query?: never;
@@ -1263,6 +1366,22 @@ export interface components {
             label: string;
             value: components["schemas"]["Motivation"];
         };
+        /** @description A button of the notification (showNotification option actions) */
+        NotificationAction: {
+            action: components["schemas"]["NotificationActionType"];
+            /** @example Jetzt üben */
+            title: string;
+        };
+        /**
+         * @description practise opens url like a tap on the notification; snooze posts the snoozeToken to POST /api/reminders/snooze, without opening the app
+         * @enum {string}
+         */
+        NotificationActionType: "practise" | "snooze";
+        /**
+         * @description daily reminder of the goal, streak rescue in the evening, or the test notification of the settings
+         * @enum {string}
+         */
+        NotificationKind: "daily_reminder" | "streak_at_risk" | "test";
         /** @description The answer options of the onboarding questions with their German labels, in display order */
         OnboardingOptionsResponse: {
             dailyGoalMinutes: number[];
@@ -1552,6 +1671,109 @@ export interface components {
             /** Format: int32 */
             xpTotal: number;
         };
+        /** @description Whether this instance sends web push, and the key to subscribe with */
+        PushConfigResponse: {
+            /** @description false while the server has no VAPID keys; reminders cannot be sent then */
+            available: boolean;
+            /** @description VAPID public key (URL-safe Base64) for pushManager.subscribe({applicationServerKey}); absent if web push is not available. A subscription made with another key must be renewed. */
+            publicKey?: string;
+        };
+        /** @description A browser or device the learner gets reminders on */
+        PushDeviceResponse: {
+            /** Format: date-time */
+            createdAt: string;
+            /** @description Compare with the endpoint of this browser's subscription to find this device */
+            endpoint: string;
+            /**
+             * Format: int32
+             * @description Failed deliveries since the last successful one
+             */
+            failureCount: number;
+            /** @description Name of the device, if one was given */
+            label?: string;
+            /**
+             * Format: date-time
+             * @description Last notification the push service accepted; absent before the first
+             */
+            lastSuccessAt?: string;
+        };
+        /** @description Payload of a web push message, shown by the service worker as a system notification */
+        PushNotification: {
+            /** @description Buttons of the notification; empty for the test notification */
+            actions: components["schemas"]["NotificationAction"][];
+            /**
+             * @description Monochrome icon of the status bar (Android)
+             * @example /icons/badge-96.png
+             */
+            badge: string;
+            /**
+             * Format: int32
+             * @description For navigator.setAppBadge: the review cards due now, or 1 while only the daily goal is open; absent if the badge should stay as it is
+             */
+            badgeCount?: number;
+            /** @example Dein 12-Tage-Streak wartet auf dich. */
+            body: string;
+            /** @example /icons/icon-192.png */
+            icon: string;
+            kind: components["schemas"]["NotificationKind"];
+            /** @description Alert again when replacing a notification with the same tag */
+            renotify: boolean;
+            /** @description Present with the snooze action: POST it to /api/reminders/snooze to get this reminder again in an hour; valid until the end of the learner's day */
+            snoozeToken?: string;
+            /**
+             * @description Stable per kind: a new notification replaces the previous one of its kind
+             * @example lingora-daily-reminder
+             */
+            tag: string;
+            /** @example Zeit für Gheg! 🔥 */
+            title: string;
+            /**
+             * @description Path of the app that a tap on the notification or the practise action opens
+             * @example /
+             */
+            url: string;
+        };
+        PushSubscriptionKeys: {
+            /** @description Authentication secret, URL-safe Base64 */
+            auth: string;
+            /** @description P-256 public key, URL-safe Base64 */
+            p256dh: string;
+        };
+        /** @description The JSON of the browser's PushSubscription (subscription.toJSON(); expirationTime is ignored) and an optional device name */
+        PushSubscriptionRequest: {
+            /** @example https://fcm.googleapis.com/fcm/send/dPy3… */
+            endpoint: string;
+            keys: components["schemas"]["PushSubscriptionKeys"];
+            /**
+             * @description Name of the device for the settings
+             * @example Chrome auf Android
+             */
+            label?: string;
+        };
+        /** @description The test notification and how its delivery went */
+        PushTestResponse: {
+            /**
+             * Format: int32
+             * @description Devices whose push service accepted it
+             */
+            delivered: number;
+            /**
+             * Format: int32
+             * @description Devices it was sent to
+             */
+            devices: number;
+            /** @description The payload as sent, the same format as the reminders */
+            notification: components["schemas"]["PushNotification"];
+            /**
+             * Format: int32
+             * @description Devices removed because their push service no longer knows the subscription
+             */
+            removed: number;
+        };
+        /** @description The subscription of this device, by its endpoint */
+        PushUnsubscribeRequest: {
+            endpoint: string;
+        };
         /** @enum {string} */
         Rating: "again" | "hard" | "good" | "easy";
         /** @description Creates an account and signs in. */
@@ -1574,6 +1796,33 @@ export interface components {
         };
         /** @enum {string} */
         RegistrationMode: "open" | "invite" | "closed";
+        /** @description All reminder settings at once; times are HH:mm in the learner's time zone (settings) */
+        ReminderSettingsRequest: {
+            /** @description Reminders on this account's devices */
+            enabled: boolean;
+            /** @description Streak rescue in the evening */
+            rescueEnabled: boolean;
+            /**
+             * @description Streak rescue, later than time; sent only while missing today would end the streak
+             * @example 21:30
+             */
+            rescueTime: string;
+            /**
+             * @description Daily reminder, unless the daily goal is met by then
+             * @example 19:00
+             */
+            time: string;
+        };
+        /** @description The learner's reminders (PRD F9); times are HH:mm in the learner's time zone (settings) */
+        ReminderSettingsResponse: {
+            /** @description Off until the learner switches them on */
+            enabled: boolean;
+            rescueEnabled: boolean;
+            /** @example 21:30 */
+            rescueTime: string;
+            /** @example 19:00 */
+            time: string;
+        };
         /** @description The learner's FSRS cards (PRD F8): what is due now and tomorrow. Only cards that a lesson exercise can practise count, so a review lesson can be started exactly while dueNow is above 0 */
         ReviewSummaryResponse: {
             /**
@@ -1652,6 +1901,21 @@ export interface components {
              */
             mastery: number;
             skillTag: string;
+        };
+        /** @description The snoozeToken of a reminder notification */
+        SnoozeRequest: {
+            /**
+             * Format: int32
+             * @description Minutes until the reminder comes again; 60 if absent, as the action "In 1 Stunde" says
+             * @default 60
+             */
+            minutes: number;
+            token: string;
+        };
+        /** @description When the snoozed reminder comes again, unless the daily goal is met by then */
+        SnoozeResponse: {
+            /** Format: date-time */
+            snoozedUntil: string;
         };
         /** @description The Standard-form lexicon of content/gheg_blocklist.json. All words, values and exceptions are normalised (docs/CONTENT_FORMAT.md points 1–2). A learner's word is the Standard form of the solution's Gheg word if it is a listed standard word with that Gheg word, or if it matches a pattern, is none of its exceptions and one of the pattern's replacements yields the Gheg word. For the comparison with missing diacritics, fold every word, value, exception and the pattern itself (ë→e, ç→c, â→a, ê→e, î→i, ô→o, û→u) before matching. */
         StandardFormsResponse: {
@@ -3403,6 +3667,360 @@ export interface operations {
             };
             /** @description Not signed in */
             401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getPushConfig: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The web push configuration */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PushConfigResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    listPushSubscriptions: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The devices */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PushDeviceResponse"][];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    subscribePush: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PushSubscriptionRequest"];
+            };
+        };
+        responses: {
+            /** @description The registered device */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PushDeviceResponse"];
+                };
+            };
+            /** @description Invalid keys (code validation_failed) or an endpoint of an unknown push service (code push_service_not_supported) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description This server does not send web push (code push_unavailable) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    unsubscribePush: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PushUnsubscribeRequest"];
+            };
+        };
+        responses: {
+            /** @description The device gets no more reminders */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description No endpoint (code validation_failed) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    sendTestPush: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Sent; the counts say how the delivery went */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PushTestResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description No web push on this server (code push_unavailable) or no device registered (code no_push_devices) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Too many test notifications (code too_many_requests) */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getReminders: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The reminder settings; off until the learner switches them on */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReminderSettingsResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    updateReminders: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReminderSettingsRequest"];
+            };
+        };
+        responses: {
+            /** @description The reminder settings as stored */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReminderSettingsResponse"];
+                };
+            };
+            /** @description Missing field, invalid time or a rescue time not after the daily time (code validation_failed) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    snoozeReminder: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SnoozeRequest"];
+            };
+        };
+        responses: {
+            /** @description Snoozed */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SnoozeResponse"];
+                };
+            };
+            /** @description No token or minutes out of range (code validation_failed) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Unknown, replaced or expired token (code snooze_token_invalid) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description The reminder would come tomorrow (code snooze_too_late) */
+            409: {
                 headers: {
                     [name: string]: unknown;
                 };

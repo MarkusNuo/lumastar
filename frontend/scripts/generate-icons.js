@@ -1,6 +1,7 @@
-// Generates the favicon and the PWA app icons (`npm run gen:icons`) from the mascot geometry in
-// src/components/ui/mascotArt.ts and the colour tokens in src/styles/tokens.css, so the icons stay
-// original artwork in the design system's colours. The output is committed: builds need no sharp.
+// Generates the favicon, the PWA app icons and the reminders' status-bar badge (`npm run gen:icons`)
+// from the mascot geometry in src/components/ui/mascotArt.ts and the colour tokens in
+// src/styles/tokens.css, so the icons stay original artwork in the design system's colours. The
+// output is committed: builds need no sharp.
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -86,6 +87,25 @@ function appIcon(size, { markShare, radius }) {
   );
 }
 
+/**
+ * The status-bar badge of the reminder notifications: Android shows only its alpha channel, so it
+ * is the star's silhouette with the eyes cut out, filling the icon.
+ */
+function badgeIcon(size) {
+  const eyes = [EYES.left, EYES.right]
+    .map(({ cx, cy }) => `<circle cx="${cx}" cy="${cy}" r="${EYES.pupilRadius}" fill="black"/>`)
+    .join('');
+  return svg(
+    size,
+    [
+      `<svg width="${size}" height="${size}" viewBox="10 12 100 100">`,
+      `<mask id="eyes"><rect width="120" height="120" fill="white"/>${eyes}</mask>`,
+      `<polygon points="${STAR_POSES.rest}" ${paint('fg')} ${paint('fg', 'stroke')} stroke-width="${STAR_STROKE_WIDTH}" stroke-linejoin="round" mask="url(#eyes)"/>`,
+      `</svg>`,
+    ].join(''),
+  );
+}
+
 const PNG_ICONS = [
   // "any": a rounded tile, so the icon reads on light and dark launchers alike.
   { file: 'icon-192.png', size: 192, markShare: 0.8, radius: 0.22 },
@@ -102,9 +122,10 @@ writeFileSync(
   join(publicDir, 'favicon.svg'),
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${MASCOT_VIEWBOX}">${mascotMark()}</svg>\n`,
 );
+const writePng = (svgText, file) =>
+  sharp(Buffer.from(svgText)).png({ compressionLevel: 9 }).toFile(join(iconDir, file));
 for (const { file, size, ...layout } of PNG_ICONS) {
-  await sharp(Buffer.from(appIcon(size, layout)))
-    .png({ compressionLevel: 9 })
-    .toFile(join(iconDir, file));
+  await writePng(appIcon(size, layout), file);
 }
-console.log(`Wrote public/favicon.svg and ${PNG_ICONS.length} icons to public/icons.`);
+await writePng(badgeIcon(96), 'badge-96.png');
+console.log(`Wrote public/favicon.svg and ${PNG_ICONS.length + 1} icons to public/icons.`);

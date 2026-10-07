@@ -1,8 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { jsonResponse, problemResponse } from '../test/http';
 import { ApiError, CLIENT_ERROR_CODES } from './ApiError';
-import { createApiClient, unwrap } from './client';
-import { addCsrfHeader, CSRF_HEADER, readCookie } from './middleware';
+import type { Middleware } from 'openapi-fetch';
+import { createApiClient, readCookie, unwrap } from './client';
+import { CSRF_HEADER, csrfMiddleware, type CsrfTokenReader } from './middleware';
 
 function clientAnswering(answer: () => Response | Promise<Response>) {
   const requests: Request[] = [];
@@ -16,6 +17,14 @@ function clientAnswering(answer: () => Response | Promise<Response>) {
     onUnauthorized,
   });
   return { client, requests, onUnauthorized };
+}
+
+/** Runs a request through the CSRF middleware alone. */
+async function throughCsrf(method: string, readToken: CsrfTokenReader): Promise<Request> {
+  const request = new Request('http://lingora.test/api/x', { method });
+  const params = { request } as Parameters<NonNullable<Middleware['onRequest']>>[0];
+  await csrfMiddleware(readToken).onRequest?.(params);
+  return request;
 }
 
 async function rejection(promise: Promise<unknown>): Promise<ApiError> {
@@ -54,20 +63,22 @@ describe('CSRF middleware', () => {
     expect(requests[0]?.headers.has(CSRF_HEADER)).toBe(false);
   });
 
-  it.each(['POST', 'PUT', 'PATCH', 'DELETE'])('adds the header to %s', (method) => {
-    const request = new Request('http://lingora.test/api/x', { method });
-
-    addCsrfHeader(request);
+  it.each(['POST', 'PUT', 'PATCH', 'DELETE'])('adds the header to %s', async (method) => {
+    const request = await throughCsrf(method, () => 'token+123');
 
     expect(request.headers.get(CSRF_HEADER)).toBe('token+123');
   });
 
-  it.each(['GET', 'HEAD', 'OPTIONS'])('leaves %s requests alone', (method) => {
-    const request = new Request('http://lingora.test/api/x', { method });
-
-    addCsrfHeader(request);
+  it.each(['GET', 'HEAD', 'OPTIONS'])('leaves %s requests alone', async (method) => {
+    const request = await throughCsrf(method, () => 'token+123');
 
     expect(request.headers.has(CSRF_HEADER)).toBe(false);
+  });
+
+  it('waits for an asynchronous reader, like the service worker has one', async () => {
+    const request = await throughCsrf('DELETE', () => Promise.resolve('from-cookie-store'));
+
+    expect(request.headers.get(CSRF_HEADER)).toBe('from-cookie-store');
   });
 
   it('sends no header while the cookie is missing', async () => {

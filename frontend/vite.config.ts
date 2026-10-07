@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, searchForWorkspaceRoot, type ProxyOptions } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import { BACKEND_PATHS, devServiceWorkerReset, pwaOptions, themeColorMeta } from './pwa.config.ts';
+import { devServiceWorkerReset, pwaOptions, themeColorMeta } from './pwa.config.ts';
+import { BACKEND_PATHS } from './src/sw/backendPaths.ts';
 
 const backendUrl = process.env.LINGORA_BACKEND_URL ?? 'http://localhost:8080';
 

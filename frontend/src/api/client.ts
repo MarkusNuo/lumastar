@@ -1,8 +1,16 @@
 import createClient from 'openapi-fetch';
 import { ApiError, CLIENT_ERROR_CODES } from './ApiError';
-import { csrfMiddleware, problemMiddleware } from './middleware';
+import { CSRF_COOKIE, csrfMiddleware, problemMiddleware } from './middleware';
 import type { paths } from './schema';
 import { notifyUnauthorized } from './unauthorized';
+
+export function readCookie(name: string, cookies: string = document.cookie): string | undefined {
+  for (const pair of cookies.split(';')) {
+    const [key, ...value] = pair.trim().split('=');
+    if (key === name) return decodeURIComponent(value.join('='));
+  }
+  return undefined;
+}
 
 export interface ApiClientOptions {
   baseUrl?: string;
@@ -18,7 +26,10 @@ export function createApiClient({
   onUnauthorized = notifyUnauthorized,
 }: ApiClientOptions = {}) {
   const client = createClient<paths>({ baseUrl, fetch, credentials: 'include' });
-  client.use(csrfMiddleware, problemMiddleware(onUnauthorized));
+  client.use(
+    csrfMiddleware(() => readCookie(CSRF_COOKIE)),
+    problemMiddleware(onUnauthorized),
+  );
   return client;
 }
 

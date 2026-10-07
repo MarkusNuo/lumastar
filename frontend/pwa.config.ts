@@ -3,16 +3,14 @@ import type { VitePWAOptions } from 'vite-plugin-pwa';
 import { readColorTokens } from './scripts/designTokens.ts';
 
 /*
- * Installable PWA (PRD 2, 11.1): manifest, own icons (npm run gen:icons) and a service worker that
- * precaches the app shell for installability and a fast start. Learning data is never cached:
- * every /api call goes to the network (offline use and sync are PRD non-goals).
+ * Installable PWA (PRD 2, 11.1): manifest, own icons (npm run gen:icons) and an own service worker
+ * (src/sw.ts) that precaches the app shell for installability and a fast start and shows the
+ * reminders as native notifications (DECISIONS #85). Learning data is never cached: every /api
+ * call goes to the network (offline use and sync are PRD non-goals).
  */
 
 const color = readColorTokens();
 export const APP_BACKGROUND = color('bg');
-
-/** Paths the dev and preview servers proxy to the backend; the worker never answers them. */
-export const BACKEND_PATHS = ['/api', '/v3', '/actuator'];
 
 const icon = (src: string, size: number, purpose: 'any' | 'maskable') => ({
   src: `/icons/${src}`,
@@ -22,7 +20,11 @@ const icon = (src: string, size: number, purpose: 'any' | 'maskable') => ({
 });
 
 export const pwaOptions: Partial<VitePWAOptions> = {
-  // The new version takes over at once, but the page is not reloaded: a running lesson goes on.
+  strategies: 'injectManifest',
+  srcDir: 'src',
+  filename: 'sw.ts',
+  // Nothing asks the user or reloads the page: a new version (src/sw.ts never skips waiting) takes
+  // over once every Lingora window is closed, so a running lesson goes on.
   registerType: 'autoUpdate',
   // Only `vite build` registers the worker; the dev server never has one (devOptions are off).
   injectRegister: 'script-defer',
@@ -50,16 +52,12 @@ export const pwaOptions: Partial<VitePWAOptions> = {
       icon('icon-maskable-512.png', 512, 'maskable'),
     ],
   },
-  workbox: {
+  // Precache manifest injected into src/sw.ts, which also routes navigations and never caches /api.
+  injectManifest: {
     // The app shell: code, styles, icons and the Latin font subsets that Gheg needs.
     globPatterns: ['**/*.{js,css,html}', 'assets/nunito-latin-*.woff2'],
     // The design catalog is a developer page; it loads from the network when opened.
     globIgnores: ['**/CatalogPage-*.js'],
-    navigateFallback: '/index.html',
-    navigateFallbackDenylist: BACKEND_PATHS.map((path) => new RegExp(`^${path}(/|$)`)),
-    cleanupOutdatedCaches: true,
-    clientsClaim: true,
-    // No runtimeCaching: requests outside the precache, above all /api, always use the network.
   },
 };
 

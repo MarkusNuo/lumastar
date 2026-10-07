@@ -48,6 +48,15 @@ export type DueDay = Schemas['DueDay'];
 export type Settings = Schemas['SettingsResponse'];
 export type SettingsRequest = Schemas['SettingsRequest'];
 
+export type ReminderSettings = Schemas['ReminderSettingsResponse'];
+export type ReminderSettingsRequest = Schemas['ReminderSettingsRequest'];
+export type PushConfig = Schemas['PushConfigResponse'];
+export type PushDevice = Schemas['PushDeviceResponse'];
+export type PushTestResult = Schemas['PushTestResponse'];
+export type PushNotification = Schemas['PushNotification'];
+export type NotificationAction = Schemas['NotificationAction'];
+export type NotificationActionType = Schemas['NotificationActionType'];
+
 export type LevelBadgeCode = Schemas['LevelBadge'];
 export type EarnedBadge = Schemas['BadgeResponse'];
 

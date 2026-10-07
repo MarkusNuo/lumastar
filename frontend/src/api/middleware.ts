@@ -1,30 +1,39 @@
 import type { Middleware } from 'openapi-fetch';
 import { ApiError, toApiError, toNetworkError } from './ApiError';
 
+/*
+ * Middleware of the API clients: the page's client and the service worker's. It therefore uses
+ * nothing that only exists in a window, such as `document`.
+ */
+
 /* Spring Security's SPA CSRF pattern: echo the readable cookie in a header on unsafe requests. */
 export const CSRF_COOKIE = 'XSRF-TOKEN';
 export const CSRF_HEADER = 'X-XSRF-TOKEN';
 
 const MUTATING_METHODS = new Set(['POST', 'PUT', 'PATCH', 'DELETE']);
 
-export function readCookie(name: string, cookies: string = document.cookie): string | undefined {
-  for (const pair of cookies.split(';')) {
-    const [key, ...value] = pair.trim().split('=');
-    if (key === name) return decodeURIComponent(value.join('='));
-  }
-  return undefined;
-}
+/** Reads the current CSRF token: the page from `document.cookie`, the worker from the Cookie Store. */
+export type CsrfTokenReader = () => string | undefined | Promise<string | undefined>;
 
-/** Reads the cookie per request because the server rotates the token on sign-in and sign-out. */
-export function addCsrfHeader(request: Request): void {
-  if (!MUTATING_METHODS.has(request.method)) return;
-  const token = readCookie(CSRF_COOKIE);
-  if (token) request.headers.set(CSRF_HEADER, token);
+/**
+ * Reads the token per request because the server rotates it on sign-in and sign-out. A reader that
+ * answers at once adds no wait, so the page's requests leave in the order they were made.
+ */
+export function csrfMiddleware(readToken: CsrfTokenReader): Middleware {
+  const withToken = (request: Request, token: string | undefined) => {
+    if (token) request.headers.set(CSRF_HEADER, token);
+    return request;
+  };
+  return {
+    onRequest({ request }) {
+      if (!MUTATING_METHODS.has(request.method)) return undefined;
+      const token = readToken();
+      return token instanceof Promise
+        ? token.then((value) => withToken(request, value))
+        : withToken(request, token);
+    },
+  };
 }
-
-export const csrfMiddleware: Middleware = {
-  onRequest: ({ request }) => addCsrfHeader(request),
-};
 
 /**
  * Rejects every non-2xx response with an {@link ApiError}, so callers only handle success data,
