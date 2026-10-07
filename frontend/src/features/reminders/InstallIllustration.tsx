@@ -37,37 +37,46 @@ export function InstallIllustration({ className }: { className?: string }) {
 
       {/* Share sheet with the "Zum Home-Bildschirm" entry */}
       <rect
-        x="66"
+        x="63"
         y="88"
-        width="108"
+        width="114"
         height="50"
         rx="10"
         className="fill-surface-raised stroke-border"
         strokeWidth="2"
       />
       <rect
-        x="72"
+        x="67"
         y="104"
-        width="96"
+        width="106"
         height="26"
         rx="7"
         className="fill-secondary-surface stroke-secondary"
         strokeWidth="2"
       />
-      <text x="80" y="120.5" fontSize="8.5" fontWeight="800" className="fill-fg">
+      {/* textLength keeps the label clear of the icon whatever font renders it */}
+      <text
+        x="73"
+        y="120"
+        fontSize="7.5"
+        fontWeight="800"
+        textLength="80"
+        lengthAdjust="spacingAndGlyphs"
+        className="fill-fg"
+      >
         {copy.addToHomeScreen}
       </text>
       <g
-        transform="translate(158 117)"
+        transform="translate(163.5 117)"
         className="stroke-secondary"
         strokeWidth="1.8"
         fill="none"
         strokeLinecap="round"
       >
-        <rect x="-5" y="-5" width="10" height="10" rx="2.5" />
+        <rect x="-4.5" y="-4.5" width="9" height="9" rx="2.5" />
         <path d="M0 -2.5v5M-2.5 0h5" />
       </g>
-      <rect x="78" y="94" width="40" height="4" rx="2" className="fill-border-strong" />
+      <rect x="73" y="94" width="40" height="4" rx="2" className="fill-border-strong" />
 
       {/* Safari toolbar */}
       <path

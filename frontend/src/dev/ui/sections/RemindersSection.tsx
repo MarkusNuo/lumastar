@@ -1,3 +1,4 @@
+import { PaperPlaneTiltIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { REMINDER_COPY } from '../../../features/reminders/copy';
@@ -73,7 +74,7 @@ export function RemindersSection() {
           initiallyOn
           times={{ time: '22:00', rescueEnabled: true, rescueTime: '21:30' }}
         />
-        <Button variant="neutral" size="lg" fullWidth>
+        <Button variant="neutral" size="lg" fullWidth icon={PaperPlaneTiltIcon}>
           {REMINDER_COPY.test.button}
         </Button>
       </Specimen>
