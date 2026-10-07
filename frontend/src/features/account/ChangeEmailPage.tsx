@@ -10,7 +10,7 @@ import { TextField } from '../../components/ui/TextField';
 import { moveToNextFieldOnEnter } from '../../lib/moveToNextField';
 import { useFormErrors } from '../../lib/useFormErrors';
 import { normalize, validateCurrentPassword, validateEmail } from '../auth/accountRules';
-import { invalidFields, useThrottleLock } from '../auth/authProblems';
+import { rejectInvalid, useThrottleLock, type ServerFields } from '../auth/authProblems';
 import { AUTH_COPY, FIELD_COPY } from '../auth/copy';
 import type { Account } from '../../api/types';
 import { accountQuery, useChangeEmail } from './accountApi';
@@ -22,6 +22,11 @@ import { EmailStatusChip } from './EmailStatusChip';
 import { ResendButton } from './verification/ResendButton';
 
 const copy = ACCOUNT_COPY.email;
+
+const SERVER_FIELDS: ServerFields<'newEmail' | 'password'> = {
+  newEmail: ['newEmail', FIELD_COPY.email.errors.invalid],
+  password: ['password', FIELD_COPY.currentPassword.wrong],
+};
 
 /** Route `/profil/e-mail`: the address, its confirmation and a change to a new one. */
 export function ChangeEmailPage() {
@@ -123,9 +128,9 @@ function EmailForm({ account, change }: EmailFormProps) {
           else if (isWrongPassword(error)) {
             form.rejectFields({ password: FIELD_COPY.currentPassword.wrong });
           } else if (isApiError(error, 'email_taken')) form.rejectFields({ newEmail: copy.taken });
-          else if (invalidFields(error).length > 0) {
-            form.rejectFields({ newEmail: FIELD_COPY.email.errors.invalid });
-          } else setFailure(copy.failed);
+          else if (!rejectInvalid(error, SERVER_FIELDS, form, setFailure)) {
+            setFailure(copy.failed);
+          }
         },
       },
     );

@@ -8,13 +8,18 @@ import { showToast } from '../../components/ui/toastStore';
 import { useFormErrors } from '../../lib/useFormErrors';
 import { DISPLAY_NAME_MAX_LENGTH, normalize, validateDisplayName } from '../auth/accountRules';
 import { useMe } from '../auth/authHooks';
-import { FIELD_COPY } from '../auth/copy';
+import { rejectInvalid, type ServerFields } from '../auth/authProblems';
+import { AUTH_COPY, FIELD_COPY } from '../auth/copy';
 import { useChangeDisplayName } from './accountApi';
 import { ACCOUNT_ROUTES } from './accountRoutes';
 import { AccountScreen, AccountScreenLoading } from './AccountScreen';
 import { ACCOUNT_COPY } from './copy';
 
 const copy = ACCOUNT_COPY.displayName;
+
+const SERVER_FIELDS: ServerFields<'displayName'> = {
+  displayName: ['displayName', AUTH_COPY.register.refused.displayName],
+};
 
 /** Route `/profil/name`. */
 export function ChangeDisplayNamePage() {
@@ -32,6 +37,7 @@ function DisplayNameForm({ current }: { current: string }) {
   const goBack = useGoBack(ACCOUNT_ROUTES.profile);
   const formId = useId();
   const [name, setName] = useState(current);
+  const [failure, setFailure] = useState<string>();
   const nameError = validateDisplayName(name);
   const [formRef, form] = useFormErrors({
     displayName: nameError && FIELD_COPY.displayName.errors[nameError],
@@ -40,6 +46,7 @@ function DisplayNameForm({ current }: { current: string }) {
   const submit = (event: SubmitEvent) => {
     event.preventDefault();
     if (change.isPending || !form.check()) return;
+    setFailure(undefined);
     const displayName = normalize(name);
     if (displayName === current) {
       goBack();
@@ -49,6 +56,9 @@ function DisplayNameForm({ current }: { current: string }) {
       onSuccess: () => {
         showToast(copy.saved);
         goBack();
+      },
+      onError: (error) => {
+        if (!rejectInvalid(error, SERVER_FIELDS, form, setFailure)) setFailure(copy.failed);
       },
     });
   };
@@ -81,9 +91,12 @@ function DisplayNameForm({ current }: { current: string }) {
           maxLength={DISPLAY_NAME_MAX_LENGTH}
           value={name}
           error={form.errors.displayName}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) => {
+            setName(event.target.value);
+            form.clear('displayName');
+          }}
         />
-        {change.isError && <Callout tone="danger">{copy.failed}</Callout>}
+        {failure && <Callout tone="danger">{failure}</Callout>}
       </form>
     </AccountScreen>
   );

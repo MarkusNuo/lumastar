@@ -5,6 +5,7 @@ import type { OnboardingOptions, Profile } from '../../api/types';
 import { FocusScreen } from '../../components/ui/FocusScreen';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { useMe } from '../auth/authHooks';
+import { AccountMenu } from './AccountMenu';
 import { ONBOARDING_COPY } from './copy';
 import { onboardingOptionsQuery, useAnswerOnboarding } from './onboardingApi';
 import { initialAnswers, isAnswered, toggleMotivation, toRequest } from './onboardingAnswers';
@@ -26,7 +27,10 @@ export function OnboardingPage() {
     return <OnboardingQuestions profile={me.data} options={options.data} />;
   }
   return (
-    <FocusScreen header={<StepHeader step={QUESTION_STEPS[0]} />} className="justify-center">
+    <FocusScreen
+      header={<StepHeader step={QUESTION_STEPS[0]} action={<AccountMenu />} />}
+      className="justify-center"
+    >
       {options.isError ? (
         <LoadFailed
           message={copy.loadFailed}
@@ -70,7 +74,14 @@ function OnboardingQuestions({
 
   return (
     <FocusScreen
-      header={<StepHeader step={flow.step} onBack={back} backDisabled={saveAnswers.isPending} />}
+      header={
+        <StepHeader
+          step={flow.step}
+          onBack={back}
+          backDisabled={saveAnswers.isPending}
+          action={<AccountMenu />}
+        />
+      }
     >
       {flow.step === 'motivation' && (
         <ChoiceStep

@@ -9,7 +9,7 @@ import { showToast } from '../../components/ui/toastStore';
 import { useFormErrors } from '../../lib/useFormErrors';
 import { validateCurrentPassword } from '../auth/accountRules';
 import { useMe } from '../auth/authHooks';
-import { useThrottleLock } from '../auth/authProblems';
+import { rejectInvalid, useThrottleLock, type ServerFields } from '../auth/authProblems';
 import { AUTH_COPY, FIELD_COPY } from '../auth/copy';
 import { PROFILE_COPY } from '../settings/copy';
 import { useBackupDownload } from '../settings/useBackupDownload';
@@ -19,6 +19,10 @@ import { AccountScreen } from './AccountScreen';
 import { ACCOUNT_COPY } from './copy';
 
 const copy = ACCOUNT_COPY.delete;
+
+const SERVER_FIELDS: ServerFields<'password'> = {
+  password: ['password', FIELD_COPY.currentPassword.wrong],
+};
 
 /**
  * Route `/profil/konto-loeschen`: what gets lost, a backup first, the password and a last
@@ -30,7 +34,7 @@ export function DeleteAccountPage() {
   const formId = useId();
   const [password, setPassword] = useState('');
   const [confirming, setConfirming] = useState(false);
-  const [failed, setFailed] = useState(false);
+  const [failure, setFailure] = useState<string>();
   const throttle = useThrottleLock();
   const [formRef, form] = useFormErrors({
     password: validateCurrentPassword(password) && FIELD_COPY.currentPassword.required,
@@ -44,13 +48,15 @@ export function DeleteAccountPage() {
 
   const deleteAccount = () => {
     setConfirming(false);
-    setFailed(false);
+    setFailure(undefined);
     remove.mutate(password, {
       onError: (error) => {
         if (throttle.lockOn(error)) form.shake();
         else if (isWrongPassword(error)) {
           form.rejectFields({ password: FIELD_COPY.currentPassword.wrong });
-        } else setFailed(true);
+        } else if (!rejectInvalid(error, SERVER_FIELDS, form, setFailure)) {
+          setFailure(copy.failed);
+        }
       },
     });
   };
@@ -95,7 +101,7 @@ export function DeleteAccountPage() {
           }}
         />
         {throttle.locked && <Callout tone="warning">{AUTH_COPY.register.throttled}</Callout>}
-        {failed && <Callout tone="danger">{copy.failed}</Callout>}
+        {failure && <Callout tone="danger">{failure}</Callout>}
       </form>
       <ConfirmDialog
         open={confirming}

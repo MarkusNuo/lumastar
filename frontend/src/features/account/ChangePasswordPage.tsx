@@ -9,7 +9,7 @@ import { moveToNextFieldOnEnter } from '../../lib/moveToNextField';
 import { useFormErrors } from '../../lib/useFormErrors';
 import { validateCurrentPassword, validateNewPassword } from '../auth/accountRules';
 import { useMe } from '../auth/authHooks';
-import { invalidFields, useThrottleLock } from '../auth/authProblems';
+import { rejectInvalid, useThrottleLock, type ServerFields } from '../auth/authProblems';
 import { AUTH_COPY, FIELD_COPY } from '../auth/copy';
 import { useChangePassword } from './accountApi';
 import { isWrongPassword } from './accountProblems';
@@ -19,6 +19,11 @@ import { ACCOUNT_COPY } from './copy';
 
 const copy = ACCOUNT_COPY.password;
 
+const SERVER_FIELDS: ServerFields<'currentPassword' | 'newPassword'> = {
+  currentPassword: ['currentPassword', copy.wrongCurrent],
+  newPassword: ['newPassword', AUTH_COPY.register.refused.password],
+};
+
 /** Route `/profil/passwort`: the current password confirms the new one. */
 export function ChangePasswordPage() {
   const email = useMe().data?.email;
@@ -27,7 +32,7 @@ export function ChangePasswordPage() {
   const formId = useId();
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [failed, setFailed] = useState(false);
+  const [failure, setFailure] = useState<string>();
   const throttle = useThrottleLock();
   const newError = validateNewPassword(newPassword);
   const [formRef, form] = useFormErrors({
@@ -39,7 +44,7 @@ export function ChangePasswordPage() {
   const submit = (event: SubmitEvent) => {
     event.preventDefault();
     if (change.isPending || throttle.locked || !form.check()) return;
-    setFailed(false);
+    setFailure(undefined);
     change.mutate(
       { currentPassword, newPassword },
       {
@@ -51,9 +56,9 @@ export function ChangePasswordPage() {
           if (throttle.lockOn(error)) form.shake();
           else if (isWrongPassword(error))
             form.rejectFields({ currentPassword: copy.wrongCurrent });
-          else if (invalidFields(error).length > 0) {
-            form.rejectFields({ newPassword: AUTH_COPY.register.refused.password });
-          } else setFailed(true);
+          else if (!rejectInvalid(error, SERVER_FIELDS, form, setFailure)) {
+            setFailure(copy.failed);
+          }
         },
       },
     );
@@ -105,7 +110,7 @@ export function ChangePasswordPage() {
           }}
         />
         {throttle.locked && <Callout tone="warning">{AUTH_COPY.register.throttled}</Callout>}
-        {failed && <Callout tone="danger">{copy.failed}</Callout>}
+        {failure && <Callout tone="danger">{failure}</Callout>}
       </form>
     </AccountScreen>
   );

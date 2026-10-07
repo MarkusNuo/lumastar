@@ -1,4 +1,4 @@
-import { ArrowClockwiseIcon, CheckIcon, SignOutIcon } from '@phosphor-icons/react';
+import { CheckIcon } from '@phosphor-icons/react';
 import { useId, useState, type SubmitEvent } from 'react';
 import { isApiError } from '../../api/ApiError';
 import { Button } from '../../components/ui/Button';
@@ -9,53 +9,33 @@ import { showToast } from '../../components/ui/toastStore';
 import { moveToNextFieldOnEnter } from '../../lib/moveToNextField';
 import { useFormErrors } from '../../lib/useFormErrors';
 import { normalize, validateCurrentPassword, validateEmail } from '../auth/accountRules';
-import { useLogout, useMe } from '../auth/authHooks';
-import { invalidFields, useThrottleLock } from '../auth/authProblems';
+import { rejectInvalid, useThrottleLock, type ServerFields } from '../auth/authProblems';
 import { AuthIntro, AuthScreen } from '../auth/AuthScreen';
 import { AUTH_COPY, FIELD_COPY } from '../auth/copy';
 import { useChangeEmail } from './accountApi';
 import { isWrongPassword } from './accountProblems';
 import { ACCOUNT_COPY } from './copy';
-import { ResendButton } from './verification/ResendButton';
+import { LogoutButton } from './LogoutButton';
 
 const copy = ACCOUNT_COPY.addEmail;
 
 // Long enough to read the address the link went to.
 const SAVED_TOAST_MS = 6000;
 
+const SERVER_FIELDS: ServerFields<'email' | 'password'> = {
+  newEmail: ['email', FIELD_COPY.email.errors.invalid],
+  password: ['password', FIELD_COPY.currentPassword.wrong],
+};
+
 /**
  * Route `/e-mail-hinzufuegen`: the account of the former single-user version gets its e-mail
- * address before anything else (the guard keeps it here until the backend no longer requires it).
+ * address before anything else. Once saved, the backend no longer requires one and the guard
+ * continues into the app; confirming the address can follow.
  */
 export function AddEmailPage() {
   const change = useChangeEmail((account) => {
     if (account.email) showToast(copy.saved(account.email), { durationMs: SAVED_TOAST_MS });
   });
-  // Still required after a successful save: the backend waits for the link to be opened.
-  return change.isSuccess ? (
-    <WaitForConfirmation email={change.variables.newEmail} />
-  ) : (
-    <AddEmailForm change={change} />
-  );
-}
-
-function LogoutButton() {
-  const logout = useLogout();
-  return (
-    <Button
-      variant="ghost"
-      size="md"
-      fullWidth
-      icon={SignOutIcon}
-      loading={logout.isPending}
-      onClick={() => logout.mutate()}
-    >
-      {copy.logout}
-    </Button>
-  );
-}
-
-function AddEmailForm({ change }: { change: ReturnType<typeof useChangeEmail> }) {
   const formId = useId();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -80,9 +60,9 @@ function AddEmailForm({ change }: { change: ReturnType<typeof useChangeEmail> })
             form.rejectFields({ password: FIELD_COPY.currentPassword.wrong });
           } else if (isApiError(error, 'email_taken')) {
             form.rejectFields({ email: ACCOUNT_COPY.email.taken });
-          } else if (invalidFields(error).length > 0) {
-            form.rejectFields({ email: FIELD_COPY.email.errors.invalid });
-          } else setFailure(ACCOUNT_COPY.email.failed);
+          } else if (!rejectInvalid(error, SERVER_FIELDS, form, setFailure)) {
+            setFailure(ACCOUNT_COPY.email.failed);
+          }
         },
       },
     );
@@ -103,7 +83,7 @@ function AddEmailForm({ change }: { change: ReturnType<typeof useChangeEmail> })
           >
             {throttle.locked ? AUTH_COPY.throttledWait(throttle.countdown) : copy.submit}
           </Button>
-          <LogoutButton />
+          <LogoutButton variant="ghost" />
         </div>
       }
     >
@@ -147,38 +127,6 @@ function AddEmailForm({ change }: { change: ReturnType<typeof useChangeEmail> })
         {throttle.locked && <Callout tone="warning">{AUTH_COPY.register.throttled}</Callout>}
         {failure && <Callout tone="danger">{failure}</Callout>}
       </form>
-    </AuthScreen>
-  );
-}
-
-function WaitForConfirmation({ email }: { email: string }) {
-  const me = useMe();
-
-  return (
-    <AuthScreen
-      className="justify-center"
-      footer={
-        <div className="flex flex-col gap-3">
-          <Button
-            size="lg"
-            fullWidth
-            icon={ArrowClockwiseIcon}
-            loading={me.isFetching}
-            onClick={() => void me.refetch()}
-          >
-            {copy.waiting.check}
-          </Button>
-          <ResendButton size="md" fullWidth />
-          <LogoutButton />
-        </div>
-      }
-    >
-      <AuthIntro
-        expression="happy"
-        title={copy.waiting.title}
-        text={copy.waiting.text(email)}
-        focusTitle
-      />
     </AuthScreen>
   );
 }

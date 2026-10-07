@@ -19,20 +19,15 @@ const LEGACY = profile({
   emailRequired: true,
 });
 
-/** The legacy account until an address is saved; `stillRequired` keeps it waiting for the link. */
-function renderStep(routes: Routes = {}, stillRequired = false) {
+/** The legacy account until an address is saved. */
+function renderStep(routes: Routes = {}) {
   let saved = false;
   const requests = stubApi({
     'GET /api/auth/status': () => jsonResponse(authStatus({ authenticated: true })),
     'GET /api/me': () =>
       jsonResponse(
         saved
-          ? {
-              ...LEGACY,
-              email: 'erza@example.ch',
-              emailVerified: false,
-              emailRequired: stillRequired,
-            }
+          ? { ...LEGACY, email: 'erza@example.ch', emailVerified: false, emailRequired: false }
           : LEGACY,
       ),
     'GET /api/account': () => jsonResponse(account({ emailVerified: false })),
@@ -93,18 +88,6 @@ describe('AddEmailPage', () => {
     );
   });
 
-  it('waits for the link when the backend still requires it', async () => {
-    const { user } = renderStep({}, true);
-
-    await addEmail(user, 'erza@example.ch');
-
-    expect(
-      await screen.findByRole('heading', { name: 'Bestätige deine Adresse' }),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Link erneut senden' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Ich habe bestätigt' })).toBeInTheDocument();
-  });
-
   it.each([
     ['invalid_password', 403, 'Passwort', 'Das Passwort stimmt nicht. Versuch es nochmals.'],
     ['email_taken', 409, 'E-Mail-Adresse', 'Mit dieser E-Mail-Adresse gibt es schon ein Konto.'],
@@ -117,6 +100,41 @@ describe('AddEmailPage', () => {
 
     await expect.poll(() => screen.getByLabelText(label).getAttribute('aria-invalid')).toBe('true');
     expect(screen.getByLabelText(label)).toHaveAccessibleDescription(message);
+  });
+
+  it('shows a refused field where it belongs', async () => {
+    const { user } = renderStep({
+      'PUT /api/account/email': () =>
+        problemResponse({
+          status: 400,
+          code: 'validation_failed',
+          errors: [{ field: 'password', message: 'size must be between 1 and 128' }],
+        }),
+    });
+
+    await addEmail(user, 'erza@example.ch');
+
+    await expect
+      .poll(() => screen.getByLabelText('Passwort').getAttribute('aria-invalid'))
+      .toBe('true');
+    expect(screen.getByLabelText('E-Mail-Adresse')).not.toHaveAttribute('aria-invalid', 'true');
+  });
+
+  it('asks to check the input when the server refuses a field the form does not show', async () => {
+    const { user } = renderStep({
+      'PUT /api/account/email': () =>
+        problemResponse({
+          status: 400,
+          code: 'validation_failed',
+          errors: [{ field: 'unknown', message: 'must not be null' }],
+        }),
+    });
+
+    await addEmail(user, 'erza@example.ch');
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Deine Angaben wurden nicht angenommen. Prüfe sie bitte.',
+    );
   });
 });
 

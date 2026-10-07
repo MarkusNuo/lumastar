@@ -27,4 +27,9 @@ export const ONBOARDING_COPY = {
     hint: 'Danach startet der Einstufungstest auf deinem Niveau.',
   },
   saveFailed: 'Deine Antworten konnten nicht gespeichert werden. Versuch es nochmals.',
+  account: {
+    open: 'Konto',
+    title: 'Dein Konto',
+    text: 'Du kannst dich jederzeit wieder anmelden und die Einrichtung fortsetzen.',
+  },
 } as const;

@@ -24,9 +24,10 @@ export function createWorkerBackend({
   userAgent,
 }: WorkerBackendOptions): WorkerBackend {
   const client = createClient<paths>({ baseUrl, fetch, credentials: 'include' });
+  // Responses pass the middleware in reverse: the CSRF retry comes before the problem mapping.
   client.use(
-    csrfMiddleware(readCsrfToken),
     problemMiddleware(() => undefined),
+    csrfMiddleware(readCsrfToken),
   );
 
   return {

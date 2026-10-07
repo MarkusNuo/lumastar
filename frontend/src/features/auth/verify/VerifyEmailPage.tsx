@@ -11,7 +11,7 @@ import { LoadingDots } from '../../../components/ui/LoadingDots';
 import { useCelebration } from '../../../lib/useCelebration';
 import { refreshAccount } from '../../account/accountApi';
 import { ResendButton } from '../../account/verification/ResendButton';
-import { useAuthStatus } from '../authHooks';
+import { useSignedIn } from '../authHooks';
 import { linkProblem, type LinkProblem } from '../authProblems';
 import { AUTH_ROUTES } from '../authRoutes';
 import { AuthIntro, AuthMessage, AuthScreen } from '../AuthScreen';
@@ -56,10 +56,6 @@ export function VerifyEmailPage() {
     return <VerifyFailed onRetry={() => mutate(token)} />;
   }
   return <Checking />;
-}
-
-function useSignedIn(): boolean {
-  return useAuthStatus().data?.authenticated === true;
 }
 
 interface OnwardLinkProps {

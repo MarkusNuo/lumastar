@@ -59,8 +59,6 @@ export const PROFILE_COPY = {
     plan: { label: 'Lernplan ansehen', description: 'Deine Zeitleiste bis C2' },
     placement: { label: 'Neu einstufen', description: 'Einstufungstest wiederholen' },
   },
-  logout: 'Abmelden',
-  logoutFailed: 'Abmelden hat nicht geklappt. Prüfe deine Verbindung und versuch es nochmals.',
   learningData: {
     title: 'Lerndaten',
     copySummary: {

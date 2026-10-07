@@ -55,6 +55,8 @@ export const FIELD_COPY = {
 /** UI copy of the signed-out area (German, Swiss orthography). */
 export const AUTH_COPY = {
   back: 'Zurück',
+  /** The server refused the input, but not for a field the form shows. */
+  invalid: 'Deine Angaben wurden nicht angenommen. Prüfe sie bitte.',
   throttledWait: (countdown: string) => `Warten (${countdown})`,
   welcome: {
     title: 'Willkommen bei Lingora!',
@@ -76,7 +78,6 @@ export const AUTH_COPY = {
     login: 'Anmelden',
     emailTaken:
       'Mit dieser E-Mail-Adresse gibt es schon ein Konto. Melde dich an oder setze dein Passwort zurück.',
-    invalid: 'Deine Angaben wurden nicht angenommen. Prüfe sie bitte.',
     refused: {
       displayName: 'Dieser Name wurde nicht angenommen. Versuch einen anderen.',
       password: 'Dieses Passwort wurde nicht angenommen. Wähle ein anderes.',
@@ -123,6 +124,7 @@ export const AUTH_COPY = {
         `Falls es ein Konto mit ${email} gibt, ist ein Link für ein neues Passwort unterwegs. Schau auch im Spam-Ordner nach.`,
     },
     toLogin: 'Zur Anmeldung',
+    toApp: 'Weiter zu Lingora',
     throttled: THROTTLED,
     failed: `Der Link konnte nicht angefordert werden. ${CONNECTION}`,
   },

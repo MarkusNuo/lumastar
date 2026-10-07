@@ -8,12 +8,16 @@ import { PasswordField } from '../../../components/ui/PasswordField';
 import { useFormErrors } from '../../../lib/useFormErrors';
 import { validateCurrentPassword } from '../accountRules';
 import { useAuthStatus, useLegacyLogin } from '../authHooks';
-import { useThrottleLock } from '../authProblems';
+import { rejectInvalid, useThrottleLock, type ServerFields } from '../authProblems';
 import { AUTH_ROUTES } from '../authRoutes';
 import { AuthIntro, AuthMessage, AuthScreen } from '../AuthScreen';
 import { AUTH_COPY, FIELD_COPY } from '../copy';
 
 const copy = AUTH_COPY.legacyLogin;
+
+const SERVER_FIELDS: ServerFields<'password'> = {
+  password: ['password', FIELD_COPY.currentPassword.wrong],
+};
 
 /**
  * Route `/anmelden/frueheres-konto`: the account of the former single-user version signs in with
@@ -29,7 +33,7 @@ function LegacyLoginForm() {
   const formId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [password, setPassword] = useState('');
-  const [failed, setFailed] = useState(false);
+  const [failure, setFailure] = useState<string>();
   const throttle = useThrottleLock();
   const [formRef, form] = useFormErrors({
     password: validateCurrentPassword(password) && FIELD_COPY.currentPassword.required,
@@ -40,13 +44,15 @@ function LegacyLoginForm() {
   const submit = (event: SubmitEvent) => {
     event.preventDefault();
     if (throttle.locked || login.isPending || !form.check()) return;
-    setFailed(false);
+    setFailure(undefined);
     login.mutate(password, {
       onError: (error) => {
         if (throttle.lockOn(error)) form.shake();
         else if (isApiError(error, 'invalid_credentials')) {
           form.rejectFields({ password: FIELD_COPY.currentPassword.wrong });
-        } else setFailed(true);
+        } else if (!rejectInvalid(error, SERVER_FIELDS, form, setFailure)) {
+          setFailure(AUTH_COPY.login.failed);
+        }
       },
     });
   };
@@ -88,7 +94,7 @@ function LegacyLoginForm() {
           }}
         />
         {throttle.locked && <Callout tone="warning">{AUTH_COPY.login.throttled}</Callout>}
-        {failed && <Callout tone="danger">{AUTH_COPY.login.failed}</Callout>}
+        {failure && <Callout tone="danger">{failure}</Callout>}
       </form>
     </AuthScreen>
   );

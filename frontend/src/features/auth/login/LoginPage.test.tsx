@@ -110,6 +110,44 @@ describe('LoginPage', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent('Prüfe deine Verbindung');
   });
 
+  it.each([
+    ['email', 'Diese E-Mail-Adresse sieht nicht vollständig aus.'],
+    ['password', 'E-Mail-Adresse oder Passwort stimmt nicht. Versuch es nochmals.'],
+  ])('shows a refused %s on its field, not as a connection problem', async (field, message) => {
+    const { user } = renderLogin(authStatus(), {
+      'POST /api/auth/login': () =>
+        problemResponse({
+          status: 400,
+          code: 'validation_failed',
+          errors: [{ field, message: 'size must be between 0 and 254' }],
+        }),
+    });
+    const input = field === 'email' ? emailField : passwordField;
+
+    await user.type(emailField(), 'erza@example.ch');
+    await user.type(passwordField(), 'geheim123');
+    await user.click(submit());
+
+    await expect.poll(() => input().getAttribute('aria-invalid')).toBe('true');
+    expect(input()).toHaveAccessibleDescription(message);
+    expect(screen.queryByText(/Prüfe deine Verbindung/)).not.toBeInTheDocument();
+  });
+
+  it('asks to check the input when the server refuses something else', async () => {
+    const { user } = renderLogin(authStatus(), {
+      'POST /api/auth/login': () =>
+        problemResponse({ status: 400, code: 'validation_failed', errors: [] }),
+    });
+
+    await user.type(emailField(), 'erza@example.ch');
+    await user.type(passwordField(), 'geheim123');
+    await user.click(submit());
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Deine Angaben wurden nicht angenommen. Prüfe sie bitte.',
+    );
+  });
+
   it('hands the typed address to "Passwort vergessen?"', async () => {
     const { router, user } = renderLogin();
 

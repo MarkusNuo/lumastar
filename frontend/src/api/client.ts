@@ -26,9 +26,10 @@ export function createApiClient({
   onUnauthorized = notifyUnauthorized,
 }: ApiClientOptions = {}) {
   const client = createClient<paths>({ baseUrl, fetch, credentials: 'include' });
+  // Responses pass the middleware in reverse: the CSRF retry comes before the problem mapping.
   client.use(
-    csrfMiddleware(() => readCookie(CSRF_COOKIE)),
     problemMiddleware(onUnauthorized),
+    csrfMiddleware(() => readCookie(CSRF_COOKIE)),
   );
   return client;
 }

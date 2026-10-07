@@ -63,7 +63,8 @@ describe('ChangeEmailPage', () => {
 
     await change(user, ' Neu@Example.ch ');
 
-    expect(await screen.findByText('Fast geschafft!')).toBeInTheDocument();
+    // It replaces the form, so focus moves to it and screen readers read it.
+    expect(await screen.findByRole('heading', { name: 'Fast geschafft!' })).toHaveFocus();
     expect(
       screen.getByText(/Wir haben einen Link an neu@example.ch geschickt/),
     ).toBeInTheDocument();
@@ -127,5 +128,25 @@ describe('ChangeEmailPage', () => {
 
     await expect.poll(() => screen.getByLabelText(label).getAttribute('aria-invalid')).toBe('true');
     expect(screen.getByLabelText(label)).toHaveAccessibleDescription(message);
+  });
+
+  it.each([
+    ['newEmail', 'Neue E-Mail-Adresse', 'Diese E-Mail-Adresse sieht nicht vollständig aus.'],
+    ['password', 'Passwort', 'Das Passwort stimmt nicht. Versuch es nochmals.'],
+  ])('shows the refused field %s on its own input', async (field, label, message) => {
+    const { user } = renderEmailPage(account(), {
+      'PUT /api/account/email': () =>
+        problemResponse({
+          status: 400,
+          code: 'validation_failed',
+          errors: [{ field, message: 'invalid' }],
+        }),
+    });
+
+    await change(user, 'neu@example.ch');
+
+    await expect.poll(() => screen.getByLabelText(label).getAttribute('aria-invalid')).toBe('true');
+    expect(screen.getByLabelText(label)).toHaveAccessibleDescription(message);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 });

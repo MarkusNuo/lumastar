@@ -1,5 +1,5 @@
 import { ArrowLeftIcon } from '@phosphor-icons/react';
-import type { ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { useGoBack } from '../../app/useGoBack';
 import { FocusScreen } from '../../components/ui/FocusScreen';
 import { IconButton } from '../../components/ui/IconButton';
@@ -82,8 +82,15 @@ export interface AccountMessageProps {
   action: ReactNode;
 }
 
-/** The account screen after a change that still needs a step, e.g. opening a link. */
+/**
+ * The account screen after a change that still needs a step, e.g. opening a link. It replaces the
+ * form, so focus moves to its heading and screen readers read the outcome.
+ */
 export function AccountMessage({ title, expression, heading, text, action }: AccountMessageProps) {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => headingRef.current?.focus({ preventScroll: true }), []);
+
   return (
     <AccountScreen
       title={title}
@@ -92,7 +99,9 @@ export function AccountMessage({ title, expression, heading, text, action }: Acc
     >
       <Mascot expression={expression} size="xl" />
       <div role="status" className="flex flex-col gap-2">
-        <p className="text-headline font-black">{heading}</p>
+        <h2 ref={headingRef} tabIndex={-1} className="text-headline font-black focus:outline-none">
+          {heading}
+        </h2>
         <p className="max-w-xs text-body wrap-break-word text-fg-muted">{text}</p>
       </div>
     </AccountScreen>

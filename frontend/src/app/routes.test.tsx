@@ -29,6 +29,14 @@ describe('routes', () => {
     expect(router.state.location.pathname).toBe('/willkommen');
   });
 
+  it('lets a signed-in learner ask for a new reset link', async () => {
+    stubSignedIn(profile());
+    const { router } = renderRoutes(createRoutes(), '/passwort-vergessen');
+
+    expect(await screen.findByRole('heading', { name: 'Passwort vergessen?' })).toBeInTheDocument();
+    expect(router.state.location.pathname).toBe('/passwort-vergessen');
+  });
+
   it('keeps the former single-user account on the e-mail step', async () => {
     stubSignedIn(profile({ email: undefined, emailVerified: false, emailRequired: true }));
     const { router } = renderRoutes(createRoutes(), '/anmelden');

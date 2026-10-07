@@ -10,14 +10,24 @@ import { moveToNextFieldOnEnter } from '../../../lib/moveToNextField';
 import { useFormErrors } from '../../../lib/useFormErrors';
 import { useOnceWhen } from '../../../lib/useOnceWhen';
 import { validateConfirmation, validateNewPassword } from '../accountRules';
-import { useAuthStatus } from '../authHooks';
-import { invalidFields, linkProblem, useThrottleLock, type LinkProblem } from '../authProblems';
+import { useSignedIn } from '../authHooks';
+import {
+  linkProblem,
+  rejectInvalid,
+  useThrottleLock,
+  type LinkProblem,
+  type ServerFields,
+} from '../authProblems';
 import { AUTH_ROUTES } from '../authRoutes';
 import { AuthIntro, AuthMessage, AuthScreen } from '../AuthScreen';
 import { AUTH_COPY, FIELD_COPY } from '../copy';
 import { useResetPassword } from './passwordApi';
 
 const copy = AUTH_COPY.resetPassword;
+
+const SERVER_FIELDS: ServerFields<'password'> = {
+  newPassword: ['password', AUTH_COPY.register.refused.password],
+};
 
 /** Route `/reset-password?token=…` from the reset mail; it works with and without a session. */
 export function ResetPasswordPage() {
@@ -59,7 +69,7 @@ function NewPasswordForm({ onSubmit, pending }: NewPasswordFormProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [password, setPassword] = useState('');
   const [confirmation, setConfirmation] = useState('');
-  const [failed, setFailed] = useState(false);
+  const [failure, setFailure] = useState<string>();
   const throttle = useThrottleLock();
   const passwordError = validateNewPassword(password);
   const confirmationError = validateConfirmation(password, confirmation);
@@ -73,12 +83,10 @@ function NewPasswordForm({ onSubmit, pending }: NewPasswordFormProps) {
   const submit = (event: SubmitEvent) => {
     event.preventDefault();
     if (pending || throttle.locked || !form.check()) return;
-    setFailed(false);
+    setFailure(undefined);
     onSubmit(password, (error) => {
       if (throttle.lockOn(error)) form.shake();
-      else if (invalidFields(error).length > 0) {
-        form.rejectFields({ password: AUTH_COPY.register.refused.password });
-      } else setFailed(true);
+      else if (!rejectInvalid(error, SERVER_FIELDS, form, setFailure)) setFailure(copy.failed);
     });
   };
 
@@ -130,15 +138,14 @@ function NewPasswordForm({ onSubmit, pending }: NewPasswordFormProps) {
           onChange={(event) => setConfirmation(event.target.value)}
         />
         {throttle.locked && <Callout tone="warning">{AUTH_COPY.register.throttled}</Callout>}
-        {failed && <Callout tone="danger">{copy.failed}</Callout>}
+        {failure && <Callout tone="danger">{failure}</Callout>}
       </form>
     </AuthScreen>
   );
 }
 
 function PasswordChanged() {
-  const status = useAuthStatus();
-  const signedIn = status.data?.authenticated === true;
+  const signedIn = useSignedIn();
 
   useOnceWhen(true, celebrate);
 

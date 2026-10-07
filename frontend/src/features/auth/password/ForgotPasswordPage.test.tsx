@@ -1,14 +1,21 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { problemResponse, stubApi } from '../../../test/http';
+import type { AuthStatus } from '../../../api/types';
+import { authStatus } from '../../../test/fixtures';
+import { jsonResponse, problemResponse, stubApi } from '../../../test/http';
 import { renderRoutes, screenNamed } from '../../../test/router';
 import { ForgotPasswordPage, type ForgotPasswordState } from './ForgotPasswordPage';
 
 type Routes = Parameters<typeof stubApi>[0];
 
-function renderForgot(state?: ForgotPasswordState, routes: Routes = {}) {
+function renderForgot(
+  state?: ForgotPasswordState,
+  routes: Routes = {},
+  status: AuthStatus = authStatus(),
+) {
   const requests = stubApi({
+    'GET /api/auth/status': () => jsonResponse(status),
     'POST /api/auth/password-reset': () => new Response(null, { status: 202 }),
     ...routes,
   });
@@ -19,7 +26,8 @@ function renderForgot(state?: ForgotPasswordState, routes: Routes = {}) {
     ],
     { pathname: '/passwort-vergessen', state },
   );
-  return { requests, user: userEvent.setup() };
+  const posts = () => requests.filter((request) => request.method === 'POST');
+  return { posts, user: userEvent.setup() };
 }
 
 const emailField = () => screen.getByLabelText('E-Mail-Adresse');
@@ -33,7 +41,7 @@ describe('ForgotPasswordPage', () => {
   });
 
   it('checks the address before asking for a link', async () => {
-    const { requests, user } = renderForgot();
+    const { posts, user } = renderForgot();
 
     await user.type(emailField(), 'erza');
     await user.click(submit());
@@ -41,11 +49,11 @@ describe('ForgotPasswordPage', () => {
     expect(emailField()).toHaveAccessibleDescription(
       'Diese E-Mail-Adresse sieht nicht vollständig aus.',
     );
-    expect(requests).toHaveLength(0);
+    expect(posts()).toHaveLength(0);
   });
 
   it('confirms neutrally, without telling whether the account exists', async () => {
-    const { requests, user } = renderForgot();
+    const { posts, user } = renderForgot();
 
     await user.type(emailField(), ' erza@example.ch ');
     await user.click(submit());
@@ -56,10 +64,25 @@ describe('ForgotPasswordPage', () => {
     expect(
       screen.getByText(/Falls es ein Konto mit erza@example.ch gibt, ist ein Link/),
     ).toBeInTheDocument();
-    expect(await requests[0]?.json()).toEqual({ email: 'erza@example.ch' });
+    expect(await posts()[0]?.json()).toEqual({ email: 'erza@example.ch' });
     expect(screen.getByRole('link', { name: 'Zur Anmeldung' })).toHaveAttribute(
       'href',
       '/anmelden',
+    );
+  });
+
+  it('leads a signed-in learner whose reset link expired back into the app', async () => {
+    const { user } = renderForgot(
+      { email: 'erza@example.ch' },
+      {},
+      authStatus({ authenticated: true }),
+    );
+
+    await user.click(submit());
+
+    expect(await screen.findByRole('link', { name: 'Weiter zu Lingora' })).toHaveAttribute(
+      'href',
+      '/',
     );
   });
 
@@ -87,5 +110,27 @@ describe('ForgotPasswordPage', () => {
     await user.click(submit());
 
     expect(await screen.findByRole('alert')).toHaveTextContent('Prüfe deine Verbindung');
+  });
+
+  it('shows an address the server refuses on its field', async () => {
+    const { user } = renderForgot(
+      { email: 'erza@example.ch' },
+      {
+        'POST /api/auth/password-reset': () =>
+          problemResponse({
+            status: 400,
+            code: 'validation_failed',
+            errors: [{ field: 'email', message: 'must be a well-formed email address' }],
+          }),
+      },
+    );
+
+    await user.click(submit());
+
+    await expect.poll(() => emailField().getAttribute('aria-invalid')).toBe('true');
+    expect(emailField()).toHaveAccessibleDescription(
+      'Diese E-Mail-Adresse sieht nicht vollständig aus.',
+    );
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 });

@@ -37,6 +37,7 @@ describe('OnboardingPage', () => {
       await screen.findByRole('heading', { name: 'Warum lernst du Gheg?' }),
     ).toBeInTheDocument();
     expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuetext', 'Schritt 2 von 4');
+    expect(screen.getByRole('button', { name: 'Konto' })).toBeInTheDocument();
     expect(next()).toBeDisabled();
 
     await user.click(option('Reisen'));

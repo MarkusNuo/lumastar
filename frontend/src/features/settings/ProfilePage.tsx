@@ -1,9 +1,7 @@
-import { SignOutIcon } from '@phosphor-icons/react';
-import { Button } from '../../components/ui/Button';
-import { Callout } from '../../components/ui/Callout';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { AccountSection } from '../account/AccountSection';
-import { useLogout, useMe } from '../auth/authHooks';
+import { LogoutButton } from '../account/LogoutButton';
+import { useMe } from '../auth/authHooks';
 import { BadgesSection } from './BadgesSection';
 import { PROFILE_COPY } from './copy';
 import { LearningDataSection } from './LearningDataSection';
@@ -18,7 +16,6 @@ import { SettingsSection } from './SettingsSection';
  */
 export function ProfilePage() {
   const me = useMe();
-  const logout = useLogout();
 
   return (
     <div className="flex flex-col gap-6 pt-6">
@@ -39,17 +36,7 @@ export function ProfilePage() {
       <LearningDataSection />
       <SettingsSection />
       <AccountSection />
-      {logout.isError && <Callout tone="danger">{PROFILE_COPY.logoutFailed}</Callout>}
-      <Button
-        variant="neutral"
-        size="lg"
-        fullWidth
-        icon={SignOutIcon}
-        loading={logout.isPending}
-        onClick={() => logout.mutate()}
-      >
-        {PROFILE_COPY.logout}
-      </Button>
+      <LogoutButton />
     </div>
   );
 }

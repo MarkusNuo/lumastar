@@ -129,4 +129,23 @@ describe('DeleteAccountPage', () => {
       'Das Passwort stimmt nicht. Versuch es nochmals.',
     );
   });
+
+  it('asks to check the input when the server refuses it, not the connection', async () => {
+    const { user } = renderDeletion({
+      'DELETE /api/account': () =>
+        problemResponse({
+          status: 400,
+          code: 'validation_failed',
+          errors: [{ field: 'body', message: 'must not be null' }],
+        }),
+    });
+
+    await user.type(await screen.findByLabelText('Passwort'), 'geheim123');
+    await user.click(deleteButton());
+    await user.click(await screen.findByRole('button', { name: 'Endgültig löschen' }));
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Deine Angaben wurden nicht angenommen. Prüfe sie bitte.',
+    );
+  });
 });

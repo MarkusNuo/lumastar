@@ -11,6 +11,9 @@ import { isApiError } from '../../api/ApiError';
 import { api, unwrap } from '../../api/client';
 import type { LoginRequest, RegisterRequest } from '../../api/types';
 import { onUnauthorized } from '../../api/unauthorized';
+import { useVerificationBannerDismissed } from '../account/verification/bannerDismissed';
+import { useResendCooldown } from '../account/verification/resendCooldown';
+import { useReminderNudge } from '../reminders/nudgeStore';
 import { releaseDevice } from '../reminders/reminderLifecycle';
 
 export const authStatusQuery = queryOptions({
@@ -33,8 +36,27 @@ export function useMe() {
   return useQuery(meQuery);
 }
 
+/** For the public screens, which work with and without a session. */
+export function useSignedIn(): boolean {
+  return useAuthStatus().data?.authenticated === true;
+}
+
 /** The sign-in with an address; only the former single-user account signs in without one. */
 export type Credentials = Required<LoginRequest>;
+
+/**
+ * Forgets everything the client keeps of a learner but the auth status: the cached server data and
+ * the per-account UI state. Device settings such as sound and vibration stay. Without it, whoever
+ * signs in next on this page would see the previous learner's profile until it is refetched.
+ */
+export function forgetLearner(queryClient: QueryClient): void {
+  queryClient.removeQueries({
+    predicate: (query) => !matchQuery({ queryKey: authStatusQuery.queryKey }, query),
+  });
+  useVerificationBannerDismissed.getState().reset();
+  useResendCooldown.getState().reset();
+  useReminderNudge.getState().reset();
+}
 
 /**
  * Signs in and keeps the mutation pending until the guards can leave the sign-in screen, which
@@ -50,6 +72,8 @@ function useSignIn<Variables>(
       await request(variables);
     },
     onSuccess: (_, variables) => {
+      // A session that ended elsewhere may have left data behind that no status change cleared.
+      forgetLearner(queryClient);
       onSignedIn?.(variables);
       return queryClient.invalidateQueries({ queryKey: authStatusQuery.queryKey });
     },
@@ -81,9 +105,7 @@ export function endSession(queryClient: QueryClient): void {
     authStatusQuery.queryKey,
     (status) => status && { ...status, authenticated: false, displayName: undefined },
   );
-  queryClient.removeQueries({
-    predicate: (query) => !matchQuery({ queryKey: authStatusQuery.queryKey }, query),
-  });
+  forgetLearner(queryClient);
   // Registration mode and legacy sign-in may have changed while signed in.
   void queryClient.invalidateQueries({ queryKey: authStatusQuery.queryKey });
 }
@@ -102,6 +124,19 @@ export function useLogout() {
     },
     onSuccess: () => endSession(queryClient),
   });
+}
+
+/**
+ * However the session ended (sign-out, a 401, a status loaded without one), nothing of the learner
+ * stays for whoever signs in next on this page.
+ */
+export function useForgetLearnerWhenSignedOut(authenticated: boolean | undefined): void {
+  const queryClient = useQueryClient();
+
+  // An effect, so the signed-in screens are gone before their data is: they would refetch it.
+  useEffect(() => {
+    if (authenticated === false) forgetLearner(queryClient);
+  }, [authenticated, queryClient]);
 }
 
 /** A 401 while the app believes it is signed in means the session ended: re-check the status. */

@@ -51,15 +51,13 @@ export function createRoutes(): RouteObject[] {
         lazyScreen(AUTH_ROUTES.register, async () => (await authScreens()).RegisterPage),
         lazyScreen(AUTH_ROUTES.login, async () => (await authScreens()).LoginPage),
         lazyScreen(AUTH_ROUTES.legacyLogin, async () => (await authScreens()).LegacyLoginPage),
-        lazyScreen(
-          AUTH_ROUTES.forgotPassword,
-          async () => (await authScreens()).ForgotPasswordPage,
-        ),
       ],
     },
-    // Public: the links from mails work with and without a session.
+    // Public: the links from mails work with and without a session, and so does asking for a new
+    // reset link when one expired.
     lazyScreen(AUTH_ROUTES.verifyEmail, async () => (await authScreens()).VerifyEmailPage),
     lazyScreen(AUTH_ROUTES.resetPassword, async () => (await authScreens()).ResetPasswordPage),
+    lazyScreen(AUTH_ROUTES.forgotPassword, async () => (await authScreens()).ForgotPasswordPage),
     {
       element: <AuthGuard area="signedIn" />,
       children: [

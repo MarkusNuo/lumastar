@@ -11,13 +11,18 @@ import { moveToNextFieldOnEnter } from '../../../lib/moveToNextField';
 import { useFormErrors } from '../../../lib/useFormErrors';
 import { normalize, validateCurrentPassword, validateEmail } from '../accountRules';
 import { useAuthStatus, useLogin } from '../authHooks';
-import { useThrottleLock } from '../authProblems';
+import { rejectInvalid, useThrottleLock, type ServerFields } from '../authProblems';
 import { AUTH_ROUTES } from '../authRoutes';
 import { AuthIntro, AuthScreen } from '../AuthScreen';
 import { AUTH_COPY, FIELD_COPY } from '../copy';
 import type { ForgotPasswordState } from '../password/ForgotPasswordPage';
 
 const copy = AUTH_COPY.login;
+
+const SERVER_FIELDS: ServerFields<'email' | 'password'> = {
+  email: ['email', FIELD_COPY.email.errors.invalid],
+  password: ['password', copy.wrongCredentials],
+};
 
 /** Route `/anmelden`: e-mail and password. */
 export function LoginPage() {
@@ -26,7 +31,7 @@ export function LoginPage() {
   const formId = useId();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [failed, setFailed] = useState(false);
+  const [failure, setFailure] = useState<string>();
   const throttle = useThrottleLock();
   const emailError = validateEmail(email);
   const [formRef, form] = useFormErrors({
@@ -37,7 +42,7 @@ export function LoginPage() {
   const submit = (event: SubmitEvent) => {
     event.preventDefault();
     if (throttle.locked || login.isPending || !form.check()) return;
-    setFailed(false);
+    setFailure(undefined);
     login.mutate(
       { email: normalize(email), password },
       {
@@ -45,7 +50,9 @@ export function LoginPage() {
           if (throttle.lockOn(error)) form.shake();
           else if (isApiError(error, 'invalid_credentials')) {
             form.rejectFields({ password: copy.wrongCredentials });
-          } else setFailed(true);
+          } else if (!rejectInvalid(error, SERVER_FIELDS, form, setFailure)) {
+            setFailure(copy.failed);
+          }
         },
       },
     );
@@ -105,6 +112,8 @@ export function LoginPage() {
           error={form.errors.email}
           onChange={(event) => {
             setEmail(event.target.value);
+            form.clear('email');
+            // "Address or password wrong" is about both fields.
             form.clear('password');
           }}
           onKeyDown={moveToNextFieldOnEnter}
@@ -128,7 +137,7 @@ export function LoginPage() {
           {copy.forgot}
         </TextLink>
         {throttle.locked && <Callout tone="warning">{copy.throttled}</Callout>}
-        {failed && <Callout tone="danger">{copy.failed}</Callout>}
+        {failure && <Callout tone="danger">{failure}</Callout>}
       </form>
     </AuthScreen>
   );

@@ -3,6 +3,10 @@ const CONNECTION = 'Prüfe deine Verbindung und versuch es nochmals.';
 /** UI copy of the account settings and the e-mail verification (German, Swiss orthography). */
 export const ACCOUNT_COPY = {
   back: 'Zurück',
+  logout: {
+    label: 'Abmelden',
+    failed: `Abmelden hat nicht geklappt. ${CONNECTION}`,
+  },
   section: {
     title: 'Konto',
     loading: 'Kontodaten werden geladen',
@@ -104,12 +108,5 @@ export const ACCOUNT_COPY = {
     title: 'Eine Sache noch: deine E-Mail-Adresse',
     text: 'Lingora hat jetzt Konten für mehrere Personen. Ab jetzt meldest du dich mit deiner E-Mail-Adresse an. Deine Lerndaten bleiben, wie sie sind.',
     submit: 'Speichern und weiter',
-    logout: 'Abmelden',
-    waiting: {
-      title: 'Bestätige deine Adresse',
-      text: (email: string) =>
-        `Wir haben dir einen Link an ${email} geschickt. Öffne ihn, dann geht es weiter.`,
-      check: 'Ich habe bestätigt',
-    },
   },
 } as const;

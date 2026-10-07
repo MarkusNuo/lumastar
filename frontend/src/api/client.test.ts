@@ -3,16 +3,16 @@ import { jsonResponse, problemResponse } from '../test/http';
 import { ApiError, CLIENT_ERROR_CODES } from './ApiError';
 import type { Middleware } from 'openapi-fetch';
 import { createApiClient, readCookie, unwrap } from './client';
-import { CSRF_HEADER, csrfMiddleware, type CsrfTokenReader } from './middleware';
+import { CSRF_HEADER, CSRF_REJECTED, csrfMiddleware, type CsrfTokenReader } from './middleware';
 
-function clientAnswering(answer: () => Response | Promise<Response>) {
+function clientAnswering(answer: (request: Request) => Response | Promise<Response>) {
   const requests: Request[] = [];
   const onUnauthorized = vi.fn();
   const client = createApiClient({
     baseUrl: 'http://lingora.test',
     fetch: async (request) => {
       requests.push(request);
-      return answer();
+      return answer(request);
     },
     onUnauthorized,
   });
@@ -80,14 +80,142 @@ describe('CSRF middleware', () => {
 
     expect(request.headers.get(CSRF_HEADER)).toBe('from-cookie-store');
   });
+});
 
-  it('sends no header while the cookie is missing', async () => {
+const SIGNED_OUT = { authenticated: false, registrationMode: 'open', legacyLoginAvailable: false };
+
+function setCsrfCookie(value: string) {
+  document.cookie = `XSRF-TOKEN=${value}`;
+}
+
+const describeRequest = (request: Request) =>
+  `${request.method} ${new URL(request.url).pathname} ${request.headers.get(CSRF_HEADER)}`;
+
+describe('CSRF token without the cookie', () => {
+  beforeEach(() => {
     document.cookie = 'XSRF-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    const { client, requests } = clientAnswering(() => new Response(null, { status: 204 }));
+  });
+
+  /** The status hands out the token; like a real cookie, it arrives with the response. */
+  function backendSettingCookie(answer: (request: Request) => Response) {
+    return clientAnswering(async (request) => {
+      if (request.method !== 'GET') return answer(request);
+      await Promise.resolve();
+      setCsrfCookie('fresh-token');
+      return jsonResponse(SIGNED_OUT);
+    });
+  }
+
+  it('fetches a token before the first unsafe request of a browser that has none', async () => {
+    const { client, requests } = backendSettingCookie(() => new Response(null, { status: 204 }));
+
+    await client.POST('/api/auth/verify-email', { body: { token: 'link-token' } });
+
+    expect(requests.map(describeRequest)).toEqual([
+      'GET /api/auth/status null',
+      'POST /api/auth/verify-email fresh-token',
+    ]);
+  });
+
+  it('asks only once while several requests wait for the token', async () => {
+    const { client, requests } = backendSettingCookie(() => new Response(null, { status: 204 }));
+
+    await Promise.all([
+      client.POST('/api/auth/logout'),
+      client.POST('/api/auth/verify-email', { body: { token: 'link-token' } }),
+    ]);
+
+    expect(requests.map(describeRequest)).toEqual([
+      'GET /api/auth/status null',
+      'POST /api/auth/logout fresh-token',
+      'POST /api/auth/verify-email fresh-token',
+    ]);
+  });
+
+  it('still sends the request when no token can be fetched', async () => {
+    const { client, requests } = clientAnswering((request) =>
+      request.method === 'GET'
+        ? Promise.reject(new TypeError('Failed to fetch'))
+        : new Response(null, { status: 204 }),
+    );
 
     await client.POST('/api/auth/logout');
 
-    expect(requests[0]?.headers.has(CSRF_HEADER)).toBe(false);
+    expect(requests.map(describeRequest)).toEqual([
+      'GET /api/auth/status null',
+      'POST /api/auth/logout null',
+    ]);
+  });
+});
+
+describe('CSRF refusal', () => {
+  beforeEach(() => {
+    setCsrfCookie('outdated-token');
+  });
+
+  /** Refuses unsafe requests unless they carry the token the status handed out last. */
+  function backendRefusing(refuseAlways = false) {
+    return clientAnswering((request) => {
+      if (request.method === 'GET') {
+        setCsrfCookie('fresh-token');
+        return jsonResponse(SIGNED_OUT);
+      }
+      return !refuseAlways && request.headers.get(CSRF_HEADER) === 'fresh-token'
+        ? new Response(null, { status: 204 })
+        : problemResponse({ status: 403, code: CSRF_REJECTED });
+    });
+  }
+
+  it('sends a refused request once more with a fresh token and the same body', async () => {
+    const { client, requests } = backendRefusing();
+
+    const { response } = await client.POST('/api/auth/password-reset/confirm', {
+      body: { token: 'link-token', newPassword: 'geheim123' },
+    });
+
+    expect(response.status).toBe(204);
+    expect(requests.map(describeRequest)).toEqual([
+      'POST /api/auth/password-reset/confirm outdated-token',
+      'GET /api/auth/status null',
+      'POST /api/auth/password-reset/confirm fresh-token',
+    ]);
+    expect(await requests[2]?.json()).toEqual({ token: 'link-token', newPassword: 'geheim123' });
+  });
+
+  it('gives up after the second refusal', async () => {
+    const { client, requests } = backendRefusing(true);
+
+    const error = await rejection(client.POST('/api/auth/logout'));
+
+    expect(error).toMatchObject({ status: 403, code: CSRF_REJECTED });
+    expect(requests.filter((request) => request.method === 'POST')).toHaveLength(2);
+  });
+
+  it('does not repeat requests refused for other reasons', async () => {
+    const { client, requests } = clientAnswering(() =>
+      problemResponse({ status: 403, code: 'invalid_password' }),
+    );
+
+    const error = await rejection(
+      client.DELETE('/api/account', { body: { password: 'falsch123' } }),
+    );
+
+    expect(error.code).toBe('invalid_password');
+    expect(requests).toHaveLength(1);
+  });
+
+  it('reports a retry that cannot reach the server as a network error', async () => {
+    let refused = false;
+    const { client } = clientAnswering((request) => {
+      if (request.method === 'GET') return jsonResponse(SIGNED_OUT);
+      if (refused) return Promise.reject(new TypeError('Failed to fetch'));
+      refused = true;
+      return problemResponse({ status: 403, code: CSRF_REJECTED });
+    });
+
+    const error = await rejection(client.POST('/api/auth/logout'));
+
+    expect(error).toMatchObject({ status: 0, code: CLIENT_ERROR_CODES.network });
   });
 });
 

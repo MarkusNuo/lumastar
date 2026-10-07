@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { useToastStore } from '../../components/ui/toastStore';
 import { account, profile } from '../../test/fixtures';
-import { jsonResponse, stubApi } from '../../test/http';
+import { jsonResponse, problemResponse, stubApi } from '../../test/http';
 import { renderRoutes, screenNamed } from '../../test/router';
 import { ChangeDisplayNamePage } from './ChangeDisplayNamePage';
 
@@ -79,5 +79,25 @@ describe('ChangeDisplayNamePage', () => {
     await user.click(save());
 
     expect(await screen.findByRole('alert')).toHaveTextContent('Prüfe deine Verbindung');
+  });
+
+  it('shows a name the server refuses on the field, not as a connection problem', async () => {
+    const { user } = renderNamePage({
+      'PUT /api/account/display-name': () =>
+        problemResponse({
+          status: 400,
+          code: 'validation_failed',
+          errors: [{ field: 'displayName', message: 'must match the pattern' }],
+        }),
+    });
+
+    await user.type(await nameField(), 'x');
+    await user.click(save());
+
+    await expect.poll(async () => (await nameField()).getAttribute('aria-invalid')).toBe('true');
+    expect(await nameField()).toHaveAccessibleDescription(
+      'Dieser Name wurde nicht angenommen. Versuch einen anderen.',
+    );
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 });

@@ -6,7 +6,7 @@ import {
   validateEmail,
   validateNewPassword,
 } from '../accountRules';
-import { invalidFields } from '../authProblems';
+import { serverFieldErrors, type ServerFields } from '../authProblems';
 import { AUTH_COPY, FIELD_COPY } from '../copy';
 import type { RegisterRequest } from '../../../api/types';
 
@@ -63,7 +63,7 @@ export type RegistrationFailure =
   | { kind: 'closed' }
   | { kind: 'message'; message: string };
 
-const SERVER_FIELD_ERRORS: Partial<Record<string, [RegistrationField, string]>> = {
+const SERVER_FIELDS: ServerFields<RegistrationField> = {
   displayName: ['displayName', copy.refused.displayName],
   email: ['email', FIELD_COPY.email.errors.invalid],
   password: ['password', copy.refused.password],
@@ -79,15 +79,10 @@ export function registrationFailure(error: unknown): RegistrationFailure {
   }
   if (isApiError(error, 'registration_closed')) return { kind: 'closed' };
   if (isApiError(error, 'validation_failed')) {
-    const errors = Object.fromEntries(
-      invalidFields(error).flatMap((field) => {
-        const mapped = SERVER_FIELD_ERRORS[field];
-        return mapped ? [mapped] : [];
-      }),
-    ) as FieldErrors<RegistrationField>;
+    const errors = serverFieldErrors(error, SERVER_FIELDS);
     return Object.keys(errors).length > 0
       ? { kind: 'fields', errors }
-      : { kind: 'message', message: copy.invalid };
+      : { kind: 'message', message: AUTH_COPY.invalid };
   }
   return { kind: 'message', message: copy.failed };
 }

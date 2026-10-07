@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom/vitest';
 import { cleanup, configure } from '@testing-library/react';
-import { afterEach } from 'vitest';
+import { afterEach, beforeEach } from 'vitest';
+import { CSRF_COOKIE } from '../api/middleware';
 
 // The default second for findBy/waitFor is too short when the whole suite runs on a busy machine.
 configure({ asyncUtilTimeout: 3000 });
@@ -18,6 +19,12 @@ window.matchMedia = (media: string): MediaQueryList => ({
   addListener: () => undefined,
   removeListener: () => undefined,
   dispatchEvent: () => false,
+});
+
+// Like a browser that already talked to the backend: mutations need not fetch a CSRF token first
+// (client.test.ts covers the browser without one).
+beforeEach(() => {
+  document.cookie = `${CSRF_COOKIE}=test-csrf-token`;
 });
 
 afterEach(() => {

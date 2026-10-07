@@ -8,6 +8,7 @@ import { FocusScreen } from '../../components/ui/FocusScreen';
 import { IconButton } from '../../components/ui/IconButton';
 import { Mascot } from '../../components/ui/Mascot';
 import { useMe } from '../auth/authHooks';
+import { AccountMenu } from '../onboarding/AccountMenu';
 import { onboardingOptionsQuery } from '../onboarding/onboardingApi';
 import { ONBOARDING_ROUTES } from '../onboarding/onboardingRoutes';
 import { PLACEMENT_COPY } from './copy';
@@ -43,13 +44,17 @@ export function PlacementIntroPage() {
     <FocusScreen
       backdrop
       header={
-        <IconButton
-          icon={ArrowLeftIcon}
-          label={copy.back}
-          variant="ghost"
-          disabled={skip.isPending}
-          onClick={back}
-        />
+        <>
+          <IconButton
+            icon={ArrowLeftIcon}
+            label={copy.back}
+            variant="ghost"
+            disabled={skip.isPending}
+            onClick={back}
+          />
+          {/* Until the first placement, the app and its profile are out of reach. */}
+          {firstPlacement && <AccountMenu className="ml-auto" />}
+        </>
       }
       className="items-center justify-center gap-5 pb-6 text-center"
       footer={

@@ -77,6 +77,12 @@ describe('PlacementIntroPage', () => {
     expect(router.state.location.pathname).toBe('/onboarding');
   });
 
+  it('offers the account menu before the first test, while the app is out of reach', async () => {
+    renderIntro(beginner);
+
+    expect(await screen.findByRole('button', { name: 'Konto' })).toBeInTheDocument();
+  });
+
   it('explains a new placement to a placed learner and never offers the skip', async () => {
     renderIntro(
       profile({
@@ -89,5 +95,6 @@ describe('PlacementIntroPage', () => {
 
     expect(await screen.findByRole('heading', { name: 'Neu einstufen' })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: 'Ich fange bei null an' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Konto' })).not.toBeInTheDocument();
   });
 });

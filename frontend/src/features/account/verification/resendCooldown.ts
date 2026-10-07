@@ -6,6 +6,8 @@ interface ResendCooldownState {
   /** Whole seconds until another verification mail may be requested; 0 when it may. */
   secondsLeft: number;
   start: (seconds: number) => void;
+  /** The cooldown belongs to the account that sent the mail. */
+  reset: () => void;
 }
 
 /**
@@ -32,6 +34,10 @@ export const useResendCooldown = create<ResendCooldownState>()((set) => {
       stop();
       tick();
       if (seconds > 0) timer = setInterval(tick, TICK_MS);
+    },
+    reset: () => {
+      stop();
+      set({ secondsLeft: 0 });
     },
   };
 });
