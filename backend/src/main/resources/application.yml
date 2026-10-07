@@ -94,3 +94,14 @@ lingora:
     # open, invite (needs the invite code) or closed
     mode: ${LINGORA_REGISTRATION_MODE:open}
     invite-code: ${LINGORA_REGISTRATION_INVITE_CODE:}
+  push:
+    # Web push for the reminders; off without both keys. A new pair: ./gradlew generateVapidKeys
+    public-key: ${LINGORA_PUSH_PUBLIC_KEY:}
+    private-key: ${LINGORA_PUSH_PRIVATE_KEY:}
+    # Contact for the push services, a mailto: or https: URL (Apple refuses others)
+    subject: ${LINGORA_PUSH_SUBJECT:${lingora.public-url}}
+    # Push services that subscriptions may point to (Chrome/Edge/Opera/Samsung, Firefox, Safari, legacy Edge)
+    endpoint-hosts: ${LINGORA_PUSH_ENDPOINT_HOSTS:fcm.googleapis.com,push.services.mozilla.com,push.apple.com,notify.windows.com}
+  reminders:
+    # Looks for due reminders every 5 minutes; "-" switches the reminders off.
+    cron: ${LINGORA_REMINDER_CRON:0 */5 * * * *}

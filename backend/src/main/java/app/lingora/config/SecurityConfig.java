@@ -24,6 +24,12 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 @Configuration(proxyBeanMethods = false)
 public class SecurityConfig {
 
+    /**
+     * Called by the service worker from a notification action without opening the app: it cannot read the CSRF cookie,
+     * and the token in the request body authenticates it instead of the session.
+     */
+    static final String[] TOKEN_AUTHENTICATED_POSTS = {"/api/reminders/snooze"};
+
     // Argon2id with the OWASP minimum of 19 MiB memory, 2 iterations and parallelism 1
     private static final int SALT_LENGTH = 16;
     private static final int HASH_LENGTH = 32;
@@ -41,10 +47,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/auth/status").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/auth/register", "/api/auth/login", "/api/auth/verify-email",
                                 "/api/auth/password-reset", "/api/auth/password-reset/confirm").permitAll()
+                        .requestMatchers(HttpMethod.POST, TOKEN_AUTHENTICATED_POSTS).permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                         .requestMatchers("/actuator/health", "/actuator/health/**", "/error").permitAll()
                         .anyRequest().authenticated())
-                .csrf(csrf -> csrf.spa().csrfTokenRepository(csrfTokenRepository))
+                .csrf(csrf -> csrf.spa().csrfTokenRepository(csrfTokenRepository)
+                        .ignoringRequestMatchers(TOKEN_AUTHENTICATED_POSTS))
                 .addFilterAfter(new CsrfCookieFilter(), CsrfFilter.class)
                 .securityContext(context -> context.securityContextRepository(securityContextRepository))
                 .requestCache(cache -> cache.requestCache(new NullRequestCache()))

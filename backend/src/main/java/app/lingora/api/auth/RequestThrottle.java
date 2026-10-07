@@ -12,17 +12,18 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 /**
- * In-memory rate limits of the account endpoints (one instance, see {@link ThrottleProperties}): at most the configured
- * number of requests per key within any {@link #WINDOW}. A rejected request does not count.
+ * In-memory rate limits of the account endpoints and the test notification (one instance, see
+ * {@link ThrottleProperties}): at most the configured number of requests per key within any {@link #WINDOW}. A rejected
+ * request does not count.
  */
 @Component
-class RequestThrottle {
+public class RequestThrottle {
 
     static final Duration WINDOW = Duration.ofHours(1);
     private static final int MAX_TRACKED_KEYS = 10_000;
 
     /** What is limited, and by which key. */
-    enum Action {
+    public enum Action {
         /** Registrations per client address. */
         REGISTRATION,
         /** Password reset requests per client address. */
@@ -30,7 +31,9 @@ class RequestThrottle {
         /** Password reset requests per e-mail address, against flooding one mailbox from many addresses. */
         PASSWORD_RESET_FOR_EMAIL,
         /** Verification and e-mail change mails per account. */
-        ACCOUNT_MAIL
+        ACCOUNT_MAIL,
+        /** Test notifications per account. */
+        PUSH_TEST
     }
 
     private final Clock clock;
@@ -43,6 +46,7 @@ class RequestThrottle {
         limits.put(Action.PASSWORD_RESET, properties.passwordResetsPerHour());
         limits.put(Action.PASSWORD_RESET_FOR_EMAIL, properties.passwordResetsPerEmailPerHour());
         limits.put(Action.ACCOUNT_MAIL, properties.accountMailsPerHour());
+        limits.put(Action.PUSH_TEST, properties.pushTestsPerHour());
     }
 
     /**
@@ -50,7 +54,7 @@ class RequestThrottle {
      *
      * @throws ThrottledException if the limit of the key is reached; it says when the oldest counted request expires
      */
-    synchronized void admit(Action action, String key) {
+    public synchronized void admit(Action action, String key) {
         Instant now = clock.instant();
         if (requests.size() >= MAX_TRACKED_KEYS) {
             requests.values().removeIf(times -> times.isEmpty() || isExpired(times.peekLast(), now));

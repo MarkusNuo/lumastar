@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import app.lingora.ClockedIntegrationTest;
 import app.lingora.LessonDriver;
 import app.lingora.PlacementDriver;
+import app.lingora.PushSubscriptions;
 import app.lingora.SpaClient;
 import app.lingora.SyntheticContent;
 import app.lingora.content.ContentSeeder;
@@ -33,7 +34,7 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
             "/api/plan/changes", "/api/progress/today", "/api/stats", "/api/badges", "/api/review/summary",
             "/api/profile/summary", "/api/profile/documents/learner_profile.json",
             "/api/profile/documents/skill_mastery.json", "/api/profile/documents/recent_errors.json",
-            "/api/profile/documents/learning_plan.json");
+            "/api/profile/documents/learning_plan.json", "/api/reminders", "/api/push/subscriptions");
 
     @Autowired
     private ContentSeeder seeder;
@@ -161,7 +162,10 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
         assertThat(jdbc.sql("SELECT count(*) FROM users").query(Integer.class).single()).isOne();
     }
 
-    /** Placement skip, a correct and a failed lesson (errors, focus suggestion, plan change) and changed settings. */
+    /**
+     * Placement skip, a correct and a failed lesson (errors, focus suggestion, plan change), changed settings, and
+     * reminders on a device of the learner.
+     */
     private void learn(SpaClient learner) {
         new PlacementDriver(learner, jdbc).answerOnboarding("nothing");
         assertThat(learner.post("/api/placement/skip", "")).hasStatusOk();
@@ -170,6 +174,10 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
         lessons.play(LessonDriver.A0_WORDS, "nein");
         assertThat(learner.put("/api/settings", """
                 {"dailyGoalMinutes": 20, "requestRetention": 0.85, "timeZone": "Europe/Berlin"}""")).hasStatusOk();
+        assertThat(learner.post("/api/push/subscriptions", PushSubscriptions.json(
+                "https://fcm.googleapis.com/fcm/send/" + UUID.randomUUID()))).hasStatusOk();
+        assertThat(learner.put("/api/reminders", """
+                {"enabled": true, "time": "18:00", "rescueEnabled": true, "rescueTime": "21:00"}""")).hasStatusOk();
     }
 
     /** Status and body of every view of the learner. */

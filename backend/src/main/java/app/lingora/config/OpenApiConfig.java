@@ -29,7 +29,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * API contract for the generated TypeScript client. Operations require the session by default; public ones declare
- * an empty {@code @SecurityRequirements}. Every unsafe operation additionally requires the CSRF header.
+ * an empty {@code @SecurityRequirements}. Every unsafe operation additionally requires the CSRF header, except the ones
+ * a token in the body authenticates.
  */
 @Configuration(proxyBeanMethods = false)
 public class OpenApiConfig {
@@ -72,8 +73,8 @@ public class OpenApiConfig {
     OpenApiCustomizer lingoraContractCustomizer() {
         return openApi -> {
             openApi.getComponents().addSchemas(PROBLEM_SCHEMA, problemSchema());
-            openApi.getPaths().values().forEach(pathItem -> pathItem.readOperationsMap().forEach((method, operation) -> {
-                if (UNSAFE_METHODS.contains(method)) {
+            openApi.getPaths().forEach((path, pathItem) -> pathItem.readOperationsMap().forEach((method, operation) -> {
+                if (UNSAFE_METHODS.contains(method) && !isTokenAuthenticated(path, method)) {
                     requireCsrfHeader(operation);
                 }
             }));
@@ -81,6 +82,10 @@ public class OpenApiConfig {
                 openApi.getTags().sort(Comparator.comparing(Tag::getName));
             }
         };
+    }
+
+    private static boolean isTokenAuthenticated(String path, PathItem.HttpMethod method) {
+        return method == PathItem.HttpMethod.POST && List.of(SecurityConfig.TOKEN_AUTHENTICATED_POSTS).contains(path);
     }
 
     private static void requireCsrfHeader(Operation operation) {

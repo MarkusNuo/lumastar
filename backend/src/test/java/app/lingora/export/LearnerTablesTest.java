@@ -15,10 +15,12 @@ import org.junit.jupiter.api.Test;
 class LearnerTablesTest extends IntegrationTest {
 
     /**
-     * Usage log of the AI requests (Phase 2), not learner state, and the links of account mails, which belong to the
-     * account rather than to its learning state; an import leaves both alone.
+     * Usage log of the AI requests (Phase 2), not learner state; the links of account mails, which belong to the account
+     * rather than to its learning state; and the push subscriptions, reminder settings and sent reminders, which belong
+     * to the devices and the notification setup on this instance. An import leaves them all alone.
      */
-    private static final Set<String> NOT_EXPORTED = Set.of("ai_requests", "account_tokens");
+    private static final Set<String> NOT_EXPORTED = Set.of("ai_requests", "account_tokens", "push_subscriptions",
+            "reminder_settings", "reminder_log");
     /** The identity of the account, which an import into another account must not take over. */
     private static final Set<String> ACCOUNT_COLUMNS = Set.of("id", "password_hash", "created_at", "email",
             "email_verified_at", "pending_email");

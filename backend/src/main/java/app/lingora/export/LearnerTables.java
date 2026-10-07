@@ -6,7 +6,8 @@ import java.util.Map;
 
 /**
  * The learner data of a backup (export format version {@value ExportFormat#SCHEMA_VERSION}). The account row itself
- * is exported as {@link #PROFILE_COLUMNS}, without its identity (id, e-mail, password hash, creation time).
+ * is exported as {@link #PROFILE_COLUMNS}, without its identity (id, e-mail, password hash, creation time). Push
+ * subscriptions and reminders are left out: they belong to the devices and the notification setup on this instance.
  * A new column in one of these tables changes the format: {@code LearnerTablesTest} fails until it is listed here and,
  * if older exports cannot provide it, a {@link BackupUpgrader} fills it in.
  */

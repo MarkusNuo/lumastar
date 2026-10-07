@@ -17,7 +17,7 @@ class RequestThrottleTest {
     private static final String CLIENT = "203.0.113.7";
 
     private final MutableClock clock = new MutableClock(Instant.parse("2026-10-07T10:00:00Z"));
-    private final RequestThrottle throttle = new RequestThrottle(new ThrottleProperties(5, 10, 3, 2), clock);
+    private final RequestThrottle throttle = new RequestThrottle(new ThrottleProperties(5, 10, 3, 2, 3), clock);
 
     @Test
     void admitsTheConfiguredNumberOfRequestsPerHour() {
@@ -81,7 +81,7 @@ class RequestThrottleTest {
 
     @Test
     void aLimitOfZeroRejectsEveryRequest() {
-        RequestThrottle closed = new RequestThrottle(new ThrottleProperties(0, 10, 3, 2), clock);
+        RequestThrottle closed = new RequestThrottle(new ThrottleProperties(0, 10, 3, 2, 3), clock);
 
         assertThatThrownBy(() -> closed.admit(Action.REGISTRATION, CLIENT)).isInstanceOf(ThrottledException.class);
     }
