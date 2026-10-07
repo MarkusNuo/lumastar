@@ -12,7 +12,7 @@ import { useFormErrors } from '../../lib/useFormErrors';
 import { normalize, validateCurrentPassword, validateEmail } from '../auth/accountRules';
 import { invalidFields, useThrottleLock } from '../auth/authProblems';
 import { AUTH_COPY, FIELD_COPY } from '../auth/copy';
-import type { Account } from '../auth/interimApi';
+import type { Account } from '../../api/types';
 import { accountQuery, useChangeEmail } from './accountApi';
 import { isWrongPassword } from './accountProblems';
 import { ACCOUNT_ROUTES } from './accountRoutes';

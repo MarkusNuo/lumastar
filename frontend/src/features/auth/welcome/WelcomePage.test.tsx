@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { authStatus } from '../../../test/fixtures';
 import { jsonResponse, stubApi } from '../../../test/http';
 import { renderRoutes } from '../../../test/router';
-import type { RegistrationMode } from '../interimApi';
+import type { RegistrationMode } from '../../../api/types';
 import { WelcomePage } from './WelcomePage';
 
 function renderWelcome(registrationMode: RegistrationMode) {

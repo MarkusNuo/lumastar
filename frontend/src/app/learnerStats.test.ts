@@ -10,6 +10,9 @@ const PROFILE: Profile = {
   onboardingCompleted: true,
   onboardingStep: 'done',
   xpTotal: 420,
+  email: 'erza@example.ch',
+  emailVerified: true,
+  emailRequired: false,
 };
 
 describe('parseLevel', () => {

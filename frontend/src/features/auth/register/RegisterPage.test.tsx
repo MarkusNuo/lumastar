@@ -7,7 +7,7 @@ import { authStatus } from '../../../test/fixtures';
 import { jsonResponse, problemResponse, stubApi } from '../../../test/http';
 import { renderRoutes, screenNamed } from '../../../test/router';
 import { authStatusQuery } from '../authHooks';
-import type { RegistrationMode } from '../interimApi';
+import type { RegistrationMode } from '../../../api/types';
 import { RegisterPage } from './RegisterPage';
 
 vi.mock('../../../lib/celebrate', () => ({ celebrate: vi.fn() }));

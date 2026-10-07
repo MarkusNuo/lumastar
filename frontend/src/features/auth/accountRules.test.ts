@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
+import spec from '../../../../backend/openapi/openapi.json?raw';
 import {
+  DISPLAY_NAME_MAX_LENGTH,
+  EMAIL_MAX_LENGTH,
   normalize,
+  PASSWORD_MAX_LENGTH,
+  PASSWORD_MIN_LENGTH,
   validateConfirmation,
   validateCurrentPassword,
   validateDisplayName,
@@ -8,7 +13,36 @@ import {
   validateNewPassword,
 } from './accountRules';
 
+interface LengthConstraint {
+  minLength?: number;
+  maxLength?: number;
+}
+
+function contractProperty(schema: string, name: string): LengthConstraint {
+  const contract = JSON.parse(spec) as {
+    components: { schemas: Record<string, { properties: Record<string, LengthConstraint> }> };
+  };
+  const property = contract.components.schemas[schema]?.properties[name];
+  if (!property) throw new Error(`${schema}.${name} is missing in the API contract`);
+  return property;
+}
+
 describe('account rules', () => {
+  it('mirror the constraints of the API contract', () => {
+    expect(contractProperty('RegisterRequest', 'displayName')).toMatchObject({
+      maxLength: DISPLAY_NAME_MAX_LENGTH,
+    });
+    expect(contractProperty('RegisterRequest', 'email')).toMatchObject({
+      maxLength: EMAIL_MAX_LENGTH,
+    });
+    const newPassword = { minLength: PASSWORD_MIN_LENGTH, maxLength: PASSWORD_MAX_LENGTH };
+    expect(contractProperty('RegisterRequest', 'password')).toMatchObject(newPassword);
+    expect(contractProperty('PasswordChangeRequest', 'newPassword')).toMatchObject(newPassword);
+    expect(contractProperty('PasswordResetConfirmRequest', 'newPassword')).toMatchObject(
+      newPassword,
+    );
+  });
+
   describe('display name', () => {
     it.each(['', '   '])('requires a name, not just spaces (%j)', (name) => {
       expect(validateDisplayName(name)).toBe('required');

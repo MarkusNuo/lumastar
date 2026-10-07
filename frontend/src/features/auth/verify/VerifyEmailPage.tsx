@@ -3,6 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router';
 import { isApiError } from '../../../api/ApiError';
+import { api } from '../../../api/client';
 import { Button } from '../../../components/ui/Button';
 import { ButtonLink } from '../../../components/ui/ButtonLink';
 import { Callout } from '../../../components/ui/Callout';
@@ -15,14 +16,15 @@ import { linkProblem, type LinkProblem } from '../authProblems';
 import { AUTH_ROUTES } from '../authRoutes';
 import { AuthIntro, AuthMessage, AuthScreen } from '../AuthScreen';
 import { AUTH_COPY } from '../copy';
-import { call } from '../interimApi';
 
 const copy = AUTH_COPY.verifyEmail;
 
 function useVerifyEmail() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (token: string) => call('POST', '/api/auth/verify-email', { token }),
+    mutationFn: async (token: string) => {
+      await api.POST('/api/auth/verify-email', { body: { token } });
+    },
     onSuccess: () => refreshAccount(queryClient),
   });
 }

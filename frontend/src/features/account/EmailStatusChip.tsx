@@ -1,6 +1,6 @@
 import { CheckCircleIcon, HourglassMediumIcon, WarningCircleIcon } from '@phosphor-icons/react';
 import { StatusChip } from '../../components/ui/StatusChip';
-import type { Account } from '../auth/interimApi';
+import type { Account } from '../../api/types';
 import { ACCOUNT_COPY } from './copy';
 
 const copy = ACCOUNT_COPY.status;

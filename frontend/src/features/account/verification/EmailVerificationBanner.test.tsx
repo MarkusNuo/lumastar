@@ -4,16 +4,16 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { useToastStore } from '../../../components/ui/toastStore';
 import { profile } from '../../../test/fixtures';
 import { jsonResponse, problemResponse, renderWithQueryClient, stubApi } from '../../../test/http';
-import type { Me } from '../../auth/interimApi';
+import type { Profile } from '../../../api/types';
 import { useVerificationBannerDismissed } from './bannerDismissed';
 import { EmailVerificationBanner } from './EmailVerificationBanner';
 import { useResendCooldown } from './resendCooldown';
 
 type Routes = Parameters<typeof stubApi>[0];
 
-const UNVERIFIED: Me = { ...profile(), email: 'erza@example.ch', emailVerified: false };
+const UNVERIFIED: Profile = { ...profile(), email: 'erza@example.ch', emailVerified: false };
 
-function renderBanner(me: Me = UNVERIFIED, routes: Routes = {}) {
+function renderBanner(me: Profile = UNVERIFIED, routes: Routes = {}) {
   const requests = stubApi({
     'GET /api/me': () => jsonResponse(me),
     'POST /api/auth/verify-email/resend': () => new Response(null, { status: 204 }),
@@ -23,7 +23,7 @@ function renderBanner(me: Me = UNVERIFIED, routes: Routes = {}) {
   return { requests, user: userEvent.setup() };
 }
 
-const banner = () => screen.queryByRole('region', { name: 'Bestätige deine E-Mail-Adresse' });
+const banner = () => screen.queryByRole('region', { name: 'E-Mail bestätigen' });
 
 beforeEach(() => {
   useResendCooldown.getState().start(0);
@@ -35,14 +35,14 @@ describe('EmailVerificationBanner', () => {
   it('reminds an unconfirmed learner where the link went', async () => {
     renderBanner();
 
-    expect(
-      await screen.findByRole('region', { name: 'Bestätige deine E-Mail-Adresse' }),
-    ).toHaveTextContent('Wir haben dir einen Link an erza@example.ch geschickt.');
+    expect(await screen.findByRole('region', { name: 'E-Mail bestätigen' })).toHaveTextContent(
+      'Wir haben dir einen Link an erza@example.ch geschickt.',
+    );
   });
 
-  it.each<[string, Me]>([
+  it.each<[string, Profile]>([
     ['a confirmed address', { ...profile(), email: 'erza@example.ch', emailVerified: true }],
-    ['no address yet', profile()],
+    ['no address yet', profile({ email: undefined, emailVerified: false, emailRequired: true })],
   ])('stays away for %s', async (_, me) => {
     const { requests } = renderBanner(me);
 

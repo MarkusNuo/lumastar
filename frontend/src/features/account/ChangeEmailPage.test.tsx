@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { account } from '../../test/fixtures';
 import { jsonResponse, problemResponse, stubApi } from '../../test/http';
 import { renderRoutes, screenNamed } from '../../test/router';
-import type { Account } from '../auth/interimApi';
+import type { Account } from '../../api/types';
 import { ChangeEmailPage } from './ChangeEmailPage';
 import { useResendCooldown } from './verification/resendCooldown';
 

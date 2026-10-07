@@ -82,7 +82,7 @@ export function LoginPage() {
           )}
           {status.data?.legacyLoginAvailable && (
             <p className="text-center text-caption">
-              <TextLink to={AUTH_ROUTES.legacyLogin} className="text-fg-muted">
+              <TextLink to={AUTH_ROUTES.legacyLogin} subtle>
                 {copy.legacy}
               </TextLink>
             </p>

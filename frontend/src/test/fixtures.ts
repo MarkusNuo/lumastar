@@ -5,7 +5,7 @@ import type {
   Profile,
   Streak,
 } from '../api/types';
-import type { Account, AuthStatus } from '../features/auth/interimApi';
+import type { Account, AuthStatus } from '../api/types';
 import { SAMPLE_MULTIPLE_CHOICE } from '../features/lesson/sampleExercises';
 
 /** GET /api/auth/status of a visitor without a session on an installation open for everyone. */
@@ -33,6 +33,9 @@ export function profile(fields: Partial<Profile> = {}): Profile {
     onboardingCompleted: false,
     onboardingStep: 'profile',
     xpTotal: 0,
+    email: 'erza@example.ch',
+    emailVerified: true,
+    emailRequired: false,
     ...fields,
   };
 }

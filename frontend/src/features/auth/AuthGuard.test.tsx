@@ -5,7 +5,7 @@ import { jsonResponse, stubApi } from '../../test/http';
 import { renderRoutes, screenNamed } from '../../test/router';
 import { AuthGuard } from './AuthGuard';
 import { authRedirect, type AuthArea } from './authRoutes';
-import type { AuthStatus } from './interimApi';
+import type { AuthStatus } from '../../api/types';
 
 const SIGNED_OUT = authStatus();
 const SIGNED_IN = authStatus({ authenticated: true, displayName: 'Erza' });

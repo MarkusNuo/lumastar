@@ -8,7 +8,7 @@ import {
 } from '../accountRules';
 import { invalidFields } from '../authProblems';
 import { AUTH_COPY, FIELD_COPY } from '../copy';
-import type { RegisterRequest } from '../interimApi';
+import type { RegisterRequest } from '../../../api/types';
 
 const copy = AUTH_COPY.register;
 

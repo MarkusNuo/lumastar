@@ -14,7 +14,7 @@ export function EmailVerificationBanner({ className }: { className?: string }) {
   const dismiss = useVerificationBannerDismissed((state) => state.dismiss);
   const email = me.data?.email;
 
-  if (!email || me.data?.emailVerified !== false || dismissed) return null;
+  if (!email || me.data?.emailVerified || dismissed) return null;
   return (
     <Banner
       tone="warning"

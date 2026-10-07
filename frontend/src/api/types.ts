@@ -4,6 +4,13 @@ import type { components } from './schema';
 type Schemas = components['schemas'];
 
 export type AuthStatus = Schemas['AuthStatusResponse'];
+export type RegistrationMode = Schemas['RegistrationMode'];
+export type RegisterRequest = Schemas['RegisterRequest'];
+export type LoginRequest = Schemas['LoginRequest'];
+export type Account = Schemas['AccountResponse'];
+export type EmailChange = Schemas['EmailChangeRequest'];
+export type PasswordChange = Schemas['PasswordChangeRequest'];
+export type PasswordReset = Schemas['PasswordResetConfirmRequest'];
 export type Level = Schemas['Level'];
 export type Profile = Schemas['ProfileResponse'];
 export type ProblemDetail = Schemas['ProblemDetail'];

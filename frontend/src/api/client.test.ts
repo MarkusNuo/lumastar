@@ -46,7 +46,7 @@ describe('CSRF middleware', () => {
 
   it('sends no CSRF header on a GET', async () => {
     const { client, requests } = clientAnswering(() =>
-      jsonResponse({ authenticated: false, setupRequired: true }),
+      jsonResponse({ authenticated: false, registrationMode: 'open', legacyLoginAvailable: false }),
     );
 
     await client.GET('/api/auth/status');
@@ -92,7 +92,12 @@ describe('readCookie', () => {
 
 describe('problem middleware', () => {
   it('resolves with the data of a successful response', async () => {
-    const status = { authenticated: true, setupRequired: false, displayName: 'Erza' };
+    const status = {
+      authenticated: true,
+      registrationMode: 'open',
+      legacyLoginAvailable: false,
+      displayName: 'Erza',
+    };
     const { client } = clientAnswering(() => jsonResponse(status));
 
     await expect(unwrap(client.GET('/api/auth/status'))).resolves.toEqual(status);
@@ -152,11 +157,13 @@ describe('problem middleware', () => {
 
   it('does not signal other failures', async () => {
     const { client, onUnauthorized } = clientAnswering(() =>
-      problemResponse({ status: 409, code: 'account_exists' }),
+      problemResponse({ status: 409, code: 'email_taken' }),
     );
 
     await rejection(
-      client.POST('/api/auth/setup', { body: { displayName: 'Erza', password: 'geheim123' } }),
+      client.PUT('/api/account/email', {
+        body: { newEmail: 'erza@example.ch', password: 'geheim123' },
+      }),
     );
 
     expect(onUnauthorized).not.toHaveBeenCalled();

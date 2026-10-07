@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import type { Me } from '../features/auth/interimApi';
+import type { Profile } from '../api/types';
 import { authStatus, ONBOARDING_OPTIONS, profile } from '../test/fixtures';
 import { jsonResponse, stubApi } from '../test/http';
 import { renderRoutes } from '../test/router';
@@ -8,7 +8,7 @@ import { createRoutes } from './routes';
 
 const SIGNED_IN = authStatus({ authenticated: true, displayName: 'Erza' });
 
-function stubSignedIn(me: Me) {
+function stubSignedIn(me: Profile) {
   stubApi({
     'GET /api/auth/status': () => jsonResponse(SIGNED_IN),
     'GET /api/me': () => jsonResponse(me),
@@ -30,7 +30,7 @@ describe('routes', () => {
   });
 
   it('keeps the former single-user account on the e-mail step', async () => {
-    stubSignedIn({ ...profile(), emailRequired: true });
+    stubSignedIn(profile({ email: undefined, emailVerified: false, emailRequired: true }));
     const { router } = renderRoutes(createRoutes(), '/anmelden');
 
     expect(
@@ -40,7 +40,7 @@ describe('routes', () => {
   });
 
   it('closes the e-mail step once the account has an address', async () => {
-    stubSignedIn({ ...profile(), email: 'erza@example.ch', emailRequired: false });
+    stubSignedIn(profile());
     const { router } = renderRoutes(createRoutes(), '/e-mail-hinzufuegen');
 
     expect(

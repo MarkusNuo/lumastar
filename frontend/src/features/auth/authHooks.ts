@@ -8,19 +8,20 @@ import {
 } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { isApiError } from '../../api/ApiError';
+import { api, unwrap } from '../../api/client';
+import type { LoginRequest, RegisterRequest } from '../../api/types';
 import { onUnauthorized } from '../../api/unauthorized';
-import { call, type AuthStatus, type Me, type RegisterRequest } from './interimApi';
 
 export const authStatusQuery = queryOptions({
   queryKey: ['auth', 'status'],
-  queryFn: () => call<AuthStatus>('GET', '/api/auth/status'),
+  queryFn: () => unwrap(api.GET('/api/auth/status')),
   // Only changes through sign-in, registration, sign-out or a 401; each of them refreshes it.
   staleTime: Infinity,
 });
 
 export const meQuery = queryOptions({
   queryKey: ['me'],
-  queryFn: () => call<Me>('GET', '/api/me'),
+  queryFn: () => unwrap(api.GET('/api/me')),
 });
 
 export function useAuthStatus() {
@@ -31,10 +32,8 @@ export function useMe() {
   return useQuery(meQuery);
 }
 
-export interface Credentials {
-  email: string;
-  password: string;
-}
+/** The sign-in with an address; only the former single-user account signs in without one. */
+export type Credentials = Required<LoginRequest>;
 
 /**
  * Signs in and keeps the mutation pending until the guards can leave the sign-in screen, which
@@ -57,18 +56,20 @@ function useSignIn<Variables>(
 }
 
 export function useLogin() {
-  return useSignIn((credentials: Credentials) => call('POST', '/api/auth/login', credentials));
+  return useSignIn((credentials: Credentials) =>
+    api.POST('/api/auth/login', { body: credentials }),
+  );
 }
 
 /** The account of the former single-user version signs in with its password alone. */
 export function useLegacyLogin() {
-  return useSignIn((password: string) => call('POST', '/api/auth/login', { password }));
+  return useSignIn((password: string) => api.POST('/api/auth/login', { body: { password } }));
 }
 
 /** Creates the account and signs in; the verification mail is on its way. */
 export function useRegister(onCreated: (request: RegisterRequest) => void) {
   return useSignIn(
-    (request: RegisterRequest) => call('POST', '/api/auth/register', request),
+    (request: RegisterRequest) => api.POST('/api/auth/register', { body: request }),
     onCreated,
   );
 }
@@ -91,7 +92,7 @@ export function useLogout() {
   return useMutation({
     mutationFn: async () => {
       try {
-        await call('POST', '/api/auth/logout');
+        await api.POST('/api/auth/logout');
       } catch (error) {
         // An expired session is signed out already, which is what the user asked for.
         if (!isApiError(error) || error.status !== 401) throw error;

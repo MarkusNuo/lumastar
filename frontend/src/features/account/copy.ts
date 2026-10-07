@@ -18,7 +18,7 @@ export const ACCOUNT_COPY = {
     pending: 'Wechsel offen',
   },
   verification: {
-    title: 'Bestätige deine E-Mail-Adresse',
+    title: 'E-Mail bestätigen',
     text: (email: string) =>
       `Wir haben dir einen Link an ${email} geschickt. Damit kannst du später auch dein Passwort zurücksetzen.`,
     resend: 'Link erneut senden',

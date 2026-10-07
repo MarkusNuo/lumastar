@@ -20,6 +20,6 @@ export function EmailRequiredGuard() {
     );
   }
 
-  const redirect = emailStepRedirect(me.data.emailRequired === true, pathname);
+  const redirect = emailStepRedirect(me.data.emailRequired, pathname);
   return redirect ? <Navigate to={redirect} replace /> : <Outlet />;
 }

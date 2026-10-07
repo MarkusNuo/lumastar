@@ -1,4 +1,4 @@
-import type { AuthStatus } from './interimApi';
+import type { AuthStatus } from '../../api/types';
 
 /** Routes of the signed-out area; the two token links are the paths the backend's mails use. */
 export const AUTH_ROUTES = {

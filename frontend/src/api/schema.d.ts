@@ -4,6 +4,84 @@
  */
 
 export interface paths {
+    "/api/account": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** The signed-in account */
+        get: operations["getAccount"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete the account and all its learning data
+         * @description Irreversible; the app offers the export (GET /api/profile/export) first. Ends all sessions of the account, including this one.
+         */
+        delete: operations["deleteAccount"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/account/display-name": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Change the name shown in the app */
+        put: operations["changeDisplayName"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/account/email": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Change or add the sign-in address
+         * @description A verified address stays until the new one is confirmed by the link mailed to it (pendingEmail). An unverified or missing address, as of the account from before multi-user support, is replaced at once and gets a verification link. The current address cancels a pending change.
+         */
+        put: operations["changeEmail"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/account/password": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Change the password
+         * @description Ends all other sessions of the account; this one stays signed in.
+         */
+        put: operations["changePassword"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/auth/login": {
         parameters: {
             query?: never;
@@ -13,7 +91,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Sign in with the password */
+        /** Sign in with e-mail address and password */
         post: operations["login"];
         delete?: never;
         options?: never;
@@ -38,7 +116,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/auth/setup": {
+    "/api/auth/password-reset": {
         parameters: {
             query?: never;
             header?: never;
@@ -47,8 +125,51 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create the only account of this instance and sign in */
-        post: operations["setupAccount"];
+        /**
+         * Mail a link to /reset-password
+         * @description Always 202, whether an account has the address or not. Only a verified address gets the link, valid for 1 hour.
+         */
+        post: operations["requestPasswordReset"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/auth/password-reset/confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Set a new password with the token of the mailed link
+         * @description Ends all sessions of the account except the caller's; the caller is not signed in by it.
+         */
+        post: operations["confirmPasswordReset"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/auth/register": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create an account and sign in
+         * @description Sends a mail with a link to /verify-email; the learner can start before opening it.
+         */
+        post: operations["register"];
         delete?: never;
         options?: never;
         head?: never;
@@ -63,12 +184,52 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Whether setup is required and whether the caller is signed in
+         * Whether the caller is signed in and how one can sign up or in
          * @description Public. Also issues the XSRF-TOKEN cookie that unsafe requests must echo in X-XSRF-TOKEN.
          */
         get: operations["getAuthStatus"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/auth/verify-email": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Confirm an e-mail address with the token of the mailed link
+         * @description Verifies the address of a new account or completes an e-mail change; no sign-in needed. A link works once.
+         */
+        post: operations["verifyEmail"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/auth/verify-email/resend": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Send the verification link again
+         * @description Sends the confirmation of a pending e-mail change again, otherwise the verification of the current address. Earlier links of the same kind stop working.
+         */
+        post: operations["resendVerificationEmail"];
         delete?: never;
         options?: never;
         head?: never;
@@ -454,7 +615,7 @@ export interface paths {
         put?: never;
         /**
          * Restore an export
-         * @description Replaces all learning data of the signed-in account with the content of the file in one transaction; the account and its password stay. Exports of older versions are upgraded.
+         * @description Replaces all learning data of the signed-in account with the content of the file in one transaction; the account (e-mail, password) stays. Exports of older versions are upgraded; an export of another account can be imported as well.
          */
         post: operations["importProfile"];
         delete?: never;
@@ -585,6 +746,20 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        AccountDeletionRequest: {
+            /** @description The current password */
+            password: string;
+        };
+        AccountResponse: {
+            /** Format: date-time */
+            createdAt: string;
+            displayName: string;
+            /** @description Sign-in address; absent for an account from before multi-user support until one is added */
+            email?: string;
+            emailVerified: boolean;
+            /** @description New address of an e-mail change, until it is confirmed by the link sent to it */
+            pendingEmail?: string;
+        };
         /** @enum {string} */
         AnswerLang: "sq" | "de";
         AttemptRequest: {
@@ -622,8 +797,12 @@ export interface components {
             authenticated: boolean;
             /** @description Only present when authenticated */
             displayName?: string;
-            /** @description No account exists yet; the app shows the first-start setup */
-            setupRequired: boolean;
+            /** @description Only present when authenticated */
+            emailVerified?: boolean;
+            /** @description An account from before multi-user support has no e-mail address yet and signs in with its password only */
+            legacyLoginAvailable: boolean;
+            /** @description Whether the registration form is offered (open), needs an invite code (invite) or is not offered (closed) */
+            registrationMode: components["schemas"]["RegistrationMode"];
         };
         /** @description Rows per learner table */
         BackupCounts: {
@@ -767,6 +946,13 @@ export interface components {
             /** Format: int32 */
             xpToday: number;
         };
+        DisplayNameRequest: {
+            /**
+             * @description Name shown in the app
+             * @example Erza
+             */
+            displayName: string;
+        };
         DueDay: {
             /** Format: date */
             date: string;
@@ -789,6 +975,15 @@ export interface components {
             dueToday: number;
             /** Format: int32 */
             dueTomorrow: number;
+        };
+        EmailChangeRequest: {
+            /**
+             * Format: email
+             * @example erza@example.com
+             */
+            newEmail: string;
+            /** @description The current password */
+            password: string;
         };
         /** @enum {string} */
         ErrorCategory: "vocab.unknown" | "vocab.confused" | "spelling.diacritics" | "spelling.nasal_vowel" | "spelling.other" | "variant.standard_form" | "grammar.definite_article" | "grammar.case" | "grammar.linking_article" | "grammar.gender" | "grammar.infinitive" | "grammar.participle" | "grammar.verb_conjugation" | "grammar.verb_tense" | "grammar.word_order" | "grammar.clitics";
@@ -1039,6 +1234,11 @@ export interface components {
             unitsTotal: number;
         };
         LoginRequest: {
+            /**
+             * @description Sign-in address. Without it, the account from before multi-user support signs in, as long as it has no e-mail address yet (legacyLoginAvailable).
+             * @example erza@example.com
+             */
+            email?: string;
             password: string;
         };
         MasteryArea: {
@@ -1105,6 +1305,24 @@ export interface components {
              */
             passedAt: string;
             title: string;
+        };
+        PasswordChangeRequest: {
+            currentPassword: string;
+            /** @description At least 8 characters */
+            newPassword: string;
+        };
+        PasswordResetConfirmRequest: {
+            /** @description At least 8 characters */
+            newPassword: string;
+            /** @description The token parameter of the link in the mail */
+            token: string;
+        };
+        PasswordResetRequest: {
+            /**
+             * Format: email
+             * @example erza@example.com
+             */
+            email: string;
         };
         /** @description The learning path of the home screen (PRD 12.3): the plan up to C2 with the live progress */
         PathResponse: {
@@ -1294,7 +1512,7 @@ export interface components {
             instance?: string;
             /**
              * Format: int32
-             * @description Seconds until the next login attempt (code login_throttled)
+             * @description Seconds until the next attempt (codes login_throttled, too_many_requests)
              */
             retryAfterSeconds?: number;
             /** Format: int32 */
@@ -1319,6 +1537,11 @@ export interface components {
              */
             dailyGoalMinutes: number;
             displayName: string;
+            /** @description Sign-in address; absent while emailRequired */
+            email?: string;
+            /** @description The account from before multi-user support has no e-mail address yet; the app asks for one (PUT /api/account/email) before anything else */
+            emailRequired: boolean;
+            emailVerified: boolean;
             /** @description Empty until the onboarding questions are answered */
             motivations: components["schemas"]["Motivation"][];
             onboardingCompleted: boolean;
@@ -1331,6 +1554,26 @@ export interface components {
         };
         /** @enum {string} */
         Rating: "again" | "hard" | "good" | "easy";
+        /** @description Creates an account and signs in. */
+        RegisterRequest: {
+            /**
+             * @description Name shown in the app
+             * @example Erza
+             */
+            displayName: string;
+            /**
+             * Format: email
+             * @description Sign-in address; unique regardless of case
+             * @example erza@example.com
+             */
+            email: string;
+            /** @description Required when the registration mode is invite */
+            inviteCode?: string;
+            /** @description At least 8 characters */
+            password: string;
+        };
+        /** @enum {string} */
+        RegistrationMode: "open" | "invite" | "closed";
         /** @description The learner's FSRS cards (PRD F8): what is due now and tomorrow. Only cards that a lesson exercise can practise count, so a review lesson can be started exactly while dueNow is above 0 */
         ReviewSummaryResponse: {
             /**
@@ -1397,16 +1640,6 @@ export interface components {
              * @example Europe/Zurich
              */
             timeZone: string;
-        };
-        /** @description Creates the only account of this instance. */
-        SetupRequest: {
-            /**
-             * @description Name shown in the app
-             * @example Erza
-             */
-            displayName: string;
-            /** @description Protects the instance; at least 8 characters */
-            password: string;
         };
         /** @enum {string} */
         SkillArea: "vocab" | "phrase" | "grammar" | "spelling" | "reading";
@@ -1543,6 +1776,10 @@ export interface components {
         };
         /** @enum {string} */
         UnitColor: "violet" | "teal" | "sky" | "rose" | "amber" | "lime" | "indigo" | "coral";
+        VerifyEmailRequest: {
+            /** @description The token parameter of the link in the mail */
+            token: string;
+        };
         /** @description A Gheg side (left) matched with the German side (right) of another pair */
         WrongMatch: {
             left: string;
@@ -1571,6 +1808,262 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    getAccount: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The account */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountResponse"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    deleteAccount: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountDeletionRequest"];
+            };
+        };
+        responses: {
+            /** @description Account deleted and signed out */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Too many wrong passwords (code login_throttled) */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    changeDisplayName: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DisplayNameRequest"];
+            };
+        };
+        responses: {
+            /** @description The changed account */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountResponse"];
+                };
+            };
+            /** @description Invalid name (code validation_failed) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    changeEmail: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EmailChangeRequest"];
+            };
+        };
+        responses: {
+            /** @description The changed account */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountResponse"];
+                };
+            };
+            /** @description Invalid address (code validation_failed) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Another account uses the address (code email_taken) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description login_throttled after wrong passwords, too_many_requests after too many account mails */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    changePassword: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PasswordChangeRequest"];
+            };
+        };
+        responses: {
+            /** @description Password changed */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description New password too short or too long (code validation_failed) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Too many wrong passwords (code login_throttled) */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
     login: {
         parameters: {
             query?: never;
@@ -1591,7 +2084,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description Wrong password */
+            /** @description Wrong address or password (code invalid_credentials) */
             401: {
                 headers: {
                     [name: string]: unknown;
@@ -1609,7 +2102,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Too many failed attempts; see the Retry-After header */
+            /** @description Too many failed attempts (code login_throttled); see Retry-After */
             429: {
                 headers: {
                     [name: string]: unknown;
@@ -1656,7 +2149,7 @@ export interface operations {
             };
         };
     };
-    setupAccount: {
+    requestPasswordReset: {
         parameters: {
             query?: never;
             header?: never;
@@ -1665,7 +2158,87 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["SetupRequest"];
+                "application/json": components["schemas"]["PasswordResetRequest"];
+            };
+        };
+        responses: {
+            /** @description Accepted */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Too many requests from this client or for this address (code too_many_requests) */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    confirmPasswordReset: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PasswordResetConfirmRequest"];
+            };
+        };
+        responses: {
+            /** @description Password changed */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description token_invalid or token_expired */
+            410: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    register: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RegisterRequest"];
             };
         };
         responses: {
@@ -1678,7 +2251,7 @@ export interface operations {
                     "application/json": components["schemas"]["ProfileResponse"];
                 };
             };
-            /** @description Invalid display name or password */
+            /** @description Invalid fields (code validation_failed) */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1696,8 +2269,17 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description An account already exists */
+            /** @description Another account uses the address (code email_taken) */
             409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Too many registrations from this address (code too_many_requests) */
+            429: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -1723,6 +2305,109 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuthStatusResponse"];
+                };
+            };
+        };
+    };
+    verifyEmail: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["VerifyEmailRequest"];
+            };
+        };
+        responses: {
+            /** @description Address confirmed */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Another account took the new address meanwhile (code email_taken) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description token_invalid (unknown, used or superseded) or token_expired */
+            410: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    resendVerificationEmail: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Mail sent */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description email_already_verified (and no change pending) or email_required */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Too many account mails (code too_many_requests) */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
         };

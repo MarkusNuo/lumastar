@@ -5,7 +5,6 @@ import { useToastStore } from '../../components/ui/toastStore';
 import { account, authStatus, profile } from '../../test/fixtures';
 import { jsonResponse, problemResponse, stubApi } from '../../test/http';
 import { renderRoutes, screenNamed } from '../../test/router';
-import type { Me } from '../auth/interimApi';
 import { emailStepRedirect } from './accountRoutes';
 import { AddEmailPage } from './AddEmailPage';
 import { EmailRequiredGuard } from './EmailRequiredGuard';
@@ -13,7 +12,12 @@ import { useResendCooldown } from './verification/resendCooldown';
 
 type Routes = Parameters<typeof stubApi>[0];
 
-const LEGACY: Me = { ...profile({ onboardingStep: 'done' }), emailRequired: true };
+const LEGACY = profile({
+  onboardingStep: 'done',
+  email: undefined,
+  emailVerified: false,
+  emailRequired: true,
+});
 
 /** The legacy account until an address is saved; `stillRequired` keeps it waiting for the link. */
 function renderStep(routes: Routes = {}, stillRequired = false) {

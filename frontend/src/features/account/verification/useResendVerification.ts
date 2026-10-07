@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { isApiError } from '../../../api/ApiError';
+import { api } from '../../../api/client';
 import { showToast } from '../../../components/ui/toastStore';
 import { formatClock } from '../../../lib/formatClock';
 import { throttleSeconds } from '../../auth/authProblems';
-import { call } from '../../auth/interimApi';
 import { refreshAccount } from '../accountApi';
 import { ACCOUNT_COPY } from '../copy';
 import { useResendCooldown } from './resendCooldown';
@@ -19,7 +19,9 @@ export function useResendVerification() {
   const startCooldown = useResendCooldown((state) => state.start);
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: () => call('POST', '/api/auth/verify-email/resend'),
+    mutationFn: async () => {
+      await api.POST('/api/auth/verify-email/resend');
+    },
     onSuccess: () => {
       startCooldown(RESEND_COOLDOWN_SECONDS);
       showToast(ACCOUNT_COPY.verification.sent);

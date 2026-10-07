@@ -5,7 +5,7 @@ import { authStatus } from '../../../test/fixtures';
 import { jsonResponse, problemResponse, stubApi } from '../../../test/http';
 import { renderRoutes, screenNamed } from '../../../test/router';
 import { authStatusQuery } from '../authHooks';
-import type { AuthStatus } from '../interimApi';
+import type { AuthStatus } from '../../../api/types';
 import { LoginPage } from './LoginPage';
 
 type Routes = Parameters<typeof stubApi>[0];

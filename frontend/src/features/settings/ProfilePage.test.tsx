@@ -20,6 +20,9 @@ const PROFILE: Profile = {
   motivations: [],
   onboardingCompleted: true,
   onboardingStep: 'done',
+  email: 'mira@example.ch',
+  emailVerified: true,
+  emailRequired: false,
 };
 
 const SUMMARY = [

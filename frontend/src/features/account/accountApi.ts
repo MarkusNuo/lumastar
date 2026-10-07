@@ -1,10 +1,11 @@
 import { queryOptions, useMutation, useQueryClient, type QueryClient } from '@tanstack/react-query';
 import { authStatusQuery, endSession, meQuery } from '../auth/authHooks';
-import { call, type Account } from '../auth/interimApi';
+import { api, unwrap } from '../../api/client';
+import type { Account, EmailChange, PasswordChange } from '../../api/types';
 
 export const accountQuery = queryOptions({
   queryKey: ['account'],
-  queryFn: () => call<Account>('GET', '/api/account'),
+  queryFn: () => unwrap(api.GET('/api/account')),
 });
 
 /** Name, address and verification show in the account, the profile and the auth status alike. */
@@ -32,13 +33,8 @@ function useAccountChange<Variables, Result>(
 
 export function useChangeDisplayName() {
   return useAccountChange((displayName: string) =>
-    call<Account>('PUT', '/api/account/display-name', { displayName }),
+    unwrap(api.PUT('/api/account/display-name', { body: { displayName } })),
   );
-}
-
-export interface EmailChange {
-  newEmail: string;
-  password: string;
 }
 
 /**
@@ -48,19 +44,16 @@ export interface EmailChange {
  */
 export function useChangeEmail(onChanged?: (account: Account) => void) {
   return useAccountChange(
-    (change: EmailChange) => call<Account>('PUT', '/api/account/email', change),
+    (change: EmailChange) => unwrap(api.PUT('/api/account/email', { body: change })),
     onChanged,
   );
 }
 
-export interface PasswordChange {
-  currentPassword: string;
-  newPassword: string;
-}
-
 /** Ends the account's other sessions; this one stays signed in. */
 export function useChangePassword() {
-  return useAccountChange((change: PasswordChange) => call('PUT', '/api/account/password', change));
+  return useAccountChange(async (change: PasswordChange) => {
+    await api.PUT('/api/account/password', { body: change });
+  });
 }
 
 /**
@@ -71,7 +64,7 @@ export function useDeleteAccount(onDeleted: () => void) {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (password: string) => {
-      await call('DELETE', '/api/account', { password });
+      await api.DELETE('/api/account', { body: { password } });
     },
     onSuccess: () => {
       onDeleted();
