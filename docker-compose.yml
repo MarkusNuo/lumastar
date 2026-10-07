@@ -19,5 +19,13 @@ services:
       timeout: 3s
       retries: 10
 
+  mail:
+    # Local mail catcher for development: SMTP on 1025, web UI on http://localhost:8025
+    image: axllent/mailpit:v1.31
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${LINGORA_MAIL_SMTP_PORT:-1025}:1025"
+      - "127.0.0.1:${LINGORA_MAIL_UI_PORT:-8025}:8025"
+
 volumes:
   lingora-db:
