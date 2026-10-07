@@ -53,11 +53,15 @@ class LearnerDataStore {
                 .single());
     }
 
-    /** Replaces the profile and all rows of the learner; the account (id, password hash) stays. Returns rows per table. */
-    Map<String, Integer> replace(UUID userId, ValidBackup backup) {
+    /**
+     * Replaces the profile and all rows of the learner; the account (id, e-mail, password hash) stays. Rows of other
+     * learners are never touched: an export of another account gets new row ids ({@link RowIds}). Returns rows per table.
+     */
+    Map<String, Integer> replace(UUID userId, ValidBackup importedBackup) {
         jdbc.sql("SELECT id FROM users WHERE id = :user FOR UPDATE").param("user", userId).query(UUID.class).single();
         LearnerTables.ALL.reversed().forEach(table ->
                 jdbc.sql("DELETE FROM %s WHERE user_id = :user".formatted(table.name())).param("user", userId).update());
+        ValidBackup backup = anyRowIdTaken(importedBackup) ? RowIds.reassigned(userId, importedBackup) : importedBackup;
         importing(ExportFormat.PROFILE_DATA, () -> jdbc.sql("""
                         UPDATE users SET (%1$s) = (SELECT %1$s FROM json_populate_record(NULL::users, :profile::json))
                         WHERE id = :user""".formatted(String.join(", ", LearnerTables.PROFILE_COLUMNS)))
@@ -79,6 +83,18 @@ class LearnerDataStore {
                 .query(String.class)
                 .list());
         return ids.stream().filter(id -> !existing.contains(id)).collect(Collectors.toSet());
+    }
+
+    /** Called after the learner's own rows are deleted, so that a row id still in use belongs to another learner. */
+    private boolean anyRowIdTaken(ValidBackup backup) {
+        return backup.rows().entrySet().stream().anyMatch(table -> {
+            List<String> ids = RowIds.of(table.getValue());
+            return !ids.isEmpty() && jdbc.sql("SELECT EXISTS (SELECT 1 FROM %s WHERE id = ANY (CAST(:ids AS uuid[])))"
+                            .formatted(table.getKey().name()))
+                    .param("ids", ids.toArray(String[]::new))
+                    .query(Boolean.class)
+                    .single();
+        });
     }
 
     private int insert(UUID userId, LearnerTable table, ArrayNode rows) {
