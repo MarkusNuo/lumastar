@@ -52,7 +52,7 @@ export interface paths {
         get?: never;
         /**
          * Change or add the sign-in address
-         * @description A verified address stays until the new one is confirmed by the link mailed to it (pendingEmail). An unverified or missing address, as of the account from before multi-user support, is replaced at once and gets a verification link. The current address cancels a pending change.
+         * @description A verified address stays until the new one is confirmed by the link mailed to it (pendingEmail) and is told of the change. An unverified or missing address, as of the account from before multi-user support, is replaced at once and gets a verification link. The current address cancels a pending change; so does a new password. Ends all other sessions of the account; this one stays signed in.
          */
         put: operations["changeEmail"];
         post?: never;
@@ -72,7 +72,7 @@ export interface paths {
         get?: never;
         /**
          * Change the password
-         * @description Ends all other sessions of the account; this one stays signed in.
+         * @description Ends all other sessions of the account; this one stays signed in. Cancels a pending e-mail change and an open reset link; a verified address is told.
          */
         put: operations["changePassword"];
         post?: never;
@@ -91,7 +91,10 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Sign in with e-mail address and password */
+        /**
+         * Sign in with e-mail address and password
+         * @description Failed attempts are throttled per client, per client and address, and per address across clients, alike for addresses with and without an account.
+         */
         post: operations["login"];
         delete?: never;
         options?: never;
@@ -147,7 +150,7 @@ export interface paths {
         put?: never;
         /**
          * Set a new password with the token of the mailed link
-         * @description Ends all sessions of the account except the caller's; the caller is not signed in by it.
+         * @description Ends all sessions of the account except the caller's; the caller is not signed in by it. Cancels a pending e-mail change; the address is told.
          */
         post: operations["confirmPasswordReset"];
         delete?: never;
@@ -1373,7 +1376,7 @@ export interface components {
             title: string;
         };
         /**
-         * @description practise opens url like a tap on the notification; snooze posts the snoozeToken to POST /api/reminders/snooze, without opening the app
+         * @description practise opens the app's next lesson (/weiter) instead of url; snooze posts the snoozeToken to POST /api/reminders/snooze, without opening the app
          * @enum {string}
          */
         NotificationActionType: "practise" | "snooze";
@@ -1728,7 +1731,7 @@ export interface components {
             /** @example Zeit für Gheg! 🔥 */
             title: string;
             /**
-             * @description Path of the app that a tap on the notification or the practise action opens
+             * @description Path of the app that a tap on the notification opens; the practise action opens the next lesson (/weiter) instead
              * @example /
              */
             url: string;
@@ -2139,7 +2142,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Too many wrong passwords (code login_throttled) */
+            /** @description login_throttled after too many wrong passwords, too_many_requests while the server is busy checking passwords; see Retry-After */
             429: {
                 headers: {
                     [name: string]: unknown;
@@ -2259,7 +2262,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description login_throttled after wrong passwords, too_many_requests after too many account mails */
+            /** @description login_throttled after wrong passwords, too_many_requests after too many account mails or while the server is busy checking passwords; see Retry-After */
             429: {
                 headers: {
                     [name: string]: unknown;
@@ -2317,7 +2320,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Too many wrong passwords (code login_throttled) */
+            /** @description login_throttled after too many wrong passwords, too_many_requests while the server is busy checking passwords; see Retry-After */
             429: {
                 headers: {
                     [name: string]: unknown;
@@ -2366,7 +2369,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Too many failed attempts (code login_throttled); see Retry-After */
+            /** @description login_throttled after too many failed attempts, too_many_requests while the server is busy checking passwords; see Retry-After */
             429: {
                 headers: {
                     [name: string]: unknown;
@@ -2491,6 +2494,15 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
+            /** @description The server is busy hashing passwords (code too_many_requests); see Retry-After */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
         };
     };
     register: {
@@ -2542,7 +2554,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Too many registrations from this address (code too_many_requests) */
+            /** @description Too many registrations from this client, or the server is busy hashing passwords (code too_many_requests); see Retry-After */
             429: {
                 headers: {
                     [name: string]: unknown;
