@@ -37,7 +37,6 @@ export interface RegisterRequest {
   password: string;
   displayName: string;
   inviteCode?: string;
-  acceptPrivacy: true;
 }
 
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';

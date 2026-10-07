@@ -71,13 +71,6 @@ export const AUTH_COPY = {
       required: 'Bitte gib deinen Einladungscode ein.',
       invalid: 'Dieser Einladungscode stimmt nicht. Prüfe ihn bitte.',
     },
-    privacy: {
-      before: 'Ich habe die ',
-      link: 'Datenschutzerklärung',
-      after: ' gelesen.',
-      newTab: '(öffnet in neuem Tab)',
-      required: 'Bitte bestätige, dass du die Datenschutzerklärung gelesen hast.',
-    },
     submit: 'Konto erstellen',
     haveAccount: 'Schon ein Konto?',
     login: 'Anmelden',

@@ -6,7 +6,6 @@ import { AuthGuard } from '../features/auth/AuthGuard';
 import { AUTH_ROUTES } from '../features/auth/authRoutes';
 import { CheckpointPage } from '../features/checkpoint/CheckpointPage';
 import { CHECKPOINT_ROUTE } from '../features/checkpoint/checkpointRoutes';
-import { LEGAL_ROUTES } from '../features/legal/legalRoutes';
 import { LessonPage } from '../features/lesson/LessonPage';
 import { OnboardingGuard } from '../features/onboarding/OnboardingGuard';
 import { OnboardingPage } from '../features/onboarding/OnboardingPage';
@@ -35,7 +34,6 @@ function lazyScreen(path: string, load: () => Promise<ComponentType>): RouteObje
 
 const authScreens = () => import('../features/auth/screens');
 const accountScreens = () => import('../features/account/screens');
-const legalPages = () => import('../features/legal/LegalPages');
 
 /**
  * The app's routes. A factory, because the router fills in lazy screens on the route objects it
@@ -56,11 +54,9 @@ export function createRoutes(): RouteObject[] {
         ),
       ],
     },
-    // Public: the links from mails and the legal pages work with and without a session.
+    // Public: the links from mails work with and without a session.
     lazyScreen(AUTH_ROUTES.verifyEmail, async () => (await authScreens()).VerifyEmailPage),
     lazyScreen(AUTH_ROUTES.resetPassword, async () => (await authScreens()).ResetPasswordPage),
-    lazyScreen(LEGAL_ROUTES.privacy, async () => (await legalPages()).PrivacyPage),
-    lazyScreen(LEGAL_ROUTES.imprint, async () => (await legalPages()).ImprintPage),
     {
       element: <AuthGuard area="signedIn" />,
       children: [

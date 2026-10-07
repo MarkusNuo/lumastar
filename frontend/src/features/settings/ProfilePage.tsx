@@ -4,7 +4,6 @@ import { Callout } from '../../components/ui/Callout';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { AccountSection } from '../account/AccountSection';
 import { useLogout, useMe } from '../auth/authHooks';
-import { LegalLinks } from '../legal/LegalLinks';
 import { BadgesSection } from './BadgesSection';
 import { PROFILE_COPY } from './copy';
 import { LearningDataSection } from './LearningDataSection';
@@ -51,7 +50,6 @@ export function ProfilePage() {
       >
         {PROFILE_COPY.logout}
       </Button>
-      <LegalLinks />
     </div>
   );
 }

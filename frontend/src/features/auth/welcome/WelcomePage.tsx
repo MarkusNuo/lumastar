@@ -2,7 +2,6 @@ import { ButtonLink } from '../../../components/ui/ButtonLink';
 import { FocusScreen } from '../../../components/ui/FocusScreen';
 import { Mascot } from '../../../components/ui/Mascot';
 import { Wordmark } from '../../../components/ui/Wordmark';
-import { LegalLinks } from '../../legal/LegalLinks';
 import { useAuthStatus } from '../authHooks';
 import { AUTH_ROUTES } from '../authRoutes';
 import { AUTH_COPY } from '../copy';
@@ -36,7 +35,6 @@ export function WelcomePage() {
           {closed && (
             <p className="text-center text-caption font-bold text-fg-subtle">{copy.closed}</p>
           )}
-          <LegalLinks className="pt-1" />
         </div>
       }
     >

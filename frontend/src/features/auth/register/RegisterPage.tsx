@@ -3,7 +3,6 @@ import { useEffect, useRef, useState, type SubmitEvent } from 'react';
 import { useGoBack } from '../../../app/useGoBack';
 import { Button } from '../../../components/ui/Button';
 import { Callout } from '../../../components/ui/Callout';
-import { Checkbox } from '../../../components/ui/Checkbox';
 import { FocusScreen, ScreenFooter } from '../../../components/ui/FocusScreen';
 import { MascotMessage } from '../../../components/ui/MascotMessage';
 import { PasswordField } from '../../../components/ui/PasswordField';
@@ -13,7 +12,6 @@ import { showToast } from '../../../components/ui/toastStore';
 import { celebrate } from '../../../lib/celebrate';
 import { moveToNextFieldOnEnter } from '../../../lib/moveToNextField';
 import { useFormErrors } from '../../../lib/useFormErrors';
-import { LEGAL_ROUTES } from '../../legal/legalRoutes';
 import { ACCOUNT_STEP } from '../../onboarding/onboardingSteps';
 import { StepHeader } from '../../onboarding/StepHeader';
 import { DISPLAY_NAME_MAX_LENGTH } from '../accountRules';
@@ -163,19 +161,6 @@ function RegisterForm({ inviteRequired, onClosed }: RegisterFormProps) {
               onChange={(event) => change('inviteCode', event.target.value)}
             />
           )}
-          <Checkbox
-            checked={values.acceptPrivacy}
-            error={errors.acceptPrivacy}
-            onChange={(event) => change('acceptPrivacy', event.target.checked)}
-          >
-            {copy.privacy.before}
-            {/* A new tab keeps what was typed here. */}
-            <TextLink to={LEGAL_ROUTES.privacy} target="_blank" rel="noopener">
-              {copy.privacy.link}
-              <span className="sr-only"> {copy.privacy.newTab}</span>
-            </TextLink>
-            {copy.privacy.after}
-          </Checkbox>
           {throttle.locked && <Callout tone="warning">{copy.throttled}</Callout>}
           {failure && <Callout tone="danger">{failure}</Callout>}
         </div>

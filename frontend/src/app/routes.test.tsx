@@ -19,18 +19,6 @@ function stubSignedIn(me: Me) {
 }
 
 describe('routes', () => {
-  it.each([
-    ['/datenschutz', 'Datenschutzerklärung'],
-    ['/impressum', 'Impressum'],
-  ])('shows %s without asking who is signed in', async (path, title) => {
-    const requests = stubApi({});
-    renderRoutes(createRoutes(), path);
-
-    expect(await screen.findByRole('heading', { level: 1, name: title })).toBeInTheDocument();
-    expect(screen.getByRole('note')).toHaveTextContent('Entwurf – vom Betreiber zu prüfen');
-    expect(requests).toHaveLength(0);
-  });
-
   it('starts a visitor without a session on the welcome screen', async () => {
     stubApi({ 'GET /api/auth/status': () => jsonResponse(authStatus()) });
     const { router } = renderRoutes(createRoutes(), '/');

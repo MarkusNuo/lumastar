@@ -45,7 +45,6 @@ async function fillIn(user: ReturnType<typeof userEvent.setup>, inviteCode?: str
   await user.type(field('E-Mail-Adresse'), ' erza@example.ch ');
   await user.type(field('Passwort'), 'geheim123');
   if (inviteCode !== undefined) await user.type(field('Einladungscode'), inviteCode);
-  await user.click(screen.getByRole('checkbox', { name: /Datenschutzerklärung/ }));
 }
 
 beforeEach(() => {
@@ -53,7 +52,7 @@ beforeEach(() => {
 });
 
 describe('RegisterPage', () => {
-  it('starts the first-start progress and links the privacy policy in a new tab', async () => {
+  it('starts the first-start progress on the name', async () => {
     renderRegister();
 
     expect(await screen.findByRole('progressbar')).toHaveAttribute(
@@ -61,9 +60,6 @@ describe('RegisterPage', () => {
       'Schritt 1 von 4',
     );
     await waitFor(() => expect(field('Dein Name')).toHaveFocus());
-    const link = screen.getByRole('link', { name: /Datenschutzerklärung/ });
-    expect(link).toHaveAttribute('href', '/datenschutz');
-    expect(link).toHaveAttribute('target', '_blank');
   });
 
   it('checks every field before sending anything', async () => {
@@ -77,9 +73,6 @@ describe('RegisterPage', () => {
       'Bitte gib deine E-Mail-Adresse ein.',
     );
     expect(field('Passwort')).toHaveAccessibleDescription('Bitte wähle ein Passwort.');
-    expect(screen.getByRole('checkbox')).toHaveAccessibleDescription(
-      'Bitte bestätige, dass du die Datenschutzerklärung gelesen hast.',
-    );
     expect(field('Dein Name')).toHaveFocus();
     expect(registrations()).toHaveLength(0);
   });
@@ -111,7 +104,6 @@ describe('RegisterPage', () => {
       displayName: 'Erza',
       email: 'erza@example.ch',
       password: 'geheim123',
-      acceptPrivacy: true,
     });
     expect(celebrate).toHaveBeenCalledOnce();
     expect(useToastStore.getState().current?.message).toBe(

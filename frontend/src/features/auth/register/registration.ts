@@ -17,7 +17,6 @@ export interface RegistrationValues {
   email: string;
   password: string;
   inviteCode: string;
-  acceptPrivacy: boolean;
 }
 
 export type RegistrationField = keyof RegistrationValues;
@@ -27,7 +26,6 @@ export const EMPTY_REGISTRATION: RegistrationValues = {
   email: '',
   password: '',
   inviteCode: '',
-  acceptPrivacy: false,
 };
 
 /** The client checks of the form; the invite code only counts when registration needs one. */
@@ -44,7 +42,6 @@ export function registrationErrors(
     password: password && FIELD_COPY.newPassword.errors[password],
     inviteCode:
       inviteRequired && normalize(values.inviteCode) === '' ? copy.inviteCode.required : undefined,
-    acceptPrivacy: values.acceptPrivacy ? undefined : copy.privacy.required,
   };
 }
 
@@ -56,7 +53,6 @@ export function toRegisterRequest(
     displayName: normalize(values.displayName),
     email: normalize(values.email),
     password: values.password,
-    acceptPrivacy: true,
     ...(inviteRequired && { inviteCode: normalize(values.inviteCode) }),
   };
 }

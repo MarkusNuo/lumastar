@@ -12,7 +12,7 @@ function renderWelcome(registrationMode: RegistrationMode) {
 }
 
 describe('WelcomePage', () => {
-  it('offers a new account and the sign-in, with the legal pages below', async () => {
+  it('offers a new account and the sign-in', async () => {
     renderWelcome('open');
 
     expect(await screen.findByRole('link', { name: 'Konto erstellen' })).toHaveAttribute(
@@ -23,11 +23,6 @@ describe('WelcomePage', () => {
       'href',
       '/anmelden',
     );
-    expect(screen.getByRole('link', { name: 'Datenschutz' })).toHaveAttribute(
-      'href',
-      '/datenschutz',
-    );
-    expect(screen.getByRole('link', { name: 'Impressum' })).toHaveAttribute('href', '/impressum');
   });
 
   it('only offers the sign-in while registration is closed', async () => {
