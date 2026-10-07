@@ -8,6 +8,18 @@ configure({ asyncUtilTimeout: 3000 });
 // jsdom has no layout and therefore nothing to scroll.
 Element.prototype.scrollIntoView = () => undefined;
 
+// jsdom has no media queries either; like a browser tab, nothing matches (e.g. display-mode).
+window.matchMedia = (media: string): MediaQueryList => ({
+  matches: false,
+  media,
+  onchange: null,
+  addEventListener: () => undefined,
+  removeEventListener: () => undefined,
+  addListener: () => undefined,
+  removeListener: () => undefined,
+  dispatchEvent: () => false,
+});
+
 afterEach(() => {
   cleanup();
 });

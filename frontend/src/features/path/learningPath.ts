@@ -188,6 +188,16 @@ function withCheckpointAsNextStep(stages: PathStageModel[]): PathStageModel[] {
   }));
 }
 
+/**
+ * The unit of the pulsing next lesson; undefined when the next step is a checkpoint (it needs its
+ * introduction) or nothing can be started.
+ */
+export function nextLessonUnit(stages: readonly PathStageModel[]): string | undefined {
+  return stages
+    .flatMap((stage) => stage.units)
+    .find((unit) => unit.nodes.some((node) => node.status === 'current'))?.id;
+}
+
 /** Whether any lesson can be started; above A2 the exercises are still being written. */
 export function hasPlayableLesson(stages: readonly PathStageModel[]): boolean {
   return stages.some((stage) =>

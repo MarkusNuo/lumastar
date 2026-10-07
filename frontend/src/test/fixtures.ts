@@ -5,7 +5,7 @@ import type {
   Profile,
   Streak,
 } from '../api/types';
-import type { Account, AuthStatus } from '../api/types';
+import type { Account, AuthStatus, ReminderSettings } from '../api/types';
 import { SAMPLE_MULTIPLE_CHOICE } from '../features/lesson/sampleExercises';
 
 /** GET /api/auth/status of a visitor without a session on an installation open for everyone. */
@@ -22,6 +22,11 @@ export function account(fields: Partial<Account> = {}): Account {
     createdAt: '2026-10-07T08:00:00Z',
     ...fields,
   };
+}
+
+/** GET /api/reminders as the backend starts them: off, daily at 19:00, streak rescue at 21:30. */
+export function reminderSettings(fields: Partial<ReminderSettings> = {}): ReminderSettings {
+  return { enabled: false, time: '19:00', rescueEnabled: true, rescueTime: '21:30', ...fields };
 }
 
 /** A learner right after creating the account; override what a test needs. */

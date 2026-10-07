@@ -1,3 +1,4 @@
+import { useReminderSession } from '../features/reminders/useReminderSession';
 import { useDeviceTimeZoneSync } from '../features/settings/useDeviceTimeZoneSync';
 
 /**
@@ -6,5 +7,6 @@ import { useDeviceTimeZoneSync } from '../features/settings/useDeviceTimeZoneSyn
  */
 export function SignedInSession() {
   useDeviceTimeZoneSync();
+  useReminderSession();
   return null;
 }

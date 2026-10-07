@@ -11,6 +11,7 @@ import { isApiError } from '../../api/ApiError';
 import { api, unwrap } from '../../api/client';
 import type { LoginRequest, RegisterRequest } from '../../api/types';
 import { onUnauthorized } from '../../api/unauthorized';
+import { releaseDevice } from '../reminders/reminderLifecycle';
 
 export const authStatusQuery = queryOptions({
   queryKey: ['auth', 'status'],
@@ -91,6 +92,7 @@ export function useLogout() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async () => {
+      await releaseDevice();
       try {
         await api.POST('/api/auth/logout');
       } catch (error) {

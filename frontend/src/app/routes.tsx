@@ -11,10 +11,13 @@ import { OnboardingGuard } from '../features/onboarding/OnboardingGuard';
 import { OnboardingPage } from '../features/onboarding/OnboardingPage';
 import { ONBOARDING_ROUTES } from '../features/onboarding/onboardingRoutes';
 import { LearningPathPage } from '../features/path/LearningPathPage';
+import { NEXT_LESSON_ROUTE } from '../features/path/lessonRoute';
+import { NextLessonPage } from '../features/path/NextLessonPage';
 import { PlacementIntroPage } from '../features/placement/PlacementIntroPage';
 import { PlacementTestPage } from '../features/placement/PlacementTestPage';
 import { LevelRevealPage } from '../features/placement/reveal/LevelRevealPage';
 import { PlanPage } from '../features/plan/PlanPage';
+import { REMINDER_ROUTE } from '../features/reminders/reminderRoutes';
 import { ReviewLessonPage } from '../features/review/ReviewLessonPage';
 import { ReviewPage } from '../features/review/ReviewPage';
 import { REVIEW_ROUTES } from '../features/review/reviewRoutes';
@@ -85,6 +88,7 @@ export function createRoutes(): RouteObject[] {
                 },
                 // Full screens without the app navigation: one task per screen (PRD 12.1).
                 { path: '/lesson/:unitId', Component: LessonPage },
+                { path: NEXT_LESSON_ROUTE, Component: NextLessonPage },
                 { path: REVIEW_ROUTES.lesson, Component: ReviewLessonPage },
                 { path: STATS_ROUTES.practice, Component: PracticeLessonPage },
                 { path: CHECKPOINT_ROUTE, Component: CheckpointPage },
@@ -108,6 +112,10 @@ export function createRoutes(): RouteObject[] {
                 lazyScreen(
                   ACCOUNT_ROUTES.delete,
                   async () => (await accountScreens()).DeleteAccountPage,
+                ),
+                lazyScreen(
+                  REMINDER_ROUTE,
+                  async () => (await import('../features/reminders/RemindersPage')).RemindersPage,
                 ),
               ],
             },

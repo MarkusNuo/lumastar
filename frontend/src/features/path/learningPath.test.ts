@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { SAMPLE_PATH } from '../plan/samplePlan';
-import { buildLearningPath, FOCUS_COLOR, hasPlayableLesson } from './learningPath';
+import { buildLearningPath, FOCUS_COLOR, hasPlayableLesson, nextLessonUnit } from './learningPath';
 
 describe('buildLearningPath', () => {
   const stages = buildLearningPath(SAMPLE_PATH);
@@ -201,5 +201,27 @@ describe('hasPlayableLesson', () => {
         buildLearningPath({ ...SAMPLE_PATH, currentLevel: 'B1.1', stages: skeleton }),
       ),
     ).toBe(false);
+  });
+});
+
+describe('nextLessonUnit', () => {
+  it('names the unit of the pulsing lesson', () => {
+    expect(nextLessonUnit(buildLearningPath(SAMPLE_PATH))).toBe('a1_u06_home');
+  });
+
+  it('names none while an open checkpoint is the next step', () => {
+    const stages = buildLearningPath(SAMPLE_PATH).map((stage, index) => ({
+      ...stage,
+      checkpoint: {
+        ...stage.checkpoint,
+        status: index === 0 ? ('current' as const) : ('locked' as const),
+      },
+      units: stage.units.map((unit) => ({
+        ...unit,
+        nodes: unit.nodes.map((node) => ({ ...node, status: 'available' as const })),
+      })),
+    }));
+
+    expect(nextLessonUnit(stages)).toBeUndefined();
   });
 });

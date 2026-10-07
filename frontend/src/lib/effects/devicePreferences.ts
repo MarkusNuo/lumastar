@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { createJSONStorage, persist, type StateStorage } from 'zustand/middleware';
+import { createJSONStorage, persist } from 'zustand/middleware';
+import { safeLocalStorage } from '../safeLocalStorage';
 
 /*
  * Sound and vibration depend on the device (a laptop in the office, a phone on the train), so they
@@ -14,24 +15,6 @@ export interface DevicePreferences {
   setSound: (on: boolean) => void;
   setHaptics: (on: boolean) => void;
 }
-
-function attempt<T>(action: () => T, fallback: T): T {
-  try {
-    return action();
-  } catch {
-    return fallback;
-  }
-}
-
-/**
- * localStorage that never throws: private modes, blocked site data and full quotas make it throw,
- * and the settings then simply last for the session.
- */
-const safeLocalStorage: StateStorage = {
-  getItem: (name) => attempt(() => localStorage.getItem(name), null),
-  setItem: (name, value) => attempt(() => localStorage.setItem(name, value), undefined),
-  removeItem: (name) => attempt(() => localStorage.removeItem(name), undefined),
-};
 
 export const useDevicePreferences = create<DevicePreferences>()(
   persist(

@@ -17,6 +17,7 @@ import { NavigationSection } from './sections/NavigationSection';
 import { PathSection } from './sections/PathSection';
 import { PlacementPlanSection } from './sections/PlacementPlanSection';
 import { ProgressSection } from './sections/ProgressSection';
+import { RemindersSection } from './sections/RemindersSection';
 import { ResultSection } from './sections/ResultSection';
 import { ReviewCheckpointSection } from './sections/ReviewCheckpointSection';
 import { StatisticsSection } from './sections/StatisticsSection';
@@ -40,6 +41,7 @@ const SECTIONS = [
   { id: 'belohnung', title: 'Streak, XP & Niveau', Content: GamificationSection },
   { id: 'statistik', title: 'Statistik', Content: StatisticsSection },
   { id: 'konto', title: 'Konto & Anmeldung', Content: AccountSection },
+  { id: 'erinnerungen', title: 'Erinnerungen', Content: RemindersSection },
   { id: 'navigation', title: 'Navigation', Content: NavigationSection },
   { id: 'listen', title: 'Listen, Sheets & Toasts', Content: ListsSection },
   { id: 'maskottchen', title: 'Maskottchen', Content: MascotSection },

@@ -9,6 +9,7 @@ import {
   type RefObject,
 } from 'react';
 import { isApiError } from '../../../api/ApiError';
+import { onLessonCompleted } from '../../reminders/reminderLifecycle';
 import { precheck } from '../evaluation/precheck';
 import type { StandardFormLexicon } from '../evaluation/standardFormLexicon';
 import { completeLesson, submitAttempt } from '../lessonApi';
@@ -153,7 +154,9 @@ function useCompletion(
 
   const saved = result.data;
   useEffect(() => {
-    if (saved) refreshLearnerData(queryClient, saved);
+    if (!saved) return;
+    refreshLearnerData(queryClient, saved);
+    onLessonCompleted();
   }, [queryClient, saved]);
 
   if (!readyToSave) return { status: lessonPhase(state) === 'done' ? 'saving' : 'playing' };

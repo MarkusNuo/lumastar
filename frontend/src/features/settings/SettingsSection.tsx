@@ -5,6 +5,7 @@ import { LoadFailed } from '../../components/ui/LoadState';
 import { useDevicePreferences } from '../../lib/effects/devicePreferences';
 import { canVibrate, vibrate } from '../../lib/effects/haptics';
 import { soundPlayer } from '../../lib/effects/soundPlayer';
+import { ReminderRow } from '../reminders/ReminderRow';
 import { PROFILE_COPY } from './copy';
 import { DailyGoalSetting } from './DailyGoalSetting';
 import { RetentionSetting } from './RetentionSetting';
@@ -13,8 +14,9 @@ import { settingsQuery } from './settingsApi';
 const copy = PROFILE_COPY.settings;
 
 /**
- * "Einstellungen": the daily goal and, as an advanced setting, the target retention of the
- * reviews, both stored on the server; sounds and vibration belong to this device (PRD 12.4).
+ * "Einstellungen": the daily goal, the reminders (their own screen) and, as an advanced setting,
+ * the target retention of the reviews, stored on the server; sounds and vibration belong to this
+ * device (PRD 12.4).
  */
 export function SettingsSection() {
   const settings = useQuery(settingsQuery);
@@ -23,6 +25,7 @@ export function SettingsSection() {
     <div className="flex flex-col gap-3">
       <ActionList title={copy.title}>
         <DailyGoalSetting />
+        <ReminderRow />
         <DeviceToggleRows />
         <RetentionSetting />
       </ActionList>

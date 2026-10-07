@@ -7,8 +7,9 @@ import { useToastStore } from '../../components/ui/toastStore';
 import { DEVICE_PREFERENCES_KEY, useDevicePreferences } from '../../lib/effects/devicePreferences';
 import { HAPTIC_PATTERNS } from '../../lib/effects/haptics';
 import { soundPlayer } from '../../lib/effects/soundPlayer';
-import { ONBOARDING_OPTIONS } from '../../test/fixtures';
-import { jsonResponse, problemResponse, renderWithQueryClient, stubApi } from '../../test/http';
+import { ONBOARDING_OPTIONS, reminderSettings } from '../../test/fixtures';
+import { jsonResponse, problemResponse, stubApi } from '../../test/http';
+import { renderRoutes } from '../../test/router';
 import { SAMPLE_PATH } from '../plan/samplePlan';
 import { SettingsSection } from './SettingsSection';
 
@@ -33,6 +34,7 @@ function renderSettings(routes: Routes = {}) {
     'GET /api/settings': () => jsonResponse(SETTINGS),
     'GET /api/onboarding/options': () => jsonResponse(ONBOARDING_OPTIONS),
     'GET /api/path': () => jsonResponse(path),
+    'GET /api/reminders': () => jsonResponse(reminderSettings()),
     'PUT /api/settings': async (request) => {
       const body = (await request.clone().json()) as Settings;
       if (body.dailyGoalMinutes === 20) path = FASTER_PATH;
@@ -40,11 +42,19 @@ function renderSettings(routes: Routes = {}) {
     },
     ...routes,
   });
-  const view = renderWithQueryClient(
-    <>
-      <SettingsSection />
-      <Toaster />
-    </>,
+  const view = renderRoutes(
+    [
+      {
+        path: '/profil',
+        element: (
+          <>
+            <SettingsSection />
+            <Toaster />
+          </>
+        ),
+      },
+    ],
+    '/profil',
   );
   const saved = async () => {
     const put = requests.find((request) => request.method === 'PUT');
