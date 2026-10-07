@@ -1,27 +1,29 @@
-import { expect, test, type Response } from '@playwright/test';
+import { expect, test, type Request, type Response } from '@playwright/test';
 import { AppShell } from '../../pages/AppShell.ts';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { LevelRevealPage } from '../../pages/LevelRevealPage.ts';
-import { LoginPage } from '../../pages/LoginPage.ts';
 import { COUNTED_STEPS, OnboardingPage } from '../../pages/OnboardingPage.ts';
 import { PlacementIntroPage } from '../../pages/PlacementIntroPage.ts';
 import { PlanPage } from '../../pages/PlanPage.ts';
-import { SetupPage } from '../../pages/SetupPage.ts';
-import { fetchAuthStatus } from '../../support/auth.ts';
+import { RegisterPage } from '../../pages/RegisterPage.ts';
+import { VerificationBanner, VerifyEmailPage } from '../../pages/VerifyEmailPage.ts';
+import { WelcomePage } from '../../pages/WelcomePage.ts';
+import { fetchAccount, fetchAuthStatus } from '../../support/auth.ts';
 import { PATHS } from '../../support/env.ts';
 import { LEARNER, ONBOARDING, START_LEVEL } from '../../support/learner.ts';
 import { fetchMe } from '../../support/lessonApi.ts';
+import { expectAccountMail, Inbox, linkIn, SUBJECTS } from '../../support/mailpit.ts';
 import { isPlacementSkip, type PlacementResult } from '../../support/placementApi.ts';
 import { currentUnit, fetchPath, fetchPlanChanges } from '../../support/planApi.ts';
 import { snapOnAllPhones } from '../../support/screenshots.ts';
 import { Stopwatch } from '../../support/stopwatch.ts';
 
 /*
- * Runs once per test run, before every other project: the backend starts on an empty database, so
- * this is the only place where the setup, the onboarding questions and the first placement can be
- * seen (PRD 6, F1). The second test creates the single account, answers the questions with "Ich kann
- * kein Wort", skips the placement test (A0, the same in every run) and stores the session for all
- * dependent projects. A full placement through the UI runs later as "Neu einstufen".
+ * Runs once per test run, before every other project, so the first start of PRD F1 is captured once
+ * at every phone size. The second test registers the learner every signed-in project shares (M8),
+ * answers the questions with "Ich kann kein Wort", skips the placement test (A0, the same in every
+ * run), confirms the address with the link from the mail and stores the session. A full placement
+ * through the UI runs later as "Neu einstufen"; the account screens in detail: tests/account.
  */
 
 /** PRD F1: the onboarding can be completed in under a minute. */
@@ -30,81 +32,77 @@ const ONBOARDING_LIMIT_MS = 60_000;
 const isOnboardingAnswer = (response: Response) =>
   response.request().method() === 'PUT' && new URL(response.url()).pathname === '/api/onboarding';
 
-test('a fresh instance leads to the setup and validates name and password', async ({
+const isRegistrationRequest = (request: Request) =>
+  request.method() === 'POST' && new URL(request.url()).pathname === '/api/auth/register';
+
+test('the welcome screen leads to the registration, which checks every field before sending it', async ({
   page,
-  request,
 }) => {
-  const status = await fetchAuthStatus(request);
-  test.skip(!status.setupRequired, 'Reused backend already has an account; restart it for a fresh database.');
+  const sent: Request[] = [];
+  page.on('request', (request) => {
+    if (isRegistrationRequest(request)) sent.push(request);
+  });
+  const welcome = new WelcomePage(page);
+  const register = new RegisterPage(page);
 
-  const setup = new SetupPage(page);
   await page.goto('/');
-  await setup.expectWelcome();
-  await snapOnAllPhones(page, 'setup-welcome');
+  await welcome.expectVisible();
+  await expect(welcome.loginLink).toBeVisible();
+  await snapOnAllPhones(page, 'welcome');
 
-  await setup.start();
-  await expect(setup.progress).toHaveAttribute('aria-valuetext', `Schritt 1 von ${COUNTED_STEPS}`);
-  await expect(setup.nextButton).toBeDisabled();
-  await setup.nameInput.fill('   ');
-  await expect(setup.nextButton, 'a name of only spaces is no name').toBeDisabled();
-  await setup.nameInput.fill(LEARNER.displayName);
-  await snapOnAllPhones(page, 'setup-name');
+  await welcome.registerLink.click();
+  await register.expectVisible();
+  await expect(register.progress).toHaveAttribute('aria-valuetext', `Schritt 1 von ${COUNTED_STEPS}`);
+  await expect(register.nameInput, 'the form starts with the name').toBeFocused();
+  await expect(register.inviteCodeInput, 'an open registration needs no invite code').toHaveCount(0);
+  await expect(register.loginLink).toBeVisible();
+  await snapOnAllPhones(page, 'register');
 
-  await setup.nextButton.click();
-  await expect(setup.passwordHeading(LEARNER.displayName)).toBeVisible();
-  await expect(setup.progress).toHaveAttribute('aria-valuetext', `Schritt 2 von ${COUNTED_STEPS}`);
+  await register.submitButton.click();
+  await register.expectFieldError(register.nameInput, 'Bitte gib einen Namen ein.');
+  await register.expectFieldError(register.emailInput, 'Bitte gib deine E-Mail-Adresse ein.');
+  await register.expectFieldError(register.passwordInput, 'Bitte wähle ein Passwort.');
 
-  const mismatch = 'Die Passwörter stimmen nicht überein.';
-  await setup.submitPasswords('kurz', 'kurx');
-  await expect(setup.passwordInput).toHaveAttribute('aria-invalid', 'true');
-  await expect(setup.passwordInput).toHaveAccessibleDescription('Mindestens 8 Zeichen, bitte.');
-  await expect(setup.confirmationInput).toHaveAccessibleDescription(mismatch);
-  await snapOnAllPhones(page, 'setup-password-errors');
+  await register.fill({ displayName: '   ', email: 'testa@lingora', password: 'kurz123' });
+  await register.submitButton.click();
+  await register.expectFieldError(register.nameInput, 'Bitte gib einen Namen ein.');
+  await register.expectFieldError(register.emailInput, 'Diese E-Mail-Adresse sieht nicht vollständig aus.');
+  await register.expectFieldError(register.passwordInput, 'Mindestens 8 Zeichen, bitte.');
+  await snapOnAllPhones(page, 'register-errors');
 
-  await setup.submitPasswords(LEARNER.password, `${LEARNER.password}-typo`);
-  await expect(setup.passwordInput).not.toHaveAttribute('aria-invalid');
-  await expect(setup.confirmationInput).toHaveAttribute('aria-invalid', 'true');
-  await expect(setup.confirmationInput).toHaveAccessibleDescription(mismatch);
-
-  await page.getByRole('button', { name: 'Zurück' }).click();
-  await expect(setup.nameInput, 'going back keeps the name').toHaveValue(LEARNER.displayName);
-
-  expect((await fetchAuthStatus(request)).setupRequired, 'invalid input creates no account').toBe(
-    true,
-  );
+  await register.backButton.click();
+  await welcome.expectVisible();
+  expect(sent, 'invalid input never reaches the backend').toEqual([]);
+  expect(await fetchAuthStatus(page.request)).toMatchObject({ authenticated: false, registrationMode: 'open' });
 });
 
-test('the first start: account, onboarding questions and the skipped placement lead to the path at A0 in under a minute', async ({
+test('the first start: registration, onboarding questions and the skipped placement lead to the path at A0 in under a minute; the mailed link confirms the address', async ({
   page,
 }) => {
   test.setTimeout(3 * 60_000);
-  const status = await fetchAuthStatus(page.request);
   await page.goto('/');
-
-  if (!status.setupRequired) {
-    // Only when a still running backend was reused (local runs): its learner is onboarded already.
-    const login = new LoginPage(page);
-    await login.expectVisible();
-    await login.login(LEARNER.password);
-    await new AppShell(page).expectHome();
-    await page.context().storageState({ path: PATHS.authState });
-    return;
-  }
+  const welcome = new WelcomePage(page);
+  await welcome.expectVisible();
 
   const clock = new Stopwatch();
   const snapAll = (name: string) => clock.excluding(() => snapOnAllPhones(page, name));
   const onboarding = new OnboardingPage(page);
 
-  await test.step('account', async () => {
-    const setup = new SetupPage(page);
-    await setup.expectWelcome();
-    await setup.start();
-    await setup.enterName(LEARNER.displayName);
-    await setup.submitPasswords(LEARNER.password, LEARNER.password);
+  await test.step('registration', async () => {
+    await welcome.registerLink.click();
+    const register = new RegisterPage(page);
+    await register.expectVisible();
+    const response = await register.register(LEARNER);
+    expect(response.status(), await response.text()).toBe(201);
+    expect(await response.json()).toMatchObject({ displayName: LEARNER.displayName, onboardingCompleted: false });
     await onboarding.expectQuestion('motivation');
+    await expect(
+      page.getByRole('status').getByText(`Willkommen! Wir haben dir einen Bestätigungslink an ${LEARNER.email} geschickt.`),
+    ).toBeVisible();
     expect(await fetchAuthStatus(page.request)).toMatchObject({
       authenticated: true,
       displayName: LEARNER.displayName,
+      emailVerified: false,
     });
   });
 
@@ -219,5 +217,26 @@ test('the first start: account, onboarding questions and the skipped placement l
     dailyGoalMinutes: ONBOARDING.dailyGoal.minutes,
     selfAssessment: ONBOARDING.selfAssessment.value,
   });
+
+  await test.step('the link of the verification mail confirms the address', async () => {
+    // The other projects then see the app without the reminder, as a learner usually does.
+    const banner = new VerificationBanner(page);
+    await banner.expectFor(LEARNER.email);
+    await snapOnAllPhones(page, 'home-verification-banner', { fullPage: false });
+
+    const mail = await new Inbox(LEARNER.email).next(SUBJECTS.verify);
+    expectAccountMail(mail, LEARNER.displayName);
+    expect(mail.text).toContain('Der Link ist 48 Stunden gültig.');
+    const verify = new VerifyEmailPage(page);
+    await verify.open(linkIn(mail, '/verify-email'));
+    await expect(verify.doneHeading).toBeVisible();
+    await snapOnAllPhones(page, 'verify-email-done');
+
+    await verify.toAppLink.click();
+    await new AppShell(page).expectHome();
+    await expect(banner.region).toHaveCount(0);
+    expect(await fetchAccount(page.request)).toMatchObject({ email: LEARNER.email, emailVerified: true });
+  });
+
   await page.context().storageState({ path: PATHS.authState });
 });

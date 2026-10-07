@@ -2,7 +2,11 @@
 
 Playwright tests on mobile Chromium (390×844 and 360×740, touch). The config starts the backend
 (`gradlew bootTestRun` on port 8181, throwaway PostgreSQL Testcontainer, content seeded from `/content`)
-and a production build of the frontend (`vite preview` on port 5183). Docker must be running.
+and a production build of the frontend (`vite preview` on port 5183). Docker must be running. The
+account mails go to Mailpit (`docker compose up -d mail`, SMTP 1025, API on 8025): the global setup
+starts it when it is not running and stops it again after the run; the backend gets
+`LINGORA_MAIL_HOST/PORT` and `LINGORA_PUBLIC_URL=http://127.0.0.1:5183`, so the links in the mails
+open the e2e frontend.
 
 Projects run in this order: `setup` (first start), `daily-goal`, `phone-390` and `phone-360` (all
 other tests), then `levelup-phone-390` and `levelup-phone-360`. A full run takes about a quarter of
@@ -31,17 +35,34 @@ the lockfile changed. The tests themselves always come from the working tree's `
 The backend runs with a fixed `lingora.lesson.random-seed` and `lingora.placement.random-seed`, so the
 same tests get the same lessons and placement items.
 
-Locally, working-tree mode reuses servers already listening on 8181/5183 (the setup test then signs in
-instead of creating the account). `head` mode never reuses them: stop such servers first, otherwise the
-run fails with "port already used".
+Locally, working-tree mode reuses servers already listening on 8181/5183 (each run registers accounts
+of its own, so old accounts do no harm; a reused backend needs the mail settings above for the mail
+tests). `head` mode never reuses them: stop such servers first, otherwise the run fails with "port
+already used".
 
-## One learner per run
+## One shared learner per run
 
-The instance has a single account, so the first start can only be seen once per run: the `setup`
-project creates the account, answers the onboarding questions with "Ich kann kein Wort", skips the
-placement test (A0) and stores the session for both phone projects. Every other test starts from the
-learner's real state and stays independent of the order: lessons start from the current node of the
-path, and expectations come from the API (`GET /api/path`, `/api/plan/changes`, …).
+The first start can only be seen once per learner: the `setup` project registers the learner through
+the welcome screen and the registration form, answers the onboarding questions with "Ich kann kein
+Wort", skips the placement test (A0), confirms the address with the link from Mailpit and stores the
+session for both phone projects. Every other test of that learner starts from its real state and stays
+independent of the order: lessons start from the current node of the path, and expectations come from
+the API (`GET /api/path`, `/api/plan/changes`, …).
+
+Every address of a run contains its run id (`e2e-<runId>-<purpose>-<random>@lingora.test`, see
+`support/env.ts`), because Mailpit outlives the throwaway database. A test finds its mails by
+recipient (`support/mailpit.ts`); the global teardown deletes the run's mails.
+
+## Accounts (M8)
+
+`tests/account` registers learners of its own (through the API where the registration is not the
+subject) and covers the registration checks, the verification link and its banner, the password
+reset with the end of other sessions, the account settings (name, address, password), the deletion
+and the isolation of two learners (screens, API, export; foreign lesson and placement ids answer 404).
+The registration modes `invite`/`closed` and the sign-in of the single-user version are fixed when the
+backend starts: the backend tests cover them against the API, the e2e tests only show their screens
+through `page.route` (`registration-modes.spec.ts`). Tests marked `test.fail` stand for known bugs of
+the M8 review; once a bug is fixed, the test reports that it passed unexpectedly and the marker goes.
 
 "Neu einstufen" runs a full placement test through the UI. The API sends no solutions, so the test
 reads `placement.json` of the seeded content (`PATHS.content`) and answers every item wrong for sure:

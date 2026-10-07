@@ -1,11 +1,13 @@
 import { mkdirSync } from 'node:fs';
 import { defineConfig, type PlaywrightTestConfig } from '@playwright/test';
+import { CONTEXT_OPTIONS } from './support/browserContext.ts';
 import {
   BACKEND_PORT,
   BACKEND_URL,
   FRONTEND_PORT,
   FRONTEND_URL,
   HOST,
+  MAILPIT,
   PATHS,
   SOURCE,
   SOURCE_REF,
@@ -32,8 +34,8 @@ const roots: SourceRoots =
 
 /**
  * Full app on a throwaway PostgreSQL Testcontainer: every run starts with an empty database and the
- * content seeded from /content. A reused server (local working-tree runs only) keeps its account;
- * the setup project then signs in instead of creating it.
+ * content seeded from /content. A reused server (local working-tree runs only) keeps the accounts of
+ * earlier runs, which is harmless: every run registers accounts with addresses of its own.
  */
 function backendServer(cwd: string): WebServer {
   const gradle = isWindows ? '.\\gradlew.bat' : './gradlew';
@@ -43,8 +45,14 @@ function backendServer(cwd: string): WebServer {
     // Fixed seeds make the composed lessons and placement tests the same in every run of the same tests.
     command: `${gradle} bootTestRun "--args=--server.port=${BACKEND_PORT} --lingora.lesson.random-seed=${LESSON_SEED} --lingora.placement.random-seed=${PLACEMENT_SEED}" --console=plain`,
     cwd,
-    // The JDK on the Windows dev machine cannot open its loopback socket in the user temp dir.
-    env: isWindows ? { TEMP: PATHS.gradleTemp, TMP: PATHS.gradleTemp } : {},
+    env: {
+      // Account mails go to Mailpit, and their links to the pages of the e2e frontend.
+      LINGORA_MAIL_HOST: HOST,
+      LINGORA_MAIL_PORT: String(MAILPIT.smtpPort),
+      LINGORA_PUBLIC_URL: FRONTEND_URL,
+      // The JDK on the Windows dev machine cannot open its loopback socket in the user temp dir.
+      ...(isWindows ? { TEMP: PATHS.gradleTemp, TMP: PATHS.gradleTemp } : {}),
+    },
     url: `${BACKEND_URL}/actuator/health`,
     // Compiling, pulling the PostgreSQL image and seeding take a while on the first run.
     timeout: 6 * 60_000,
@@ -106,7 +114,7 @@ const levelUpPhones = Object.entries(PHONES).map(([name, phone], index) => ({
 export default defineConfig({
   testDir: './tests',
   outputDir: './test-results',
-  // One single-user instance per run: tests share its account, so they run one after another.
+  // Most tests share the learner of the setup project and its daily goal, so they run one after another.
   workers: 1,
   fullyParallel: false,
   forbidOnly: isCI,
@@ -114,22 +122,16 @@ export default defineConfig({
   timeout: 60_000,
   expect: { timeout: 10_000 },
   reporter: [['list'], ['html', { open: 'never' }]],
+  // Makes sure Mailpit catches the account mails; stops it afterwards if the run started it.
+  globalSetup: './support/globalSetup.ts',
   use: {
-    baseURL: FRONTEND_URL,
-    locale: 'de-CH',
-    timezoneId: 'Europe/Zurich',
-    colorScheme: 'dark',
-    // Motion jumps to its end state, which keeps screenshots stable; the layout is the same.
-    reducedMotion: 'reduce',
-    // Requests stay visible to page.route and every page load is a cold start; tests/platform
-    // allows the PWA's service worker where it is the subject.
-    serviceWorkers: 'block',
+    ...CONTEXT_OPTIONS,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
   webServer: [frontendServer(roots.frontend), backendServer(roots.backend)],
   projects: [
-    // Runs first and exactly once: sees the empty instance, creates the account, saves its session.
+    // Runs first and exactly once: registers the shared learner, confirms its address, saves its session.
     { name: 'setup', testMatch: /\.setup\.ts$/, use: { ...PHONES['phone-390'] } },
     {
       name: 'daily-goal',

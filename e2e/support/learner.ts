@@ -1,9 +1,13 @@
+import { RUN_ID } from './env.ts';
+
 /**
- * The single account of the throwaway e2e instance. Clearly fake on purpose: the database is a fresh
- * Testcontainer per run and is discarded afterwards.
+ * The learner the setup project registers and every signed-in project shares. Clearly fake on
+ * purpose: the database is a fresh Testcontainer per run, and the address is unique per run because
+ * Mailpit keeps the mails of earlier runs.
  */
 export const LEARNER = {
   displayName: 'Testa',
+  email: `e2e-${RUN_ID}-learner@lingora.test`,
   password: 'lingora-e2e-password',
 } as const;
 

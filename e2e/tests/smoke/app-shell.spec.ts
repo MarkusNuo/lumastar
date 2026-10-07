@@ -32,7 +32,10 @@ test('the profile tab shows the signed-in learner', async ({ page }) => {
   const shell = new AppShell(page);
   await page.goto('/');
   await shell.openProfile();
-  await expect(page.getByText(LEARNER.displayName, { exact: true })).toBeVisible();
+  // In the header and in the row "Anzeigename" of the section "Konto" (M8).
+  const name = page.getByRole('main').getByText(LEARNER.displayName, { exact: true });
+  await expect(name).toHaveCount(2);
+  await expect(name.first()).toBeVisible();
   await expect(shell.navLink('Profil')).toHaveAttribute('aria-current', 'page');
   await expect(shell.logoutButton).toBeEnabled();
   await snap(page, 'profile', { fullPage: false });

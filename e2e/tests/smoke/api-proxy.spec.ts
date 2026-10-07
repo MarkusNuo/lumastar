@@ -15,7 +15,8 @@ test('the auth status answers through the proxy and issues the CSRF cookie', asy
   request,
 }) => {
   const status = await fetchAuthStatus(request);
-  expect(status).toMatchObject({ authenticated: false, setupRequired: false });
+  // A fresh instance has no account from the single-user version, so its sign-in is not offered.
+  expect(status).toEqual({ authenticated: false, registrationMode: 'open', legacyLoginAvailable: false });
 
   const cookies = (await request.storageState()).cookies.map((cookie) => cookie.name);
   expect(cookies).toContain('XSRF-TOKEN');

@@ -12,8 +12,24 @@ export const HOST = '127.0.0.1';
 export const BACKEND_URL = `http://${HOST}:${BACKEND_PORT}`;
 export const FRONTEND_URL = `http://${HOST}:${FRONTEND_PORT}`;
 
+/**
+ * Mailpit of docker-compose.yml (service "mail") catches the account mails of the backend: SMTP for
+ * the backend, the REST API for the tests. The global setup starts it when it is not running.
+ */
+export const MAILPIT = {
+  smtpPort: 1025,
+  api: `http://${HOST}:8025/api/v1`,
+} as const;
+
 /** Screenshots land in screenshots/<milestone>/; bump per milestone or override via env. */
-export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm5';
+export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm8';
+
+/**
+ * Identifies this run in the e-mail addresses of its accounts, so the tests find their own mails in
+ * Mailpit, which outlives the throwaway database. Set once by the runner process; its workers inherit it.
+ */
+const RUN_ID_ENV = 'LINGORA_E2E_RUN_ID';
+export const RUN_ID: string = (process.env[RUN_ID_ENV] ||= Date.now().toString(36));
 
 /**
  * Which code the servers run: the working tree (default) or the last commit (E2E_SOURCE=head), which
