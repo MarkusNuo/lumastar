@@ -2,14 +2,14 @@
 
 Adaptive learning app for German speakers learning **Gheg Albanian** (Kosovo-Gheg): placement test,
 personal learning plan up to C2, dynamically composed lessons, FSRS-6 reviews, streaks and XP.
-Single-user instance for your own server. Product requirements: [`PRD.md`](PRD.md).
+Multi-user (e-mail accounts) with web-push streak reminders, for your own server. Product requirements: [`PRD.md`](PRD.md).
 
 ## Quick start (local development)
 
 Requirements: JDK 21+ (Gradle provisions JDK 25 automatically), Node 24, Docker.
 
 ```bash
-docker compose up -d db                 # PostgreSQL 18 on localhost:5433
+docker compose up -d db mail            # PostgreSQL 18 on localhost:5433, Mailpit on http://localhost:8025
 cd backend && ./gradlew bootRun         # API on http://localhost:8080 (Windows: gradlew.bat)
 cd frontend && npm install && npm run dev   # app on http://localhost:5173
 ```
@@ -17,9 +17,10 @@ cd frontend && npm install && npm run dev   # app on http://localhost:5173
 On this Windows machine the JDK cannot open its loopback socket in the default temp folder; run Gradle
 with a project-local temp dir (PowerShell: `$env:TEMP=$env:TMP='C:\dev\lingora\.tmp'`).
 
-Open http://localhost:5173, create your account (first start only) and start learning.
+Open http://localhost:5173, register an account and start learning. In development all mails (verification,
+password reset) land in Mailpit at http://localhost:8025.
 The production build (`npm run build`) is an installable PWA; hosting it behind a TLS reverse proxy
-is not part of M0–M6 (see `QUESTIONS.md`).
+is not part of the app milestones (see `QUESTIONS.md`).
 The content in `/content` is imported into the database on every backend start.
 
 A throwaway demo without the compose database: `cd backend && ./gradlew bootTestRun`
@@ -41,6 +42,18 @@ cd e2e && npm install && npx playwright install chromium && npm test
 | `LINGORA_DB_URL` | `jdbc:postgresql://localhost:5433/lingora` | JDBC URL |
 | `LINGORA_DB_USER` / `LINGORA_DB_PASSWORD` | `lingora` / `lingora` | Database credentials (change in production) |
 | `LINGORA_CONTENT_PATH` | `../content` | Content folder imported on startup |
+| `LINGORA_PUBLIC_URL` | `http://localhost:5173` | Base URL used in mail links |
+| `LINGORA_REGISTRATION_MODE` | `open` | `open`, `invite` (needs `LINGORA_REGISTRATION_INVITE_CODE`) or `closed` |
+| `LINGORA_REGISTRATION_INVITE_CODE` | – | Shared invite code for `invite` mode |
+| `LINGORA_MAIL_HOST` / `LINGORA_MAIL_PORT` | `localhost` / `1025` | SMTP server (Mailpit in development) |
+| `LINGORA_MAIL_SMTP_AUTH` / `LINGORA_MAIL_STARTTLS` | `false` / `false` | SMTP authentication and STARTTLS |
+| `SPRING_MAIL_USERNAME` / `SPRING_MAIL_PASSWORD` | – | SMTP credentials (set only on the server) |
+| `LINGORA_MAIL_FROM` | `Lingora <noreply@lingora.local>` | Sender of account mails |
+| `LINGORA_COOKIE_SECURE` | `false` | Set `true` behind HTTPS |
+| `LINGORA_FORWARD_HEADERS_STRATEGY` | `none` | Set `native` behind a reverse proxy (Caddy), otherwise all clients share one rate-limit key |
+| `LINGORA_PUSH_PUBLIC_KEY` / `LINGORA_PUSH_PRIVATE_KEY` | – | VAPID key pair for web push (`./gradlew generateVapidKeys`); push is off without them |
+| `LINGORA_PUSH_SUBJECT` | public URL | VAPID contact (`mailto:` or URL) |
+| `LINGORA_REMINDER_CRON` | every 5 min | Reminder job schedule (`-` disables it) |
 
 ## Backups
 
@@ -61,4 +74,4 @@ The in-app export (ZIP with JSON + Markdown profile documents) is a second, port
 | `frontend/` | React PWA, design system (`/dev/ui` component catalog) |
 | `content/` | Gheg language guide, curriculum, units and exercises (JSON) |
 | `e2e/` | Playwright end-to-end tests and mobile screenshots |
-| `docs/` | Cross-cutting contracts (content format) |
+| `docs/` | Cross-cutting contracts (content format), content review guide, prompt templates |
