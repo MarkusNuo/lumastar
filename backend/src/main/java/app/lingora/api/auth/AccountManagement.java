@@ -1,6 +1,5 @@
 package app.lingora.api.auth;
 
-import app.lingora.persistence.AccountTokenPurpose;
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
 import java.util.UUID;
@@ -13,17 +12,17 @@ class AccountManagement {
 
     private final UserRepository users;
     private final AccountService accounts;
-    private final AccountTokens tokens;
     private final AccountMails mails;
     private final Passwords passwords;
+    private final NewPassword newPassword;
 
-    AccountManagement(UserRepository users, AccountService accounts, AccountTokens tokens, AccountMails mails,
-                      Passwords passwords) {
+    AccountManagement(UserRepository users, AccountService accounts, AccountMails mails, Passwords passwords,
+                      NewPassword newPassword) {
         this.users = users;
         this.accounts = accounts;
-        this.tokens = tokens;
         this.mails = mails;
         this.passwords = passwords;
+        this.newPassword = newPassword;
     }
 
     @Transactional
@@ -33,13 +32,12 @@ class AccountManagement {
         return account;
     }
 
-    /** An open reset link stops working, since the learner evidently knows the password. */
+    /** See {@link NewPassword} for what else a new password ends. */
     @Transactional
-    void changePassword(UUID userId, String currentPassword, String newPassword, String client) {
+    void changePassword(UUID userId, String currentPassword, String password, String client) {
         UserEntity account = accounts.lock(userId);
         passwords.requireCurrent(account, currentPassword, client);
-        account.changePassword(passwords.hash(newPassword));
-        tokens.revoke(userId, AccountTokenPurpose.RESET_PASSWORD);
+        newPassword.set(account, password);
     }
 
     /**

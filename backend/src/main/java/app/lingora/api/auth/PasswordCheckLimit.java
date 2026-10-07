@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * Every Argon2id hash or check allocates 19 MiB. At most {@value #MAX_CONCURRENT_CHECKS} run at the same time; a
- * request beyond that is answered with 429 at once instead of queueing, so that a flood of sign-ins or registrations
- * cannot exhaust the memory.
+ * request beyond that is answered with 429 {@code too_many_requests} at once instead of queueing, so that a flood of
+ * sign-ins or registrations cannot exhaust the memory.
  */
 @Component
 class PasswordCheckLimit {
@@ -20,7 +20,7 @@ class PasswordCheckLimit {
 
     <T> T run(Supplier<T> hashing) {
         if (!permits.tryAcquire()) {
-            throw ThrottledException.login(RETRY_AFTER);
+            throw ThrottledException.busy(RETRY_AFTER);
         }
         try {
             return hashing.get();

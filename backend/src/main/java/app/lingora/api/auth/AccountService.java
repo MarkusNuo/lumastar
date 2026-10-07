@@ -49,7 +49,7 @@ public class AccountService {
         Optional<UserEntity> account = email == null || email.isBlank()
                 ? users.findFirstByEmailIsNullOrderByCreatedAtAsc()
                 : users.findByEmail(email.strip());
-        if (!passwords.matches(account, password, client)) {
+        if (!passwords.matches(account, email, password, client)) {
             throw AccountProblems.invalidCredentials();
         }
         return account.orElseThrow();

@@ -30,28 +30,30 @@ class Passwords {
         return limit.run(() -> encoder.encode(password));
     }
 
-    /** Whether {@code password} is the one of {@code account}; an absent account never matches. */
-    boolean matches(Optional<UserEntity> account, String password, String client) {
-        UUID accountId = account.map(UserEntity::getId).orElse(null);
+    /**
+     * Whether {@code password} is the one of {@code account}; an absent account never matches. The attempt counts
+     * against the {@link LoginThrottle} of the address signed in with, whether an account has it or not.
+     */
+    boolean matches(Optional<UserEntity> account, String email, String password, String client) {
         boolean matches = limit.run(() -> {
-            throttle.admit(client, accountId);
+            throttle.admit(client, email);
             return encoder.matches(password, account.map(UserEntity::getPasswordHash).orElse(noAccountHash))
                     && account.isPresent();
         });
         if (matches) {
-            throttle.recordSuccess(client, accountId);
+            throttle.recordSuccess(client, email);
         }
         return matches;
     }
 
     /** Account changes are confirmed with the current password. */
     void requireCurrent(UserEntity account, String password, String client) {
-        if (!matches(Optional.of(account), password, client)) {
+        if (!matches(Optional.of(account), account.getEmail(), password, client)) {
             throw AccountProblems.invalidPassword();
         }
     }
 
     void forgetFailures(UserEntity account) {
-        throttle.forgetAccount(account.getId());
+        throttle.forget(account.getEmail());
     }
 }

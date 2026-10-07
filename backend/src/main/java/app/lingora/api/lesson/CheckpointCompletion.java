@@ -71,10 +71,10 @@ class CheckpointCompletion {
     }
 
     /** The result as the lesson result shows it, the same at every completion. */
-    LessonResultResponse.CheckpointResult result(LessonSessionEntity checkpoint) {
+    LessonResultResponse.CheckpointResult result(UUID userId, LessonSessionEntity checkpoint) {
         boolean passed = Boolean.TRUE.equals(checkpoint.getCheckpointPassed());
         Level level = checkpoint.getLevel();
         return new LessonResultResponse.CheckpointResult(level, passed, CheckpointRule.PASS_ACCURACY,
-                passed ? LevelUp.levelAfter(level) : null, badges.awardedBy(checkpoint.getId()));
+                passed ? LevelUp.levelAfter(level) : null, badges.awardedBy(userId, checkpoint.getId()));
     }
 }

@@ -45,9 +45,10 @@ public class BadgeStore {
                 .toList();
     }
 
-    /** The badges a checkpoint session awarded, in band order. */
-    public List<LevelBadge> awardedBy(UUID sessionId) {
-        return jdbc.sql("SELECT code FROM badges WHERE session_id = :session")
+    /** The badges a checkpoint session of the learner awarded, in band order. */
+    public List<LevelBadge> awardedBy(UUID userId, UUID sessionId) {
+        return jdbc.sql("SELECT code FROM badges WHERE user_id = :user AND session_id = :session")
+                .param("user", userId)
                 .param("session", sessionId)
                 .query((row, rowNumber) -> Coded.fromCode(LevelBadge.class, row.getString("code")))
                 .stream()

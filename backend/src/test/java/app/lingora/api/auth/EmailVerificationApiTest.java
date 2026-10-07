@@ -175,8 +175,34 @@ class EmailVerificationApiTest extends IntegrationTest {
         }
 
         @Test
+        void theVerifiedAddressIsToldOfTheChangeAndHowToStopIt() {
+            verify();
+
+            learner.put(CHANGE_EMAIL, change("New@Example.com"));
+
+            SentMail notice = mails.lastMailTo(email);
+            assertThat(notice.subject()).isEqualTo("Deine E-Mail-Adresse soll geändert werden");
+            assertThat(notice.text()).contains("New@Example.com", "Falls du das nicht warst").doesNotContain("token=");
+        }
+
+        @Test
+        void aChangeEndsTheOtherSessionsOfTheAccount() {
+            SpaClient otherDevice = new SpaClient(mvc);
+            otherDevice.get("/api/auth/status");
+            assertThat(otherDevice.post("/api/auth/login", """
+                    {"email": "%s", "password": "%s"}""".formatted(email, SpaClient.PASSWORD))).hasStatus(HttpStatus.NO_CONTENT);
+
+            assertThat(learner.put(CHANGE_EMAIL, change("typo-fixed@example.com"))).hasStatusOk();
+
+            assertThat(learner.get(ACCOUNT)).hasStatusOk();
+            assertProblem(otherDevice.get(ACCOUNT), HttpStatus.UNAUTHORIZED, "authentication_required");
+        }
+
+        @Test
         void anUnverifiedAddressIsReplacedAtOnceAndGetsAVerificationLink() {
             MvcTestResult changed = learner.put(CHANGE_EMAIL, change("typo-fixed@example.com"));
+
+            assertThat(mails.sentTo(email)).as("no notice to an unverified address").hasSize(1);
 
             assertThat(changed).hasStatusOk().bodyJson().isLenientlyEqualTo("""
                     {"email": "typo-fixed@example.com", "emailVerified": false, "displayName": "Erza"}""");

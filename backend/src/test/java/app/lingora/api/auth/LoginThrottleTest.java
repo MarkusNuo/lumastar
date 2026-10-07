@@ -9,101 +9,181 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpHeaders;
 
 class LoginThrottleTest {
 
     private static final String CLIENT = "203.0.113.7";
-    private static final UUID ACCOUNT = UUID.fromString("00000000-0000-0000-0000-00000000e405");
+    private static final String EMAIL = "erza@example.com";
 
     private final MutableClock clock = new MutableClock(Instant.parse("2026-09-25T10:00:00Z"));
     private final LoginThrottle throttle = new LoginThrottle(clock);
 
-    @Test
-    void admitsTheFreeAttempts() {
-        assertThatNoException().isThrownBy(() -> failTimes(LoginThrottle.FREE_ATTEMPTS));
-    }
+    @Nested
+    class PerClient {
 
-    @Test
-    void locksTheClientAfterTheFreeAttempts() {
-        failTimes(LoginThrottle.FREE_ATTEMPTS);
-
-        assertRetryAfter(CLIENT, LoginThrottle.FIRST_LOCK);
-    }
-
-    @Test
-    void doesNotCountAttemptsRejectedDuringTheLock() {
-        failTimes(LoginThrottle.FREE_ATTEMPTS);
-        for (int i = 0; i < 10; i++) {
-            assertThatThrownBy(() -> throttle.admit(CLIENT, ACCOUNT)).isInstanceOf(ThrottledException.class);
+        @Test
+        void admitsTheFreeAttempts() {
+            assertThatNoException().isThrownBy(() -> failTimes(LoginThrottle.FREE_ATTEMPTS));
         }
-        clock.advance(LoginThrottle.FIRST_LOCK);
 
-        failTimes(1);
+        @Test
+        void locksTheClientAfterTheFreeAttemptsWhateverTheAddress() {
+            for (int i = 0; i < LoginThrottle.FREE_ATTEMPTS; i++) {
+                throttle.admit(CLIENT, "victim-%d@example.com".formatted(i));
+            }
 
-        assertRetryAfter(CLIENT, Duration.ofMinutes(2));
-    }
+            assertThat(retryAfter(CLIENT, "another@example.com")).isEqualTo(LoginThrottle.FIRST_LOCK);
+        }
 
-    @Test
-    void doublesTheLockWithEveryFurtherFailureUpToTheMaximum() {
-        failTimes(LoginThrottle.FREE_ATTEMPTS);
-        List<Duration> locks = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
-            Duration lock = retryAfter(CLIENT);
-            locks.add(lock);
-            clock.advance(lock);
+        @Test
+        void doesNotCountAttemptsRejectedDuringTheLock() {
+            failTimes(LoginThrottle.FREE_ATTEMPTS);
+            for (int i = 0; i < 10; i++) {
+                assertThatThrownBy(() -> throttle.admit(CLIENT, EMAIL)).isInstanceOf(ThrottledException.class);
+            }
+            clock.advance(LoginThrottle.FIRST_LOCK);
+
             failTimes(1);
+
+            assertThat(retryAfter(CLIENT, EMAIL)).isEqualTo(Duration.ofMinutes(2));
         }
 
-        assertThat(locks).extracting(Duration::toMinutes).containsExactly(1L, 2L, 4L, 8L, 15L, 15L);
+        @Test
+        void doublesTheLockWithEveryFurtherFailureUpToTheMaximum() {
+            failTimes(LoginThrottle.FREE_ATTEMPTS);
+            List<Duration> locks = new ArrayList<>();
+            for (int i = 0; i < 6; i++) {
+                Duration lock = retryAfter(CLIENT, EMAIL);
+                locks.add(lock);
+                clock.advance(lock);
+                failTimes(1);
+            }
+
+            assertThat(locks).extracting(Duration::toMinutes).containsExactly(1L, 2L, 4L, 8L, 15L, 15L);
+        }
+
+        @Test
+        void successResetsTheFailures() {
+            failTimes(LoginThrottle.FREE_ATTEMPTS - 1);
+            throttle.recordSuccess(CLIENT, EMAIL);
+
+            assertThatNoException().isThrownBy(() -> failTimes(LoginThrottle.FREE_ATTEMPTS));
+        }
+
+        @Test
+        void forgetsOldFailures() {
+            failTimes(LoginThrottle.FREE_ATTEMPTS - 1);
+            clock.advance(LoginThrottle.FORGET_AFTER.plusSeconds(1));
+
+            assertThatNoException().isThrownBy(() -> failTimes(LoginThrottle.FREE_ATTEMPTS));
+        }
+
+        @Test
+        void tracksClientsSeparately() {
+            failTimes(LoginThrottle.FREE_ATTEMPTS);
+
+            assertThatNoException().isThrownBy(() -> throttle.admit("198.51.100.1", EMAIL));
+        }
+    }
+
+    @Nested
+    class PerClientAndAddress {
+
+        @Test
+        void aSuccessWithAnotherAccountDoesNotResetTheFailuresOnTheAddress() {
+            for (int round = 0; round < LoginThrottle.FREE_ATTEMPTS; round++) {
+                throttle.admit(CLIENT, EMAIL);
+                throttle.admit(CLIENT, "attacker@example.com");
+                throttle.recordSuccess(CLIENT, "attacker@example.com");
+            }
+
+            assertThat(retryAfter(CLIENT, EMAIL)).isEqualTo(LoginThrottle.FIRST_LOCK);
+            assertThatNoException().isThrownBy(() -> throttle.admit(CLIENT, "attacker@example.com"));
+        }
+
+        @Test
+        void aSuccessOnTheAddressResetsItsFailures() {
+            failTimes(LoginThrottle.FREE_ATTEMPTS - 1);
+            throttle.recordSuccess(CLIENT, EMAIL.toUpperCase());
+
+            assertThatNoException().isThrownBy(() -> failTimes(LoginThrottle.FREE_ATTEMPTS));
+        }
+    }
+
+    @Nested
+    class PerAddress {
+
+        @Test
+        void capsTheAttemptsOnAnAddressFromRotatingClientsWithinTheWindow() {
+            clock.advance(Duration.ofMinutes(3));
+            Instant windowStart = clock.instant();
+            attemptsFromRotatingClients(EMAIL, LoginThrottle.ATTEMPTS_PER_EMAIL);
+            clock.advance(Duration.ofMinutes(4));
+
+            assertThat(retryAfter("192.0.2.1", EMAIL)).isEqualTo(Duration.between(clock.instant(),
+                    windowStart.plus(LoginThrottle.EMAIL_WINDOW)));
+            assertThatNoException().isThrownBy(() -> throttle.admit("192.0.2.1", "arta@example.com"));
+        }
+
+        @Test
+        void throttlesAnUnknownAddressExactlyLikeAKnownOne() {
+            attemptsFromRotatingClients("nobody@example.com", LoginThrottle.ATTEMPTS_PER_EMAIL);
+            attemptsFromRotatingClients(EMAIL, LoginThrottle.ATTEMPTS_PER_EMAIL);
+
+            assertThat(retryAfter("192.0.2.1", "nobody@example.com")).isEqualTo(retryAfter("192.0.2.2", EMAIL))
+                    .isEqualTo(LoginThrottle.EMAIL_WINDOW);
+        }
+
+        @Test
+        void countsAnAddressRegardlessOfCaseAndSurroundingSpaces() {
+            attemptsFromRotatingClients(" Erza@Example.COM ", LoginThrottle.ATTEMPTS_PER_EMAIL);
+
+            assertThatThrownBy(() -> throttle.admit("192.0.2.1", EMAIL)).isInstanceOf(ThrottledException.class);
+        }
+
+        @Test
+        void admitsTheAddressAgainOnceTheShortWindowHasEnded() {
+            attemptsFromRotatingClients(EMAIL, LoginThrottle.ATTEMPTS_PER_EMAIL);
+            clock.advance(LoginThrottle.EMAIL_WINDOW);
+
+            assertThatNoException().isThrownBy(() -> throttle.admit("192.0.2.1", EMAIL));
+        }
+
+        @Test
+        void countsTheAccountFromBeforeM8WithoutAddressAsOneKey() {
+            attemptsFromRotatingClients(null, LoginThrottle.ATTEMPTS_PER_EMAIL);
+
+            assertThatThrownBy(() -> throttle.admit("192.0.2.1", " ")).isInstanceOf(ThrottledException.class);
+        }
+
+        @Test
+        void aPasswordResetForgetsTheAttemptsOnTheAddress() {
+            failTimes(LoginThrottle.FREE_ATTEMPTS);
+            attemptsFromRotatingClients(EMAIL, LoginThrottle.ATTEMPTS_PER_EMAIL - LoginThrottle.FREE_ATTEMPTS);
+            throttle.recordSuccess(CLIENT, "attacker@example.com");
+
+            throttle.forget(EMAIL.toUpperCase());
+
+            assertThatNoException().isThrownBy(() -> throttle.admit("192.0.2.1", EMAIL));
+            assertThatNoException().isThrownBy(() -> throttle.admit(CLIENT, EMAIL));
+        }
     }
 
     @Test
-    void successResetsTheFailures() {
-        failTimes(LoginThrottle.FREE_ATTEMPTS - 1);
-        throttle.recordSuccess(CLIENT, ACCOUNT);
-
-        assertThatNoException().isThrownBy(() -> failTimes(LoginThrottle.FREE_ATTEMPTS));
-    }
-
-    @Test
-    void forgetsOldFailures() {
-        failTimes(LoginThrottle.FREE_ATTEMPTS - 1);
-        clock.advance(LoginThrottle.FORGET_AFTER.plusSeconds(1));
-
-        assertThatNoException().isThrownBy(() -> failTimes(LoginThrottle.FREE_ATTEMPTS));
-    }
-
-    @Test
-    void tracksClientsSeparately() {
+    void tracksABoundedNumberOfKeysAndForgetsTheLeastRecentlyUsed() {
         failTimes(LoginThrottle.FREE_ATTEMPTS);
-
-        assertThatNoException().isThrownBy(() -> throttle.admit("198.51.100.1", ACCOUNT));
-    }
-
-    @Test
-    void locksTheAccountAfterManyFailuresFromRotatingAddresses() {
-        for (int client = 0; client < LoginThrottle.FREE_ACCOUNT_ATTEMPTS; client++) {
-            throttle.admit("198.51.100." + client, ACCOUNT);
+        for (int i = 0; i < LoginThrottle.MAX_TRACKED_KEYS; i++) {
+            throttle.admit("client-" + i, "someone-%d@example.com".formatted(i));
         }
 
-        assertRetryAfter("192.0.2.1", LoginThrottle.FIRST_LOCK);
-        assertThatNoException().isThrownBy(() -> throttle.admit("192.0.2.1", UUID.randomUUID()));
-    }
-
-    @Test
-    void countsOnlyTheClientBeforeTheAccountExists() {
-        for (int client = 0; client < LoginThrottle.FREE_ACCOUNT_ATTEMPTS; client++) {
-            throttle.admit("198.51.100." + client, null);
-        }
-
-        assertThatNoException().isThrownBy(() -> throttle.admit("192.0.2.1", ACCOUNT));
+        assertThatNoException().isThrownBy(() -> throttle.admit(CLIENT, EMAIL));
     }
 
     @Test
@@ -116,7 +196,7 @@ class LoginThrottleTest {
                 admitted.add(pool.submit(() -> {
                     start.await();
                     try {
-                        throttle.admit(CLIENT, ACCOUNT);
+                        throttle.admit(CLIENT, EMAIL);
                         return true;
                     } catch (ThrottledException e) {
                         return false;
@@ -135,20 +215,23 @@ class LoginThrottleTest {
 
     private void failTimes(int times) {
         for (int i = 0; i < times; i++) {
-            throttle.admit(CLIENT, ACCOUNT);
+            throttle.admit(CLIENT, EMAIL);
         }
     }
 
-    private void assertRetryAfter(String client, Duration expected) {
-        assertThat(retryAfter(client)).isEqualTo(expected);
+    private void attemptsFromRotatingClients(String email, int attempts) {
+        for (int client = 0; client < attempts; client++) {
+            throttle.admit("198.51.100." + client, email);
+        }
     }
 
-    private Duration retryAfter(String client) {
+    private Duration retryAfter(String client, String email) {
         try {
-            throttle.admit(client, ACCOUNT);
+            throttle.admit(client, email);
         } catch (ThrottledException e) {
+            assertThat(e.getBody().getProperties()).containsEntry("code", "login_throttled");
             return Duration.ofSeconds(Long.parseLong(e.getHeaders().getFirst(HttpHeaders.RETRY_AFTER)));
         }
-        throw new AssertionError("expected " + client + " to be locked out");
+        throw new AssertionError(client + " on " + email + " is not locked out");
     }
 }

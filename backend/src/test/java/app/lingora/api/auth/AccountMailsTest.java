@@ -79,14 +79,40 @@ class AccountMailsTest {
     }
 
     @Test
+    void theNoticeOfAnEmailChangeNamesTheNewAddressAndHowToStopIt() {
+        mails.emailChangeRequested(TO, "Erza", "<neu>@example.com");
+
+        SentMail mail = catcher.onlyMailTo(TO);
+        assertThat(mail.subject()).isEqualTo("Deine E-Mail-Adresse soll geändert werden");
+        assertThat(mail.text()).contains("neue E-Mail-Adresse <neu>@example.com angegeben",
+                "Falls du das nicht warst, setze sofort ein neues Passwort", "«Passwort vergessen»",
+                "Damit wird die Änderung abgebrochen.").doesNotContain("http");
+        assertThat(mail.html()).contains("&lt;neu&gt;@example.com").doesNotContain("<a ");
+    }
+
+    @Test
+    void theNoticeOfANewPasswordSaysWhetherAnEmailChangeWasCancelled() {
+        mails.passwordChanged(TO, "Erza", false);
+        mails.passwordChanged(TO, "Erza", true);
+
+        List<SentMail> sent = catcher.sentTo(TO);
+        assertThat(sent).extracting(SentMail::subject).containsOnly("Dein Lingora-Passwort wurde geändert");
+        assertThat(sent.getFirst().text()).contains("Auf deinen anderen Geräten bist du abgemeldet.",
+                "Falls du das nicht warst").doesNotContain("abgebrochen", "http");
+        assertThat(sent.getLast().text()).contains("Die angefangene Änderung deiner E-Mail-Adresse ist abgebrochen");
+    }
+
+    @Test
     void usesSwissOrthography() {
         mails.verifyEmail(TO, "Erza", TOKEN);
         mails.confirmEmailChange(TO, "Erza", TOKEN);
         mails.resetPassword(TO, "Erza", TOKEN);
         mails.accountDeleted(TO, "Erza");
+        mails.emailChangeRequested(TO, "Erza", "neu@example.com");
+        mails.passwordChanged(TO, "Erza", true);
 
         List<SentMail> sent = catcher.sentTo(TO);
-        assertThat(sent).hasSize(4).allSatisfy(mail -> {
+        assertThat(sent).hasSize(6).allSatisfy(mail -> {
             assertThat(mail.subject()).doesNotContain("ß");
             assertThat(mail.text()).doesNotContain("ß");
             assertThat(mail.html()).doesNotContain("ß");

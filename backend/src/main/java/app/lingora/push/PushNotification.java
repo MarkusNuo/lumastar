@@ -17,7 +17,8 @@ public record PushNotification(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "Zeit für Gheg! 🔥") String title,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "Dein 12-Tage-Streak wartet auf dich.") String body,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "/",
-                description = "Path of the app that a tap on the notification or the practise action opens") String url,
+                description = "Path of the app that a tap on the notification opens; the practise action opens the "
+                        + "next lesson (/weiter) instead") String url,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "lingora-daily-reminder",
                 description = "Stable per kind: a new notification replaces the previous one of its kind") String tag,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED,

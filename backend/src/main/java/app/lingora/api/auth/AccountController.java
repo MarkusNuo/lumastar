@@ -64,9 +64,10 @@ public class AccountController {
     @PutMapping("/email")
     @Operation(operationId = "changeEmail", summary = "Change or add the sign-in address",
             description = "A verified address stays until the new one is confirmed by the link mailed to it "
-                    + "(pendingEmail). An unverified or missing address, as of the account from before multi-user "
-                    + "support, is replaced at once and gets a verification link. The current address cancels a "
-                    + "pending change.")
+                    + "(pendingEmail) and is told of the change. An unverified or missing address, as of the account from "
+                    + "before multi-user support, is replaced at once and gets a verification link. The current address "
+                    + "cancels a pending change; so does a new password. Ends all other sessions of the account; this one "
+                    + "stays signed in.")
     @ApiResponse(responseCode = "200", description = "The changed account")
     @ApiResponse(responseCode = "400", description = "Invalid address (code validation_failed)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
@@ -77,18 +78,21 @@ public class AccountController {
     @ApiResponse(responseCode = "409", description = "Another account uses the address (code email_taken)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "429", description = "login_throttled after wrong passwords, too_many_requests after too "
-            + "many account mails", content = @Content(mediaType = "application/problem+json",
-            schema = @Schema(implementation = ProblemDetail.class)))
+            + "many account mails or while the server is busy checking passwords; see Retry-After", content = @Content(
+            mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public AccountResponse changeEmail(@AuthenticationPrincipal AuthenticatedUser principal,
                                        @Valid @RequestBody EmailChangeRequest body, HttpServletRequest request) {
-        return AccountResponse.of(emailVerification.change(principal.userId(), body.newEmail(), body.password(),
-                request.getRemoteAddr()));
+        AccountResponse account = AccountResponse.of(emailVerification.change(principal.userId(), body.newEmail(),
+                body.password(), ClientKey.of(request)));
+        sessions.endOthers(principal.userId(), request);
+        return account;
     }
 
     @PutMapping("/password")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(operationId = "changePassword", summary = "Change the password",
-            description = "Ends all other sessions of the account; this one stays signed in.")
+            description = "Ends all other sessions of the account; this one stays signed in. Cancels a pending e-mail "
+                    + "change and an open reset link; a verified address is told.")
     @ApiResponse(responseCode = "204", description = "Password changed")
     @ApiResponse(responseCode = "400", description = "New password too short or too long (code validation_failed)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
@@ -96,11 +100,12 @@ public class AccountController {
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "403", description = "Wrong current password (code invalid_password)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "429", description = "Too many wrong passwords (code login_throttled)", content = @Content(
+    @ApiResponse(responseCode = "429", description = "login_throttled after too many wrong passwords, too_many_requests "
+            + "while the server is busy checking passwords; see Retry-After", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public void changePassword(@AuthenticationPrincipal AuthenticatedUser principal,
                                @Valid @RequestBody PasswordChangeRequest body, HttpServletRequest request) {
-        management.changePassword(principal.userId(), body.currentPassword(), body.newPassword(), request.getRemoteAddr());
+        management.changePassword(principal.userId(), body.currentPassword(), body.newPassword(), ClientKey.of(request));
         sessions.endOthers(principal.userId(), request);
     }
 
@@ -114,12 +119,13 @@ public class AccountController {
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "403", description = "Wrong password (code invalid_password)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "429", description = "Too many wrong passwords (code login_throttled)", content = @Content(
+    @ApiResponse(responseCode = "429", description = "login_throttled after too many wrong passwords, too_many_requests "
+            + "while the server is busy checking passwords; see Retry-After", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public void deleteAccount(@AuthenticationPrincipal AuthenticatedUser principal,
                               @Valid @RequestBody AccountDeletionRequest body, Authentication authentication,
                               HttpServletRequest request, HttpServletResponse response) {
-        management.delete(principal.userId(), body.password(), request.getRemoteAddr());
+        management.delete(principal.userId(), body.password(), ClientKey.of(request));
         sessions.endOthers(principal.userId(), request);
         sessionSignIn.signOut(authentication, request, response);
     }

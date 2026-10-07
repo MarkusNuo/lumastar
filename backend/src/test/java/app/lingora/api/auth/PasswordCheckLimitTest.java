@@ -35,6 +35,7 @@ class PasswordCheckLimitTest {
             assertThatThrownBy(() -> limit.run(() -> true))
                     .isInstanceOfSatisfying(ThrottledException.class, exception -> {
                         assertThat(exception.getStatusCode()).isEqualTo(HttpStatus.TOO_MANY_REQUESTS);
+                        assertThat(exception.getBody().getProperties()).containsEntry("code", "too_many_requests");
                         assertThat(exception.getHeaders().getFirst(HttpHeaders.RETRY_AFTER)).isEqualTo("1");
                     });
 

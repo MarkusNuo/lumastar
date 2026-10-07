@@ -146,17 +146,23 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
     }
 
     @Test
-    void deletingALearnerLeavesAnotherIntact() {
+    void deletingALearnerEmptiesEveryLearnerTableAndLeavesAnotherIntact() {
         learn(arta);
         learn(bora);
         assertThat(bora.upload("/api/profile/import", "file", export(arta))).hasStatusOk();
         Map<String, String> artaBefore = views(arta);
         Map<String, String> artaExport = exportData(arta);
 
+        Map<String, Integer> boraRows = rowsPerTable(boraId);
+        assertThat(List.of("sessions", "attempts", "skill_mastery", "learning_plans", "account_tokens",
+                "push_subscriptions", "reminder_settings"))
+                .allSatisfy(table -> assertThat(boraRows.get(table)).as("rows of the learner in %s", table).isPositive());
+
         assertThat(bora.delete("/api/account", """
                 {"password": "%s"}""".formatted(SpaClient.PASSWORD))).hasStatus(HttpStatus.NO_CONTENT);
 
-        assertThat(rowIdsOf(boraId)).isEmpty();
+        assertThat(rowsPerTable(boraId)).isNotEmpty().allSatisfy((table, rows) -> assertThat(rows)
+                .as("rows of the deleted learner in %s", table).isZero());
         assertThat(exportData(arta)).isEqualTo(artaExport);
         assertThat(views(arta)).isEqualTo(artaBefore);
         assertThat(jdbc.sql("SELECT count(*) FROM users").query(Integer.class).single()).isOne();
@@ -206,15 +212,28 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
 
     /** The ids of all rows of the learner in every table with learner data. */
     private List<String> rowIdsOf(UUID learner) {
-        List<String> tables = jdbc.sql("""
-                        SELECT table_name FROM information_schema.columns
-                        WHERE table_schema = current_schema() AND column_name = 'user_id' ORDER BY table_name""")
-                .query(String.class).list();
-        return tables.stream()
+        return tablesWithUserId().stream()
                 .filter(table -> !table.equals("account_tokens"))
                 .flatMap(table -> jdbc.sql("SELECT id::text FROM %s WHERE user_id = :user".formatted(table))
                         .param("user", learner).query(String.class).list().stream())
                 .toList();
+    }
+
+    /** The learner's rows in every table with a user_id column, as information_schema lists them. */
+    private Map<String, Integer> rowsPerTable(UUID learner) {
+        Map<String, Integer> rows = new LinkedHashMap<>();
+        for (String table : tablesWithUserId()) {
+            rows.put(table, jdbc.sql("SELECT count(*) FROM %s WHERE user_id = :user".formatted(table))
+                    .param("user", learner).query(Integer.class).single());
+        }
+        return rows;
+    }
+
+    private List<String> tablesWithUserId() {
+        return jdbc.sql("""
+                        SELECT table_name FROM information_schema.columns
+                        WHERE table_schema = current_schema() AND column_name = 'user_id' ORDER BY table_name""")
+                .query(String.class).list();
     }
 
     private UUID accountId(String email) {

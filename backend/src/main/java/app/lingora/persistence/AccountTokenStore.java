@@ -26,12 +26,16 @@ public class AccountTokenStore {
         }
     }
 
-    /** Stores a new link of the account; it replaces the account's earlier links of the same purpose. */
+    /**
+     * Stores a new link of the account; it replaces the account's earlier link of the same purpose in one statement, so
+     * that concurrent replacements leave exactly one link.
+     */
     public void replace(UUID userId, AccountTokenPurpose purpose, String tokenHash, String email, Instant at) {
-        delete(userId, purpose);
         jdbc.sql("""
                         INSERT INTO account_tokens (user_id, purpose, token_hash, email, created_at, expires_at)
-                        VALUES (:user, :purpose, :hash, :email, :at, :expiresAt)""")
+                        VALUES (:user, :purpose, :hash, :email, :at, :expiresAt)
+                        ON CONFLICT (user_id, purpose) DO UPDATE SET token_hash = EXCLUDED.token_hash,
+                            email = EXCLUDED.email, created_at = EXCLUDED.created_at, expires_at = EXCLUDED.expires_at""")
                 .param("user", userId)
                 .param("purpose", purpose.code())
                 .param("hash", tokenHash)

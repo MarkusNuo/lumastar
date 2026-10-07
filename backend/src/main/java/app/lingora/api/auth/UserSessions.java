@@ -9,7 +9,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * The HTTP sessions of an account in Spring Session JDBC, found by the principal name ({@link AuthenticatedUser#getName}).
- * A new or reset password and the deletion of the account end them, so that a stolen session stops working.
+ * A new or reset password, a change of the sign-in address and the deletion of the account end them, so that a stolen
+ * session stops working.
  */
 @Component
 class UserSessions {

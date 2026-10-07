@@ -72,11 +72,12 @@ public class AuthController {
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "409", description = "Another account uses the address (code email_taken)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "429", description = "Too many registrations from this address (code too_many_requests)",
-            content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
+    @ApiResponse(responseCode = "429", description = "Too many registrations from this client, or the server is busy "
+            + "hashing passwords (code too_many_requests); see Retry-After", content = @Content(
+            mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public ProfileResponse register(@Valid @RequestBody RegisterRequest body, HttpServletRequest request,
                                     HttpServletResponse response) {
-        UserEntity user = registrations.register(body, request.getRemoteAddr());
+        UserEntity user = registrations.register(body, ClientKey.of(request));
         sessionSignIn.signIn(user, request, response);
         return ProfileResponse.of(user);
     }
@@ -84,14 +85,17 @@ public class AuthController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @SecurityRequirements
-    @Operation(operationId = "login", summary = "Sign in with e-mail address and password")
+    @Operation(operationId = "login", summary = "Sign in with e-mail address and password",
+            description = "Failed attempts are throttled per client, per client and address, and per address across "
+                    + "clients, alike for addresses with and without an account.")
     @ApiResponse(responseCode = "204", description = "Signed in; the session cookie is set")
     @ApiResponse(responseCode = "401", description = "Wrong address or password (code invalid_credentials)", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "429", description = "Too many failed attempts (code login_throttled); see Retry-After",
-            content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
+    @ApiResponse(responseCode = "429", description = "login_throttled after too many failed attempts, too_many_requests "
+            + "while the server is busy checking passwords; see Retry-After", content = @Content(
+            mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     public void login(@Valid @RequestBody LoginRequest body, HttpServletRequest request, HttpServletResponse response) {
-        UserEntity user = accounts.authenticate(body.email(), body.password(), request.getRemoteAddr());
+        UserEntity user = accounts.authenticate(body.email(), body.password(), ClientKey.of(request));
         sessionSignIn.signIn(user, request, response);
     }
 
@@ -147,17 +151,21 @@ public class AuthController {
             + "too_many_requests)", content = @Content(mediaType = "application/problem+json",
             schema = @Schema(implementation = ProblemDetail.class)))
     public void requestPasswordReset(@Valid @RequestBody PasswordResetRequest body, HttpServletRequest request) {
-        passwordReset.request(body.email(), request.getRemoteAddr());
+        passwordReset.request(body.email(), ClientKey.of(request));
     }
 
     @PostMapping("/password-reset/confirm")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @SecurityRequirements
     @Operation(operationId = "confirmPasswordReset", summary = "Set a new password with the token of the mailed link",
-            description = "Ends all sessions of the account except the caller's; the caller is not signed in by it.")
+            description = "Ends all sessions of the account except the caller's; the caller is not signed in by it. "
+                    + "Cancels a pending e-mail change; the address is told.")
     @ApiResponse(responseCode = "204", description = "Password changed")
     @ApiResponse(responseCode = "410", description = "token_invalid or token_expired", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
+    @ApiResponse(responseCode = "429", description = "The server is busy hashing passwords (code too_many_requests); see "
+            + "Retry-After", content = @Content(mediaType = "application/problem+json",
+            schema = @Schema(implementation = ProblemDetail.class)))
     public void confirmPasswordReset(@Valid @RequestBody PasswordResetConfirmRequest body, HttpServletRequest request) {
         UUID account = passwordReset.confirm(body.token(), body.newPassword());
         sessions.endOthers(account, request);

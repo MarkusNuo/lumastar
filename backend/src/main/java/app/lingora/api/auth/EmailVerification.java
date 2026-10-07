@@ -58,8 +58,9 @@ class EmailVerification {
     }
 
     /**
-     * Changes the sign-in address after checking the password. The current address entered again cancels a pending
-     * change.
+     * Changes the sign-in address after checking the password. A verified address is told of the change, since only it
+     * can still stop the change by a password reset ({@link NewPassword}). The current address entered again cancels a
+     * pending change. The caller ends the other sessions.
      */
     @Transactional
     UserEntity change(UUID userId, String newEmail, String password, String client) {
@@ -77,6 +78,7 @@ class EmailVerification {
         throttle.admit(Action.ACCOUNT_MAIL, userId.toString());
         if (account.changeEmail(email)) {
             sendChangeConfirmation(account);
+            mails.emailChangeRequested(account.getEmail(), account.getDisplayName(), account.getPendingEmail());
         } else {
             tokens.revoke(userId, AccountTokenPurpose.CHANGE_EMAIL);
             sendVerification(account);

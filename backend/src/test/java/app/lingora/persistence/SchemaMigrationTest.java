@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import app.lingora.IntegrationTest;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.DuplicateKeyException;
@@ -32,7 +33,7 @@ class SchemaMigrationTest extends IntegrationTest {
                 Map.of("version", "5", "success", true), Map.of("version", "6", "success", true),
                 Map.of("version", "7", "success", true), Map.of("version", "8", "success", true),
                 Map.of("version", "9", "success", true), Map.of("version", "10", "success", true),
-                Map.of("version", "11", "success", true));
+                Map.of("version", "11", "success", true), Map.of("version", "12", "success", true));
     }
 
     @Test
@@ -60,6 +61,25 @@ class SchemaMigrationTest extends IntegrationTest {
                 .query(String.class).list();
 
         assertThat(tablesWithUserForeignKey).containsExactlyInAnyOrderElementsOf(LEARNER_TABLES);
+    }
+
+    /** Deleting an account (DELETE /api/account) relies on it: no learner table may keep rows of a deleted user. */
+    @Test
+    void everyLearnerTableIsDeletedWithItsUser() {
+        Map<String, String> deleteRules = jdbc.sql("""
+                        SELECT k.table_name, r.delete_rule
+                        FROM information_schema.key_column_usage k
+                        JOIN information_schema.referential_constraints r
+                          ON r.constraint_schema = k.constraint_schema AND r.constraint_name = k.constraint_name
+                        JOIN information_schema.constraint_column_usage u
+                          ON u.constraint_schema = r.unique_constraint_schema AND u.constraint_name = r.unique_constraint_name
+                        WHERE k.table_schema = 'public' AND k.column_name = 'user_id' AND u.table_name = 'users'""")
+                .query((row, rowNumber) -> Map.entry(row.getString("table_name"), row.getString("delete_rule")))
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        assertThat(deleteRules).containsOnlyKeys(LEARNER_TABLES).allSatisfy((table, rule) -> assertThat(rule)
+                .as("ON DELETE of %s.user_id", table).isEqualTo("CASCADE"));
     }
 
     @Test

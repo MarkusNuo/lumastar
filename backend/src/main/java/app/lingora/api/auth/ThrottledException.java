@@ -20,6 +20,12 @@ class ThrottledException extends ErrorResponseException {
         return new ThrottledException("login_throttled", "Too many failed sign-in attempts; try again later.", retryAfter);
     }
 
+    /** Too many password hashes or checks at the same time; not the client's fault, so not {@code login_throttled}. */
+    static ThrottledException busy(Duration retryAfter) {
+        return new ThrottledException("too_many_requests", "The server is busy checking passwords; try again shortly.",
+                retryAfter);
+    }
+
     static ThrottledException requests(Duration retryAfter) {
         return new ThrottledException("too_many_requests", "Too many requests of this kind; try again later.", retryAfter);
     }

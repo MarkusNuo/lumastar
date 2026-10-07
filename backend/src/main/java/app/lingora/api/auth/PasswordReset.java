@@ -21,15 +21,17 @@ class PasswordReset {
     private final AccountTokens tokens;
     private final AccountMails mails;
     private final Passwords passwords;
+    private final NewPassword newPassword;
     private final RequestThrottle throttle;
 
     PasswordReset(UserRepository users, AccountService accounts, AccountTokens tokens, AccountMails mails,
-                  Passwords passwords, RequestThrottle throttle) {
+                  Passwords passwords, NewPassword newPassword, RequestThrottle throttle) {
         this.users = users;
         this.accounts = accounts;
         this.tokens = tokens;
         this.mails = mails;
         this.passwords = passwords;
+        this.newPassword = newPassword;
         this.throttle = throttle;
     }
 
@@ -44,18 +46,19 @@ class PasswordReset {
     }
 
     /**
-     * Sets the new password; the link works only while the account still has the address it was sent to.
+     * Sets the new password ({@link NewPassword}); the link works only while the account still has the address it was
+     * sent to.
      *
      * @return the account, whose other sessions the caller ends
      */
     @Transactional
-    UUID confirm(String token, String newPassword) {
+    UUID confirm(String token, String password) {
         StoredToken link = tokens.redeem(token, AccountTokenPurpose.RESET_PASSWORD);
         UserEntity account = accounts.lock(link.userId());
         if (!account.hasEmail(link.email()) || !account.isEmailVerified()) {
             throw AccountProblems.tokenInvalid();
         }
-        account.changePassword(passwords.hash(newPassword));
+        newPassword.set(account, password);
         passwords.forgetFailures(account);
         return account.getId();
     }

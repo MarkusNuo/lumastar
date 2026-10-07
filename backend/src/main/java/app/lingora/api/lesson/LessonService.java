@@ -275,7 +275,7 @@ class LessonService {
         Map<String, SrsCard> itemCards = cards.cards(userId, items.stream().map(Item::id).toList());
         return LessonResultResponse.of(session, items, itemCards, cards.learnedWords(userId), users.xpTotalOf(userId),
                 focus.flatMap(request -> focusSuggestion(userId, request)).orElse(null),
-                checkpoint ? checkpointCompletion.result(session) : null,
+                checkpoint ? checkpointCompletion.result(userId, session) : null,
                 dailyProgress.ofCompletion(userId, completion, session.getFinishedAt()));
     }
 

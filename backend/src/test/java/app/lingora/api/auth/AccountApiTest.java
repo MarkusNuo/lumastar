@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import app.lingora.IntegrationTest;
 import app.lingora.LearnerFixture;
+import app.lingora.MailCatcher.SentMail;
 import app.lingora.SpaClient;
 import java.time.Instant;
 import java.time.OffsetDateTime;
@@ -83,6 +84,34 @@ class AccountApiTest extends IntegrationTest {
             withOldPassword.get("/api/auth/status");
             assertProblem(withOldPassword.post("/api/auth/login", login(SpaClient.PASSWORD)), HttpStatus.UNAUTHORIZED,
                     "invalid_credentials");
+        }
+
+        @Test
+        void cancelsAPendingEmailChangeAndTellsTheVerifiedAddress() {
+            verify();
+            learner.put(ACCOUNT + "/email", """
+                    {"newEmail": "taken-over@example.com", "password": "%s"}""".formatted(SpaClient.PASSWORD));
+            String changeLink = mails.onlyMailTo("taken-over@example.com").token();
+
+            assertThat(learner.put(ACCOUNT + "/password", change(SpaClient.PASSWORD, NEW_PASSWORD)))
+                    .hasStatus(HttpStatus.NO_CONTENT);
+
+            assertThat(learner.get(ACCOUNT)).bodyJson().doesNotHavePath("$.pendingEmail");
+            assertProblem(learner.post("/api/auth/verify-email", """
+                    {"token": "%s"}""".formatted(changeLink)), HttpStatus.GONE, "token_invalid");
+            assertThat(learner.get(ACCOUNT)).bodyJson().extractingPath("$.email").isEqualTo(email);
+            SentMail notice = mails.lastMailTo(email);
+            assertThat(notice.subject()).isEqualTo("Dein Lingora-Passwort wurde geändert");
+            assertThat(notice.text()).contains("Änderung deiner E-Mail-Adresse ist abgebrochen", "Falls du das nicht warst");
+        }
+
+        @Test
+        void tellsNoUnverifiedAddress() {
+            assertThat(learner.put(ACCOUNT + "/password", change(SpaClient.PASSWORD, NEW_PASSWORD)))
+                    .hasStatus(HttpStatus.NO_CONTENT);
+
+            assertThat(mails.sentTo(email)).extracting(SentMail::subject)
+                    .containsExactly("Bitte bestätige deine E-Mail-Adresse");
         }
 
         @Test
@@ -198,6 +227,11 @@ class AccountApiTest extends IntegrationTest {
                     .param("user", account).query(Integer.class).single();
         }
         return rows;
+    }
+
+    private void verify() {
+        assertThat(learner.post("/api/auth/verify-email", """
+                {"token": "%s"}""".formatted(mails.onlyMailTo(email).token()))).hasStatus(HttpStatus.NO_CONTENT);
     }
 
     private int sessionsOf(UUID account) {

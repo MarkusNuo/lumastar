@@ -40,7 +40,10 @@ spring:
         order_updates: true
 
 server:
-  # Behind a reverse proxy on the same host (e.g. Caddy) set "native", so that throttling sees the client addresses.
+  # Required behind a reverse proxy (e.g. Caddy on the same host): LINGORA_FORWARD_HEADERS_STRATEGY=native, so that the
+  # sign-in and request throttles see the clients' addresses (X-Forwarded-For) instead of the proxy's, which would make
+  # all clients share one limit. Keep "none" when the app is reached directly, as locally, so that clients cannot fake
+  # their address with the header.
   forward-headers-strategy: ${LINGORA_FORWARD_HEADERS_STRATEGY:none}
   servlet:
     session:

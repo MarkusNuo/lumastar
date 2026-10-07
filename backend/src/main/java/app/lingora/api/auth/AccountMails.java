@@ -14,6 +14,8 @@ class AccountMails {
 
     private static final String VERIFY_EMAIL_PAGE = "/verify-email";
     private static final String RESET_PASSWORD_PAGE = "/reset-password";
+    private static final String IF_NOT_YOU = "Falls du das nicht warst, setze sofort ein neues Passwort: auf der "
+            + "Anmeldeseite unter «Passwort vergessen».";
 
     private final MailOutbox outbox;
     private final String publicUrl;
@@ -48,6 +50,24 @@ class AccountMails {
                 new Link("Neues Passwort wählen", link(RESET_PASSWORD_PAGE, token)),
                 "Der Link ist 1 Stunde gültig und funktioniert nur einmal. Hast du kein neues Passwort angefordert, "
                         + "ignoriere diese E-Mail; dein Passwort bleibt unverändert.");
+    }
+
+    /** Security notice to the current address: the change takes effect only once the new address is confirmed. */
+    void emailChangeRequested(String to, String displayName, String newEmail) {
+        String intro = ("Für dein Lingora-Konto wurde die neue E-Mail-Adresse %s angegeben. Sobald sie bestätigt ist, "
+                + "meldest du dich mit ihr an und nicht mehr mit dieser Adresse.").formatted(newEmail);
+        send(to, "Deine E-Mail-Adresse soll geändert werden", displayName, intro, null,
+                IF_NOT_YOU + " Damit wird die Änderung abgebrochen.");
+    }
+
+    void passwordChanged(String to, String displayName, boolean emailChangeCancelled) {
+        String cancelled = emailChangeCancelled
+                ? " Die angefangene Änderung deiner E-Mail-Adresse ist abgebrochen; starte sie bei Bedarf neu." : "";
+        send(to, "Dein Lingora-Passwort wurde geändert", displayName,
+                "Das Passwort deines Lingora-Kontos wurde soeben geändert. Auf deinen anderen Geräten bist du abgemeldet."
+                        + cancelled,
+                null,
+                IF_NOT_YOU);
     }
 
     void accountDeleted(String to, String displayName) {

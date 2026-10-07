@@ -279,14 +279,27 @@ class AuthApiTest extends IntegrationTest {
         }
 
         @Test
-        void throttlesFailedLoginsOfAnAccountAcrossClientAddresses() {
-            for (int attempt = 0; attempt < LoginThrottle.FREE_ACCOUNT_ATTEMPTS; attempt++) {
-                SpaClient attacker = new SpaClient(mvc);
-                attacker.get(STATUS);
-                assertThat(attacker.post(LOGIN, login(email, "wrong-" + attempt))).hasStatus(HttpStatus.UNAUTHORIZED);
+        void capsFailedLoginsOnAnAddressAcrossClientsAlikeForAddressesWithoutAccount() {
+            String unknown = "nobody-%s@example.com".formatted(UUID.randomUUID());
+            for (String address : new String[] {email, unknown}) {
+                for (int attempt = 0; attempt < LoginThrottle.ATTEMPTS_PER_EMAIL; attempt++) {
+                    SpaClient attacker = new SpaClient(mvc);
+                    attacker.get(STATUS);
+                    assertProblem(attacker.post(LOGIN, login(address, "wrong-" + attempt)), HttpStatus.UNAUTHORIZED,
+                            "invalid_credentials");
+                }
             }
 
-            assertProblem(browser.post(LOGIN, login(email, PASSWORD)), HttpStatus.TOO_MANY_REQUESTS, "login_throttled");
+            MvcTestResult known = browser.post(LOGIN, login(email, PASSWORD));
+            MvcTestResult withoutAccount = browser.post(LOGIN, login(unknown, PASSWORD));
+
+            for (MvcTestResult throttled : new MvcTestResult[] {known, withoutAccount}) {
+                assertProblem(throttled, HttpStatus.TOO_MANY_REQUESTS, "login_throttled");
+                assertThat(throttled).bodyJson().extractingPath("$.detail")
+                        .isEqualTo("Too many failed sign-in attempts; try again later.");
+                assertThat(Integer.parseInt(throttled.getResponse().getHeader(HttpHeaders.RETRY_AFTER)))
+                        .isBetween(1, (int) LoginThrottle.EMAIL_WINDOW.toSeconds());
+            }
             SpaClient otherLearner = new SpaClient(mvc);
             String otherEmail = otherLearner.register("Arta");
             otherLearner.post(LOGOUT, "");

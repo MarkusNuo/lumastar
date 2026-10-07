@@ -76,6 +76,25 @@ class PasswordResetApiTest extends IntegrationTest {
     }
 
     @Test
+    void aResetCancelsAPendingEmailChangeAndTellsTheAddress() {
+        learner.put("/api/account/email", """
+                {"newEmail": "taken-over@example.com", "password": "%s"}""".formatted(SpaClient.PASSWORD));
+        String changeLink = mails.onlyMailTo("taken-over@example.com").token();
+        visitor.post(RESET, request(email));
+
+        assertThat(visitor.post(CONFIRM, confirm(mails.lastMailTo(email).token(), NEW_PASSWORD))).hasStatus(HttpStatus.NO_CONTENT);
+
+        assertProblem(visitor.post("/api/auth/verify-email", """
+                {"token": "%s"}""".formatted(changeLink)), HttpStatus.GONE, "token_invalid");
+        assertThat(jdbc.sql("SELECT count(*) FROM users WHERE pending_email IS NOT NULL").query(Integer.class).single())
+                .isZero();
+        assertThat(visitor.post("/api/auth/login", login(NEW_PASSWORD))).hasStatus(HttpStatus.NO_CONTENT);
+        SentMail notice = mails.lastMailTo(email);
+        assertThat(notice.subject()).isEqualTo("Dein Lingora-Passwort wurde geändert");
+        assertThat(notice.text()).contains("Änderung deiner E-Mail-Adresse ist abgebrochen");
+    }
+
+    @Test
     void aLinkWorksOnlyOnce() {
         visitor.post(RESET, request(email));
         String token = mails.lastMailTo(email).token();
