@@ -25,6 +25,8 @@ import { hhmm, localTime, moveLearnerTo, secondsLeftInDay, zoneAroundMidday } fr
 /** Two runs of the job and a little more. */
 const JOB_INTERVAL_MS = 5_000;
 const SNOOZE_MINUTES = 60;
+/** How late a reminder may still go out (ReminderPolicy.MAX_DELAY), and so the longest time to live. */
+const MAX_DELAY_SECONDS = 3600;
 
 let pushService: StubPushService;
 let api: APIRequestContext;
@@ -85,11 +87,13 @@ test('the job sends the daily reminder at the learner’s time, once, with “Je
     snoozeToken: expect.stringMatching(/^[\w-]{43}$/),
   });
 
-  await test.step('the push service may hold it until the learner’s day ends, and replace it by its topic', () => {
+  await test.step('the push service may hold it as long as a reminder may be late, and replace it by its topic', () => {
     const [message] = pushService.messagesTo(phone.json.endpoint);
     expect(message?.headers).toMatchObject({ topic: 'lingora-daily-reminder', urgency: 'normal' });
-    const ttl = Number(message?.headers.ttl);
-    expect(Math.abs(ttl - secondsLeftInDay(localTime(zone, new Date(message?.receivedAt ?? 0))))).toBeLessThan(120);
+    // min(lateness limit, rest of the learner's day): around midday the limit is the shorter one.
+    const leftInDay = secondsLeftInDay(localTime(zone, new Date(message?.receivedAt ?? 0)));
+    expect(leftInDay).toBeGreaterThan(MAX_DELAY_SECONDS);
+    expect(Number(message?.headers.ttl)).toBe(MAX_DELAY_SECONDS);
     expect(readVapidToken(message?.headers.authorization).signatureValid).toBe(true);
   });
 
@@ -120,14 +124,15 @@ test('the job sends the daily reminder at the learner’s time, once, with “Je
 });
 
 test('a snooze token works once (DECISIONS #87: single use)', async () => {
-  // Known M9 bug: the token stays valid until the snoozed reminder is sent again, so every replay
-  // moves it on by another hour. Remove the marker once the backend spends the token.
-  test.fail();
   const { notification } = await dailyReminderNow('reminder-snooze-once');
   const token = notification.snoozeToken ?? '';
 
-  expect((await snoozeViaApi(serviceWorker, token)).status()).toBe(200);
+  const first = await snoozeViaApi(serviceWorker, token);
+  expect(first.status(), await first.text()).toBe(200);
+
+  // A replay, with the same or another snooze, would move the reminder on again.
   await expectProblem(await snoozeViaApi(serviceWorker, token), 404, 'snooze_token_invalid');
+  await expectProblem(await snoozeViaApi(serviceWorker, token, 30), 404, 'snooze_token_invalid');
 });
 
 test('reminder settings: off until switched on, times as HH:mm, the rescue after the daily reminder', async () => {

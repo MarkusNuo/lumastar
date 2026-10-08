@@ -43,6 +43,9 @@ const TEST_NOTIFICATION: PushNotification = {
 
 /** RFC 8292: a VAPID token is valid for at most 24 hours. */
 const MAX_TOKEN_SECONDS = 24 * 60 * 60;
+/** The backend's defaults: devices per learner, failed deliveries in a row before a device goes. */
+const MAX_DEVICES = 10;
+const MAX_FAILURES = 5;
 
 let pushService: StubPushService;
 let api: APIRequestContext;
@@ -174,6 +177,42 @@ test('a device the push service no longer knows is removed, a failing one is kep
   });
 });
 
+test('a device whose deliveries fail five times in a row is removed', async () => {
+  await newLearnerViaApi(api, 'push-failures');
+  const working = pushService.subscribe('accept');
+  const failing = pushService.subscribe('fail');
+  for (const subscription of [working, failing]) await subscribe(api, subscription);
+
+  for (let failures = 1; failures < MAX_FAILURES; failures += 1) {
+    expect(await sendTest(api)).toMatchObject({ devices: 2, delivered: 1, removed: 0 });
+    const kept = (await fetchPushDevices(api)).find((device) => device.endpoint === failing.json.endpoint);
+    expect(kept, `kept after ${failures} failures`).toMatchObject({ failureCount: failures });
+  }
+
+  expect(await sendTest(api)).toMatchObject({ devices: 2, delivered: 1, removed: 1 });
+  expect(pushService.messagesTo(failing.json.endpoint)).toHaveLength(MAX_FAILURES);
+  expect((await fetchPushDevices(api)).map((device) => device.endpoint)).toEqual([working.json.endpoint]);
+});
+
+test('a learner has at most ten devices: a new one replaces the one subscribed or reached the longest time ago', async () => {
+  await newLearnerViaApi(api, 'push-cap');
+  // The first device is the oldest, but the test notification reaches only it: it was seen last.
+  const reached = pushService.subscribe('accept');
+  await subscribe(api, reached);
+  const silent = Array.from({ length: MAX_DEVICES - 1 }, () => pushService.subscribe('fail'));
+  for (const subscription of silent) await subscribe(api, subscription);
+  expect(await sendTest(api)).toMatchObject({ devices: MAX_DEVICES, delivered: 1, removed: 0 });
+
+  const newest = pushService.subscribe();
+  await subscribe(api, newest);
+
+  const endpoints = (await fetchPushDevices(api)).map((device) => device.endpoint);
+  expect(endpoints).toHaveLength(MAX_DEVICES);
+  const [oldestSilent, ...otherSilent] = silent.map((subscription) => subscription.json.endpoint);
+  expect(endpoints, 'the device not seen for the longest time is gone').not.toContain(oldestSilent);
+  expect(endpoints.sort()).toEqual([reached.json.endpoint, newest.json.endpoint, ...otherSilent].sort());
+});
+
 test('subscriptions only to the endpoints of known push services, with valid keys (no request forgery)', async () => {
   await newLearnerViaApi(api, 'push-ssrf');
   const keys = pushService.subscribe().json.keys;
@@ -181,6 +220,8 @@ test('subscriptions only to the endpoints of known push services, with valid key
     'https://push.example.com/send/abc',
     'https://fcm.googleapis.com.evil.test/fcm/send/abc',
     'https://user@fcm.googleapis.com/fcm/send/abc',
+    'https://fcm.googleapis.com:8443/fcm/send/abc',
+    'http://fcm.googleapis.com/fcm/send/abc',
     'http://169.254.169.254/latest/meta-data',
     'http://10.0.0.1:8080/push',
     'ftp://127.0.0.1/push',

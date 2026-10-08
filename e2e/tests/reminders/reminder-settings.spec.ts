@@ -1,4 +1,5 @@
 import { devices, expect, test, type Page, type Response } from '@playwright/test';
+import { AccountSettings } from '../../pages/AccountSettings.ts';
 import { LoginPage } from '../../pages/LoginPage.ts';
 import { REMINDER_BLOCKERS, RemindersPage } from '../../pages/RemindersPage.ts';
 import { WelcomePage } from '../../pages/WelcomePage.ts';
@@ -56,9 +57,12 @@ test.afterEach(async () => {
 const isReminderSave = (response: Response) =>
   response.request().method() === 'PUT' && new URL(response.url()).pathname === '/api/reminders';
 
+/** A change the server refused for its CSRF token: the app sends it once more. */
+const isCsrfRefusal = (response: Response) => response.status() === 403;
+
 /** Changes a time field and waits for the save it triggers; returns the settings as stored. */
 async function saveTime(page: Page, reminders: RemindersPage, field: 'time' | 'rescueTime', time: string) {
-  const saved = page.waitForResponse(isReminderSave);
+  const saved = page.waitForResponse((response) => isReminderSave(response) && !isCsrfRefusal(response));
   await reminders.setTime(field === 'time' ? reminders.timeInput : reminders.rescueTimeInput, time);
   const response = await saved;
   expect(response.status()).toBe(200);
@@ -113,8 +117,32 @@ withProfile.describe('on a phone that can receive web push', () => {
     });
 
     await test.step('a changed time saves itself', async () => {
-      expect(await saveTime(page, reminders, 'time', '18:15')).toMatchObject({ time: '18:15', rescueTime: '21:30' });
+      expect(await saveTime(page, reminders, 'time', '18:45')).toMatchObject({ time: '18:45', rescueTime: '21:30' });
       await expect(reminders.toast('Erinnerungen gespeichert')).toBeVisible();
+      expect((await fetchReminders(page.request)).time).toBe('18:45');
+    });
+
+    await test.step('a save refused for an outdated CSRF token goes out again, unchanged, with a fresh one', async () => {
+      const sent: { token: string | undefined; body: string | null }[] = [];
+      await page.route('**/api/reminders', async (route) => {
+        const request = route.request();
+        if (request.method() !== 'PUT') return route.fallback();
+        sent.push({ token: request.headers()['x-xsrf-token'], body: request.postData() });
+        // The first attempt carries a token the server no longer accepts, as after a rotation.
+        if (sent.length === 1) return route.continue({ headers: { ...request.headers(), 'x-xsrf-token': 'outdated' } });
+        return route.continue();
+      });
+      const refused = page.waitForResponse((response) => isReminderSave(response) && isCsrfRefusal(response));
+      expect(await saveTime(page, reminders, 'time', '18:15')).toMatchObject({ time: '18:15', rescueTime: '21:30' });
+      expect(await (await refused).json()).toMatchObject({ code: 'csrf_invalid' });
+      await page.unroute('**/api/reminders');
+
+      expect(sent).toHaveLength(2);
+      const [first, retry] = sent;
+      expect(retry?.body, 'the same changes').toBe(first?.body);
+      expect(JSON.parse(retry?.body ?? '{}')).toMatchObject({ time: '18:15' });
+      expect(retry?.token, 'the token of the CSRF cookie').toBeTruthy();
+      expect(retry?.token).not.toBe('outdated');
       expect((await fetchReminders(page.request)).time).toBe('18:15');
     });
 
@@ -182,6 +210,25 @@ withProfile.describe('on a phone that can receive web push', () => {
     expect(await fetchPushDevices(page.request)).toHaveLength(1);
 
     await reminders.backToProfile();
+
+    await test.step('a sign-out that fails keeps the device: still subscribed and registered', async () => {
+      await page.route(
+        '**/api/auth/logout',
+        (route) =>
+          route.fulfill({
+            status: 503,
+            contentType: 'application/problem+json',
+            body: JSON.stringify({ type: 'about:blank', title: 'Service Unavailable', status: 503, code: 'unavailable' }),
+          }),
+        { times: 1 },
+      );
+      await reminders.shell.logoutButton.click();
+      await expect(page.getByText(/^Abmelden hat nicht geklappt\./)).toBeVisible();
+      await expect(reminders.shell.profileHeading).toBeVisible();
+      expect(await hasPushSubscription(page)).toBe(true);
+      expect(await fetchPushDevices(page.request)).toEqual([expect.objectContaining({ endpoint: phone.json.endpoint })]);
+    });
+
     await reminders.shell.logoutButton.click();
     await new WelcomePage(page).expectVisible();
     expect(await hasPushSubscription(page), 'the browser unsubscribed').toBe(false);
@@ -200,13 +247,6 @@ withProfile.describe('on a phone that can receive web push', () => {
     context,
     playwright,
   }) => {
-    withProfile.fail(
-      true,
-      'Known bug: only "Abmelden" releases the device. After a session that ended ' +
-        'otherwise (expiry, a password change elsewhere), the next learner\'s app start registers the browser\'s ' +
-        'subscription of the previous learner for the new one (renewDeviceRegistration), who then gets reminders ' +
-        'on a device where they never switched them on.',
-    );
     const phone = pushService.subscribe();
     await fakePushSubscriptions(context, phone.json);
     const { credentials } = await newLearnerViaApi(page.request, 'reminders-shared-a');
@@ -242,15 +282,35 @@ withProfile.describe('on a phone that can receive web push', () => {
       await login.expectVisible();
       await login.login(learnerB.credentials.email, learnerB.credentials.password);
       await reminders.shell.expectHome();
+      // The session start ends A's subscription in this browser instead of registering it for B.
+      await expect.poll(() => hasPushSubscription(page), 'A’s subscription is ended').toBe(false);
       await reminders.openFromProfile();
-      await expect.soft(reminders.reminderSwitch, 'B never switched reminders on here').toHaveAttribute(
-        'aria-checked',
-        'false',
-      );
+      await expect(reminders.reminderSwitch, 'B never switched reminders on here').toHaveAttribute('aria-checked', 'false');
       expect((await fetchPushDevices(b)).map((device) => device.endpoint)).toEqual([bPhone.json.endpoint]);
+      expect((await fetchReminders(b)).enabled, 'B’s reminders on the own phone stay on').toBe(true);
     } finally {
       await Promise.all([b.dispose(), elsewhere.dispose()]);
     }
+  });
+
+  withProfile('deleting the account ends this browser’s subscription', async ({ page, context }) => {
+    const phone = pushService.subscribe();
+    await fakePushSubscriptions(context, phone.json);
+    const { credentials } = await newLearnerViaApi(page.request, 'reminders-delete');
+    const reminders = new RemindersPage(page);
+    await page.goto('/');
+    await reminders.openFromProfile();
+    await reminders.reminderSwitch.click();
+    await expect(reminders.reminderSwitch).toHaveAttribute('aria-checked', 'true');
+    expect(await hasPushSubscription(page)).toBe(true);
+
+    const settings = new AccountSettings(page);
+    await settings.open('Konto löschen', 'Konto löschen');
+    await settings.passwordInput.fill(credentials.password);
+    await settings.deleteButton.click();
+    await settings.confirmDialog.getByRole('button', { name: 'Endgültig löschen' }).click();
+    await new WelcomePage(page).expectVisible();
+    await expect.poll(() => hasPushSubscription(page), 'the browser unsubscribed').toBe(false);
   });
 
   withProfile.describe('an iPhone app opened from the home screen', () => {
@@ -306,9 +366,10 @@ test.describe('where reminders cannot be switched on', () => {
       await page.reload();
       const blocked = reminders.blocker(REMINDER_BLOCKERS.denied);
       await expect(blocked).toBeVisible();
+      // In a browser tab on Android the site's own setting blocks them, not the app's.
       await expect(blocked.getByRole('listitem')).toHaveText([
-        'Öffne die Einstellungen und tippe auf Apps.',
-        'Wähle Lingora (oder deinen Browser) und erlaube Benachrichtigungen.',
+        'Tippe in der Adressleiste auf das Symbol links neben der Adresse.',
+        'Tippe auf Berechtigungen und stelle Benachrichtigungen auf „Zulassen“.',
       ]);
       await expect(reminders.reminderSwitch).toHaveCount(0);
       await snap(page, 'reminders-denied');

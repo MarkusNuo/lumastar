@@ -80,19 +80,22 @@ lesson of a curriculum unit (`finishOpenFocusUnits`).
 ## Reminders (M9)
 
 `tests/reminders` covers web push without any real push service. The e2e backend (`bootTestRun`)
-has a throwaway VAPID key pair and accepts push endpoints on the loopback address over plain HTTP;
+has a throwaway VAPID key pair and accepts push endpoints on the loopback address over plain HTTP
+and on any port (everywhere else only HTTPS on port 443);
 the config sets `LINGORA_REMINDER_CRON` to every 5 seconds, so a reminder set to the current minute
 goes out at once. `support/pushService.ts` is a stub push service on a free loopback port: each
 subscription has a real P-256 key pair and authentication secret, the tests decrypt every message
 with Node's crypto (RFC 8291) and verify its VAPID token (RFC 8292), independently of the backend.
 
 - `push-delivery.spec.ts`: the test notification (headers, VAPID, encryption, payload), cleanup of
-  subscriptions the push service reports as gone (410) and failure counts (500), the endpoint
-  allow-list (no request forgery), key validation and that devices belong to their learner.
+  subscriptions the push service reports as gone (410), failure counts (500) and the removal after
+  five failures in a row, the cap of ten devices per learner (the one subscribed or reached the
+  longest time ago goes), the endpoint allow-list (no request forgery, HTTPS on port 443), key
+  validation and that devices belong to their learner.
 - `reminder-job.spec.ts`: the learner moves into a time zone where it is about midday
   (`support/timeZones.ts`), sets the daily reminder to now and gets it once, with "Jetzt üben", the
-  snooze and its token; the snooze needs neither session nor CSRF header. Single use of the token is
-  a known M9 bug (`test.fail`). The settings' validation through the API.
+  snooze and its single-use token, and a time to live of at most an hour (the lateness limit); the
+  snooze needs neither session nor CSRF header. The settings' validation through the API.
 - `reminder-settings.spec.ts`, `reminder-nudge.spec.ts`, `service-worker.spec.ts`: the screens and
   the production build's service worker. Where the worker matters, the tests run in a browser profile
   on disk (`chromium.launchPersistentContext`, `support/persistentBrowser.ts`), as an installed
@@ -104,9 +107,10 @@ with Node's crypto (RFC 8291) and verify its VAPID token (RFC 8292), independent
   which shows a real notification (`registration.getNotifications()`). These tests run on the full
   Chromium (`channel: 'chromium'`, `--lang=de-CH`): the headless shell of the other tests reports
   notifications as denied. A tap on a notification cannot be automated; the frontend's unit tests
-  cover the click handler, the e2e test sends the app the message the handler sends. That the next
-  learner on a browser does not take over the previous learner's device after a session that ended
-  without "Abmelden" is a known M9 bug (`test.fail`).
+  cover the click handler, the e2e test sends the app the message the handler sends. The browser's
+  subscription goes with its learner: "Abmelden" releases it (a failed sign-out keeps it), so does
+  deleting the account, and the next learner on a browser whose session ended without "Abmelden"
+  does not take it over. A save refused for an outdated CSRF token goes out again unchanged.
 
 The other tests block service workers, so their browsers cannot receive web push and never see the
 reminder suggestion after the first lesson.
