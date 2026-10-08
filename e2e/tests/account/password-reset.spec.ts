@@ -96,11 +96,6 @@ test('a forgotten password: the mailed link sets a new one once, the old one sto
 });
 
 test('the reset link works at the first try in a browser that never opened Lingora', async ({ page, request }) => {
-  test.fail(
-    true,
-    'Known bug: /reset-password posts the new password before any request has ' +
-      'set the XSRF-TOKEN cookie, so the backend answers 403 and the page says to check the connection.',
-  );
   const credentials = newCredentials('reset-fresh-browser');
   const inbox = new Inbox(credentials.email);
   await registerViaApi(request, credentials);

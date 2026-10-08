@@ -22,6 +22,8 @@ const isCI = Boolean(process.env.CI);
 const LESSON_SEED = 20261005;
 /** Seed of the placement engine's pick among the items of a stage (lingora.placement.random-seed). */
 const PLACEMENT_SEED = 20261005;
+/** Spring cron of the reminder job: every 5 seconds, so a reminder set to "now" goes out at once. */
+const REMINDER_CRON = '*/5 * * * * *';
 const isWindows = process.platform === 'win32';
 
 /** HEAD mode never reuses a running server: it may run the working tree instead of the commit. */
@@ -50,6 +52,8 @@ function backendServer(cwd: string): WebServer {
       LINGORA_MAIL_HOST: HOST,
       LINGORA_MAIL_PORT: String(MAILPIT.smtpPort),
       LINGORA_PUBLIC_URL: FRONTEND_URL,
+      // The reminder job looks for due reminders every 5 seconds instead of every 5 minutes (M9).
+      LINGORA_REMINDER_CRON: REMINDER_CRON,
       // The JDK on the Windows dev machine cannot open its loopback socket in the user temp dir.
       ...(isWindows ? { TEMP: PATHS.gradleTemp, TMP: PATHS.gradleTemp } : {}),
     },

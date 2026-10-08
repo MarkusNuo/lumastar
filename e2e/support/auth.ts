@@ -101,9 +101,13 @@ export async function confirmAddressViaApi(request: APIRequestContext, inbox: In
   expect(await verifyViaApi(request, link)).toBe(204);
 }
 
-/** An API client of its own, e.g. another device of a learner; the caller disposes of it. */
+/**
+ * An API client of its own, e.g. another device of a learner; the caller disposes of it. It starts
+ * signed out: Playwright Test would give it the storage state of the project, i.e. the session of the
+ * shared learner, and a sign-in on it would change that session's id and end it for the other tests.
+ */
 export function newApiContext(playwright: { request: APIRequest }): Promise<APIRequestContext> {
-  return playwright.request.newContext({ baseURL: FRONTEND_URL });
+  return playwright.request.newContext({ baseURL: FRONTEND_URL, storageState: { cookies: [], origins: [] } });
 }
 
 /**

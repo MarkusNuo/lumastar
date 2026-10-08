@@ -75,11 +75,6 @@ test('the link works without a session too and then leads to the sign-in', async
 });
 
 test('the link works at the first try in a browser that never opened Lingora', async ({ page, request }) => {
-  test.fail(
-    true,
-    'Known bug: /verify-email posts the token before any request has set the ' +
-      'XSRF-TOKEN cookie, so the backend answers 403 and the page shows "Das hat nicht geklappt".',
-  );
   const credentials = newCredentials('verify-fresh-browser');
   await registerViaApi(request, credentials);
   const mail = await new Inbox(credentials.email).next(SUBJECTS.verify);

@@ -136,11 +136,6 @@ test('a new password: the current one guards it, the other sessions end, this on
 });
 
 test('a new password also cancels a pending change of the address', async ({ page, playwright }) => {
-  test.fail(
-    true,
-    'Known bug: a password change or reset keeps pending_email and its CHANGE_EMAIL ' +
-      'link, so whoever started the change with a stolen password can still take over the sign-in address.',
-  );
   const { credentials, inbox } = await newLearnerViaApi(page.request, 'pending-change');
   await confirmAddressViaApi(page.request, inbox);
   const intruder = newCredentials('intruder').email;

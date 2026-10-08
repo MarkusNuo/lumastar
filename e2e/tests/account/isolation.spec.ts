@@ -146,11 +146,6 @@ test('a learner who signs in where another session just ended sees only their ow
   page,
   playwright,
 }) => {
-  test.fail(
-    true,
-    'Known bug: a session that ends with a 401 only refetches the auth status; ' +
-      'the cached queries of the first learner stay and are shown to the next one after the sign-in.',
-  );
   const elsewhere = await newApiContext(playwright);
   try {
     const a = await learnerWithProgress(page.request, 'shared-device-a', 'Ardit');

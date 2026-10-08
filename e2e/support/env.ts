@@ -22,7 +22,7 @@ export const MAILPIT = {
 } as const;
 
 /** Screenshots land in screenshots/<milestone>/; bump per milestone or override via env. */
-export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm8';
+export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm9';
 
 /**
  * Identifies this run in the e-mail addresses of its accounts, so the tests find their own mails in

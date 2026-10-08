@@ -40,12 +40,17 @@ export class CatalogPage {
     );
   }
 
+  /**
+   * A section of the catalog: the region with the anchor id, not a region of the same name inside a
+   * specimen (e.g. "Erinnerungen" of the reminder settings within the section "Erinnerungen").
+   */
   section(title: string): Locator {
-    return this.page.getByRole('region', { name: title, exact: true });
+    return this.page.getByRole('region', { name: title, exact: true }).and(this.page.locator('section[id]'));
   }
 
+  /** The section's own heading, which names it (aria-labelledby). */
   sectionHeading(title: string): Locator {
-    return this.section(title).getByRole('heading', { name: title, level: 2, exact: true });
+    return this.section(title).locator(':scope > h2');
   }
 
   /** Jumps to a section through the sticky section navigation. */

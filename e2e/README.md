@@ -61,8 +61,9 @@ reset with the end of other sessions, the account settings (name, address, passw
 and the isolation of two learners (screens, API, export; foreign lesson and placement ids answer 404).
 The registration modes `invite`/`closed` and the sign-in of the single-user version are fixed when the
 backend starts: the backend tests cover them against the API, the e2e tests only show their screens
-through `page.route` (`registration-modes.spec.ts`). Tests marked `test.fail` stand for known bugs of
-the M8 review; once a bug is fixed, the test reports that it passed unexpectedly and the marker goes.
+through `page.route` (`registration-modes.spec.ts`). The known bugs of the M8 review are fixed and
+their tests pass. In general, a test marked `test.fail` stands for a known bug of a review: once the
+bug is fixed, the test reports that it passed unexpectedly and the marker goes.
 
 "Neu einstufen" runs a full placement test through the UI. The API sends no solutions, so the test
 reads `placement.json` of the seeded content (`PATHS.content`) and answers every item wrong for sure:
@@ -75,6 +76,40 @@ open checkpoint as the next step and the lessons after it stay playable. The pat
 frontend's rule for that (`checkpointAsNextStep`), and lessons start from the next node of the unit in
 progress. Focus units the plan holds open are played through the API first where a test needs a
 lesson of a curriculum unit (`finishOpenFocusUnits`).
+
+## Reminders (M9)
+
+`tests/reminders` covers web push without any real push service. The e2e backend (`bootTestRun`)
+has a throwaway VAPID key pair and accepts push endpoints on the loopback address over plain HTTP;
+the config sets `LINGORA_REMINDER_CRON` to every 5 seconds, so a reminder set to the current minute
+goes out at once. `support/pushService.ts` is a stub push service on a free loopback port: each
+subscription has a real P-256 key pair and authentication secret, the tests decrypt every message
+with Node's crypto (RFC 8291) and verify its VAPID token (RFC 8292), independently of the backend.
+
+- `push-delivery.spec.ts`: the test notification (headers, VAPID, encryption, payload), cleanup of
+  subscriptions the push service reports as gone (410) and failure counts (500), the endpoint
+  allow-list (no request forgery), key validation and that devices belong to their learner.
+- `reminder-job.spec.ts`: the learner moves into a time zone where it is about midday
+  (`support/timeZones.ts`), sets the daily reminder to now and gets it once, with "Jetzt üben", the
+  snooze and its token; the snooze needs neither session nor CSRF header. Single use of the token is
+  a known M9 bug (`test.fail`). The settings' validation through the API.
+- `reminder-settings.spec.ts`, `reminder-nudge.spec.ts`, `service-worker.spec.ts`: the screens and
+  the production build's service worker. Where the worker matters, the tests run in a browser profile
+  on disk (`chromium.launchPersistentContext`, `support/persistentBrowser.ts`), as an installed
+  browser keeps it. Chromium offers no push service under Playwright either way: an off-the-record
+  context refuses `pushManager.subscribe()`, a profile on disk waits for Google's push service, and
+  the backend would then send to Google. So `support/browserPush.ts` swaps the push service at both
+  ends: `pushManager` hands out a subscription at the stub, and the test delivers the message it
+  received to the real worker through the DevTools protocol (`ServiceWorker.deliverPushMessage`),
+  which shows a real notification (`registration.getNotifications()`). These tests run on the full
+  Chromium (`channel: 'chromium'`, `--lang=de-CH`): the headless shell of the other tests reports
+  notifications as denied. A tap on a notification cannot be automated; the frontend's unit tests
+  cover the click handler, the e2e test sends the app the message the handler sends. That the next
+  learner on a browser does not take over the previous learner's device after a session that ended
+  without "Abmelden" is a known M9 bug (`test.fail`).
+
+The other tests block service workers, so their browsers cannot receive web push and never see the
+reminder suggestion after the first lesson.
 
 ## Daily goal and streak
 

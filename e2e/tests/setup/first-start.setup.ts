@@ -143,6 +143,9 @@ test('the first start: registration, onboarding questions and the skipped placem
     await onboarding.choose('selfAssessment', ONBOARDING.selfAssessment.label);
     await snapAll('onboarding-self-assessment');
 
+    // The app keeps a copy of every unsafe request for a CSRF retry, which turns its body into a
+    // stream that Chromium reports without data; an intercepted request carries it.
+    await page.route('**/api/onboarding', (route) => route.fallback());
     const saved = page.waitForResponse(isOnboardingAnswer);
     await onboarding.nextButton.click();
     const response = await saved;
