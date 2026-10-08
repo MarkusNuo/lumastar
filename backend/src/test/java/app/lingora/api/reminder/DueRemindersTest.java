@@ -21,6 +21,8 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,8 @@ import tools.jackson.databind.JsonNode;
 class DueRemindersTest extends ClockedIntegrationTest {
 
     private static final String PHONE = "https://fcm.googleapis.com/fcm/send/phone";
+    private static final String LAPTOP = "https://updates.push.services.mozilla.com/wpush/v2/laptop";
+    private static final Duration PATIENCE = Duration.ofSeconds(10);
     private static final LocalDate WEDNESDAY = LocalDate.of(2026, 10, 7);
     private static final Instant SEVEN_PM = Instant.parse("2026-10-07T17:00:00Z");
     private static final Instant HALF_PAST_NINE_PM = Instant.parse("2026-10-07T19:30:00Z");
@@ -75,7 +79,7 @@ class DueRemindersTest extends ClockedIntegrationTest {
 
         SentPush push = pushes.sent().getFirst();
         assertThat(push.endpoint()).isEqualTo(PHONE);
-        assertThat(push.timeToLive()).as("until midnight in Zurich").isEqualTo(Duration.ofHours(5));
+        assertThat(push.timeToLive()).as("no later than a reminder may be sent").isEqualTo(Duration.ofHours(1));
         PushNotification notification = push.notification();
         assertThat(notification.kind()).isEqualTo(NotificationKind.DAILY_REMINDER);
         assertThat(notification.title()).isEqualTo("Zeit für Gheg!");
@@ -164,7 +168,7 @@ class DueRemindersTest extends ClockedIntegrationTest {
         PushNotification rescue = pushes.sent().get(1).notification();
         assertThat(rescue.body()).isEqualTo("Mit 10 Minuten Gheg rettest du ihn noch heute.");
         assertThat(rescue.tag()).isEqualTo("lingora-streak-at-risk");
-        assertThat(pushes.sent().get(1).timeToLive()).isEqualTo(Duration.ofMinutes(150));
+        assertThat(pushes.sent().get(1).timeToLive()).isEqualTo(Duration.ofHours(1));
     }
 
     @Test
@@ -209,15 +213,31 @@ class DueRemindersTest extends ClockedIntegrationTest {
         reminders.sendDue();
         String token = pushes.sent().getFirst().notification().snoozeToken();
 
-        clock.set(Instant.parse("2026-10-07T20:45:00Z"));
-        assertThat(new SpaClient(mvc).postWithoutCsrfHeader("/api/reminders/snooze", """
-                {"token": "%s", "minutes": 30}""".formatted(token))).hasStatusOk();
         clock.set(Instant.parse("2026-10-07T21:05:00Z"));
         assertProblem(new SpaClient(mvc).postWithoutCsrfHeader("/api/reminders/snooze", """
                 {"token": "%s"}""".formatted(token)), HttpStatus.CONFLICT, "snooze_too_late");
         clock.set(Instant.parse("2026-10-07T22:00:00Z"));
         assertProblem(new SpaClient(mvc).postWithoutCsrfHeader("/api/reminders/snooze", """
                 {"token": "%s", "minutes": 5}""".formatted(token)), HttpStatus.NOT_FOUND, "snooze_token_invalid");
+    }
+
+    @Test
+    void aSnoozeTokenWorksOnce() {
+        clock.set(SEVEN_PM);
+        reminders.sendDue();
+        String token = pushes.sent().getFirst().notification().snoozeToken();
+        SpaClient serviceWorker = new SpaClient(mvc);
+
+        assertThat(serviceWorker.postWithoutCsrfHeader("/api/reminders/snooze", """
+                {"token": "%s"}""".formatted(token))).hasStatusOk();
+        clock.advance(Duration.ofMinutes(1));
+
+        assertProblem(serviceWorker.postWithoutCsrfHeader("/api/reminders/snooze", """
+                {"token": "%s", "minutes": 5}""".formatted(token)), HttpStatus.NOT_FOUND, "snooze_token_invalid");
+        assertThat(jdbc.sql("""
+                        SELECT to_char(snoozed_until AT TIME ZONE 'UTC', 'HH24:MI') || ' ' || (snooze_token_hash IS NULL)
+                        FROM reminder_log""").query(String.class).single())
+                .as("the first snooze stands, the token is spent").isEqualTo("18:00 true");
     }
 
     @Test
@@ -231,6 +251,32 @@ class DueRemindersTest extends ClockedIntegrationTest {
         PushNotification late = pushes.sent().getFirst().notification();
         assertThat(late.snoozeToken()).isNull();
         assertThat(late.actions()).extracting(NotificationAction::action).containsExactly(NotificationAction.Type.PRACTISE);
+        assertThat(pushes.sent().getFirst().timeToLive()).as("until midnight in Zurich").isEqualTo(Duration.ofMinutes(30));
+    }
+
+    @Test
+    void aSlowPushServiceHoldsUpNoOtherLearnersReminder() throws Exception {
+        SpaClient bora = new SpaClient(mvc);
+        String boraEmail = bora.register("Bora");
+        UUID boraId = jdbc.sql("SELECT id FROM users WHERE email = :email").param("email", boraEmail).query(UUID.class).single();
+        assertThat(bora.post("/api/push/subscriptions", PushSubscriptions.json(LAPTOP))).hasStatusOk();
+        assertThat(bora.put("/api/reminders", """
+                {"enabled": true, "time": "18:30", "rescueEnabled": false, "rescueTime": "21:30"}""")).hasStatusOk();
+        pushes.hold(LAPTOP);
+        clock.set(SEVEN_PM.plus(Duration.ofMinutes(10)));
+
+        CompletableFuture<List<SentNotification>> job = CompletableFuture.supplyAsync(reminders::sendDue);
+        try {
+            assertThat(pushes.awaitSent(PHONE, PATIENCE)).as("Erza's reminder goes out while Bora's push service hangs")
+                    .isTrue();
+            assertThat(job).isNotDone();
+        } finally {
+            pushes.release(LAPTOP);
+        }
+
+        assertThat(job.get(PATIENCE.toSeconds(), TimeUnit.SECONDS)).extracting(SentNotification::userId)
+                .as("Bora's reminder is 40 minutes late, Erza's 10: the latest first").containsExactly(boraId, learnerId);
+        assertThat(pushes.sent()).extracting(SentPush::endpoint).containsExactly(PHONE, LAPTOP);
     }
 
     @Test

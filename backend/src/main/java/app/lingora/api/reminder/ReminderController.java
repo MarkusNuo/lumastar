@@ -68,12 +68,12 @@ public class ReminderController {
     @SecurityRequirements
     @Operation(operationId = "snoozeReminder", summary = "Get a reminder again later (notification action \"In 1 Stunde\")",
             description = "For the service worker: needs neither the session nor the CSRF header, only the snoozeToken of "
-                    + "the notification. It stays valid until the end of the learner's day and is replaced by the next "
+                    + "the notification. It snoozes once, until the end of the learner's day, and is replaced by the next "
                     + "notification of the same kind. The reminder comes again unless the daily goal is met by then.")
     @ApiResponse(responseCode = "200", description = "Snoozed")
     @ApiResponse(responseCode = "400", description = "No token or minutes out of range (code validation_failed)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
-    @ApiResponse(responseCode = "404", description = "Unknown, replaced or expired token (code snooze_token_invalid)",
+    @ApiResponse(responseCode = "404", description = "Unknown, used, replaced or expired token (code snooze_token_invalid)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
     @ApiResponse(responseCode = "409", description = "The reminder would come tomorrow (code snooze_too_late)",
             content = @Content(mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))

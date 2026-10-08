@@ -63,9 +63,13 @@ public final class ReminderPolicy {
         return until.isBefore(endOfDay(now)) ? Optional.of(until.toInstant()) : Optional.empty();
     }
 
-    /** How long a push service may hold a reminder for an unreachable device: until the learner's day ends. */
+    /**
+     * How long a push service may hold a reminder for an unreachable device: no longer than a reminder may be late
+     * ({@link #MAX_DELAY}), and never into the next day.
+     */
     public static Duration timeToLive(ZonedDateTime now) {
-        return Duration.between(now, endOfDay(now));
+        Duration untilMidnight = Duration.between(now, endOfDay(now));
+        return untilMidnight.compareTo(MAX_DELAY) < 0 ? untilMidnight : MAX_DELAY;
     }
 
     public static ZonedDateTime endOfDay(ZonedDateTime now) {

@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.time.Duration;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class PushSetupTest {
 
@@ -48,15 +50,38 @@ class PushSetupTest {
                 false))).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("Invalid VAPID keys");
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"mailto:lingora@example.org", "https://lingora.example.org", "http://localhost:5173",
+            "http://127.0.0.1:4173", "http://[::1]:5173"})
+    void acceptsAContactUrlAndPlainHttpOnlyOnTheLocalMachine(String subject) {
+        assertThat(PushSetup.of(KEYS, subject).available()).isTrue();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"lingora@example.org", "http://lingora.example.org", "http://127.example.org",
+            "http://192.168.1.10:5173", "mailto:", "https://", "ftp://lingora.example.org", "https://lingora .example.org"})
+    void refusesAnyOtherSubject(String subject) {
+        assertThatThrownBy(() -> PushSetup.of(KEYS, subject)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("LINGORA_PUSH_SUBJECT");
+    }
+
     @Test
-    void needsAContactUrlAsSubject() {
-        assertThatThrownBy(() -> PushSetup.of(KEYS, "lingora@example.org")).isInstanceOf(IllegalArgumentException.class);
+    void needsASubject() {
         assertThatThrownBy(() -> PushSetup.of(KEYS, null)).isInstanceOf(IllegalArgumentException.class);
-        assertThat(PushSetup.of(KEYS, "https://lingora.example.org").available()).isTrue();
+    }
+
+    @Test
+    void neverPrintsThePrivateKey() {
+        PushProperties properties = properties(KEYS.encodedPublicKey(), KEYS.encodedPrivateKey(), false);
+
+        assertThat(properties.toString()).doesNotContain(KEYS.encodedPrivateKey())
+                .contains("publicKey=" + KEYS.encodedPublicKey(), "privateKey=(redacted)", "subject=" + SUBJECT);
+        assertThat(properties(null, null, true).toString()).contains("privateKey=null");
+        assertThat(KEYS.toString()).doesNotContain(KEYS.encodedPrivateKey());
     }
 
     private static PushProperties properties(String publicKey, String privateKey, boolean ephemeral) {
         return new PushProperties(publicKey, privateKey, SUBJECT, ephemeral, List.of("fcm.googleapis.com"), true,
-                Duration.ofSeconds(10));
+                Duration.ofSeconds(10), 10, 5, 4);
     }
 }

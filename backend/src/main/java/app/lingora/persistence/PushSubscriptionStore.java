@@ -73,15 +73,45 @@ public class PushSubscriptionStore {
                 .update();
     }
 
-    public void recordFailure(UUID subscriptionId) {
-        jdbc.sql("UPDATE push_subscriptions SET failure_count = failure_count + 1 WHERE id = :id")
+    /**
+     * Counts a failed delivery; the subscription is removed once {@code maxFailures} deliveries in a row have failed.
+     *
+     * @return whether it was removed
+     */
+    public boolean recordFailure(UUID subscriptionId, int maxFailures) {
+        boolean removed = jdbc.sql("DELETE FROM push_subscriptions WHERE id = :id AND failure_count + 1 >= :maxFailures")
                 .param("id", subscriptionId)
-                .update();
+                .param("maxFailures", maxFailures)
+                .update() > 0;
+        if (!removed) {
+            jdbc.sql("UPDATE push_subscriptions SET failure_count = failure_count + 1 WHERE id = :id")
+                    .param("id", subscriptionId)
+                    .update();
+        }
+        return removed;
     }
 
     /** Removes a subscription the push service no longer knows. */
     public void remove(UUID subscriptionId) {
         jdbc.sql("DELETE FROM push_subscriptions WHERE id = :id").param("id", subscriptionId).update();
+    }
+
+    /**
+     * Removes the learner's subscriptions beyond {@code maxDevices}: those subscribed or reached the longest time ago.
+     * The subscription {@code kept}, usually the one just saved, stays.
+     *
+     * @return how many were removed
+     */
+    public int keepMostRecent(UUID userId, int maxDevices, UUID kept) {
+        return jdbc.sql("""
+                        DELETE FROM push_subscriptions WHERE id IN (
+                            SELECT id FROM push_subscriptions WHERE user_id = :user AND id <> :kept
+                            ORDER BY greatest(created_at, last_success_at) DESC, id DESC
+                            OFFSET :others)""")
+                .param("user", userId)
+                .param("kept", kept)
+                .param("others", maxDevices - 1)
+                .update();
     }
 
     private static StoredSubscription subscription(ResultSet row, int rowNumber) throws SQLException {

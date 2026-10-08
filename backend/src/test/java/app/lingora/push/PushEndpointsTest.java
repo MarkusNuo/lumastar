@@ -17,7 +17,8 @@ class PushEndpointsTest {
             "https://updates.push.services.mozilla.com/wpush/v2/gAAAAA",
             "https://web.push.apple.com/QGuQyavXutnMH",
             "https://wns2-par02p.notify.windows.com/w/?token=BQYAAA",
-            "https://FCM.googleapis.com/fcm/send/x"})
+            "https://FCM.googleapis.com/fcm/send/x",
+            "https://fcm.googleapis.com:443/fcm/send/x"})
     void acceptsTheEndpointsOfThePushServices(String endpoint) {
         assertThat(PUSH_SERVICES.isAllowed(endpoint)).isTrue();
     }
@@ -33,7 +34,11 @@ class PushEndpointsTest {
             "https://192.168.1.10/admin",
             "ftp://fcm.googleapis.com/x",
             "fcm.googleapis.com/fcm/send/x",
+            "//fcm.googleapis.com/fcm/send/x",
             "https://fcm.googleapis.com:443/fcm send",
+            "https://fcm.googleapis.com:8443/fcm/send/x",
+            "https://fcm.googleapis.com:80/fcm/send/x",
+            "https://updates.push.services.mozilla.com:22/wpush/v2/x",
             "https://"})
     void refusesAnyOtherUrl(String endpoint) {
         assertThat(PUSH_SERVICES.isAllowed(endpoint)).isFalse();
@@ -45,5 +50,16 @@ class PushEndpointsTest {
         assertThat(new PushEndpoints(List.of("127.0.0.1"), false).isAllowed(endpoint)).isTrue();
         assertThat(new PushEndpoints(List.of("127.0.0.1"), true).isAllowed(endpoint)).isEqualTo(endpoint.startsWith("https"));
         assertThat(PUSH_SERVICES.isAllowed(endpoint)).isFalse();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"http://fcm.googleapis.com/fcm/send/x", "https://fcm.googleapis.com:8443/fcm/send/x",
+            "http://127.0.0.1.example/push"})
+    void keepsRealPushServicesOnHttpsAndTheirDefaultPortBesideALocalStub(String endpoint) {
+        PushEndpoints withLocalStub = new PushEndpoints(List.of("fcm.googleapis.com", "127.0.0.1", "example"), false);
+
+        assertThat(withLocalStub.isAllowed(endpoint)).isFalse();
+        assertThat(withLocalStub.isAllowed("https://fcm.googleapis.com/fcm/send/x")).isTrue();
+        assertThat(withLocalStub.isAllowed("http://localhost.example:8181/push")).isFalse();
     }
 }

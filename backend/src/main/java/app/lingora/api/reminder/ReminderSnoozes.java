@@ -22,7 +22,8 @@ import org.springframework.stereotype.Component;
 /**
  * The snooze action of a reminder ("In 1 Stunde"). The service worker sends it without opening the app, so it cannot
  * read the CSRF cookie: a notification carries a token of its own instead, 32 random bytes stored only as their
- * SHA-256 hash, valid until the end of the learner's day and replaced by the next notification of the same kind.
+ * SHA-256 hash. It snoozes once, until the end of the learner's day, and is replaced by the next notification of the
+ * same kind.
  */
 @Component
 class ReminderSnoozes {
@@ -55,15 +56,21 @@ class ReminderSnoozes {
 
     SnoozeResponse snooze(String token, Duration snooze) {
         Instant now = clock.instant();
-        SnoozableReminder reminder = reminders.bySnoozeToken(hash(token))
+        String tokenHash = hash(token);
+        SnoozableReminder reminder = reminders.bySnoozeToken(tokenHash)
                 .filter(found -> now.isBefore(found.tokenExpiresAt()))
-                .orElseThrow(() -> new ApiProblemException(HttpStatus.NOT_FOUND, "snooze_token_invalid",
-                        "The reminder can no longer be snoozed."));
+                .orElseThrow(ReminderSnoozes::invalidToken);
         Instant until = ReminderPolicy.snoozedUntil(now.atZone(reminder.zone()), snooze)
                 .orElseThrow(() -> new ApiProblemException(HttpStatus.CONFLICT, "snooze_too_late",
                         "The snoozed reminder would come tomorrow."));
-        reminders.snooze(reminder.id(), until);
+        if (!reminders.snooze(reminder.id(), tokenHash, until, now)) {
+            throw invalidToken();
+        }
         return new SnoozeResponse(until);
+    }
+
+    private static ApiProblemException invalidToken() {
+        return new ApiProblemException(HttpStatus.NOT_FOUND, "snooze_token_invalid", "The reminder can no longer be snoozed.");
     }
 
     private static String hash(String token) {

@@ -29,7 +29,8 @@ public class ReminderStore {
      * A cheap preselection for ReminderPolicy, which decides: learners with reminders on, a device to send to and
      * today's goal not yet met, whose daily reminder or streak rescue time has just come and has not been sent today,
      * or whose snooze has run out. The local time of each time zone comes from Java, so that unknown zones cannot break
-     * the query and DST follows the same rules as the policy.
+     * the query and DST follows the same rules as the policy. The latest reminders come first: they are the closest to
+     * being skipped.
      */
     private static final String DUE = """
             WITH zone_now (time_zone, local_now) AS (
@@ -43,16 +44,24 @@ public class ReminderStore {
             )
             SELECT l.user_id, l.time_zone, l.daily_goal_minutes, %s
             FROM learner_now l
-            WHERE NOT EXISTS (SELECT 1 FROM streaks s WHERE s.user_id = l.user_id AND s.last_active_date >= l.today)
-              AND ((l.local_now >= l.today + l.daily_time AND l.local_now < l.today + l.daily_time + :window * interval '1 second'
-                    AND NOT EXISTS (SELECT 1 FROM reminder_log g WHERE g.user_id = l.user_id AND g.day = l.today))
-                OR (l.rescue_enabled
-                    AND l.local_now >= l.today + l.rescue_time AND l.local_now < l.today + l.rescue_time + :window * interval '1 second'
-                    AND NOT EXISTS (SELECT 1 FROM reminder_log g WHERE g.user_id = l.user_id AND g.day = l.today
-                                    AND g.kind = 'streak_at_risk'))
-                OR EXISTS (SELECT 1 FROM reminder_log g WHERE g.user_id = l.user_id AND g.day = l.today
-                           AND g.snoozed_until <= :now AND g.snoozed_until > :now - :window * interval '1 second'))
-            ORDER BY l.user_id""".formatted(SETTINGS_COLUMNS);
+            CROSS JOIN LATERAL (
+                SELECT max(due.late) AS late
+                FROM (
+                    SELECT l.local_now - (l.today + l.daily_time)
+                    WHERE NOT EXISTS (SELECT 1 FROM reminder_log g WHERE g.user_id = l.user_id AND g.day = l.today)
+                    UNION ALL
+                    SELECT l.local_now - (l.today + l.rescue_time)
+                    WHERE l.rescue_enabled AND NOT EXISTS (SELECT 1 FROM reminder_log g WHERE g.user_id = l.user_id
+                                                           AND g.day = l.today AND g.kind = 'streak_at_risk')
+                    UNION ALL
+                    SELECT :now - g.snoozed_until
+                    FROM reminder_log g WHERE g.user_id = l.user_id AND g.day = l.today AND g.snoozed_until IS NOT NULL
+                ) AS due (late)
+                WHERE due.late >= interval '0' AND due.late < :window * interval '1 second'
+            ) AS d
+            WHERE d.late IS NOT NULL
+              AND NOT EXISTS (SELECT 1 FROM streaks s WHERE s.user_id = l.user_id AND s.last_active_date >= l.today)
+            ORDER BY d.late DESC, l.user_id""".formatted(SETTINGS_COLUMNS);
 
     private final JdbcClient jdbc;
 
@@ -110,7 +119,7 @@ public class ReminderStore {
     }
 
     /**
-     * The learners who may be due for a reminder at {@code now}.
+     * The learners who may be due for a reminder at {@code now}, the one whose reminder is latest first.
      *
      * @param localNow the local time of {@code now} in each time zone of {@link #zonesWithReminders()}
      * @param maxDelay how late a reminder may still be sent
@@ -199,11 +208,21 @@ public class ReminderStore {
                 .optional();
     }
 
-    public void snooze(UUID reminderId, Instant until) {
-        jdbc.sql("UPDATE reminder_log SET snoozed_until = :until WHERE id = :id")
+    /**
+     * Snoozes the reminder and spends its snooze token in one step, so that a token works once even if it is presented
+     * twice at the same time.
+     *
+     * @return whether the token was still valid at {@code now}; {@code false} if it was used, replaced or has expired
+     */
+    public boolean snooze(UUID reminderId, String tokenHash, Instant until, Instant now) {
+        return jdbc.sql("""
+                        UPDATE reminder_log SET snoozed_until = :until, snooze_token_hash = NULL, snooze_expires_at = NULL
+                        WHERE id = :id AND snooze_token_hash = :hash AND snooze_expires_at > :now""")
                 .param("until", SqlTimestamps.of(until))
                 .param("id", reminderId)
-                .update();
+                .param("hash", tokenHash)
+                .param("now", SqlTimestamps.of(now))
+                .update() > 0;
     }
 
     /** Forgets the reminders of the days before {@code day}; the policy only needs today's. */

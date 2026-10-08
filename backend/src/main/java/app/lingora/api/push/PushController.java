@@ -59,7 +59,9 @@ public class PushController {
             description = "Send it after pushManager.subscribe() and again on every app start, since browsers may renew "
                     + "a subscription. A known endpoint is updated; one that another account registered moves to this "
                     + "account (one browser profile has one subscription). Remove it before signing out on a shared "
-                    + "device. Endpoints must belong to a known push service (Google, Mozilla, Apple, Microsoft).")
+                    + "device. Endpoints must belong to a known push service (Google, Mozilla, Apple, Microsoft) and use "
+                    + "HTTPS on its default port. An account has a limited number of devices (10 by default): registering "
+                    + "another removes the one subscribed or reached the longest time ago.")
     @ApiResponse(responseCode = "200", description = "The registered device")
     @ApiResponse(responseCode = "400", description = "Invalid keys (code validation_failed) or an endpoint of an unknown "
             + "push service (code push_service_not_supported)", content = @Content(

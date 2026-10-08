@@ -22,4 +22,9 @@ class PushConfig {
     WebPushSender webPushSender(PushSetup setup, PushProperties properties, JsonMapper json, Clock clock) {
         return new WebPushSender(setup, json, clock, properties.timeout());
     }
+
+    @Bean
+    PushDispatcher pushDispatcher(PushSender sender, PushProperties properties) {
+        return new PushDispatcher(sender, properties.parallelSends());
+    }
 }

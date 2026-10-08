@@ -257,12 +257,17 @@ class ReminderPolicyTest {
         }
 
         @Test
-        void lastsUntilTheLearnersMidnight() {
-            assertThat(ReminderPolicy.timeToLive(at("19:00"))).isEqualTo(Duration.ofHours(5));
+        void lastsNoLongerThanAReminderMayBeLate() {
+            assertThat(ReminderPolicy.timeToLive(at("19:00"))).as("not delivered hours later").isEqualTo(ReminderPolicy.MAX_DELAY);
+            assertThat(ReminderPolicy.timeToLive(at("23:00"))).isEqualTo(Duration.ofHours(1));
             assertThat(ReminderPolicy.timeToLive(LocalDateTime.of(2026, 3, 29, 1, 0).atZone(ZURICH)))
-                    .as("the day of the change to summer time has 23 hours").isEqualTo(Duration.ofHours(22));
-            assertThat(ReminderPolicy.timeToLive(LocalDateTime.of(2026, 10, 25, 1, 0).atZone(ZURICH)))
-                    .as("the day of the change to winter time has 25 hours").isEqualTo(Duration.ofHours(24));
+                    .as("the day of the change to summer time").isEqualTo(Duration.ofHours(1));
+        }
+
+        @Test
+        void lastsAtMostUntilTheLearnersMidnight() {
+            assertThat(ReminderPolicy.timeToLive(at("23:30"))).isEqualTo(Duration.ofMinutes(30));
+            assertThat(ReminderPolicy.timeToLive(at("23:59:59"))).isEqualTo(Duration.ofSeconds(1));
         }
 
         @Test

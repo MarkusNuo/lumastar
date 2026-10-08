@@ -21,11 +21,11 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
@@ -35,8 +35,10 @@ import org.springframework.stereotype.Service;
 
 /**
  * Sends the reminders that are due (PRD F9), every few minutes ({@code lingora.reminders.cron}, {@code -} switches it
- * off): {@link ReminderPolicy} decides for each learner the store preselects. A reminder is recorded before it is
- * sent, so that a restart never sends it twice. Without web push nothing happens.
+ * off): {@link ReminderPolicy} decides for each learner the store preselects, the latest first. A reminder is recorded
+ * before it is sent, so that a restart never sends it twice. The decisions take no push request; the push messages go
+ * out in the background in the same order, so that a slow push service delays no other learner's reminder beyond
+ * its limit. Without web push nothing happens.
  */
 @Service
 public class DueReminders {
@@ -75,28 +77,36 @@ public class DueReminders {
         sendDue();
     }
 
+    /** Sends the due reminders and waits until they are delivered; the result is in the order of the decisions. */
     public List<SentNotification> sendDue() {
         if (!setup.available()) {
             return List.of();
         }
         Instant now = clock.instant();
-        Map<ZoneId, LocalDateTime> localNow = reminders.zonesWithReminders().stream()
-                .collect(Collectors.toMap(Function.identity(), zone -> LocalDateTime.ofInstant(now, zone)));
-        List<SentNotification> sent = new ArrayList<>();
-        if (!localNow.isEmpty()) {
-            for (Candidate candidate : reminders.candidates(now, localNow, ReminderPolicy.MAX_DELAY)) {
-                try {
-                    remind(candidate, now).ifPresent(sent::add);
-                } catch (RuntimeException e) {
-                    LOG.error("Reminder failed for learner {}", candidate.userId(), e);
-                }
-            }
-        }
+        List<CompletableFuture<Optional<SentNotification>>> sending = candidates(now).stream()
+                .map(candidate -> remind(candidate, now))
+                .toList();
+        List<SentNotification> sent = sending.stream().map(CompletableFuture::join).flatMap(Optional::stream).toList();
         reminders.deleteBefore(LocalDate.ofInstant(now, ZoneOffset.UTC).minusDays(LOG_RETENTION_DAYS));
         return sent;
     }
 
-    private Optional<SentNotification> remind(Candidate candidate, Instant now) {
+    private List<Candidate> candidates(Instant now) {
+        Map<ZoneId, LocalDateTime> localNow = reminders.zonesWithReminders().stream()
+                .collect(Collectors.toMap(Function.identity(), zone -> LocalDateTime.ofInstant(now, zone)));
+        return localNow.isEmpty() ? List.of() : reminders.candidates(now, localNow, ReminderPolicy.MAX_DELAY);
+    }
+
+    /** A failure leaves the other learners' reminders alone. */
+    private CompletableFuture<Optional<SentNotification>> remind(Candidate candidate, Instant now) {
+        try {
+            return decideAndSend(candidate, now).exceptionally(failure -> failed(candidate, failure));
+        } catch (RuntimeException e) {
+            return CompletableFuture.completedFuture(failed(candidate, e));
+        }
+    }
+
+    private CompletableFuture<Optional<SentNotification>> decideAndSend(Candidate candidate, Instant now) {
         UUID userId = candidate.userId();
         ZonedDateTime localNow = now.atZone(candidate.zone());
         LocalDate today = localNow.toLocalDate();
@@ -105,16 +115,24 @@ public class DueReminders {
         ReminderDay day = new ReminderDay(goal.met(), streak, reminders.sentOn(userId, today));
         Reminder reminder = ReminderPolicy.decide(localNow, candidate.settings(), day);
         if (reminder == Reminder.NONE) {
-            return Optional.empty();
+            return CompletableFuture.completedFuture(Optional.empty());
         }
         Optional<IssuedToken> snoozeToken = snoozes.issue(localNow);
         if (!reminders.claim(userId, today, day.sent(reminder), reminder, snoozeToken.map(IssuedToken::stored), now)) {
-            return Optional.empty();
+            return CompletableFuture.completedFuture(Optional.empty());
         }
-        Delivery delivery = devices.deliver(userId, ReminderNotifications.of(reminder, streak.current(), goal,
-                cards.dueNow(userId, now), snoozeToken.map(IssuedToken::token)), ReminderPolicy.timeToLive(localNow));
-        reminders.recordDelivery(userId, today, reminder, delivery.devices(), delivery.delivered());
-        LOG.info("Sent {} to learner {}: {} of {} devices", reminder.code(), userId, delivery.delivered(), delivery.devices());
-        return Optional.of(new SentNotification(userId, reminder, delivery));
+        return devices.deliver(userId, ReminderNotifications.of(reminder, streak.current(), goal, cards.dueNow(userId, now),
+                        snoozeToken.map(IssuedToken::token)), ReminderPolicy.timeToLive(localNow))
+                .thenApply(delivery -> {
+                    reminders.recordDelivery(userId, today, reminder, delivery.devices(), delivery.delivered());
+                    LOG.info("Sent {} to learner {}: {} of {} devices", reminder.code(), userId, delivery.delivered(),
+                            delivery.devices());
+                    return Optional.of(new SentNotification(userId, reminder, delivery));
+                });
+    }
+
+    private static Optional<SentNotification> failed(Candidate candidate, Throwable failure) {
+        LOG.error("Reminder failed for learner {}", candidate.userId(), failure);
+        return Optional.empty();
     }
 }

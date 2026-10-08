@@ -9,7 +9,7 @@ public record PushTestResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Devices whose push service accepted it")
         int delivered,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Devices removed because their push service no "
-                + "longer knows the subscription") int removed,
+                + "longer knows the subscription or too many deliveries in a row failed") int removed,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The payload as sent, the same format as the "
                 + "reminders") PushNotification notification) {
 }

@@ -1,5 +1,8 @@
 package app.lingora.push;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Locale;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,15 +28,34 @@ public final class PushSetup {
     }
 
     /**
-     * @param subject contact of the push services: a {@code mailto:} or {@code https:} URL (Apple refuses others);
-     *                {@code http:} only for local development
+     * @param subject contact of the push services: a {@code mailto:} or {@code https:} URL (Apple refuses others); an
+     *                {@code http:} URL only on the local machine, for development and tests
      */
     static PushSetup of(VapidKeys keys, String subject) {
-        if (subject == null || !(subject.startsWith("mailto:") || subject.startsWith("https://") || subject.startsWith("http://"))) {
+        if (!isContact(subject)) {
             throw new IllegalArgumentException("lingora.push.subject (LINGORA_PUSH_SUBJECT) must be a mailto: or https: URL, "
                     + "found " + subject);
         }
         return new PushSetup(keys, subject);
+    }
+
+    private static boolean isContact(String subject) {
+        if (subject == null) {
+            return false;
+        }
+        URI uri;
+        try {
+            uri = new URI(subject);
+        } catch (URISyntaxException e) {
+            return false;
+        }
+        String scheme = uri.getScheme() == null ? "" : uri.getScheme().toLowerCase(Locale.ROOT);
+        return switch (scheme) {
+            case "mailto" -> !uri.getSchemeSpecificPart().isBlank();
+            case "https" -> uri.getHost() != null;
+            case "http" -> LoopbackHosts.isLoopback(uri.getHost());
+            default -> false;
+        };
     }
 
     /**
