@@ -48,7 +48,8 @@ export const REMINDER_COPY = {
     button: 'Test-Erinnerung senden',
     sent: 'Test-Erinnerung gesendet. Sie erscheint gleich.',
     notDelivered: 'Die Test-Erinnerung kam nicht an. Schalte die Erinnerungen aus und wieder ein.',
-    noDevice: 'Dieses Gerät ist nicht angemeldet. Schalte die Erinnerungen aus und wieder ein.',
+    noDevice:
+      'Für dein Konto ist kein Gerät für Erinnerungen gespeichert. Schalte die Erinnerungen aus und wieder ein, dann speichert Lingora dieses Gerät neu.',
     tooMany: 'Du hast schon viele Test-Erinnerungen gesendet. Versuch es später nochmals.',
     failed: 'Die Test-Erinnerung konnte nicht gesendet werden. Versuch es nochmals.',
   },
@@ -82,11 +83,15 @@ export const REMINDER_COPY = {
           'Öffne die Einstellungen und tippe auf Apps.',
           'Wähle Lingora (oder deinen Browser) und erlaube Benachrichtigungen.',
         ],
+        androidBrowser: [
+          'Tippe in der Adressleiste auf das Symbol links neben der Adresse.',
+          'Tippe auf Berechtigungen und stelle Benachrichtigungen auf „Zulassen“.',
+        ],
         desktop: [
           'Klicke links neben der Adresse auf das Symbol der Website-Einstellungen. In der installierten App findest du sie im Menü unter App-Info.',
           'Stelle Benachrichtigungen auf „Zulassen“.',
         ],
-      } satisfies Record<DevicePlatform, string[]>,
+      } satisfies Record<DevicePlatform | 'androidBrowser', string[]>,
       after: 'Komm danach hierher zurück und schalte die Erinnerungen ein.',
     },
     install: {

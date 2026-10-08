@@ -1,4 +1,5 @@
 import { BellRingingIcon } from '@phosphor-icons/react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Banner } from '../../components/ui/Banner';
 import { Button } from '../../components/ui/Button';
@@ -6,7 +7,7 @@ import { useVerificationBannerEmail } from '../account/verification/useVerificat
 import { REMINDER_COPY } from './copy';
 import { useReminderNudge } from './nudgeStore';
 import { REMINDER_ROUTE } from './reminderRoutes';
-import { canOfferReminders } from './reminderStatus';
+import { reminderOffer } from './reminderStatus';
 import { useReminderStatus } from './useReminders';
 
 const copy = REMINDER_COPY.nudge;
@@ -39,7 +40,8 @@ export function ReminderNudgeBanner({ onAccept, onDismiss, className }: Reminder
 
 /**
  * After the first lesson on this device, once: the suggestion to switch reminders on. It waits for
- * the e-mail banner (one notice at a time) and only comes where a tap can lead to reminders.
+ * the e-mail banner (one notice at a time) and only comes where a tap can lead to reminders; where
+ * it cannot, or they are on already, it is done without showing.
  */
 export function ReminderNudge({ className }: { className?: string }) {
   const due = useReminderNudge((store) => store.state === 'due');
@@ -50,9 +52,16 @@ export function ReminderNudge({ className }: { className?: string }) {
 function DueReminderNudge({ className }: { className?: string }) {
   const navigate = useNavigate();
   const close = useReminderNudge((store) => store.close);
-  const { status, settings } = useReminderStatus();
+  const { status, settings, fetching } = useReminderStatus();
+  const offer = reminderOffer(status, settings);
 
-  if (!canOfferReminders(status) || settings?.enabled !== false) return null;
+  // Otherwise it would wait for a chance that may come weeks later, out of context. Only fresh
+  // answers count: cached ones may predate the service worker of a first visit.
+  useEffect(() => {
+    if (offer === 'handled' && !fetching) close();
+  }, [offer, fetching, close]);
+
+  if (offer !== 'offer') return null;
   return (
     <ReminderNudgeBanner
       className={className}

@@ -23,13 +23,29 @@ export const pushDevicesQuery = queryOptions({
   queryFn: () => unwrap(api.GET('/api/push/subscriptions')),
 });
 
-export async function saveReminderSettings(
+/** The saves wait for each other, so each one builds on what the one before saved. */
+let lastSave: Promise<unknown> = Promise.resolve();
+
+/**
+ * Changes some reminder settings and keeps the others as last saved, read when this save's turn
+ * comes: switching the reminders off right after a new time keeps that time, and a time saved
+ * while switching never turns them back on.
+ */
+export function updateReminderSettings(
   queryClient: QueryClient,
-  settings: ReminderSettingsRequest,
+  change: Partial<ReminderSettingsRequest>,
 ): Promise<ReminderSettings> {
-  const saved = await unwrap(api.PUT('/api/reminders', { body: settings }));
-  queryClient.setQueryData(reminderSettingsQuery.queryKey, saved);
-  return saved;
+  const save = lastSave.then(async () => {
+    const current = await queryClient.query({ ...reminderSettingsQuery, staleTime: 'static' });
+    const { enabled, time, rescueEnabled, rescueTime } = { ...current, ...change };
+    const saved = await unwrap(
+      api.PUT('/api/reminders', { body: { enabled, time, rescueEnabled, rescueTime } }),
+    );
+    queryClient.setQueryData(reminderSettingsQuery.queryKey, saved);
+    return saved;
+  });
+  lastSave = save.catch(() => undefined);
+  return save;
 }
 
 /** Registers this device; the backend updates a known endpoint (and takes it from another account). */
@@ -47,7 +63,8 @@ export async function unregisterDevice(endpoint: string): Promise<void> {
 export function useSaveReminderSettings() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (settings: ReminderSettingsRequest) => saveReminderSettings(queryClient, settings),
+    mutationFn: (change: Partial<ReminderSettingsRequest>) =>
+      updateReminderSettings(queryClient, change),
   });
 }
 

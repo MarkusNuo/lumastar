@@ -17,7 +17,7 @@ export interface ReminderTimesControl {
 
 export interface ReminderControlsProps {
   on: boolean;
-  /** Switching is under way; the switch waits. */
+  /** Switching is under way; the switch waits, keeping the focus. */
   switching: boolean;
   /** Turning on must run within the tap: it may show the browser's permission prompt. */
   onSwitch: (on: boolean) => void;
@@ -35,7 +35,7 @@ export function ReminderControls({ on, switching, onSwitch, times }: ReminderCon
         label={copy.toggle.label}
         description={copy.toggle.description}
         checked={on}
-        disabled={switching}
+        busy={switching}
         onChange={onSwitch}
       />
       {times && <ReminderTimeRows {...times} />}

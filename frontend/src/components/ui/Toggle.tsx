@@ -7,6 +7,11 @@ export interface ToggleProps {
   label: string;
   description?: string;
   disabled?: boolean;
+  /**
+   * A change is under way: the switch ignores taps but stays focusable, so keyboard and
+   * screen-reader users keep their place (a disabled button would drop the focus).
+   */
+  busy?: boolean;
   className?: string;
 }
 
@@ -16,6 +21,7 @@ export function Toggle({
   label,
   description,
   disabled = false,
+  busy = false,
   className,
 }: ToggleProps) {
   const id = useId();
@@ -43,8 +49,12 @@ export function Toggle({
         aria-checked={checked}
         aria-describedby={description ? descriptionId : undefined}
         disabled={disabled}
-        onClick={() => onChange(!checked)}
-        className="group relative h-8 w-13 shrink-0 cursor-pointer rounded-full border-2 border-border bg-surface-raised transition-colors duration-(--duration-base) disabled:cursor-not-allowed disabled:opacity-50 aria-checked:border-primary-edge aria-checked:bg-primary"
+        aria-disabled={busy || undefined}
+        aria-busy={busy || undefined}
+        onClick={() => {
+          if (!busy) onChange(!checked);
+        }}
+        className="group relative h-8 w-13 shrink-0 cursor-pointer rounded-full border-2 border-border bg-surface-raised transition-colors duration-(--duration-base) disabled:cursor-not-allowed disabled:opacity-50 aria-busy:cursor-progress aria-busy:opacity-50 aria-checked:border-primary-edge aria-checked:bg-primary"
       >
         <span
           aria-hidden="true"

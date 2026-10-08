@@ -14,7 +14,7 @@ import { onUnauthorized } from '../../api/unauthorized';
 import { useVerificationBannerDismissed } from '../account/verification/bannerDismissed';
 import { useResendCooldown } from '../account/verification/resendCooldown';
 import { useReminderNudge } from '../reminders/nudgeStore';
-import { releaseDevice } from '../reminders/reminderLifecycle';
+import { signOutReleasingDevice } from '../reminders/reminderLifecycle';
 
 export const authStatusQuery = queryOptions({
   queryKey: ['auth', 'status'],
@@ -113,15 +113,15 @@ export function endSession(queryClient: QueryClient): void {
 export function useLogout() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async () => {
-      await releaseDevice();
-      try {
-        await api.POST('/api/auth/logout');
-      } catch (error) {
-        // An expired session is signed out already, which is what the user asked for.
-        if (!isApiError(error) || error.status !== 401) throw error;
-      }
-    },
+    mutationFn: () =>
+      signOutReleasingDevice(async () => {
+        try {
+          await api.POST('/api/auth/logout');
+        } catch (error) {
+          // An expired session is signed out already, which is what the user asked for.
+          if (!isApiError(error) || error.status !== 401) throw error;
+        }
+      }),
     onSuccess: () => endSession(queryClient),
   });
 }

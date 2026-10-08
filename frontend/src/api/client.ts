@@ -1,6 +1,6 @@
 import createClient from 'openapi-fetch';
 import { ApiError, CLIENT_ERROR_CODES } from './ApiError';
-import { CSRF_COOKIE, csrfMiddleware, problemMiddleware } from './middleware';
+import { CSRF_COOKIE, csrfMiddleware, problemMiddleware, ReplayableRequest } from './middleware';
 import type { paths } from './schema';
 import { notifyUnauthorized } from './unauthorized';
 
@@ -25,7 +25,12 @@ export function createApiClient({
   fetch = (request) => globalThis.fetch(request),
   onUnauthorized = notifyUnauthorized,
 }: ApiClientOptions = {}) {
-  const client = createClient<paths>({ baseUrl, fetch, credentials: 'include' });
+  const client = createClient<paths>({
+    baseUrl,
+    fetch,
+    credentials: 'include',
+    Request: ReplayableRequest,
+  });
   // Responses pass the middleware in reverse: the CSRF retry comes before the problem mapping.
   client.use(
     problemMiddleware(onUnauthorized),

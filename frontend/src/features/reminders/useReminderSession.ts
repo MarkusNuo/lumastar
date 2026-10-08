@@ -3,28 +3,46 @@ import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import { useOnceWhen } from '../../lib/useOnceWhen';
 import { isOpenScreenMessage } from '../../sw/messages';
+import { ACCOUNT_ROUTES } from '../account/accountRoutes';
+import { useMe } from '../auth/authHooks';
+import { ONBOARDING_ROUTES } from '../onboarding/onboardingRoutes';
 import { NEXT_LESSON_ROUTE } from '../path/lessonRoute';
+import { REVIEW_ROUTES } from '../review/reviewRoutes';
 import { clearReminderNotifications } from './pushDevice';
 import { renewDeviceRegistration } from './reminderLifecycle';
 
-/** Screens of a running task; a tapped reminder brings the app to the front but leaves them. */
-const TASK_SCREENS = [
-  /^\/lesson\//,
-  /^\/wiederholen\/lektion$/,
-  /^\/statistik\/ueben\//,
-  /^\/checkpoint\//,
-  /^\/einstufung\/test$/,
-  new RegExp(`^${NEXT_LESSON_ROUTE}$`),
+/*
+ * Screens of a running task or an unsaved form: a tapped reminder brings the app to the front but
+ * leaves them. Screens with a parameter are matched by the path before it.
+ */
+const TASK_SCREENS = new Set<string>([
+  REVIEW_ROUTES.lesson,
+  NEXT_LESSON_ROUTE,
+  ONBOARDING_ROUTES.placementTest,
+  ONBOARDING_ROUTES.plan,
+  ACCOUNT_ROUTES.displayName,
+  ACCOUNT_ROUTES.email,
+  ACCOUNT_ROUTES.password,
+  ACCOUNT_ROUTES.delete,
+  ACCOUNT_ROUTES.addEmail,
+]);
+const TASK_SCREEN_PREFIXES = [
+  '/lesson/',
+  '/statistik/ueben/',
+  '/checkpoint/',
+  ONBOARDING_ROUTES.placementResult(''),
 ];
 
 export function isTaskScreen(pathname: string): boolean {
-  return TASK_SCREENS.some((screen) => screen.test(pathname));
+  return (
+    TASK_SCREENS.has(pathname) || TASK_SCREEN_PREFIXES.some((prefix) => pathname.startsWith(prefix))
+  );
 }
 
 /**
  * The reminders during a signed-in session: the app being open makes the badge and the delivered
- * reminders stale, the device's registration is renewed once, and a tapped reminder shows its
- * screen in the running app.
+ * reminders stale, the device's registration is renewed once (or released, should it be another
+ * learner's), and a tapped reminder shows its screen in the running app.
  */
 export function useReminderSession(): void {
   const queryClient = useQueryClient();
@@ -38,7 +56,9 @@ export function useReminderSession(): void {
     return () => document.removeEventListener('visibilitychange', onShow);
   }, []);
 
-  useOnceWhen(true, () => void renewDeviceRegistration(queryClient));
+  // Whose subscription this browser holds is told by the learner's address.
+  const me = useMe().data;
+  useOnceWhen(me !== undefined, () => void renewDeviceRegistration(queryClient, me?.email));
 
   useOpenScreenMessages();
 }

@@ -3,7 +3,7 @@ import type { PushConfig } from '../../api/types';
 import { fakePushSubscription } from '../../test/fakeServiceWorker';
 import { reminderSettings } from '../../test/fixtures';
 import type { PushDeviceState } from './pushDevice';
-import { canOfferReminders, reminderStatus, type ReminderStatus } from './reminderStatus';
+import { reminderOffer, reminderStatus, type ReminderStatus } from './reminderStatus';
 
 const CONFIG: PushConfig = { available: true, publicKey: 'BAEC' };
 
@@ -84,20 +84,29 @@ describe('reminderStatus', () => {
   });
 });
 
-describe('canOfferReminders', () => {
-  it('offers reminders where a tap leads to them', () => {
-    const offered = (
-      [
-        'loading',
-        'serverUnavailable',
-        'unsupported',
-        'installRequired',
-        'denied',
-        'off',
-        'on',
-      ] as const
-    ).filter(canOfferReminders);
+describe('reminderOffer', () => {
+  const off = reminderSettings();
+  const on = reminderSettings({ enabled: true });
 
-    expect(offered).toEqual(['installRequired', 'off']);
+  it.each<[ReminderStatus, ReturnType<typeof reminderOffer>]>([
+    ['off', 'offer'],
+    ['installRequired', 'offer'],
+    ['on', 'handled'],
+    ['denied', 'handled'],
+    ['unsupported', 'handled'],
+    ['serverUnavailable', 'handled'],
+    ['loading', 'undecided'],
+  ])('with reminders off on the account, %s means %s', (status, offer) => {
+    expect(reminderOffer(status, off)).toBe(offer);
+  });
+
+  it('is handled where the account has reminders on already', () => {
+    expect(reminderOffer('off', on)).toBe('handled');
+    expect(reminderOffer('installRequired', on)).toBe('handled');
+  });
+
+  it('waits for the settings where a tap could lead to reminders', () => {
+    expect(reminderOffer('installRequired', undefined)).toBe('undecided');
+    expect(reminderOffer('denied', undefined)).toBe('handled');
   });
 });

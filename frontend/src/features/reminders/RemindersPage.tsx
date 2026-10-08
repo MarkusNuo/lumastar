@@ -42,7 +42,7 @@ type ReminderPanelProps = ReturnType<typeof useReminderStatus>;
 function ReminderPanel({ status, device, settings, publicKey, ...load }: ReminderPanelProps) {
   if (status === 'loading' || !device) {
     return load.failed ? (
-      <LoadFailed message={copy.loadFailed} retrying={load.retrying} onRetry={load.retry} />
+      <LoadFailed message={copy.loadFailed} retrying={load.fetching} onRetry={load.retry} />
     ) : (
       <LoadingBlock label={copy.loading} className="h-40" />
     );
@@ -53,7 +53,9 @@ function ReminderPanel({ status, device, settings, publicKey, ...load }: Reminde
     case 'serverUnavailable':
     case 'unsupported':
     case 'denied':
-      return <ReminderNotice blocker={status} platform={device.platform} />;
+      return (
+        <ReminderNotice blocker={status} platform={device.platform} installed={device.installed} />
+      );
     case 'off':
     case 'on':
       return settings && publicKey ? (
@@ -87,8 +89,8 @@ function ReminderSettingsForm({ status, device, settings, publicKey }: ReminderS
         on={on}
         switching={reminderSwitch.switching}
         onSwitch={(next) => {
-          if (next) reminderSwitch.turnOn(settings, publicKey);
-          else reminderSwitch.turnOff(settings, others);
+          if (next) reminderSwitch.turnOn(publicKey);
+          else reminderSwitch.turnOff();
         }}
         times={
           on

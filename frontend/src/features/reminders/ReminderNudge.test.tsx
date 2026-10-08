@@ -1,7 +1,7 @@
-import { screen } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import type { Profile, ReminderSettings } from '../../api/types';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import type { Profile, PushConfig, ReminderSettings } from '../../api/types';
 import { useVerificationBannerDismissed } from '../account/verification/bannerDismissed';
 import {
   installFakePush,
@@ -14,6 +14,8 @@ import { jsonResponse, stubApi } from '../../test/http';
 import { renderRoutes, screenNamed } from '../../test/router';
 import { REMINDER_COPY } from './copy';
 import { REMINDER_NUDGE_KEY, useReminderNudge, type ReminderNudgeState } from './nudgeStore';
+import { pushDeviceQuery } from './pushDevice';
+import { pushConfigQuery, reminderSettingsQuery } from './remindersApi';
 import { ReminderNudge } from './ReminderNudge';
 import { REMINDER_ROUTE } from './reminderRoutes';
 
@@ -21,6 +23,8 @@ interface Setup {
   nudge?: ReminderNudgeState;
   push?: FakePushOptions;
   settings?: ReminderSettings;
+  /** `null`: the backend does not answer. */
+  config?: PushConfig | null;
   me?: Profile;
 }
 
@@ -28,6 +32,7 @@ function renderNudge({
   nudge = 'due',
   push,
   settings = reminderSettings(),
+  config = { available: true, publicKey: SERVER_KEY },
   me = profile({ onboardingCompleted: true, onboardingStep: 'done' }),
 }: Setup = {}) {
   useReminderNudge.setState({ state: nudge });
@@ -35,7 +40,7 @@ function renderNudge({
   stubApi({
     'GET /api/me': () => jsonResponse(me),
     'GET /api/reminders': () => jsonResponse(settings),
-    'GET /api/push/config': () => jsonResponse({ available: true, publicKey: SERVER_KEY }),
+    ...(config && { 'GET /api/push/config': () => jsonResponse(config) }),
   });
   const view = renderRoutes(
     [
@@ -90,17 +95,52 @@ describe('ReminderNudge', () => {
     expect(await nudge()).toBeInTheDocument();
   });
 
+  it('decides on fresh answers, not on ones cached before the service worker was ready', async () => {
+    const { queryClient } = renderNudge({ nudge: 'waiting' });
+    vi.spyOn(navigator.serviceWorker, 'getRegistration').mockResolvedValueOnce(undefined);
+    // As the profile leaves them, visited before the worker was registered.
+    await act(() =>
+      Promise.all([
+        queryClient.query(pushDeviceQuery),
+        queryClient.query(pushConfigQuery),
+        queryClient.query(reminderSettingsQuery),
+      ]),
+    );
+
+    act(() => {
+      useReminderNudge.setState({ state: 'due' });
+    });
+
+    expect(await nudge()).toBeInTheDocument();
+    expect(useReminderNudge.getState().state).toBe('due');
+  });
+
   it.each<[string, Setup]>([
-    ['before the first lesson', { nudge: 'waiting' }],
     ['when the reminders are on already', { settings: reminderSettings({ enabled: true }) }],
     ['where notifications are blocked', { push: { permission: 'denied' } }],
     ['where the browser has no push', { push: { worker: false } }],
-    ['while the e-mail banner asks for a confirmation', { me: profile({ emailVerified: false }) }],
-  ])('stays away %s', async (_, setup) => {
+    ['where the server sends no push', { config: { available: false } }],
+  ])('is done without showing %s, so it never pops up later', async (_, setup) => {
+    renderNudge(setup);
+
+    await waitFor(() => expect(useReminderNudge.getState().state).toBe('done'));
+    expect(screen.queryByRole('region', { name: REMINDER_COPY.nudge.title })).toBeNull();
+  });
+
+  it.each<[string, Setup, ReminderNudgeState]>([
+    ['before the first lesson', { nudge: 'waiting' }, 'waiting'],
+    [
+      'while the e-mail banner asks for a confirmation',
+      { me: profile({ emailVerified: false }) },
+      'due',
+    ],
+    ['while it cannot tell whether reminders are possible', { config: null }, 'due'],
+  ])('stays away %s', async (_, setup, state) => {
     renderNudge(setup);
 
     // The status needs the backend's answers; give them time to arrive.
     await new Promise((resolve) => setTimeout(resolve, 50));
     expect(screen.queryByRole('region', { name: REMINDER_COPY.nudge.title })).toBeNull();
+    expect(useReminderNudge.getState().state).toBe(state);
   });
 });

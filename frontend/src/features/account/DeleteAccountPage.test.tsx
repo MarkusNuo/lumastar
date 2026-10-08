@@ -1,8 +1,9 @@
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useToastStore } from '../../components/ui/toastStore';
 import { saveBlob } from '../../lib/saveFile';
+import { installFakePush, removeFakePush, SERVER_KEY_BYTES } from '../../test/fakePush';
 import { authStatus, profile } from '../../test/fixtures';
 import { jsonResponse, problemResponse, stubApi } from '../../test/http';
 import { renderRoutes, screenNamed } from '../../test/router';
@@ -47,6 +48,16 @@ const deleteButton = () => screen.getByRole('button', { name: 'Konto löschen' }
 beforeEach(() => {
   useToastStore.setState({ current: null });
 });
+
+afterEach(() => {
+  removeFakePush();
+});
+
+async function confirmDeletion(user: ReturnType<typeof userEvent.setup>, password: string) {
+  await user.type(await screen.findByLabelText('Passwort'), password);
+  await user.click(deleteButton());
+  await user.click(await screen.findByRole('button', { name: 'Endgültig löschen' }));
+}
 
 describe('DeleteAccountPage', () => {
   it('explains what gets lost and that it cannot be undone', async () => {
@@ -113,6 +124,28 @@ describe('DeleteAccountPage', () => {
     expect(router.state.location.pathname).toBe('/willkommen');
     expect(await deletions()[0]?.json()).toEqual({ password: 'geheim123' });
     expect(useToastStore.getState().current?.message).toBe('Dein Konto ist gelöscht. Mach’s gut!');
+  });
+
+  it("ends this browser's reminder subscription with the account", async () => {
+    const browser = installFakePush({ permission: 'granted', subscribedWith: SERVER_KEY_BYTES });
+    const { user } = renderDeletion();
+
+    await confirmDeletion(user, 'geheim123');
+
+    expect(await screen.findByRole('heading', { name: 'Willkommen' })).toBeInTheDocument();
+    await waitFor(() => expect(browser.state.subscription).toBeNull());
+  });
+
+  it('keeps the reminders while the account stays', async () => {
+    const browser = installFakePush({ permission: 'granted', subscribedWith: SERVER_KEY_BYTES });
+    const { user } = renderDeletion({
+      'DELETE /api/account': () => problemResponse({ status: 403, code: 'invalid_password' }),
+    });
+
+    await confirmDeletion(user, 'falsch123');
+
+    await expect.poll(() => passwordField().getAttribute('aria-invalid')).toBe('true');
+    expect(browser.state.subscription).not.toBeNull();
   });
 
   it('says so when the password is wrong and keeps everything', async () => {

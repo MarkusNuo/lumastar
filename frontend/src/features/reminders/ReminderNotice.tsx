@@ -10,10 +10,19 @@ export type ReminderBlocker = 'serverUnavailable' | 'unsupported' | 'denied';
 export interface ReminderNoticeProps {
   blocker: ReminderBlocker;
   platform: DevicePlatform;
+  /** Runs as an installed app; on Android, a browser tab has its own notification setting. */
+  installed: boolean;
+}
+
+/** How to allow notifications again; an iPhone only notifies the home-screen app. */
+function deniedSteps(platform: DevicePlatform, installed: boolean): readonly string[] {
+  return platform === 'android' && !installed
+    ? copy.denied.steps.androidBrowser
+    : copy.denied.steps[platform];
 }
 
 /** Why reminders cannot be switched on here, and what the learner can do about it. */
-export function ReminderNotice({ blocker, platform }: ReminderNoticeProps) {
+export function ReminderNotice({ blocker, platform, installed }: ReminderNoticeProps) {
   switch (blocker) {
     case 'serverUnavailable':
       return (
@@ -32,7 +41,7 @@ export function ReminderNotice({ blocker, platform }: ReminderNoticeProps) {
         <Banner tone="warning" icon={BellSlashIcon} title={copy.denied.title}>
           <p>{copy.denied.text}</p>
           <ol className="my-1.5 flex list-decimal flex-col gap-1 pl-5 text-fg">
-            {copy.denied.steps[platform].map((step) => (
+            {deniedSteps(platform, installed).map((step) => (
               <li key={step}>{step}</li>
             ))}
           </ol>

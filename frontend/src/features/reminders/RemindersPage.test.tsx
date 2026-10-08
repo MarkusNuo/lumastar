@@ -13,10 +13,12 @@ import {
   USER_AGENTS,
   type FakePushOptions,
 } from '../../test/fakePush';
-import { reminderSettings } from '../../test/fixtures';
+import { profile, reminderSettings } from '../../test/fixtures';
 import { jsonResponse, problemResponse, stubApi } from '../../test/http';
 import { renderRoutes } from '../../test/router';
 import { REMINDER_COPY } from './copy';
+import { isDeviceOwner } from './deviceOwner';
+import { useReminderNudge } from './nudgeStore';
 import { REMINDER_ROUTE } from './reminderRoutes';
 import { RemindersPage } from './RemindersPage';
 import { SAVE_DELAY_MS } from './useReminderTimes';
@@ -42,6 +44,23 @@ interface Setup {
 
 const echo = async (request: Request) => jsonResponse(await request.clone().json());
 
+const EMAIL = profile().email;
+
+/** A backend answer that waits until the test lets it through. */
+function heldBack(answer: () => Response | Promise<Response>) {
+  let release: () => void = () => undefined;
+  const released = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  return {
+    route: async () => {
+      await released;
+      return answer();
+    },
+    release: () => release(),
+  };
+}
+
 function renderReminders({
   push,
   settings = reminderSettings(),
@@ -52,6 +71,7 @@ function renderReminders({
   const browser = installFakePush(push);
   let registered = devices;
   const requests = stubApi({
+    'GET /api/me': () => jsonResponse(profile()),
     'GET /api/push/config': () => jsonResponse(config),
     'GET /api/reminders': () => jsonResponse(settings),
     'GET /api/push/subscriptions': () => jsonResponse(registered),
@@ -100,6 +120,7 @@ beforeEach(() => {
 
 afterEach(() => {
   removeFakePush();
+  localStorage.clear();
   vi.useRealTimers();
 });
 
@@ -131,6 +152,38 @@ describe('RemindersPage', () => {
         label: 'Chrome · Windows',
       });
       expect(await body('PUT', '/api/reminders')).toEqual({ ...reminderSettings(), enabled: true });
+    });
+
+    it('notes whose subscription this browser holds and that the suggestion is done', async () => {
+      useReminderNudge.setState({ state: 'due' });
+      const { user, sent } = renderReminders();
+
+      await user.click(await reminderSwitch());
+
+      await waitFor(() => expect(sent('PUT', '/api/reminders')).toHaveLength(1));
+      await waitFor(async () => expect(await isDeviceOwner(EMAIL)).toBe(true));
+      await waitFor(() => expect(useReminderNudge.getState().state).toBe('done'));
+    });
+
+    it('keeps the focus on the switch while it is busy and ignores further taps', async () => {
+      const registration = heldBack(() => jsonResponse(device(ENDPOINT)));
+      const { browser, user } = renderReminders({
+        routes: { 'POST /api/push/subscriptions': registration.route },
+      });
+      const toggle = await reminderSwitch();
+
+      await user.click(toggle);
+      await waitFor(() => expect(toggle).toHaveAttribute('aria-busy', 'true'));
+      expect(toggle).toHaveAttribute('aria-disabled', 'true');
+      expect(toggle).toBeEnabled();
+      expect(toggle).toHaveFocus();
+      await user.click(toggle);
+      expect(browser.requestPermission).toHaveBeenCalledOnce();
+
+      registration.release();
+      await waitFor(() => expect(toggle).toBeChecked());
+      expect(toggle).not.toHaveAttribute('aria-busy');
+      expect(toggle).toHaveFocus();
     });
 
     it('then shows the times, the test button and a confirmation', async () => {
@@ -206,6 +259,20 @@ describe('RemindersPage', () => {
       ).toBeInTheDocument();
       expect(sent('PUT', '/api/reminders')).toHaveLength(0);
     });
+
+    it('ends the subscription the backend could not register', async () => {
+      const { browser, user } = renderReminders({
+        routes: {
+          'POST /api/push/subscriptions': () => problemResponse({ status: 503, code: 'down' }),
+        },
+      });
+
+      await user.click(await reminderSwitch());
+
+      expect(await screen.findByText(REMINDER_COPY.enableFailed.failed)).toBeInTheDocument();
+      expect(browser.state.subscription, 'unsubscribed').toBeNull();
+      expect(await reminderSwitch()).not.toBeChecked();
+    });
   });
 
   describe('switching off', () => {
@@ -241,6 +308,50 @@ describe('RemindersPage', () => {
       await waitFor(() => expect(sent('DELETE', '/api/push/subscriptions')).toHaveLength(1));
       expect(await screen.findByText(REMINDER_COPY.otherDevices(1))).toBeInTheDocument();
       expect(sent('PUT', '/api/reminders')).toHaveLength(0);
+    });
+
+    it('waits for the device list before it decides about the other devices', async () => {
+      const list = heldBack(() =>
+        jsonResponse([device(ENDPOINT), device('https://web.push.apple.com/other')]),
+      );
+      const { user, sent } = renderReminders({
+        ...on,
+        routes: { 'GET /api/push/subscriptions': list.route },
+      });
+
+      await user.click(await reminderSwitch());
+      expect(sent('DELETE', '/api/push/subscriptions')).toHaveLength(0);
+
+      list.release();
+      expect(await screen.findByText(REMINDER_COPY.disabled)).toBeInTheDocument();
+      expect(sent('DELETE', '/api/push/subscriptions')).toHaveLength(1);
+      expect(sent('PUT', '/api/reminders'), 'the other device keeps them').toHaveLength(0);
+    });
+
+    it('keeps a time saved a moment before', async () => {
+      const timeSave = heldBack(() =>
+        jsonResponse(reminderSettings({ enabled: true, time: '07:30' })),
+      );
+      let puts = 0;
+      const { user, body, sent } = renderReminders({
+        ...on,
+        routes: {
+          'PUT /api/reminders': (request) => (++puts === 1 ? timeSave.route() : echo(request)),
+        },
+      });
+      const time = await screen.findByLabelText(REMINDER_COPY.time.label);
+
+      act(() => time.focus());
+      fireEvent.change(time, { target: { value: '07:30' } });
+      // Leaving the field for the switch saves the time.
+      await user.click(await reminderSwitch());
+      await waitFor(() => expect(sent('DELETE', '/api/push/subscriptions')).toHaveLength(1));
+      timeSave.release();
+
+      await waitFor(() => expect(sent('PUT', '/api/reminders')).toHaveLength(2));
+      expect(await body('PUT', '/api/reminders')).toEqual(
+        reminderSettings({ enabled: false, time: '07:30' }),
+      );
     });
   });
 
@@ -375,15 +486,22 @@ describe('RemindersPage', () => {
       expect(screen.getByText(REMINDER_COPY.installed)).toBeInTheDocument();
     });
 
-    it('explains blocked notifications with the steps of the platform', async () => {
-      renderReminders({ push: { permission: 'denied', userAgent: USER_AGENTS.android } });
+    it.each([
+      ['in a browser tab', false, REMINDER_COPY.states.denied.steps.androidBrowser],
+      ['in the installed app', true, REMINDER_COPY.states.denied.steps.android],
+    ])('explains blocked notifications on Android %s', async (_, installed, steps) => {
+      renderReminders({
+        push: { permission: 'denied', userAgent: USER_AGENTS.android, installed },
+      });
 
       const notice = await screen.findByRole('region', {
         name: REMINDER_COPY.states.denied.title,
       });
-      for (const step of REMINDER_COPY.states.denied.steps.android) {
-        expect(within(notice).getByText(step)).toBeInTheDocument();
-      }
+      expect(
+        within(notice)
+          .getAllByRole('listitem')
+          .map((item) => item.textContent),
+      ).toEqual(steps);
     });
 
     it('says when the server has no web push', async () => {

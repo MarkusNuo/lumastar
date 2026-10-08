@@ -53,6 +53,18 @@ describe('CSRF middleware', () => {
     expect(requests[0]?.headers.get(CSRF_HEADER)).toBe('token+123');
   });
 
+  it('sends requests as made, without copying their bodies in advance', async () => {
+    const clone = vi.spyOn(Request.prototype, 'clone');
+    const { client, requests } = clientAnswering(() => new Response(null, { status: 204 }));
+
+    await client.POST('/api/auth/verify-email', { body: { token: 'link-token' } });
+
+    // A copied request's body turns into a stream, which DevTools and HAR files cannot show.
+    expect(clone).not.toHaveBeenCalled();
+    expect(await requests[0]?.text()).toBe('{"token":"link-token"}');
+    clone.mockRestore();
+  });
+
   it('sends no CSRF header on a GET', async () => {
     const { client, requests } = clientAnswering(() =>
       jsonResponse({ authenticated: false, registrationMode: 'open', legacyLoginAvailable: false }),

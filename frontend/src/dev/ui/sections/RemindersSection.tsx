@@ -78,11 +78,15 @@ export function RemindersSection() {
           {REMINDER_COPY.test.button}
         </Button>
       </Specimen>
-      <Specimen label="Nicht möglich: Server · Browser · blockiert" layout="stack">
-        <ReminderNotice blocker="serverUnavailable" platform="desktop" />
-        <ReminderNotice blocker="unsupported" platform="ios" />
-        <ReminderNotice blocker="denied" platform="android" />
-        <ReminderNotice blocker="denied" platform="desktop" />
+      <Specimen
+        label="Nicht möglich: Server · Browser · blockiert (Android-App · Android-Browser · Desktop)"
+        layout="stack"
+      >
+        <ReminderNotice blocker="serverUnavailable" platform="desktop" installed={false} />
+        <ReminderNotice blocker="unsupported" platform="ios" installed={false} />
+        <ReminderNotice blocker="denied" platform="android" installed />
+        <ReminderNotice blocker="denied" platform="android" installed={false} />
+        <ReminderNotice blocker="denied" platform="desktop" installed={false} />
       </Specimen>
       <Specimen label="iPhone-Safari: erst auf den Home-Bildschirm" layout="stack">
         <InstallGuide />

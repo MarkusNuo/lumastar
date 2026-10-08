@@ -22,17 +22,36 @@ const MUTATING_METHODS = new Set(['POST', 'PUT', 'PATCH', 'DELETE']);
 export type CsrfTokenReader = () => string | undefined | Promise<string | undefined>;
 
 /**
+ * A request that can be sent again. Sending consumes a body, so it keeps what it was made of; the
+ * clients make their requests with it (`createClient({ Request: ReplayableRequest })`). Copying
+ * every request in advance instead would turn each body into a stream, which DevTools and HAR
+ * files cannot show.
+ */
+export class ReplayableRequest extends Request {
+  readonly #init: RequestInit | undefined;
+
+  constructor(input: RequestInfo | URL, init?: RequestInit) {
+    super(input, init);
+    this.#init = init;
+  }
+
+  /** A new request as this one was made, before middleware changed its headers. */
+  replay(): Request {
+    return new Request(this.url, this.#init);
+  }
+}
+
+/**
  * Sends the CSRF token with every unsafe request. It is read per request because the server
  * rotates it on sign-in and sign-out; a reader that answers at once adds no wait, so the page's
  * requests leave in the order they were made.
  *
  * Without the cookie (a browser that never talked to the backend, e.g. one opening a link from a
- * mail) it first asks the server for one. A request refused for its token is sent once more with a
- * fresh one. Register it after the problem middleware, so it sees the refusal first.
+ * mail) it first asks the server for one. A {@link ReplayableRequest} refused for its token is sent
+ * once more with a fresh one. Register it after the problem middleware, so it sees the refusal
+ * first.
  */
 export function csrfMiddleware(readToken: CsrfTokenReader): Middleware {
-  // Copies of the sent requests, because sending consumes a request's body.
-  const unsent = new WeakMap<Request, Request>();
   let obtaining: Promise<void> | undefined;
 
   /** One request for a token, however many requests are waiting for it. */
@@ -55,9 +74,8 @@ export function csrfMiddleware(readToken: CsrfTokenReader): Middleware {
     return readToken();
   };
 
-  const send = (request: Request, token: string | undefined) => {
+  const withToken = (request: Request, token: string | undefined) => {
     if (token) request.headers.set(CSRF_HEADER, token);
-    unsent.set(request, request.clone());
     return request;
   };
 
@@ -65,18 +83,20 @@ export function csrfMiddleware(readToken: CsrfTokenReader): Middleware {
     onRequest({ request, options }) {
       if (!MUTATING_METHODS.has(request.method)) return undefined;
       const sendWith = (token: string | undefined) =>
-        token ? send(request, token) : freshToken(options).then((fresh) => send(request, fresh));
+        token
+          ? withToken(request, token)
+          : freshToken(options).then((fresh) => withToken(request, fresh));
       const token = readToken();
       return token instanceof Promise ? token.then(sendWith) : sendWith(token);
     },
     async onResponse({ request, response, options }) {
-      const copy = unsent.get(request);
-      unsent.delete(request);
-      if (!copy || !(await isCsrfRejection(response))) return undefined;
-      const token = await freshToken(options);
-      if (token) copy.headers.set(CSRF_HEADER, token);
+      if (!(request instanceof ReplayableRequest) || !MUTATING_METHODS.has(request.method)) {
+        return undefined;
+      }
+      if (!(await isCsrfRejection(response))) return undefined;
+      const retry = withToken(request.replay(), await freshToken(options));
       try {
-        return await options.fetch(copy);
+        return await options.fetch(retry);
       } catch (error) {
         throw toNetworkError(error);
       }

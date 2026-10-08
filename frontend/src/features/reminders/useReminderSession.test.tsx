@@ -1,11 +1,17 @@
 import { act, screen, waitFor } from '@testing-library/react';
 import { Outlet } from 'react-router';
 import { afterEach, describe, expect, it } from 'vitest';
-import { installFakePush, removeFakePush } from '../../test/fakePush';
-import { reminderSettings } from '../../test/fixtures';
+import {
+  installFakePush,
+  removeFakePush,
+  SERVER_KEY_BYTES,
+  type FakePushOptions,
+} from '../../test/fakePush';
+import { profile, reminderSettings } from '../../test/fixtures';
 import { jsonResponse, stubApi } from '../../test/http';
 import { renderRoutes, screenNamed } from '../../test/router';
 import { openScreenMessage } from '../../sw/messages';
+import { DEVICE_OWNER_KEY, rememberDeviceOwner } from './deviceOwner';
 import { isTaskScreen, useReminderSession } from './useReminderSession';
 
 function Session() {
@@ -13,9 +19,13 @@ function Session() {
   return null;
 }
 
-function renderSession(entry: string) {
-  const browser = installFakePush();
-  stubApi({ 'GET /api/reminders': () => jsonResponse(reminderSettings()) });
+function renderSession(entry: string, push?: FakePushOptions) {
+  const browser = installFakePush(push);
+  const requests = stubApi({
+    'GET /api/me': () => jsonResponse(profile({ email: 'blerta@example.ch' })),
+    'GET /api/reminders': () => jsonResponse(reminderSettings({ enabled: true })),
+    'GET /api/push/subscriptions': () => jsonResponse([]),
+  });
   const view = renderRoutes(
     [
       {
@@ -34,11 +44,12 @@ function renderSession(entry: string) {
     ],
     entry,
   );
-  return { ...view, browser };
+  return { ...view, browser, requests };
 }
 
 afterEach(() => {
   removeFakePush();
+  localStorage.clear();
 });
 
 describe('useReminderSession', () => {
@@ -76,6 +87,18 @@ describe('useReminderSession', () => {
     expect(router.state.location.pathname).toBe('/lesson/a1_u01_greetings');
   });
 
+  it('ends the subscription another learner left behind when the session starts', async () => {
+    await rememberDeviceOwner('ardit@example.ch');
+    const { browser, requests } = renderSession('/', {
+      permission: 'granted',
+      subscribedWith: SERVER_KEY_BYTES,
+    });
+
+    await waitFor(() => expect(browser.state.subscription).toBeNull());
+    expect(requests.filter((request) => request.method === 'POST')).toHaveLength(0);
+    expect(localStorage.getItem(DEVICE_OWNER_KEY)).toBeNull();
+  });
+
   it('ignores other messages of the worker', async () => {
     const { browser, router } = renderSession('/statistik');
     await screen.findByText('Statistik');
@@ -93,8 +116,17 @@ describe('isTaskScreen', () => {
     ['/statistik/ueben/grammar.article', true],
     ['/checkpoint/A1.2', true],
     ['/einstufung/test', true],
+    ['/einstufung/ergebnis/42', true],
+    ['/plan', true],
     ['/weiter', true],
+    ['/profil/name', true],
+    ['/profil/e-mail', true],
+    ['/profil/passwort', true],
+    ['/profil/konto-loeschen', true],
+    ['/e-mail-hinzufuegen', true],
     ['/', false],
+    ['/einstufung', false],
+    ['/profil', false],
     ['/wiederholen', false],
     ['/profil/erinnerungen', false],
   ])('%s is a task screen: %s', (pathname, task) => {

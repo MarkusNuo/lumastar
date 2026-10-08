@@ -33,7 +33,7 @@ export function useReminderTimes(settings: ReminderSettings) {
     const current = queryClient.getQueryData(reminderSettingsQuery.queryKey);
     if (!next || !current || reminderTimesProblem(next)) return;
     if (sameTimes(next, current)) return;
-    mutate({ ...current, ...next }, { onSuccess: () => showToast(REMINDER_COPY.saved) });
+    mutate(next, { onSuccess: () => showToast(REMINDER_COPY.saved) });
   });
 
   useEffect(() => {

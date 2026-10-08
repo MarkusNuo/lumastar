@@ -1,5 +1,10 @@
 import createClient from 'openapi-fetch';
-import { csrfMiddleware, problemMiddleware, type CsrfTokenReader } from '../api/middleware';
+import {
+  csrfMiddleware,
+  problemMiddleware,
+  ReplayableRequest,
+  type CsrfTokenReader,
+} from '../api/middleware';
 import type { paths } from '../api/schema';
 import type { WorkerBackend } from './handlers';
 import { SNOOZE_MINUTES } from './reminder';
@@ -23,7 +28,12 @@ export function createWorkerBackend({
   readCsrfToken,
   userAgent,
 }: WorkerBackendOptions): WorkerBackend {
-  const client = createClient<paths>({ baseUrl, fetch, credentials: 'include' });
+  const client = createClient<paths>({
+    baseUrl,
+    fetch,
+    credentials: 'include',
+    Request: ReplayableRequest,
+  });
   // Responses pass the middleware in reverse: the CSRF retry comes before the problem mapping.
   client.use(
     problemMiddleware(() => undefined),

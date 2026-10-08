@@ -2,6 +2,7 @@ import { queryOptions, useMutation, useQueryClient, type QueryClient } from '@ta
 import { authStatusQuery, endSession, meQuery } from '../auth/authHooks';
 import { api, unwrap } from '../../api/client';
 import type { Account, EmailChange, PasswordChange } from '../../api/types';
+import { releaseDeletedAccountDevice } from '../reminders/reminderLifecycle';
 
 export const accountQuery = queryOptions({
   queryKey: ['account'],
@@ -68,6 +69,7 @@ export function useDeleteAccount(onDeleted: () => void) {
     },
     onSuccess: () => {
       onDeleted();
+      releaseDeletedAccountDevice();
       endSession(queryClient);
     },
   });

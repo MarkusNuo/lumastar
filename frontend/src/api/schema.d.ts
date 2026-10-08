@@ -696,7 +696,7 @@ export interface paths {
         put?: never;
         /**
          * Register this device for reminders
-         * @description Send it after pushManager.subscribe() and again on every app start, since browsers may renew a subscription. A known endpoint is updated; one that another account registered moves to this account (one browser profile has one subscription). Remove it before signing out on a shared device. Endpoints must belong to a known push service (Google, Mozilla, Apple, Microsoft).
+         * @description Send it after pushManager.subscribe() and again on every app start, since browsers may renew a subscription. A known endpoint is updated; one that another account registered moves to this account (one browser profile has one subscription). Remove it before signing out on a shared device. Endpoints must belong to a known push service (Google, Mozilla, Apple, Microsoft) and use HTTPS on its default port. An account has a limited number of devices (10 by default): registering another removes the one subscribed or reached the longest time ago.
          */
         post: operations["subscribePush"];
         /**
@@ -761,7 +761,7 @@ export interface paths {
         put?: never;
         /**
          * Get a reminder again later (notification action "In 1 Stunde")
-         * @description For the service worker: needs neither the session nor the CSRF header, only the snoozeToken of the notification. It stays valid until the end of the learner's day and is replaced by the next notification of the same kind. The reminder comes again unless the daily goal is met by then.
+         * @description For the service worker: needs neither the session nor the CSRF header, only the snoozeToken of the notification. It snoozes once, until the end of the learner's day, and is replaced by the next notification of the same kind. The reminder comes again unless the daily goal is met by then.
          */
         post: operations["snoozeReminder"];
         delete?: never;
@@ -1769,7 +1769,7 @@ export interface components {
             notification: components["schemas"]["PushNotification"];
             /**
              * Format: int32
-             * @description Devices removed because their push service no longer knows the subscription
+             * @description Devices removed because their push service no longer knows the subscription or too many deliveries in a row failed
              */
             removed: number;
         };
@@ -4022,7 +4022,7 @@ export interface operations {
                     "application/problem+json": components["schemas"]["ProblemDetail"];
                 };
             };
-            /** @description Unknown, replaced or expired token (code snooze_token_invalid) */
+            /** @description Unknown, used, replaced or expired token (code snooze_token_invalid) */
             404: {
                 headers: {
                     [name: string]: unknown;

@@ -1,13 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import type { PushDevice, ReminderSettings } from '../../api/types';
+import type { PushDevice } from '../../api/types';
 import { showToast } from '../../components/ui/toastStore';
+import { useMe } from '../auth/authHooks';
 import { REMINDER_COPY } from './copy';
-import {
-  pushDeviceQuery,
-  requestNotificationPermission,
-  subscribeDevice,
-  unsubscribeDevice,
-} from './pushDevice';
+import { rememberDeviceOwner } from './deviceOwner';
+import { useReminderNudge } from './nudgeStore';
+import { pushDeviceQuery, requestNotificationPermission, subscribeDevice } from './pushDevice';
+import { releaseBrowserSubscription } from './reminderLifecycle';
 import { reminderStatus } from './reminderStatus';
 import {
   pushConfigQuery,
@@ -15,8 +14,8 @@ import {
   registerDevice,
   REMINDERS_QUERY_KEY,
   reminderSettingsQuery,
-  saveReminderSettings,
   unregisterDevice,
+  updateReminderSettings,
 } from './remindersApi';
 
 /** The learner did not allow notifications: `default` dismissed the prompt, `denied` blocked them. */
@@ -44,7 +43,8 @@ export function useReminderStatus() {
     settings: settings.data,
     publicKey: config.data?.publicKey,
     failed: queries.some((query) => query.isError),
-    retrying: queries.some((query) => query.isFetching),
+    /** Answers are on their way; the ones at hand may be outdated. */
+    fetching: queries.some((query) => query.isFetching),
     retry: () => {
       void queryClient.refetchQueries({ queryKey: REMINDERS_QUERY_KEY, type: 'active' });
     },
@@ -62,13 +62,8 @@ export function otherDevices(
 interface EnableVariables {
   permission: Promise<NotificationPermission>;
   publicKey: string;
-  settings: ReminderSettings;
-}
-
-interface DisableVariables {
-  settings: ReminderSettings;
-  /** Devices that keep their reminders; with none left, the account's reminders go off. */
-  otherDevices: number;
+  /** The learner's address, to note whose subscription this browser holds. */
+  email: string | undefined;
 }
 
 /**
@@ -78,6 +73,7 @@ interface DisableVariables {
  */
 export function useReminderSwitch() {
   const queryClient = useQueryClient();
+  const email = useMe().data?.email;
   const refreshDevices = () =>
     Promise.all([
       queryClient.invalidateQueries({ queryKey: pushDeviceQuery.queryKey }),
@@ -85,21 +81,36 @@ export function useReminderSwitch() {
     ]);
 
   const enable = useMutation({
-    mutationFn: async ({ permission, publicKey, settings }: EnableVariables) => {
+    mutationFn: async ({ permission, publicKey, email: owner }: EnableVariables) => {
       const answer = await permission;
       if (answer !== 'granted') throw new PermissionRefusedError(answer);
-      await registerDevice(await subscribeDevice(publicKey));
-      return saveReminderSettings(queryClient, { ...settings, enabled: true });
+      const subscription = await subscribeDevice(publicKey);
+      try {
+        await registerDevice(subscription);
+      } catch (error) {
+        // A subscription the backend does not know would pretend that reminders are on.
+        await releaseBrowserSubscription().catch(() => undefined);
+        throw error;
+      }
+      await rememberDeviceOwner(owner);
+      return updateReminderSettings(queryClient, { enabled: true });
     },
-    onSuccess: (saved) => showToast(REMINDER_COPY.enabled(saved.time)),
+    onSuccess: (saved) => {
+      useReminderNudge.getState().close();
+      showToast(REMINDER_COPY.enabled(saved.time));
+    },
     onSettled: refreshDevices,
   });
 
   const disable = useMutation({
-    mutationFn: async ({ settings, otherDevices: others }: DisableVariables) => {
-      const endpoint = await unsubscribeDevice();
+    mutationFn: async () => {
+      // Asked anew: the list on screen may still be loading or outdated.
+      const devices = await queryClient.query({ ...pushDevicesQuery, staleTime: 0 });
+      const endpoint = await releaseBrowserSubscription();
       if (endpoint) await unregisterDevice(endpoint);
-      if (others === 0) await saveReminderSettings(queryClient, { ...settings, enabled: false });
+      if (otherDevices(devices, endpoint).length === 0) {
+        await updateReminderSettings(queryClient, { enabled: false });
+      }
     },
     onSuccess: () => showToast(REMINDER_COPY.disabled, { tone: 'primary' }),
     onSettled: refreshDevices,
@@ -107,13 +118,13 @@ export function useReminderSwitch() {
 
   return {
     /** Must run in the click itself: it shows the browser's permission prompt. */
-    turnOn: (settings: ReminderSettings, publicKey: string) => {
+    turnOn: (publicKey: string) => {
       disable.reset();
-      enable.mutate({ permission: requestNotificationPermission(), publicKey, settings });
+      enable.mutate({ permission: requestNotificationPermission(), publicKey, email });
     },
-    turnOff: (settings: ReminderSettings, others: number) => {
+    turnOff: () => {
       enable.reset();
-      disable.mutate({ settings, otherDevices: others });
+      disable.mutate();
     },
     switching: enable.isPending || disable.isPending,
     enableError: enable.error,

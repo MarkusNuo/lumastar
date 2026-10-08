@@ -107,11 +107,16 @@ export async function subscribeDevice(publicKey: string): Promise<PushSubscripti
   return registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: key });
 }
 
+/** This browser's subscription, if it has one. */
+export async function currentSubscription(): Promise<PushSubscription | null> {
+  if (!('serviceWorker' in navigator)) return null;
+  const registration = await navigator.serviceWorker.getRegistration();
+  return (await registration?.pushManager.getSubscription()) ?? null;
+}
+
 /** Ends this browser's subscription; returns its endpoint so the backend can forget it too. */
 export async function unsubscribeDevice(): Promise<string | undefined> {
-  if (!('serviceWorker' in navigator)) return undefined;
-  const registration = await navigator.serviceWorker.getRegistration();
-  const subscription = await registration?.pushManager.getSubscription();
+  const subscription = await currentSubscription();
   if (!subscription) return undefined;
   await subscription.unsubscribe();
   return subscription.endpoint;

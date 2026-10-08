@@ -29,7 +29,19 @@ export function reminderStatus({ device, config, settings }: ReminderStatusInput
   return settings.enabled && subscribed ? 'on' : 'off';
 }
 
-/** Statuses in which a tap could still lead to reminders, so the app may suggest them. */
-export function canOfferReminders(status: ReminderStatus): boolean {
-  return status === 'off' || status === 'installRequired';
+/**
+ * Whether the suggestion to switch reminders on fits: `offer` where a tap can lead to reminders
+ * that are off, `handled` where it never can or they are on already (the suggestion is done
+ * then), `undecided` while the answers it depends on are missing.
+ */
+export type ReminderOffer = 'undecided' | 'offer' | 'handled';
+
+export function reminderOffer(
+  status: ReminderStatus,
+  settings: ReminderSettings | undefined,
+): ReminderOffer {
+  if (status === 'loading') return 'undecided';
+  if (status !== 'off' && status !== 'installRequired') return 'handled';
+  if (!settings) return 'undecided';
+  return settings.enabled ? 'handled' : 'offer';
 }
