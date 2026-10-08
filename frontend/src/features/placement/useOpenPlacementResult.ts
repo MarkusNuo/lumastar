@@ -5,6 +5,7 @@ import { meQuery } from '../auth/authHooks';
 import { ONBOARDING_ROUTES } from '../onboarding/onboardingRoutes';
 import { PLAN_QUERY_KEY } from '../plan/planQueries';
 import { PROGRESS_QUERY_KEY } from '../stats/progressApi';
+import { STREAK_QUERY_KEY } from '../streak/streakApi';
 import { STATS_QUERY_KEY } from '../stats/statsApi';
 import { placementResultQuery } from './placementApi';
 
@@ -28,6 +29,7 @@ export function useOpenPlacementResult(): (
       queryClient.invalidateQueries({ queryKey: PLAN_QUERY_KEY, refetchType: 'all' }),
       // A finished test counts as practice time towards the daily goal and the streak.
       queryClient.invalidateQueries({ queryKey: PROGRESS_QUERY_KEY }),
+      queryClient.invalidateQueries({ queryKey: STREAK_QUERY_KEY }),
       queryClient.invalidateQueries({ queryKey: STATS_QUERY_KEY }),
     ]);
     await navigate(ONBOARDING_ROUTES.placementResult(testId), { replace: true });

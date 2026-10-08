@@ -4,6 +4,7 @@ import type { CefrLevel } from '../components/ui/levels';
 import { StreakCounter } from '../components/ui/StreakCounter';
 import { UI_COPY } from '../components/ui/copy';
 import { XpCounter } from '../components/ui/XpCounter';
+import { STREAK_ROUTE } from '../features/streak/streakRoutes';
 
 export interface TopBarProps {
   level: CefrLevel;
@@ -35,7 +36,12 @@ export function TopBar({
     <header className="sticky top-0 z-(--z-bar) border-b-2 border-border bg-bg pt-(--safe-top)">
       <div className="flex h-(--spacing-top-bar) items-center justify-between px-gutter">
         <LevelBadge level={level} sublevel={sublevel} locked={levelLocked} size="sm" />
-        <StreakCounter days={streakDays} active={streakActive} freezes={streakFreezes} />
+        <StreakCounter
+          days={streakDays}
+          active={streakActive}
+          freezes={streakFreezes}
+          to={STREAK_ROUTE}
+        />
         <XpCounter xp={xp} />
         <DailyGoalRing
           progress={goalMinutes > 0 ? minutesToday / goalMinutes : 0}

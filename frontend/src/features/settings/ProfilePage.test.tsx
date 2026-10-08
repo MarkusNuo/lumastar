@@ -49,6 +49,7 @@ const IMPORT_RESULT: ImportResult = {
     skillMastery: 5,
     srsCards: 12,
     streakDays: 0,
+    streakGoals: 0,
     streaks: 1,
   },
 };

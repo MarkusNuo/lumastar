@@ -33,7 +33,7 @@ const RESULT: LessonResultResponse = {
   learnedItems: [],
   learnedWordsTotal: 12,
   dailyGoal: { goalMet: false, goalMinutes: 10, justMet: false, minutesToday: 3 },
-  streak: { current: 0, extendedToday: false, freezeUsed: false },
+  streak: { current: 0, previous: 0, extendedToday: false, freezeUsed: false },
   checkpoint: {
     level: 'A1.2',
     passed: true,

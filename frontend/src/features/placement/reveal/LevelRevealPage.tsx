@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import { isApiError } from '../../../api/ApiError';
 import { FailureScreen } from '../../../components/ui/FailureScreen';
 import { WaitingScreen } from '../../../components/ui/WaitingScreen';
-import { WithStreakCelebration } from '../../lesson/result/StreakCelebration';
+import { WithStreakCelebration } from '../../streak/celebration/StreakCelebration';
 import { ONBOARDING_ROUTES } from '../../onboarding/onboardingRoutes';
 import { PLACEMENT_COPY } from '../copy';
 import { placementResultQuery } from '../placementApi';

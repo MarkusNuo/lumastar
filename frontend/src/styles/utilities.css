@@ -129,3 +129,12 @@
     opacity: 0.5;
   }
 }
+
+/* Frosty stripes on a day the streak freeze bridged, so it differs from a met day by more than hue. */
+@utility calendar-ice {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 0.375rem,
+    var(--color-highlight) 0.375rem 0.5625rem
+  );
+}

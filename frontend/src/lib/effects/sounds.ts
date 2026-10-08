@@ -1,9 +1,9 @@
 import type { FeedbackCue } from './cue';
 
 /*
- * Lingora's own sound effects, synthesized at runtime from a few oscillator notes: no audio files,
- * nothing sampled or copied. Short, soft and friendly; the wrong-answer sound is a gentle "bonk",
- * never a buzzer.
+ * Lingora's own sound effects, synthesized at runtime from a few oscillator notes and filtered
+ * noise: no audio files, nothing sampled or copied. Short, soft and friendly; the wrong-answer
+ * sound is a gentle "bonk", never a buzzer.
  */
 
 export interface Note {
@@ -20,8 +20,22 @@ export interface Note {
   gain: number;
 }
 
+/** White noise through a band-pass: a rising band is a whoosh, a short narrow one a crackle. */
+export interface NoiseBurst {
+  /** Centre of the band in Hz at the start of the burst. */
+  frequency: number;
+  /** Centre the band sweeps to by the end of the burst. */
+  glideTo?: number;
+  /** Band-pass quality: low is airy and wide, high is a tight tick. */
+  q: number;
+  at: number;
+  duration: number;
+  gain: number;
+}
+
 export interface SoundRecipe {
   notes: readonly Note[];
+  noises?: readonly NoiseBurst[];
   /** Low-pass cutoff in Hz that rounds off bright waves. */
   lowpassHz?: number;
 }
@@ -43,6 +57,7 @@ const PITCH = {
   F6: 1396.91,
   G6: 1567.98,
   C7: 2093,
+  F7: 2793.83,
 } as const;
 
 interface Strike {
@@ -57,6 +72,18 @@ interface Strike {
 /** Notes struck one after another (step > 0) or together (step 0). */
 function strike(pitches: readonly number[], { start = 0, step, ...note }: Strike): Note[] {
   return pitches.map((frequency, index) => ({ frequency, at: start + index * step, ...note }));
+}
+
+/** Short narrow noise ticks, like a match being struck or wood crackling in a fire. */
+function crackle(times: readonly number[], frequency: number, gain: number): NoiseBurst[] {
+  // Every other tick a bit brighter, so they never sound like one repeated click.
+  return times.map((at, index) => ({
+    frequency: frequency + (index % 2) * 900,
+    q: 9,
+    at,
+    duration: 0.035,
+    gain,
+  }));
 }
 
 const correctChime = [
@@ -123,27 +150,52 @@ export const SOUNDS: Record<FeedbackCue, SoundRecipe> = {
       { frequency: PITCH.E6, at: 0.24, duration: 0.45, wave: 'sine', gain: 0.12 },
     ],
   },
-  // The flame catches: a soft rising whoosh, then a warm F major arpeggio.
+  // The flame catches: a match strike, a rising whoosh, a warm F major arpeggio, then crackling.
   streak: {
     notes: [
       {
         frequency: PITCH.F4 / 2,
         glideTo: PITCH.F4,
-        at: 0,
-        duration: 0.3,
+        at: 0.08,
+        duration: 0.34,
         wave: 'triangle',
-        gain: 0.3,
+        gain: 0.26,
       },
       ...strike([PITCH.A5, PITCH.C6, PITCH.F6], {
-        start: 0.22,
+        start: 0.34,
         step: 0.08,
-        duration: 0.32,
+        duration: 0.34,
         wave: 'triangle',
         gain: 0.3,
       }),
-      { frequency: PITCH.F6 * 2, at: 0.42, duration: 0.5, wave: 'sine', gain: 0.05 },
+      { frequency: PITCH.F6 * 2, at: 0.54, duration: 0.5, wave: 'sine', gain: 0.05 },
     ],
-    lowpassHz: 4200,
+    noises: [
+      ...crackle([0, 0.05], 3600, 0.5),
+      { frequency: 380, glideTo: 2600, q: 0.8, at: 0.06, duration: 0.5, gain: 0.6 },
+      ...crackle([0.62, 0.74, 0.9, 1.02], 2800, 0.22),
+    ],
+    lowpassHz: 5200,
+  },
+  // The streak goal is reached: a little fanfare up to a bright chord with a shimmer on top.
+  streakGoal: {
+    notes: [
+      ...strike([PITCH.C5, PITCH.E5, PITCH.G5], {
+        step: 0.08,
+        duration: 0.16,
+        wave: 'triangle',
+        gain: 0.34,
+      }),
+      ...strike([PITCH.C6, PITCH.E6, PITCH.G6], {
+        start: 0.26,
+        step: 0,
+        duration: 0.85,
+        wave: 'triangle',
+        gain: 0.2,
+      }),
+      { frequency: PITCH.C7, glideTo: PITCH.F7, at: 0.3, duration: 0.6, wave: 'sine', gain: 0.05 },
+    ],
+    noises: [{ frequency: 7000, glideTo: 9000, q: 1.5, at: 0.26, duration: 0.7, gain: 0.08 }],
   },
   levelUp: {
     notes: [

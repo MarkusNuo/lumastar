@@ -61,7 +61,12 @@
 
   /* Gamification */
   --color-streak: #ff8a1f;
+  --color-streak-edge: #d4600b;
   --color-streak-core: #ffd23f;
+  /* The white-hot heart of the flame and its brightest sparks */
+  --color-streak-glow: #fff3c4;
+  --color-streak-surface: #3a2414;
+  --color-on-streak: #2e1300;
   --color-xp: #ffc933;
   --color-xp-edge: #d19a00;
   --color-xp-surface: #3a3012;
@@ -142,6 +147,8 @@
   /* One heatmap day and the gap after it */
   --spacing-heat-cell: 0.75rem;
   --spacing-heat-step: 1rem;
+  /* One day of the streak calendar; the streak band is as high as a day */
+  --spacing-calendar-day: 2.25rem;
   --spacing-path-swing: 4.5rem;
   --spacing-top-bar: 4rem;
   --spacing-nav: 4.5rem;
@@ -184,6 +191,38 @@
   --animate-blink: blink 4.6s var(--ease-in-out) infinite;
   --animate-twinkle: twinkle 1.4s var(--ease-in-out) infinite;
   --animate-drip: drip 2s var(--ease-in-out) infinite;
+  --animate-shiver: shiver 0.36s linear infinite;
+  --animate-glow: glow 2.4s var(--ease-in-out) infinite;
+  --animate-spin-slow: spin-slow 16s linear infinite;
+
+  @keyframes shiver {
+    0%,
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    25% {
+      transform: translateX(-1.5px) rotate(-1.5deg);
+    }
+    75% {
+      transform: translateX(1.5px) rotate(1.5deg);
+    }
+  }
+  @keyframes glow {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.45;
+    }
+    50% {
+      transform: scale(1.08);
+      opacity: 0.6;
+    }
+  }
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
   @keyframes pulse-ring {
     from {
@@ -389,6 +428,14 @@
     --tone-surface: var(--color-xp-surface);
     --tone-text: var(--color-xp);
     --tone-border: var(--color-xp);
+  }
+  [data-tone='streak'] {
+    --tone-face: var(--color-streak);
+    --tone-edge: var(--color-streak-edge);
+    --tone-on: var(--color-on-streak);
+    --tone-surface: var(--color-streak-surface);
+    --tone-text: var(--color-streak);
+    --tone-border: var(--color-streak);
   }
   [data-tone='freeze'] {
     --tone-face: var(--color-freeze);

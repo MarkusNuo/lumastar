@@ -21,13 +21,14 @@ function invalidatedKeys(result: LessonResult): unknown[] {
 }
 
 describe('refreshLearnerData', () => {
-  it('refreshes profile, plan, reviews, daily progress and statistics after every lesson', () => {
+  it('refreshes profile, plan, reviews, daily progress, statistics and streak after every lesson', () => {
     expect(invalidatedKeys({ ...RESULT, kind: 'lesson' })).toEqual([
       ['me'],
       ['plan'],
       ['review'],
       ['progress'],
       ['stats'],
+      ['streak'],
     ]);
   });
 

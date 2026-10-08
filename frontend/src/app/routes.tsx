@@ -25,6 +25,8 @@ import { ProfilePage } from '../features/settings/ProfilePage';
 import { PracticeLessonPage } from '../features/stats/PracticeLessonPage';
 import { StatsPage } from '../features/stats/StatsPage';
 import { STATS_ROUTES } from '../features/stats/statsRoutes';
+import { StreakPage } from '../features/streak/StreakPage';
+import { STREAK_ROUTE } from '../features/streak/streakRoutes';
 import { AppShell } from './AppShell';
 import { NotFoundPage } from './NotFoundPage';
 import { SignedInSession } from './SignedInSession';
@@ -90,6 +92,7 @@ export function createRoutes(): RouteObject[] {
                 { path: REVIEW_ROUTES.lesson, Component: ReviewLessonPage },
                 { path: STATS_ROUTES.practice, Component: PracticeLessonPage },
                 { path: CHECKPOINT_ROUTE, Component: CheckpointPage },
+                { path: STREAK_ROUTE, Component: StreakPage },
                 { path: ONBOARDING_ROUTES.questions, Component: OnboardingPage },
                 { path: ONBOARDING_ROUTES.placementIntro, Component: PlacementIntroPage },
                 { path: ONBOARDING_ROUTES.placementTest, Component: PlacementTestPage },

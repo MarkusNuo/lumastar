@@ -11,6 +11,7 @@ export const FEEDBACK_CUES = [
   'complete',
   'goal',
   'streak',
+  'streakGoal',
   'levelUp',
 ] as const;
 

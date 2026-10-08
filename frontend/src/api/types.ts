@@ -34,6 +34,14 @@ export type ReviewSummary = Schemas['ReviewSummaryResponse'];
 export type DailyProgress = Schemas['DailyProgressResponse'];
 export type Streak = Schemas['StreakResponse'];
 
+export type StreakOverviewResponse = Schemas['StreakOverviewResponse'];
+export type StreakCalendar = Schemas['StreakCalendar'];
+export type StreakCalendarDay = Schemas['StreakCalendarDay'];
+export type StreakDayStatus = Schemas['StreakDayStatus'];
+export type StreakFreezes = Schemas['StreakFreezes'];
+export type StreakGoalResponse = Schemas['StreakGoalResponse'];
+export type StreakGoalReached = Schemas['StreakGoalReached'];
+
 export type Stats = Schemas['StatsResponse'];
 export type LevelProgress = Schemas['LevelProgress'];
 export type MasteryArea = Schemas['MasteryArea'];

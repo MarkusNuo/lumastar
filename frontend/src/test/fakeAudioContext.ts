@@ -19,6 +19,22 @@ class FakeGain extends FakeNode {
 class FakeFilter extends FakeNode {
   type = '';
   readonly frequency = new FakeParam();
+  readonly Q = new FakeParam();
+}
+
+class FakeBuffer {
+  readonly length: number;
+  constructor(length: number) {
+    this.length = length;
+  }
+  readonly getChannelData = vi.fn(() => new Float32Array(this.length));
+}
+
+export class FakeBufferSource extends FakeNode {
+  buffer: FakeBuffer | null = null;
+  readonly start = vi.fn();
+  readonly stop = vi.fn();
+  onended: (() => void) | null = null;
 }
 
 export class FakeOscillator extends FakeNode {
@@ -32,10 +48,13 @@ export class FakeOscillator extends FakeNode {
 export class FakeAudioContext {
   state: AudioContextState = 'suspended';
   currentTime = 0;
+  readonly sampleRate = 8000;
   readonly destination = new FakeNode();
   readonly oscillators: FakeOscillator[] = [];
   readonly gains: FakeGain[] = [];
   readonly filters: FakeFilter[] = [];
+  readonly buffers: FakeBuffer[] = [];
+  readonly sources: FakeBufferSource[] = [];
   /** Set to false to act like a browser that refuses to start audio without a gesture. */
   allowResume = true;
 
@@ -60,6 +79,18 @@ export class FakeAudioContext {
     const filter = new FakeFilter();
     this.filters.push(filter);
     return filter;
+  }
+
+  createBuffer(_channels: number, length: number) {
+    const buffer = new FakeBuffer(length);
+    this.buffers.push(buffer);
+    return buffer;
+  }
+
+  createBufferSource() {
+    const source = new FakeBufferSource();
+    this.sources.push(source);
+    return source;
   }
 
   /** The fake in the shape the player expects. */

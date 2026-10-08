@@ -37,7 +37,7 @@ describe('LevelRevealPage', () => {
     const { router, user } = renderReveal({
       ...SAMPLE_PLACEMENT_RESULT,
       dailyGoal: { minutesToday: 6, goalMinutes: 5, goalMet: true, justMet: true },
-      streak: { current: 1, extendedToday: true, freezeUsed: false },
+      streak: { current: 1, previous: 0, extendedToday: true, freezeUsed: false },
     });
 
     await leaveReveal(user);
@@ -62,7 +62,7 @@ describe('LevelRevealPage', () => {
     const { router, user } = renderReveal({
       ...SAMPLE_PLACEMENT_RESULT,
       dailyGoal: { minutesToday: 14, goalMinutes: 10, goalMet: true, justMet: false },
-      streak: { current: 3, extendedToday: true, freezeUsed: false },
+      streak: { current: 3, previous: 3, extendedToday: true, freezeUsed: false },
     });
 
     await leaveReveal(user);

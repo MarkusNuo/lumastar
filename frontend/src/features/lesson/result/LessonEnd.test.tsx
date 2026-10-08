@@ -1,7 +1,8 @@
-import { render, screen, waitFor, within } from '@testing-library/react';
+import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { playCue } from '../../../lib/effects/playCue';
+import { renderWithQueryClient } from '../../../test/http';
 import type { LessonResult } from '../model';
 import { LessonEnd } from './LessonEnd';
 
@@ -18,17 +19,17 @@ const RESULT: LessonResult = {
   learnedItems: [],
   saved: true,
   dailyGoal: { minutesToday: 3, goalMinutes: 10, goalMet: false, justMet: false },
-  streak: { current: 4, extendedToday: false, freezeUsed: false },
+  streak: { current: 4, previous: 4, extendedToday: false, freezeUsed: false },
 };
 
 const GOAL_JUST_MET: Partial<LessonResult> = {
   dailyGoal: { minutesToday: 6, goalMinutes: 5, goalMet: true, justMet: true },
-  streak: { current: 5, extendedToday: true, freezeUsed: false },
+  streak: { current: 5, previous: 4, extendedToday: true, freezeUsed: false },
 };
 
 function renderEnd(result: LessonResult) {
   const handlers = { onContinue: vi.fn(), onRetrySave: vi.fn(), onStartFocus: vi.fn() };
-  render(<LessonEnd result={result} retrying={false} {...handlers} />);
+  renderWithQueryClient(<LessonEnd result={result} retrying={false} {...handlers} />);
   return { user: userEvent.setup(), ...handlers };
 }
 
@@ -89,7 +90,7 @@ describe('LessonEnd', () => {
     const { user } = renderEnd({
       ...RESULT,
       ...GOAL_JUST_MET,
-      streak: { current: 1, extendedToday: true, freezeUsed: false },
+      streak: { current: 1, previous: 0, extendedToday: true, freezeUsed: false },
     });
 
     await user.click(screen.getByRole('button', { name: 'Weiter' }));
@@ -102,7 +103,7 @@ describe('LessonEnd', () => {
     const { user } = renderEnd({
       ...RESULT,
       ...GOAL_JUST_MET,
-      streak: { current: 9, extendedToday: true, freezeUsed: true },
+      streak: { current: 9, previous: 7, extendedToday: true, freezeUsed: true },
     });
 
     await user.click(screen.getByRole('button', { name: 'Weiter' }));

@@ -21,6 +21,7 @@ import { RemindersSection } from './sections/RemindersSection';
 import { ResultSection } from './sections/ResultSection';
 import { ReviewCheckpointSection } from './sections/ReviewCheckpointSection';
 import { StatisticsSection } from './sections/StatisticsSection';
+import { StreakSection } from './sections/StreakSection';
 import { SurfacesSection } from './sections/SurfacesSection';
 import { WordTilesSection } from './sections/WordTilesSection';
 
@@ -39,6 +40,7 @@ const SECTIONS = [
   { id: 'wiederholen', title: 'Wiederholen & Checkpoints', Content: ReviewCheckpointSection },
   { id: 'einstufung', title: 'Einstufung & Lernplan', Content: PlacementPlanSection },
   { id: 'belohnung', title: 'Streak, XP & Niveau', Content: GamificationSection },
+  { id: 'streak', title: 'Streak-Feier & Streak-Seite', Content: StreakSection },
   { id: 'statistik', title: 'Statistik', Content: StatisticsSection },
   { id: 'konto', title: 'Konto & Anmeldung', Content: AccountSection },
   { id: 'erinnerungen', title: 'Erinnerungen', Content: RemindersSection },

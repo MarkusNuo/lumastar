@@ -17,8 +17,15 @@ export interface SegmentedControlProps<Value extends string | number> {
   /** A change is being saved; further taps are ignored, focus stays. */
   busy?: boolean;
   disabled?: boolean;
+  /** Large chips for a choice that is the moment's main action, e.g. the next streak goal. */
+  size?: 'md' | 'lg';
   className?: string;
 }
+
+const chipSize = {
+  md: 'min-h-12 rounded-button-sm text-label',
+  lg: 'min-h-16 rounded-button text-lead',
+} as const;
 
 /**
  * One choice out of a few, side by side: native radio buttons (arrow keys move the choice) dressed
@@ -30,6 +37,7 @@ export function SegmentedControl<Value extends string | number>({
   onChange,
   busy = false,
   disabled = false,
+  size = 'md',
   className,
   ...labels
 }: SegmentedControlProps<Value>) {
@@ -61,7 +69,10 @@ export function SegmentedControl<Value extends string | number>({
             />
             <span
               data-tone={checked ? 'primary' : 'neutral'}
-              className="flex min-h-12 w-full pressable items-center justify-center rounded-button-sm tone-outline px-2 text-label font-extrabold whitespace-nowrap peer-focus-visible:outline-3 peer-focus-visible:outline-offset-3 peer-focus-visible:outline-focus peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
+              className={cx(
+                'flex w-full pressable items-center justify-center tone-outline px-2 font-extrabold whitespace-nowrap peer-focus-visible:outline-3 peer-focus-visible:outline-offset-3 peer-focus-visible:outline-focus peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+                chipSize[size],
+              )}
             >
               {option.label}
             </span>

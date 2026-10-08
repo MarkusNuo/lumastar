@@ -6,6 +6,7 @@ import { PLAN_QUERY_KEY } from '../plan/planQueries';
 import { REVIEW_QUERY_KEY } from '../review/reviewApi';
 import { PROGRESS_QUERY_KEY } from '../stats/progressApi';
 import { STATS_QUERY_KEY } from '../stats/statsApi';
+import { STREAK_QUERY_KEY } from '../streak/streakApi';
 
 /** Target retention of the FSRS reviews (PRD F8; DECISIONS #61). */
 export const RETENTION = { min: 0.7, max: 0.99, default: 0.9, step: 0.01 } as const;
@@ -31,6 +32,7 @@ export function useSaveSettings() {
         PROGRESS_QUERY_KEY,
         STATS_QUERY_KEY,
         REVIEW_QUERY_KEY,
+        STREAK_QUERY_KEY,
       ];
       await Promise.all(affected.map((queryKey) => queryClient.invalidateQueries({ queryKey })));
     },

@@ -49,7 +49,10 @@ const GROUPS: { label: string; swatches: Swatch[] }[] = [
     label: 'Belohnung & gesperrt',
     swatches: [
       { name: 'streak', className: 'bg-streak' },
+      { name: 'streak-edge', className: 'bg-streak-edge' },
       { name: 'streak-core', className: 'bg-streak-core' },
+      { name: 'streak-glow', className: 'bg-streak-glow' },
+      { name: 'streak-surface', className: 'bg-streak-surface' },
       { name: 'xp', className: 'bg-xp' },
       { name: 'freeze', className: 'bg-freeze' },
       { name: 'freeze-surface', className: 'bg-freeze-surface' },

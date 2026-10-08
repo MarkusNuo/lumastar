@@ -1,6 +1,6 @@
 import { CheckpointResultScreen } from '../../checkpoint/CheckpointResultScreen';
 import { LessonResultScreen, type LessonResultScreenProps } from './LessonResultScreen';
-import { WithStreakCelebration } from './StreakCelebration';
+import { WithStreakCelebration } from '../../streak/celebration/StreakCelebration';
 
 /**
  * The end of any lesson: a saved checkpoint gets its own pass or fail moment, and the lesson that

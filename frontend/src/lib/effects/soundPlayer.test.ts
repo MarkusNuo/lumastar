@@ -12,14 +12,15 @@ function playerWithFake() {
 
 describe('sound recipes', () => {
   it.each(FEEDBACK_CUES)('keeps the %s sound short and below full level', (cue) => {
-    const { notes } = SOUNDS[cue];
-    const length = Math.max(...notes.map((note) => note.at + note.duration));
+    const { notes, noises = [] } = SOUNDS[cue];
+    const parts = [...notes, ...noises];
+    const length = Math.max(...parts.map((part) => part.at + part.duration));
 
     expect(notes.length).toBeGreaterThan(0);
     expect(length).toBeLessThanOrEqual(1.5);
-    for (const note of notes) {
-      expect(note.gain).toBeGreaterThan(0);
-      expect(note.gain).toBeLessThanOrEqual(1);
+    for (const part of parts) {
+      expect(part.gain).toBeGreaterThan(0);
+      expect(part.gain).toBeLessThanOrEqual(1);
     }
   });
 });
@@ -62,6 +63,27 @@ describe('createSoundPlayer', () => {
 
     expect(fake.filters).toHaveLength(1);
     expect(fake.filters[0]?.frequency.value).toBe(SOUNDS.wrong.lowpassHz);
+  });
+
+  it('lets the flame whoosh and crackle with band-passed noise', () => {
+    const { fake, player } = playerWithFake();
+    const noises = SOUNDS.streak.noises ?? [];
+
+    player.play('streak');
+    player.play('streak');
+
+    expect(noises.length).toBeGreaterThan(1);
+    expect(fake.buffers).toHaveLength(1);
+    expect(fake.sources).toHaveLength(noises.length * 2);
+    for (const source of fake.sources) {
+      expect(source.buffer).toBe(fake.buffers[0]);
+      expect(source.start).toHaveBeenCalledOnce();
+      expect(source.stop).toHaveBeenCalledOnce();
+    }
+    const bands = fake.filters.filter((filter) => filter.type === 'bandpass');
+    expect(bands.map((band) => band.Q.value)).toEqual(
+      [...noises, ...noises].map((noise) => noise.q),
+    );
   });
 
   it('resumes a suspended context when playing', () => {

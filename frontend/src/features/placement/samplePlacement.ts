@@ -79,5 +79,5 @@ export const SAMPLE_PLACEMENT_RESULT: PlacementResult = {
     { skillTag: 'vocab.food', label: 'Essen & Trinken', mastery: 0.4 },
   ],
   dailyGoal: { minutesToday: 4, goalMinutes: 10, goalMet: false, justMet: false },
-  streak: { current: 0, extendedToday: false, freezeUsed: false },
+  streak: { current: 0, previous: 0, extendedToday: false, freezeUsed: false },
 };

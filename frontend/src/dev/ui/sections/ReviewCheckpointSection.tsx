@@ -1,5 +1,5 @@
-import { ArrowClockwiseIcon, MonitorPlayIcon, TrophyIcon } from '@phosphor-icons/react';
-import { useState, type ReactNode } from 'react';
+import { ArrowClockwiseIcon, TrophyIcon } from '@phosphor-icons/react';
+import { useState } from 'react';
 import { BandBadge } from '../../../components/ui/BandBadge';
 import { Button } from '../../../components/ui/Button';
 import { BADGE_BANDS } from '../../../components/ui/levels';
@@ -19,6 +19,7 @@ import { FocusSuggestionCard } from '../../../features/lesson/result/FocusSugges
 import { ReviewSummaryCard } from '../../../features/review/ReviewSummaryCard';
 import { BadgeGrid } from '../../../features/settings/BadgesSection';
 import { Specimen } from '../CatalogSection';
+import { ScreenPreview } from '../ScreenPreview';
 
 const noop = () => undefined;
 
@@ -32,29 +33,6 @@ const EARNED = [
   { code: 'A1', awardedAt: '2026-08-14T18:00:00Z' },
   { code: 'A2', awardedAt: '2026-10-05T09:30:00Z' },
 ] as const;
-
-/** Opens a full screen over the catalog; its own continue button closes it again. */
-function ScreenPreview({
-  label,
-  children,
-}: {
-  label: string;
-  children: (close: () => void) => ReactNode;
-}) {
-  const [open, setOpen] = useState(false);
-  return (
-    <>
-      <Button variant="neutral" icon={MonitorPlayIcon} onClick={() => setOpen(true)}>
-        {label}
-      </Button>
-      {open && (
-        <div className="fixed inset-0 z-(--z-sheet) overflow-y-auto bg-bg">
-          {children(() => setOpen(false))}
-        </div>
-      )}
-    </>
-  );
-}
 
 function CheckpointResultPreview({ label, result }: { label: string; result: LessonResult }) {
   const { checkpoint } = result;

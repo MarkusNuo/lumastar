@@ -35,7 +35,7 @@ const RESULT: LessonResultResponse = {
   xpTotal: 115,
   learnedWordsTotal: 1,
   dailyGoal: { goalMet: false, goalMinutes: 10, justMet: false, minutesToday: 3 },
-  streak: { current: 0, extendedToday: false, freezeUsed: false },
+  streak: { current: 0, previous: 0, extendedToday: false, freezeUsed: false },
 };
 
 function attemptResponse(overrides: Partial<AttemptResponse>): AttemptResponse {
@@ -173,7 +173,7 @@ describe('LessonPlayer', () => {
     expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ saved: true }));
   });
 
-  it('refreshes XP, level, plan, review counts, daily goal and statistics once the result is saved', async () => {
+  it('refreshes XP, level, plan, review counts, daily goal, statistics and streak once the result is saved', async () => {
     stubApi({ [ATTEMPTS]: answerLikePrecheck, [COMPLETE]: () => jsonResponse(RESULT) });
     const { user, queryClient } = renderPlayer({ ...LESSON, exercises: [SAMPLE_MULTIPLE_CHOICE] });
     const invalidate = vi.spyOn(queryClient, 'invalidateQueries');
@@ -189,6 +189,7 @@ describe('LessonPlayer', () => {
       ['review'],
       ['progress'],
       ['stats'],
+      ['streak'],
     ]);
   });
 

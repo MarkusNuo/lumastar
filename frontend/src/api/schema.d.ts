@@ -848,6 +848,46 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/streak": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * The streak, its freezes, one month of the streak calendar and the streak goal
+         * @description For the streak screen behind the flame of the top bar. Any month can be asked for; months before the first streak day and months to come have no days.
+         */
+        get: operations["getStreak"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/streak/goal": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Choose the streak goal
+         * @description Once the goal is reached, only one of its options; before, any rung of the goal ladder above the current streak, so that the goal can be changed.
+         */
+        put: operations["updateStreakGoal"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -948,6 +988,11 @@ export interface components {
              * @description Days that counted for the streak
              */
             streakDays: number;
+            /**
+             * Format: int32
+             * @description The streak goal; 0 while it is the first goal of 10 days
+             */
+            streakGoals: number;
             /** Format: int32 */
             streaks: number;
         };
@@ -1311,6 +1356,13 @@ export interface components {
             extendedToday: boolean;
             /** @description This lesson or placement test extended the streak over the missed day before, which the weekly streak freeze bridged */
             freezeUsed: boolean;
+            /** @description This lesson or placement test extended the streak to its goal; absent otherwise, and once the next goal has been chosen */
+            goalReached?: components["schemas"]["StreakGoalReached"];
+            /**
+             * Format: int32
+             * @description The streak before this lesson or placement test: one less than the streak it reached if it extended the streak, otherwise equal to current
+             */
+            previous: number;
         };
         /** @enum {string} */
         Level: "A0" | "A1.1" | "A1.2" | "A1.3" | "A2.1" | "A2.2" | "A2.3" | "B1.1" | "B1.2" | "B1.3" | "B2.1" | "B2.2" | "B2.3" | "C1.1" | "C1.2" | "C1.3" | "C2.1" | "C2.2" | "C2.3";
@@ -1999,6 +2051,119 @@ export interface components {
             masteryByArea: components["schemas"]["MasteryArea"][];
             /** @description Up to 5 skill tags with the most wrong first answers of the last 30 days, the most first */
             topErrors: components["schemas"]["FrequentError"][];
+        };
+        /** @description One month of the streak calendar */
+        StreakCalendar: {
+            /** @description Only the days of the month that counted for the streak, in date order; empty for months before the first streak day and for months to come */
+            days: components["schemas"]["StreakCalendarDay"][];
+            /**
+             * Format: date
+             * @description The first day of the month
+             * @example 2026-10-01
+             */
+            firstDay: string;
+            /** @example 2026-10 */
+            month: string;
+        };
+        StreakCalendarDay: {
+            /** Format: date */
+            date: string;
+            status: components["schemas"]["StreakDayStatus"];
+        };
+        /**
+         * @description met: the daily goal was met; frozen: a missed day bridged by the streak freeze (yesterday included while the freeze bridges it)
+         * @enum {string}
+         */
+        StreakDayStatus: "met" | "frozen";
+        /** @description The streak freezes: every ISO week has one, which bridges a single missed day and is not carried over to the next week */
+        StreakFreezes: {
+            /**
+             * Format: int32
+             * @description Freezes left this ISO week, 0 or 1; a freeze bridging yesterday is deducted already
+             */
+            available: number;
+            /**
+             * Format: date
+             * @description The last day a freeze bridged, yesterday included while it bridges it; absent before the first time
+             */
+            lastUsedOn?: string;
+            /**
+             * Format: int32
+             * @example 1
+             */
+            perWeek: number;
+            /**
+             * Format: date
+             * @description The next Monday, when the new week's freeze is available
+             */
+            resetsOn: string;
+        };
+        /** @description A streak goal just reached, with the next goals to choose from (PUT /api/streak/goal) */
+        StreakGoalReached: {
+            /** @description The next three rungs of the goal ladder above the reached goal (or above the streak, if it has run past them), ascending, e.g. 20, 30, 50 */
+            options: number[];
+            /**
+             * Format: int32
+             * @description The goal reached, in days
+             * @example 10
+             */
+            target: number;
+        };
+        /** @description The next streak goal: once the goal is reached, one of its options; before, any rung of the ladder above the current streak */
+        StreakGoalRequest: {
+            /**
+             * Format: int32
+             * @description The goal in days
+             * @example 20
+             */
+            target: number;
+        };
+        /** @description The streak goal on the ladder 10, 20, 30, 50, 75, 100, 150, 200, 250, 300, 365, 465, 565, … days. A reached goal stays until the next one is chosen from the options; a broken streak keeps the goal and starts its progress again. */
+        StreakGoalResponse: {
+            /** @description Once reached: the next three rungs above the goal (or above the streak, if it has run past them), ascending; empty before */
+            options: number[];
+            /**
+             * Format: int32
+             * @description The current streak, at most the target
+             */
+            progress: number;
+            reached: boolean;
+            /**
+             * Format: int32
+             * @description The goal in days
+             * @example 10
+             */
+            target: number;
+        };
+        /** @description The streak screen: the streak, today's daily goal, the streak freezes, one month of the streak calendar and the streak goal; days are dates in the learner's time zone */
+        StreakOverviewResponse: {
+            calendar: components["schemas"]["StreakCalendar"];
+            /**
+             * Format: int32
+             * @description 0 once the streak has ended
+             */
+            current: number;
+            /** @description Today's goal is met and has extended the streak */
+            extendedToday: boolean;
+            freezes: components["schemas"]["StreakFreezes"];
+            goal: components["schemas"]["StreakGoalResponse"];
+            /**
+             * Format: int32
+             * @description The daily goal: 5, 10, 15 or 20
+             */
+            goalMinutes: number;
+            /** Format: int32 */
+            longest: number;
+            /**
+             * Format: int32
+             * @description Whole minutes practised today
+             */
+            minutesToday: number;
+            /**
+             * Format: date
+             * @description Today in the learner's time zone
+             */
+            today: string;
         };
         /** @description The streak (PRD F9): days in a row with the daily goal met. A single missed day is bridged by the streak freeze of its ISO week (1 per week, not carried over); two missed days in a row end the streak. */
         StreakResponse: {
@@ -4218,6 +4383,101 @@ export interface operations {
             };
             /** @description Not signed in */
             401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    getStreak: {
+        parameters: {
+            query?: {
+                /**
+                 * @description The calendar month; the current month in the learner's time zone if absent
+                 * @example 2026-10
+                 */
+                month?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The streak */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StreakOverviewResponse"];
+                };
+            };
+            /** @description The month is not of the form YYYY-MM (code bad_request) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+        };
+    };
+    updateStreakGoal: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StreakGoalRequest"];
+            };
+        };
+        responses: {
+            /** @description The new goal */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StreakGoalResponse"];
+                };
+            };
+            /** @description The goal cannot be chosen now (code invalid_streak_goal) or is missing (code validation_failed) */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/problem+json": components["schemas"]["ProblemDetail"];
+                };
+            };
+            /** @description Missing or invalid CSRF token */
+            403: {
                 headers: {
                     [name: string]: unknown;
                 };
