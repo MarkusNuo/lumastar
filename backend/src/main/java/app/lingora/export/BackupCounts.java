@@ -7,6 +7,8 @@ import java.util.Map;
 @Schema(description = "Rows per learner table")
 public record BackupCounts(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int streaks,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The streak goal; 0 while it is the first "
+                + "goal of 10 days") int streakGoals,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int fsrsParams,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int learningPlans,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int planChanges,
@@ -22,10 +24,10 @@ public record BackupCounts(
 
     /** From the row counts keyed by table name. */
     static BackupCounts of(Map<String, Integer> rowsByTable) {
-        return new BackupCounts(rowsByTable.get("streaks"), rowsByTable.get("fsrs_params"), rowsByTable.get("learning_plans"),
-                rowsByTable.get("plan_changes"), rowsByTable.get("placement_tests"), rowsByTable.get("placement_answers"),
-                rowsByTable.get("sessions"), rowsByTable.get("badges"), rowsByTable.get("streak_days"),
-                rowsByTable.get("attempts"), rowsByTable.get("skill_mastery"), rowsByTable.get("srs_cards"),
-                rowsByTable.get("review_log"));
+        return new BackupCounts(rowsByTable.get("streaks"), rowsByTable.get("streak_goals"), rowsByTable.get("fsrs_params"),
+                rowsByTable.get("learning_plans"), rowsByTable.get("plan_changes"), rowsByTable.get("placement_tests"),
+                rowsByTable.get("placement_answers"), rowsByTable.get("sessions"), rowsByTable.get("badges"),
+                rowsByTable.get("streak_days"), rowsByTable.get("attempts"), rowsByTable.get("skill_mastery"),
+                rowsByTable.get("srs_cards"), rowsByTable.get("review_log"));
     }
 }

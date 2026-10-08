@@ -1,12 +1,15 @@
 package app.lingora.api.progress;
 
 import app.lingora.core.progress.DailyGoal;
+import app.lingora.core.progress.StreakGoal;
+import app.lingora.core.progress.StreakGoalRule;
 import app.lingora.core.progress.StreakRule;
 import app.lingora.core.progress.StreakRule.Extension;
 import app.lingora.persistence.PracticeCompletion;
 import app.lingora.persistence.PracticeQueries;
 import app.lingora.persistence.PracticeQueries.DayPractice;
 import app.lingora.persistence.StreakDayKind;
+import app.lingora.persistence.StreakGoalStore;
 import app.lingora.persistence.StreakStore;
 import app.lingora.persistence.UserEntity;
 import app.lingora.persistence.UserRepository;
@@ -21,8 +24,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * The daily goal and the streak of PRD F9, see {@link StreakRule}. Everything that adds practice time or changes the
- * goal or the time zone calls {@link #evaluate}, which extends the streak once the goal of the day is met. Reads judge
- * the stored streak on the current day, so no job is needed when days pass.
+ * goal or the time zone calls {@link #evaluate}, which extends the streak once the goal of the day is met, and marks the
+ * streak goal reached when the extension reaches it ({@link StreakGoalRule}). Reads judge the stored streak on the
+ * current day, so no job is needed when days pass.
  */
 @Service
 public class DailyProgress {
@@ -30,12 +34,15 @@ public class DailyProgress {
     private final UserRepository users;
     private final PracticeQueries practice;
     private final StreakStore streaks;
+    private final StreakGoalStore streakGoals;
     private final Clock clock;
 
-    DailyProgress(UserRepository users, PracticeQueries practice, StreakStore streaks, Clock clock) {
+    DailyProgress(UserRepository users, PracticeQueries practice, StreakStore streaks, StreakGoalStore streakGoals,
+                  Clock clock) {
         this.users = users;
         this.practice = practice;
         this.streaks = streaks;
+        this.streakGoals = streakGoals;
         this.clock = clock;
     }
 
@@ -66,6 +73,8 @@ public class DailyProgress {
         streaks.save(userId, extension.streak(), now);
         extension.bridgedDay().ifPresent(day -> streaks.recordFreeze(userId, day, now));
         streaks.recordGoalMet(userId, today, goal.goalMinutes(), completion, now);
+        StreakGoalRule.reachedBy(streakGoals.goal(userId), extension.streak().current(), today)
+                .ifPresent(reached -> streakGoals.markReached(userId, reached, now));
     }
 
     @Transactional(readOnly = true)
@@ -83,7 +92,8 @@ public class DailyProgress {
 
     /**
      * The progress of the completion's day up to and including the completion, and the streak today. Asking again
-     * later returns the same daily goal, unless the goal itself has been changed since.
+     * later returns the same daily goal, unless the goal itself has been changed since; the reached streak goal is
+     * reported until the learner has chosen the next one.
      */
     @Transactional(readOnly = true)
     public CompletionProgress ofCompletion(UUID userId, PracticeCompletion completion, Instant finishedAt) {
@@ -95,9 +105,15 @@ public class DailyProgress {
         Optional<LocalDate> metByCompletion = streaks.dayMetBy(userId, completion);
         boolean freezeUsed = metByCompletion.filter(day -> isFrozen(userId, day.minusDays(1))).isPresent();
         StreakRule.Status streak = StreakRule.status(streaks.streak(userId), LocalDate.ofInstant(clock.instant(), zone));
+        int previous = metByCompletion.map(day -> streaks.lengthOn(userId, day) - 1).orElse(streak.current());
+        StreakGoal streakGoal = streakGoals.goal(userId);
+        StreakGoalReached goalReached = metByCompletion
+                .filter(day -> day.equals(streakGoal.reachedOn()))
+                .map(day -> StreakGoalReached.of(StreakGoalRule.status(streakGoal, streak.current())))
+                .orElse(null);
         return new CompletionProgress(
                 new LessonDailyGoal(goal.minutes(), goal.goalMinutes(), goal.met(), metByCompletion.isPresent()),
-                new LessonStreak(streak.current(), streak.extendedToday(), freezeUsed));
+                new LessonStreak(streak.current(), previous, streak.extendedToday(), freezeUsed, goalReached));
     }
 
     private boolean isFrozen(UUID userId, LocalDate day) {

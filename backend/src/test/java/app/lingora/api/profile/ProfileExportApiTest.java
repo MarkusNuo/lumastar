@@ -38,10 +38,11 @@ class ProfileExportApiTest extends IntegrationTest {
     private static final String EXPORT = "/api/profile/export";
     private static final String IMPORT = "/api/profile/import";
     private static final JsonMapper JSON = JsonMapper.builder().build();
-    private static final List<String> DATA_FILES = List.of("data/profile.json", "data/streaks.json", "data/fsrs_params.json",
-            "data/learning_plans.json", "data/plan_changes.json", "data/placement_tests.json", "data/placement_answers.json",
-            "data/sessions.json", "data/badges.json", "data/streak_days.json", "data/attempts.json", "data/skill_mastery.json",
-            "data/srs_cards.json", "data/review_log.json");
+    private static final List<String> DATA_FILES = List.of("data/profile.json", "data/streaks.json",
+            "data/streak_goals.json", "data/fsrs_params.json", "data/learning_plans.json", "data/plan_changes.json",
+            "data/placement_tests.json", "data/placement_answers.json", "data/sessions.json", "data/badges.json",
+            "data/streak_days.json", "data/attempts.json", "data/skill_mastery.json", "data/srs_cards.json",
+            "data/review_log.json");
     private static final Map<String, String> CORRECT_GREETINGS_ANSWERS = Map.of(
             "ex_a1_u01_001", """
                     {"choice": "Mirëdita"}""",
@@ -98,13 +99,13 @@ class ProfileExportApiTest extends IntegrationTest {
         void describesTheContentInTheManifest() {
             JsonNode manifest = JSON.readTree(entries(export()).get("manifest.json"));
 
-            assertThat(manifest.get("schemaVersion").asInt()).isEqualTo(4);
+            assertThat(manifest.get("schemaVersion").asInt()).isEqualTo(5);
             assertThat(manifest.get("appVersion").asString()).isEqualTo("0.1.0-SNAPSHOT");
             assertThat(manifest.get("exportedAt").asString()).endsWith("Z");
             assertThat(manifest.get("counts")).isEqualTo(JSON.readTree("""
-                    {"streaks": 1, "fsrsParams": 1, "learningPlans": 1, "planChanges": 1, "placementTests": 1,
-                     "placementAnswers": 1, "sessions": 1, "badges": 0, "streakDays": 0, "attempts": 6, "skillMastery": 2,
-                     "srsCards": 6, "reviewLog": 11}"""));
+                    {"streaks": 1, "streakGoals": 1, "fsrsParams": 1, "learningPlans": 1, "planChanges": 1,
+                     "placementTests": 1, "placementAnswers": 1, "sessions": 1, "badges": 0, "streakDays": 0, "attempts": 6,
+                     "skillMastery": 2, "srsCards": 6, "reviewLog": 11}"""));
         }
 
         @Test
@@ -145,7 +146,7 @@ class ProfileExportApiTest extends IntegrationTest {
             Map<String, String> before = entries(first);
             JsonNode manifest = JSON.readTree(before.get("manifest.json"));
             assertThat(imported).bodyJson().isStrictlyEqualTo("""
-                    {"schemaVersion": 4, "exportedAt": "%s", "imported": %s}"""
+                    {"schemaVersion": 5, "exportedAt": "%s", "imported": %s}"""
                     .formatted(manifest.get("exportedAt").asString(), manifest.get("counts")));
             Map<String, String> after = entries(second);
             assertThat(withoutManifest(after)).isEqualTo(withoutManifest(before));
@@ -213,12 +214,12 @@ class ProfileExportApiTest extends IntegrationTest {
         @Test
         void rejectsAnExportOfANewerVersion() {
             byte[] future = ZipFiles.zip(Map.of("manifest.json", """
-                    {"schemaVersion": 5, "exportedAt": "2027-01-01T00:00:00Z"}"""));
+                    {"schemaVersion": 6, "exportedAt": "2027-01-01T00:00:00Z"}"""));
 
             MvcTestResult rejected = learner.upload(IMPORT, "file", future);
 
             assertProblem(rejected, HttpStatus.UNPROCESSABLE_CONTENT, "unsupported_schema_version");
-            assertThat(rejected).bodyJson().extractingPath("$.detail").asString().contains("version 5");
+            assertThat(rejected).bodyJson().extractingPath("$.detail").asString().contains("version 6");
         }
 
         @Test
@@ -326,7 +327,7 @@ class ProfileExportApiTest extends IntegrationTest {
                 .formatted(exercise, answer, retry))).hasStatusOk();
     }
 
-    /** Synthetic rows for the tables that later milestones fill (placement, plan, FSRS, streak). */
+    /** Synthetic rows for the tables that later milestones fill (placement, plan, FSRS, streak, streak goal). */
     private void addPlacementPlanAndReviewData() {
         jdbc.sql("""
                 UPDATE users SET motivations = '{family,travel}', current_level = 'A1.2', self_assessment = 'few_words',
@@ -335,6 +336,10 @@ class ProfileExportApiTest extends IntegrationTest {
         jdbc.sql("""
                 INSERT INTO streaks (user_id, current_days, longest_days, last_active_date)
                 VALUES (:user, 3, 7, '2026-09-24')""").param("user", learnerId).update();
+        jdbc.sql("""
+                INSERT INTO streak_goals (user_id, target, reached_on, reached_at, updated_at)
+                VALUES (:user, 20, '2026-09-24', '2026-09-24T17:30:00Z', '2026-09-24T17:30:00Z')""")
+                .param("user", learnerId).update();
         UUID params = jdbc.sql("""
                 INSERT INTO fsrs_params (user_id, version, scheduler_version, weights, review_count, metrics)
                 VALUES (:user, 1, 'fsrs-6', '{0.212,1.2931,2.3065,8.2956}', 1000, '{"logLoss": 0.3141}') RETURNING id""")

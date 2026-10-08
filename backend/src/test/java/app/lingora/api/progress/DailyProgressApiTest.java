@@ -63,13 +63,14 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         assertThat(first.get("dailyGoal")).isEqualTo(json("""
                 {"minutesToday": 6, "goalMinutes": 10, "goalMet": false, "justMet": false}"""));
         assertThat(first.get("streak")).isEqualTo(json("""
-                {"current": 0, "extendedToday": false, "freezeUsed": false}"""));
+                {"current": 0, "previous": 0, "extendedToday": false, "freezeUsed": false}"""));
         assertThat(second.get("dailyGoal")).isEqualTo(json("""
                 {"minutesToday": 11, "goalMinutes": 10, "goalMet": true, "justMet": true}"""));
         assertThat(second.get("streak")).isEqualTo(json("""
-                {"current": 1, "extendedToday": true, "freezeUsed": false}"""));
+                {"current": 1, "previous": 0, "extendedToday": true, "freezeUsed": false}"""));
         assertThat(third.get("dailyGoal").get("justMet").asBoolean()).isFalse();
         assertThat(third.get("streak").get("current").asInt()).isEqualTo(1);
+        assertThat(third.get("streak").get("previous").asInt()).as("a lesson after the goal was met").isEqualTo(1);
         assertThat(learner.get("/api/progress/today")).bodyJson().isStrictlyEqualTo("""
                 {"date": "2026-10-05", "minutesToday": 15, "goalMinutes": 10, "goalMet": true, "xpToday": 60,
                  "lessonsToday": 3,
@@ -96,6 +97,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         assertThat(tuesday.get("streak").get("current").asInt()).as("standing, not extended yet").isEqualTo(1);
         assertThat(tuesday.get("streak").get("extendedToday").asBoolean()).isFalse();
         assertThat(result.get("streak").get("current").asInt()).isEqualTo(2);
+        assertThat(result.get("streak").get("previous").asInt()).isEqualTo(1);
         assertThat(today().get("streak").get("longest").asInt()).isEqualTo(2);
     }
 
@@ -111,7 +113,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
                 {"current": 1, "longest": 1, "freezesLeft": 0, "extendedToday": false, "lastActiveDate": "2026-10-05",
                  "freezeUsedYesterday": true}"""));
         assertThat(result.get("streak")).isEqualTo(json("""
-                {"current": 2, "extendedToday": true, "freezeUsed": true}"""));
+                {"current": 2, "previous": 1, "extendedToday": true, "freezeUsed": true}"""));
         assertThat(today().get("streak")).isEqualTo(json("""
                 {"current": 2, "longest": 2, "freezesLeft": 0, "extendedToday": true, "lastActiveDate": "2026-10-07",
                  "freezeUsedYesterday": true}"""));
@@ -129,7 +131,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         JsonNode friday = lessonOf(Duration.ofMinutes(11));
 
         assertThat(friday.get("streak")).isEqualTo(json("""
-                {"current": 1, "extendedToday": true, "freezeUsed": false}"""));
+                {"current": 1, "previous": 0, "extendedToday": true, "freezeUsed": false}"""));
         assertThat(today().get("streak").get("longest").asInt()).isEqualTo(2);
     }
 
@@ -157,7 +159,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
                 {"current": 0, "longest": 1, "freezesLeft": 1, "extendedToday": false, "lastActiveDate": "2026-10-05",
                  "freezeUsedYesterday": false}"""));
         assertThat(result.get("streak")).isEqualTo(json("""
-                {"current": 1, "extendedToday": true, "freezeUsed": false}"""));
+                {"current": 1, "previous": 0, "extendedToday": true, "freezeUsed": false}"""));
     }
 
     @Test
@@ -210,7 +212,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         assertThat(result.get("dailyGoal")).isEqualTo(json("""
                 {"minutesToday": 12, "goalMinutes": 10, "goalMet": true, "justMet": true}"""));
         assertThat(result.get("streak")).isEqualTo(json("""
-                {"current": 1, "extendedToday": true, "freezeUsed": false}"""));
+                {"current": 1, "previous": 0, "extendedToday": true, "freezeUsed": false}"""));
         JsonNode today = today();
         assertThat(today.get("minutesToday").asInt()).isEqualTo(12);
         assertThat(today.get("lessonsToday").asInt()).isZero();
@@ -228,7 +230,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         assertThat(result.get("dailyGoal")).isEqualTo(json("""
                 {"minutesToday": 16, "goalMinutes": 10, "goalMet": true, "justMet": false}"""));
         assertThat(result.get("streak")).isEqualTo(json("""
-                {"current": 1, "extendedToday": true, "freezeUsed": false}"""));
+                {"current": 1, "previous": 1, "extendedToday": true, "freezeUsed": false}"""));
     }
 
     @Test
@@ -240,7 +242,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
 
         assertThat(result.get("dailyGoal").get("justMet").asBoolean()).isTrue();
         assertThat(result.get("streak")).isEqualTo(json("""
-                {"current": 2, "extendedToday": true, "freezeUsed": true}"""));
+                {"current": 2, "previous": 1, "extendedToday": true, "freezeUsed": true}"""));
     }
 
     @Test
@@ -265,7 +267,7 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         assertThat(result).hasStatusOk().bodyJson().extractingPath("$.dailyGoal").isEqualTo(Map.of(
                 "minutesToday", 0, "goalMinutes", 10, "goalMet", false, "justMet", false));
         assertThat(result).bodyJson().extractingPath("$.streak").isEqualTo(Map.of(
-                "current", 0, "extendedToday", false, "freezeUsed", false));
+                "current", 0, "previous", 0, "extendedToday", false, "freezeUsed", false));
     }
 
     @Test

@@ -34,7 +34,8 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
             "/api/plan/changes", "/api/progress/today", "/api/stats", "/api/badges", "/api/review/summary",
             "/api/profile/summary", "/api/profile/documents/learner_profile.json",
             "/api/profile/documents/skill_mastery.json", "/api/profile/documents/recent_errors.json",
-            "/api/profile/documents/learning_plan.json", "/api/reminders", "/api/push/subscriptions");
+            "/api/profile/documents/learning_plan.json", "/api/reminders", "/api/push/subscriptions",
+            "/api/streak");
 
     @Autowired
     private ContentSeeder seeder;
@@ -155,7 +156,7 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
 
         Map<String, Integer> boraRows = rowsPerTable(boraId);
         assertThat(List.of("sessions", "attempts", "skill_mastery", "learning_plans", "account_tokens",
-                "push_subscriptions", "reminder_settings"))
+                "push_subscriptions", "reminder_settings", "streak_goals"))
                 .allSatisfy(table -> assertThat(boraRows.get(table)).as("rows of the learner in %s", table).isPositive());
 
         assertThat(bora.delete("/api/account", """
@@ -169,8 +170,8 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
     }
 
     /**
-     * Placement skip, a correct and a failed lesson (errors, focus suggestion, plan change), changed settings, and
-     * reminders on a device of the learner.
+     * Placement skip, a correct and a failed lesson (errors, focus suggestion, plan change), changed settings, a chosen
+     * streak goal, and reminders on a device of the learner.
      */
     private void learn(SpaClient learner) {
         new PlacementDriver(learner, jdbc).answerOnboarding("nothing");
@@ -180,6 +181,8 @@ class TwoLearnerIsolationTest extends ClockedIntegrationTest {
         lessons.play(LessonDriver.A0_WORDS, "nein");
         assertThat(learner.put("/api/settings", """
                 {"dailyGoalMinutes": 20, "requestRetention": 0.85, "timeZone": "Europe/Berlin"}""")).hasStatusOk();
+        assertThat(learner.put("/api/streak/goal", """
+                {"target": 30}""")).hasStatusOk();
         assertThat(learner.post("/api/push/subscriptions", PushSubscriptions.json(
                 "https://fcm.googleapis.com/fcm/send/" + UUID.randomUUID()))).hasStatusOk();
         assertThat(learner.put("/api/reminders", """

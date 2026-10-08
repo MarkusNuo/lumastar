@@ -7,6 +7,8 @@ import app.lingora.core.progress.StreakRule.Extension;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class StreakRuleTest {
 
@@ -190,6 +192,30 @@ class StreakRuleTest {
             StreakRule.Status status = StreakRule.status(met(MONDAY, TUESDAY), SATURDAY);
 
             assertThat(status).isEqualTo(new StreakRule.Status(0, 2, 1, false, TUESDAY, false));
+        }
+    }
+
+    @Nested
+    class FreezeReset {
+
+        @ParameterizedTest(name = "{0} → {1}")
+        @CsvSource(delimiter = '|', textBlock = """
+                2026-10-05 | 2026-10-12
+                2026-10-06 | 2026-10-12
+                2026-10-07 | 2026-10-12
+                2026-10-08 | 2026-10-12
+                2026-10-09 | 2026-10-12
+                2026-10-10 | 2026-10-12
+                2026-10-11 | 2026-10-12
+                2026-12-28 | 2027-01-04""")
+        void theNextFreezeComesOnTheMondayAfterToday(LocalDate today, LocalDate resetsOn) {
+            assertThat(StreakRule.freezesResetOn(today)).isEqualTo(resetsOn);
+        }
+
+        @Test
+        void onAMondayItIsTheMondayOfTheNextWeek() {
+            assertThat(StreakRule.freezesResetOn(MONDAY)).isEqualTo(NEXT_MONDAY);
+            assertThat(StreakRule.freezesResetOn(SUNDAY)).isEqualTo(NEXT_MONDAY);
         }
     }
 

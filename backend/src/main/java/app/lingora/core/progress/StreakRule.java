@@ -1,7 +1,9 @@
 package app.lingora.core.progress;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Optional;
 
 /**
@@ -56,6 +58,11 @@ public final class StreakRule {
             return new Status(streak.current(), streak.longest(), bridged.freezesLeft(today), false, last, true);
         }
         return new Status(0, streak.longest(), streak.freezesLeft(today), false, last, false);
+    }
+
+    /** The day the next ISO week starts with a new freeze: the Monday after {@code today}. */
+    public static LocalDate freezesResetOn(LocalDate today) {
+        return today.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
     }
 
     /** The streak after the daily goal has been met on {@code today}. */

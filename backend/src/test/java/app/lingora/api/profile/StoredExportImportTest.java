@@ -44,10 +44,11 @@ class StoredExportImportTest extends IntegrationTest {
 
         assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(1);
         assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
-                Map.entry("streaks", 1), Map.entry("fsrsParams", 1), Map.entry("learningPlans", 1),
-                Map.entry("planChanges", 1), Map.entry("placementTests", 1), Map.entry("placementAnswers", 1),
-                Map.entry("sessions", 1), Map.entry("badges", 0), Map.entry("streakDays", 0), Map.entry("attempts", 6),
-                Map.entry("skillMastery", 2), Map.entry("srsCards", 1), Map.entry("reviewLog", 1)));
+                Map.entry("streaks", 1), Map.entry("streakGoals", 0), Map.entry("fsrsParams", 1),
+                Map.entry("learningPlans", 1), Map.entry("planChanges", 1), Map.entry("placementTests", 1),
+                Map.entry("placementAnswers", 1), Map.entry("sessions", 1), Map.entry("badges", 0),
+                Map.entry("streakDays", 0), Map.entry("attempts", 6), Map.entry("skillMastery", 2),
+                Map.entry("srsCards", 1), Map.entry("reviewLog", 1)));
         assertThat(jdbc.sql("SELECT display_name || '|' || current_level || '|' || xp_total FROM users")
                 .query(String.class).single()).isEqualTo("Erza|A1.2|15");
         assertThat(jdbc.sql("SELECT unit_id || '|' || (checkpoint_passed IS NULL) FROM sessions").query(String.class).single())
@@ -62,10 +63,11 @@ class StoredExportImportTest extends IntegrationTest {
 
         assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(2);
         assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
-                Map.entry("streaks", 1), Map.entry("fsrsParams", 0), Map.entry("learningPlans", 1),
-                Map.entry("planChanges", 1), Map.entry("placementTests", 0), Map.entry("placementAnswers", 0),
-                Map.entry("sessions", 1), Map.entry("badges", 1), Map.entry("streakDays", 0), Map.entry("attempts", 6),
-                Map.entry("skillMastery", 2), Map.entry("srsCards", 6), Map.entry("reviewLog", 11)));
+                Map.entry("streaks", 1), Map.entry("streakGoals", 0), Map.entry("fsrsParams", 0),
+                Map.entry("learningPlans", 1), Map.entry("planChanges", 1), Map.entry("placementTests", 0),
+                Map.entry("placementAnswers", 0), Map.entry("sessions", 1), Map.entry("badges", 1),
+                Map.entry("streakDays", 0), Map.entry("attempts", 6), Map.entry("skillMastery", 2),
+                Map.entry("srsCards", 6), Map.entry("reviewLog", 11)));
         assertThat(jdbc.sql("""
                         SELECT current_days || '|' || longest_days || '|' || last_active_date || '|' || freezes_available
                                || '|' || freezes_refilled_on
@@ -80,15 +82,36 @@ class StoredExportImportTest extends IntegrationTest {
 
         assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(3);
         assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
-                Map.entry("streaks", 1), Map.entry("fsrsParams", 1), Map.entry("learningPlans", 1),
-                Map.entry("planChanges", 1), Map.entry("placementTests", 1), Map.entry("placementAnswers", 1),
-                Map.entry("sessions", 1), Map.entry("badges", 0), Map.entry("streakDays", 3), Map.entry("attempts", 6),
-                Map.entry("skillMastery", 2), Map.entry("srsCards", 6), Map.entry("reviewLog", 11)));
+                Map.entry("streaks", 1), Map.entry("streakGoals", 0), Map.entry("fsrsParams", 1),
+                Map.entry("learningPlans", 1), Map.entry("planChanges", 1), Map.entry("placementTests", 1),
+                Map.entry("placementAnswers", 1), Map.entry("sessions", 1), Map.entry("badges", 0),
+                Map.entry("streakDays", 3), Map.entry("attempts", 6), Map.entry("skillMastery", 2),
+                Map.entry("srsCards", 6), Map.entry("reviewLog", 11)));
         assertThat(jdbc.sql("""
                         SELECT string_agg(day || ':' || kind || ':' || (session_id IS NOT NULL) || ':'
                                           || (placement_test_id IS NOT NULL), ',' ORDER BY day)
                         FROM streak_days""").query(String.class).single())
                 .isEqualTo("2026-10-03:goal_met:false:false,2026-10-04:freeze:false:false,2026-10-05:goal_met:true:false");
+        assertThat(learner.get("/api/profile/export")).hasStatusOk();
+    }
+
+    @Test
+    void importsAnExportOfFormatVersion4WithTheFirstStreakGoal() throws IOException {
+        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("lingora-export-v4.zip"));
+
+        assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(4);
+        assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
+                Map.entry("streaks", 1), Map.entry("streakGoals", 0), Map.entry("fsrsParams", 1),
+                Map.entry("learningPlans", 1), Map.entry("planChanges", 1), Map.entry("placementTests", 1),
+                Map.entry("placementAnswers", 1), Map.entry("sessions", 1), Map.entry("badges", 0),
+                Map.entry("streakDays", 3), Map.entry("attempts", 6), Map.entry("skillMastery", 2),
+                Map.entry("srsCards", 6), Map.entry("reviewLog", 11)));
+        assertThat(jdbc.sql("""
+                        SELECT string_agg(day || ':' || kind || ':' || (session_id IS NOT NULL) || ':'
+                                          || (placement_test_id IS NOT NULL), ',' ORDER BY day)
+                        FROM streak_days""").query(String.class).single())
+                .isEqualTo("2026-10-03:goal_met:false:true,2026-10-04:freeze:false:false,2026-10-05:goal_met:true:false");
+        assertThat(learner.get("/api/streak")).hasStatusOk().bodyJson().extractingPath("$.goal.target").isEqualTo(10);
         assertThat(learner.get("/api/profile/export")).hasStatusOk();
     }
 

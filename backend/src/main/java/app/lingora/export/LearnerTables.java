@@ -21,6 +21,8 @@ final class LearnerTables {
             table("streaks", "id",
                     "id", "current_days", "longest_days", "last_active_date", "freezes_available", "freezes_refilled_on",
                     "updated_at"),
+            table("streak_goals", "id",
+                    "id", "target", "reached_on", "reached_at", "updated_at"),
             table("fsrs_params", "version, id",
                     "id", "version", "scheduler_version", "weights", "review_count", "metrics", "active", "created_at"),
             table("learning_plans", "version, id",
