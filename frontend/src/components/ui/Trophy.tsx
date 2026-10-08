@@ -13,7 +13,7 @@ const CUP = 'M14 8h36v12c0 10-8 18-18 18S14 30 14 20Z';
 const CUP_EDGE_OFFSET = 2.5;
 const HANDLES = 'M15 12H8.5c0 8 3.5 13 9.5 14M49 12h6.5c0 8-3.5 13-9.5 14';
 const STEM = 'M28 37h8l-1.5 9h-5Z';
-const SHINE = 'M18.5 12v6c0 2.6.8 4.8 2.3 6.6';
+const SHINE = 'M18.5 25.5c1.6 3.6 4.6 6.2 8.5 7.2';
 
 /** Lingora's own trophy for the streak goal (PRD 12.1 "Belohnung sichtbar machen"); decorative. */
 export function Trophy({ won, engraving, className }: TrophyProps) {
