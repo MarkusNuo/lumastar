@@ -78,6 +78,8 @@ export class StreakPage {
   readonly dayCells: Locator;
   readonly legend: Locator;
   readonly goalCard: Locator;
+  /** The card's heading "Streak-Ziel": it takes the focus when a goal is saved or the change cancelled. */
+  readonly goalHeading: Locator;
   readonly goalProgress: Locator;
   readonly changeGoalButton: Locator;
   readonly cancelGoalButton: Locator;
@@ -98,6 +100,7 @@ export class StreakPage {
     this.dayCells = this.calendarTable.locator('td[data-state]');
     this.legend = this.calendar.getByRole('list', { includeHidden: true });
     this.goalCard = page.getByTestId('streak-goal');
+    this.goalHeading = this.goalCard.getByRole('heading', { name: 'Streak-Ziel', level: 2, exact: true });
     this.goalProgress = this.goalCard.getByRole('progressbar', { name: 'Fortschritt zum Streak-Ziel', exact: true });
     this.changeGoalButton = this.goalCard.getByRole('button', { name: 'Ziel ändern', exact: true });
     this.cancelGoalButton = this.goalCard.getByRole('button', { name: 'Abbrechen', exact: true });
@@ -125,13 +128,17 @@ export class StreakPage {
     return this.goalCard.getByRole('radio', { name: days(target), exact: true });
   }
 
-  /** Taps a goal chip of the card, as a learner does, and waits until the goal is saved. */
+  /**
+   * Taps a goal chip of the card, as a learner does, and waits until the goal is saved; the chips
+   * close and the focus moves to the card's heading.
+   */
   async chooseGoal(target: number): Promise<void> {
     const saved = this.page.waitForResponse(isGoalUpdate);
     await this.goalCard.getByRole('radiogroup').getByText(days(target), { exact: true }).click();
     const response = await saved;
     expect(response.status(), await response.text()).toBe(200);
     await expect(this.goalSaved).toHaveText(`Neues Ziel: ${days(target)}`);
+    await expect(this.goalHeading, 'the focus on the card').toBeFocused();
   }
 
   /** "Oktober 2026", as the browser formats it. */
@@ -250,10 +257,13 @@ export class StreakPage {
     }
   }
 
-  /** Target, progress and, once reached, the next goals to choose from. */
+  /**
+   * Target, progress and, once reached, the next goals to choose from; before, "Ziel ändern" while
+   * the API offers other goals (its chips only show after a tap).
+   */
   async expectGoal({ target, progress, reached, options }: StreakOverview['goal']): Promise<void> {
     await expect(this.goalCard).toHaveAttribute('data-reached', String(reached));
-    await expect(this.goalCard.getByRole('heading', { name: 'Streak-Ziel', level: 2 })).toBeVisible();
+    await expect(this.goalHeading).toBeVisible();
     await expect(
       this.goalCard.getByText(reached ? `Ziel erreicht: ${days(target)}!` : `Ziel: ${days(target)}`, { exact: true }),
     ).toBeVisible();
@@ -267,7 +277,8 @@ export class StreakPage {
       await expect(this.changeGoalButton).toHaveCount(0);
     } else {
       await expect(this.goalCard.getByText(`Noch ${days(target - progress)}`, { exact: true })).toBeVisible();
-      await expect(this.changeGoalButton).toBeVisible();
+      await expect(this.changeGoalButton).toHaveCount(options.length > 0 ? 1 : 0);
+      await expect(this.goalCard.getByRole('radio'), 'no chips before "Ziel ändern"').toHaveCount(0);
     }
   }
 

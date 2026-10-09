@@ -36,7 +36,7 @@ import { fetchMe, P0_EXERCISE_TYPES, playLessonViaApi } from '../../support/less
 import { currentUnit, fetchPath } from '../../support/planApi.ts';
 import { fetchExport, fetchSummary, isImport, type ImportResult } from '../../support/profileApi.ts';
 import { snap } from '../../support/screenshots.ts';
-import { chooseStreakGoal, fetchStreak, FIRST_GOAL, isRung, rungsAbove } from '../../support/streakApi.ts';
+import { chooseStreakGoal, fetchStreak, FIRST_GOAL, isRung } from '../../support/streakApi.ts';
 
 /*
  * "Backup herunterladen" and "Backup importieren" (PRD F11, 8.3, 13). Each test first records the
@@ -451,12 +451,10 @@ async function importUpgraded(
 test('a backup of export format 4 is upgraded on import and restores the same state but the streak goal (PRD 13)', async ({
   page,
 }, testInfo) => {
-  // Format 4 holds everything but the streak goal: with a goal of its own (the next rung above the
-  // goal and the streak), the export has the row that format 4 cannot hold, and the import starts at
-  // 10 days again.
-  const { current: streak, goal } = await fetchStreak(page.request);
-  const [nextGoal] = goal.reached ? goal.options : rungsAbove(Math.max(streak, goal.target));
-  if (nextGoal === undefined) throw new Error('The ladder has no rung above the goal');
+  // Format 4 holds everything but the streak goal: with a goal of its own (the first the API offers
+  // now), the export has the row that format 4 cannot hold, and the import starts at 10 days again.
+  const [nextGoal] = (await fetchStreak(page.request)).goal.options;
+  if (nextGoal === undefined) throw new Error('GET /api/streak offers no streak goal to choose');
   await chooseStreakGoal(page.request, nextGoal);
   const current = await fetchExport(page.request);
   expect(current.rows<StreakGoalRow>('streak_goals'), 'a goal of its own').toHaveLength(1);

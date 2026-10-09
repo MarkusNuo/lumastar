@@ -48,6 +48,11 @@ export interface StreakHistory {
   goal?: { target: number; reachedOn: string | null };
   /** The daily goal after the import; five minutes unless given. */
   dailyGoalMinutes?: number;
+  /**
+   * Imports the stored streak without its days, as a backup may hold it whose days were never
+   * recorded (DECISIONS #101): the streak counts on from the stored row alone.
+   */
+  withoutDayRows?: boolean;
 }
 
 /** The stored streak the days stand for: the run of the last day with its goal met, and the longest. */
@@ -129,10 +134,11 @@ export async function seedStreakHistory(request: APIRequestContext, history: Str
   });
   const streak: StreakRow = { id: existingStreak?.id ?? randomUUID(), ...streakOf(history.days), updatedAt: now };
   entries = withRows(entries, 'streaks', [streak]);
+  const recordedDays = history.withoutDayRows ? [] : history.days;
   entries = withRows(
     entries,
     'streak_days',
-    history.days.map(
+    recordedDays.map(
       ({ day, kind }): StreakDayRow & { recordedAt: string } => ({
         id: randomUUID(),
         day,

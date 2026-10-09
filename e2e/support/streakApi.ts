@@ -1,4 +1,4 @@
-import { expect, type APIRequestContext, type APIResponse, type Response } from '@playwright/test';
+import { expect, type APIRequestContext, type APIResponse, type Page, type Response } from '@playwright/test';
 import { csrfHeaders } from './csrf.ts';
 
 /* The streak screen and the streak goal of M10: GET /api/streak and PUT /api/streak/goal. */
@@ -25,7 +25,10 @@ export interface StreakGoal {
   /** The current streak, at most the target. */
   progress: number;
   reached: boolean;
-  /** Once reached: the next three rungs above max(target, streak), ascending; empty before. */
+  /**
+   * The goals to choose now, ascending (DECISIONS #101): once reached, the next three rungs above
+   * max(target, streak); before, the first three rungs above the streak other than the target.
+   */
   options: number[];
 }
 
@@ -53,21 +56,6 @@ export function isRung(days: number): boolean {
   return (GOAL_LADDER as readonly number[]).includes(days) || (days > 365 && (days - 365) % 100 === 0);
 }
 
-function* ladder(): Generator<number> {
-  yield* GOAL_LADDER;
-  for (let rung = 465; ; rung += 100) yield rung;
-}
-
-/** The lowest rungs of the ladder above `days`, ascending. */
-export function rungsAbove(days: number, count = 3): number[] {
-  const rungs: number[] = [];
-  for (const rung of ladder()) {
-    if (rungs.length === count) break;
-    if (rung > days) rungs.push(rung);
-  }
-  return rungs;
-}
-
 const pathOf = (response: Response) => new URL(response.url()).pathname;
 
 export const isGoalUpdate = (response: Response) =>
@@ -85,6 +73,20 @@ export async function fetchStreak(request: APIRequestContext, month?: string): P
 /** PUT /api/streak/goal; the caller checks the status (400 invalid_streak_goal for a goal not to choose). */
 export async function putStreakGoal(request: APIRequestContext, body: unknown): Promise<APIResponse> {
   return request.put('/api/streak/goal', { headers: await csrfHeaders(request), data: body });
+}
+
+/**
+ * Records the bodies of every PUT /api/streak/goal the page sends from now on, e.g. to show that
+ * walking the goal chips with the arrow keys saves nothing.
+ */
+export function recordGoalUpdates(page: Page): () => unknown[] {
+  const bodies: unknown[] = [];
+  page.on('request', (request) => {
+    if (request.method() === 'PUT' && new URL(request.url()).pathname === '/api/streak/goal') {
+      bodies.push(request.postDataJSON());
+    }
+  });
+  return () => [...bodies];
 }
 
 /** Chooses a streak goal through the API and returns the new goal. */

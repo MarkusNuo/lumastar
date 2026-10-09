@@ -14,7 +14,6 @@ import {
   monthOf,
   nextMondayAfter,
   putStreakGoal,
-  rungsAbove,
   todayIn,
 } from '../../support/streakApi.ts';
 import { HISTORY_GOAL_MINUTES, importViaApi, run, seedStreakHistory } from '../../support/streakHistory.ts';
@@ -22,8 +21,9 @@ import { localTime, moveLearnerTo, secondsLeftInDay, zoneAroundMidday } from '..
 
 /*
  * GET /api/streak and PUT /api/streak/goal (M10) through the API, on learners of their own: the
- * defaults, the learner's time zone, the month calendar, the goal ladder and its options, the streak
- * before a lesson and the reached goal in the lesson result, export format 5 and the isolation.
+ * defaults, the learner's time zone, the month calendar, the goal ladder and its options (the goals to
+ * choose now, before and after reaching, DECISIONS #101), the streak before a lesson and the reached
+ * goal in the lesson result, export format 5 and the isolation.
  */
 test.use({ storageState: { cookies: [], origins: [] } });
 
@@ -46,7 +46,7 @@ async function lessonTaking(request: APIRequestContext, durationMs: number) {
   return { lesson, result: await finishViaApi(request, lesson) };
 }
 
-test('a new learner: no streak, the first goal of 10 days, a freeze ready until the Monday after today in the learner\'s time zone', async ({
+test('a new learner: no streak, the first goal of 10 days with 20, 30 and 50 to switch to, a freeze ready until the Monday after today in the learner\'s time zone', async ({
   page,
 }) => {
   await newLearnerViaApi(page.request, 'streak-new');
@@ -62,7 +62,7 @@ test('a new learner: no streak, the first goal of 10 days, a freeze ready until 
     goalMinutes: 15,
     freezes: { available: 1, perWeek: 1, resetsOn: nextMondayAfter(today) },
     calendar: { month: monthOf(today), firstDay: `${monthOf(today)}-01`, days: [] },
-    goal: { target: FIRST_GOAL, progress: 0, reached: false, options: [] },
+    goal: { target: FIRST_GOAL, progress: 0, reached: false, options: [20, 30, 50] },
   });
 
   // UTC+14 and UTC−10 show the same time of day, a day apart: today and the next Monday differ.
@@ -108,11 +108,11 @@ test('the calendar shows any month: empty before the first streak day and to com
   }
 });
 
-test('the goal ladder: before a goal is reached any rung above the streak can be chosen, anything else is refused', async ({
+test('the goal ladder: before a goal is reached any rung above the streak can be chosen, the first three others are offered, anything else is refused', async ({
   page,
 }) => {
   await newLearnerViaApi(page.request, 'streak-ladder');
-  expect(await chooseStreakGoal(page.request, 20)).toEqual({ target: 20, progress: 0, reached: false, options: [] });
+  expect(await chooseStreakGoal(page.request, 20)).toEqual({ target: 20, progress: 0, reached: false, options: [10, 30, 50] });
   for (const target of [10, 30, 50, 75, 100, 150, 200, 250, 300, 365, 465, 565]) {
     expect((await chooseStreakGoal(page.request, target)).target, `${target} days`).toBe(target);
   }
@@ -121,7 +121,12 @@ test('the goal ladder: before a goal is reached any rung above the streak can be
   }
   await expectRefused(page.request, {}, 'validation_failed');
   await expectRefused(page.request, { target: null }, 'validation_failed');
-  expect((await fetchStreak(page.request)).goal.target, 'the last goal chosen').toBe(565);
+  expect((await fetchStreak(page.request)).goal, 'the last goal chosen').toEqual({
+    target: 565,
+    progress: 0,
+    reached: false,
+    options: [10, 20, 30],
+  });
 });
 
 test('the lesson that extends the streak to its goal reports the streak before it and the reached goal; then only its options can be chosen', async ({
@@ -138,7 +143,7 @@ test('the lesson that extends the streak to its goal reports the streak before i
     practisedTodayMs: PRACTISED_TODAY_MS,
     goal: { target: 20, reachedOn: null },
   });
-  expect((await fetchStreak(page.request)).goal).toEqual({ target: 20, progress: 19, reached: false, options: [] });
+  expect((await fetchStreak(page.request)).goal).toEqual({ target: 20, progress: 19, reached: false, options: [30, 50, 75] });
 
   const first = await lessonTaking(page.request, LESSON_MS);
   expect(first.result.dailyGoal).toMatchObject({ goalMet: true, justMet: true });
@@ -161,7 +166,7 @@ test('the lesson that extends the streak to its goal reports the streak before i
 
   expect((await fetchStreak(page.request)).goal).toEqual({ target: 20, progress: 20, reached: true, options: [30, 50, 75] });
   for (const target of [20, 100, 150, 365]) await expectRefused(page.request, { target }, 'invalid_streak_goal');
-  expect(await chooseStreakGoal(page.request, 75)).toEqual({ target: 75, progress: 20, reached: false, options: [] });
+  expect(await chooseStreakGoal(page.request, 75)).toEqual({ target: 75, progress: 20, reached: false, options: [30, 50, 100] });
   await expectRefused(page.request, { target: 20 }, 'invalid_streak_goal');
 
   const backup = await fetchExport(page.request);
@@ -188,10 +193,35 @@ test('a streak that has run past further rungs only offers goals still ahead of 
   await seedStreakHistory(page.request, { timeZone: zone, days: run(addDays(today, -1), 34), practisedTodayMs: 0 });
   const overview = await fetchStreak(page.request);
   expect(overview).toMatchObject({ current: 34, longest: 34 });
-  expect(overview.goal).toEqual({ target: FIRST_GOAL, progress: FIRST_GOAL, reached: true, options: rungsAbove(34) });
-  expect(rungsAbove(34)).toEqual([50, 75, 100]);
+  expect(overview.goal).toEqual({ target: FIRST_GOAL, progress: FIRST_GOAL, reached: true, options: [50, 75, 100] });
   for (const target of [20, 30, 150]) await expectRefused(page.request, { target }, 'invalid_streak_goal');
-  expect(await chooseStreakGoal(page.request, 50)).toEqual({ target: 50, progress: 34, reached: false, options: [] });
+  expect(await chooseStreakGoal(page.request, 50)).toEqual({ target: 50, progress: 34, reached: false, options: [75, 100, 150] });
+});
+
+test('a reached goal stays complete after the streak broke: full progress, the next goals above it', async ({
+  page,
+}) => {
+  const { zone } = zoneAroundMidday();
+  const today = todayIn(zone);
+  await newLearnerViaApi(page.request, 'streak-broken');
+  // Twelve days up to three days ago, the goal of 10 days reached on the tenth; then two days missed,
+  // one more than the freeze bridges.
+  await seedStreakHistory(page.request, {
+    timeZone: zone,
+    days: run(addDays(today, -3), 12),
+    practisedTodayMs: 0,
+    goal: { target: FIRST_GOAL, reachedOn: addDays(today, -5) },
+  });
+  const overview = await fetchStreak(page.request);
+  expect(overview).toMatchObject({ current: 0, longest: 12, extendedToday: false });
+  expect(overview.goal).toEqual({ target: FIRST_GOAL, progress: FIRST_GOAL, reached: true, options: [20, 30, 50] });
+  await expectRefused(page.request, { target: 75 }, 'invalid_streak_goal');
+  expect(await chooseStreakGoal(page.request, 20), 'a new goal starts from the broken streak').toEqual({
+    target: 20,
+    progress: 0,
+    reached: false,
+    options: [10, 30, 50],
+  });
 });
 
 test('the streak, its calendar and its goal belong to their learner', async ({ page, playwright }) => {
@@ -210,7 +240,7 @@ test('the streak, its calendar and its goal belong to their learner', async ({ p
     expect(overview).toMatchObject({ current: 0, longest: 0 });
     expect(overview.calendar.days).toEqual([]);
     expect((await fetchStreak(other, monthOf(addDays(today, -3)))).calendar.days).toEqual([]);
-    expect(overview.goal).toEqual({ target: FIRST_GOAL, progress: 0, reached: false, options: [] });
+    expect(overview.goal).toEqual({ target: FIRST_GOAL, progress: 0, reached: false, options: [20, 30, 50] });
     await chooseStreakGoal(other, 30);
   } finally {
     await other.dispose();

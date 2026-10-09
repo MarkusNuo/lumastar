@@ -57,8 +57,14 @@ export class StreakCelebration {
     });
   }
 
+  /** The heading of the ignite beat, which takes the focus when the beat appears. */
   heading(days: number): Locator {
     return this.page.getByRole('heading', { name: streakTitle(days), level: 1, exact: true });
+  }
+
+  /** The heading of the trophy beat, which takes the focus when the beat appears. */
+  goalHeading(target: number): Locator {
+    return this.page.getByRole('heading', { name: `Ziel erreicht: ${dayCount(target)}!`, level: 1, exact: true });
   }
 
   /** The number on screen: the one that popped in last, while the one before may still shrink away. */
@@ -113,9 +119,7 @@ export class StreakCelebration {
   async expectGoalBeat({ target, options }: NonNullable<LessonStreak['goalReached']>): Promise<void> {
     await expect(this.goalBeat).toBeVisible();
     await expect(this.goalBeat.getByText('Streak-Ziel', { exact: true })).toBeVisible();
-    await expect(
-      this.page.getByRole('heading', { name: `Ziel erreicht: ${dayCount(target)}!`, level: 1, exact: true }),
-    ).toBeVisible();
+    await expect(this.goalHeading(target)).toBeVisible();
     await expect(
       this.goalBeat.getByText(`${dayCount(target)} am Stück gelernt. Wie weit gehst du als Nächstes?`, { exact: true }),
     ).toBeVisible();

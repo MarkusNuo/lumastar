@@ -139,12 +139,14 @@ The celebration replaces the result screen in place: `watchForPathFlash` (`pages
 records every URL change through the History API and every element added to the page, and the
 tests expect the lesson's URL only and never the bottom navigation or the learning path between the
 result and the celebration (the daily-goal test with the shared learner, `tests/streak` with
-learners of their own).
+learners of their own). "Fokus-Lektion starten" on a lesson that met the goal plays the celebration
+first too: the URL goes from the lesson straight to the focus lesson.
 
 The backend has no test clock, so a streak of many days comes from a backup
 (`support/streakHistory.ts`): a new learner plays a lesson through the API, exports, and imports the
-export again with streak days before today, the stored streak to match, a streak goal, a daily goal
-of five minutes and the lesson stretched to 4:40 minutes. An import never extends the streak; the next
+export again with streak days before today (or none, as an older backup may lack them), the stored
+streak to match, a streak goal, a daily goal of five minutes and the lesson stretched to 4:40 minutes.
+An import never extends the streak; the next
 lesson meets the goal after twenty seconds, as on any other day, and the backend extends the streak,
 reaches the goal and records the day itself. Lowering the daily goal through the settings meets it
 without a lesson (no celebration). These learners live in a time zone where it is about midday, so no
@@ -157,21 +159,28 @@ day ends during a test.
   then the trophy of the reached goal of 10 days with the chips 20, 30 and 50 days (`PUT
   /api/streak/goal`) and the path with the burning flame. A second learner's missed yesterday is
   bridged by the freeze: the grey streak screen before, a tap that skips the show (12 → 13 with the
-  freeze note) and no trophy for a goal still ahead.
+  freeze note) and no trophy for a goal still ahead. A stored streak of six days imported without its
+  days counts on from 6 to 7. With motion reduced: the keyboard (each beat's heading takes the focus,
+  the arrow keys only walk the goal chips, Enter saves one, a single `PUT`) and the focus lesson
+  started from the result, which comes after the celebration and the trophy.
 - `streak-screen.spec.ts`: the top-bar flame opens `/streak` with the shared learner's streak (hero,
   today's cell, legend, goal, freeze with the Monday after today); the month navigation (URL
-  `?month=`, a year back at most); a learner of its own with bands across weeks, a gap and a frozen
-  day (each cell's label, state and band shape against the rules of M10, in whatever month the test
-  runs), the reached first goal with its options and "Ziel ändern"; the catalog's streak previews.
+  `?month=`, a year back at most; a month out of reach or malformed turns into the nearest one, the
+  URL replaced); a learner of its own with bands across weeks, a gap and a frozen day (each cell's
+  label, state and band shape against the rules of M10, in whatever month the test runs), the reached
+  first goal with its options and "Ziel ändern" (the goals of the API, the focus on the first chip and
+  back on the card, arrows that save nothing, Space that saves); a reached goal that stays complete
+  after the streak broke; the catalog's streak previews.
 - `streak-api.spec.ts`: defaults of a new learner, today and the next Monday in UTC+14 and UTC−10, the
-  months, the goal ladder and its refusals, `streak.previous` and `streak.goalReached` of a lesson
-  result, the options of a streak past further rungs, export format 5 and the format-4 import, and
-  the isolation of two learners.
+  months, the goal ladder, its options before and after reaching (DECISIONS #101) and its refusals,
+  `streak.previous` and `streak.goalReached` of a lesson result, the options of a streak past further
+  rungs, a reached goal after the streak broke, export format 5 and the format-4 import, and the
+  isolation of two learners.
 
-Two known bugs of the M10 review are marked `test.fail`: the focus stays nowhere when the celebration
-replaces the result screen and the trophy replaces the flame (keyboard test in
-`streak-celebration.spec.ts`), and a `?month=` beyond the last year or still to come is shown as asked
-(`streak-screen.spec.ts`).
+The known bugs of the M10 review are fixed and their tests pass. One found after the fixes is marked
+`test.fail` in `streak-screen.spec.ts`: a month out of reach opened directly is corrected with a
+replace that gives the location a new key, so "Zurück" no longer counts the screen as opened directly
+and goes back in the browser history, out of the app.
 
 ## Platform tests
 

@@ -1,14 +1,26 @@
 import { expect, test, type Page } from '@playwright/test';
 import { AppShell, streakText } from '../../pages/AppShell.ts';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
+import { LessonPlayer } from '../../pages/LessonPlayer.ts';
 import { LessonResultScreen } from '../../pages/LessonResultScreen.ts';
 import { StreakCelebration, watchForPathFlash, type PathFlashRecord } from '../../pages/StreakCelebration.ts';
 import { StreakPage } from '../../pages/StreakPage.ts';
 import { newLearnerViaApi } from '../../support/auth.ts';
-import { playLessonToResult } from '../../support/lessonFlow.ts';
+import { mostWrongableTag } from '../../support/lessonAnswers.ts';
+import { isLessonStart } from '../../support/lessonApi.ts';
+import { openLesson, playLessonToResult, playOpenedLesson } from '../../support/lessonFlow.ts';
 import { fetchTodayProgress } from '../../support/progressApi.ts';
+import { escapeRegExp } from '../../support/regex.ts';
 import { snap } from '../../support/screenshots.ts';
-import { addDays, fetchStreak, mondayOf, monthOf, todayIn } from '../../support/streakApi.ts';
+import {
+  addDays,
+  fetchStreak,
+  isGoalUpdate,
+  mondayOf,
+  monthOf,
+  recordGoalUpdates,
+  todayIn,
+} from '../../support/streakApi.ts';
 import { HISTORY_GOAL_MINUTES, run, seedStreakHistory } from '../../support/streakHistory.ts';
 import { zoneAroundMidday } from '../../support/timeZones.ts';
 
@@ -17,13 +29,17 @@ import { zoneAroundMidday } from '../../support/timeZones.ts';
  * imported backup (support/streakHistory.ts) and the daily goal all but met: one lesson through the UI
  * meets it. The show plays with motion (the other tests reduce it) on the page's own clock, which the
  * test stops right before the celebration and moves on step by step, so the frames are the same in
- * every run. The learner lives where it is about midday, so no day ends during the test.
+ * every run. The learner lives where it is about midday, so no day ends during the test. The keyboard
+ * and the focus lesson after the celebration need no show: those tests reduce motion.
  */
 test.use({ storageState: { cookies: [], origins: [] }, reducedMotion: 'no-preference' });
 
 /** Today's goal (5 min.) lacks 20 seconds after the import; the lesson takes them, with a margin. */
 const PRACTISED_TODAY_MS = HISTORY_GOAL_MINUTES * 60_000 - 20_000;
 const LESSON_MS = 25_000;
+
+/** PRD F7: a skill tag with at least three mistakes in one lesson suggests a focus lesson. */
+const FOCUS_MISTAKES = 3;
 
 /** Stops the page's clock: the celebration that opens next waits in its first frame. */
 async function stopClock(page: Page): Promise<void> {
@@ -51,8 +67,12 @@ async function advanceUntil<T>(page: Page, read: () => Promise<T>, expected: T, 
     .toBe(expected);
 }
 
-function expectNoPathOnTheWay(record: PathFlashRecord, lessonPath: string): void {
-  expect(record.paths, 'the URL never left the lesson').toEqual(record.paths.map(() => lessonPath));
+/** The URL stayed on the given lesson pages, and neither the app frame nor the learning path showed. */
+function expectNoPathOnTheWay(record: PathFlashRecord, ...lessonPaths: string[]): void {
+  expect(
+    record.paths.filter((path) => !lessonPaths.includes(path)),
+    'the URL never left the lesson',
+  ).toEqual([]);
   expect(record.navigation, 'the app navigation never showed').toBe(false);
   expect(record.learningPath, 'the learning path never showed').toBe(false);
 }
@@ -86,7 +106,7 @@ test('the lesson that meets the daily goal and the streak goal: the flame ignite
     });
     const before = await fetchStreak(page.request);
     expect(before).toMatchObject({ current: 9, longest: 9, extendedToday: false, today, goalMinutes: 5 });
-    expect(before.goal).toEqual({ target: 10, progress: 9, reached: false, options: [] });
+    expect(before.goal).toEqual({ target: 10, progress: 9, reached: false, options: [20, 30, 50] });
   });
 
   await page.clock.install();
@@ -162,7 +182,12 @@ test('the lesson that meets the daily goal and the streak goal: the flame ignite
     await celebration.chooseGoal(30);
     await expect(celebration.laterNote).toHaveCount(0);
     await snap(page, 'streak-goal-chosen', { fullPage: false });
-    expect((await fetchStreak(page.request)).goal).toEqual({ target: 30, progress: 10, reached: false, options: [] });
+    expect((await fetchStreak(page.request)).goal).toEqual({
+      target: 30,
+      progress: 10,
+      reached: false,
+      options: [20, 50, 75],
+    });
   });
 
   await test.step('"Weiter": the path with the burning flame', async () => {
@@ -227,7 +252,7 @@ test('a streak saved by the freeze: the grey streak screen before, then the cele
         status: 'frozen',
       });
     }
-    expect(overview.goal).toEqual({ target: 20, progress: 12, reached: false, options: [] });
+    expect(overview.goal).toEqual({ target: 20, progress: 12, reached: false, options: [30, 50, 75] });
     await streakPage.expectOverview(overview);
     await snap(page, 'streak-screen-cold', { fullPage: false });
     await streakPage.backButton.click();
@@ -272,28 +297,83 @@ test('a streak saved by the freeze: the grey streak screen before, then the cele
     const overview = await fetchStreak(page.request);
     expect(overview).toMatchObject({ current: 13, longest: 13, extendedToday: true });
     expect(overview.freezes).toMatchObject({ available: freezeLeftThisWeek, lastUsedOn: yesterday });
-    expect(overview.goal).toEqual({ target: 20, progress: 13, reached: false, options: [] });
+    expect(overview.goal).toEqual({ target: 20, progress: 13, reached: false, options: [30, 50, 75] });
     await streakPage.expectOverview(overview);
   });
 });
 
-test.describe('with the keyboard', () => {
-  // Motion reduced, as everywhere but above: the screens settle at once.
+test('an imported streak of six days without its recorded days: the celebration counts on from 6 to 7', async ({
+  page,
+}) => {
+  test.setTimeout(4 * 60_000);
+  const { zone } = zoneAroundMidday();
+  const today = todayIn(zone);
+  const shell = new AppShell(page);
+  const path = new LearningPathPage(page);
+  const resultScreen = new LessonResultScreen(page);
+  const celebration = new StreakCelebration(page);
+
+  await test.step('a backup with the stored streak of six days up to yesterday, but none of its days', async () => {
+    await newLearnerViaApi(page.request, 'streak-no-days', 'Mimoza');
+    await seedStreakHistory(page.request, {
+      timeZone: zone,
+      days: run(addDays(today, -1), 6),
+      practisedTodayMs: PRACTISED_TODAY_MS,
+      withoutDayRows: true,
+    });
+    const before = await fetchStreak(page.request);
+    expect(before).toMatchObject({ current: 6, longest: 6, extendedToday: false });
+    expect(before.calendar.days, 'no day recorded').toEqual([]);
+  });
+
+  await page.clock.install();
+  await path.goto();
+  const { result } = await test.step('one lesson meets the goal', () => playLessonToResult(page, LESSON_MS));
+  expect(result.streak, 'the streak before: the stored one').toEqual({
+    current: 7,
+    previous: 6,
+    extendedToday: true,
+    freezeUsed: false,
+  });
+  const lessonPath = new URL(page.url()).pathname;
+  const pathFlash = await watchForPathFlash(page);
+
+  await test.step('"Weiter": the cold flame with the 6, then the number counts up to 7', async () => {
+    await stopClock(page);
+    await resultScreen.continueButton.click();
+    await celebration.expectPhase('intro');
+    await celebration.expectNumber(6);
+    await advanceUntil(page, () => celebration.phase(), 'show', 'the flame catches');
+    await advanceUntil(page, () => celebration.shownNumber(), '7', 'the number counts up');
+    await advanceUntil(page, () => celebration.phase(), 'settled', 'the show settles');
+    await celebration.expectSettled(result.streak);
+    expectNoPathOnTheWay(await pathFlash(), lessonPath);
+  });
+
+  await test.step('"Weiter": no trophy (the goal of 10 is ahead), the path with 7 days', async () => {
+    await page.clock.resume();
+    await celebration.continueButton.click();
+    await shell.expectHome();
+    await expect(celebration.goalBeat).toHaveCount(0);
+    const progress = await fetchTodayProgress(page.request);
+    expect(progress.streak).toMatchObject({ current: 7, longest: 7, extendedToday: true });
+    await shell.expectProgress(progress);
+  });
+});
+
+test.describe('motion reduced', () => {
+  // As everywhere but above: the screens settle at once.
   test.use({ reducedMotion: 'reduce' });
 
-  test('"Weiter" on the result moves the focus into the celebration, and on into the trophy beat', async ({ page }) => {
-    test.fail(
-      true,
-      'Known bug: the celebration replaces the result screen in place and the trophy ' +
-        'replaces the flame, but nothing takes the focus: it falls back to the page, so a screen reader announces ' +
-        'neither "10 Tage Streak!" nor the trophy, and the keyboard starts over at the top of the page.',
-    );
+  test('with the keyboard: the focus moves into the celebration and on into the trophy beat; the arrow keys walk the chips without saving, Enter saves', async ({
+    page,
+  }) => {
     test.setTimeout(3 * 60_000);
     const { zone } = zoneAroundMidday();
     const today = todayIn(zone);
+    const shell = new AppShell(page);
     const resultScreen = new LessonResultScreen(page);
     const celebration = new StreakCelebration(page);
-    const focusOnPage = () => page.evaluate(() => document.activeElement !== null && document.activeElement !== document.body);
 
     await newLearnerViaApi(page.request, 'streak-keyboard', 'Vjosa');
     await seedStreakHistory(page.request, {
@@ -304,15 +384,124 @@ test.describe('with the keyboard', () => {
     await new LearningPathPage(page).goto();
     const { result } = await playLessonToResult(page, LESSON_MS);
     expect(result.streak.goalReached, 'the goal of 10 days').toEqual({ target: 10, options: [20, 30, 50] });
+    const goalUpdates = recordGoalUpdates(page);
 
-    await resultScreen.continueButton.focus();
-    await page.keyboard.press('Enter');
-    await celebration.expectSettled(result.streak);
-    await expect.poll(focusOnPage, { message: 'the focus is on the celebration', timeout: 2_000 }).toBe(true);
+    await test.step('Enter on "Weiter": the heading of the celebration takes the focus, Tab leads to "Weiter"', async () => {
+      await resultScreen.continueButton.focus();
+      await page.keyboard.press('Enter');
+      await celebration.expectSettled(result.streak);
+      await expect(celebration.heading(10), 'the focus on the celebration').toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(celebration.continueButton).toBeFocused();
+    });
 
-    await celebration.continueButton.focus();
-    await page.keyboard.press('Enter');
-    await celebration.expectGoalBeat({ target: 10, options: [20, 30, 50] });
-    await expect.poll(focusOnPage, { message: 'the focus is on the trophy beat', timeout: 2_000 }).toBe(true);
+    await test.step('Enter: the heading of the trophy beat takes the focus, Tab leads to the first chip', async () => {
+      await page.keyboard.press('Enter');
+      await celebration.expectGoalBeat({ target: 10, options: [20, 30, 50] });
+      await expect(celebration.goalHeading(10), 'the focus on the trophy beat').toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(celebration.goalOption(20)).toBeFocused();
+    });
+
+    await test.step('the arrow keys only move the focus between the chips: nothing is chosen or saved', async () => {
+      for (const [key, focused] of [
+        ['ArrowRight', 30],
+        ['ArrowRight', 50],
+        ['ArrowRight', 20],
+        ['ArrowLeft', 50],
+        ['ArrowLeft', 30],
+      ] as const) {
+        await page.keyboard.press(key);
+        await expect(celebration.goalOption(focused), `${key}: ${focused} days`).toBeFocused();
+      }
+      await expect(celebration.goalChooser().getByRole('radio', { checked: true })).toHaveCount(0);
+      await expect(celebration.goalSaved).toHaveCount(0);
+      expect(goalUpdates(), 'no goal saved while walking the chips').toEqual([]);
+      await snap(page, 'streak-goal-keyboard', { fullPage: false });
+    });
+
+    await test.step('Enter saves the chip with the focus, once', async () => {
+      const saved = page.waitForResponse(isGoalUpdate);
+      await page.keyboard.press('Enter');
+      expect((await saved).status()).toBe(200);
+      await expect(celebration.goalOption(30)).toBeChecked();
+      await expect(celebration.goalSaved).toHaveText('Neues Ziel: 30 Tage');
+      expect(goalUpdates()).toEqual([{ target: 30 }]);
+      expect((await fetchStreak(page.request)).goal.target).toBe(30);
+    });
+
+    await test.step('Tab and Enter: "Weiter" leads to the path', async () => {
+      await page.keyboard.press('Tab');
+      await expect(celebration.continueButton).toBeFocused();
+      await page.keyboard.press('Enter');
+      await shell.expectHome();
+    });
+  });
+
+  test('"Fokus-Lektion starten" on the lesson that meets the goal: the celebration and the trophy first, then the focus lesson, never the path in between', async ({
+    page,
+  }) => {
+    test.setTimeout(4 * 60_000);
+    const { zone } = zoneAroundMidday();
+    const today = todayIn(zone);
+    const path = new LearningPathPage(page);
+    const player = new LessonPlayer(page);
+    const resultScreen = new LessonResultScreen(page);
+    const celebration = new StreakCelebration(page);
+
+    await newLearnerViaApi(page.request, 'streak-focus', 'Fjolla');
+    await seedStreakHistory(page.request, {
+      timeZone: zone,
+      days: run(addDays(today, -1), 9),
+      practisedTodayMs: PRACTISED_TODAY_MS,
+    });
+    await path.goto();
+
+    const result = await test.step(`${FOCUS_MISTAKES} mistakes on one skill tag, in the lesson that meets the goal`, async () => {
+      const opened = await openLesson(page, () => path.startCurrentLesson());
+      const weak = mostWrongableTag(opened.lesson.exercises);
+      if (!weak || weak.candidates.length < FOCUS_MISTAKES) {
+        throw new Error(`No skill tag of the lesson has ${FOCUS_MISTAKES} exercises to answer wrong for sure`);
+      }
+      const wrong = new Set(weak.candidates.slice(0, FOCUS_MISTAKES).map((exercise) => exercise.id));
+      const deadline = Date.now() + LESSON_MS;
+      return playOpenedLesson(page, opened, {
+        intentOf: (exercise) => (wrong.has(exercise.id) ? 'wrong' : 'correct'),
+        end: resultScreen.heading,
+        // The lesson's time runs from its start to its end, so one wait before the first answer will do.
+        beforeAnswer: async (_exercise, step) => {
+          if (step === 0) await page.waitForTimeout(Math.max(0, deadline - Date.now()));
+        },
+      });
+    });
+    expect(result.dailyGoal).toMatchObject({ goalMet: true, justMet: true });
+    expect(result.streak.goalReached, 'the goal of 10 days').toEqual({ target: 10, options: [20, 30, 50] });
+    const suggestion = result.focusSuggestion;
+    if (!suggestion) throw new Error(`The lesson with ${FOCUS_MISTAKES} mistakes on one skill tag suggests no focus lesson`);
+    const lessonPath = new URL(page.url()).pathname;
+    const pathFlash = await watchForPathFlash(page);
+
+    await test.step('"Fokus-Lektion starten": the celebration in place of the result, then the trophy', async () => {
+      const start = resultScreen.focusStartButton(suggestion.label);
+      await start.scrollIntoViewIfNeeded();
+      await start.click();
+      await celebration.expectSettled(result.streak);
+      await expect(page, 'still the lesson that met the goal').toHaveURL(new RegExp(`${escapeRegExp(lessonPath)}$`));
+      await celebration.continueButton.click();
+      await celebration.expectGoalBeat({ target: 10, options: [20, 30, 50] });
+    });
+
+    await test.step('"Weiter": the focus lesson starts in the lesson player', async () => {
+      // Not played to its end: only its start is awaited (openLesson would also wait for its completion).
+      const started = page.waitForResponse(isLessonStart);
+      await celebration.continueButton.click();
+      const response = await started;
+      expect(response.status(), 'the focus lesson starts').toBe(201);
+      expect(await response.json()).toMatchObject({ kind: 'focus', unitId: suggestion.unitId });
+      const focusPath = `/lesson/${encodeURIComponent(suggestion.unitId)}`;
+      await expect(page).toHaveURL(new RegExp(`${escapeRegExp(focusPath)}$`));
+      await expect(player.exercise).toBeVisible();
+      expectNoPathOnTheWay(await pathFlash(), lessonPath, focusPath);
+    });
   });
 });
