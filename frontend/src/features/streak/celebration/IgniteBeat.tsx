@@ -9,6 +9,7 @@ import { StreakFlame } from '../../../components/ui/StreakFlame';
 import { celebrate } from '../../../lib/celebrate';
 import { cx } from '../../../lib/cx';
 import { playCue } from '../../../lib/effects/playCue';
+import { useFocusOnMount } from '../../../lib/focus';
 import { useOnceWhen } from '../../../lib/useOnceWhen';
 import { durations, springs } from '../../../styles/motion';
 import { STREAK_COPY } from '../copy';
@@ -42,6 +43,7 @@ export function IgniteBeat({ streak, onContinue }: IgniteBeatProps) {
   const lit = phase !== 'intro';
   const stage = useTapToSkip<HTMLDivElement>(skip, phase !== 'settled');
   const days = useStepCount(streak.previous, streak.current, lit, skipped);
+  const heading = useFocusOnMount<HTMLHeadingElement>();
   useOnceWhen(lit, () => {
     playCue('streak');
     if (!reducedMotion) celebrate({ palette: 'flame', originY: 0.35, fromSides: true });
@@ -72,7 +74,7 @@ export function IgniteBeat({ streak, onContinue }: IgniteBeatProps) {
           </p>
         </Entrance>
         <StreakFlame lit={lit} ignition={!skipped} className="size-48" />
-        <h1 className="flex flex-col items-center">
+        <h1 ref={heading} tabIndex={-1} className="flex flex-col items-center outline-none">
           <PopNumber
             value={days}
             className={cx(

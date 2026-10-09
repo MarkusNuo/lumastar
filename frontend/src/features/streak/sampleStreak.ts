@@ -26,7 +26,8 @@ export const SAMPLE_STREAK: StreakOverview = {
   goalMinutes: 10,
   freezes: { available: 0, perWeek: 1, resetsOn: '2026-10-12', lastUsedOn: '2026-10-03' },
   calendar: { ...OCTOBER, days: [...BRIDGED_STREAK, ...october(8)] },
-  goal: { target: 20, progress: 12, reached: false, options: [] },
+  // Before the goal is reached: the first rungs above the streak, without the goal itself.
+  goal: { target: 20, progress: 12, reached: false, options: [30, 50, 75] },
 };
 
 /** Today still open: the flame is grey, 6 minutes to go. */
@@ -36,7 +37,7 @@ export const SAMPLE_STREAK_COLD: StreakOverview = {
   extendedToday: false,
   minutesToday: 4,
   calendar: { ...OCTOBER, days: BRIDGED_STREAK },
-  goal: { target: 20, progress: 11, reached: false, options: [] },
+  goal: { target: 20, progress: 11, reached: false, options: [30, 50, 75] },
 };
 
 /** The goal of 10 days was just reached; the next one is still to choose. */

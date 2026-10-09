@@ -1,11 +1,12 @@
 import { ArrowLeftIcon } from '@phosphor-icons/react';
-import { useEffect, useRef, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useGoBack } from '../../app/useGoBack';
 import { FocusScreen } from '../../components/ui/FocusScreen';
 import { IconButton } from '../../components/ui/IconButton';
 import { LoadFailed, LoadingBlock } from '../../components/ui/LoadState';
 import { Mascot, type MascotExpression } from '../../components/ui/Mascot';
 import { cx } from '../../lib/cx';
+import { useFocusOnMount } from '../../lib/focus';
 import { ACCOUNT_ROUTES } from './accountRoutes';
 import { ACCOUNT_COPY } from './copy';
 
@@ -87,9 +88,7 @@ export interface AccountMessageProps {
  * form, so focus moves to its heading and screen readers read the outcome.
  */
 export function AccountMessage({ title, expression, heading, text, action }: AccountMessageProps) {
-  const headingRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => headingRef.current?.focus({ preventScroll: true }), []);
+  const headingRef = useFocusOnMount<HTMLHeadingElement>();
 
   return (
     <AccountScreen

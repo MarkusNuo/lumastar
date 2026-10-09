@@ -30,29 +30,34 @@ export function StreakCelebration({ streak, goalChoice, onContinue }: StreakCele
 export interface WithStreakCelebrationProps {
   dailyGoal: LessonDailyGoal | undefined;
   streak: LessonStreak | undefined;
-  onContinue: () => void;
-  /** The screen before the flame, given what its continue button does. */
-  children: (onContinue: () => void) => ReactNode;
+  /**
+   * The screen before the flame. Every way on from it goes through `celebrateThen(leave)`: when the
+   * screen met today's goal, the celebration comes first and `leave` runs after it, otherwise at once.
+   */
+  children: (celebrateThen: (leave: () => void) => void) => ReactNode;
+}
+
+interface PendingCelebration {
+  streak: CelebratedStreak;
+  leave: () => void;
 }
 
 /**
  * A lesson's or placement's end screen, followed by the streak celebration when it met today's
  * goal. The celebration replaces the end screen in place, so nothing else (e.g. the learning path)
- * shows in between; `onContinue` only runs after it.
+ * shows in between, whichever way the learner goes on.
  */
-export function WithStreakCelebration({
-  dailyGoal,
-  streak,
-  onContinue,
-  children,
-}: WithStreakCelebrationProps) {
-  const [celebrated, setCelebrated] = useState<CelebratedStreak>();
+export function WithStreakCelebration({ dailyGoal, streak, children }: WithStreakCelebrationProps) {
+  const [celebration, setCelebration] = useState<PendingCelebration>();
   const grownStreak = dailyGoal?.justMet ? streak : undefined;
 
-  if (celebrated) {
-    return <SavingStreakCelebration streak={celebrated} onContinue={onContinue} />;
+  if (celebration) {
+    return <SavingStreakCelebration streak={celebration.streak} onContinue={celebration.leave} />;
   }
-  return children(grownStreak ? () => setCelebrated(withTrophyOnce(grownStreak)) : onContinue);
+  return children((leave) => {
+    if (grownStreak) setCelebration({ streak: withTrophyOnce(grownStreak), leave });
+    else leave();
+  });
 }
 
 /** The streak without its reached goal when this device has shown that trophy already today. */

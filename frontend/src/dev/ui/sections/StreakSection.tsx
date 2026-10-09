@@ -119,7 +119,7 @@ function CalendarDemo() {
 
 function GoalCardDemo({ overview }: { overview: StreakOverview }) {
   const choice = useDemoGoalChoice();
-  return <StreakGoalCard goal={overview.goal} streak={overview.current} choice={choice} />;
+  return <StreakGoalCard goal={overview.goal} choice={choice} />;
 }
 
 function StreakScreenPreview({ overview, close }: { overview: StreakOverview; close: () => void }) {

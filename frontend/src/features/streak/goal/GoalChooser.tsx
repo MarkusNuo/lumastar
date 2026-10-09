@@ -23,11 +23,23 @@ export interface GoalChooserProps {
   options: readonly number[];
   choice: GoalChoice;
   size?: 'md' | 'lg';
+  /** Takes the focus when it appears, e.g. after "Ziel ändern". */
+  focusOnMount?: boolean;
   className?: string;
 }
 
-/** The next streak goals as big chips; a tap saves the goal at once. */
-export function GoalChooser({ label, options, choice, size = 'md', className }: GoalChooserProps) {
+/**
+ * The next streak goals as big chips; a tap saves the goal at once. The arrow keys only move
+ * between the chips, so walking past a goal does not save it; Space or Enter does.
+ */
+export function GoalChooser({
+  label,
+  options,
+  choice,
+  size = 'md',
+  focusOnMount = false,
+  className,
+}: GoalChooserProps) {
   const labelId = useId();
   const { chosen, status } = choice;
 
@@ -42,6 +54,8 @@ export function GoalChooser({ label, options, choice, size = 'md', className }: 
         value={status === 'failed' ? undefined : chosen}
         busy={status === 'saving'}
         size={size}
+        activation="manual"
+        focusOnMount={focusOnMount}
         onChange={choice.choose}
       />
       {status === 'failed' && <Callout tone="danger">{copy.saveFailed}</Callout>}

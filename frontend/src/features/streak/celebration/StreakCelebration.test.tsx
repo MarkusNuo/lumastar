@@ -41,7 +41,16 @@ const GOAL_REACHED: LessonStreak = {
   goalReached: { target: 10, options: [20, 30, 50] },
 };
 
-/** A finished lesson whose "Weiter" leads to the learning path, as in LessonRunner. */
+const FOCUS_SUGGESTION = {
+  skillTag: 'grammar.definite_article',
+  label: 'Bestimmter Artikel',
+  unitId: 'focus_grammar.definite_article_1',
+};
+
+/**
+ * A finished lesson whose "Weiter" leads to the learning path and whose focus card starts the
+ * focus lesson, as in LessonRunner.
+ */
 function LessonEndOnRoute({ result }: { result: LessonResult }) {
   const navigate = useNavigate();
   return (
@@ -50,7 +59,7 @@ function LessonEndOnRoute({ result }: { result: LessonResult }) {
       retrying={false}
       onContinue={() => void navigate('/', { replace: true })}
       onRetrySave={vi.fn()}
-      onStartFocus={vi.fn()}
+      onStartFocus={(unitId) => void navigate(`/fokus/${unitId}`, { replace: true })}
     />
   );
 }
@@ -58,23 +67,26 @@ function LessonEndOnRoute({ result }: { result: LessonResult }) {
 function renderLessonEnd(
   streak: LessonStreak = EXTENDED,
   reducedMotion: 'user' | 'always' = 'user',
+  result: LessonResult = GOAL_MET,
 ) {
-  const result = { ...GOAL_MET, streak };
   const rendered = renderRoutes(
     [
       {
         path: '/lektion',
         element: (
           <MotionConfig reducedMotion={reducedMotion}>
-            <LessonEndOnRoute result={result} />
+            <LessonEndOnRoute result={{ ...result, streak }} />
           </MotionConfig>
         ),
       },
       { path: '/', element: <h1>Lernpfad</h1> },
+      { path: '/fokus/:unitId', element: <h1>Fokus-Lektion</h1> },
     ],
     '/lektion',
   );
-  return { user: userEvent.setup(), ...rendered };
+  const visited: string[] = [];
+  rendered.router.subscribe((state) => visited.push(state.location.pathname));
+  return { user: userEvent.setup(), visited, ...rendered };
 }
 
 const learningPath = () => screen.queryByRole('heading', { name: 'Lernpfad' });
@@ -96,6 +108,37 @@ describe('streak celebration', () => {
 
     expect(router.state.location.pathname).toBe('/');
     expect(learningPath()).toBeInTheDocument();
+  });
+
+  it('starts the suggested focus lesson only after the flame, without the path in between', async () => {
+    const { user, router, visited } = renderLessonEnd(EXTENDED, 'user', {
+      ...GOAL_MET,
+      focusSuggestion: FOCUS_SUGGESTION,
+    });
+
+    await user.click(screen.getByRole('button', { name: 'Fokus-Lektion starten' }));
+
+    expect(screen.getByTestId('streak-celebration')).toBeInTheDocument();
+    expect(router.state.location.pathname).toBe('/lektion');
+
+    await user.click(continueButton());
+
+    expect(router.state.location.pathname).toBe(`/fokus/${FOCUS_SUGGESTION.unitId}`);
+    expect(screen.getByRole('heading', { name: 'Fokus-Lektion' })).toBeInTheDocument();
+    expect(visited).toEqual([`/fokus/${FOCUS_SUGGESTION.unitId}`]);
+  });
+
+  it('moves the focus to the flame and on to the trophy, so screen readers announce them', async () => {
+    stubApi({});
+    const { user } = renderLessonEnd(GOAL_REACHED);
+
+    await user.click(continueButton());
+    expect(screen.getByRole('heading', { name: '10 Tage Streak!', level: 1 })).toHaveFocus();
+
+    await user.click(continueButton());
+    expect(
+      screen.getByRole('heading', { name: 'Ziel erreicht: 10 Tage!', level: 1 }),
+    ).toHaveFocus();
   });
 
   it('lets the cold flame catch fire with sound, vibration and flame confetti', async () => {
@@ -137,7 +180,7 @@ describe('streak celebration', () => {
   it('shows the trophy and saves the next goal when the streak reached its goal', async () => {
     const requests = stubApi({
       'PUT /api/streak/goal': () =>
-        jsonResponse({ target: 30, progress: 10, reached: false, options: [] }),
+        jsonResponse({ target: 30, progress: 10, reached: false, options: [20, 50, 75] }),
     });
     const { user, router } = renderLessonEnd(GOAL_REACHED);
     await user.click(continueButton());
@@ -223,6 +266,7 @@ describe('streak celebration with reduced motion', () => {
     expect(screen.queryAllByTestId('streak-ember')).toHaveLength(0);
     // The visible number comes first, before the unit and the screen-reader title.
     expect(stage.querySelector('h1')).toHaveTextContent(/^5Tage Streak/);
+    expect(stage.querySelector('h1')).toHaveFocus();
     await act(() => Promise.resolve());
     expect(playCue).toHaveBeenCalledWith('streak');
   });

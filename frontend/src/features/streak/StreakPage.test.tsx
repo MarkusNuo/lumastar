@@ -36,6 +36,12 @@ function stubStreak(byMonth: Record<string, StreakOverview>) {
   });
 }
 
+const emptyMonth = (month: string): StreakOverview['calendar'] => ({
+  ...SAMPLE_EMPTY_MONTH,
+  month,
+  firstDay: `${month}-01`,
+});
+
 describe('StreakPage', () => {
   it('shows the burning streak with its calendar, goal and freeze', async () => {
     stubStreak({ current: SAMPLE_STREAK });
@@ -83,13 +89,53 @@ describe('StreakPage', () => {
     expect(router.state.location.search).toBe('');
   });
 
-  it('opens the month in the URL and ignores one that is no month', async () => {
+  it('opens the month in the URL', async () => {
     stubStreak({
       current: SAMPLE_STREAK,
-      '2026-09': { ...SAMPLE_STREAK, calendar: { ...SAMPLE_EMPTY_MONTH, month: '2026-09' } },
+      '2026-09': { ...SAMPLE_STREAK, calendar: emptyMonth('2026-09') },
     });
-    renderPage('/streak?month=2026-09');
+    const { router } = renderPage('/streak?month=2026-09');
+
     expect(await screen.findByRole('table', { name: 'September 2026' })).toBeInTheDocument();
+    expect(router.state.location.search).toBe('?month=2026-09');
+  });
+
+  it('turns a month more than a year back into the earliest one, in the URL too', async () => {
+    const requests = stubStreak({
+      '2024-05': { ...SAMPLE_STREAK, calendar: emptyMonth('2024-05') },
+      '2025-10': { ...SAMPLE_STREAK, calendar: emptyMonth('2025-10') },
+    });
+    const { router } = renderPage('/streak?month=2024-05');
+
+    expect(await screen.findByRole('table', { name: 'Oktober 2025' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Vorheriger Monat' })).toBeDisabled();
+    expect(router.state.location.search).toBe('?month=2025-10');
+    expect(router.state.historyAction).toBe('REPLACE');
+    expect(requests.map((request) => new URL(request.url).search)).toEqual([
+      '?month=2024-05',
+      '?month=2025-10',
+    ]);
+  });
+
+  it('turns a month still to come into the current one', async () => {
+    stubStreak({
+      current: SAMPLE_STREAK,
+      '2026-12': { ...SAMPLE_STREAK, calendar: emptyMonth('2026-12') },
+    });
+    const { router } = renderPage('/streak?month=2026-12');
+
+    expect(await screen.findByRole('table', { name: 'Oktober 2026' })).toBeInTheDocument();
+    expect(screen.queryByRole('table', { name: 'Dezember 2026' })).not.toBeInTheDocument();
+    expect(router.state.location.search).toBe('');
+  });
+
+  it('ignores a parameter that is no month and drops it from the URL', async () => {
+    const requests = stubStreak({ current: SAMPLE_STREAK });
+    const { router } = renderPage('/streak?month=september');
+
+    expect(await screen.findByRole('table', { name: 'Oktober 2026' })).toBeInTheDocument();
+    await waitFor(() => expect(router.state.location.search).toBe(''));
+    expect(requests).toHaveLength(1);
   });
 
   it('saves the next goal and shows the fresh streak', async () => {
@@ -99,7 +145,7 @@ describe('StreakPage', () => {
       'PUT /api/streak/goal': () => {
         overview = {
           ...overview,
-          goal: { target: 30, progress: 10, reached: false, options: [] },
+          goal: { target: 30, progress: 10, reached: false, options: [20, 50, 75] },
         };
         return jsonResponse(overview.goal);
       },

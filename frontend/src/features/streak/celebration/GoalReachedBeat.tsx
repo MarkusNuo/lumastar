@@ -5,6 +5,7 @@ import { SparkBurst } from '../../../components/ui/SparkBurst';
 import { Trophy } from '../../../components/ui/Trophy';
 import { celebrate } from '../../../lib/celebrate';
 import { playCue } from '../../../lib/effects/playCue';
+import { useFocusOnMount } from '../../../lib/focus';
 import { useOnceWhen } from '../../../lib/useOnceWhen';
 import { durations, springs } from '../../../styles/motion';
 import { STREAK_COPY } from '../copy';
@@ -37,6 +38,7 @@ export function GoalReachedBeat({ goal, choice, onContinue }: GoalReachedBeatPro
   );
   const won = phase !== 'intro';
   const stage = useTapToSkip<HTMLDivElement>(skip, phase !== 'settled');
+  const heading = useFocusOnMount<HTMLHeadingElement>();
   useOnceWhen(won, () => {
     playCue('streakGoal');
     if (!reducedMotion) celebrate({ palette: 'gold', originY: 0.3 });
@@ -70,7 +72,9 @@ export function GoalReachedBeat({ goal, choice, onContinue }: GoalReachedBeatPro
           {copy.kicker}
         </p>
         <TrophyMoment won={won} target={goal.target} show={!skipped} />
-        <h1 className="text-headline font-black text-xp">{copy.title(goal.target)}</h1>
+        <h1 ref={heading} tabIndex={-1} className="text-headline font-black text-xp outline-none">
+          {copy.title(goal.target)}
+        </h1>
         <p className="max-w-xs text-body text-fg-muted">{copy.text(goal.target)}</p>
       </div>
       <GoalChooser

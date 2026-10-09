@@ -49,6 +49,24 @@ export function shiftMonth(month: string, by: number): string {
   return `${shifted.getFullYear()}-${pad(shifted.getMonth() + 1)}`;
 }
 
+/** The months the calendar can show, e.g. "2025-10" to "2026-10". */
+export interface MonthRange {
+  earliest: string;
+  current: string;
+}
+
+/** From `monthsBack` months before today's month up to it; the calendar never looks ahead. */
+export function monthRange(today: string, monthsBack: number): MonthRange {
+  const current = monthOf(today);
+  return { earliest: shiftMonth(current, -monthsBack), current };
+}
+
+/** The nearest month in the range, e.g. for a URL parameter; one that is no month is the current. */
+export function clampMonth(asked: string, { earliest, current }: MonthRange): string {
+  if (!isMonth(asked) || asked > current) return current;
+  return asked < earliest ? earliest : asked;
+}
+
 /** Monday 0 … Sunday 6. */
 function weekday(date: Date): number {
   return (date.getDay() + 6) % DAYS_PER_WEEK;

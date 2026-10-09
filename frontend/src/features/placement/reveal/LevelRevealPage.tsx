@@ -22,13 +22,12 @@ export function LevelRevealPage() {
   const placed = result.data;
 
   if (placed) {
+    const openPlan = () => void navigate(ONBOARDING_ROUTES.plan, { replace: true });
     return (
-      <WithStreakCelebration
-        dailyGoal={placed.dailyGoal}
-        streak={placed.streak}
-        onContinue={() => void navigate(ONBOARDING_ROUTES.plan, { replace: true })}
-      >
-        {(onContinue) => <LevelReveal result={placed} onContinue={onContinue} />}
+      <WithStreakCelebration dailyGoal={placed.dailyGoal} streak={placed.streak}>
+        {(celebrateThen) => (
+          <LevelReveal result={placed} onContinue={() => celebrateThen(openPlan)} />
+        )}
       </WithStreakCelebration>
     );
   }

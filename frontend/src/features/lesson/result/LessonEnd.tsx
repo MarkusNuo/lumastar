@@ -4,29 +4,28 @@ import { WithStreakCelebration } from '../../streak/celebration/StreakCelebratio
 
 /**
  * The end of any lesson: a saved checkpoint gets its own pass or fail moment, and the lesson that
- * met today's goal is followed by the streak flame, one moment per screen.
+ * met today's goal is followed by the streak flame, one moment per screen, before the learner goes
+ * on, be it with "Weiter" or into the suggested focus lesson.
  */
-export function LessonEnd(props: LessonResultScreenProps) {
+export function LessonEnd({ onContinue, onStartFocus, ...props }: LessonResultScreenProps) {
   const { result } = props;
 
   return (
-    <WithStreakCelebration
-      dailyGoal={result.dailyGoal}
-      streak={result.streak}
-      onContinue={props.onContinue}
-    >
-      {(onContinue) =>
-        result.checkpoint ? (
+    <WithStreakCelebration dailyGoal={result.dailyGoal} streak={result.streak}>
+      {(celebrateThen) => {
+        const goOn = () => celebrateThen(onContinue);
+        const startFocus = (unitId: string) => celebrateThen(() => onStartFocus(unitId));
+        return result.checkpoint ? (
           <CheckpointResultScreen
             result={result}
             checkpoint={result.checkpoint}
-            onContinue={onContinue}
-            onStartFocus={props.onStartFocus}
+            onContinue={goOn}
+            onStartFocus={startFocus}
           />
         ) : (
-          <LessonResultScreen {...props} onContinue={onContinue} />
-        )
-      }
+          <LessonResultScreen {...props} onContinue={goOn} onStartFocus={startFocus} />
+        );
+      }}
     </WithStreakCelebration>
   );
 }

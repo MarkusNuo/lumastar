@@ -33,7 +33,7 @@ export function StreakDetails({
         onMonthChange={onMonthChange}
         busy={monthLoading}
       />
-      <StreakGoalCard goal={overview.goal} streak={overview.current} choice={goalChoice} />
+      <StreakGoalCard goal={overview.goal} choice={goalChoice} />
       <StreakFreezeCard freezes={overview.freezes} />
     </>
   );

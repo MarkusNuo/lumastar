@@ -86,6 +86,39 @@ describe('LessonEnd', () => {
     expect(onContinue).toHaveBeenCalledOnce();
   });
 
+  it('starts the suggested focus lesson after the flame', async () => {
+    const focusSuggestion = {
+      skillTag: 'grammar.definite_article',
+      label: 'Bestimmter Artikel',
+      unitId: 'focus_grammar.definite_article_1',
+    };
+    const { user, onContinue, onStartFocus } = renderEnd({
+      ...RESULT,
+      ...GOAL_JUST_MET,
+      focusSuggestion,
+    });
+
+    await user.click(screen.getByRole('button', { name: 'Fokus-Lektion starten' }));
+    expect(screen.getByTestId('streak-celebration')).toBeInTheDocument();
+    expect(onStartFocus).not.toHaveBeenCalled();
+    await user.click(screen.getByRole('button', { name: 'Weiter' }));
+
+    expect(onStartFocus).toHaveBeenCalledExactlyOnceWith(focusSuggestion.unitId);
+    expect(onContinue).not.toHaveBeenCalled();
+  });
+
+  it('starts the focus lesson at once when the lesson did not meet the goal', async () => {
+    const { user, onStartFocus } = renderEnd({
+      ...RESULT,
+      focusSuggestion: { skillTag: 'vocab.food', label: 'Essen', unitId: 'focus_vocab.food_1' },
+    });
+
+    await user.click(screen.getByRole('button', { name: 'Fokus-Lektion starten' }));
+
+    expect(onStartFocus).toHaveBeenCalledExactlyOnceWith('focus_vocab.food_1');
+    expect(screen.queryByTestId('streak-celebration')).not.toBeInTheDocument();
+  });
+
   it('greets the first day of a streak', async () => {
     const { user } = renderEnd({
       ...RESULT,

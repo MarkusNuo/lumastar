@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import type { StreakDay } from '../model';
-import { calendarMonth, isMonth, monthOf, shiftMonth, type CalendarDay } from './calendarMonth';
+import {
+  calendarMonth,
+  clampMonth,
+  isMonth,
+  monthOf,
+  monthRange,
+  shiftMonth,
+  type CalendarDay,
+} from './calendarMonth';
 
 /* October 2026 starts on a Thursday; the 8th (a Thursday) is today. */
 const TODAY = '2026-10-08';
@@ -88,5 +96,27 @@ describe('month helpers', () => {
     expect(isMonth('2026-10')).toBe(true);
     expect(isMonth('2026-13')).toBe(false);
     expect(isMonth('oktober')).toBe(false);
+  });
+
+  it('reaches from a year back to the current month', () => {
+    expect(monthRange(TODAY, 12)).toEqual({ earliest: '2025-10', current: '2026-10' });
+  });
+
+  it('keeps an asked month within reach and moves one beyond it to the nearest end', () => {
+    const range = monthRange(TODAY, 12);
+
+    expect(clampMonth('2026-03', range)).toBe('2026-03');
+    expect(clampMonth('2025-10', range)).toBe('2025-10');
+    expect(clampMonth('2025-09', range)).toBe('2025-10');
+    expect(clampMonth('1999-01', range)).toBe('2025-10');
+    expect(clampMonth('2026-11', range)).toBe('2026-10');
+    expect(clampMonth('2030-01', range)).toBe('2026-10');
+  });
+
+  it('takes the current month for a parameter that is no month', () => {
+    const range = monthRange(TODAY, 12);
+
+    expect(clampMonth('2026-13', range)).toBe('2026-10');
+    expect(clampMonth('', range)).toBe('2026-10');
   });
 });
