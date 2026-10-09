@@ -113,18 +113,13 @@ test('the calendar steps back month by month for a year, the month stays in the 
 test('"Zurück" on a month out of reach opened directly leads to the path, as on any screen opened directly', async ({
   page,
 }) => {
-  test.fail(
-    true,
-    'Known bug: StreakPage corrects a month out of reach with ' +
-      'setParams(…, { replace: true }), which gives the location a new key, so useGoBack no longer sees the screen ' +
-      'as opened directly (key "default") and calls navigate(-1): out of the app, here back to about:blank.',
-  );
+  // The correction replaces the URL; the screen still counts as opened directly (no app screen before it).
   const streakPage = new StreakPage(page);
   const { today } = await fetchStreak(page.request);
   await page.goto(`/streak?month=${shiftMonth(monthOf(today), 2)}`);
   await expect(page, 'corrected to the current month').toHaveURL(/\/streak$/);
   await streakPage.backButton.click();
-  await expect(page).toHaveURL(/\/$/, { timeout: 3_000 });
+  await expect(page, 'not out of the app').toHaveURL(/\/$/);
   await new LearningPathPage(page).expectVisible();
 });
 

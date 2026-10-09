@@ -177,10 +177,9 @@ day ends during a test.
   rungs, a reached goal after the streak broke, export format 5 and the format-4 import, and the
   isolation of two learners.
 
-The known bugs of the M10 review are fixed and their tests pass. One found after the fixes is marked
-`test.fail` in `streak-screen.spec.ts`: a month out of reach opened directly is corrected with a
-replace that gives the location a new key, so "Zurück" no longer counts the screen as opened directly
-and goes back in the browser history, out of the app.
+The known bugs of the M10 review are fixed and their tests pass, and so is the one found after the
+fixes: "Zurück" on a month out of reach opened directly (corrected with a replace) leads to the path,
+not out of the app (`streak-screen.spec.ts`).
 
 ## Platform tests
 
