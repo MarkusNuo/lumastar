@@ -133,6 +133,41 @@ it, so `tests/placement` checks the `dailyGoal` and `streak` of the placement re
 `GET /api/progress/today` and that the reveal leads straight to the plan (the frontend's unit tests
 cover the flame after the reveal).
 
+## Streak celebration and streak screen (M10)
+
+The celebration replaces the result screen in place: `watchForPathFlash` (`pages/StreakCelebration.ts`)
+records every URL change through the History API and every element added to the page, and the
+tests expect the lesson's URL only and never the bottom navigation or the learning path between the
+result and the celebration (the daily-goal test with the shared learner, `tests/streak` with
+learners of their own).
+
+The backend has no test clock, so a streak of many days comes from a backup
+(`support/streakHistory.ts`): a new learner plays a lesson through the API, exports, and imports the
+export again with streak days before today, the stored streak to match, a streak goal, a daily goal
+of five minutes and the lesson stretched to 4:40 minutes. An import never extends the streak; the next
+lesson meets the goal after twenty seconds, as on any other day, and the backend extends the streak,
+reaches the goal and records the day itself. Lowering the daily goal through the settings meets it
+without a lesson (no celebration). These learners live in a time zone where it is about midday, so no
+day ends during a test.
+
+- `streak-celebration.spec.ts` plays the show with motion (`reducedMotion: 'no-preference'`; all other
+  tests reduce motion, where the celebration starts settled) on the page's clock
+  (`page.clock`), stopped before the celebration and moved on a frame at a time: the cold flame with
+  the streak before (9), the flame catching with embers, the count-up to 10, the settled screen,
+  then the trophy of the reached goal of 10 days with the chips 20, 30 and 50 days (`PUT
+  /api/streak/goal`) and the path with the burning flame. A second learner's missed yesterday is
+  bridged by the freeze: the grey streak screen before, a tap that skips the show (12 → 13 with the
+  freeze note) and no trophy for a goal still ahead.
+- `streak-screen.spec.ts`: the top-bar flame opens `/streak` with the shared learner's streak (hero,
+  today's cell, legend, goal, freeze with the Monday after today); the month navigation (URL
+  `?month=`, a year back at most); a learner of its own with bands across weeks, a gap and a frozen
+  day (each cell's label, state and band shape against the rules of M10, in whatever month the test
+  runs), the reached first goal with its options and "Ziel ändern"; the catalog's streak previews.
+- `streak-api.spec.ts`: defaults of a new learner, today and the next Monday in UTC+14 and UTC−10, the
+  months, the goal ladder and its refusals, `streak.previous` and `streak.goalReached` of a lesson
+  result, the options of a streak past further rungs, export format 5 and the format-4 import, and
+  the isolation of two learners.
+
 ## Platform tests
 
 `tests/platform` checks PRD 13: the web app manifest and the service worker of the production build

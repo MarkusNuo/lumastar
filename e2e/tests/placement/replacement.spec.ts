@@ -168,6 +168,9 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
     );
     expect(streak.extendedToday).toBe(progressBefore.streak.extendedToday || dailyGoal.justMet);
     if (!dailyGoal.justMet) expect(streak.current, 'the streak stays').toBe(progressBefore.streak.current);
+    expect(streak.previous, 'the streak before the test (M10)').toBe(
+      dailyGoal.justMet ? streak.current - 1 : streak.current,
+    );
   });
 
   await test.step('the revised plan and its new history entry', async () => {

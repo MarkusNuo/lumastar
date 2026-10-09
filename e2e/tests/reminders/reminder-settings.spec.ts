@@ -23,6 +23,7 @@ import {
   type ReminderSettings,
 } from '../../support/reminderApi.ts';
 import { snap } from '../../support/screenshots.ts';
+import { moveLearnerTo, zoneAroundMidday } from '../../support/timeZones.ts';
 
 /*
  * "Erinnerungen" under Profil (M9): the switch subscribes this browser and registers it with the
@@ -77,6 +78,9 @@ withProfile.describe('on a phone that can receive web push', () => {
     const phone = pushService.subscribe();
     await fakePushSubscriptions(context, phone.json);
     await newLearnerViaApi(page.request, 'reminders-ui');
+    // Where it is about midday, the times of this test (18:15 to 21:30) lie hours ahead: no daily
+    // reminder is due, so none can arrive before the test reminder (the job runs every 5 seconds).
+    await moveLearnerTo(page.request, zoneAroundMidday().zone);
     const reminders = new RemindersPage(page);
     await page.goto('/');
     await reminders.shell.expectHome();

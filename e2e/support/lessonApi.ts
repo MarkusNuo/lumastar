@@ -110,11 +110,22 @@ export interface LessonDailyGoal {
   justMet: boolean;
 }
 
+/** A streak goal the completion reached, with the next goals to choose from (M10). */
+export interface StreakGoalReached {
+  target: number;
+  /** The next three rungs of the goal ladder, ascending. */
+  options: number[];
+}
+
 /** The streak after the lesson (PRD F9). */
 export interface LessonStreak {
   current: number;
+  /** The streak before the lesson: one less if it extended the streak, else equal to current (M10). */
+  previous: number;
   extendedToday: boolean;
   freezeUsed: boolean;
+  /** Only when the completion extended the streak to its goal, until the next goal is chosen (M10). */
+  goalReached?: StreakGoalReached;
 }
 
 export interface LessonResultResponse {

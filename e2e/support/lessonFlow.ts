@@ -124,3 +124,24 @@ export async function playLessonInUi(page: Page): Promise<PlayedLesson> {
   await new AppShell(page).expectHome();
   return { lesson: opened.lesson, result, wrongExercise };
 }
+
+/**
+ * Starts the next lesson of the path (the path must be on screen) and answers everything right up to
+ * its result screen, where it stays; the last answer waits until the lesson has taken `minDurationMs`,
+ * e.g. the seconds a daily goal still needs.
+ */
+export async function playLessonToResult(
+  page: Page,
+  minDurationMs = 0,
+): Promise<{ lesson: LessonResponse; result: LessonResultResponse }> {
+  const path = new LearningPathPage(page);
+  const opened = await openLesson(page, () => path.startCurrentLesson());
+  const deadline = Date.now() + minDurationMs;
+  const result = await playOpenedLesson(page, opened, {
+    end: new LessonResultScreen(page).heading,
+    beforeAnswer: async (_exercise, step) => {
+      if (step === opened.lesson.exercises.length - 1) await page.waitForTimeout(Math.max(0, deadline - Date.now()));
+    },
+  });
+  return { lesson: opened.lesson, result };
+}

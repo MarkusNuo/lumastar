@@ -34,6 +34,8 @@ export class AppShell {
   readonly freezeShield: Locator;
   /** The daily-goal ring of the top bar (PRD 12.3). */
   readonly goalRing: Locator;
+  /** The flame of the top bar, a link to the streak screen (M10), named like `streakLabel`. */
+  readonly streakLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -45,6 +47,13 @@ export class AppShell {
     this.streakLabel = this.topBar.getByText(/^Streak: /);
     this.freezeShield = this.topBar.getByTestId('streak-freeze');
     this.goalRing = this.topBar.getByRole('progressbar', { name: 'Tagesziel', exact: true });
+    this.streakLink = this.topBar.getByRole('link', { name: /^Streak: / });
+  }
+
+  /** Taps the flame of the top bar, which opens the streak screen (M10). */
+  async openStreak(): Promise<void> {
+    await this.streakLink.tap();
+    await expect(this.page).toHaveURL(/\/streak$/);
   }
 
   /**

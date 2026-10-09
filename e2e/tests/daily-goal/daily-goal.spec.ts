@@ -3,7 +3,7 @@ import { AppShell } from '../../pages/AppShell.ts';
 import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { LessonResultScreen } from '../../pages/LessonResultScreen.ts';
 import { ProfilePage } from '../../pages/ProfilePage.ts';
-import { StreakCelebration } from '../../pages/StreakCelebration.ts';
+import { StreakCelebration, watchForPathFlash } from '../../pages/StreakCelebration.ts';
 import { shownDay } from '../../support/dates.ts';
 import { ONBOARDING } from '../../support/learner.ts';
 import { feedbackTour } from '../../support/lessonAnswers.ts';
@@ -145,18 +145,34 @@ test('a 5-minute goal set in the profile: the lesson that meets it fills the rin
   await test.step('the result: "Tagesziel erreicht!" with the full ring', async () => {
     expect(result.dailyGoal).toMatchObject({ goalMinutes: SHORT_GOAL, goalMet: true, justMet: true });
     expect(result.dailyGoal.minutesToday).toBeGreaterThanOrEqual(SHORT_GOAL);
-    expect(result.streak).toEqual({ current: 1, extendedToday: true, freezeUsed: false });
+    expect(result.streak, 'the first day: no goal reached yet').toEqual({
+      current: 1,
+      previous: 0,
+      extendedToday: true,
+      freezeUsed: false,
+    });
     await resultScreen.expectDailyGoal(result.dailyGoal);
     await snapOnAllPhones(page, 'result-goal-met', { fullPage: false });
     await resultScreen.dailyGoalCard.scrollIntoViewIfNeeded();
     await snapOnAllPhones(page, 'result-goal-met-card', { fullPage: false });
   });
 
-  await test.step('"Weiter": the streak celebration, then the path', async () => {
+  await test.step('"Weiter": the streak celebration right in place of the result, never the path in between', async () => {
+    const lessonPath = new URL(page.url()).pathname;
+    const pathFlash = await watchForPathFlash(page);
     await resultScreen.continueButton.click();
     await celebration.expectShown(result);
+    // Motion is reduced in these tests: no show to wait for, the flame burns with the new streak at once.
+    await celebration.expectSettled(result.streak);
+    await expect(celebration.embers, 'no embers without motion').toHaveCount(0);
+    await expect(page).toHaveURL(new RegExp(`${lessonPath}$`));
+    const record = await pathFlash();
+    expect(record.paths, 'the URL never left the lesson').toEqual(record.paths.map(() => lessonPath));
+    expect(record.navigation, 'the app navigation never showed').toBe(false);
+    expect(record.learningPath, 'the learning path never showed').toBe(false);
     await snapOnAllPhones(page, 'streak-celebration', { fullPage: false });
     await celebration.continueButton.click();
+    await expect(celebration.goalBeat, 'one day is no streak goal').toHaveCount(0);
     await shell.expectHome();
   });
 

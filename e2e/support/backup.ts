@@ -15,11 +15,12 @@ export const DOCUMENTS = [
 ] as const;
 
 /** The export format this Lingora writes; an import upgrades older ones and rejects newer ones (PRD 13). */
-export const EXPORT_FORMAT = 4;
+export const EXPORT_FORMAT = 5;
 
-/** Learner tables of export format 4; data/profile.json holds the account row without its identity. */
+/** Learner tables of export format 5; data/profile.json holds the account row without its identity. */
 export const DATA_TABLES = [
   'streaks',
+  'streak_goals',
   'fsrs_params',
   'learning_plans',
   'plan_changes',
@@ -180,6 +181,31 @@ export interface StreakDayRow {
   placementTestId: string | null;
 }
 
+/** The row of data/streaks.json: the stored streak (PRD F9). */
+export interface StreakRow {
+  id: string;
+  currentDays: number;
+  longestDays: number;
+  lastActiveDate: string | null;
+  freezesAvailable: number;
+  /** The Monday of the week `freezesAvailable` counts for; null before the first freeze. */
+  freezesRefilledOn: string | null;
+  updatedAt: string;
+}
+
+/**
+ * The row of data/streak_goals.json (since format 5, M10): the streak goal once the learner has
+ * chosen one or reached the first; without a row the goal is 10 days. `reachedOn` is the day whose
+ * extension of the streak reached the target.
+ */
+export interface StreakGoalRow {
+  id: string;
+  target: number;
+  reachedOn: string | null;
+  reachedAt: string | null;
+  updatedAt: string;
+}
+
 /** A row of data/srs_cards.json: the FSRS card of an item. */
 export interface SrsCardRow {
   id: string;
@@ -248,7 +274,7 @@ function omit(row: Record<string, unknown>, key: string): Record<string, unknown
 /** The text entries of a backup, e.g. to turn it into an older format before zipping it again. */
 export type BackupEntries = Record<string, string>;
 
-function entriesOf(backup: BackupArchive): BackupEntries {
+export function entriesOf(backup: BackupArchive): BackupEntries {
   return Object.fromEntries(backup.names().map((name) => [name, backup.text(name)]));
 }
 
@@ -278,11 +304,20 @@ function withoutColumn(entries: BackupEntries, table: DataTable, column: string)
 }
 
 /**
- * The export as a Lingora of M5 wrote it (format 3): without the placement test that met the goal
- * of a streak day, new in format 4. An import of it restores the days, met by no placement test.
+ * The export as a Lingora of M9 wrote it (format 4): without data/streak_goals.json, new in format 5.
+ * Format 4 could not hold a streak goal, so an import of it starts with the first goal of 10 days.
+ */
+export function asFormat4(backup: BackupArchive): BackupEntries {
+  return withVersion(withoutTable(entriesOf(backup), 'streak_goals'), 4);
+}
+
+/**
+ * The export as a Lingora of M5 wrote it (format 3): format 4 without the placement test that met
+ * the goal of a streak day, new in format 4. An import of it restores the days, met by no placement
+ * test.
  */
 export function asFormat3(backup: BackupArchive): BackupEntries {
-  return withVersion(withoutColumn(entriesOf(backup), 'streak_days', 'placementTestId'), 3);
+  return withVersion(withoutColumn(asFormat4(backup), 'streak_days', 'placementTestId'), 3);
 }
 
 /**

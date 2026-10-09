@@ -6,6 +6,7 @@ import {
   asFormat1,
   asFormat2,
   asFormat3,
+  asFormat4,
   BackupArchive,
   countKey,
   DATA_TABLES,
@@ -26,6 +27,7 @@ import {
   type SessionRow,
   type SrsCardRow,
   type StreakDayRow,
+  type StreakGoalRow,
 } from '../../support/backup.ts';
 import { isVocabulary, readItemKinds } from '../../support/content.ts';
 import { LEARNER, ONBOARDING } from '../../support/learner.ts';
@@ -34,6 +36,7 @@ import { fetchMe, P0_EXERCISE_TYPES, playLessonViaApi } from '../../support/less
 import { currentUnit, fetchPath } from '../../support/planApi.ts';
 import { fetchExport, fetchSummary, isImport, type ImportResult } from '../../support/profileApi.ts';
 import { snap } from '../../support/screenshots.ts';
+import { chooseStreakGoal, fetchStreak, FIRST_GOAL, isRung, rungsAbove } from '../../support/streakApi.ts';
 
 /*
  * "Backup herunterladen" and "Backup importieren" (PRD F11, 8.3, 13). Each test first records the
@@ -86,7 +89,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
   await test.step('entries and manifest', () => {
     expect(backup.names().sort()).toEqual([...EXPECTED_ENTRIES].sort());
     const manifest = backup.manifest();
-    expect(manifest.schemaVersion, 'format 4: a placement test may meet the daily goal').toBe(EXPORT_FORMAT);
+    expect(manifest.schemaVersion, 'format 5: the streak goal').toBe(EXPORT_FORMAT);
     expect(manifest.exportedAt).toMatch(ISO_INSTANT);
     expect(typeof manifest.appVersion).toBe('string');
     expect(keysOf(manifest.counts)).toEqual(DATA_TABLES.map(countKey).sort());
@@ -265,6 +268,18 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     }
   });
 
+  await test.step('since format 5: the streak goal, a rung of the ladder, if the learner has one of its own', () => {
+    const goals = backup.rows<StreakGoalRow>('streak_goals');
+    expect(goals.length, 'one goal at most').toBeLessThanOrEqual(1);
+    for (const goal of goals) {
+      expect(keysOf(goal)).toEqual(['id', 'target', 'reachedOn', 'reachedAt', 'updatedAt'].sort());
+      expect(isRung(goal.target), `${goal.target} days: a rung of the ladder`).toBe(true);
+      expect(goal.reachedOn === null, 'reached on a day exactly when reached at a time').toBe(goal.reachedAt === null);
+      if (goal.reachedOn !== null) expect(goal.reachedOn).toMatch(ISO_DATE);
+      expect(goal.updatedAt).toMatch(PG_INSTANT);
+    }
+  });
+
   await test.step('since format 2: checkpoint results, level badges, the target retention of every review', () => {
     const sessions = backup.rows<SessionRow>('sessions');
     for (const session of sessions.filter((row) => row.kind !== 'checkpoint')) {
@@ -393,7 +408,8 @@ test('importing the downloaded backup restores the same state and keeps the acco
 /**
  * Imports an older format made from the current export through the UI and checks that the import
  * upgrades it: the rows of the current format come back, the streak days as the older format held
- * them (none before format 3, met by no placement test before format 4).
+ * them (none before format 3, met by no placement test before format 4) and no streak goal of its
+ * own (new in format 5): the learner has the first goal of 10 days again.
  */
 async function importUpgraded(
   page: Page,
@@ -414,7 +430,7 @@ async function importUpgraded(
   expect(result, 'the version of the file, the rows of the current format').toEqual({
     schemaVersion,
     exportedAt: manifest.exportedAt,
-    imported: { ...manifest.counts, streakDays: streakDays.length },
+    imported: { ...manifest.counts, streakDays: streakDays.length, streakGoals: 0 },
   });
   await expect(profile.toast(importedMessage(result))).toBeVisible();
 
@@ -423,12 +439,31 @@ async function importUpgraded(
   expect(upgraded.rows<StreakDayRow>('streak_days'), `the streak days format ${schemaVersion} held`).toEqual(
     streakDays,
   );
+  expect(upgraded.rows<StreakGoalRow>('streak_goals'), 'no streak goal of its own').toEqual([]);
+  expect((await fetchStreak(page.request)).goal.target, 'the first goal again').toBe(FIRST_GOAL);
   // Compared as JSON: an upgrader may write a JSONB number like 1.0 of a review state as 1.
   for (const name of current.names().filter((entry) => entry.startsWith('data/'))) {
-    if (name === 'data/streak_days.json') continue;
+    if (name === 'data/streak_days.json' || name === 'data/streak_goals.json') continue;
     expect(upgraded.json(name), `${name} after the upgrade`).toEqual(current.json(name));
   }
 }
+
+test('a backup of export format 4 is upgraded on import and restores the same state but the streak goal (PRD 13)', async ({
+  page,
+}, testInfo) => {
+  // Format 4 holds everything but the streak goal: with a goal of its own (the next rung above the
+  // goal and the streak), the export has the row that format 4 cannot hold, and the import starts at
+  // 10 days again.
+  const { current: streak, goal } = await fetchStreak(page.request);
+  const [nextGoal] = goal.reached ? goal.options : rungsAbove(Math.max(streak, goal.target));
+  if (nextGoal === undefined) throw new Error('The ladder has no rung above the goal');
+  await chooseStreakGoal(page.request, nextGoal);
+  const current = await fetchExport(page.request);
+  expect(current.rows<StreakGoalRow>('streak_goals'), 'a goal of its own').toHaveLength(1);
+  const formatFour = testInfo.outputPath('lingora-export-format-4.zip');
+  await writeZip(formatFour, asFormat4(current));
+  await importUpgraded(page, formatFour, current, 4, current.rows<StreakDayRow>('streak_days'));
+});
 
 test('a backup of export format 3 is upgraded on import and restores the same state (PRD 13)', async ({
   page,
