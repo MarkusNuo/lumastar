@@ -5,10 +5,12 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 import app.lingora.core.progress.StreakGoalRule.Status;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class StreakGoalRuleTest {
@@ -26,9 +28,9 @@ class StreakGoalRuleTest {
     class Progress {
 
         @Test
-        void aGoalAheadShowsTheStreakAsProgressAndOffersNothing() {
-            assertThat(StreakGoalRule.status(StreakGoal.FIRST, 0)).isEqualTo(new Status(10, 0, false, List.of()));
-            assertThat(StreakGoalRule.status(StreakGoal.FIRST, 9)).isEqualTo(new Status(10, 9, false, List.of()));
+        void aGoalAheadShowsTheStreakAsProgress() {
+            assertThat(StreakGoalRule.status(StreakGoal.FIRST, 0)).isEqualTo(new Status(10, 0, false, List.of(20, 30, 50)));
+            assertThat(StreakGoalRule.status(StreakGoal.FIRST, 9)).isEqualTo(new Status(10, 9, false, List.of(20, 30, 50)));
         }
 
         @Test
@@ -53,20 +55,55 @@ class StreakGoalRuleTest {
         }
 
         @Test
-        void aReachedGoalStaysReachedWhenTheStreakBreaksUntilTheNextIsChosen() {
+        void aReachedGoalStaysReachedAndCompleteWhenTheStreakBreaksUntilTheNextIsChosen() {
             assertThat(StreakGoalRule.status(new StreakGoal(10, EARLIER), 0))
-                    .isEqualTo(new Status(10, 0, true, List.of(20, 30, 50)));
+                    .isEqualTo(new Status(10, 10, true, List.of(20, 30, 50)));
+            assertThat(StreakGoalRule.status(new StreakGoal(20, EARLIER), 3))
+                    .isEqualTo(new Status(20, 20, true, List.of(30, 50, 75)));
         }
 
         @Test
         void aBrokenStreakKeepsTheGoalAndStartsItsProgressAgain() {
-            assertThat(StreakGoalRule.status(StreakGoal.chosen(30), 1)).isEqualTo(new Status(30, 1, false, List.of()));
+            assertThat(StreakGoalRule.status(StreakGoal.chosen(30), 1)).isEqualTo(new Status(30, 1, false, List.of(10, 20, 50)));
         }
 
         @Test
         void aStreakAsLongAsAGoalNotMarkedReachedYetCountsAsReached() {
             assertThat(StreakGoalRule.status(StreakGoal.FIRST, 12))
                     .isEqualTo(new Status(10, 10, true, List.of(20, 30, 50)));
+        }
+    }
+
+    @Nested
+    class OptionsBeforeTheGoalIsReached {
+
+        @ParameterizedTest
+        @CsvSource(delimiter = '|', textBlock = """
+                10  | 0   | 20, 30, 50
+                10  | 9   | 20, 30, 50
+                20  | 10  | 30, 50, 75
+                30  | 8   | 10, 20, 50
+                30  | 20  | 50, 75, 100
+                50  | 0   | 10, 20, 30
+                75  | 49  | 50, 100, 150
+                465 | 364 | 365, 565, 665
+                565 | 400 | 465, 665, 765
+                """)
+        void areTheFirstThreeRungsAboveTheStreakOtherThanTheGoal(int target, int streak, String options) {
+            assertThat(StreakGoalRule.status(StreakGoal.chosen(target), streak).options())
+                    .isEqualTo(Arrays.stream(options.split(", ")).map(Integer::valueOf).toList());
+        }
+
+        @ParameterizedTest
+        @CsvSource({"10, 0", "10, 9", "30, 8", "30, 29", "100, 64", "365, 300", "465, 365", "665, 600"})
+        void canAllBeChosen(int target, int streak) {
+            StreakGoal goal = StreakGoal.chosen(target);
+
+            assertThat(StreakGoalRule.status(goal, streak).options())
+                    .hasSize(StreakGoalRule.OPTIONS)
+                    .isSorted()
+                    .doesNotContain(target)
+                    .allSatisfy(option -> assertThat(StreakGoalRule.mayChoose(goal, streak, option)).isTrue());
         }
     }
 

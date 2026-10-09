@@ -33,6 +33,15 @@ public final class StreakRule {
      */
     public record Status(int current, int longest, int freezesLeft, boolean extendedToday, LocalDate lastActiveDate,
                          boolean bridgesYesterday) {
+
+        /**
+         * The streak before the completion that met the daily goal on {@code metOn}: one day shorter while that day is
+         * still the last of the standing streak, which the completion extended; the same otherwise. It needs no recorded
+         * streak days, which an imported streak may lack.
+         */
+        public int before(LocalDate metOn) {
+            return current > 0 && metOn.equals(lastActiveDate) ? current - 1 : current;
+        }
     }
 
     /**

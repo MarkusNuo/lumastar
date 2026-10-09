@@ -1136,7 +1136,7 @@
             "description": "This lesson or placement test extended the streak to its goal; absent otherwise, and once the next goal has been chosen"
           },
           "previous": {
-            "description": "The streak before this lesson or placement test: one less than the streak it reached if it extended the streak, otherwise equal to current",
+            "description": "The streak before this lesson or placement test: current - 1 if it extended the streak and its day is still the last of the streak, otherwise equal to current",
             "format": "int32",
             "type": "integer"
           }
@@ -2990,10 +2990,10 @@
         "type": "object"
       },
       "StreakGoalResponse": {
-        "description": "The streak goal on the ladder 10, 20, 30, 50, 75, 100, 150, 200, 250, 300, 365, 465, 565, … days. A reached goal stays until the next one is chosen from the options; a broken streak keeps the goal and starts its progress again.",
+        "description": "The streak goal on the ladder 10, 20, 30, 50, 75, 100, 150, 200, 250, 300, 365, 465, 565, … days. A reached goal stays complete until the next one is chosen from the options, even if the streak breaks; a goal still ahead keeps its target when the streak breaks and starts its progress again.",
         "properties": {
           "options": {
-            "description": "Once reached: the next three rungs above the goal (or above the streak, if it has run past them), ascending; empty before",
+            "description": "The goals that can be chosen now, ascending. Once reached: the next three rungs above the goal (or above the streak, if it has run past them), the only goals PUT /api/streak/goal accepts then. Before: the first three rungs above the current streak other than the goal itself, e.g. 20, 30, 50 for the first goal of 10 days; PUT /api/streak/goal also accepts any other rung above the streak then.",
             "items": {
               "format": "int32",
               "type": "integer"
@@ -3001,7 +3001,7 @@
             "type": "array"
           },
           "progress": {
-            "description": "The current streak, at most the target",
+            "description": "The current streak while the goal is ahead; the target once it is reached, even if the streak has broken since",
             "format": "int32",
             "type": "integer"
           },

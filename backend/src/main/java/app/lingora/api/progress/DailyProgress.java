@@ -105,7 +105,7 @@ public class DailyProgress {
         Optional<LocalDate> metByCompletion = streaks.dayMetBy(userId, completion);
         boolean freezeUsed = metByCompletion.filter(day -> isFrozen(userId, day.minusDays(1))).isPresent();
         StreakRule.Status streak = StreakRule.status(streaks.streak(userId), LocalDate.ofInstant(clock.instant(), zone));
-        int previous = metByCompletion.map(day -> streaks.lengthOn(userId, day) - 1).orElse(streak.current());
+        int previous = metByCompletion.map(streak::before).orElse(streak.current());
         StreakGoal streakGoal = streakGoals.goal(userId);
         StreakGoalReached goalReached = metByCompletion
                 .filter(day -> day.equals(streakGoal.reachedOn()))

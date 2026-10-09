@@ -1,9 +1,11 @@
 package app.lingora.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 
 import app.lingora.IntegrationTest;
 import app.lingora.LearnerFixture;
+import app.lingora.persistence.StreakStore.StreakDay;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -32,24 +34,7 @@ class StreakStoreTest extends IntegrationTest {
     }
 
     @Test
-    void theLengthOnADayCountsTheMetDaysOfTheUnbrokenRunEndingOnIt() {
-        met(arta, OCTOBER_1.minusDays(2));
-        met(arta, OCTOBER_1);
-        met(arta, OCTOBER_1.plusDays(1));
-        streaks.recordFreeze(arta, OCTOBER_1.plusDays(2), NOW);
-        met(arta, OCTOBER_1.plusDays(3));
-        met(arta, OCTOBER_1.plusDays(4));
-
-        assertThat(streaks.lengthOn(arta, OCTOBER_1.minusDays(2))).isOne();
-        assertThat(streaks.lengthOn(arta, OCTOBER_1)).as("the missed day before ended the earlier run").isOne();
-        assertThat(streaks.lengthOn(arta, OCTOBER_1.plusDays(1))).isEqualTo(2);
-        assertThat(streaks.lengthOn(arta, OCTOBER_1.plusDays(3))).as("a frozen day carries the run on").isEqualTo(3);
-        assertThat(streaks.lengthOn(arta, OCTOBER_1.plusDays(4))).isEqualTo(4);
-        assertThat(streaks.lengthOn(arta, OCTOBER_1.plusDays(5))).as("no day recorded").isZero();
-    }
-
-    @Test
-    void theLengthAndTheLastFrozenDayOnlyReadTheLearnersOwnDays() {
+    void theDaysAndTheLastFrozenDayOnlyReadTheLearnersOwnDays() {
         met(arta, OCTOBER_1);
         streaks.recordFreeze(arta, OCTOBER_1.plusDays(1), NOW);
         met(arta, OCTOBER_1.plusDays(2));
@@ -57,8 +42,11 @@ class StreakStoreTest extends IntegrationTest {
         met(bora, OCTOBER_1.plusDays(2));
         streaks.recordFreeze(bora, OCTOBER_1.plusDays(5), NOW);
 
-        assertThat(streaks.lengthOn(arta, OCTOBER_1.plusDays(2))).isEqualTo(2);
-        assertThat(streaks.lengthOn(bora, OCTOBER_1.plusDays(2))).isEqualTo(2);
+        assertThat(streaks.days(arta, OCTOBER_1, OCTOBER_1.plusDays(5))).extracting(StreakDay::day, StreakDay::kind)
+                .containsExactly(tuple(OCTOBER_1, StreakDayKind.GOAL_MET), tuple(OCTOBER_1.plusDays(1), StreakDayKind.FREEZE),
+                        tuple(OCTOBER_1.plusDays(2), StreakDayKind.GOAL_MET));
+        assertThat(streaks.days(bora, OCTOBER_1, OCTOBER_1.plusDays(2))).extracting(StreakDay::day)
+                .containsExactly(OCTOBER_1.plusDays(1), OCTOBER_1.plusDays(2));
         assertThat(streaks.lastFrozenDay(arta)).contains(OCTOBER_1.plusDays(1));
         assertThat(streaks.lastFrozenDay(bora)).contains(OCTOBER_1.plusDays(5));
     }

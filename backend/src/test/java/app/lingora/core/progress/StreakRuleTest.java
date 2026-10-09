@@ -196,6 +196,40 @@ class StreakRuleTest {
     }
 
     @Nested
+    class TheStreakBeforeACompletion {
+
+        @Test
+        void isOneDayShorterWhenTheCompletionExtendedTheStreakToday() {
+            assertThat(StreakRule.status(met(MONDAY, TUESDAY), TUESDAY).before(TUESDAY)).isOne();
+        }
+
+        @Test
+        void comesFromTheStoredStreakNotFromRecordedDays() {
+            Streak imported = new Streak(9, 12, TUESDAY, null, 1);
+
+            assertThat(StreakRule.status(StreakRule.extend(imported, WEDNESDAY).streak(), WEDNESDAY).before(WEDNESDAY))
+                    .isEqualTo(9);
+        }
+
+        @Test
+        void staysOneDayShorterWhileTheCompletionsDayIsTheLastOfTheStreak() {
+            assertThat(StreakRule.status(met(MONDAY, TUESDAY), WEDNESDAY).before(TUESDAY)).isOne();
+            assertThat(StreakRule.status(met(MONDAY, TUESDAY), THURSDAY).before(TUESDAY)).as("bridged by the freeze").isOne();
+        }
+
+        @Test
+        void isTheStreakItselfOnceALaterDayExtendedIt() {
+            assertThat(StreakRule.status(met(MONDAY, TUESDAY), TUESDAY).before(MONDAY)).isEqualTo(2);
+        }
+
+        @Test
+        void isNothingOnceTheStreakHasEnded() {
+            assertThat(StreakRule.status(met(MONDAY, TUESDAY), SATURDAY).before(TUESDAY)).isZero();
+            assertThat(StreakRule.status(Streak.NONE, MONDAY).before(MONDAY)).isZero();
+        }
+    }
+
+    @Nested
     class FreezeReset {
 
         @ParameterizedTest(name = "{0} → {1}")

@@ -56,7 +56,7 @@ class StreakApiTest extends ClockedIntegrationTest {
                  "goalMinutes": 10,
                  "freezes": {"available": 1, "perWeek": 1, "resetsOn": "2026-10-12"},
                  "calendar": {"month": "2026-10", "firstDay": "2026-10-01", "days": []},
-                 "goal": {"target": 10, "progress": 0, "reached": false, "options": []}}""");
+                 "goal": {"target": 10, "progress": 0, "reached": false, "options": [20, 30, 50]}}""");
     }
 
     @Test
@@ -199,7 +199,7 @@ class StreakApiTest extends ClockedIntegrationTest {
             assertThat(result.get("streak")).isEqualTo(json("""
                     {"current": 8, "previous": 7, "extendedToday": true, "freezeUsed": false}"""));
             assertThat(streak("").get("goal")).isEqualTo(json("""
-                    {"target": 10, "progress": 8, "reached": false, "options": []}"""));
+                    {"target": 10, "progress": 8, "reached": false, "options": [20, 30, 50]}"""));
         }
 
         @Test
@@ -260,7 +260,7 @@ class StreakApiTest extends ClockedIntegrationTest {
         }
 
         @Test
-        void aReachedGoalStaysReachedWhenTheStreakBreaksBeforeTheNextIsChosen() {
+        void aReachedGoalStaysReachedAndCompleteWhenTheStreakBreaksBeforeTheNextIsChosen() {
             streakOf(9, MONDAY.minusDays(1));
             lessonOf(Duration.ofMinutes(11));
             clock.advance(DAY.multipliedBy(3));
@@ -269,7 +269,7 @@ class StreakApiTest extends ClockedIntegrationTest {
 
             assertThat(thursday.get("current").asInt()).isZero();
             assertThat(thursday.get("goal")).isEqualTo(json("""
-                    {"target": 10, "progress": 0, "reached": true, "options": [20, 30, 50]}"""));
+                    {"target": 10, "progress": 10, "reached": true, "options": [20, 30, 50]}"""));
         }
 
         @Test
@@ -300,9 +300,9 @@ class StreakApiTest extends ClockedIntegrationTest {
             lessonOf(Duration.ofMinutes(11));
 
             assertThat(chosen).hasStatusOk().bodyJson().isStrictlyEqualTo("""
-                    {"target": 30, "progress": 10, "reached": false, "options": []}""");
+                    {"target": 30, "progress": 10, "reached": false, "options": [20, 50, 75]}""");
             assertThat(streak("").get("goal")).isEqualTo(json("""
-                    {"target": 30, "progress": 11, "reached": false, "options": []}"""));
+                    {"target": 30, "progress": 11, "reached": false, "options": [20, 50, 75]}"""));
             assertThat(jdbc.sql("SELECT target || '|' || (reached_on IS NULL) || '|' || (reached_at IS NULL) FROM streak_goals")
                     .query(String.class).single()).isEqualTo("30|true|true");
         }
@@ -327,12 +327,33 @@ class StreakApiTest extends ClockedIntegrationTest {
 
             assertThat(learner.put(GOAL, """
                     {"target": 50}""")).hasStatusOk().bodyJson().isStrictlyEqualTo("""
-                    {"target": 50, "progress": 5, "reached": false, "options": []}""");
+                    {"target": 50, "progress": 5, "reached": false, "options": [10, 20, 30]}""");
             assertThat(learner.put(GOAL, """
                     {"target": 20}""")).hasStatusOk();
             assertThat(learner.put(GOAL, """
                     {"target": 10}""")).hasStatusOk();
             assertThat(streak("").get("goal").get("target").asInt()).isEqualTo(10);
+        }
+
+        @Test
+        void beforeItIsReachedTheOptionsAreTheNextRungsAboveTheStreakOtherThanTheGoalAndCanAllBeChosen() {
+            streakOf(20, MONDAY.minusDays(1));
+            jdbc.sql("INSERT INTO streak_goals (user_id, target, updated_at) VALUES (:user, 30, now())")
+                    .param("user", learnerId).update();
+
+            JsonNode goal = streak("").get("goal");
+
+            assertThat(goal).isEqualTo(json("""
+                    {"target": 30, "progress": 20, "reached": false, "options": [50, 75, 100]}"""));
+            assertThat(learner.put(GOAL, """
+                    {"target": 50}""")).hasStatusOk().bodyJson().isStrictlyEqualTo("""
+                    {"target": 50, "progress": 20, "reached": false, "options": [30, 75, 100]}""");
+            assertThat(learner.put(GOAL, """
+                    {"target": 75}""")).hasStatusOk().bodyJson().isStrictlyEqualTo("""
+                    {"target": 75, "progress": 20, "reached": false, "options": [30, 50, 100]}""");
+            assertThat(learner.put(GOAL, """
+                    {"target": 100}""")).hasStatusOk().bodyJson().isStrictlyEqualTo("""
+                    {"target": 100, "progress": 20, "reached": false, "options": [30, 50, 75]}""");
         }
 
         @ParameterizedTest
@@ -366,9 +387,51 @@ class StreakApiTest extends ClockedIntegrationTest {
             lessonOf(Duration.ofMinutes(11));
 
             assertThat(broken.get("goal")).isEqualTo(json("""
-                    {"target": 20, "progress": 0, "reached": false, "options": []}"""));
+                    {"target": 20, "progress": 0, "reached": false, "options": [10, 30, 50]}"""));
             assertThat(streak("").get("goal")).isEqualTo(json("""
-                    {"target": 20, "progress": 1, "reached": false, "options": []}"""));
+                    {"target": 20, "progress": 1, "reached": false, "options": [10, 30, 50]}"""));
+        }
+    }
+
+    /** A stored streak without recorded days, as an import of export format 2 or older leaves it. */
+    @Nested
+    class StreakWithoutRecordedDays {
+
+        @Test
+        void theLessonThatExtendsItCountsOnFromTheStoredStreak() {
+            storedStreakOf(9, MONDAY.minusDays(1));
+
+            JsonNode result = lessonOf(Duration.ofMinutes(11));
+            JsonNode later = lessonOf(Duration.ofMinutes(3));
+
+            assertThat(result.get("streak")).isEqualTo(json("""
+                    {"current": 10, "previous": 9, "extendedToday": true, "freezeUsed": false,
+                     "goalReached": {"target": 10, "options": [20, 30, 50]}}"""));
+            assertThat(later.get("streak")).isEqualTo(json("""
+                    {"current": 10, "previous": 10, "extendedToday": true, "freezeUsed": false}"""));
+        }
+
+        @Test
+        void theLessonThatExtendsItOverAFrozenDayCountsOnFromTheStoredStreak() {
+            storedStreakOf(4, MONDAY.minusDays(2));
+
+            JsonNode result = lessonOf(Duration.ofMinutes(11));
+
+            assertThat(result.get("streak")).isEqualTo(json("""
+                    {"current": 5, "previous": 4, "extendedToday": true, "freezeUsed": true}"""));
+        }
+
+        @Test
+        void thePlacementTestThatExtendsItCountsOnFromTheStoredStreak() {
+            storedStreakOf(4, MONDAY.minusDays(1));
+            PlacementDriver placement = new PlacementDriver(learner, jdbc);
+            JsonNode started = placement.start();
+            clock.advance(Duration.ofMinutes(12));
+
+            JsonNode result = placement.finish(started, level -> false).result();
+
+            assertThat(result.get("streak")).isEqualTo(json("""
+                    {"current": 5, "previous": 4, "extendedToday": true, "freezeUsed": false}"""));
         }
     }
 
@@ -386,9 +449,9 @@ class StreakApiTest extends ClockedIntegrationTest {
         assertThat(PlacementDriver.body(other.get("/api/streak"))).isEqualTo(otherBefore);
         assertThat(PlacementDriver.body(other.put(GOAL, """
                 {"target": 20}"""))).isEqualTo(json("""
-                {"target": 20, "progress": 0, "reached": false, "options": []}"""));
+                {"target": 20, "progress": 0, "reached": false, "options": [10, 30, 50]}"""));
         assertThat(streak("").get("goal")).isEqualTo(json("""
-                {"target": 50, "progress": 10, "reached": false, "options": []}"""));
+                {"target": 50, "progress": 10, "reached": false, "options": [20, 30, 75]}"""));
     }
 
     /** Registers and places the learner on A0. */
@@ -399,17 +462,22 @@ class StreakApiTest extends ClockedIntegrationTest {
         return jdbc.sql("SELECT id FROM users WHERE email = :email").param("email", email).query(UUID.class).single();
     }
 
-    /** A streak of {@code days} days with the goal met, the last of them {@code lastDay}. */
+    /** A streak of {@code days} days with the goal met, the last of them {@code lastDay}, with its days recorded. */
     private void streakOf(int days, LocalDate lastDay) {
-        jdbc.sql("""
-                        INSERT INTO streaks (user_id, current_days, longest_days, last_active_date, updated_at)
-                        VALUES (:user, :days, :days, :lastDay, now())""")
-                .param("user", learnerId).param("days", days).param("lastDay", lastDay).update();
+        storedStreakOf(days, lastDay);
         jdbc.sql("""
                         INSERT INTO streak_days (user_id, day, kind, goal_minutes, recorded_at)
                         SELECT :user, day::date, 'goal_met', 10, now()
                         FROM generate_series(CAST(:firstDay AS date), CAST(:lastDay AS date), interval '1 day') day""")
                 .param("user", learnerId).param("firstDay", lastDay.minusDays(days - 1)).param("lastDay", lastDay).update();
+    }
+
+    /** The stored streak alone, without recorded days. */
+    private void storedStreakOf(int days, LocalDate lastDay) {
+        jdbc.sql("""
+                        INSERT INTO streaks (user_id, current_days, longest_days, last_active_date, updated_at)
+                        VALUES (:user, :days, :days, :lastDay, now())""")
+                .param("user", learnerId).param("days", days).param("lastDay", lastDay).update();
     }
 
     private JsonNode lessonOf(Duration duration) {

@@ -283,6 +283,36 @@ class DailyProgressApiTest extends ClockedIntegrationTest {
         assertThat(again.get("dailyGoal")).isEqualTo(first.get("dailyGoal"));
         assertThat(again.get("dailyGoal").get("justMet").asBoolean()).isTrue();
         assertThat(again.get("streak").get("extendedToday").asBoolean()).as("the streak as it stands today").isFalse();
+        assertThat(again.get("streak").get("previous").asInt()).as("its day is still the last of the streak").isZero();
+    }
+
+    @Test
+    void aLessonCompletedAgainAfterALaterDayExtendedTheStreakShowsNoGrowth() {
+        JsonNode lesson = lessons.start(LessonDriver.A0_WORDS);
+        clock.advance(Duration.ofMinutes(11));
+        lessons.answerAll(lesson, "ja");
+        lessons.complete(lesson);
+        clock.advance(DAY);
+        lessonOf(Duration.ofMinutes(11));
+
+        JsonNode again = lessons.complete(lesson);
+
+        assertThat(again.get("streak")).isEqualTo(json("""
+                {"current": 2, "previous": 2, "extendedToday": true, "freezeUsed": false}"""));
+    }
+
+    @Test
+    void aLessonCompletedAgainAfterTheStreakEndedShowsNoStreak() {
+        JsonNode lesson = lessons.start(LessonDriver.A0_WORDS);
+        clock.advance(Duration.ofMinutes(11));
+        lessons.answerAll(lesson, "ja");
+        lessons.complete(lesson);
+        clock.advance(DAY.multipliedBy(3));
+
+        JsonNode again = lessons.complete(lesson);
+
+        assertThat(again.get("streak")).isEqualTo(json("""
+                {"current": 0, "previous": 0, "extendedToday": false, "freezeUsed": false}"""));
     }
 
     @Test

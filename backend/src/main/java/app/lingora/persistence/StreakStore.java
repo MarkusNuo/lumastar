@@ -97,27 +97,6 @@ public class StreakStore {
                 .list();
     }
 
-    /**
-     * The streak as it stood at the end of {@code day}: the days with the goal met in the unbroken run of recorded days
-     * that ends on it. A missed day that no freeze bridged is not recorded, so it ends a run, just as it ended the
-     * streak.
-     */
-    public int lengthOn(UUID userId, LocalDate day) {
-        return jdbc.sql("""
-                        WITH RECURSIVE run (day, kind) AS (
-                            SELECT day, kind FROM streak_days WHERE user_id = :user AND day = :day
-                            UNION ALL
-                            SELECT earlier.day, earlier.kind FROM streak_days earlier
-                            JOIN run ON earlier.day = run.day - 1
-                            WHERE earlier.user_id = :user)
-                        SELECT count(*) FILTER (WHERE kind = :met) FROM run""")
-                .param("user", userId)
-                .param("day", day)
-                .param("met", StreakDayKind.GOAL_MET.code())
-                .query(Integer.class)
-                .single();
-    }
-
     /** The latest day a streak freeze bridged. */
     public Optional<LocalDate> lastFrozenDay(UUID userId) {
         return jdbc.sql("SELECT day FROM streak_days WHERE user_id = :user AND kind = :freeze ORDER BY day DESC LIMIT 1")
