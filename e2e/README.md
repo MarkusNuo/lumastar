@@ -9,8 +9,8 @@ starts it when it is not running and stops it again after the run; the backend g
 open the e2e frontend.
 
 Projects run in this order: `setup` (first start), `daily-goal`, `phone-390` and `phone-360` (all
-other tests), then `levelup-phone-390` and `levelup-phone-360`. A full run takes about a quarter of
-an hour, five minutes of it the daily-goal test.
+other tests), then `levelup-phone-390` and `levelup-phone-360`. A full run takes about twenty minutes,
+five of them the daily-goal test.
 
 ```bash
 npm install && npx playwright install chromium
@@ -167,6 +167,11 @@ day ends during a test.
   months, the goal ladder and its refusals, `streak.previous` and `streak.goalReached` of a lesson
   result, the options of a streak past further rungs, export format 5 and the format-4 import, and
   the isolation of two learners.
+
+Two known bugs of the M10 review are marked `test.fail`: the focus stays nowhere when the celebration
+replaces the result screen and the trophy replaces the flame (keyboard test in
+`streak-celebration.spec.ts`), and a `?month=` beyond the last year or still to come is shown as asked
+(`streak-screen.spec.ts`).
 
 ## Platform tests
 

@@ -276,3 +276,43 @@ test('a streak saved by the freeze: the grey streak screen before, then the cele
     await streakPage.expectOverview(overview);
   });
 });
+
+test.describe('with the keyboard', () => {
+  // Motion reduced, as everywhere but above: the screens settle at once.
+  test.use({ reducedMotion: 'reduce' });
+
+  test('"Weiter" on the result moves the focus into the celebration, and on into the trophy beat', async ({ page }) => {
+    test.fail(
+      true,
+      'Known bug: the celebration replaces the result screen in place and the trophy ' +
+        'replaces the flame, but nothing takes the focus: it falls back to the page, so a screen reader announces ' +
+        'neither "10 Tage Streak!" nor the trophy, and the keyboard starts over at the top of the page.',
+    );
+    test.setTimeout(3 * 60_000);
+    const { zone } = zoneAroundMidday();
+    const today = todayIn(zone);
+    const resultScreen = new LessonResultScreen(page);
+    const celebration = new StreakCelebration(page);
+    const focusOnPage = () => page.evaluate(() => document.activeElement !== null && document.activeElement !== document.body);
+
+    await newLearnerViaApi(page.request, 'streak-keyboard', 'Vjosa');
+    await seedStreakHistory(page.request, {
+      timeZone: zone,
+      days: run(addDays(today, -1), 9),
+      practisedTodayMs: PRACTISED_TODAY_MS,
+    });
+    await new LearningPathPage(page).goto();
+    const { result } = await playLessonToResult(page, LESSON_MS);
+    expect(result.streak.goalReached, 'the goal of 10 days').toEqual({ target: 10, options: [20, 30, 50] });
+
+    await resultScreen.continueButton.focus();
+    await page.keyboard.press('Enter');
+    await celebration.expectSettled(result.streak);
+    await expect.poll(focusOnPage, { message: 'the focus is on the celebration', timeout: 2_000 }).toBe(true);
+
+    await celebration.continueButton.focus();
+    await page.keyboard.press('Enter');
+    await celebration.expectGoalBeat({ target: 10, options: [20, 30, 50] });
+    await expect.poll(focusOnPage, { message: 'the focus is on the trophy beat', timeout: 2_000 }).toBe(true);
+  });
+});

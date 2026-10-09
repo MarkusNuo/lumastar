@@ -210,6 +210,30 @@ test.describe('a learner of its own', () => {
       );
     });
   });
+
+  test('a month in the URL beyond the last year or still to come shows a month the arrows can reach', async ({
+    page,
+  }) => {
+    test.fail(
+      true,
+      'Known bug: StreakPage takes any well-formed ?month=, so /streak?month= two ' +
+        'years back shows that month (back arrow disabled, forward arrow open) and a month to come shows an empty ' +
+        'future month, although the calendar goes back a year at most and never ahead.',
+    );
+    await newLearnerViaApi(page.request, 'streak-month-url');
+    const streakPage = new StreakPage(page);
+    const { today } = await fetchStreak(page.request);
+    const month = monthOf(today);
+    const current = await streakPage.monthName(month);
+    const earliest = await streakPage.monthName(shiftMonth(month, -12));
+
+    await streakPage.goto(shiftMonth(month, -24));
+    await expect(streakPage.monthTitle, 'two years back: the earliest month or the current one').toHaveText(
+      new RegExp(`^(${earliest}|${current})$`),
+    );
+    await streakPage.goto(shiftMonth(month, 2));
+    await expect(streakPage.monthTitle, 'a month to come: the current one').toHaveText(current);
+  });
 });
 
 test('the catalog shows the streak celebration, the trophy and the streak screen with sample data', async ({ page }) => {
