@@ -1,4 +1,5 @@
-import { mkdir } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { setTimeout as sleep } from 'node:timers/promises';
 import path from 'node:path';
 import type { Locator, Page } from '@playwright/test';
 import { PATHS } from './env.ts';
@@ -38,17 +39,34 @@ export async function snap(page: Page, name: string, options: SnapOptions = {}):
   await page.evaluate(() => document.fonts.ready.then(() => undefined));
 
   const settings = {
-    path: file,
     animations: 'disabled',
     caret: 'hide',
     ...(options.style ? { style: options.style } : {}),
   } as const;
-  if (options.element) {
-    await options.element.screenshot(settings);
-  } else {
-    await page.screenshot({ ...settings, fullPage: options.fullPage ?? true });
-  }
+  const png = options.element
+    ? await options.element.screenshot(settings)
+    : await page.screenshot({ ...settings, fullPage: options.fullPage ?? true });
+  await writeRetrying(file, png);
   return file;
+}
+
+/** Windows error codes of a file another process (virus scanner, indexer, image viewer) holds briefly. */
+const BUSY_FILE = new Set(['EBUSY', 'EPERM', 'EACCES', 'UNKNOWN']);
+const WRITE_ATTEMPTS = 5;
+const WRITE_BACKOFF_MS = 300;
+
+/** Writes the capture, retrying a moment later while another process holds the file. */
+async function writeRetrying(file: string, data: Buffer): Promise<void> {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      await writeFile(file, data);
+      return;
+    } catch (error) {
+      const code = (error as NodeJS.ErrnoException).code ?? '';
+      if (attempt === WRITE_ATTEMPTS || !BUSY_FILE.has(code)) throw error;
+      await sleep(WRITE_BACKOFF_MS * attempt);
+    }
+  }
 }
 
 /**
