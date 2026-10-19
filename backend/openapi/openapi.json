@@ -2247,7 +2247,7 @@
           },
           "tag": {
             "description": "Stable per kind: a new notification replaces the previous one of its kind",
-            "example": "lingora-daily-reminder",
+            "example": "lumastar-daily-reminder",
             "type": "string"
           },
           "title": {
@@ -3245,14 +3245,14 @@
       "sessionCookie": {
         "description": "httpOnly session cookie set by registration and login",
         "in": "cookie",
-        "name": "LINGORA_SESSION",
+        "name": "LUMASTAR_SESSION",
         "type": "apiKey"
       }
     }
   },
   "info": {
-    "description": "Backend of Lingora, the adaptive Gheg Albanian learning app. Errors are RFC 9457 problem details with a machine-readable `code`.",
-    "title": "Lingora API",
+    "description": "Backend of Lumastar, the adaptive Gheg Albanian learning app. Errors are RFC 9457 problem details with a machine-readable `code`.",
+    "title": "Lumastar API",
     "version": "v1"
   },
   "openapi": "3.1.0",
@@ -5072,7 +5072,7 @@
     },
     "/api/profile/export": {
       "get": {
-        "description": "manifest.json, the profile documents under documents/ and all learner data under data/. The file name is lingora-export-<yyyy-MM-dd>.zip.",
+        "description": "manifest.json, the profile documents under documents/ and all learner data under data/. The file name is lumastar-export-<yyyy-MM-dd>.zip.",
         "operationId": "exportProfile",
         "responses": {
           "200": {

@@ -1,25 +1,25 @@
 spring:
   application:
-    name: lingora
+    name: lumastar
   jackson:
     # Absent optional fields are omitted, matching the non-required properties of the OpenAPI schemas.
     default-property-inclusion: non_null
   datasource:
-    url: ${LINGORA_DB_URL:jdbc:postgresql://localhost:5433/lingora}
-    username: ${LINGORA_DB_USER:lingora}
-    password: ${LINGORA_DB_PASSWORD:lingora}
+    url: ${LUMASTAR_DB_URL:jdbc:postgresql://localhost:5433/lumastar}
+    username: ${LUMASTAR_DB_USER:lumastar}
+    password: ${LUMASTAR_DB_PASSWORD:lumastar}
   servlet:
     multipart:
-      # Backup imports (POST /api/profile/import); the importer checks lingora.backup limits as well.
-      max-file-size: ${lingora.backup.max-archive-size}
+      # Backup imports (POST /api/profile/import); the importer checks lumastar.backup limits as well.
+      max-file-size: ${lumastar.backup.max-archive-size}
       max-request-size: 21MB
   mail:
     # Local default: Mailpit of docker-compose.yml. A real server needs SPRING_MAIL_USERNAME and SPRING_MAIL_PASSWORD too.
-    host: ${LINGORA_MAIL_HOST:localhost}
-    port: ${LINGORA_MAIL_PORT:1025}
+    host: ${LUMASTAR_MAIL_HOST:localhost}
+    port: ${LUMASTAR_MAIL_PORT:1025}
     properties:
-      "[mail.smtp.auth]": ${LINGORA_MAIL_SMTP_AUTH:false}
-      "[mail.smtp.starttls.enable]": ${LINGORA_MAIL_STARTTLS:false}
+      "[mail.smtp.auth]": ${LUMASTAR_MAIL_SMTP_AUTH:false}
+      "[mail.smtp.starttls.enable]": ${LUMASTAR_MAIL_STARTTLS:false}
       "[mail.smtp.connectiontimeout]": 5000
       "[mail.smtp.timeout]": 10000
       "[mail.smtp.writetimeout]": 10000
@@ -40,19 +40,19 @@ spring:
         order_updates: true
 
 server:
-  # Required behind a reverse proxy (e.g. Caddy on the same host): LINGORA_FORWARD_HEADERS_STRATEGY=native, so that the
+  # Required behind a reverse proxy (e.g. Caddy on the same host): LUMASTAR_FORWARD_HEADERS_STRATEGY=native, so that the
   # sign-in and request throttles see the clients' addresses (X-Forwarded-For) instead of the proxy's, which would make
   # all clients share one limit. Keep "none" when the app is reached directly, as locally, so that clients cannot fake
   # their address with the header.
-  forward-headers-strategy: ${LINGORA_FORWARD_HEADERS_STRATEGY:none}
+  forward-headers-strategy: ${LUMASTAR_FORWARD_HEADERS_STRATEGY:none}
   servlet:
     session:
       timeout: 7d
       cookie:
-        name: LINGORA_SESSION
+        name: LUMASTAR_SESSION
         http-only: true
         same-site: lax
-        secure: ${LINGORA_COOKIE_SECURE:false}
+        secure: ${LUMASTAR_COOKIE_SECURE:false}
         max-age: 7d
 
 management:
@@ -76,35 +76,35 @@ springdoc:
     csrf:
       enabled: true
 
-lingora:
+lumastar:
   engine: rule-based
   plan:
     periodic-revision:
       # Daily check of the "every 7 learning days" revision (PRD F3); "-" switches it off.
-      cron: ${LINGORA_PLAN_REVISION_CRON:0 30 3 * * *}
+      cron: ${LUMASTAR_PLAN_REVISION_CRON:0 30 3 * * *}
       zone: Europe/Zurich
   backup:
     max-archive-size: 20MB
     max-unpacked-size: 100MB
   content:
-    path: ${LINGORA_CONTENT_PATH:../content}
+    path: ${LUMASTAR_CONTENT_PATH:../content}
     seed-on-startup: true
   # Base of the links in account mails (pages /verify-email and /reset-password of the web app).
-  public-url: ${LINGORA_PUBLIC_URL:http://localhost:5173}
+  public-url: ${LUMASTAR_PUBLIC_URL:http://localhost:5173}
   mail:
-    from: ${LINGORA_MAIL_FROM:Lingora <noreply@lingora.local>}
+    from: ${LUMASTAR_MAIL_FROM:Lumastar <noreply@lumastar.local>}
   registration:
     # open, invite (needs the invite code) or closed
-    mode: ${LINGORA_REGISTRATION_MODE:open}
-    invite-code: ${LINGORA_REGISTRATION_INVITE_CODE:}
+    mode: ${LUMASTAR_REGISTRATION_MODE:open}
+    invite-code: ${LUMASTAR_REGISTRATION_INVITE_CODE:}
   push:
     # Web push for the reminders; off without both keys. A new pair: ./gradlew generateVapidKeys
-    public-key: ${LINGORA_PUSH_PUBLIC_KEY:}
-    private-key: ${LINGORA_PUSH_PRIVATE_KEY:}
+    public-key: ${LUMASTAR_PUSH_PUBLIC_KEY:}
+    private-key: ${LUMASTAR_PUSH_PRIVATE_KEY:}
     # Contact for the push services, a mailto: or https: URL (Apple refuses others)
-    subject: ${LINGORA_PUSH_SUBJECT:${lingora.public-url}}
+    subject: ${LUMASTAR_PUSH_SUBJECT:${lumastar.public-url}}
     # Push services that subscriptions may point to (Chrome/Edge/Opera/Samsung, Firefox, Safari, legacy Edge)
-    endpoint-hosts: ${LINGORA_PUSH_ENDPOINT_HOSTS:fcm.googleapis.com,push.services.mozilla.com,push.apple.com,notify.windows.com}
+    endpoint-hosts: ${LUMASTAR_PUSH_ENDPOINT_HOSTS:fcm.googleapis.com,push.services.mozilla.com,push.apple.com,notify.windows.com}
   reminders:
     # Looks for due reminders every 5 minutes; "-" switches the reminders off.
-    cron: ${LINGORA_REMINDER_CRON:0 */5 * * * *}
+    cron: ${LUMASTAR_REMINDER_CRON:0 */5 * * * *}

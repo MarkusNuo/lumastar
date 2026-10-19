@@ -4,7 +4,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
 }
 
-group = "app.lingora"
+group = "app.lumastar"
 version = "0.1.0-SNAPSHOT"
 
 java {
@@ -64,7 +64,7 @@ val openApiSpec = layout.projectDirectory.file("openapi/openapi.json")
 val openApiExportTag = "openapi-export"
 
 tasks.withType<Test>().configureEach {
-    systemProperty("lingora.openapi.spec", openApiSpec.asFile.absolutePath)
+    systemProperty("lumastar.openapi.spec", openApiSpec.asFile.absolutePath)
     // Spring Boot's test support loads Mockito's agent at runtime
     jvmArgs("-XX:+EnableDynamicAgentLoading", "-Xshare:off")
 }
@@ -76,26 +76,26 @@ tasks.test {
 }
 
 tasks.named<org.springframework.boot.gradle.tasks.run.BootRun>("bootTestRun") {
-    // Reproducible lessons and placement tests for the e2e tests; --args=--lingora.lesson.random-seed=… overrides it.
-    systemProperty("lingora.lesson.random-seed", "20260925")
-    systemProperty("lingora.placement.random-seed", "20260925")
+    // Reproducible lessons and placement tests for the e2e tests; --args=--lumastar.lesson.random-seed=… overrides it.
+    systemProperty("lumastar.lesson.random-seed", "20260925")
+    systemProperty("lumastar.placement.random-seed", "20260925")
     // The e2e tests register and reset many accounts from one address, far beyond the limits for real clients.
-    systemProperty("lingora.throttle.registrations-per-hour", "1000")
-    systemProperty("lingora.throttle.password-resets-per-hour", "1000")
-    systemProperty("lingora.throttle.password-resets-per-email-per-hour", "100")
-    systemProperty("lingora.throttle.account-mails-per-hour", "100")
+    systemProperty("lumastar.throttle.registrations-per-hour", "1000")
+    systemProperty("lumastar.throttle.password-resets-per-hour", "1000")
+    systemProperty("lumastar.throttle.password-resets-per-email-per-hour", "100")
+    systemProperty("lumastar.throttle.account-mails-per-hour", "100")
     // Web push with a new key pair per run; the e2e tests may subscribe a stub push service on the loopback address.
-    systemProperty("lingora.push.ephemeral-keys", "true")
-    systemProperty("lingora.push.endpoint-hosts",
+    systemProperty("lumastar.push.ephemeral-keys", "true")
+    systemProperty("lumastar.push.endpoint-hosts",
         "fcm.googleapis.com,push.services.mozilla.com,push.apple.com,notify.windows.com,127.0.0.1,localhost")
-    systemProperty("lingora.push.require-https", "false")
+    systemProperty("lumastar.push.require-https", "false")
 }
 
 tasks.register<JavaExec>("generateVapidKeys") {
-    description = "Prints a new VAPID key pair for web push (LINGORA_PUSH_PUBLIC_KEY, LINGORA_PUSH_PRIVATE_KEY)."
+    description = "Prints a new VAPID key pair for web push (LUMASTAR_PUSH_PUBLIC_KEY, LUMASTAR_PUSH_PRIVATE_KEY)."
     group = "application"
     classpath = sourceSets.main.get().runtimeClasspath
-    mainClass = "app.lingora.push.GenerateVapidKeys"
+    mainClass = "app.lumastar.push.GenerateVapidKeys"
 }
 
 tasks.register<Test>("exportOpenApi") {
