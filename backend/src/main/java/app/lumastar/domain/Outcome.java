@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Result class of an evaluated answer (PRD F5 tolerant checking, chapter 4 standard forms). */
+/** Result class of an evaluated answer (tolerant checking, Standard forms). */
 public enum Outcome implements Coded {
     CORRECT("correct"),
     /** Accepted, but with a typo such as a missing diacritic or circumflex. */

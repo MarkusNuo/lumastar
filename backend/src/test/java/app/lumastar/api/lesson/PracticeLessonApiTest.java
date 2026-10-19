@@ -20,7 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 
-/** Practice lessons on a chosen skill tag (PRD F10 "Gezielt üben") against the synthetic content, learner on A0. */
+/** Practice lessons on a chosen skill tag ("Gezielt üben") against the synthetic content, learner on A0. */
 class PracticeLessonApiTest extends IntegrationTest {
 
     private static final String PRACTISE_A0_WORDS = """

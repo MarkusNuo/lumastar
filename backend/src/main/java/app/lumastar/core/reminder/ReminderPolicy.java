@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 import java.util.Optional;
 
 /**
- * When a learner gets a reminder by web push (PRD F9). Nothing is sent once today's goal is met. The daily reminder
+ * When a learner gets a reminder by web push. Nothing is sent once today's goal is met. The daily reminder
  * comes at the learner's time; the streak rescue comes at the later rescue time, but only while missing today would end
  * the streak. Each kind comes at most once a day, plus once more whenever the learner snoozes it; after the rescue the
  * daily reminder never comes again that day.

@@ -5,7 +5,7 @@ import app.lumastar.domain.ErrorHint;
 import app.lumastar.domain.Exercise;
 import java.util.Optional;
 
-/** Error category and hint of a wrong answer from the exercise metadata (PRD F6, phase 1 rules). */
+/** Error category and hint of a wrong answer from the exercise metadata. */
 final class WrongAnswers {
 
     private WrongAnswers() {

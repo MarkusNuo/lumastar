@@ -21,7 +21,7 @@ import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 
-/** Review summary and review lessons of the due items (PRD F8) against the content fixture. */
+/** Review summary and review lessons of the due items against the content fixture. */
 class ReviewApiTest extends IntegrationTest {
 
     private static final JsonMapper JSON = JsonMapper.builder().build();

@@ -28,7 +28,7 @@ public class StatsController {
 
     @GetMapping
     @Operation(operationId = "getStats", summary = "Level progress, mastery per area, top errors, heatmap and FSRS forecast",
-            description = "The statistics screen of PRD F10. Every top error carries the request body of its practice "
+            description = "For the statistics screen. Every top error carries the request body of its practice "
                     + "lesson (\"Gezielt üben\") for POST /api/lessons.")
     @ApiResponse(responseCode = "200", description = "The statistics")
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(

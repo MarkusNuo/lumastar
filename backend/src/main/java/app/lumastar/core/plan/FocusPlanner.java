@@ -18,9 +18,9 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * Focus units for weak skill tags (PRD F3). A tag is weak with at least {@value #MIN_ANSWERS} recent answers and an
+ * Focus units for weak skill tags. A tag is weak with at least {@value #MIN_ANSWERS} recent answers and an
  * error rate of at least 40 %. At most {@value #MAX_OPEN} focus units are open at once: open focus units of the
- * previous plan stay, tags a lesson asked a focus unit for (PRD F7) come next, and the weakest tags without one fill
+ * previous plan stay, tags a lesson asked a focus unit for come next, and the weakest tags without one fill
  * the remaining places. A requested tag without an open focus unit always gets one, if need be in place of an open
  * focus unit, so that the lesson's suggestion can be played. A new focus unit of a tag gets the next number after the
  * tag's focus units in the previous plan. Completed focus units leave the plan.

@@ -20,7 +20,7 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-/** Reads seeded content as domain records for the engines; it is the composer's bank of all units (PRD F7). */
+/** Reads seeded content as domain records for the engines; it is the composer's bank of all units. */
 @Component
 public class ContentCatalog implements ExerciseBank {
 

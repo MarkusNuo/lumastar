@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** What caused a plan revision (PRD F3: after a checkpoint, after a re-placement and every 7 learning days). */
+/** What caused a plan revision (after a checkpoint, after a re-placement and every 7 learning days). */
 public enum PlanTrigger implements Coded {
     PLACEMENT("placement"),
     CHECKPOINT("checkpoint"),

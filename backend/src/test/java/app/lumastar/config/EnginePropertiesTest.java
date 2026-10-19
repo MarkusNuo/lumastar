@@ -34,11 +34,11 @@ class EnginePropertiesTest extends IntegrationTest {
     }
 
     @Test
-    void refusesToBindTheAiEnginesOfPhaseTwo() {
+    void refusesToBindTheAiEnginesThatAreNotImplementedYet() {
         Binder binder = new Binder(new MapConfigurationPropertySource(Map.of("lumastar.engine", "ai")));
 
         assertThatThrownBy(() -> binder.bind("lumastar", EngineProperties.class))
                 .rootCause()
-                .hasMessageContaining("AI engines are Phase 2 (milestone M7)");
+                .hasMessageContaining("AI engines are not implemented yet");
     }
 }

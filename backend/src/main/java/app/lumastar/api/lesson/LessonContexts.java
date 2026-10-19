@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
-/** Reads what the composer needs to know about the learner (PRD F7). */
+/** Reads what the composer needs to know about the learner. */
 @Component
 class LessonContexts {
 

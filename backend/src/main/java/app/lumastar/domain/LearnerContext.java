@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Compact snapshot handed to an AI provider instead of the database (PRD 10.1): the profile documents plus the
+ * Compact snapshot handed to an AI provider instead of the database: the profile documents plus the
  * Gheg language guide. {@code plan} is {@code null} before the first plan exists.
  */
 public record LearnerContext(

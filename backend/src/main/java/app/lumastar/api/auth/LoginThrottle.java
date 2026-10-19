@@ -105,7 +105,8 @@ class LoginThrottle {
     /**
      * Admits one attempt and counts it as failed until {@link #recordSuccess} says otherwise.
      *
-     * @param email the address signed in with as entered; {@code null} or blank for the account from before M8
+     * @param email the address signed in with as entered; {@code null} or blank for the account created before
+     *              e-mail sign-in
      * @throws ThrottledException {@code login_throttled} if the client, the client on this address or the address is
      *                            locked out
      */

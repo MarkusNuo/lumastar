@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-/** The rating table of PRD F8. */
+/** The automatic rating table. */
 class RatingPolicyTest {
 
     private static final Optional<Duration> TYPICAL = Optional.of(Duration.ofSeconds(6));

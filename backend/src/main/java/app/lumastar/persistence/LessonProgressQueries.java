@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
-/** Completed lessons of a learner, from which the learning path derives its progress (PRD 12.3). */
+/** Completed lessons of a learner, from which the learning path derives its progress. */
 @Repository
 public class LessonProgressQueries {
 

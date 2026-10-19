@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 
-/** One open link per account and purpose, also when links are issued at the same time (M8 review). */
+/** One open link per account and purpose, also when links are issued at the same time. */
 class AccountTokenStoreTest extends IntegrationTest {
 
     private static final Instant NOW = Instant.parse("2026-10-07T10:00:00Z");

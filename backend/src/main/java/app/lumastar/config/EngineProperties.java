@@ -13,8 +13,8 @@ public record EngineProperties(@DefaultValue("rule-based") Engine engine) {
     /** Fails the startup with a clear message instead of a missing bean further down. */
     public EngineProperties {
         if (engine == Engine.AI) {
-            throw new IllegalArgumentException("lumastar.engine=ai is not available: the AI engines are Phase 2 (milestone M7). "
-                    + "Use lumastar.engine=rule-based.");
+            throw new IllegalArgumentException("lumastar.engine=ai is not available: the AI engines are not "
+                    + "implemented yet. Use lumastar.engine=rule-based.");
         }
     }
 

@@ -15,7 +15,7 @@ public record SettingsRequest(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "5, 10, 15 or 20")
         @NotNull Integer dailyGoalMinutes,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, minimum = "0.7", maximum = "0.99", example = "0.9",
-                description = "Target retention of the FSRS reviews (PRD F8)")
+                description = "Target retention of the FSRS reviews")
         @NotNull Double requestRetention,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "Europe/Zurich", description = "IANA time zone")
         @NotBlank @Size(max = 64) String timeZone) {

@@ -11,8 +11,8 @@ import com.tngtech.archunit.lang.ArchRule;
 class ArchitectureTest {
 
     /**
-     * The adaptive logic stays plain Java so that it is testable without Spring or a database (PRD 11.3); the FSRS
-     * library is plain Java as well and is wrapped by the scheduler adapter (PRD F8).
+     * The adaptive logic stays plain Java so that it is testable without Spring or a database; the FSRS
+     * library is plain Java as well and is wrapped by the scheduler adapter.
      */
     @ArchTest
     static final ArchRule coreDependsOnlyOnJavaAndTheDomain = classes()

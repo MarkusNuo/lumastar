@@ -3,7 +3,7 @@ package app.lumastar.domain;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Optional;
 
-/** The badge for completing a CEFR band by its checkpoints (PRD F9); A0 has none. */
+/** The badge for completing a CEFR band by its checkpoints; A0 has none. */
 public enum LevelBadge implements Coded {
     A1(CefrBand.A1),
     A2(CefrBand.A2),

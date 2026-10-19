@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Area of a skill tag; it is the first segment of the tag id. The German label names it in the statistics (PRD F10). */
+/** Area of a skill tag; it is the first segment of the tag id. The German label names it in the statistics. */
 public enum SkillArea implements Coded {
     VOCAB("vocab", "Wortschatz"),
     PHRASE("phrase", "Wendungen"),

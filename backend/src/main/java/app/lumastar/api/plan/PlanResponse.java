@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@Schema(description = "The current plan version as stored (learning_plan.json, PRD 8.3); the statuses are those at "
+@Schema(description = "The current plan version as stored (learning_plan.json); the statuses are those at "
         + "its calculation, the live progress is in GET /api/path")
 public record PlanResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int version,

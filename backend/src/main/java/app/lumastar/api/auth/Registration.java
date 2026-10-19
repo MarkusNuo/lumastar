@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Creates accounts as {@code lumastar.registration.mode} allows. The learner can start right away; the verification
- * mail is sent after the commit (DECISIONS #78).
+ * mail is sent after the commit.
  */
 @Service
 class Registration {

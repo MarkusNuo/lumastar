@@ -22,8 +22,8 @@ import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 
 /**
- * Checkpoints at the end of a stage (PRD chapter 5): availability on the path, passing and failing, the level-up, the
- * level badges (PRD F9) and the plan revision. The synthetic content has exercises in A0 and A1.1 (three each).
+ * Checkpoints at the end of a stage: availability on the path, passing and failing, the level-up, the
+ * level badges and the plan revision. The synthetic content has exercises in A0 and A1.1 (three each).
  */
 class CheckpointApiTest extends IntegrationTest {
 

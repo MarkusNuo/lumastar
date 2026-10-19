@@ -14,12 +14,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 /**
  * Every exercise of the repository's {@code /content} (lessons and placement) is consistent with the evaluator and the
- * real Gheg blocklist, see {@link ExerciseSelfCheck}. Content is maintained in /content: a broken exercise goes to
- * {@link #KNOWN_ISSUES} until it is fixed there, and leaves it as soon as it passes.
+ * real Gheg blocklist, see {@link ExerciseSelfCheck}. A broken exercise goes to {@link #KNOWN_ISSUES} until it is
+ * fixed in {@code /content}, and leaves it as soon as it passes.
  */
 class ContentSelfConsistencyTest {
 
-    /** Exercise id → what is wrong with it; reported to the content author. This list may only shrink. */
+    /** Exercise id → what is wrong with it. This list may only shrink. */
     private static final Map<String, String> KNOWN_ISSUES = Map.of();
 
     private static final ExerciseSelfCheck CHECK = new ExerciseSelfCheck(new RuleBasedAnswerEvaluator(RepositoryContent.lexicon()));

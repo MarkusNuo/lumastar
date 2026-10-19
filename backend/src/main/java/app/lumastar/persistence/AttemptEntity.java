@@ -21,7 +21,7 @@ import java.util.UUID;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-/** One evaluated answer within a lesson (PRD F6 error logging). The column {@code is_correct} is derived by the database. */
+/** One evaluated answer within a lesson (error logging). The column {@code is_correct} is derived by the database. */
 @Entity
 @Table(name = "attempts")
 public class AttemptEntity {
@@ -87,7 +87,7 @@ public class AttemptEntity {
         this.expected = result.solution();
     }
 
-    /** The FSRS rating of the answer once its cards are reviewed (PRD F8); a retry keeps the rating of its outcome. */
+    /** The FSRS rating of the answer once its cards are reviewed; a retry keeps the rating of its outcome. */
     public void rate(Rating rating) {
         fsrsRating = rating;
     }

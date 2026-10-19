@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 /**
- * The FSRS ratings of one first answer (PRD F8): the rating of the answer as a whole and the rating of every item of
+ * The FSRS ratings of one first answer: the rating of the answer as a whole and the rating of every item of
  * the exercise, both by {@link RatingPolicy}. An item counts as known in its own review state; the answer counts as
  * one on known items when all its items are known.
  * <p>

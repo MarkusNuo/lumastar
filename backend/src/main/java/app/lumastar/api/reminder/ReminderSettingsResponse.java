@@ -3,7 +3,7 @@ package app.lumastar.api.reminder;
 import app.lumastar.core.reminder.ReminderSettings;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-@Schema(description = "The learner's reminders (PRD F9); times are HH:mm in the learner's time zone (settings)")
+@Schema(description = "The learner's reminders; times are HH:mm in the learner's time zone (settings)")
 public record ReminderSettingsResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Off until the learner switches them on")
         boolean enabled,

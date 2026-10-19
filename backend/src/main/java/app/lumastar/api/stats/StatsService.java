@@ -47,7 +47,7 @@ import java.util.stream.Stream;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/** The statistics of PRD F10, each part read with one query or a few. */
+/** The learner's statistics, each part read with one query or a few. */
 @Service
 class StatsService {
 

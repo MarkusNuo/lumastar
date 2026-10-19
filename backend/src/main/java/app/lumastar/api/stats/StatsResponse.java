@@ -9,7 +9,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDate;
 import java.util.List;
 
-@Schema(description = "Progress and statistics of the learner (PRD F10); days are dates in the learner's time zone")
+@Schema(description = "Progress and statistics of the learner; days are dates in the learner's time zone")
 public record StatsResponse(
         @Schema(description = "Absent until the placement test (or its skip) has set a level and created the plan")
         LevelProgress level,
@@ -81,7 +81,7 @@ public record StatsResponse(
             boolean frozen) {
     }
 
-    @Schema(description = "FSRS forecast (PRD F10 \"morgen fällig: 34 Items\")")
+    @Schema(description = "FSRS forecast (\"morgen fällig: 34 Items\")")
     public record DueForecast(
             @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Cards due now, overdue ones included")
             int dueNow,

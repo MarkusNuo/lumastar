@@ -37,7 +37,7 @@ public class PlacementController {
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(operationId = "startPlacement", summary = "Start a placement test",
             description = "Starts at the current level, or at the self-assessed level before the first placement. An "
-                    + "unfinished test is abandoned. Also used for \"Neu einstufen\" at any time later (PRD F2).")
+                    + "unfinished test is abandoned. Also used for \"Neu einstufen\" at any time later.")
     @ApiResponse(responseCode = "201", description = "The test with its first item")
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
@@ -86,7 +86,7 @@ public class PlacementController {
 
     @PostMapping("/skip")
     @Operation(operationId = "skipPlacement", summary = "Skip the first placement test and start at A0",
-            description = "Only for the self-assessment \"Ich kann kein Wort\" before the first placement (PRD F1).")
+            description = "Only for the self-assessment \"Ich kann kein Wort\" before the first placement.")
     @ApiResponse(responseCode = "200", description = "The result of the skipped test (level A0)")
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))

@@ -18,7 +18,7 @@ import java.util.UUID;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-/** One evaluated answer of a placement test (PRD F2: the result is stored completely). */
+/** One evaluated answer of a placement test (the result is stored completely). */
 @Entity
 @Table(name = "placement_answers")
 public class PlacementAnswerEntity {

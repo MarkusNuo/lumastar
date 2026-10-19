@@ -5,7 +5,7 @@ import app.lumastar.domain.Level;
 import java.util.Arrays;
 
 /**
- * The constants of the plan's time estimates (PRD F3): the minutes of a lesson and, per CEFR band, the guided learning
+ * The constants of the plan's time estimates: the minutes of a lesson and, per CEFR band, the guided learning
  * hours it takes from zero to the end of that band. The default hours are upper-middle values of Cambridge's
  * guided-learning-hour ranges; they keep a plan with few written lessons (B1–C2 are a skeleton in the MVP) from
  * promising C2 within months.

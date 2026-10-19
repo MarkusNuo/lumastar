@@ -4,8 +4,8 @@ import app.lumastar.domain.AITask;
 import app.lumastar.domain.LearnerContext;
 
 /**
- * Phase 2 AI backend (e.g. a hosted model or a mock) that answers in a fixed, validated JSON schema (PRD 10.1, 10.2).
- * Not implemented in Phase 1.
+ * An LLM provider for the planned AI integration (e.g. a hosted model or a mock) that answers in a fixed,
+ * validated JSON schema. Not implemented yet.
  */
 public interface AIProvider {
 

@@ -80,7 +80,7 @@ lumastar:
   engine: rule-based
   plan:
     periodic-revision:
-      # Daily check of the "every 7 learning days" revision (PRD F3); "-" switches it off.
+      # Daily check of the "every 7 learning days" revision; "-" switches it off.
       cron: ${LUMASTAR_PLAN_REVISION_CRON:0 30 3 * * *}
       zone: Europe/Zurich
   backup:

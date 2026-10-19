@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The onboarding questions of PRD F1: motivation, daily goal and self-assessment. A changed daily goal changes the
+ * The onboarding questions: motivation, daily goal and self-assessment. A changed daily goal changes the
  * time estimates, so an existing plan is recalculated, and a lower goal may already be met today.
  */
 @Service

@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** FSRS rating, derived automatically from the evaluation (PRD F8). */
+/** FSRS rating, derived automatically from the evaluation. */
 public enum Rating implements Coded {
     AGAIN("again"),
     HARD("hard"),

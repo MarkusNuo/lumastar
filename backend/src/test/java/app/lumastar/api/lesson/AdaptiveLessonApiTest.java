@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 
-/** Lessons composed from the learner's profile (PRD F7): weak spots of other units and due reviews join the unit. */
+/** Lessons composed from the learner's profile: weak spots of other units and due reviews join the unit. */
 class AdaptiveLessonApiTest extends IntegrationTest {
 
     private static final JsonMapper JSON = JsonMapper.builder().build();

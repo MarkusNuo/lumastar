@@ -24,8 +24,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * When the plan is revised (PRD F3): after a checkpoint, every {@value #LEARNING_DAYS} learning days, and when a lesson
- * suggests a focus lesson for a tag without an open focus unit (PRD F7). Re-placements and daily goal changes revise
+ * When the plan is revised: after a checkpoint, every {@value #LEARNING_DAYS} learning days, and when a lesson
+ * suggests a focus lesson for a tag without an open focus unit. Re-placements and daily goal changes revise
  * the plan themselves. Every revision starts its history with a German reason.
  */
 @Service

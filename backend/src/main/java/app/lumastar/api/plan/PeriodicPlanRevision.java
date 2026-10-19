@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * The daily safety net of the "every 7 learning days" revision (PRD F3, 11.1): lesson completions check it too, but a
+ * The daily safety net of the "every 7 learning days" revision: lesson completions check it too, but a
  * learner who stops after the seventh learning day still gets the revision. {@code lumastar.plan.periodic-revision.cron}
  * sets the time ({@code -} switches it off), {@code lumastar.plan.periodic-revision.zone} its time zone.
  */

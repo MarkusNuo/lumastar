@@ -3,7 +3,7 @@ package app.lumastar.domain;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Error taxonomy of PRD F6. {@link #VARIANT_STANDARD_FORM} is a hint only and never costs points. The German labels
+ * The error taxonomy. {@link #VARIANT_STANDARD_FORM} is a hint only and never costs points. The German labels
  * contain no brackets, since {@code learner_summary.md} puts them in brackets.
  */
 public enum ErrorCategory implements Coded {

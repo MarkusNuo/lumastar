@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-/** Renders the documents of PRD 8.3 from a {@link LearnerSnapshot}, exactly in the shapes of the PRD. */
+/** Renders the profile documents from a {@link LearnerSnapshot}, exactly in their fixed shapes. */
 final class ProfileDocumentRenderer {
 
     static final String VARIETY = "gheg-kosovo";
@@ -75,7 +75,7 @@ final class ProfileDocumentRenderer {
         }
     }
 
-    /** The plan before the first one has been generated (until the placement milestone). */
+    /** The plan before the first one has been generated (until the first placement test). */
     record LearningPlanDocument(Instant generatedAt, String generatedBy, Level startLevel, List<Object> stages,
                                 Map<String, Object> estimates) {
 

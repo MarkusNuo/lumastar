@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 public record SettingsResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "5, 10, 15 or 20") int dailyGoalMinutes,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, minimum = "0.7", maximum = "0.99", example = "0.9",
-                description = "Target retention of the FSRS reviews (PRD F8)") double requestRetention,
+                description = "Target retention of the FSRS reviews") double requestRetention,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "Europe/Zurich",
                 description = "IANA time zone; it decides when a day starts for the daily goal and the streak")
         String timeZone) {

@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Tasks an AI provider performs in Phase 2 (PRD 10.3). */
+/** Tasks an AI provider performs in the planned AI integration. */
 public enum AITask implements Coded {
     PLACEMENT("placement"),
     PLAN("plan"),

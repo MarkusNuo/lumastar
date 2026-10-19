@@ -13,7 +13,7 @@ import java.util.TreeMap;
 import java.util.stream.Stream;
 
 /**
- * Personal path from the start level up to C2, as exported in {@code learning_plan.json} (PRD F3, 8.3).
+ * Personal path from the start level up to C2, as exported in {@code learning_plan.json}.
  * {@code estimates} holds per CEFR band the date by which its last stage is expected to be done, in band order.
  */
 public record LearningPlan(

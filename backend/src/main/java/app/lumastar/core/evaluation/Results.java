@@ -7,7 +7,7 @@ import app.lumastar.domain.Outcome;
 import app.lumastar.domain.Rating;
 
 /**
- * Builds evaluation results with the provisional FSRS rating of PRD F8: wrong → Again, almost correct → Hard,
+ * Builds evaluation results with the provisional FSRS rating: wrong → Again, almost correct → Hard,
  * otherwise Good. The timing-based Hard and Easy ratings are applied later by a separate rating policy.
  */
 final class Results {

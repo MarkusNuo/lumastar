@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
 
 /**
- * Format 1 → 2 (adaptivity, M4): level badges ({@code data/badges.json}, none before), the result of a checkpoint
+ * Format 1 → 2 (adaptivity): level badges ({@code data/badges.json}, none before), the result of a checkpoint
  * ({@code sessions.checkpointPassed}, no checkpoints before) and the target retention of a review
  * ({@code reviewLog.requestRetention}, the default 0.90 before it was configurable).
  */

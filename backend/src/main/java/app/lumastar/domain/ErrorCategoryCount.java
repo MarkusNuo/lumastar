@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import java.util.Objects;
 
-/** How often an error category was logged within a period (PRD F6, F10 top errors). */
+/** How often an error category was logged within a period (top errors of the statistics). */
 public record ErrorCategoryCount(ErrorCategory category, int count) {
 
     public ErrorCategoryCount {

@@ -10,7 +10,7 @@ import java.time.ZoneId;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-/** How many items are due now and tomorrow (PRD F8, F10 "morgen fällig: 34 Items"), in the learner's time zone. */
+/** How many items are due now and tomorrow ("morgen fällig: 34 Items"), in the learner's time zone. */
 @Component
 class ReviewForecast {
 

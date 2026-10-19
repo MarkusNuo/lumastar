@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 /**
- * Tables {@code streaks} and {@code streak_days} (PRD F9): the state of the learner's streak and the days that
+ * Tables {@code streaks} and {@code streak_days}: the state of the learner's streak and the days that
  * counted for it.
  */
 @Repository

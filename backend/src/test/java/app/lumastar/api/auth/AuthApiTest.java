@@ -16,7 +16,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
-/** Registration, sign-in and sign-out by e-mail address (PRD F13, M8) in the default open registration mode. */
+/** Registration, sign-in and sign-out by e-mail address in the default open registration mode. */
 class AuthApiTest extends IntegrationTest {
 
     private static final String STATUS = "/api/auth/status";
@@ -144,7 +144,7 @@ class AuthApiTest extends IntegrationTest {
         }
 
         @ParameterizedTest
-        @ValueSource(strings = {"erza", "erza@", "@example.com", "e ros@example.com", "erza@example"})
+        @ValueSource(strings = {"erza", "erza@", "@example.com", "e rza@example.com", "erza@example"})
         void rejectsMalformedAddresses(String email) {
             browser.get(STATUS);
 

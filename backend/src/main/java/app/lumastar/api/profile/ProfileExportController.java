@@ -59,13 +59,13 @@ public class ProfileExportController {
     }
 
     @GetMapping("/documents/{name}")
-    @Operation(operationId = "getProfileDocument", summary = "One learner profile document (PRD 8.3)",
+    @Operation(operationId = "getProfileDocument", summary = "One learner profile document",
             description = "Generated from the current learning state. The JSON documents are learner_profile.json, "
                     + "skill_mastery.json, recent_errors.json (last 50 errors) and learning_plan.json; "
                     + "learner_summary.md is Markdown.")
     @ApiResponse(responseCode = "200", description = "The document", content = {
             @Content(mediaType = ProfileDocument.JSON, schema = @Schema(types = {"object", "array"},
-                    description = "JSON document as in PRD 8.3; recent_errors.json is an array")),
+                    description = "JSON document; recent_errors.json is an array")),
             @Content(mediaType = "text/markdown", schema = @Schema(type = "string"))})
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
@@ -83,7 +83,7 @@ public class ProfileExportController {
 
     @GetMapping("/summary")
     @Operation(operationId = "getLearnerSummary", summary = "Compact Markdown summary for an AI chat",
-            description = "learner_summary.md, for the button \"KI-Zusammenfassung kopieren\" (PRD F11).")
+            description = "learner_summary.md, for the button \"KI-Zusammenfassung kopieren\".")
     @ApiResponse(responseCode = "200", description = "The summary in German",
             content = @Content(mediaType = "text/markdown", schema = @Schema(type = "string")))
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(

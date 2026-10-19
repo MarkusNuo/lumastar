@@ -144,7 +144,7 @@ class MasteryCalculatorTest {
 
         @Test
         void aFocusLessonOfThreeCorrectAnswersRaisesAWeakTagByAtLeastTwentyPoints() {
-            // PRD chapter 14: mastery of weak skill tags rises by 0.2 within 7 days after focus lessons
+            // target: the mastery of weak skill tags rises by 0.2 within 7 days after focus lessons
             Entry weak = new Entry(0.3, 20, 6, NOW);
 
             Entry entry = answer(weak, Outcome.CORRECT, 3);

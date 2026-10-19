@@ -18,7 +18,7 @@ class CodedEnumsTest {
     }
 
     @Test
-    void usesTheSixteenDottedErrorCategoryIdsOfThePrd() {
+    void usesTheSixteenDottedErrorCategoryIds() {
         assertThat(Arrays.stream(ErrorCategory.values()).map(ErrorCategory::code)).containsExactly(
                 "vocab.unknown", "vocab.confused", "spelling.diacritics", "spelling.nasal_vowel", "spelling.other",
                 "variant.standard_form", "grammar.definite_article", "grammar.case", "grammar.linking_article",

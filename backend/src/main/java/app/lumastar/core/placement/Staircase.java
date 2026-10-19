@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * The staircase of PRD F2, replayed from the answers of a test. It starts at the start level; two answers in a row
+ * The placement staircase, replayed from the answers of a test. It starts at the start level; two answers in a row
  * that count as correct move one stage up, one wrong answer moves one stage down (never below A0). It comes to an end
  * <ul>
  *   <li>when it is <b>stable</b>: the direction has changed {@value #STABLE_REVERSALS} times at the same boundary

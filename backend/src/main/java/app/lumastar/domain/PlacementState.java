@@ -3,7 +3,7 @@ package app.lumastar.domain;
 import java.util.List;
 import java.util.Objects;
 
-/** Progress of an adaptive placement test (PRD F2): where it started, where it is and what was answered. */
+/** Progress of an adaptive placement test: where it started, where it is and what was answered. */
 public record PlacementState(Level startLevel, Level currentLevel, List<Step> steps) {
 
     public PlacementState {

@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * The plan history entries of a new plan version compared to the previous one (PRD F3): replaced and inserted focus
+ * The plan history entries of a new plan version compared to the previous one: replaced and inserted focus
  * units, newly skipped units and shortened units, each with its German reason. Derived from the plans alone, so the
  * history does not depend on the generator that produced them.
  */
@@ -57,7 +57,7 @@ public final class PlanChanges {
     }
 
     /**
-     * The history entry of every focus request (PRD F7) for whose tag the new plan inserted a focus unit; a request
+     * The history entry of every focus request for whose tag the new plan inserted a focus unit; a request
      * without one, e.g. for a tag with an open focus unit already, changed nothing and has no entry.
      */
     public static List<PlanChange> requestedFocus(LearningPlan before, LearningPlan after, List<FocusRequest> requests,

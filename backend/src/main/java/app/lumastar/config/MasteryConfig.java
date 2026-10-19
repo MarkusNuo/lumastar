@@ -5,7 +5,7 @@ import app.lumastar.core.mastery.MasteryRules;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/** The mastery rule of PRD 8.2; it is the same for every engine, since mastery is the learner model itself. */
+/** The mastery rule; it is the same for every engine, since mastery is the learner model itself. */
 @Configuration(proxyBeanMethods = false)
 class MasteryConfig {
 

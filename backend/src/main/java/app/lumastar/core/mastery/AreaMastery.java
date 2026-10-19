@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.OptionalDouble;
 
 /**
- * Mastery per area for the statistics (PRD F10): the average of the skill tags of the area that have a mastery value,
+ * Mastery per area for the statistics: the average of the skill tags of the area that have a mastery value,
  * practised or estimated by the placement test.
  *
  * @param average empty while no tag of the area has a value

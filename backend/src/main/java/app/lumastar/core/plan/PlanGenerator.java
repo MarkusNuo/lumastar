@@ -7,9 +7,9 @@ import app.lumastar.domain.SkillTagErrorRate;
 import java.util.List;
 
 /**
- * Builds and revises the personal learning plan up to C2 (PRD F3). Unlike PRD 10.2, {@link #revise} takes the error
- * rates per skill tag instead of the error log, because weak tags are defined by their share of wrong answers, and the
- * focus units a lesson asked for (PRD F7).
+ * Builds and revises the personal learning plan up to C2. {@link #revise} takes the error rates per skill tag
+ * instead of the error log, because weak tags are defined by their share of wrong answers, and the focus units a
+ * lesson asked for.
  */
 public interface PlanGenerator {
 

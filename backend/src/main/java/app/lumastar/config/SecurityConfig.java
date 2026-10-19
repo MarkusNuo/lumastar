@@ -18,7 +18,7 @@ import org.springframework.security.web.savedrequest.NullRequestCache;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 /**
- * JSON API security (PRD F13, M8 accounts): session cookie, CSRF with the SPA cookie pattern
+ * JSON API security (accounts with e-mail sign-in): session cookie, CSRF with the SPA cookie pattern
  * ({@code XSRF-TOKEN} cookie, {@code X-XSRF-TOKEN} header) and RFC 9457 problem responses instead of redirects.
  */
 @Configuration(proxyBeanMethods = false)

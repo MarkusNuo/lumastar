@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Everything the profile documents show, read at one point in time: the compact context snapshot of PRD 10.1.
+ * Everything the profile documents show, read at one point in time.
  * {@code mastery} is the effective (decayed) mastery at {@code takenAt}, {@code recentErrors} are newest first,
  * {@code learningPlanJson} is the current plan with the live status of its units and {@code currentUnit} the unit in
  * progress; both are {@code null} before the first plan.

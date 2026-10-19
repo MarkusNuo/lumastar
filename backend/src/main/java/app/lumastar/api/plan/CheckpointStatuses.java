@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-/** The checkpoint of every stage of the learner's plan (PRD chapter 5), see {@link CheckpointRule}. */
+/** The checkpoint of every stage of the learner's plan, see {@link CheckpointRule}. */
 @Component
 public class CheckpointStatuses {
 

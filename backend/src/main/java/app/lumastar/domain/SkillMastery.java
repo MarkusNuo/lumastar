@@ -6,7 +6,7 @@ import java.util.Map;
 /** Mastery (0–1) per skill tag of one learner. Tags without an entry have not been practised yet. */
 public record SkillMastery(Map<SkillTag, Entry> entries) {
 
-    /** From this mastery on a skill tag is mastered (PRD F3): the plan skips its units, lessons stop treating it as weak. */
+    /** From this mastery on a skill tag is mastered: the plan skips its units, lessons stop treating it as weak. */
     public static final double MASTERED = 0.8;
 
     public SkillMastery {

@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * The learner's weak skill tags, weakest first (PRD F7): first the tags with wrong answers in the
+ * The learner's weak skill tags, weakest first: first the tags with wrong answers in the
  * {@linkplain SkillTagErrorRate#RECENT_PERIOD recent period}, most wrong answers first, then the tags not yet
  * {@linkplain SkillMastery#MASTERED mastered}, lowest mastery first.
  */

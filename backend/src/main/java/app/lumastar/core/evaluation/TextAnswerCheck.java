@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
- * Tolerant check of a typed answer (PRD F5, LANGUAGE_GUIDE section 11, docs/CONTENT_FORMAT.md points 4, 6 and 7), in
+ * Tolerant check of a typed answer (LANGUAGE_GUIDE section 11, docs/CONTENT_FORMAT.md points 4, 6 and 7), in
  * this order: exact match, Standard form, missing diacritics, Standard form with missing diacritics, known error, word
  * order, typo, wrong. Only missing diacritics are tolerated; an added or wrong diacritic counts as a typo.
  */

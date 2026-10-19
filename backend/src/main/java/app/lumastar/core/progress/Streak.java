@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 
 /**
- * The streak as stored (PRD F9): {@code current} days in a row with the daily goal met, the last of them
+ * The streak as stored: {@code current} days in a row with the daily goal met, the last of them
  * {@code lastActiveDate}. A gap since then is judged by {@link StreakRule} when the streak is read. Every ISO week has
  * {@link StreakRule#FREEZES_PER_WEEK} streak freeze; {@code freezesLeftInWeek} is what is left of it in the week
  * starting on Monday {@code freezeWeek}, every other week still has its full freeze.

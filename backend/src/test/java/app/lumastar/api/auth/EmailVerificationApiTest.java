@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
-/** Verification of the sign-in address and its change by the single-use links of account mails (M8). */
+/** Verification of the sign-in address and its change by the single-use links of account mails. */
 class EmailVerificationApiTest extends IntegrationTest {
 
     private static final String VERIFY = "/api/auth/verify-email";

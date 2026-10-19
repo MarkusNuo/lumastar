@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.json.JsonContent;
 
-/** The documents in exactly the shapes of PRD 8.3. */
+/** The profile documents in exactly their fixed shapes. */
 class ProfileDocumentRendererTest {
 
     private final ProfileDocumentRenderer renderer = new ProfileDocumentRenderer();

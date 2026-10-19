@@ -21,7 +21,7 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 /**
- * One placement test (PRD F2). {@code state} is the engine state with the item shown next; {@code result} holds the
+ * One placement test. {@code state} is the engine state with the item shown next; {@code result} holds the
  * initial mastery, strengths, weaknesses and competence scores once the test is completed.
  */
 @Entity
@@ -116,7 +116,7 @@ public class PlacementTestEntity {
                 new PlacementState(startLevel, startLevel, List.of()), firstExerciseId, at);
     }
 
-    /** The skip of an absolute beginner (PRD F1): finished at once on {@code level}, without answers. */
+    /** The skip of an absolute beginner: finished at once on {@code level}, without answers. */
     public static PlacementTestEntity skipped(UUID userId, String engine, Level level, Instant at) {
         PlacementTestEntity test = new PlacementTestEntity(userId, PlacementStatus.SKIPPED, engine,
                 new PlacementState(level, level, List.of()), null, at);

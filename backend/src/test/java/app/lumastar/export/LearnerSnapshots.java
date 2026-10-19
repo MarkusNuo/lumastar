@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-/** Snapshots for document tests: the learner of the PRD 8.3 examples and a learner who has just signed up. */
+/** Snapshots for document tests: an established learner and a learner who has just signed up. */
 final class LearnerSnapshots {
 
     static final Instant TAKEN_AT = Instant.parse("2026-09-25T10:15:00Z");

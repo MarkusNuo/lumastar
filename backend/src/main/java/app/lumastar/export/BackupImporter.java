@@ -14,8 +14,8 @@ import tools.jackson.core.JacksonException;
 import tools.jackson.databind.JsonNode;
 
 /**
- * Restores an export (PRD F11): all learner data of the account is replaced in one transaction; the account identity
- * (id, e-mail, password) stays. Exports of older format versions are upgraded first (PRD 13); the profile documents in
+ * Restores an export: all learner data of the account is replaced in one transaction; the account identity
+ * (id, e-mail, password) stays. Exports of older format versions are upgraded first; the profile documents in
  * the file are views and are not read. Unpacking, upgrading and validating the file happen before the transaction, so
  * that a large upload never holds database locks.
  */

@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
-/** "Passwort vergessen" by a single-use link that only verified addresses get (M8, DECISIONS #78). */
+/** "Passwort vergessen" by a single-use link that only verified addresses get. */
 class PasswordResetApiTest extends IntegrationTest {
 
     private static final String RESET = "/api/auth/password-reset";

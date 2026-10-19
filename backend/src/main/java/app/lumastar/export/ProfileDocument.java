@@ -3,7 +3,7 @@ package app.lumastar.export;
 import java.util.Arrays;
 import java.util.Optional;
 
-/** The learner profile documents of PRD 8.3: views generated from the database, never a second source. */
+/** The learner profile documents: views generated from the database, never a second source. */
 public enum ProfileDocument {
     LEARNER_PROFILE("learner_profile.json"),
     SKILL_MASTERY("skill_mastery.json"),

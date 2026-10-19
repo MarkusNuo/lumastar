@@ -20,7 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 
-/** Plan revisions after lessons (PRD F3, F7): focus suggestions and every 7 learning days, also as a daily job. */
+/** Plan revisions after lessons: focus suggestions and every 7 learning days, also as a daily job. */
 class PlanTriggersApiTest extends IntegrationTest {
 
     @Autowired

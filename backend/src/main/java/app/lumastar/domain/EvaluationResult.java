@@ -25,7 +25,7 @@ public record EvaluationResult(
         Require.that((outcome == Outcome.WRONG) == (rating == Rating.AGAIN), "exactly the wrong answers are rated again");
     }
 
-    /** Correct, almost correct and standard-form answers count as correct (PRD F5, chapter 4). */
+    /** Correct, almost correct and standard-form answers count as correct. */
     public boolean countsAsCorrect() {
         return outcome.isAccepted();
     }

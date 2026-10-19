@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * What the composer knows about the learner when a lesson starts (PRD F7).
+ * What the composer knows about the learner when a lesson starts.
  *
  * @param dueCards              the cards due now, most overdue first
  * @param recentErrorRates      the error rate per skill tag of the {@link SkillTagErrorRate#RECENT_PERIOD}
@@ -26,7 +26,7 @@ public record LessonContext(
         Set<String> practisedExerciseIds,
         List<Double> recentUnitAccuracies) {
 
-    /** The lessons of a unit whose accuracy steers the difficulty of the next one (PRD F7). */
+    /** The lessons of a unit whose accuracy steers the difficulty of the next one. */
     public static final int RECENT_UNIT_LESSONS = 2;
 
     public LessonContext {

@@ -15,7 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-/** Practice per day of the learner's time zone (PRD F9, F10), around midnight and the DST changes of Zurich. */
+/** Practice per day of the learner's time zone, around midnight and the DST changes of Zurich. */
 class PracticeQueriesTest extends IntegrationTest {
 
     private static final ZoneId ZURICH = ZoneId.of("Europe/Zurich");

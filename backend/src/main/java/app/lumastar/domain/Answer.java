@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-/** What the learner submitted for an exercise, with the measured response time (PRD F5). */
+/** What the learner submitted for an exercise, with the measured response time. */
 public sealed interface Answer {
 
     Duration responseTime();

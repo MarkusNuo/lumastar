@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Status of a unit in the learning plan (PRD F3, 8.3). */
+/** Status of a unit in the learning plan. */
 public enum PlanUnitStatus implements Coded {
     PLANNED("planned"),
     IN_PROGRESS("in_progress"),

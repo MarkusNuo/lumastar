@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
 /**
- * Exports written by earlier versions stay importable (PRD 13), also those from before the rename of Lingora to
+ * Exports written by earlier versions stay importable, also those from before the rename of Lingora to
  * Lumastar. The files in {@code src/test/resources/exports} were exported once by the version they are named after,
  * from the content fixture, and must never be changed.
  */
@@ -41,7 +41,7 @@ class StoredExportImportTest extends IntegrationTest {
 
     @Test
     void importsAnExportOfFormatVersion1() throws IOException {
-        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("lingora-export-v1.zip"));
+        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("export-v1.zip"));
 
         assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(1);
         assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
@@ -60,7 +60,7 @@ class StoredExportImportTest extends IntegrationTest {
 
     @Test
     void importsAnExportOfFormatVersion2() throws IOException {
-        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("lingora-export-v2.zip"));
+        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("export-v2.zip"));
 
         assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(2);
         assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
@@ -79,7 +79,7 @@ class StoredExportImportTest extends IntegrationTest {
 
     @Test
     void importsAnExportOfFormatVersion3() throws IOException {
-        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("lingora-export-v3.zip"));
+        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("export-v3.zip"));
 
         assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(3);
         assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(
@@ -98,7 +98,7 @@ class StoredExportImportTest extends IntegrationTest {
 
     @Test
     void importsAnExportOfFormatVersion4WithTheFirstStreakGoal() throws IOException {
-        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("lingora-export-v4.zip"));
+        MvcTestResult imported = learner.upload("/api/profile/import", "file", stored("export-v4.zip"));
 
         assertThat(imported).hasStatusOk().bodyJson().extractingPath("$.schemaVersion").isEqualTo(4);
         assertThat(imported).bodyJson().extractingPath("$.imported").isEqualTo(Map.ofEntries(

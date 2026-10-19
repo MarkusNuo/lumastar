@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * Exercises that practise due items (PRD F8): the most overdue item not covered yet gets the exercise that covers the
+ * Exercises that practise due items: the most overdue item not covered yet gets the exercise that covers the
  * most due items still uncovered, preferring types the lesson has shown least, until the count is reached. An item is
  * practised by exercises up to its {@link MetContent} level, so every due item with an exercise can be covered.
  */

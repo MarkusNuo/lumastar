@@ -3,7 +3,7 @@ package app.lumastar.api.progress;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDate;
 
-@Schema(description = "Today's progress towards the daily goal and the streak (PRD F9); days are dates in the learner's "
+@Schema(description = "Today's progress towards the daily goal and the streak; days are dates in the learner's "
         + "time zone")
 public record DailyProgressResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Today in the learner's time zone") LocalDate date,

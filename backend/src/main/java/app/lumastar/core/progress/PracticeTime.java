@@ -3,7 +3,7 @@ package app.lumastar.core.progress;
 import java.time.Duration;
 
 /**
- * Practice time towards the daily goal (PRD F9): the time from the start to the completion of a lesson of any kind or
+ * Practice time towards the daily goal: the time from the start to the completion of a lesson of any kind or
  * of a placement test. A lesson left open for long counts with at most {@link #MAX_PER_SESSION}.
  */
 public final class PracticeTime {

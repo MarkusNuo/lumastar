@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 
 /**
- * The streak screen and the streak goal (M10) across days, months and time zones, with the clock of the application
+ * The streak screen and the streak goal across days, months and time zones, with the clock of the application
  * moved by the test. The learner starts on A0 with a daily goal of 10 minutes on Monday, 5 October 2026, in Zurich.
  */
 class StreakApiTest extends ClockedIntegrationTest {

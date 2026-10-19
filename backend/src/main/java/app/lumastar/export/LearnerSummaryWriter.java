@@ -13,8 +13,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * {@code learner_summary.md} (PRD F11, 8.3): a compact German summary to paste into an AI chat. It opens with the
- * framing the chat needs (who learns which variety, answer language, no Standard forms, PRD chapter 4). Strengths and
+ * {@code learner_summary.md}: a compact German summary to paste into an AI chat. It opens with the
+ * framing the chat needs (who learns which variety, answer language, no Standard forms). Strengths and
  * weaknesses consider only skill tags with at least {@value #MIN_ATTEMPTS} answers.
  */
 final class LearnerSummaryWriter {

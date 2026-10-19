@@ -36,9 +36,9 @@ public class LessonController {
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(operationId = "startLesson", summary = "Compose and start a lesson of a unit or a practice lesson",
             description = "The exercises include their solutions, accepted variants and error hints so that the app can "
-                    + "pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit "
+                    + "pre-check answers instantly, together with GET /api/content/standard-forms. A focus unit "
                     + "of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or "
-                    + "below the learner's level, and so is a practice lesson (kind practice, PRD F10 \"Gezielt üben\").")
+                    + "below the learner's level, and so is a practice lesson (kind practice, \"Gezielt üben\").")
     @ApiResponse(responseCode = "201", description = "The lesson with its exercises")
     @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))
@@ -80,7 +80,7 @@ public class LessonController {
     @PostMapping("/{sessionId}/complete")
     @Operation(operationId = "completeLesson", summary = "Finish the lesson and award its XP",
             description = "Idempotent: completing a finished lesson again returns the same result without awarding XP twice. "
-                    + "The result reports the daily goal of the lesson's day and the streak (PRD F9); dailyGoal.justMet marks "
+                    + "The result reports the daily goal of the lesson's day and the streak; dailyGoal.justMet marks "
                     + "the lesson that met the goal and extended the streak.")
     @ApiResponse(responseCode = "200", description = "The lesson result")
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(

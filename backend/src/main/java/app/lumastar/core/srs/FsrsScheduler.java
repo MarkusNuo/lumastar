@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  * FSRS-6 (21 weights) of the Open Spaced Repetition Java library, as a thin adapter between {@link SrsCard} and the
- * library card (PRD F8). The library's defaults apply: learning steps of 1 and 10 minutes, a relearning step of
+ * library card. The library's defaults apply: learning steps of 1 and 10 minutes, a relearning step of
  * 10 minutes and interval fuzzing. The library has no "new" state and no review counters: a new card enters as a
  * learning card at step 0, and {@code reps} and {@code lapses} (a failed review in the review state) are counted here.
  * <p>

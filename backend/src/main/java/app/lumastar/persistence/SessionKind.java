@@ -3,8 +3,8 @@ package app.lumastar.persistence;
 import app.lumastar.domain.Coded;
 
 /**
- * Kind of a learning session (table {@code sessions}): PRD F5 lessons, F7 focus lessons, F8 reviews, checkpoints and
- * F10 practice lessons on a chosen skill tag.
+ * Kind of a learning session (table {@code sessions}): lessons, focus lessons, reviews, checkpoints and
+ * practice lessons on a chosen skill tag.
  */
 public enum SessionKind implements Coded {
     LESSON("lesson"),

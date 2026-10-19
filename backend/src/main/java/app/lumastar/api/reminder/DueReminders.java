@@ -34,7 +34,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
- * Sends the reminders that are due (PRD F9), every few minutes ({@code lumastar.reminders.cron}, {@code -} switches it
+ * Sends the reminders that are due, every few minutes ({@code lumastar.reminders.cron}, {@code -} switches it
  * off): {@link ReminderPolicy} decides for each learner the store preselects, the latest first. A reminder is recorded
  * before it is sent, so that a restart never sends it twice. The decisions take no push request; the push messages go
  * out in the background in the same order, so that a slow push service delays no other learner's reminder beyond

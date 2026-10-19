@@ -24,7 +24,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 
-/** The statistics of PRD F10 against the synthetic content; the learner starts on A0 on Monday, 5 October 2026. */
+/** The statistics against the synthetic content; the learner starts on A0 on Monday, 5 October 2026. */
 class StatsApiTest extends ClockedIntegrationTest {
 
     @Autowired

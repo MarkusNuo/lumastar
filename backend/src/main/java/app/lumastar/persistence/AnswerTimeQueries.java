@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
-/** Response times of recorded answers, the learner's own measure of a slow or fast answer (PRD F8). */
+/** Response times of recorded answers, the learner's own measure of a slow or fast answer. */
 @Repository
 public class AnswerTimeQueries {
 

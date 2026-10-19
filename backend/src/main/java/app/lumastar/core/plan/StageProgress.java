@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Progress through a stage towards its checkpoint (PRD chapter 5, F10): the units of the stage that have exercises,
+ * Progress through a stage towards its checkpoint: the units of the stage that have exercises,
  * and how many of them are completed or skipped. Focus units are extra practice and do not count.
  */
 public record StageProgress(int completed, int skipped, int total) {

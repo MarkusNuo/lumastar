@@ -5,8 +5,8 @@ import app.lumastar.domain.PlacementResult;
 import app.lumastar.domain.PlacementState;
 
 /**
- * Adaptive placement test (PRD F2); rule-based staircase in Phase 1, IRT or AI later. Besides the two methods of
- * PRD 10.2 the engine owns the test flow: how an answer moves the test on and when it ends.
+ * Adaptive placement test: a rule-based staircase for now, IRT or AI later. Besides choosing the next item and
+ * evaluating the result, the engine owns the test flow: how an answer moves the test on and when it ends.
  */
 public interface PlacementEngine {
 

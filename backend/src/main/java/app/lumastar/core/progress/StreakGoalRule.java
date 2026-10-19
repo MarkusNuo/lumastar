@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * The streak goal (DECISIONS #98). The goal is reached once the streak is as long as its target. It stays reached, even if
+ * The streak goal. The goal is reached once the streak is as long as its target. It stays reached, even if
  * the streak breaks, until the learner chooses one of the {@value #OPTIONS} next rungs of the {@link StreakGoalLadder};
  * before that, the learner may change it to any rung above the current streak. The progress is the current streak until
  * the goal is reached and the full target from then on, so a broken streak starts the progress of a goal still ahead

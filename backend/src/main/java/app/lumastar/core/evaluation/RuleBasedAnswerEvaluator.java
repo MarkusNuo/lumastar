@@ -13,8 +13,8 @@ import app.lumastar.domain.ExercisePayload.WordOrder;
 import java.util.List;
 
 /**
- * Phase 1 evaluator with Gheg tolerance (PRD F5, F6, chapter 4). Only typed answers are tolerant
- * ({@link TextAnswerCheck}); picked options, word tiles and matched pairs are exact (docs/CONTENT_FORMAT.md point 7).
+ * Rule-based evaluator with Gheg tolerance. Only typed answers are tolerant ({@link TextAnswerCheck}); picked
+ * options, word tiles and matched pairs are exact (docs/CONTENT_FORMAT.md point 7).
  */
 public final class RuleBasedAnswerEvaluator implements AnswerEvaluator {
 

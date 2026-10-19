@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/** Generates the profile documents of PRD 8.3 from the current database state (PRD F11). */
+/** Generates the profile documents from the current database state. */
 @Service
 public class ProfileDocuments {
 

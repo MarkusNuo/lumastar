@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 /**
- * Practice per day of the learner's time zone (PRD F9 daily goal, F10 heatmap): completed lessons of every kind and
+ * Practice per day of the learner's time zone (daily goal, heatmap): completed lessons of every kind and
  * completed placement tests, each by the day it was completed, with its duration counted as {@link PracticeTime} does.
  * Only lessons earn XP and count as lessons.
  */

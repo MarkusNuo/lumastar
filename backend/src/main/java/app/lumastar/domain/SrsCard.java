@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * FSRS state of one item for the learner (PRD F8). {@code step}, {@code stability}, {@code difficulty} and
+ * FSRS state of one item for the learner. {@code step}, {@code stability}, {@code difficulty} and
  * {@code lastReview} are {@code null} until the scheduler sets them; {@code step} is {@code null} again in the review
  * state.
  */
@@ -32,7 +32,7 @@ public record SrsCard(
         return new SrsCard(itemId, CardState.NEW, null, null, null, due, null, 0, 0);
     }
 
-    /** In the review state the item counts as learned (PRD F10 "gelernte Wörter"). */
+    /** In the review state the item counts as learned ("gelernte Wörter"). */
     public boolean isKnown() {
         return state == CardState.REVIEW;
     }

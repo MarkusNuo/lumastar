@@ -19,7 +19,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 /**
- * The consequences of a finished checkpoint (PRD chapter 5, F3, F9): a pass moves the learner up to the next stage and
+ * The consequences of a finished checkpoint: a pass moves the learner up to the next stage and
  * awards the badges of completed CEFR bands; pass or fail, the plan is revised with the result as its reason.
  */
 @Component

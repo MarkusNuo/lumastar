@@ -23,7 +23,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-/** Error analysis on synthetic answers at chosen times; the window is the 14 days of PRD F7. */
+/** Error analysis on synthetic answers at chosen times; the window is 14 days. */
 class ErrorAnalysisQueriesTest extends IntegrationTest {
 
     private static final Instant NOW = Instant.parse("2026-09-25T10:00:00Z");

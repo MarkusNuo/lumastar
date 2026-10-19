@@ -32,7 +32,7 @@ import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 
-/** FSRS cards and the review log behind every first answer (PRD F8), against the content fixture. */
+/** FSRS cards and the review log behind every first answer, against the content fixture. */
 class CardReviewApiTest extends IntegrationTest {
 
     private static final JsonMapper JSON = JsonMapper.builder().build();

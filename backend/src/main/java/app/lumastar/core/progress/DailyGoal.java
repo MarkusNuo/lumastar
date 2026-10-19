@@ -3,10 +3,10 @@ package app.lumastar.core.progress;
 import java.time.Duration;
 import java.util.List;
 
-/** The daily goal ring of PRD F9: whole minutes practised on one day against the learner's goal. */
+/** The daily goal ring: whole minutes practised on one day against the learner's goal. */
 public record DailyGoal(int minutes, int goalMinutes) {
 
-    /** The goals a learner can choose (PRD F1), in minutes per day. */
+    /** The goals a learner can choose, in minutes per day. */
     public static final List<Integer> OPTIONS = List.of(5, 10, 15, 20);
 
     public DailyGoal {

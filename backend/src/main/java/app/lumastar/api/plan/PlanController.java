@@ -43,8 +43,8 @@ public class PlanController {
 
     @GetMapping("/plan")
     @Operation(operationId = "getPlan", summary = "The current learning plan with its time estimates",
-            description = "The plan as calculated (learning_plan.json of PRD 8.3), e.g. for the plan timeline after the "
-                    + "placement test.")
+            description = "The plan as calculated (the learning_plan.json document), e.g. for the plan timeline "
+                    + "after the placement test.")
     @ApiResponse(responseCode = "200", description = "The plan")
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))

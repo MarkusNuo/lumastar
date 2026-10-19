@@ -4,8 +4,8 @@ import app.lumastar.persistence.SessionKind;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-@Schema(description = "lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8), "
-        + "checkpoint at the end of a stage (PRD chapter 5) or practice lesson on a chosen skill tag (PRD F10)")
+@Schema(description = "lesson of a unit, focus lesson on a weak skill tag, review of due items, "
+        + "checkpoint at the end of a stage or practice lesson on a chosen skill tag")
 public enum LessonKind {
     LESSON("lesson"),
     FOCUS("focus"),

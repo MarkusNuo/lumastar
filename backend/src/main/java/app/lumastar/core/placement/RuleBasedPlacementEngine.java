@@ -18,7 +18,7 @@ import java.util.random.RandomGenerator;
 import java.util.stream.Collectors;
 
 /**
- * Phase 1 placement test (PRD F2): the {@link Staircase} over the 19 stages with at most {@value #MAX_ITEMS} items.
+ * Rule-based placement test: the {@link Staircase} over the 19 stages with at most {@value #MAX_ITEMS} items.
  * <p>
  * Item selection: an unused item of the current stage whose competence follows the competence of the previous item
  * in the rotation vocabulary → grammar → translation → reading, skipping competences without an unused item there.

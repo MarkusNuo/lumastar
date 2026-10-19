@@ -32,7 +32,7 @@ import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.databind.node.ArrayNode;
 import tools.jackson.databind.node.ObjectNode;
 
-/** ZIP export and import of the complete learning state (PRD F11, 13) against the content fixture. */
+/** ZIP export and import of the complete learning state against the content fixture. */
 class ProfileExportApiTest extends IntegrationTest {
 
     private static final String EXPORT = "/api/profile/export";
@@ -327,7 +327,7 @@ class ProfileExportApiTest extends IntegrationTest {
                 .formatted(exercise, answer, retry))).hasStatusOk();
     }
 
-    /** Synthetic rows for the tables that later milestones fill (placement, plan, FSRS, streak, streak goal). */
+    /** Synthetic rows for the tables that lessons do not fill (placement, plan, FSRS, streak, streak goal). */
     private void addPlacementPlanAndReviewData() {
         jdbc.sql("""
                 UPDATE users SET motivations = '{family,travel}', current_level = 'A1.2', self_assessment = 'few_words',

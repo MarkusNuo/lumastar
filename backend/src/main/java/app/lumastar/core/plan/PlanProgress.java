@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * The live status of the units of a plan (PRD 12.3), derived from the lessons completed since. A unit is
+ * The live status of the units of a plan, derived from the lessons completed since. A unit is
  * {@code completed} once it has been completed before or as many lessons as it takes are completed; otherwise a
  * skipped unit stays {@code skipped}. The first remaining curriculum unit that has exercises is {@code in_progress},
  * all others are {@code planned}. Focus units are optional extras: they are never in progress, so they hold back

@@ -5,7 +5,7 @@ import app.lumastar.domain.LearningPlan.PlanStage;
 import java.util.Set;
 
 /**
- * The checkpoint at the end of a stage (PRD chapter 5). It is available once every unit of the stage that has exercises
+ * The checkpoint at the end of a stage. It is available once every unit of the stage that has exercises
  * is completed or skipped; a stage without exercises keeps it locked. Focus units do not count, they are extra
  * practice. It is passed with an accuracy of at least {@value #PASS_ACCURACY}.
  */

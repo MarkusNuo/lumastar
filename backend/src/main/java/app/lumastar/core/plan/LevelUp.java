@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * What passing a checkpoint changes (PRD chapter 5, F9): the learner moves on to the stage after it, never down, and
+ * What passing a checkpoint changes: the learner moves on to the stage after it, never down, and
  * earns the badge of every CEFR band from the learner's own up to the checkpoint's that this completes. Passing the
  * last stage (C2.3) completes C2 without a new level.
  */

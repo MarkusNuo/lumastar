@@ -4,7 +4,7 @@ import app.lumastar.domain.Exercise;
 import java.util.List;
 
 /**
- * The difficulties a lesson prefers within its unit (PRD F7): harder when the last two lessons of the unit both had an
+ * The difficulties a lesson prefers within its unit: harder when the last two lessons of the unit both had an
  * accuracy above {@value #HARDER_ABOVE}, easier when both were below {@value #EASIER_BELOW}.
  */
 enum DifficultyWindow {

@@ -14,7 +14,7 @@ public record AttemptRequest(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) @NotNull @Valid SubmittedAnswer answer,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Time from showing the exercise to the answer")
         @NotNull @PositiveOrZero @Max(MAX_RESPONSE_MS) Integer responseTimeMs,
-        @Schema(description = "true for a wrong exercise repeated at the end of the lesson (PRD F5)", defaultValue = "false")
+        @Schema(description = "true for a wrong exercise repeated at the end of the lesson", defaultValue = "false")
         Boolean retry) {
 
     static final int MAX_RESPONSE_MS = 24 * 60 * 60 * 1000;

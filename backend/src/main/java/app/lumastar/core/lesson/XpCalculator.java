@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * XP of a finished lesson (PRD F9): a base amount, a bonus if every first attempt counted as correct and a bonus if
+ * XP of a finished lesson: a base amount, a bonus if every first attempt counted as correct and a bonus if
  * the median first-attempt response time is at most {@link #SPEED_LIMIT}. Retries at the end of a lesson do not count.
  */
 public final class XpCalculator {

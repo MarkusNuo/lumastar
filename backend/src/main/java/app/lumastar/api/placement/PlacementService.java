@@ -37,9 +37,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The placement test of PRD F2: start (abandoning an unfinished test), answer item by item without feedback, and on
+ * The placement test: start (abandoning an unfinished test), answer item by item without feedback, and on
  * the end place the learner. Placing sets the level, seeds the initial mastery, completes the onboarding and creates
- * or revises the learning plan. A completed test counts as practice time towards the daily goal (PRD F9).
+ * or revises the learning plan. A completed test counts as practice time towards the daily goal.
  * Every write locks the account row first, so a learner's placement and plan changes never interleave.
  */
 @Service
@@ -151,7 +151,7 @@ class PlacementService {
         return resultOf(userId, test);
     }
 
-    /** Sets the level, raises the mastery estimates and creates or revises the plan (PRD F2, F3). */
+    /** Sets the level, raises the mastery estimates and creates or revises the plan. */
     private void place(UserEntity learner, PlacementResult placement, boolean skipped, Instant now) {
         Level previous = learner.getCurrentLevel();
         learner.place(placement.level(), now);

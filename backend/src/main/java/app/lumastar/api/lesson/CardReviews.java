@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 /**
- * Reviews the FSRS cards of the items a first answer practised (PRD F8): missing cards are created, every card is
+ * Reviews the FSRS cards of the items a first answer practised: missing cards are created, every card is
  * rated by {@link AnswerRatings} and scheduled with the learner's settings, and every review is logged.
  */
 @Component

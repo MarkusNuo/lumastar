@@ -19,7 +19,7 @@ import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-/** Evaluation rules of PRD F5/F6 and LANGUAGE_GUIDE section 11, with the real Gheg blocklist of {@code /content}. */
+/** Evaluation rules of LANGUAGE_GUIDE section 11, with the real Gheg blocklist of {@code /content}. */
 class RuleBasedAnswerEvaluatorTest {
 
     private static final Duration TIME = Duration.ofSeconds(4);

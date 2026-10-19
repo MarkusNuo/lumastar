@@ -16,8 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
 /**
- * The account of the single-user instance before M8 has no e-mail address: it signs in with its password only until
- * it adds one, and keeps its learning data.
+ * The account created before e-mail sign-in has no e-mail address: it signs in with its password only until it adds
+ * one, and keeps its learning data.
  */
 class LegacyAccountApiTest extends IntegrationTest {
 

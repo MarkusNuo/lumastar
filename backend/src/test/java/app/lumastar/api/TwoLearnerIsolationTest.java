@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.JsonNode;
 
 /**
- * Strict per-learner isolation (M8): whatever one learner does, through every endpoint, never shows in or changes the
+ * Strict per-learner isolation: whatever one learner does, through every endpoint, never shows in or changes the
  * data of another. The clock stands still, so that every view of a learner can be compared before and after.
  */
 class TwoLearnerIsolationTest extends ClockedIntegrationTest {

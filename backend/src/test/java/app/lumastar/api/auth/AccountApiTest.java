@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
-/** Managing the signed-in account: display name, password and deletion with all learner data (M8). */
+/** Managing the signed-in account: display name, password and deletion with all learner data. */
 class AccountApiTest extends IntegrationTest {
 
     private static final String ACCOUNT = "/api/account";

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * The automatic FSRS rating of an answer (PRD F8), so that the learner never rates an item:
+ * The automatic FSRS rating of an answer, so that the learner never rates an item:
  * <table>
  *   <tr><th>Answer</th><th>Rating</th></tr>
  *   <tr><td>wrong</td><td>again</td></tr>

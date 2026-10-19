@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Mastery per skill tag (PRD 8.2), a recency-weighted moving average of the answer scores:
+ * Mastery per skill tag, a recency-weighted moving average of the answer scores:
  * <ul>
  *   <li>Each answer moves the value by {@code m' = m + α·(score − m)} with the scores of {@link MasteryRules#score}
  *       and {@code α = weight · max(minLearningRate, 1 / (attempts + 2))}: early answers move it quickly, recent ones

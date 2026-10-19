@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * The mastery a plan may skip or shorten units by (PRD F3): only tags backed by at least {@value #MIN_FIRST_ANSWERS}
+ * The mastery a plan may skip or shorten units by: only tags backed by at least {@value #MIN_FIRST_ANSWERS}
  * first answers from at least {@value #MIN_LESSONS} lessons. A few lucky answers, and placement estimates alone, never
  * skip a unit at or above the placed stage, the only units a plan holds.
  */

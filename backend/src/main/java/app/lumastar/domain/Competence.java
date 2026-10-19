@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Competence an exercise tests; the placement test covers all four (PRD F2). */
+/** Competence an exercise tests; the placement test covers all four. */
 public enum Competence implements Coded {
     VOCABULARY("vocabulary"),
     GRAMMAR("grammar"),

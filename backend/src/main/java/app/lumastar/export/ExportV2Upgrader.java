@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
 
 /**
- * Format 2 → 3 (streak and daily goal, M5): the days that counted for the streak ({@code data/streak_days.json}). They
+ * Format 2 → 3 (streak and daily goal): the days that counted for the streak ({@code data/streak_days.json}). They
  * were not recorded before; the streak itself is in {@code data/streaks.json} already.
  */
 @Component

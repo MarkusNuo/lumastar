@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Origin of an exercise: authored content files or AI generation (Phase 2). */
+/** Origin of an exercise: authored content files or AI generation (planned AI integration). */
 public enum ExerciseSource implements Coded {
     MANUAL("manual"),
     AI("ai");

@@ -24,7 +24,7 @@ import org.springframework.stereotype.Repository;
 import tools.jackson.databind.json.JsonMapper;
 
 /**
- * Tables {@code srs_cards} and {@code review_log} (PRD F8): the FSRS state per item and every review with the states
+ * Tables {@code srs_cards} and {@code review_log}: the FSRS state per item and every review with the states
  * before and after it, the scheduler version and the target retention, so that the cards can be rebuilt from the log.
  */
 @Repository
@@ -188,7 +188,7 @@ public class SrsCardStore {
     }
 
     /**
-     * Reviewable cards coming due per day of the learner's time zone (PRD F10 forecast), for {@code days} days from
+     * Reviewable cards coming due per day of the learner's time zone (statistics forecast), for {@code days} days from
      * {@code today}; overdue cards count for today. Days without due cards are missing.
      */
     public Map<LocalDate, Integer> duePerDay(UUID userId, LocalDate today, int days, ZoneId zone) {
@@ -206,7 +206,7 @@ public class SrsCardStore {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    /** Learned words (PRD F10): words and phrases whose card is in the review state. */
+    /** Learned words: words and phrases whose card is in the review state. */
     public int learnedWords(UUID userId) {
         return jdbc.sql("""
                         SELECT count(*) FROM srs_cards c JOIN content_items i ON i.id = c.item_id

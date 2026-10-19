@@ -22,7 +22,7 @@ import tools.jackson.databind.node.ArrayNode;
 import tools.jackson.databind.node.ObjectNode;
 
 /**
- * The export ZIP of PRD F11: {@code manifest.json}, the profile documents under {@code documents/} and the complete
+ * The export ZIP: {@code manifest.json}, the profile documents under {@code documents/} and the complete
  * learner data under {@code data/}, read from one consistent database snapshot. The account identity (e-mail, password
  * hash) and the links of account mails are never exported.
  */

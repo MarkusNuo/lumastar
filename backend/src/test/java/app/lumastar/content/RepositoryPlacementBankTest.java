@@ -16,10 +16,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
-/** The placement engine on the repository's item bank: the PRD F2 criteria hold for the real content, too. */
+/** The placement engine on the repository's item bank: the placement criteria hold for the real content, too. */
 class RepositoryPlacementBankTest {
 
-    /** The staircase may test a stage several times before it is stable (PRD F2). */
+    /** The staircase may test a stage several times before it is stable. */
     private static final int MIN_ITEMS_PER_STAGE = 6;
 
     private final List<Exercise> bank = RepositoryContent.bundle().placementExercises();

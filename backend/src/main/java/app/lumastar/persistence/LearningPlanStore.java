@@ -19,7 +19,7 @@ import tools.jackson.databind.json.JsonMapper;
 
 /**
  * Tables {@code learning_plans} and {@code plan_changes}: every plan version as the {@code learning_plan.json}
- * document of PRD 8.3 and the history of its changes with their German reasons (PRD F3).
+ * document and the history of its changes with their German reasons.
  */
 @Repository
 public class LearningPlanStore {

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The learner's settings. A changed daily goal recalculates the plan's time estimates (PRD F3); a changed goal or time
+ * The learner's settings. A changed daily goal recalculates the plan's time estimates; a changed goal or time
  * zone can meet today's goal, so the streak is evaluated again.
  */
 @Service

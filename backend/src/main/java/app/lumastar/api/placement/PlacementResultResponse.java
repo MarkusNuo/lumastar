@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-@Schema(description = "Result of a completed or skipped placement test (PRD F2), for the animated level reveal")
+@Schema(description = "Result of a completed or skipped placement test, for the animated level reveal")
 public record PlacementResultResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) UUID testId,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "true if the test was skipped (start at A0)")

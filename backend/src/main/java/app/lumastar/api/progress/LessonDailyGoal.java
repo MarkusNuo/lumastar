@@ -2,7 +2,7 @@ package app.lumastar.api.progress;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-@Schema(description = "The daily goal on the day of the lesson or placement test, up to and including it (PRD F9)")
+@Schema(description = "The daily goal on the day of the lesson or placement test, up to and including it")
 public record LessonDailyGoal(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int minutesToday,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int goalMinutes,

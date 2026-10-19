@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Id of a focus unit that the plan inserts for a weak skill tag (PRD F3): {@code focus_<skill tag>_<n>}, e.g.
+ * Id of a focus unit that the plan inserts for a weak skill tag: {@code focus_<skill tag>_<n>}, e.g.
  * {@code focus_grammar.verbs.infinitive_me_1}, where {@code n} counts the focus units of that tag in a row.
  */
 public record FocusUnitId(SkillTag tag, int number) {

@@ -7,7 +7,7 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.Optional;
 
 /**
- * The streak rule of PRD F9. A day counts when the daily goal is met; meeting it extends the streak once per day.
+ * The streak rule. A day counts when the daily goal is met; meeting it extends the streak once per day.
  * A single missed day is bridged by the streak freeze of its ISO week ({@value #FREEZES_PER_WEEK} per week, not
  * carried over), two or more missed days in a row end the streak. Days are dates in the learner's time zone.
  * <p>

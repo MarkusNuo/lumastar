@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
 
 /**
- * Format 4 → 5 (streak goal, M10): the learner's streak goal ({@code data/streak_goals.json}). There was none before,
+ * Format 4 → 5 (streak goal): the learner's streak goal ({@code data/streak_goals.json}). There was none before,
  * so the learner starts with the first goal of 10 days.
  */
 @Component

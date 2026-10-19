@@ -4,7 +4,7 @@ import app.lumastar.core.progress.StreakRule;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDate;
 
-@Schema(description = "The streak (PRD F9): days in a row with the daily goal met. A single missed day is bridged by the "
+@Schema(description = "The streak: days in a row with the daily goal met. A single missed day is bridged by the "
         + "streak freeze of its ISO week (1 per week, not carried over); two missed days in a row end the streak.")
 public record StreakResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "0 once the streak has ended") int current,

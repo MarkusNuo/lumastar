@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The learning plan of PRD F3. {@link #revise} is the single entry point for every (re)calculation: after the
+ * The learning plan. {@link #revise} is the single entry point for every (re)calculation: after the
  * placement test, after a re-placement, after a change of the daily goal, after checkpoints and every 7 learning days.
  */
 @Service
@@ -77,8 +77,8 @@ public class PlanService {
     }
 
     /**
-     * Like {@link #revise(UUID, PlanTrigger, PlanChange)} with several causes, and with focus units lessons asked for
-     * (PRD F7). A request is a cause only if the new version inserts a focus unit for its tag; without any cause, no
+     * Like {@link #revise(UUID, PlanTrigger, PlanChange)} with several causes, and with focus units lessons asked for.
+     * A request is a cause only if the new version inserts a focus unit for its tag; without any cause, no
      * version is stored.
      *
      * @param causes the first entries of the plan history for this version
@@ -112,7 +112,7 @@ public class PlanService {
         return Optional.of(stored);
     }
 
-    /** The time estimates depend on the daily goal (PRD F3): a changed goal recalculates an existing plan. */
+    /** The time estimates depend on the daily goal: a changed goal recalculates an existing plan. */
     @Transactional
     public void reviseAfterDailyGoalChange(UUID userId, int goalBefore, int goalAfter) {
         if (goalBefore == goalAfter || !hasPlan(userId)) {

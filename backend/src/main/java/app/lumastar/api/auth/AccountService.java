@@ -10,7 +10,7 @@ import org.springframework.security.authentication.AuthenticationCredentialsNotF
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/** The accounts of this instance: the signed-in one, sign-in by e-mail and password (PRD F13, M8). */
+/** The accounts of this instance: the signed-in one, sign-in by e-mail and password. */
 @Service
 public class AccountService {
 
@@ -41,8 +41,8 @@ public class AccountService {
     }
 
     /**
-     * The account with this e-mail address and password. Without an address the account from before M8, which has
-     * none yet, signs in. Every attempt counts against the {@link LoginThrottle} until it succeeds.
+     * The account with this e-mail address and password. Without an address the account created before e-mail
+     * sign-in, which has none yet, signs in. Every attempt counts against the {@link LoginThrottle} until it succeeds.
      */
     @Transactional(readOnly = true)
     UserEntity authenticate(String email, String password, String client) {

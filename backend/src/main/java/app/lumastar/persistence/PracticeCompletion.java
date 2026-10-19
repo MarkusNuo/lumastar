@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * The completion of a lesson or of a placement test, whose practice time may meet the daily goal (PRD F9);
+ * The completion of a lesson or of a placement test, whose practice time may meet the daily goal;
  * {@link #NONE} when the goal is evaluated for anything else, such as a lowered goal.
  */
 public record PracticeCompletion(UUID sessionId, UUID placementTestId) {

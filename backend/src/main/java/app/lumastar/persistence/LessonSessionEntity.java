@@ -76,7 +76,7 @@ public class LessonSessionEntity {
         this.startedAt = startedAt;
     }
 
-    /** A focus lesson on a weak skill tag (PRD F3, F7); it belongs to no unit of the curriculum. */
+    /** A focus lesson on a weak skill tag; it belongs to no unit of the curriculum. */
     public static LessonSessionEntity focus(UUID userId, SkillTag tag, Level level, List<String> exerciseIds, String composedBy,
                                             Instant startedAt) {
         LessonSessionEntity session = new LessonSessionEntity(userId, null, level, exerciseIds, composedBy, startedAt);
@@ -85,7 +85,7 @@ public class LessonSessionEntity {
         return session;
     }
 
-    /** A lesson on a skill tag the learner chose to practise (PRD F10 "Gezielt üben"); it belongs to no unit. */
+    /** A lesson on a skill tag the learner chose to practise ("Gezielt üben"); it belongs to no unit. */
     public static LessonSessionEntity practice(UUID userId, SkillTag tag, Level level, List<String> exerciseIds,
                                                String composedBy, Instant startedAt) {
         LessonSessionEntity session = focus(userId, tag, level, exerciseIds, composedBy, startedAt);
@@ -93,7 +93,7 @@ public class LessonSessionEntity {
         return session;
     }
 
-    /** A review lesson of due items (PRD F8); it belongs to no unit. {@code level} is {@code null} before the placement. */
+    /** A review lesson of due items; it belongs to no unit. {@code level} is {@code null} before the placement. */
     public static LessonSessionEntity review(UUID userId, Level level, List<String> exerciseIds, String composedBy,
                                              Instant startedAt) {
         LessonSessionEntity session = new LessonSessionEntity(userId, null, level, exerciseIds, composedBy, startedAt);
@@ -101,7 +101,7 @@ public class LessonSessionEntity {
         return session;
     }
 
-    /** The checkpoint at the end of the stage {@code level} (PRD chapter 5). */
+    /** The checkpoint at the end of the stage {@code level}. */
     public static LessonSessionEntity checkpoint(UUID userId, Level level, List<String> exerciseIds, String composedBy,
                                                  Instant startedAt) {
         LessonSessionEntity session = new LessonSessionEntity(userId, null, level, exerciseIds, composedBy, startedAt);

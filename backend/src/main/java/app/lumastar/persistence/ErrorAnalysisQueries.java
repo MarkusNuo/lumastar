@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 /**
- * Error analysis over the recorded answers (PRD F6), for the lesson composer, the statistics and the profile
+ * Error analysis over the recorded answers, for the lesson composer, the statistics and the profile
  * documents. Two notions are used:
  * <ul>
  *   <li><b>wrong</b>: an answer that does not count as correct; the error rate is the flip side of the accuracy.</li>
@@ -53,7 +53,7 @@ public class ErrorAnalysisQueries {
     }
 
     /**
-     * The skill tags with the most wrong answers since {@code since} (PRD F10 "Häufigste Fehler"), each with its error
+     * The skill tags with the most wrong answers since {@code since} ("Häufigste Fehler"), each with its error
      * rate and the error category its wrong answers were logged with most often.
      *
      * @param category {@code null} if no wrong answer of the tag has a category

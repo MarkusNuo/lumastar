@@ -12,7 +12,7 @@ import jakarta.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.List;
 
-@Schema(description = "The onboarding questions (PRD F1); the options and their German labels come from "
+@Schema(description = "The onboarding questions; the options and their German labels come from "
         + "GET /api/onboarding/options.")
 public record OnboardingRequest(
         @ArraySchema(schema = @Schema(implementation = Motivation.class), minItems = 1, maxItems = 5, uniqueItems = true,

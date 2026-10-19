@@ -151,7 +151,7 @@ class PlanApiTest extends IntegrationTest {
                     .hasSize(17).startsWith("A1.2", "A1.3", "A2.1").endsWith("C2.3");
             assertThat(plan.get("stages").get(0).get("title").asString()).isEqualTo("Stufe A1.2");
             assertThat(plan.get("estimates").propertyNames()).containsExactly("A1", "A2", "B1", "B2", "C1", "C2");
-            // placement estimates alone skip nothing (PRD F3: skipping needs practice)
+            // placement estimates alone skip nothing (skipping needs practice)
             assertThat(unit(plan, "a1_2_words")).isEqualTo(PlacementDriver.JSON.readTree("""
                     {"unitId": "a1_2_words", "title": "Wörter A1.2", "status": "planned", "estimatedLessons": 4,
                      "focus": false}"""));

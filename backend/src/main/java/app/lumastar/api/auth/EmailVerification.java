@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The sign-in address of an account: verifying it, adding one to an account from before M8 and changing it. A verified
- * address is replaced only once the new one is confirmed by the link sent to it ({@link UserEntity#changeEmail}).
+ * The sign-in address of an account: verifying it, adding one to an account created before e-mail sign-in and
+ * changing it. A verified address is replaced only once the new one is confirmed by the link sent to it
+ * ({@link UserEntity#changeEmail}).
  */
 @Service
 class EmailVerification {

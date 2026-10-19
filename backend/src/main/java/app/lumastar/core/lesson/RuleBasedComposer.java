@@ -19,7 +19,7 @@ import java.util.function.Predicate;
 import java.util.random.RandomGenerator;
 
 /**
- * Phase 1 composer (PRD F7). A unit lesson of {@value #LESSON_SIZE} exercises mixes
+ * Rule-based composer. A unit lesson of {@value #LESSON_SIZE} exercises mixes
  * <ul>
  *   <li>up to {@value #REVIEWS} due reviews (~15 %): exercises of the most overdue items, see {@link ReviewCover},</li>
  *   <li>up to {@value #WEAK_SPOTS} weak spots (~25 %): exercises of other units carrying the weakest tags

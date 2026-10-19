@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * The highest level whose exercises may practise content the learner has met already (PRD F7, F8): items with an FSRS
+ * The highest level whose exercises may practise content the learner has met already: items with an FSRS
  * card and the skill tags of a lesson's mistakes. It is the learner's level, unless no exercise up to it practises the
  * content, e.g. when it was met before a re-placement downwards. Then it is the lowest level with exercises of the
  * content, so that a due card never stays out of reach and practice is never harder than what the content was met with.

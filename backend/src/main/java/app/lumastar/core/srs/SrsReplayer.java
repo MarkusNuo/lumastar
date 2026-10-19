@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Rebuilds every card from the review log (PRD F8): a change of the FSRS version or of the learner's settings needs
+ * Rebuilds every card from the review log: a change of the FSRS version or of the learner's settings needs
  * nothing but a replay of the logged ratings in their order. A card starts new at its first review.
  */
 public final class SrsReplayer {

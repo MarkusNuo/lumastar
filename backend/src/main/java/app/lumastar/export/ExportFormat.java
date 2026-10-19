@@ -1,7 +1,7 @@
 package app.lumastar.export;
 
 /**
- * Version and layout of the export (PRD F11, 13). The version is written to {@code manifest.json} and
+ * Version and layout of the export. The version is written to {@code manifest.json} and
  * {@code learner_profile.json}; a change of the data format raises it and adds a {@link BackupUpgrader}.
  */
 public final class ExportFormat {

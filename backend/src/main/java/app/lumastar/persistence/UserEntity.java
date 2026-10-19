@@ -135,7 +135,7 @@ public class UserEntity {
         pendingEmail = null;
     }
 
-    /** The answers of the onboarding questions (PRD F1); they can be changed again later. */
+    /** The answers of the onboarding questions; they can be changed again later. */
     public void answerOnboarding(Collection<Motivation> newMotivations, int newDailyGoalMinutes,
                                  SelfAssessment newSelfAssessment) {
         motivations = newMotivations.stream().sorted().map(Motivation::code).distinct().toList();
@@ -144,8 +144,8 @@ public class UserEntity {
     }
 
     /**
-     * The settings of the learner: daily goal (PRD F1, F9), target retention of the FSRS reviews (PRD F8) and time
-     * zone. Other entries of {@code settings}, e.g. from older exports, are kept.
+     * The settings of the learner: daily goal, target retention of the FSRS reviews and time zone. Other entries of
+     * {@code settings}, e.g. from older exports, are kept.
      */
     public void changeSettings(int newDailyGoalMinutes, double newRequestRetention, ZoneId newTimeZone) {
         dailyGoalMinutes = newDailyGoalMinutes;
@@ -163,7 +163,7 @@ public class UserEntity {
         }
     }
 
-    /** Moves the learner up after a passed checkpoint (PRD chapter 5). */
+    /** Moves the learner up after a passed checkpoint. */
     public void levelUp(Level level) {
         if (currentLevel == null || !level.isAbove(currentLevel)) {
             throw new IllegalArgumentException("a level-up goes above the current level " + currentLevel);
@@ -183,7 +183,7 @@ public class UserEntity {
         return currentLevel != null ? currentLevel : selfAssessment.startLevel();
     }
 
-    /** Only an absolute beginner may skip the test, and only before being placed for the first time (PRD F1). */
+    /** Only an absolute beginner may skip the test, and only before being placed for the first time. */
     public boolean maySkipPlacement() {
         return selfAssessment != null && selfAssessment.allowsSkippingPlacement() && currentLevel == null;
     }
@@ -240,7 +240,7 @@ public class UserEntity {
         return onboardingCompletedAt != null;
     }
 
-    /** The sign-in address; {@code null} only for the account of the single-user instance before M8. */
+    /** The sign-in address; {@code null} only for an account created before e-mail sign-in. */
     public String getEmail() {
         return email;
     }
@@ -249,7 +249,7 @@ public class UserEntity {
         return emailVerifiedAt != null;
     }
 
-    /** An account from before M8 signs in without e-mail until it adds one. */
+    /** An account created before e-mail sign-in signs in without e-mail until it adds one. */
     public boolean isEmailRequired() {
         return email == null;
     }

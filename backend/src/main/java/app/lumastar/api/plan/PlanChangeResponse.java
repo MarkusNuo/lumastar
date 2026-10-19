@@ -6,7 +6,7 @@ import app.lumastar.persistence.LearningPlanStore.LoggedChange;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.Instant;
 
-@Schema(description = "One entry of the plan history (PRD F3)")
+@Schema(description = "One entry of the plan history")
 public record PlanChangeResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) Instant changedAt,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The plan version the change led to")

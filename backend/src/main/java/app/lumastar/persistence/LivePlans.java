@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The stored plan with the learner's progress since, as the path (PRD 12.3) and the plan document (PRD 8.3) show it.
+ * The stored plan with the learner's progress since, as the path and the plan document show it.
  * A curriculum unit counts its completed lessons; a focus unit counts the completed focus lessons on its skill tag
  * since it was inserted into the plan. A focus unit is playable when its focus lesson has exercises, see
  * {@link ContentCatalog#focusExercises}.

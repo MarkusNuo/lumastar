@@ -4,7 +4,7 @@ import java.util.Map;
 import tools.jackson.databind.JsonNode;
 
 /**
- * Converts the data files of an older export into the next format version (PRD 13: old exports stay importable).
+ * Converts the data files of an older export into the next format version (old exports stay importable).
  * Upgraders are Spring beans; {@link BackupUpgraderChain} applies them one version after the other.
  */
 public interface BackupUpgrader {

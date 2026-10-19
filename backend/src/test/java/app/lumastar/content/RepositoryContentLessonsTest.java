@@ -42,9 +42,9 @@ import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.node.ObjectNode;
 
 /**
- * The composer on the seeded repository content, with the database as its bank like in the app (PRD F7, F8, F10,
- * chapter 5): a fresh learner gets a full lesson of every unit with exercises, every A0–A2 stage has a full checkpoint,
- * a learner on A2.3 can practise every skill tag of the A0–A2 units, and due items make a review lesson.
+ * The composer on the seeded repository content, with the database as its bank like in the app: a fresh learner gets
+ * a full lesson of every unit with exercises, every A0–A2 stage has a full checkpoint, a learner on A2.3 can practise
+ * every skill tag of the A0–A2 units, and due items make a review lesson.
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class RepositoryContentLessonsTest extends IntegrationTest {

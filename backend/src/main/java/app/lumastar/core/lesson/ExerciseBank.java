@@ -6,7 +6,7 @@ import app.lumastar.domain.SkillTag;
 import java.util.Collection;
 import java.util.List;
 
-/** The lesson exercises of all units, as far as the composer looks beyond the current unit (PRD F7). */
+/** The lesson exercises of all units, as far as the composer looks beyond the current unit. */
 public interface ExerciseBank {
 
     /** Active lesson exercises carrying the tag, not above {@code maxLevel}, in a stable order. */

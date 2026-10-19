@@ -3,7 +3,7 @@ package app.lumastar.domain;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The learner's own estimate in the onboarding (PRD F1), with the German option text. It sets the level at which
+ * The learner's own estimate in the onboarding, with the German option text. It sets the level at which
  * the first placement test starts; "Ich kann kein Wort" may skip the test and start at A0.
  */
 public enum SelfAssessment implements Coded {
@@ -41,7 +41,7 @@ public enum SelfAssessment implements Coded {
         return startLevel;
     }
 
-    /** Only an absolute beginner may skip the first placement test (PRD F1). */
+    /** Only an absolute beginner may skip the first placement test. */
     public boolean allowsSkippingPlacement() {
         return this == NOTHING;
     }

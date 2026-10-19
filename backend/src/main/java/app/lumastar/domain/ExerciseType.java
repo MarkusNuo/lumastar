@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Exercise types of PRD F4. Only the P0 types have a content format and an {@link ExercisePayload} yet. */
+/** Exercise types. Only the P0 types have a content format and an {@link ExercisePayload} yet. */
 public enum ExerciseType implements Coded {
     MULTIPLE_CHOICE("multiple_choice", Priority.P0),
     TRANSLATE_WORDBANK("translate_wordbank", Priority.P0),

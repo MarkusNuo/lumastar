@@ -28,7 +28,7 @@ public class ProgressController {
 
     @GetMapping("/today")
     @Operation(operationId = "getTodayProgress", summary = "Today's minutes towards the daily goal, XP, lessons and the streak",
-            description = "For the daily goal ring and the streak flame of the top bar (PRD 12.3).")
+            description = "For the daily goal ring and the streak flame of the top bar.")
     @ApiResponse(responseCode = "200", description = "Today's progress")
     @ApiResponse(responseCode = "401", description = "Not signed in", content = @Content(
             mediaType = "application/problem+json", schema = @Schema(implementation = ProblemDetail.class)))

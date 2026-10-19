@@ -56,12 +56,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Lesson flow of PRD F5: compose and start a lesson, evaluate and record every answer together with the mastery of its
- * skill tags (PRD 8.2), finish with XP and the daily goal and streak (F9). Lessons of a unit, focus lessons on a weak
- * skill tag (PRD F3), review lessons of the due items (PRD F8), the checkpoints at the end of a stage (PRD chapter 5)
- * and practice lessons on a chosen skill tag (PRD F10) share this flow. Every first answer reviews the FSRS cards of
- * its items; retries at the end of a lesson do not. A completed lesson may suggest a focus lesson (PRD F7) and revise
- * the plan (PRD F3); a completed checkpoint may move the learner up.
+ * The lesson flow: compose and start a lesson, evaluate and record every answer together with the mastery of its
+ * skill tags, finish with XP and the daily goal and streak. Lessons of a unit, focus lessons on a weak skill tag,
+ * review lessons of the due items, the checkpoints at the end of a stage and practice lessons on a chosen skill tag
+ * share this flow. Every first answer reviews the FSRS cards of its items; retries at the end of a lesson do not. A
+ * completed lesson may suggest a focus lesson and revise the plan; a completed checkpoint may move the learner up.
  */
 @Service
 class LessonService {
@@ -154,7 +153,7 @@ class LessonService {
         return LessonResponse.of(session, unitId, exercises);
     }
 
-    /** A practice lesson of the exercises with the tag at or below the learner's level (PRD F10 "Gezielt üben"). */
+    /** A practice lesson of the exercises with the tag at or below the learner's level ("Gezielt üben"). */
     private LessonResponse startPractice(UserEntity learner, SkillTag tag) {
         Level level = learner.getCurrentLevel();
         List<Exercise> pool = level == null ? List.of() : catalog.lessonExercisesWithSkillTag(tag, level);
@@ -172,7 +171,7 @@ class LessonService {
         return LessonResponse.of(session, unitId, exercises);
     }
 
-    /** A lesson of the due items (PRD F8); it starts exactly when the review summary counts cards due now. */
+    /** A lesson of the due items; it starts exactly when the review summary counts cards due now. */
     @Transactional
     LessonResponse startReview(UserEntity learner) {
         Instant now = clock.instant();

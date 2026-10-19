@@ -3,7 +3,7 @@ package app.lumastar.core.srs;
 import java.util.List;
 
 /**
- * The learner's scheduling settings (PRD F8): the target retention ({@code request_retention}) and the optimised
+ * The learner's scheduling settings: the target retention ({@code request_retention}) and the optimised
  * weights, empty for the scheduler's defaults.
  */
 public record SrsSettings(double requestRetention, List<Double> weights) {

@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * Phase 1 learning plan (PRD F3): every stage from the current level up to C2.3 with its units in curriculum order.
+ * Rule-based learning plan: every stage from the current level up to C2.3 with its units in curriculum order.
  * <ul>
  *   <li>A unit whose skill tags are all {@linkplain SkillMastery#MASTERED mastered} is {@code skipped}; it stays
  *       repeatable. All other units are {@code planned}.</li>

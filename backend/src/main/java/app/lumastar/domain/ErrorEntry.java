@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 
-/** One logged wrong answer, as exported in {@code recent_errors.json} (PRD 8.3). */
+/** One logged wrong answer, as exported in {@code recent_errors.json}. */
 public record ErrorEntry(
         Instant at,
         String exerciseId,

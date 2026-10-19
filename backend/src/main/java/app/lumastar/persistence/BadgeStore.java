@@ -9,7 +9,7 @@ import java.util.UUID;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
-/** Table {@code badges}: the level badges of the learner (PRD F9), each awarded once by a checkpoint. */
+/** Table {@code badges}: the level badges of the learner, each awarded once by a checkpoint. */
 @Repository
 public class BadgeStore {
 

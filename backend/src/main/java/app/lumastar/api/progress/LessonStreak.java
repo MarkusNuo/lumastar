@@ -2,7 +2,7 @@ package app.lumastar.api.progress;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-@Schema(description = "The streak after the lesson or placement test (PRD F9)")
+@Schema(description = "The streak after the lesson or placement test")
 public record LessonStreak(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) int current,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The streak before this lesson or placement "

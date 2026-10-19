@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Time estimates of a plan (PRD F3): for every CEFR band from A1 on, the day by which its last stage in the plan is
+ * Time estimates of a plan: for every CEFR band from A1 on, the day by which its last stage in the plan is
  * done, learning the daily goal every day: {@code today + ceil(minutes / dailyGoalMinutes)} days. The minutes are the
  * larger of
  * <ul>

@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/** The phase 1 engines of PRD 10.2, active for {@code lumastar.engine=rule-based} (the default). */
+/** The rule-based engines, active for {@code lumastar.engine=rule-based} (the default). */
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnProperty(name = "lumastar.engine", havingValue = "rule-based", matchIfMissing = true)
 class RuleBasedEngineConfig {

@@ -69,7 +69,7 @@
           },
           "retry": {
             "default": false,
-            "description": "true for a wrong exercise repeated at the end of the lesson (PRD F5)",
+            "description": "true for a wrong exercise repeated at the end of the lesson",
             "type": "boolean"
           }
         },
@@ -81,7 +81,7 @@
         "type": "object"
       },
       "AttemptResponse": {
-        "description": "Binding evaluation of an answer; it replaces the pre-check of the app if the two differ (PRD 11.2)",
+        "description": "Binding evaluation of an answer; it replaces the pre-check of the app if the two differ",
         "properties": {
           "countsAsCorrect": {
             "description": "true for correct, almost correct and standard-form answers",
@@ -107,7 +107,7 @@
           },
           "rating": {
             "$ref": "#/components/schemas/Rating",
-            "description": "FSRS rating of the answer (PRD F8): again for wrong, hard for almost correct or slow, good for correct, easy for correct and fast on known items. The cards of its items are reviewed with it; a retry reviews no card."
+            "description": "FSRS rating of the answer: again for wrong, hard for almost correct or slow, good for correct, easy for correct and fast on known items. The cards of its items are reviewed with it; a retry reviews no card."
           },
           "solution": {
             "description": "The accepted solution closest to the answer; absent for match_pairs",
@@ -236,7 +236,7 @@
         "type": "object"
       },
       "BadgeResponse": {
-        "description": "A level badge (PRD F9), earned by the checkpoint that completes a CEFR band",
+        "description": "A level badge, earned by the checkpoint that completes a CEFR band",
         "properties": {
           "awardedAt": {
             "format": "date-time",
@@ -280,10 +280,10 @@
         "type": "object"
       },
       "CheckpointResult": {
-        "description": "A checkpoint passed with the required accuracy moves the learner up (PRD chapter 5); a failed one stays available",
+        "description": "A checkpoint passed with the required accuracy moves the learner up; a failed one stays available",
         "properties": {
           "badges": {
-            "description": "Level badges awarded by this checkpoint (PRD F9), e.g. A1 for passing A1.3",
+            "description": "Level badges awarded by this checkpoint, e.g. A1 for passing A1.3",
             "items": {
               "$ref": "#/components/schemas/LevelBadge"
             },
@@ -432,7 +432,7 @@
         "type": "object"
       },
       "DailyProgressResponse": {
-        "description": "Today's progress towards the daily goal and the streak (PRD F9); days are dates in the learner's time zone",
+        "description": "Today's progress towards the daily goal and the streak; days are dates in the learner's time zone",
         "properties": {
           "date": {
             "description": "Today in the learner's time zone",
@@ -511,7 +511,7 @@
         "type": "object"
       },
       "DueForecast": {
-        "description": "FSRS forecast (PRD F10 \"morgen fällig: 34 Items\")",
+        "description": "FSRS forecast (\"morgen fällig: 34 Items\")",
         "properties": {
           "days": {
             "description": "The next 7 days from today, one entry per day; today includes the overdue cards",
@@ -859,7 +859,7 @@
         "type": "object"
       },
       "LessonDailyGoal": {
-        "description": "The daily goal on the day of the lesson or placement test, up to and including it (PRD F9)",
+        "description": "The daily goal on the day of the lesson or placement test, up to and including it",
         "properties": {
           "goalMet": {
             "type": "boolean"
@@ -997,7 +997,7 @@
         "type": "object"
       },
       "LessonKind": {
-        "description": "lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8), checkpoint at the end of a stage (PRD chapter 5) or practice lesson on a chosen skill tag (PRD F10)",
+        "description": "lesson of a unit, focus lesson on a weak skill tag, review of due items, checkpoint at the end of a stage or practice lesson on a chosen skill tag",
         "enum": [
           "lesson",
           "focus",
@@ -1067,7 +1067,7 @@
           },
           "focusSuggestion": {
             "$ref": "#/components/schemas/FocusSuggestion",
-            "description": "A focus lesson for a skill tag answered wrongly at least three times in this lesson (PRD F7); absent otherwise"
+            "description": "A focus lesson for a skill tag answered wrongly at least three times in this lesson; absent otherwise"
           },
           "kind": {
             "$ref": "#/components/schemas/LessonKind"
@@ -1080,7 +1080,7 @@
             "type": "array"
           },
           "learnedWordsTotal": {
-            "description": "Learned words of the learner: words and phrases whose FSRS card is in the review state (PRD F10)",
+            "description": "Learned words of the learner: words and phrases whose FSRS card is in the review state",
             "format": "int32",
             "type": "integer"
           },
@@ -1117,7 +1117,7 @@
         "type": "object"
       },
       "LessonStreak": {
-        "description": "The streak after the lesson or placement test (PRD F9)",
+        "description": "The streak after the lesson or placement test",
         "properties": {
           "current": {
             "format": "int32",
@@ -1370,7 +1370,7 @@
         "type": "object"
       },
       "OnboardingRequest": {
-        "description": "The onboarding questions (PRD F1); the options and their German labels come from GET /api/onboarding/options.",
+        "description": "The onboarding questions; the options and their German labels come from GET /api/onboarding/options.",
         "properties": {
           "dailyGoalMinutes": {
             "description": "5, 10, 15 or 20",
@@ -1517,7 +1517,7 @@
         "type": "object"
       },
       "PathResponse": {
-        "description": "The learning path of the home screen (PRD 12.3): the plan up to C2 with the live progress",
+        "description": "The learning path of the home screen: the plan up to C2 with the live progress",
         "properties": {
           "currentLevel": {
             "$ref": "#/components/schemas/Level"
@@ -1750,7 +1750,7 @@
         "type": "object"
       },
       "PlacementResultResponse": {
-        "description": "Result of a completed or skipped placement test (PRD F2), for the animated level reveal",
+        "description": "Result of a completed or skipped placement test, for the animated level reveal",
         "properties": {
           "answeredCount": {
             "format": "int32",
@@ -1837,7 +1837,7 @@
         "type": "string"
       },
       "PlanChangeResponse": {
-        "description": "One entry of the plan history (PRD F3)",
+        "description": "One entry of the plan history",
         "properties": {
           "changedAt": {
             "format": "date-time",
@@ -1869,7 +1869,7 @@
         "type": "object"
       },
       "PlanResponse": {
-        "description": "The current plan version as stored (learning_plan.json, PRD 8.3); the statuses are those at its calculation, the live progress is in GET /api/path",
+        "description": "The current plan version as stored (learning_plan.json); the statuses are those at its calculation, the live progress is in GET /api/path",
         "properties": {
           "estimates": {
             "additionalProperties": {
@@ -2454,7 +2454,7 @@
         "type": "object"
       },
       "ReminderSettingsResponse": {
-        "description": "The learner's reminders (PRD F9); times are HH:mm in the learner's time zone (settings)",
+        "description": "The learner's reminders; times are HH:mm in the learner's time zone (settings)",
         "properties": {
           "enabled": {
             "description": "Off until the learner switches them on",
@@ -2483,7 +2483,7 @@
         "type": "object"
       },
       "ReviewSummaryResponse": {
-        "description": "The learner's FSRS cards (PRD F8): what is due now and tomorrow. Only cards that a lesson exercise can practise count, so a review lesson can be started exactly while dueNow is above 0",
+        "description": "The learner's FSRS cards: what is due now and tomorrow. Only cards that a lesson exercise can practise count, so a review lesson can be started exactly while dueNow is above 0",
         "properties": {
           "dueNow": {
             "description": "Cards due now, overdue ones included",
@@ -2553,7 +2553,7 @@
             "type": "integer"
           },
           "requestRetention": {
-            "description": "Target retention of the FSRS reviews (PRD F8)",
+            "description": "Target retention of the FSRS reviews",
             "example": 0.9,
             "format": "double",
             "maximum": 0.99,
@@ -2584,7 +2584,7 @@
             "type": "integer"
           },
           "requestRetention": {
-            "description": "Target retention of the FSRS reviews (PRD F8)",
+            "description": "Target retention of the FSRS reviews",
             "example": 0.9,
             "format": "double",
             "maximum": 0.99,
@@ -2759,7 +2759,7 @@
         "type": "object"
       },
       "StartLessonKind": {
-        "description": "lesson: a lesson of a unit or focus unit (unitId); practice: a practice lesson of the exercises with one skill tag (skillTag, PRD F10 \"Gezielt üben\")",
+        "description": "lesson: a lesson of a unit or focus unit (unitId); practice: a practice lesson of the exercises with one skill tag (skillTag, \"Gezielt üben\")",
         "enum": [
           "lesson",
           "practice"
@@ -2825,7 +2825,7 @@
         "type": "object"
       },
       "StatsResponse": {
-        "description": "Progress and statistics of the learner (PRD F10); days are dates in the learner's time zone",
+        "description": "Progress and statistics of the learner; days are dates in the learner's time zone",
         "properties": {
           "forecast": {
             "$ref": "#/components/schemas/DueForecast"
@@ -3078,7 +3078,7 @@
         "type": "object"
       },
       "StreakResponse": {
-        "description": "The streak (PRD F9): days in a row with the daily goal met. A single missed day is bridged by the streak freeze of its ISO week (1 per week, not carried over); two missed days in a row end the streak.",
+        "description": "The streak: days in a row with the daily goal met. A single missed day is bridged by the streak freeze of its ISO week (1 per week, not carried over); two missed days in a row end the streak.",
         "properties": {
           "current": {
             "description": "0 once the streak has ended",
@@ -4192,7 +4192,7 @@
     },
     "/api/lessons": {
       "post": {
-        "description": "The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level, and so is a practice lesson (kind practice, PRD F10 \"Gezielt üben\").",
+        "description": "The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly, together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level, and so is a practice lesson (kind practice, \"Gezielt üben\").",
         "operationId": "startLesson",
         "requestBody": {
           "content": {
@@ -4389,7 +4389,7 @@
     },
     "/api/lessons/{sessionId}/complete": {
       "post": {
-        "description": "Idempotent: completing a finished lesson again returns the same result without awarding XP twice. The result reports the daily goal of the lesson's day and the streak (PRD F9); dailyGoal.justMet marks the lesson that met the goal and extended the streak.",
+        "description": "Idempotent: completing a finished lesson again returns the same result without awarding XP twice. The result reports the daily goal of the lesson's day and the streak; dailyGoal.justMet marks the lesson that met the goal and extended the streak.",
         "operationId": "completeLesson",
         "parameters": [
           {
@@ -4640,7 +4640,7 @@
     },
     "/api/placement": {
       "post": {
-        "description": "Starts at the current level, or at the self-assessed level before the first placement. An unfinished test is abandoned. Also used for \"Neu einstufen\" at any time later (PRD F2).",
+        "description": "Starts at the current level, or at the self-assessed level before the first placement. An unfinished test is abandoned. Also used for \"Neu einstufen\" at any time later.",
         "operationId": "startPlacement",
         "responses": {
           "201": {
@@ -4698,7 +4698,7 @@
     },
     "/api/placement/skip": {
       "post": {
-        "description": "Only for the self-assessment \"Ich kann kein Wort\" before the first placement (PRD F1).",
+        "description": "Only for the self-assessment \"Ich kann kein Wort\" before the first placement.",
         "operationId": "skipPlacement",
         "responses": {
           "200": {
@@ -4927,7 +4927,7 @@
     },
     "/api/plan": {
       "get": {
-        "description": "The plan as calculated (learning_plan.json of PRD 8.3), e.g. for the plan timeline after the placement test.",
+        "description": "The plan as calculated (the learning_plan.json document), e.g. for the plan timeline after the placement test.",
         "operationId": "getPlan",
         "responses": {
           "200": {
@@ -5028,7 +5028,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "JSON document as in PRD 8.3; recent_errors.json is an array",
+                  "description": "JSON document; recent_errors.json is an array",
                   "type": [
                     "object",
                     "array"
@@ -5064,7 +5064,7 @@
             "description": "Unknown document (code document_not_found)"
           }
         },
-        "summary": "One learner profile document (PRD 8.3)",
+        "summary": "One learner profile document",
         "tags": [
           "profile"
         ]
@@ -5201,7 +5201,7 @@
     },
     "/api/profile/summary": {
       "get": {
-        "description": "learner_summary.md, for the button \"KI-Zusammenfassung kopieren\" (PRD F11).",
+        "description": "learner_summary.md, for the button \"KI-Zusammenfassung kopieren\".",
         "operationId": "getLearnerSummary",
         "responses": {
           "200": {
@@ -5233,7 +5233,7 @@
     },
     "/api/progress/today": {
       "get": {
-        "description": "For the daily goal ring and the streak flame of the top bar (PRD 12.3).",
+        "description": "For the daily goal ring and the streak flame of the top bar.",
         "operationId": "getTodayProgress",
         "responses": {
           "200": {
@@ -5879,7 +5879,7 @@
     },
     "/api/stats": {
       "get": {
-        "description": "The statistics screen of PRD F10. Every top error carries the request body of its practice lesson (\"Gezielt üben\") for POST /api/lessons.",
+        "description": "For the statistics screen. Every top error carries the request body of its practice lesson (\"Gezielt üben\") for POST /api/lessons.",
         "operationId": "getStats",
         "responses": {
           "200": {

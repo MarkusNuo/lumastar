@@ -20,7 +20,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
 import tools.jackson.databind.json.JsonMapper;
 
-/** The profile documents of PRD 8.3 generated from what the learner did through the lesson API. */
+/** The profile documents generated from what the learner did through the lesson API. */
 class ProfileDocumentsApiTest extends IntegrationTest {
 
     private static final String DOCUMENTS = "/api/profile/documents/";

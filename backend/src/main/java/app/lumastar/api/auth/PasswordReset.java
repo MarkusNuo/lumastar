@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * "Passwort vergessen": a reset link goes only to a verified address (DECISIONS #78), since an unverified one may
+ * "Passwort vergessen": a reset link goes only to a verified address, since an unverified one may
  * belong to someone else. The request never reveals whether an account has the address.
  */
 @Service

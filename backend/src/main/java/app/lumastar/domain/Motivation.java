@@ -2,7 +2,7 @@ package app.lumastar.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Why the learner studies Gheg (PRD F1), with the German option text; it later steers the vocabulary focus. */
+/** Why the learner studies Gheg, with the German option text; it later steers the vocabulary focus. */
 public enum Motivation implements Coded {
     FAMILY("family", "Familie/Partner"),
     TRAVEL("travel", "Reisen"),

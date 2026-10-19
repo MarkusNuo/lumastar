@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class LearnerTablesTest extends IntegrationTest {
 
     /**
-     * Usage log of the AI requests (Phase 2), not learner state; the links of account mails, which belong to the account
+     * Usage log of the AI requests, not learner state; the links of account mails, which belong to the account
      * rather than to its learning state; and the push subscriptions, reminder settings and sent reminders, which belong
      * to the devices and the notification setup on this instance. An import leaves them all alone.
      */

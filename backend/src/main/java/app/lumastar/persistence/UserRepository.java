@@ -14,7 +14,7 @@ public interface UserRepository extends JpaRepository<UserEntity, UUID> {
     @Query("select u from UserEntity u where lower(u.email) = lower(:email)")
     Optional<UserEntity> findByEmail(String email);
 
-    /** The account of the single-user instance before M8, which signs in without e-mail until it adds one. */
+    /** The account created before e-mail sign-in, which signs in without e-mail until it adds one. */
     Optional<UserEntity> findFirstByEmailIsNullOrderByCreatedAtAsc();
 
     boolean existsByEmailIsNull();

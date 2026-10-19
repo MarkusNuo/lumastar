@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The daily goal and the streak of PRD F9, see {@link StreakRule}. Everything that adds practice time or changes the
+ * The daily goal and the streak, see {@link StreakRule}. Everything that adds practice time or changes the
  * goal or the time zone calls {@link #evaluate}, which extends the streak once the goal of the day is met, and marks the
  * streak goal reached when the extension reaches it ({@link StreakGoalRule}). Reads judge the stored streak on the
  * current day, so no job is needed when days pass.

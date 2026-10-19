@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-@Schema(description = "The learning path of the home screen (PRD 12.3): the plan up to C2 with the live progress")
+@Schema(description = "The learning path of the home screen: the plan up to C2 with the live progress")
 public record PathResponse(
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED) Level currentLevel,
         @Schema(requiredMode = Schema.RequiredMode.REQUIRED, example = "C2") String targetLevel,

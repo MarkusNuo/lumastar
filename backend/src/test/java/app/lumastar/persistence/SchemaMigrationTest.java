@@ -38,7 +38,7 @@ class SchemaMigrationTest extends IntegrationTest {
     }
 
     @Test
-    void createsAllTablesOfThePrd() {
+    void createsAllTables() {
         List<String> tables = jdbc.sql("""
                         SELECT table_name FROM information_schema.tables
                         WHERE table_schema = 'public' AND table_name <> 'flyway_schema_history'""")

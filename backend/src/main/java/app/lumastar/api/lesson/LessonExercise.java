@@ -17,7 +17,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 
 /**
- * An exercise with everything the app needs to render it and to pre-check answers (PRD 11.2): the solutions and
+ * An exercise with everything the app needs to render it and to pre-check answers: the solutions and
  * accepted Standard forms are included on purpose. Fields that do not apply to the type are absent.
  */
 public record LessonExercise(

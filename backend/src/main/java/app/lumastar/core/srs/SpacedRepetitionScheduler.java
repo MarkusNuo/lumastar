@@ -4,7 +4,7 @@ import app.lumastar.domain.Rating;
 import app.lumastar.domain.SrsCard;
 import java.time.Instant;
 
-/** Schedules the next review of an item; wraps the FSRS library so it stays replaceable (PRD F8). */
+/** Schedules the next review of an item; wraps the FSRS library so it stays replaceable. */
 public interface SpacedRepetitionScheduler {
 
     SrsCard review(SrsCard card, Rating rating, Instant now);
