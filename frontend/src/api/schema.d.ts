@@ -596,7 +596,7 @@ export interface paths {
         };
         /**
          * Download the complete learning state as ZIP
-         * @description manifest.json, the profile documents under documents/ and all learner data under data/. The file name is lingora-export-<yyyy-MM-dd>.zip.
+         * @description manifest.json, the profile documents under documents/ and all learner data under data/. The file name is lumastar-export-<yyyy-MM-dd>.zip.
          */
         get: operations["exportProfile"];
         put?: never;
@@ -1777,7 +1777,7 @@ export interface components {
             snoozeToken?: string;
             /**
              * @description Stable per kind: a new notification replaces the previous one of its kind
-             * @example lingora-daily-reminder
+             * @example lumastar-daily-reminder
              */
             tag: string;
             /** @example Zeit für Gheg! 🔥 */
