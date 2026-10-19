@@ -327,7 +327,7 @@ export interface paths {
         put?: never;
         /**
          * Compose and start a lesson of a unit or a practice lesson
-         * @description The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly (PRD 11.2), together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level, and so is a practice lesson (kind practice, PRD F10 "Gezielt üben").
+         * @description The exercises include their solutions, accepted variants and error hints so that the app can pre-check answers instantly, together with GET /api/content/standard-forms. A focus unit of the current plan (focus_<skill tag>_<n>) is composed of the exercises carrying its skill tag at or below the learner's level, and so is a practice lesson (kind practice, "Gezielt üben").
          */
         post: operations["startLesson"];
         delete?: never;
@@ -367,7 +367,7 @@ export interface paths {
         put?: never;
         /**
          * Finish the lesson and award its XP
-         * @description Idempotent: completing a finished lesson again returns the same result without awarding XP twice. The result reports the daily goal of the lesson's day and the streak (PRD F9); dailyGoal.justMet marks the lesson that met the goal and extended the streak.
+         * @description Idempotent: completing a finished lesson again returns the same result without awarding XP twice. The result reports the daily goal of the lesson's day and the streak; dailyGoal.justMet marks the lesson that met the goal and extended the streak.
          */
         post: operations["completeLesson"];
         delete?: never;
@@ -461,7 +461,7 @@ export interface paths {
         put?: never;
         /**
          * Start a placement test
-         * @description Starts at the current level, or at the self-assessed level before the first placement. An unfinished test is abandoned. Also used for "Neu einstufen" at any time later (PRD F2).
+         * @description Starts at the current level, or at the self-assessed level before the first placement. An unfinished test is abandoned. Also used for "Neu einstufen" at any time later.
          */
         post: operations["startPlacement"];
         delete?: never;
@@ -481,7 +481,7 @@ export interface paths {
         put?: never;
         /**
          * Skip the first placement test and start at A0
-         * @description Only for the self-assessment "Ich kann kein Wort" before the first placement (PRD F1).
+         * @description Only for the self-assessment "Ich kann kein Wort" before the first placement.
          */
         post: operations["skipPlacement"];
         delete?: never;
@@ -536,7 +536,7 @@ export interface paths {
         };
         /**
          * The current learning plan with its time estimates
-         * @description The plan as calculated (learning_plan.json of PRD 8.3), e.g. for the plan timeline after the placement test.
+         * @description The plan as calculated (the learning_plan.json document), e.g. for the plan timeline after the placement test.
          */
         get: operations["getPlan"];
         put?: never;
@@ -575,7 +575,7 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * One learner profile document (PRD 8.3)
+         * One learner profile document
          * @description Generated from the current learning state. The JSON documents are learner_profile.json, skill_mastery.json, recent_errors.json (last 50 errors) and learning_plan.json; learner_summary.md is Markdown.
          */
         get: operations["getProfileDocument"];
@@ -636,7 +636,7 @@ export interface paths {
         };
         /**
          * Compact Markdown summary for an AI chat
-         * @description learner_summary.md, for the button "KI-Zusammenfassung kopieren" (PRD F11).
+         * @description learner_summary.md, for the button "KI-Zusammenfassung kopieren".
          */
         get: operations["getLearnerSummary"];
         put?: never;
@@ -656,7 +656,7 @@ export interface paths {
         };
         /**
          * Today's minutes towards the daily goal, XP, lessons and the streak
-         * @description For the daily goal ring and the streak flame of the top bar (PRD 12.3).
+         * @description For the daily goal ring and the streak flame of the top bar.
          */
         get: operations["getTodayProgress"];
         put?: never;
@@ -837,7 +837,7 @@ export interface paths {
         };
         /**
          * Level progress, mastery per area, top errors, heatmap and FSRS forecast
-         * @description The statistics screen of PRD F10. Every top error carries the request body of its practice lesson ("Gezielt üben") for POST /api/lessons.
+         * @description For the statistics screen. Every top error carries the request body of its practice lesson ("Gezielt üben") for POST /api/lessons.
          */
         get: operations["getStats"];
         put?: never;
@@ -917,12 +917,12 @@ export interface components {
              */
             responseTimeMs: number;
             /**
-             * @description true for a wrong exercise repeated at the end of the lesson (PRD F5)
+             * @description true for a wrong exercise repeated at the end of the lesson
              * @default false
              */
             retry: boolean;
         };
-        /** @description Binding evaluation of an answer; it replaces the pre-check of the app if the two differ (PRD 11.2) */
+        /** @description Binding evaluation of an answer; it replaces the pre-check of the app if the two differ */
         AttemptResponse: {
             /** @description true for correct, almost correct and standard-form answers */
             countsAsCorrect: boolean;
@@ -934,7 +934,7 @@ export interface components {
             /** @description Short German hint; words to look at are marked as **bold** */
             hint?: string;
             outcome: components["schemas"]["Outcome"];
-            /** @description FSRS rating of the answer (PRD F8): again for wrong, hard for almost correct or slow, good for correct, easy for correct and fast on known items. The cards of its items are reviewed with it; a retry reviews no card. */
+            /** @description FSRS rating of the answer: again for wrong, hard for almost correct or slow, good for correct, easy for correct and fast on known items. The cards of its items are reviewed with it; a retry reviews no card. */
             rating: components["schemas"]["Rating"];
             /** @description The accepted solution closest to the answer; absent for match_pairs */
             solution?: string;
@@ -996,7 +996,7 @@ export interface components {
             /** Format: int32 */
             streaks: number;
         };
-        /** @description A level badge (PRD F9), earned by the checkpoint that completes a CEFR band */
+        /** @description A level badge, earned by the checkpoint that completes a CEFR band */
         BadgeResponse: {
             /** Format: date-time */
             awardedAt: string;
@@ -1018,9 +1018,9 @@ export interface components {
             /** @description available once every curriculum unit of the stage that has exercises is completed or skipped; start it with POST /api/checkpoints */
             status: components["schemas"]["CheckpointStatus"];
         };
-        /** @description A checkpoint passed with the required accuracy moves the learner up (PRD chapter 5); a failed one stays available */
+        /** @description A checkpoint passed with the required accuracy moves the learner up; a failed one stays available */
         CheckpointResult: {
-            /** @description Level badges awarded by this checkpoint (PRD F9), e.g. A1 for passing A1.3 */
+            /** @description Level badges awarded by this checkpoint, e.g. A1 for passing A1.3 */
             badges: components["schemas"]["LevelBadge"][];
             /** @description The stage of the checkpoint */
             level: components["schemas"]["Level"];
@@ -1069,7 +1069,7 @@ export interface components {
             skillTags: string[];
             title: string;
         };
-        /** @description Today's progress towards the daily goal and the streak (PRD F9); days are dates in the learner's time zone */
+        /** @description Today's progress towards the daily goal and the streak; days are dates in the learner's time zone */
         DailyProgressResponse: {
             /**
              * Format: date
@@ -1110,7 +1110,7 @@ export interface components {
             /** Format: int32 */
             due: number;
         };
-        /** @description FSRS forecast (PRD F10 "morgen fällig: 34 Items") */
+        /** @description FSRS forecast ("morgen fällig: 34 Items") */
         DueForecast: {
             /** @description The next 7 days from today, one entry per day; today includes the overdue cards */
             days: components["schemas"]["DueDay"][];
@@ -1247,7 +1247,7 @@ export interface components {
             /** @description Its FSRS card is in the review state, so the item counts as learned */
             known: boolean;
         };
-        /** @description The daily goal on the day of the lesson or placement test, up to and including it (PRD F9) */
+        /** @description The daily goal on the day of the lesson or placement test, up to and including it */
         LessonDailyGoal: {
             goalMet: boolean;
             /** Format: int32 */
@@ -1293,7 +1293,7 @@ export interface components {
             wordBank?: string[];
         };
         /**
-         * @description lesson of a unit, focus lesson on a weak skill tag (PRD F3), review of due items (PRD F8), checkpoint at the end of a stage (PRD chapter 5) or practice lesson on a chosen skill tag (PRD F10)
+         * @description lesson of a unit, focus lesson on a weak skill tag, review of due items, checkpoint at the end of a stage or practice lesson on a chosen skill tag
          * @enum {string}
          */
         LessonKind: "lesson" | "focus" | "review" | "checkpoint" | "practice";
@@ -1328,14 +1328,14 @@ export interface components {
             durationMs: number;
             /** Format: int32 */
             exerciseCount: number;
-            /** @description A focus lesson for a skill tag answered wrongly at least three times in this lesson (PRD F7); absent otherwise */
+            /** @description A focus lesson for a skill tag answered wrongly at least three times in this lesson; absent otherwise */
             focusSuggestion?: components["schemas"]["FocusSuggestion"];
             kind: components["schemas"]["LessonKind"];
             /** @description Items practised in the lesson */
             learnedItems: components["schemas"]["LearnedItem"][];
             /**
              * Format: int32
-             * @description Learned words of the learner: words and phrases whose FSRS card is in the review state (PRD F10)
+             * @description Learned words of the learner: words and phrases whose FSRS card is in the review state
              */
             learnedWordsTotal: number;
             streak: components["schemas"]["LessonStreak"];
@@ -1348,7 +1348,7 @@ export interface components {
              */
             xpTotal: number;
         };
-        /** @description The streak after the lesson or placement test (PRD F9) */
+        /** @description The streak after the lesson or placement test */
         LessonStreak: {
             /** Format: int32 */
             current: number;
@@ -1444,7 +1444,7 @@ export interface components {
             /** @description From "Ich kann kein Wort" to "Ich verstehe viel, will aber besser schreiben" */
             selfAssessments: components["schemas"]["SelfAssessmentOption"][];
         };
-        /** @description The onboarding questions (PRD F1); the options and their German labels come from GET /api/onboarding/options. */
+        /** @description The onboarding questions; the options and their German labels come from GET /api/onboarding/options. */
         OnboardingRequest: {
             /**
              * Format: int32
@@ -1498,7 +1498,7 @@ export interface components {
              */
             email: string;
         };
-        /** @description The learning path of the home screen (PRD 12.3): the plan up to C2 with the live progress */
+        /** @description The learning path of the home screen: the plan up to C2 with the live progress */
         PathResponse: {
             currentLevel: components["schemas"]["Level"];
             /** Format: int32 */
@@ -1588,7 +1588,7 @@ export interface components {
             /** @description translate_wordbank: word chips including distractors */
             wordBank?: string[];
         };
-        /** @description Result of a completed or skipped placement test (PRD F2), for the animated level reveal */
+        /** @description Result of a completed or skipped placement test, for the animated level reveal */
         PlacementResultResponse: {
             /** Format: int32 */
             answeredCount: number;
@@ -1618,7 +1618,7 @@ export interface components {
         };
         /** @enum {string} */
         PlanChangeKind: "plan_created" | "focus_inserted" | "unit_skipped" | "unit_shortened" | "level_changed" | "replanned";
-        /** @description One entry of the plan history (PRD F3) */
+        /** @description One entry of the plan history */
         PlanChangeResponse: {
             /** Format: date-time */
             changedAt: string;
@@ -1632,7 +1632,7 @@ export interface components {
             trigger: components["schemas"]["PlanTrigger"];
             type: components["schemas"]["PlanChangeKind"];
         };
-        /** @description The current plan version as stored (learning_plan.json, PRD 8.3); the statuses are those at its calculation, the live progress is in GET /api/path */
+        /** @description The current plan version as stored (learning_plan.json); the statuses are those at its calculation, the live progress is in GET /api/path */
         PlanResponse: {
             /** @description Per CEFR band (A1 … C2) of the plan the expected date by which it is done */
             estimates: {
@@ -1868,7 +1868,7 @@ export interface components {
              */
             time: string;
         };
-        /** @description The learner's reminders (PRD F9); times are HH:mm in the learner's time zone (settings) */
+        /** @description The learner's reminders; times are HH:mm in the learner's time zone (settings) */
         ReminderSettingsResponse: {
             /** @description Off until the learner switches them on */
             enabled: boolean;
@@ -1878,7 +1878,7 @@ export interface components {
             /** @example 19:00 */
             time: string;
         };
-        /** @description The learner's FSRS cards (PRD F8): what is due now and tomorrow. Only cards that a lesson exercise can practise count, so a review lesson can be started exactly while dueNow is above 0 */
+        /** @description The learner's FSRS cards: what is due now and tomorrow. Only cards that a lesson exercise can practise count, so a review lesson can be started exactly while dueNow is above 0 */
         ReviewSummaryResponse: {
             /**
              * Format: int32
@@ -1916,7 +1916,7 @@ export interface components {
             dailyGoalMinutes: number;
             /**
              * Format: double
-             * @description Target retention of the FSRS reviews (PRD F8)
+             * @description Target retention of the FSRS reviews
              * @example 0.9
              */
             requestRetention: number;
@@ -1935,7 +1935,7 @@ export interface components {
             dailyGoalMinutes: number;
             /**
              * Format: double
-             * @description Target retention of the FSRS reviews (PRD F8)
+             * @description Target retention of the FSRS reviews
              * @example 0.9
              */
             requestRetention: number;
@@ -2000,7 +2000,7 @@ export interface components {
             level: components["schemas"]["Level"];
         };
         /**
-         * @description lesson: a lesson of a unit or focus unit (unitId); practice: a practice lesson of the exercises with one skill tag (skillTag, PRD F10 "Gezielt üben")
+         * @description lesson: a lesson of a unit or focus unit (unitId); practice: a practice lesson of the exercises with one skill tag (skillTag, "Gezielt üben")
          * @enum {string}
          */
         StartLessonKind: "lesson" | "practice";
@@ -2036,7 +2036,7 @@ export interface components {
             /** Format: uuid */
             testId: string;
         };
-        /** @description Progress and statistics of the learner (PRD F10); days are dates in the learner's time zone */
+        /** @description Progress and statistics of the learner; days are dates in the learner's time zone */
         StatsResponse: {
             forecast: components["schemas"]["DueForecast"];
             heatmap: components["schemas"]["Heatmap"];
@@ -2165,7 +2165,7 @@ export interface components {
              */
             today: string;
         };
-        /** @description The streak (PRD F9): days in a row with the daily goal met. A single missed day is bridged by the streak freeze of its ISO week (1 per week, not carried over); two missed days in a row end the streak. */
+        /** @description The streak: days in a row with the daily goal met. A single missed day is bridged by the streak freeze of its ISO week (1 per week, not carried over); two missed days in a row end the streak. */
         StreakResponse: {
             /**
              * Format: int32
