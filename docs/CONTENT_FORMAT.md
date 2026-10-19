@@ -1,7 +1,7 @@
 # Content format contract
 
 Shared contract between `/content` (validated by `content/schema/*.schema.json`)
-and the backend seed importer (`app.lingora.content`). Based on PRD chapter 9.
+and the backend seed importer (`app.lumastar.content`). Based on PRD chapter 9.
 
 All files are UTF-8 JSON with `"schemaVersion": 1`. All Gheg text follows `content/LANGUAGE_GUIDE.md`.
 

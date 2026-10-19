@@ -1,4 +1,4 @@
-# Lingora
+# Lumastar
 
 Adaptive learning app for German speakers learning **Gheg Albanian** (Kosovo-Gheg): placement test,
 personal learning plan up to C2, dynamically composed lessons, FSRS-6 reviews, streaks and XP.
@@ -39,31 +39,31 @@ cd e2e && npm install && npx playwright install chromium && npm test
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `LINGORA_DB_URL` | `jdbc:postgresql://localhost:5433/lingora` | JDBC URL |
-| `LINGORA_DB_USER` / `LINGORA_DB_PASSWORD` | `lingora` / `lingora` | Database credentials (change in production) |
-| `LINGORA_CONTENT_PATH` | `../content` | Content folder imported on startup |
-| `LINGORA_PUBLIC_URL` | `http://localhost:5173` | Base URL used in mail links |
-| `LINGORA_REGISTRATION_MODE` | `open` | `open`, `invite` (needs `LINGORA_REGISTRATION_INVITE_CODE`) or `closed` |
-| `LINGORA_REGISTRATION_INVITE_CODE` | – | Shared invite code for `invite` mode |
-| `LINGORA_MAIL_HOST` / `LINGORA_MAIL_PORT` | `localhost` / `1025` | SMTP server (Mailpit in development) |
-| `LINGORA_MAIL_SMTP_AUTH` / `LINGORA_MAIL_STARTTLS` | `false` / `false` | SMTP authentication and STARTTLS |
+| `LUMASTAR_DB_URL` | `jdbc:postgresql://localhost:5433/lumastar` | JDBC URL |
+| `LUMASTAR_DB_USER` / `LUMASTAR_DB_PASSWORD` | `lumastar` / `lumastar` | Database credentials (change in production) |
+| `LUMASTAR_CONTENT_PATH` | `../content` | Content folder imported on startup |
+| `LUMASTAR_PUBLIC_URL` | `http://localhost:5173` | Base URL used in mail links |
+| `LUMASTAR_REGISTRATION_MODE` | `open` | `open`, `invite` (needs `LUMASTAR_REGISTRATION_INVITE_CODE`) or `closed` |
+| `LUMASTAR_REGISTRATION_INVITE_CODE` | – | Shared invite code for `invite` mode |
+| `LUMASTAR_MAIL_HOST` / `LUMASTAR_MAIL_PORT` | `localhost` / `1025` | SMTP server (Mailpit in development) |
+| `LUMASTAR_MAIL_SMTP_AUTH` / `LUMASTAR_MAIL_STARTTLS` | `false` / `false` | SMTP authentication and STARTTLS |
 | `SPRING_MAIL_USERNAME` / `SPRING_MAIL_PASSWORD` | – | SMTP credentials (set only on the server) |
-| `LINGORA_MAIL_FROM` | `Lingora <noreply@lingora.local>` | Sender of account mails |
-| `LINGORA_COOKIE_SECURE` | `false` | Set `true` behind HTTPS |
-| `LINGORA_FORWARD_HEADERS_STRATEGY` | `none` | Set `native` behind a reverse proxy (Caddy), otherwise all clients share one rate-limit key |
-| `LINGORA_PUSH_PUBLIC_KEY` / `LINGORA_PUSH_PRIVATE_KEY` | – | VAPID key pair for web push (`./gradlew generateVapidKeys`); push is off without them |
-| `LINGORA_PUSH_SUBJECT` | public URL | VAPID contact (`mailto:` or URL) |
-| `LINGORA_REMINDER_CRON` | every 5 min | Reminder job schedule (`-` disables it) |
+| `LUMASTAR_MAIL_FROM` | `Lumastar <noreply@lumastar.local>` | Sender of account mails |
+| `LUMASTAR_COOKIE_SECURE` | `false` | Set `true` behind HTTPS |
+| `LUMASTAR_FORWARD_HEADERS_STRATEGY` | `none` | Set `native` behind a reverse proxy (Caddy), otherwise all clients share one rate-limit key |
+| `LUMASTAR_PUSH_PUBLIC_KEY` / `LUMASTAR_PUSH_PRIVATE_KEY` | – | VAPID key pair for web push (`./gradlew generateVapidKeys`); push is off without them |
+| `LUMASTAR_PUSH_SUBJECT` | public URL | VAPID contact (`mailto:` or URL) |
+| `LUMASTAR_REMINDER_CRON` | every 5 min | Reminder job schedule (`-` disables it) |
 
 ## Backups
 
 All learner data lives in PostgreSQL. Back it up regularly, e.g. daily via cron:
 
 ```bash
-docker compose exec -T db pg_dump -U lingora -Fc lingora > lingora-$(date +%F).dump
+docker compose exec -T db pg_dump -U lumastar -Fc lumastar > lumastar-$(date +%F).dump
 ```
 
-Restore with `pg_restore -U lingora -d lingora --clean lingora-YYYY-MM-DD.dump`.
+Restore with `pg_restore -U lumastar -d lumastar --clean lumastar-YYYY-MM-DD.dump`.
 The in-app export (ZIP with JSON + Markdown profile documents) is a second, portable backup.
 
 ## Repository layout
