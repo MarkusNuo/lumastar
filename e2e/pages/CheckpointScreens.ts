@@ -5,7 +5,7 @@ import { escapeRegExp } from '../support/regex.ts';
 /** "0.8" → "80 %", as the checkpoint screens write shares. */
 export const share = (value: number) => `${Math.round(value * 100)} %`;
 
-/** The sheet a checkpoint node of the path opens before the test starts (PRD 5). */
+/** The sheet a checkpoint node of the path opens before the test starts. */
 export class CheckpointIntroSheet {
   readonly page: Page;
   readonly sheet: Locator;
@@ -36,7 +36,7 @@ export class CheckpointIntroSheet {
   }
 }
 
-/** The end of a checkpoint: an encouraging retry, or the level-up celebration (PRD 5, F9). */
+/** The end of a checkpoint: an encouraging retry, or the level-up celebration. */
 export class CheckpointResultScreen {
   readonly page: Page;
   readonly failedHeading: Locator;
@@ -75,7 +75,7 @@ export class CheckpointResultScreen {
   }
 }
 
-/** The level badges a checkpoint earned (PRD F9), one moment after the level-up. */
+/** The level badges a checkpoint earned, one moment after the level-up. */
 export class BadgeRevealScreen {
   readonly page: Page;
   readonly continueButton: Locator;

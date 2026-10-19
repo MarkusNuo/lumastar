@@ -17,7 +17,7 @@ import { expectAccountMail, Inbox, linkIn, SUBJECTS } from '../../support/mailpi
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * The section "Konto" of the profile tab (M8): display name, sign-in address and password, each on
+ * The section "Konto" of the profile tab: display name, sign-in address and password, each on
  * a screen of its own. Every test changes an account of its own.
  */
 test.use({ storageState: { cookies: [], origins: [] } });

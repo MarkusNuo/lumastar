@@ -47,7 +47,7 @@ test('the learner signs in with the e-mail address in any case; logout, a wrong 
   await shell.expectHome();
   expect(await fetchAuthStatus(page.request)).toMatchObject({ authenticated: true, displayName: LEARNER.displayName });
   const cookies = await page.context().cookies();
-  expect(cookies.find((cookie) => cookie.name === SESSION_COOKIE), 'the session cookie (DECISIONS #103)').toMatchObject({
+  expect(cookies.find((cookie) => cookie.name === SESSION_COOKIE), 'the session cookie').toMatchObject({
     httpOnly: true,
     sameSite: 'Lax',
   });

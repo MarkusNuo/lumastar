@@ -5,7 +5,7 @@ import { csrfHeaders } from '../../support/csrf.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * The registration beyond the first start of the setup project (M8): what the backend refuses. Each
+ * The registration beyond the first start of the setup project: what the backend refuses. Each
  * test registers accounts of its own; the page starts signed out.
  */
 test.use({ storageState: { cookies: [], origins: [] } });

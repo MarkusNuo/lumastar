@@ -1,7 +1,7 @@
 import { test as base, type BrowserContext, type Page } from '@playwright/test';
 
 /*
- * A browser profile on disk instead of Playwright's off-the-record context (M9): Chromium keeps the
+ * A browser profile on disk instead of Playwright's off-the-record context: Chromium keeps the
  * service worker, its notifications and the granted permission as an installed browser does. Real
  * push still needs Google's push service (`pushManager.subscribe()` waits for it), so the tests swap
  * the push service at both ends (support/browserPush.ts) and keep the worker real.

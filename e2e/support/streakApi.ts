@@ -1,7 +1,7 @@
 import { expect, type APIRequestContext, type APIResponse, type Page, type Response } from '@playwright/test';
 import { csrfHeaders } from './csrf.ts';
 
-/* The streak screen and the streak goal of M10: GET /api/streak and PUT /api/streak/goal. */
+/* The streak screen and the streak goal: GET /api/streak and PUT /api/streak/goal. */
 
 export type StreakDayStatus = 'met' | 'frozen';
 
@@ -26,7 +26,7 @@ export interface StreakGoal {
   progress: number;
   reached: boolean;
   /**
-   * The goals to choose now, ascending (DECISIONS #101): once reached, the next three rungs above
+   * The goals to choose now, ascending: once reached, the next three rungs above
    * max(target, streak); before, the first three rungs above the streak other than the target.
    */
   options: number[];
@@ -46,7 +46,7 @@ export interface StreakOverview {
   goal: StreakGoal;
 }
 
-/** The rungs of the streak goal ladder up to a year; then every 100 days more (DECISIONS #98). */
+/** The rungs of the streak goal ladder up to a year; then every 100 days more. */
 export const GOAL_LADDER = [10, 20, 30, 50, 75, 100, 150, 200, 250, 300, 365] as const;
 
 /** The first goal of every learner. */

@@ -5,7 +5,7 @@ export const isRegistration = (response: Response) =>
   response.request().method() === 'POST' && new URL(response.url()).pathname === '/api/auth/register';
 
 /**
- * Registration (/registrieren), the first counted step of the first start (PRD F1, M8): one form
+ * Registration (/registrieren), the first counted step of the first start: one form
  * with name, address and password; the invite code only when the instance needs one. Its progress
  * bar runs on through the onboarding questions, see OnboardingPage.
  */

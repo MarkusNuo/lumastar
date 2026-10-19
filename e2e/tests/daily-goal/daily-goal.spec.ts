@@ -7,7 +7,7 @@ import { StreakCelebration, watchForPathFlash } from '../../pages/StreakCelebrat
 import { shownDay } from '../../support/dates.ts';
 import { ONBOARDING } from '../../support/learner.ts';
 import { feedbackTour } from '../../support/lessonAnswers.ts';
-import { P0_EXERCISE_TYPES } from '../../support/lessonApi.ts';
+import { EXERCISE_TYPES } from '../../support/lessonApi.ts';
 import { openLesson, playOpenedLesson } from '../../support/lessonFlow.ts';
 import { fetchPath, fetchPlanChanges, nextBandGoal, type LearningPath } from '../../support/planApi.ts';
 import {
@@ -19,7 +19,7 @@ import { finishOpenFocusUnits } from '../../support/progression.ts';
 import { exerciseScreenName, scrollToTop, snapOnAllPhones } from '../../support/screenshots.ts';
 
 /*
- * The daily goal and the streak (PRD F9, 12.3, 12.4). The goal counts the minutes from the start to
+ * The daily goal and the streak. The goal counts the minutes from the start to
  * the end of each lesson, and only the lesson that first meets it extends the streak, once a day. So
  * this runs in its own project right after the setup, before any lesson of the run (see
  * playwright.config.ts): the learner sets a 5-minute goal in the profile, one lesson takes five
@@ -51,7 +51,7 @@ async function changeDailyGoal(page: Page, profile: ProfilePage, minutes: DailyG
   const saved = await profile.chooseGoal(minutes);
   expect(saved.dailyGoalMinutes).toBe(minutes);
   const pathAfter = await fetchPath(page.request);
-  expect(pathAfter.dailyGoalMinutes, 'the plan follows the goal (PRD F3)').toBe(minutes);
+  expect(pathAfter.dailyGoalMinutes, 'the plan follows the goal').toBe(minutes);
   await expectPlanNote(page, profile, pathBefore, pathAfter);
   expect((await fetchPlanChanges(page.request))[0]).toMatchObject({
     type: 'replanned',
@@ -116,8 +116,8 @@ test('a 5-minute goal set in the profile: the lesson that meets it fills the rin
     const deadline = Date.now() + SHORT_GOAL * 60_000 + MARGIN_MS;
     expect(
       new Set(opened.lesson.exercises.map((exercise) => exercise.type)),
-      'the first lesson of a unit mixes every P0 type (PRD F4)',
-    ).toEqual(new Set(P0_EXERCISE_TYPES));
+      'the first lesson of a unit mixes every exercise type',
+    ).toEqual(new Set(EXERCISE_TYPES));
     // The first lesson of a fresh instance is composed the same in every run: its exercise types
     // and feedback sheets are captured here at both sizes.
     const intents = feedbackTour(opened.lesson.exercises);

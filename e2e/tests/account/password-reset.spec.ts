@@ -17,7 +17,7 @@ import { expectAccountMail, Inbox, linkIn, SUBJECTS } from '../../support/mailpi
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * "Passwort vergessen?" (M8): the link goes only to a confirmed address, works once, and the new
+ * "Passwort vergessen?": the link goes only to a confirmed address, works once, and the new
  * password ends every other session of the account.
  */
 test.use({ storageState: { cookies: [], origins: [] } });

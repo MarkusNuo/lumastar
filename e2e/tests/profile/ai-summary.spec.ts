@@ -11,7 +11,7 @@ import { escapeRegExp } from '../../support/regex.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * "KI-Zusammenfassung kopieren" and "Zusammenfassung ansehen" (PRD F11, 8.3): after a lesson with one
+ * "KI-Zusammenfassung kopieren" and "Zusammenfassung ansehen": after a lesson with one
  * wrong answer the summary frames the request for the AI, names the level and the current unit, lists
  * strengths and weaknesses as "<skill> <mastery> %" and shows that mistake with its task first.
  */
@@ -88,7 +88,7 @@ test('after a lesson the AI summary is copied to the clipboard and shown formatt
     const [title, framing, blank, ...lines] = copied.split('\n');
     expect(copied.startsWith('# Lernstand')).toBe(true);
     expect(title, JSON.stringify(title)).toMatch(new RegExp(`^# ${HEADING}$`));
-    expect(framing, 'it asks the AI for German answers and Gheg forms only (PRD 4)').toBe(FRAMING);
+    expect(framing, 'it asks the AI for German answers and Gheg forms only').toBe(FRAMING);
     expect(blank).toBe('');
     expect(lines[0]?.startsWith(`- ${level},`), `the level comes first: ${lines[0]}`).toBe(true);
     expect(lines[1], 'the unit the path continues with').toBe(

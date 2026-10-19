@@ -4,7 +4,7 @@ import { AppShell } from './AppShell.ts';
 
 const count = (value: number) => value.toLocaleString('de-CH');
 
-/** Tab "Wiederholen" (/wiederholen, PRD F8, 12.3): what is due, as a lesson of its own. */
+/** Tab "Wiederholen" (/wiederholen): what is due, as a lesson of its own. */
 export class ReviewTab {
   readonly page: Page;
   readonly shell: AppShell;
@@ -52,7 +52,7 @@ export class ReviewTab {
     await expect(this.learnButton).toHaveCount(0);
   }
 
-  /** Everything reviewed: no dead button, but the way to new content (PRD F8). */
+  /** Everything reviewed: no dead button, but the way to new content. */
   async expectAllDone(summary: ReviewSummary): Promise<void> {
     const card = this.summary('Alles wiederholt!');
     await expect(card).toBeVisible();

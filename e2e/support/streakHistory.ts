@@ -19,14 +19,14 @@ import { fetchSettings } from './progressApi.ts';
 import { addDays, mondayOf } from './streakApi.ts';
 
 /*
- * A streak of many days for a new learner of a test (M10). The backend has no test clock, so the
+ * A streak of many days for a new learner of a test. The backend has no test clock, so the
  * days before today come from a backup: the learner plays one lesson through the API, exports, and
  * imports the export again with the streak days, the stored streak and the minutes practised today
  * changed. An import never extends the streak itself; the next lesson that meets the daily goal does,
  * as on any other day, and only needs to take the few seconds still missing.
  */
 
-/** The smallest daily goal (PRD F1): the seeded practice time leaves only seconds of it open. */
+/** The smallest daily goal: the seeded practice time leaves only seconds of it open. */
 export const HISTORY_GOAL_MINUTES = 5;
 
 export interface HistoryDay {
@@ -50,7 +50,7 @@ export interface StreakHistory {
   dailyGoalMinutes?: number;
   /**
    * Imports the stored streak without its days, as a backup may hold it whose days were never
-   * recorded (DECISIONS #101): the streak counts on from the stored row alone.
+   * recorded: the streak counts on from the stored row alone.
    */
   withoutDayRows?: boolean;
 }

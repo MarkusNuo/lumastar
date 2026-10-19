@@ -20,7 +20,7 @@ export const VARIANT_OF: Record<Outcome, FeedbackVariant> = {
   wrong: 'wrong',
 };
 
-/** Title, colour tone and solution label of the feedback sheet per variant (PRD F5, 12.3). */
+/** Title, colour tone and solution label of the feedback sheet per variant. */
 export const FEEDBACK: Record<FeedbackVariant, { title: string; tone: string; solutionLabel: string }> = {
   correct: { title: 'Richtig!', tone: 'success', solutionLabel: 'Lösung' },
   almost: { title: 'Fast richtig!', tone: 'warning', solutionLabel: 'Richtige Schreibweise' },

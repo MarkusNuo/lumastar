@@ -21,9 +21,6 @@ export const MAILPIT = {
   api: `http://${HOST}:8025/api/v1`,
 } as const;
 
-/** Screenshots land in screenshots/<milestone>/; bump per milestone or override via env. */
-export const MILESTONE = process.env.LUMASTAR_E2E_MILESTONE ?? 'm11';
-
 /**
  * Identifies this run in the e-mail addresses of its accounts, so the tests find their own mails in
  * Mailpit, which outlives the throwaway database. Set once by the runner process; its workers inherit it.
@@ -32,8 +29,8 @@ const RUN_ID_ENV = 'LUMASTAR_E2E_RUN_ID';
 export const RUN_ID: string = (process.env[RUN_ID_ENV] ||= Date.now().toString(36));
 
 /**
- * Which code the servers run: the working tree (default) or the last commit (E2E_SOURCE=head), which
- * stays stable while edits continue in backend/, frontend/ and content/ in the shared working tree.
+ * Which code the servers run: the working tree (default) or an export of a pinned commit
+ * (E2E_SOURCE=head), which uncommitted changes to backend/, frontend/ and content/ never reach.
  */
 export type Source = 'worktree' | 'head';
 
@@ -46,8 +43,8 @@ function sourceFromEnv(value: string | undefined): Source {
 export const SOURCE: Source = sourceFromEnv(process.env.E2E_SOURCE);
 
 /**
- * The commit E2E_SOURCE=head exports: HEAD unless E2E_REF names another one, e.g. the last commit
- * before an unfinished change changed a flow the tests depend on.
+ * The commit E2E_SOURCE=head exports: HEAD unless E2E_REF names another one, e.g. a known good
+ * commit to compare a run with.
  */
 export const SOURCE_REF = process.env.E2E_REF?.trim() || 'HEAD';
 
@@ -66,5 +63,5 @@ export const PATHS = {
   /** Own build output, so e2e never overwrites frontend/dist while the frontend is being worked on. */
   frontendDist: fromE2eRoot('.frontend-dist'),
   authState: fromE2eRoot('.auth/learner.json'),
-  screenshots: fromE2eRoot(`screenshots/${MILESTONE}`),
+  screenshots: fromE2eRoot('screenshots'),
 } as const;

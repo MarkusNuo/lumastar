@@ -14,7 +14,7 @@ import { completeStageViaApi, passCheckpointViaApi } from '../../support/progres
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * Level badges (PRD F9): the checkpoint of the last stage of a CEFR band (e.g. A1.3) awards the badge
+ * Level badges: the checkpoint of the last stage of a CEFR band (e.g. A1.3) awards the badge
  * of the band, revealed right after the level-up, and the profile lists it among A1 … C2. Every
  * stage up to there is played and passed through the API, all answers right (units the learner
  * masters on the way are skipped or shortened), so it plays more lessons than any other test;

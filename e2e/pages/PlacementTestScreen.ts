@@ -4,7 +4,7 @@ import { LessonPlayer } from './LessonPlayer.ts';
 
 /**
  * The placement test (/einstufung/test): one item per screen in the exercise components of the
- * lesson player, but without "Prüfen" and without a verdict: "Weiter" moves on (PRD F2).
+ * lesson player, but without "Prüfen" and without a verdict: "Weiter" moves on.
  */
 export class PlacementTestScreen {
   readonly page: Page;

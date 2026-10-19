@@ -25,7 +25,7 @@ import { HISTORY_GOAL_MINUTES, run, seedStreakHistory } from '../../support/stre
 import { zoneAroundMidday } from '../../support/timeZones.ts';
 
 /*
- * The streak celebration of M10 on learners of their own, with days of streak before today from an
+ * The streak celebration on learners of their own, with days of streak before today from an
  * imported backup (support/streakHistory.ts) and the daily goal all but met: one lesson through the UI
  * meets it. The show plays with motion (the other tests reduce it) on the page's own clock, which the
  * test stops right before the celebration and moves on step by step, so the frames are the same in
@@ -38,7 +38,7 @@ test.use({ storageState: { cookies: [], origins: [] }, reducedMotion: 'no-prefer
 const PRACTISED_TODAY_MS = HISTORY_GOAL_MINUTES * 60_000 - 20_000;
 const LESSON_MS = 25_000;
 
-/** PRD F7: a skill tag with at least three mistakes in one lesson suggests a focus lesson. */
+/** A skill tag with at least three mistakes in one lesson suggests a focus lesson. */
 const FOCUS_MISTAKES = 3;
 
 /** Stops the page's clock: the celebration that opens next waits in its first frame. */

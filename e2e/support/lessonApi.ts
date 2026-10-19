@@ -17,7 +17,7 @@ export type ExerciseType =
   | 'match_pairs'
   | 'word_order';
 
-export const P0_EXERCISE_TYPES: readonly ExerciseType[] = [
+export const EXERCISE_TYPES: readonly ExerciseType[] = [
   'multiple_choice',
   'translate_wordbank',
   'translate_free',
@@ -28,7 +28,7 @@ export const P0_EXERCISE_TYPES: readonly ExerciseType[] = [
 
 export type Lang = 'sq' | 'de';
 
-/** lesson of a unit, focus lesson (PRD F3, F7), review (F8), checkpoint (PRD 5), practice (F10). */
+/** Lesson of a unit, focus lesson, review, checkpoint or practice. */
 export type LessonKind = 'lesson' | 'focus' | 'review' | 'checkpoint' | 'practice';
 
 export interface LessonExercise {
@@ -83,14 +83,14 @@ export interface AttemptResponse {
   hint?: string;
 }
 
-/** A focus lesson on the skill tag a lesson got wrong at least three times (PRD F7). */
+/** A focus lesson on the skill tag a lesson got wrong at least three times. */
 export interface FocusSuggestion {
   skillTag: string;
   label: string;
   unitId: string;
 }
 
-/** The result of a checkpoint (PRD 5, F9). */
+/** The result of a checkpoint. */
 export interface CheckpointResult {
   level: string;
   passed: boolean;
@@ -101,7 +101,7 @@ export interface CheckpointResult {
   badges: string[];
 }
 
-/** The daily goal on the day of the lesson, up to and including it (PRD F9). */
+/** The daily goal on the day of the lesson, up to and including it. */
 export interface LessonDailyGoal {
   minutesToday: number;
   goalMinutes: number;
@@ -110,21 +110,21 @@ export interface LessonDailyGoal {
   justMet: boolean;
 }
 
-/** A streak goal the completion reached, with the next goals to choose from (M10). */
+/** A streak goal the completion reached, with the next goals to choose from. */
 export interface StreakGoalReached {
   target: number;
   /** The next three rungs of the goal ladder, ascending. */
   options: number[];
 }
 
-/** The streak after the lesson (PRD F9). */
+/** The streak after the lesson. */
 export interface LessonStreak {
   current: number;
-  /** The streak before the lesson: one less if it extended the streak, else equal to current (M10). */
+  /** The streak before the lesson: one less if it extended the streak, else equal to current. */
   previous: number;
   extendedToday: boolean;
   freezeUsed: boolean;
-  /** Only when the completion extended the streak to its goal, until the next goal is chosen (M10). */
+  /** Only when the completion extended the streak to its goal, until the next goal is chosen. */
   goalReached?: StreakGoalReached;
 }
 
@@ -138,7 +138,7 @@ export interface LessonResultResponse {
   exerciseCount: number;
   /** The items practised in the lesson; `known` once the FSRS card of the item is in review state. */
   learnedItems: { id: string; gheg: string; de: string; known: boolean }[];
-  /** Learned words of the learner (PRD F10): words and phrases whose card is in review state. */
+  /** Learned words of the learner: words and phrases whose card is in review state. */
   learnedWordsTotal: number;
   xpTotal: number;
   focusSuggestion?: FocusSuggestion;

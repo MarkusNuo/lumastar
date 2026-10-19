@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { BANDS, PLAN_CHANGE_LABELS, type Band, type PlanChange } from '../support/planApi.ts';
 
-/** The plan (/plan): a timeline of the CEFR bands up to C2 and the "Plan-Verlauf" (PRD F3, 12.3). */
+/** The plan (/plan): a timeline of the CEFR bands up to C2 and the "Plan-Verlauf". */
 export class PlanPage {
   readonly page: Page;
   readonly heading: Locator;

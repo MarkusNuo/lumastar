@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { AppShell } from './AppShell.ts';
 
-/** Route of the reminder settings (M9), below the profile tab. */
+/** Route of the reminder settings, below the profile tab. */
 export const REMINDERS_ROUTE = '/profil/erinnerungen';
 
 /** What the screen says where reminders cannot be switched on (region titles). */

@@ -24,7 +24,7 @@ import { fetchStats } from '../../support/statsApi.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * Two learners on one instance (M8): the second one never sees anything of the first, neither on the
+ * Two learners on one instance: the second one never sees anything of the first, neither on the
  * screens nor through the API, and cannot reach the first one's lessons or placement test by id.
  */
 test.use({ storageState: { cookies: [], origins: [] } });

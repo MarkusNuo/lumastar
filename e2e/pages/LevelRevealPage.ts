@@ -4,7 +4,7 @@ import type { PlacementResult, SkillEstimate } from '../support/placementApi.ts'
 /** "30 %" as the reveal formats a mastery share (Swiss German, rounded). */
 export const percentOf = (mastery: number) => new RegExp(`^${Math.round(mastery * 100)}\\s?%$`);
 
-/** The animated level reveal after a placement (/einstufung/ergebnis/:testId, PRD 12.3). */
+/** The animated level reveal after a placement (/einstufung/ergebnis/:testId). */
 export class LevelRevealPage {
   readonly page: Page;
   readonly heading: Locator;

@@ -21,7 +21,7 @@ import {
 } from '../../support/statsApi.ts';
 
 /*
- * The tab "Statistik" (PRD F10): the streak and learned words, the level with the way to the next
+ * The tab "Statistik": the streak and learned words, the level with the way to the next
  * stage, mastery per area, the five most frequent errors with "Gezielt üben", the learning days of
  * the last year and the FSRS forecast. Each test first makes mistakes on one skill tag of the
  * learner's stage through the API, so the top errors have an entry it added to, whatever ran before.

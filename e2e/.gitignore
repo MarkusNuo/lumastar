@@ -1,6 +1,7 @@
-# Playwright output (screenshots/ is committed on purpose: it is the visual review artefact)
+# Playwright output and the screenshots of the visual review
 test-results/
 playwright-report/
 blob-report/
+screenshots/
 /.auth/
 /.frontend-dist/

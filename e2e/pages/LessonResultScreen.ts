@@ -14,7 +14,7 @@ export const RESULT_TITLES: Record<Exclude<LessonKind, 'checkpoint'>, string> = 
 };
 export const PERFECT_TITLE = 'Fehlerfrei!';
 
-/** Headline and line below it of the "Tagesziel" card on the result screen (PRD F9). */
+/** Headline and line below it of the "Tagesziel" card on the result screen. */
 export function dailyGoalCardText({ minutesToday, goalMinutes, goalMet, justMet }: LessonDailyGoal): {
   headline: string;
   detail: string;
@@ -27,7 +27,7 @@ export function dailyGoalCardText({ minutesToday, goalMinutes, goalMet, justMet 
   };
 }
 
-/** Lesson end (PRD F5, F9, 12.3): title, XP, accuracy and time cards, today's goal, practised words. */
+/** Lesson end: title, XP, accuracy and time cards, today's goal, practised words. */
 export class LessonResultScreen {
   readonly page: Page;
   /** The title of any lesson kind; a checkpoint ends on its own screen (CheckpointResultScreen). */
@@ -64,7 +64,7 @@ export class LessonResultScreen {
   }
 
   /**
-   * "Weiter": the lesson that met today's goal is followed by the streak celebration (PRD F9),
+   * "Weiter": the lesson that met today's goal is followed by the streak celebration,
    * which takes a second "Weiter"; every other lesson leaves at once.
    */
   async leave(result: Pick<LessonResultResponse, 'dailyGoal' | 'streak'>): Promise<void> {
@@ -72,7 +72,7 @@ export class LessonResultScreen {
     await new StreakCelebration(this.page).continueIfDue(result);
   }
 
-  /** The card that suggests a focus lesson (PRD F7), named "Fokus-Lektion vorgeschlagen: <tag>". */
+  /** The card that suggests a focus lesson, named "Fokus-Lektion vorgeschlagen: <tag>". */
   focusSuggestion(label: string): Locator {
     return this.page.getByRole('region', { name: `Fokus-Lektion vorgeschlagen: ${label}`, exact: true });
   }

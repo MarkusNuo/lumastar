@@ -25,7 +25,7 @@ import { HISTORY_GOAL_MINUTES, run, seedStreakHistory, setDailyGoalViaApi } from
 import { zoneAroundMidday } from '../../support/timeZones.ts';
 
 /*
- * The streak screen of M10 behind the flame of the top bar: the shared learner's own streak (read
+ * The streak screen behind the flame of the top bar: the shared learner's own streak (read
  * only), the month navigation, and learners of their own with a history from an imported backup:
  * bands across weeks, a gap, a frozen day, maybe two months, a streak that reaches its first goal
  * (the goal card with the mouse and the keyboard), and a reached goal after the streak broke.

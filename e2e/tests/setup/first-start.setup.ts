@@ -19,14 +19,14 @@ import { snapOnAllPhones } from '../../support/screenshots.ts';
 import { Stopwatch } from '../../support/stopwatch.ts';
 
 /*
- * Runs once per test run, before every other project, so the first start of PRD F1 is captured once
- * at every phone size. The second test registers the learner every signed-in project shares (M8),
+ * Runs once per test run, before every other project, so the first start is captured once
+ * at every phone size. The second test registers the learner every signed-in project shares,
  * answers the questions with "Ich kann kein Wort", skips the placement test (A0, the same in every
  * run), confirms the address with the link from the mail and stores the session. A full placement
  * through the UI runs later as "Neu einstufen"; the account screens in detail: tests/account.
  */
 
-/** PRD F1: the onboarding can be completed in under a minute. */
+/** The onboarding can be completed in under a minute. */
 const ONBOARDING_LIMIT_MS = 60_000;
 
 const isOnboardingAnswer = (response: Response) =>
@@ -159,7 +159,7 @@ test('the first start: registration, onboarding questions and the skipped placem
   });
 
   let result: PlacementResult | undefined;
-  await test.step('placement intro: a beginner may skip the test (PRD F1)', async () => {
+  await test.step('placement intro: a beginner may skip the test', async () => {
     const intro = new PlacementIntroPage(page);
     await intro.expectVisible('first');
     await expect(intro.skipButton).toBeVisible();
@@ -196,11 +196,11 @@ test('the first start: registration, onboarding questions and the skipped placem
     const units = data.stages.flatMap((stage) => stage.units);
     expect(
       units.filter((unit) => unit.status !== 'planned' && unit.status !== 'in_progress'),
-      'a new learner has done nothing yet, and a placement alone skips no unit (PRD F3)',
+      'a new learner has done nothing yet, and a placement alone skips no unit',
     ).toEqual([]);
     expect(
       data.stages.filter((stage) => stage.checkpoint.status !== 'locked'),
-      'no unit done, so every checkpoint is locked (PRD 5)',
+      'no unit done, so every checkpoint is locked',
     ).toEqual([]);
     const unit = currentUnit(data);
     await expect(path.unit(unit.title).getByRole('button', { name: 'Lektion 1, als Nächstes' })).toBeVisible();
@@ -209,7 +209,7 @@ test('the first start: registration, onboarding questions and the skipped placem
 
   const elapsedMs = clock.elapsedMs();
   test.info().annotations.push({ type: 'first start', description: `${Math.round(elapsedMs)} ms` });
-  expect(elapsedMs, 'from the welcome screen to the path (PRD F1)').toBeLessThan(ONBOARDING_LIMIT_MS);
+  expect(elapsedMs, 'from the welcome screen to the path').toBeLessThan(ONBOARDING_LIMIT_MS);
 
   expect(await fetchMe(page.request)).toMatchObject({
     displayName: LEARNER.displayName,

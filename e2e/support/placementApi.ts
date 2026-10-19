@@ -7,7 +7,7 @@ import { PATHS } from './env.ts';
 import type { ExerciseType, Lang, LessonDailyGoal, LessonStreak } from './lessonApi.ts';
 
 /*
- * The placement test of PRD F2 as the e2e tests see it: the API responses the screens are built
+ * The placement test as the e2e tests see it: the API responses the screens are built
  * from, and the solutions of the item bank, which the API never sends (the test gives no feedback).
  */
 
@@ -57,7 +57,7 @@ export interface PlacementResult {
   strengths: SkillEstimate[];
   weaknesses: SkillEstimate[];
   competences: { competence: Competence; answered: number; correct: number }[];
-  /** A completed test counts as practice time like a lesson; a skipped one does not (PRD F9). */
+  /** A completed test counts as practice time like a lesson; a skipped one does not. */
   dailyGoal: LessonDailyGoal;
   streak: LessonStreak;
 }

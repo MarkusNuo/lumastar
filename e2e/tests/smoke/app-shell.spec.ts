@@ -16,7 +16,7 @@ test('the home tab shows the top bar, the learning path and the bottom navigatio
   await page.goto('/');
   await shell.expectHome();
   await expect(page.getByRole('heading', { name: 'Lernpfad' })).toBeAttached();
-  // PRD 12.3: streak (flame and number), XP and the daily-goal ring.
+  // The top bar: streak (flame and number), XP and the daily-goal ring.
   await shell.expectProgress(await fetchTodayProgress(page.request));
   await expect(shell.xpLabel).toHaveText(`${await fetchXpTotal(page.request)} XP`);
   await snap(page, 'home', { fullPage: false });
@@ -32,7 +32,7 @@ test('the profile tab shows the signed-in learner', async ({ page }) => {
   const shell = new AppShell(page);
   await page.goto('/');
   await shell.openProfile();
-  // In the header and in the row "Anzeigename" of the section "Konto" (M8).
+  // In the header and in the row "Anzeigename" of the section "Konto".
   const name = page.getByRole('main').getByText(LEARNER.displayName, { exact: true });
   await expect(name).toHaveCount(2);
   await expect(name.first()).toBeVisible();
@@ -41,7 +41,7 @@ test('the profile tab shows the signed-in learner', async ({ page }) => {
   await snap(page, 'profile', { fullPage: false });
 });
 
-// Every tab is real since M5: no placeholder is left (the Statistik tab in detail: tests/stats).
+// Every tab is real: no placeholder is left (the Statistik tab in detail: tests/stats).
 test('the Statistik tab opens from the navigation with all its sections', async ({ page }) => {
   const shell = new AppShell(page);
   await page.goto('/');

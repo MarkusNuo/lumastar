@@ -14,7 +14,7 @@ export type CalendarDayState = 'met' | 'frozen' | 'open' | 'future';
 /** The part of a streak band a day is: days in a row join into one band within a week row. */
 export type BandShape = 'start' | 'middle' | 'end' | 'single';
 
-/** One day cell of the calendar as the screen shows it, or as the rules of M10 expect it. */
+/** One day cell of the calendar as the screen shows it, or as the calendar rules expect it. */
 export interface CalendarCell {
   date: string;
   label: string;
@@ -36,7 +36,7 @@ const DAY_STATE_LABEL: Record<CalendarDayState, string> = {
 export const days = (count: number) => `${count} ${count === 1 ? 'Tag' : 'Tage'}`;
 
 /**
- * The cells of a month as the owner asked for them (M10): weeks start on Monday; a band runs on into
+ * The cells of a month by the calendar rules: weeks start on Monday; a band runs on into
  * the day before and after when that day is a streak day of the same month and the same week row;
  * a day bridged by the streak freeze is part of the band in ice blue. Labels without the day names,
  * which the browser formats (`withLabels`).
@@ -60,7 +60,7 @@ export function expectedCells(
 }
 
 /**
- * Route /streak behind the flame of the top bar (M10): the hero with the streak and its flame, the
+ * Route /streak behind the flame of the top bar: the hero with the streak and its flame, the
  * month calendar with the streak bands, the streak goal and the streak freeze.
  */
 export class StreakPage {

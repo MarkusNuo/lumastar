@@ -11,7 +11,7 @@ import { saveReminders, subscribeViaApi, type PushNotification } from '../../sup
 import { hhmm, localTime, moveLearnerTo, zoneAroundMidday } from '../../support/timeZones.ts';
 
 /*
- * The service worker of the production build with reminders (M9), in a browser profile on disk
+ * The service worker of the production build with reminders, in a browser profile on disk
  * (support/persistentBrowser.ts): a push message becomes a system notification, one per kind, and
  * the open app clears what is stale. The browser cannot tap a notification under automation (a
  * synthetic notificationclick cannot extend its lifetime), so the frontend's unit tests cover the

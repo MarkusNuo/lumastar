@@ -6,7 +6,7 @@ export interface CatalogSectionLink {
   title: string;
 }
 
-/** Public component catalog (/dev/ui) of the design system (PRD 12.5). */
+/** Public component catalog (/dev/ui) of the design system. */
 export class CatalogPage {
   /**
    * Screenshot-only CSS: the sticky catalog header would otherwise cover the top of a section that is

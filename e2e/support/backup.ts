@@ -2,8 +2,8 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { strFromU8, strToU8, unzipSync, zipSync } from 'fflate';
 
 /*
- * The export ZIP of PRD F11 (GET /api/profile/export): manifest.json, the profile documents of PRD
- * 8.3 under documents/ and the complete learner data under data/, one JSON array per table.
+ * The export ZIP (GET /api/profile/export): manifest.json, the learner-profile documents
+ * under documents/ and the complete learner data under data/, one JSON array per table.
  */
 
 export const DOCUMENTS = [
@@ -14,7 +14,7 @@ export const DOCUMENTS = [
   'learner_summary.md',
 ] as const;
 
-/** The export format this version of Lumastar writes; an import upgrades older ones and rejects newer ones (PRD 13). */
+/** The export format this version of Lumastar writes; an import upgrades older ones and rejects newer ones. */
 export const EXPORT_FORMAT = 5;
 
 /** Learner tables of export format 5; data/profile.json holds the account row without its identity. */
@@ -43,7 +43,7 @@ export const EXPECTED_ENTRIES = [
   ...DATA_TABLES.map((table) => `data/${table}.json`),
 ];
 
-/** Error taxonomy of PRD F6. */
+/** The error categories of the answer evaluator. */
 export const ERROR_CATEGORIES = [
   'vocab.unknown',
   'vocab.confused',
@@ -76,7 +76,7 @@ export interface Manifest {
   counts: BackupCounts;
 }
 
-/** learner_profile.json (PRD 8.3). */
+/** learner_profile.json. */
 export interface LearnerProfileDocument {
   schemaVersion: number;
   displayName: string;
@@ -89,7 +89,7 @@ export interface LearnerProfileDocument {
   streak: { current: number; longest: number };
 }
 
-/** One value of skill_mastery.json, keyed by skill tag (PRD 8.3). */
+/** One value of skill_mastery.json, keyed by skill tag. */
 export interface MasteryDocument {
   mastery: number;
   attempts: number;
@@ -97,7 +97,7 @@ export interface MasteryDocument {
   lastPracticed: string | null;
 }
 
-/** One entry of recent_errors.json (PRD 8.3). */
+/** One entry of recent_errors.json. */
 export interface RecentError {
   ts: string;
   exerciseType: string;
@@ -108,7 +108,7 @@ export interface RecentError {
   given: string | null;
 }
 
-/** learning_plan.json (PRD 8.3). */
+/** learning_plan.json. */
 export interface LearningPlanDocument {
   generatedAt: string | null;
   generatedBy: string | null;
@@ -129,7 +129,7 @@ export interface AttemptRow {
   errorCategory: string | null;
 }
 
-/** A row of data/placement_tests.json; `result` holds the initial mastery per skill tag (PRD F2). */
+/** A row of data/placement_tests.json; `result` holds the initial mastery per skill tag. */
 export interface PlacementTestRow {
   id: string;
   status: 'in_progress' | 'completed' | 'skipped' | 'abandoned';
@@ -169,7 +169,7 @@ export interface BadgeRow {
 }
 
 /**
- * A row of data/streak_days.json (since format 3): a day that counted for the streak (PRD F9). The
+ * A row of data/streak_days.json (since format 3): a day that counted for the streak. The
  * lesson or (since format 4) the placement test whose completion met its goal, if one did.
  */
 export interface StreakDayRow {
@@ -181,7 +181,7 @@ export interface StreakDayRow {
   placementTestId: string | null;
 }
 
-/** The row of data/streaks.json: the stored streak (PRD F9). */
+/** The row of data/streaks.json: the stored streak. */
 export interface StreakRow {
   id: string;
   currentDays: number;
@@ -194,7 +194,7 @@ export interface StreakRow {
 }
 
 /**
- * The row of data/streak_goals.json (since format 5, M10): the streak goal once the learner has
+ * The row of data/streak_goals.json (since format 5): the streak goal once the learner has
  * chosen one or reached the first; without a row the goal is 10 days. `reachedOn` is the day whose
  * extension of the streak reached the target.
  */
@@ -278,7 +278,7 @@ export function entriesOf(backup: BackupArchive): BackupEntries {
   return Object.fromEntries(backup.names().map((name) => [name, backup.text(name)]));
 }
 
-/** Manifest and learner_profile.json name the version of the format (PRD 13). */
+/** Manifest and learner_profile.json name the version of the format. */
 function withVersion(entries: BackupEntries, schemaVersion: number): BackupEntries {
   const versioned = { ...entries };
   for (const name of ['manifest.json', 'documents/learner_profile.json']) {
@@ -304,7 +304,7 @@ function withoutColumn(entries: BackupEntries, table: DataTable, column: string)
 }
 
 /**
- * The export as Lumastar of M9 wrote it (format 4): without data/streak_goals.json, new in format 5.
+ * An export of format 4: without data/streak_goals.json, new in format 5.
  * Format 4 could not hold a streak goal, so an import of it starts with the first goal of 10 days.
  */
 export function asFormat4(backup: BackupArchive): BackupEntries {
@@ -312,7 +312,7 @@ export function asFormat4(backup: BackupArchive): BackupEntries {
 }
 
 /**
- * The export as Lumastar of M5 wrote it (format 3): format 4 without the placement test that met
+ * An export of format 3: format 4 without the placement test that met
  * the goal of a streak day, new in format 4. An import of it restores the days, met by no placement
  * test.
  */
@@ -321,7 +321,7 @@ export function asFormat3(backup: BackupArchive): BackupEntries {
 }
 
 /**
- * The export as Lumastar of M4 wrote it (format 2): format 3 without data/streak_days.json, new in
+ * An export of format 2: format 3 without data/streak_days.json, new in
  * format 3. Format 2 could not hold the days of the streak, so an import of it restores none.
  */
 export function asFormat2(backup: BackupArchive): BackupEntries {
@@ -329,7 +329,7 @@ export function asFormat2(backup: BackupArchive): BackupEntries {
 }
 
 /**
- * The export as Lumastar before M4 wrote it (format 1): format 2 without data/badges.json, without
+ * An export of format 1: format 2 without data/badges.json, without
  * the checkpoint result of each session and the target retention of each review. Format 1 could hold
  * neither badges nor checkpoints, so only an export without them can be turned back.
  */

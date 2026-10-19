@@ -3,7 +3,7 @@ import { FRONTEND_URL } from './env.ts';
 import type { SubscriptionJson } from './pushService.ts';
 
 /*
- * Web push in the browser of a test (M9). Chromium has no push service a test can use: an
+ * Web push in the browser of a test. Chromium has no push service a test can use: an
  * off-the-record context refuses pushManager.subscribe(), a profile on disk waits for Google's push
  * service, and the backend would then send to Google. The tests therefore swap the browser's push
  * service at both ends and keep everything in between real:

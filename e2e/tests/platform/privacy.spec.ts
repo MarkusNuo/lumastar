@@ -5,7 +5,7 @@ import { PlanPage } from '../../pages/PlanPage.ts';
 import { FRONTEND_URL } from '../../support/env.ts';
 
 /*
- * PRD 13 "kein Tracking": the app talks to its own server only. Fonts, icons and sounds are part of
+ * "Kein Tracking": the app talks to its own server only. Fonts, icons and sounds are part of
  * the build, so no screen loads anything from another host: no analytics, no font or icon CDN.
  */
 

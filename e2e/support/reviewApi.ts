@@ -1,6 +1,6 @@
 import { expect, type APIRequestContext, type Response } from '@playwright/test';
 
-/* The review endpoints of PRD F8 the tests read: the due counts and the review lesson. */
+/* The review endpoints the tests read: the due counts and the review lesson. */
 
 /** GET /api/review/summary: the learner's FSRS cards. */
 export interface ReviewSummary {

@@ -14,7 +14,7 @@ export type StatsSection = (typeof STATS_SECTIONS)[number];
 export type SummaryCard = 'Streak' | 'Rekord' | 'Wörter';
 
 /**
- * Tab "Statistik" (/statistik, PRD F10): streak and learned words, the level with the way to the next
+ * Tab "Statistik" (/statistik): streak and learned words, the level with the way to the next
  * stage, mastery per area, the top errors with "Gezielt üben", the heatmap and the FSRS forecast.
  */
 export class StatsPage {

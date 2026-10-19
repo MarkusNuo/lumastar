@@ -23,7 +23,7 @@ import {
   isAttempt,
   isCompletion,
   isLessonStart,
-  P0_EXERCISE_TYPES,
+  EXERCISE_TYPES,
   type AttemptRequest,
   type AttemptResponse,
   type LessonExercise,
@@ -36,15 +36,15 @@ import { finishOpenFocusUnits } from '../../support/progression.ts';
 import { exerciseScreenName, snap } from '../../support/screenshots.ts';
 
 /*
- * The next lesson of the learning path through the real UI (PRD F4, F5, F9). The backend composes
+ * The next lesson of the learning path through the real UI. The backend composes
  * the lesson from the learner profile, so the start response tells the test each exercise's type and
  * solutions. One choice is answered wrong, one text without its diacritics, one with a Standard form;
  * the rest right. Every answer is held back from the backend until the instant feedback sheet of the
- * pre-check is on screen, so each verdict shows that the pre-check and the backend agree (PRD 11.2).
+ * pre-check is on screen, so each verdict shows that the pre-check and the backend agree.
  * The result screen shows XP, accuracy, time and today's goal; the top bar then has the new XP.
  */
 const BASE_XP = 10;
-/** Every lesson of a unit shows at least this many of the six P0 exercise types. */
+/** Every lesson of a unit shows at least this many of the six exercise types. */
 const MIXED_TYPES = 4;
 /** The result screen lists this many practised words until "Alle <n> anzeigen" is tapped. */
 const COLLAPSED_WORDS = 6;
@@ -140,11 +140,11 @@ test('a full lesson with every exercise type, all feedback states, the retry and
   await expect(page).toHaveURL(new RegExp(`/lesson/${lesson.unitId}$`));
 
   const total = lesson.exercises.length;
-  // The composer mixes as many types as the unit's open exercises allow (PRD F4, F7): later lessons
+  // The composer mixes as many types as the unit's open exercises allow: later lessons
   // of a unit may lack one. The first lesson of the run has all of them (tests/daily-goal).
   const types = new Set(lesson.exercises.map((exercise) => exercise.type));
   expect(types.size, 'the lesson mixes the exercise types').toBeGreaterThanOrEqual(MIXED_TYPES);
-  const missing = P0_EXERCISE_TYPES.filter((type) => !types.has(type));
+  const missing = EXERCISE_TYPES.filter((type) => !types.has(type));
   if (missing.length > 0) test.info().annotations.push({ type: 'types not in this lesson', description: missing.join(', ') });
   const intents = planIntents(lesson.exercises);
   const planned = [...intents.values()];
@@ -304,7 +304,7 @@ test('a full lesson with every exercise type, all feedback states, the retry and
     const pathAfter = await fetchPath(page.request);
     const next = currentUnit(pathAfter);
     const kind = next.focus ? 'Fokus-Lektion' : 'Lektion';
-    // The lesson may have finished the stage: then its open checkpoint is the next step (PRD 5).
+    // The lesson may have finished the stage: then its open checkpoint is the next step.
     const checkpoint = checkpointAsNextStep(pathAfter);
     await expect(path.currentNode, 'the path moves on to the next step right away').toHaveAccessibleName(
       checkpoint

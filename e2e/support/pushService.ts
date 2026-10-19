@@ -4,7 +4,7 @@ import type { AddressInfo } from 'node:net';
 import { HOST } from './env.ts';
 
 /*
- * A stand-in for the push services of Google, Mozilla and Apple (M9). The backend of the e2e run
+ * A stand-in for the push services of Google, Mozilla and Apple. The backend of the e2e run
  * accepts push endpoints on the loopback address over plain HTTP (bootTestRun), so the tests give it
  * subscriptions that point here. Each subscription has a real P-256 key pair and authentication
  * secret, as a browser's has: the backend encrypts for them (RFC 8291) and the tests decrypt with the

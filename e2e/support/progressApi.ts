@@ -1,12 +1,12 @@
 import { expect, type APIRequestContext, type Response } from '@playwright/test';
 
-/* The daily goal, the streak (PRD F9) and the settings the tests compare the screens with. */
+/* The daily goal, the streak and the settings the tests compare the screens with. */
 
 /** The streak of GET /api/progress/today. */
 export interface StreakStatus {
   current: number;
   longest: number;
-  /** Streak freezes left this ISO week: 0 or 1 (PRD F9). */
+  /** Streak freezes left this ISO week: 0 or 1. */
   freezesLeft: number;
   /** Today's goal is met and has extended the streak. */
   extendedToday: boolean;
@@ -32,7 +32,7 @@ export interface Settings {
   timeZone: string;
 }
 
-/** The daily goals a learner can choose (PRD F1). */
+/** The daily goals a learner can choose. */
 export const DAILY_GOALS = [5, 10, 15, 20] as const;
 export type DailyGoalMinutes = (typeof DAILY_GOALS)[number];
 

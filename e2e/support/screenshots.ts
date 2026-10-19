@@ -26,8 +26,8 @@ export async function scrollToTop(element: Locator, offset = 0): Promise<void> {
 }
 
 /**
- * Saves a PNG for the visual design review (PRD 12.5) to
- * screenshots/<milestone>/<width>x<height>/<name>.png and returns its path.
+ * Saves a PNG for the visual design review to screenshots/<width>x<height>/<name>.png and
+ * returns its path.
  */
 export async function snap(page: Page, name: string, options: SnapOptions = {}): Promise<string> {
   const viewport = page.viewportSize();

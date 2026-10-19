@@ -17,12 +17,12 @@ import { escapeRegExp } from '../../support/regex.ts';
 import { scrollToTop, snap } from '../../support/screenshots.ts';
 
 /*
- * Focus lessons (PRD F7, F3, 12.3): a skill tag answered wrong three times in one lesson suggests a
+ * Focus lessons: a skill tag answered wrong three times in one lesson suggests a
  * focus lesson on the result screen; it plays in the lesson player with exercises of that tag only,
  * and the path shows the inserted focus unit with its target symbol and the reason.
  */
 
-/** PRD F7: a skill tag with at least three mistakes in one lesson. */
+/** A skill tag with at least three mistakes in one lesson. */
 const FOCUS_MISTAKES = 3;
 
 /** Room for the sticky top bar above an element scrolled to the top. */
@@ -42,7 +42,7 @@ function weakTagPlan(exercises: readonly LessonExercise[]): { tag: string; wrong
 
 /**
  * The node to play: the next lesson of the unit in progress if it belongs to the learner's stage,
- * otherwise a lesson of a done unit of that stage (done units stay repeatable, PRD F3).
+ * otherwise a lesson of a done unit of that stage (done units stay repeatable).
  */
 function lessonOfLearnerStage(path: LearningPath, page: LearningPathPage): Locator {
   const unit = unitOfLearnerStage(path);
@@ -60,7 +60,7 @@ test('three mistakes on one skill tag suggest a focus lesson, which plays and sh
   const path = new LearningPathPage(page);
   const player = new LessonPlayer(page);
   const resultScreen = new LessonResultScreen(page);
-  // Two open focus units would leave no room for the one this lesson asks for (PRD F3).
+  // Two open focus units would leave no room for the one this lesson asks for.
   await finishOpenFocusUnits(page.request);
   const changesBefore = await fetchPlanChanges(page.request);
 
@@ -102,7 +102,7 @@ test('three mistakes on one skill tag suggest a focus lesson, which plays and sh
     await snap(page, 'result-focus-suggestion', { fullPage: false });
   });
 
-  await test.step('the plan history names the cause and the inserted focus unit (PRD F3)', async () => {
+  await test.step('the plan history names the cause and the inserted focus unit', async () => {
     const changes = await fetchPlanChanges(page.request);
     const added = changes.slice(0, changes.length - changesBefore.length);
     expect(added[0], 'the lesson is the cause of the new plan version').toMatchObject({

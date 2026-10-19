@@ -2,7 +2,7 @@ import { expect, type APIRequestContext, type Response } from '@playwright/test'
 import { unzipSync } from 'fflate';
 import { BackupArchive, type BackupCounts } from './backup.ts';
 
-/* The profile endpoints of PRD F11 the tests call directly or watch: summary, export, import. */
+/* The profile endpoints the tests call directly or watch: summary, export, import. */
 
 const pathOf = (response: Response) => new URL(response.url()).pathname;
 

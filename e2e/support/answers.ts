@@ -3,7 +3,7 @@
  * can derive the chips to tap and the text to type from the solutions of the lesson response.
  */
 
-/** The Gheg letters of the special-character bar (PRD F5), lower case. */
+/** The Gheg letters of the special-character bar, lower case. */
 export const GHEG_SPECIAL_CHARS = ['ë', 'ç', 'â', 'ê', 'î', 'ô', 'û'] as const;
 
 const FOLDED: Readonly<Record<string, string>> = {

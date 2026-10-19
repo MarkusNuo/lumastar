@@ -24,7 +24,7 @@ import {
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * The tab "Wiederholen" (PRD F8, 12.3): the due count on the tab and in the summary card, the due
+ * The tab "Wiederholen": the due count on the tab and in the summary card, the due
  * items as a review lesson of their own, and "Alles wiederholt!" with the way to new content once
  * nothing is due. The backend has no test clock, so the test relies on the FSRS learning steps: a
  * wrong answer on an item still being learned is rated Again and its card comes due a minute later

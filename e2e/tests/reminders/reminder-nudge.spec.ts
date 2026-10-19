@@ -6,7 +6,7 @@ import { playLessonInUi } from '../../support/lessonFlow.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * The suggestion to switch reminders on (M9): once per device, after the first lesson, where a tap
+ * The suggestion to switch reminders on: once per device, after the first lesson, where a tap
  * can lead to reminders. The other tests block service workers, so their browsers cannot receive web
  * push and never see it; this one allows the worker and leaves the permission open.
  */

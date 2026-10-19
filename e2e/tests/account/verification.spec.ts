@@ -9,7 +9,7 @@ import { expectAccountMail, Inbox, linkIn, SUBJECTS } from '../../support/mailpi
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * The e-mail verification of M8 with the real mails in Mailpit: a learner can start right after the
+ * The e-mail verification with the real mails in Mailpit: a learner can start right after the
  * registration, a banner reminds them to open the link, and the link works once.
  */
 test.use({ storageState: { cookies: [], origins: [] } });

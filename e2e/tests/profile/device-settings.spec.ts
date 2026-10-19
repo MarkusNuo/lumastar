@@ -4,16 +4,16 @@ import { ProfilePage } from '../../pages/ProfilePage.ts';
 import { FRONTEND_URL, PATHS } from '../../support/env.ts';
 
 /*
- * The rename of Lingora to Lumastar (M11, DECISIONS #103) moved the device keys from lingora:* to
- * lumastar:*. A phone that switched sound and vibration off before the update keeps its choice: at
- * its first start the app moves the stored value to the new key and removes the old one.
+ * Earlier versions kept the device settings under lingora:*, the current one under lumastar:*. A
+ * phone that switched sound and vibration off before the update keeps its choice: at its first start
+ * the app moves the stored value to the new key and removes the old one.
  */
 
 type StorageState = Exclude<BrowserContextOptions['storageState'], string | undefined>;
 
 const LEGACY_KEY = 'lingora:device-preferences';
 const KEY = 'lumastar:device-preferences';
-/** Sound and vibration off, as the app stored them before the rename (zustand persist, version 1). */
+/** Sound and vibration off, as earlier versions stored them (zustand persist, version 1). */
 const SILENT_DEVICE = { state: { sound: false, haptics: false }, version: 1 };
 
 /** The shared learner's session on a device that still holds the settings under the old key. */

@@ -3,7 +3,7 @@ import { LearningPathPage } from '../../pages/LearningPathPage.ts';
 import { FRONTEND_URL } from '../../support/env.ts';
 
 /*
- * Installable PWA (PRD 2, 11.1, 13): the production build that `vite preview` serves has a web app
+ * Installable PWA: the production build that `vite preview` serves has a web app
  * manifest with own icons and registers a service worker for the app shell. Learning data is never
  * cached: the worker leaves every /api request to the network. The other tests block service
  * workers (playwright.config.ts); the worker test allows it.
@@ -50,7 +50,7 @@ test('the build serves a web app manifest: name, standalone display, theme colou
   expect(response.headers()['content-type']).toMatch(/^application\/manifest\+json/);
   const manifest = (await response.json()) as WebAppManifest;
   expect(manifest).toMatchObject({
-    // The id from before the rename (DECISIONS #103): installed apps stay installed and just update.
+    // The id never changes, so installed apps stay installed and just update.
     id: '/',
     name: 'Lumastar',
     short_name: 'Lumastar',
@@ -63,7 +63,7 @@ test('the build serves a web app manifest: name, standalone display, theme colou
   expect(manifest.theme_color, 'the browser bars match the page').toBe(themeMeta);
   expect(manifest.background_color, 'the splash screen is the app background').toBe(manifest.theme_color);
 
-  await test.step('the theme colour is the dark background of the app (PRD 12.2)', async () => {
+  await test.step('the theme colour is the dark background of the app', async () => {
     await page.goto('/');
     await new LearningPathPage(page).expectVisible();
     const background = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);

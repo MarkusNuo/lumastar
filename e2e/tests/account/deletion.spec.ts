@@ -17,7 +17,7 @@ import { currentUnit, fetchPath } from '../../support/planApi.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * "Konto löschen" (M8): what gets lost, a backup first, the password and a last confirmation. The
+ * "Konto löschen": what gets lost, a backup first, the password and a last confirmation. The
  * backend tests check that every learner table is emptied; here the account is gone for good and its
  * address free again.
  */

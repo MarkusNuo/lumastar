@@ -14,7 +14,7 @@ export const LEARNER = {
 export const WRONG_PASSWORD = 'lumastar-e2e-wrong-password';
 
 /**
- * The answers of the onboarding questions (PRD F1) the setup project gives, with the labels of the
+ * The answers of the onboarding questions the setup project gives, with the labels of the
  * option cards. "Ich kann kein Wort" allows skipping the placement test, so every run starts at A0.
  * The daily goal is not the default of a new profile, so the export shows that it was saved.
  */

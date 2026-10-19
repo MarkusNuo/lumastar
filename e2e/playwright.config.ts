@@ -52,7 +52,7 @@ function backendServer(cwd: string): WebServer {
       LUMASTAR_MAIL_HOST: HOST,
       LUMASTAR_MAIL_PORT: String(MAILPIT.smtpPort),
       LUMASTAR_PUBLIC_URL: FRONTEND_URL,
-      // The reminder job looks for due reminders every 5 seconds instead of every 5 minutes (M9).
+      // The reminder job looks for due reminders every 5 seconds instead of every 5 minutes.
       LUMASTAR_REMINDER_CRON: REMINDER_CRON,
       // The JDK on the Windows dev machine cannot open its loopback socket in the user temp dir.
       ...(isWindows ? { TEMP: PATHS.gradleTemp, TMP: PATHS.gradleTemp } : {}),

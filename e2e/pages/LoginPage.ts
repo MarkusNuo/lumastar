@@ -1,6 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-/** Sign-in with e-mail address and password (/anmelden, M8). */
+/** Sign-in with e-mail address and password (/anmelden). */
 export class LoginPage {
   static readonly WRONG_CREDENTIALS_MESSAGE = 'E-Mail-Adresse oder Passwort stimmt nicht. Versuch es nochmals.';
 

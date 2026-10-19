@@ -15,7 +15,7 @@ import { escapeRegExp } from '../../support/regex.ts';
 import { scrollToTop, snap } from '../../support/screenshots.ts';
 
 /*
- * The plan as a timeline up to C2 (PRD F3, 12.3): one entry per CEFR band with its expected day at
+ * The plan as a timeline up to C2: one entry per CEFR band with its expected day at
  * the daily goal, the stages and units of the current band, and the "Plan-Verlauf" with the reasons.
  */
 
@@ -74,7 +74,7 @@ test('the plan shows every band up to C2 with its expected day, the current stag
       if (day) {
         await expect(entry.getByText(`ca. ${await shownDay(page, day)} · `)).toBeVisible();
       } else {
-        expect(band, 'only A0 has no estimate (PRD F3: from A1 on)').toBe('A0');
+        expect(band, 'only A0 has no estimate (estimates start at A1)').toBe('A0');
       }
       const units = stagesOf(path, band).flatMap((stage) => stage.units).length;
       const toggle = plan.unitsToggle(band);

@@ -5,7 +5,7 @@ import { openLesson, playOpenedLesson } from '../../support/lessonFlow.ts';
 import { finishOpenFocusUnits } from '../../support/progression.ts';
 
 /*
- * PRD 13: app start under 2 s and an exercise switch under 100 ms (the whole lesson is loaded at the
+ * App start under 2 s and an exercise switch under 100 ms (the whole lesson is loaded at the
  * start and answers are saved in the background). The browser itself takes the times: an init script
  * notes when the path's next node and every new exercise first appear, and when "Weiter" is tapped.
  * Service workers are blocked in these tests, so every start is a cold one without the precache.
@@ -73,7 +73,7 @@ test('the app starts in under 2 s: from the address bar to the painted learning 
     starts.push(shownAt);
     test.info().annotations.push({ type: `app start (${load})`, description: `${Math.round(shownAt)} ms` });
   }
-  expect(Math.max(...starts), 'PRD 13: app start < 2 s').toBeLessThan(APP_START_LIMIT_MS);
+  expect(Math.max(...starts), 'app start < 2 s').toBeLessThan(APP_START_LIMIT_MS);
 });
 
 test('an exercise follows the previous one in under 100 ms', async ({ page }) => {
@@ -99,6 +99,6 @@ test('an exercise follows the previous one in under 100 ms', async ({ page }) =>
     type: 'exercise switch',
     description: `median ${Math.round(median)} ms, slowest ${Math.round(slowest)} ms over ${switches.length}`,
   });
-  expect(slowest, 'PRD 13: exercise switch < 100 ms').toBeLessThan(EXERCISE_SWITCH_LIMIT_MS);
+  expect(slowest, 'exercise switch < 100 ms').toBeLessThan(EXERCISE_SWITCH_LIMIT_MS);
   await resultScreen.leave(result);
 });

@@ -18,7 +18,7 @@ export const LEARNING_DATA_ACTIONS = [
 export type LearningDataAction = (typeof LEARNING_DATA_ACTIONS)[number];
 
 /**
- * Profile tab (/profil): learner header, badges, the "Lerndaten" actions of PRD F11, the settings
+ * Profile tab (/profil): learner header, badges, the "Lerndaten" actions, the settings
  * and the logout.
  */
 export class ProfilePage {
@@ -27,11 +27,11 @@ export class ProfilePage {
   readonly learningData: Locator;
   /** "Einstellungen": daily goal, sounds, vibration and the target retention. */
   readonly settings: Locator;
-  /** The choice of 5, 10, 15 or 20 minutes a day (PRD F1, F9). */
+  /** The choice of 5, 10, 15 or 20 minutes a day. */
   readonly dailyGoal: Locator;
   /** The note after a new daily goal: "Lernplan angepasst: A1 bis ca. …". */
   readonly planNote: Locator;
-  /** Opens the advanced setting "Ziel-Behaltensrate" (PRD F8); its name ends with the current value. */
+  /** Opens the advanced setting "Ziel-Behaltensrate"; its name ends with the current value. */
   readonly retentionToggle: Locator;
   readonly retentionSlider: Locator;
   /** The bottom sheet with the formatted learner_summary.md. */
@@ -75,7 +75,7 @@ export class ProfilePage {
     return (await response.json()) as Settings;
   }
 
-  /** A switch of a device setting, e.g. "Töne" or "Vibration" (PRD 12.4). */
+  /** A switch of a device setting, e.g. "Töne" or "Vibration". */
   deviceSwitch(label: 'Töne' | 'Vibration'): Locator {
     return this.settings.getByRole('switch', { name: label, exact: true });
   }
@@ -84,7 +84,7 @@ export class ProfilePage {
     return this.learningData.getByRole('button', { name: label, exact: true });
   }
 
-  /** The level badges A1 … C2 (PRD F9): one row each, earned ones with their day. */
+  /** The level badges A1 … C2: one row each, earned ones with their day. */
   badges(): Locator {
     return this.page.getByRole('region', { name: 'Abzeichen', exact: true }).getByRole('listitem');
   }

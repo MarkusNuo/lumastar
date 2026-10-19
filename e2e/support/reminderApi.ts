@@ -2,7 +2,7 @@ import { expect, type APIRequestContext, type APIResponse } from '@playwright/te
 import { csrfHeaders } from './csrf.ts';
 import type { SubscriptionJson } from './pushService.ts';
 
-/* Web push and reminders through the API (M9): /api/push/… and /api/reminders. */
+/* Web push and reminders through the API: /api/push/… and /api/reminders. */
 
 /** GET /api/push/config. */
 export interface PushConfig {

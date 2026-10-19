@@ -2,7 +2,7 @@ import { expect, type Locator, type Page } from '@playwright/test';
 import { currentUnit, fetchPath, type PathUnit } from '../support/planApi.ts';
 import { escapeRegExp } from '../support/regex.ts';
 
-/** Home tab (/): the personal learning path with stages, unit banners and lesson nodes (PRD 12.3). */
+/** Home tab (/): the personal learning path with stages, unit banners and lesson nodes. */
 export class LearningPathPage {
   readonly page: Page;
   /** The next lesson: it pulses with the "Start" bubble; its name ends with "als Nächstes". */
@@ -33,7 +33,7 @@ export class LearningPathPage {
   }
 
   /**
-   * The stage passed last, collapsed with its trophy above the current one (PRD 12.3), named e.g.
+   * The stage passed last, collapsed with its trophy above the current one, named e.g.
    * "A0 · Erste Schritte, bestanden".
    */
   passedStage(level: string, title: string): Locator {

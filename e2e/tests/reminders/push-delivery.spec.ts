@@ -22,7 +22,7 @@ import {
 } from '../../support/reminderApi.ts';
 
 /*
- * The backend's web push (M9) against a stub push service on the loopback address: the e2e backend
+ * The backend's web push against a stub push service on the loopback address: the e2e backend
  * (bootTestRun) has a throwaway VAPID key pair and accepts such endpoints over plain HTTP. The tests
  * decrypt each message with the subscription's private key (RFC 8291) and check the VAPID token
  * (RFC 8292) with Node's crypto, independently of the backend's own implementation.

@@ -32,14 +32,14 @@ import {
 import { isVocabulary, readItemKinds } from '../../support/content.ts';
 import { LEARNER, ONBOARDING } from '../../support/learner.ts';
 import { choiceFor } from '../../support/lessonAnswers.ts';
-import { fetchMe, P0_EXERCISE_TYPES, playLessonViaApi } from '../../support/lessonApi.ts';
+import { EXERCISE_TYPES, fetchMe, playLessonViaApi } from '../../support/lessonApi.ts';
 import { currentUnit, fetchPath } from '../../support/planApi.ts';
 import { fetchExport, fetchSummary, isImport, type ImportResult } from '../../support/profileApi.ts';
 import { snap } from '../../support/screenshots.ts';
 import { chooseStreakGoal, fetchStreak, FIRST_GOAL, isRung } from '../../support/streakApi.ts';
 
 /*
- * "Backup herunterladen" and "Backup importieren" (PRD F11, 8.3, 13). Each test first records the
+ * "Backup herunterladen" and "Backup importieren". Each test first records the
  * next lesson of the path through the API (one wrong answer, retried), so the export always has
  * sessions, attempts, an error and mastery to show, whichever test runs first.
  */
@@ -53,7 +53,7 @@ const UNCHANGED = 'Deine Lerndaten sind unverändert.';
 const NOT_A_BACKUP = `Diese Datei ist kein Lumastar-Backup. Wähle eine ZIP-Datei, die du hier heruntergeladen hast. ${UNCHANGED}`;
 const NEWER_VERSION = `Dieses Backup stammt aus einer Lumastar-Version, die diese Installation nicht kennt. ${UNCHANGED}`;
 
-/** The target retention of FSRS while the learner keeps the default (PRD F8). */
+/** The target retention of FSRS while the learner keeps the default. */
 const DEFAULT_RETENTION = 0.9;
 
 const keysOf = (value: object) => Object.keys(value).sort();
@@ -125,7 +125,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
       targetLevel: 'C2',
       xpTotal: me.xpTotal,
     });
-    expect(document, 'the answers of the onboarding (PRD F1)').toMatchObject({
+    expect(document, 'the answers of the onboarding').toMatchObject({
       motivation: ONBOARDING.motivations.map(({ value }) => value),
       dailyGoalMinutes: ONBOARDING.dailyGoal.minutes,
     });
@@ -139,7 +139,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     const document = backup.document<Record<string, MasteryDocument>>('skill_mastery.json');
     const firstAnswers = attempts.filter((attempt) => !attempt.isRetry);
     const practisedTags = new Set(attempts.flatMap((attempt) => attempt.skillTags));
-    // A placement test seeds an initial mastery for the tags of its items (PRD F2).
+    // A placement test seeds an initial mastery for the tags of its items.
     const placedTags = new Set(
       backup
         .rows<PlacementTestRow>('placement_tests')
@@ -179,7 +179,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
         ['ts', 'exerciseType', 'skillTags', 'errorCategory', 'prompt', 'expected', 'given'].sort(),
       );
       expect(error.ts).toMatch(ISO_INSTANT);
-      expect(P0_EXERCISE_TYPES).toContain(error.exerciseType);
+      expect(EXERCISE_TYPES).toContain(error.exerciseType);
       expect(error.skillTags.length, 'every error carries its skill tags').toBeGreaterThan(0);
       expect(ERROR_CATEGORIES).toContain(error.errorCategory);
       expect(error.errorCategory, 'a Standard form is a hint, not an error').not.toBe(
@@ -218,7 +218,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     }
   });
 
-  const learnedWords = await test.step('learned words: words and phrases whose card is in review state (PRD F10)', () => {
+  const learnedWords = await test.step('learned words: words and phrases whose card is in review state', () => {
     const kinds = readItemKinds();
     const cards = backup.rows<SrsCardRow>('srs_cards');
     const stateOf = new Map(cards.map((card) => [card.itemId, card.state]));
@@ -339,10 +339,10 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     const wrong = answers.filter((attempt) => attempt.outcome === 'wrong');
     expect(wrong).toHaveLength(1);
     expect(wrong[0]).toMatchObject({ exerciseId: played.wrongExercise.id, isRetry: false });
-    expect(ERROR_CATEGORIES, 'PRD F6: a wrong answer has a category').toContain(
+    expect(ERROR_CATEGORIES, 'a wrong answer has a category').toContain(
       wrong[0]?.errorCategory,
     );
-    expect(wrong[0]?.skillTags.length, 'PRD F6: and its skill tags').toBeGreaterThan(0);
+    expect(wrong[0]?.skillTags.length, 'and its skill tags').toBeGreaterThan(0);
     for (const answer of answers.filter((attempt) => attempt.outcome === 'correct')) {
       expect(answer.errorCategory, `${answer.exerciseId} is no error`).toBeNull();
     }
@@ -448,7 +448,7 @@ async function importUpgraded(
   }
 }
 
-test('a backup of export format 4 is upgraded on import and restores the same state but the streak goal (PRD 13)', async ({
+test('a backup of export format 4 is upgraded on import and restores the same state but the streak goal', async ({
   page,
 }, testInfo) => {
   // Format 4 holds everything but the streak goal: with a goal of its own (the first the API offers
@@ -463,7 +463,7 @@ test('a backup of export format 4 is upgraded on import and restores the same st
   await importUpgraded(page, formatFour, current, 4, current.rows<StreakDayRow>('streak_days'));
 });
 
-test('a backup of export format 3 is upgraded on import and restores the same state (PRD 13)', async ({
+test('a backup of export format 3 is upgraded on import and restores the same state', async ({
   page,
 }, testInfo) => {
   // Format 3 holds everything but the placement test that met a day's goal, so any state will do.
@@ -475,7 +475,7 @@ test('a backup of export format 3 is upgraded on import and restores the same st
   await importUpgraded(page, formatThree, current, 3, days.map((day) => ({ ...day, placementTestId: null })));
 });
 
-test('a backup of export format 2 is upgraded on import and restores the same state (PRD 13)', async ({
+test('a backup of export format 2 is upgraded on import and restores the same state', async ({
   page,
 }, testInfo) => {
   // Format 2 holds everything but the streak days, so any state of the learner will do.
@@ -485,7 +485,7 @@ test('a backup of export format 2 is upgraded on import and restores the same st
   await importUpgraded(page, formatTwo, current, 2, []);
 });
 
-test('a backup of export format 1 is upgraded on import and restores the same state (PRD 13)', async ({
+test('a backup of export format 1 is upgraded on import and restores the same state', async ({
   page,
 }, testInfo) => {
   await playLessonViaApi(page.request, currentUnit(await fetchPath(page.request)).unitId);

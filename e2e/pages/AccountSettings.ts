@@ -4,13 +4,13 @@ import { AppShell } from './AppShell.ts';
 export const ACCOUNT_ROWS = ['E-Mail-Adresse', 'Anzeigename', 'Passwort ändern', 'Konto löschen'] as const;
 export type AccountRow = (typeof ACCOUNT_ROWS)[number];
 
-/** The section "Konto" of the profile tab and its screens below /profil/… (M8). */
+/** The section "Konto" of the profile tab and its screens below /profil/. */
 export class AccountSettings {
   readonly page: Page;
   readonly shell: AppShell;
   readonly section: Locator;
   readonly backButton: Locator;
-  /** A screen's own heading; every account screen has one task (PRD 12.1). */
+  /** A screen's own heading; every account screen has one task. */
   readonly screenHeading: (title: string) => Locator;
 
   // /profil/name

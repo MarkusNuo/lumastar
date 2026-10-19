@@ -20,9 +20,9 @@ import { HISTORY_GOAL_MINUTES, importViaApi, run, seedStreakHistory } from '../.
 import { localTime, moveLearnerTo, secondsLeftInDay, zoneAroundMidday } from '../../support/timeZones.ts';
 
 /*
- * GET /api/streak and PUT /api/streak/goal (M10) through the API, on learners of their own: the
+ * GET /api/streak and PUT /api/streak/goal through the API, on learners of their own: the
  * defaults, the learner's time zone, the month calendar, the goal ladder and its options (the goals to
- * choose now, before and after reaching, DECISIONS #101), the streak before a lesson and the reached
+ * choose now, before and after reaching), the streak before a lesson and the reached
  * goal in the lesson result, export format 5 and the isolation.
  */
 test.use({ storageState: { cookies: [], origins: [] } });

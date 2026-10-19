@@ -3,7 +3,7 @@ import { csrfHeaders } from './csrf.ts';
 import { fetchSettings } from './progressApi.ts';
 
 /*
- * Reminders follow the wall clock of the learner's time zone (M9). The backend has no test clock, so
+ * Reminders follow the wall clock of the learner's time zone. The backend has no test clock, so
  * a test that needs "now" at a certain time of day moves its learner into a time zone where it is.
  */
 

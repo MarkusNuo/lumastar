@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { escapeRegExp } from '../support/regex.ts';
 
-/** Steps of the first start that show the shared progress bar "Einrichtung" (PRD F1). */
+/** Steps of the first start that show the shared progress bar "Einrichtung". */
 export const COUNTED_STEPS = 4;
 
 export const QUESTIONS = {
@@ -14,7 +14,7 @@ export type Question = keyof typeof QUESTIONS;
 /** Number of the question among the counted steps: the registration comes first. */
 const STEP_OF: Record<Question, number> = { motivation: 2, dailyGoal: 3, selfAssessment: 4 };
 
-/** Onboarding questions after the account step (/onboarding): one question per screen (PRD F1). */
+/** Onboarding questions after the account step (/onboarding): one question per screen. */
 export class OnboardingPage {
   readonly page: Page;
   readonly progress: Locator;

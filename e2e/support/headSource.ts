@@ -3,10 +3,9 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync
 import path from 'node:path';
 
 /*
- * E2E_SOURCE=head: the servers run from an export of the last commit (or of E2E_REF) instead of the
- * shared working tree, so half-finished local edits cannot break a run. The export is
- * refreshed only when the committed backend/, frontend/ or content/ changed; build output and
- * node_modules are kept.
+ * E2E_SOURCE=head: the servers run from an export of a pinned commit (HEAD or E2E_REF) instead of
+ * the working tree, so uncommitted changes never reach a run. The export is refreshed only when the
+ * committed backend/, frontend/ or content/ changed; build output and node_modules are kept.
  */
 
 const AREAS = ['backend', 'frontend', 'content'] as const;

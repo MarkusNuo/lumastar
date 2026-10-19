@@ -1,6 +1,6 @@
 import { expect, type APIRequestContext } from '@playwright/test';
 
-/* The plan endpoints of PRD F3 the tests compare the screens with: path, plan and plan history. */
+/* The plan endpoints the tests compare the screens with: path, plan and plan history. */
 
 export type UnitStatus = 'planned' | 'in_progress' | 'completed' | 'skipped';
 
@@ -15,7 +15,7 @@ export interface PathUnit {
   lessonsCompleted: number;
 }
 
-/** The test at the end of a stage (PRD 5): open once its units are done, passed with 80 % accuracy. */
+/** The test at the end of a stage: open once its units are done, passed with 80 % accuracy. */
 export type CheckpointStatus = 'locked' | 'available' | 'passed';
 
 export interface PathCheckpoint {
@@ -130,7 +130,7 @@ export function stageOf(path: LearningPath, level: string): PathStage {
 /**
  * The stage whose open checkpoint the path shows as the next step instead of a lesson, as the
  * frontend decides it: the first open checkpoint, unless a unit lesson of its stage or of an earlier
- * one is still to do. Focus lessons are extra practice and never hold a checkpoint back (PRD 5, F7).
+ * one is still to do. Focus lessons are extra practice and never hold a checkpoint back.
  */
 export function checkpointAsNextStep(path: LearningPath): PathStage | undefined {
   const open = path.stages.findIndex((stage) => stage.checkpoint.status === 'available');
@@ -143,7 +143,7 @@ export function checkpointAsNextStep(path: LearningPath): PathStage | undefined 
   return lessonFirst ? undefined : path.stages[open];
 }
 
-/** Focus units not played yet: each takes one focus lesson (PRD F3). */
+/** Focus units not played yet: each takes one focus lesson. */
 export const openFocusUnits = (path: LearningPath) =>
   path.stages
     .flatMap((stage) => stage.units)
@@ -160,7 +160,7 @@ export function nextBandGoal(path: LearningPath): { band: Band; day: string } | 
 
 /**
  * A curriculum unit of the learner's own stage, whose exercises are at the learner's level: the unit
- * in progress if it belongs to that stage, otherwise a done one (done units stay repeatable, PRD F3).
+ * in progress if it belongs to that stage, otherwise a done one (done units stay repeatable).
  */
 export function unitOfLearnerStage(path: LearningPath): PathUnit {
   const [stage] = path.stages;

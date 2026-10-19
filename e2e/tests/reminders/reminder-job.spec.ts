@@ -16,7 +16,7 @@ import {
 import { hhmm, localTime, moveLearnerTo, secondsLeftInDay, zoneAroundMidday } from '../../support/timeZones.ts';
 
 /*
- * The reminder job (M9): the e2e backend looks for due reminders every 5 seconds
+ * The reminder job: the e2e backend looks for due reminders every 5 seconds
  * (LUMASTAR_REMINDER_CRON in playwright.config.ts) instead of every 5 minutes. A test moves its
  * learner into a time zone where it is around midday and sets the daily reminder to the current
  * minute; the job then sends it to the learner's device at the stub push service.
@@ -123,7 +123,7 @@ test('the job sends the daily reminder at the learner’s time, once, with “Je
   });
 });
 
-test('a snooze token works once (DECISIONS #87: single use)', async () => {
+test('a snooze token works once', async () => {
   const { notification } = await dailyReminderNow('reminder-snooze-once');
   const token = notification.snoozeToken ?? '';
 

@@ -1,7 +1,7 @@
 import { expect, type APIRequestContext, type Response } from '@playwright/test';
 import type { CheckpointStatus } from './planApi.ts';
 
-/* GET /api/stats (PRD F10): what the tab "Statistik" shows. */
+/* GET /api/stats: what the tab "Statistik" shows. */
 
 export interface LevelProgress {
   level: string;
@@ -54,7 +54,7 @@ export interface Stats {
   forecast: { dueNow: number; dueToday: number; dueTomorrow: number; days: { date: string; due: number }[] };
 }
 
-/** PRD F10: the five most frequent errors. */
+/** The five most frequent errors. */
 export const TOP_ERRORS = 5;
 
 /** The heatmap covers the last 365 days, today included. */

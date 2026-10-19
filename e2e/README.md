@@ -25,7 +25,7 @@ npm run typecheck
 | `E2E_SOURCE` | Servers run from | Use it when |
 |---|---|---|
 | unset / `worktree` | `backend/`, `frontend/` of the working tree | checking your own uncommitted change |
-| `head` | an export of `HEAD` in `.tmp/e2e-head/` | others edit the shared working tree; the run only sees committed code |
+| `head` | an export of `HEAD` (or `E2E_REF`) in `.tmp/e2e-head/` | testing a pinned commit; uncommitted changes never reach the run |
 
 In `head` mode the config exports `backend/`, `frontend/` and `content/` of `HEAD` (or of `E2E_REF`)
 with `git archive` before the servers start. The export is refreshed only when one of the three folders changed;
@@ -53,7 +53,7 @@ Every address of a run contains its run id (`e2e-<runId>-<purpose>-<random>@luma
 `support/env.ts`), because Mailpit outlives the throwaway database. A test finds its mails by
 recipient (`support/mailpit.ts`); the global teardown deletes the run's mails.
 
-## Accounts (M8)
+## Accounts
 
 `tests/account` registers learners of its own (through the API where the registration is not the
 subject) and covers the registration checks, the verification link and its banner, the password
@@ -61,9 +61,8 @@ reset with the end of other sessions, the account settings (name, address, passw
 and the isolation of two learners (screens, API, export; foreign lesson and placement ids answer 404).
 The registration modes `invite`/`closed` and the sign-in of the single-user version are fixed when the
 backend starts: the backend tests cover them against the API, the e2e tests only show their screens
-through `page.route` (`registration-modes.spec.ts`). The known bugs of the M8 review are fixed and
-their tests pass. In general, a test marked `test.fail` stands for a known bug of a review: once the
-bug is fixed, the test reports that it passed unexpectedly and the marker goes.
+through `page.route` (`registration-modes.spec.ts`). A test marked `test.fail` stands for a known
+bug: once the bug is fixed, the test reports that it passed unexpectedly and the marker goes.
 
 "Neu einstufen" runs a full placement test through the UI. The API sends no solutions, so the test
 reads `placement.json` of the seeded content (`PATHS.content`) and answers every item wrong for sure:
@@ -77,7 +76,7 @@ frontend's rule for that (`checkpointAsNextStep`), and lessons start from the ne
 progress. Focus units the plan holds open are played through the API first where a test needs a
 lesson of a curriculum unit (`finishOpenFocusUnits`).
 
-## Reminders (M9)
+## Reminders
 
 `tests/reminders` covers web push without any real push service. The e2e backend (`bootTestRun`)
 has a throwaway VAPID key pair and accepts push endpoints on the loopback address over plain HTTP
@@ -133,7 +132,7 @@ it, so `tests/placement` checks the `dailyGoal` and `streak` of the placement re
 `GET /api/progress/today` and that the reveal leads straight to the plan (the frontend's unit tests
 cover the flame after the reveal).
 
-## Streak celebration and streak screen (M10)
+## Streak celebration and streak screen
 
 The celebration replaces the result screen in place: `watchForPathFlash` (`pages/StreakCelebration.ts`)
 records every URL change through the History API and every element added to the page, and the
@@ -167,24 +166,23 @@ day ends during a test.
   today's cell, legend, goal, freeze with the Monday after today); the month navigation (URL
   `?month=`, a year back at most; a month out of reach or malformed turns into the nearest one, the
   URL replaced); a learner of its own with bands across weeks, a gap and a frozen day (each cell's
-  label, state and band shape against the rules of M10, in whatever month the test runs), the reached
+  label, state and band shape against the calendar rules, in whatever month the test runs), the reached
   first goal with its options and "Ziel ändern" (the goals of the API, the focus on the first chip and
   back on the card, arrows that save nothing, Space that saves); a reached goal that stays complete
   after the streak broke; the catalog's streak previews.
 - `streak-api.spec.ts`: defaults of a new learner, today and the next Monday in UTC+14 and UTC−10, the
-  months, the goal ladder, its options before and after reaching (DECISIONS #101) and its refusals,
+  months, the goal ladder, its options before and after reaching and its refusals,
   `streak.previous` and `streak.goalReached` of a lesson result, the options of a streak past further
   rungs, a reached goal after the streak broke, export format 5 and the format-4 import, and the
   isolation of two learners.
 
-The known bugs of the M10 review are fixed and their tests pass, and so is the one found after the
-fixes: "Zurück" on a month out of reach opened directly (corrected with a replace) leads to the path,
-not out of the app (`streak-screen.spec.ts`).
+"Zurück" on a month out of reach opened directly (corrected with a replace) leads to the path, not
+out of the app (`streak-screen.spec.ts`).
 
 ## Platform tests
 
-`tests/platform` checks PRD 13: the web app manifest and the service worker of the production build
-(the worker must leave `/api` to the network), app start under 2 s and exercise switches under 100 ms
+`tests/platform` checks the platform requirements: the web app manifest and the service worker of
+the production build (the worker must leave `/api` to the network), app start under 2 s and exercise switches under 100 ms
 (measured in the browser with an init script; the results are test annotations in the report) and that
 no screen requests anything from another host. All other tests block service workers
 (`serviceWorkers: 'block'`), so `page.route` sees every request and each page load is a cold start.
@@ -206,17 +204,17 @@ relearning and is due only after ten minutes, so the test reads the cards from t
 mistakes on new items). When nothing is due, the test waits up to two minutes for such a card. The review summary counts only cards
 a review lesson can practise, so the test expects a review to start whenever something is due.
 
-## Rename to Lumastar (M11)
+## Names and keys
 
-The app was called Lingora until M11 (DECISIONS #103). The tests expect the new name in texts, mails,
-file names, notification tags and the worker's messages, the session cookie `LUMASTAR_SESSION`
-(`tests/smoke/login.spec.ts`) and the env names `LUMASTAR_*` (the runner's own ones too:
-`LUMASTAR_E2E_MILESTONE`, `LUMASTAR_E2E_RUN_ID`, `LUMASTAR_E2E_HEAD_EXPORTED`). The manifest keeps its
-id `/`, so installed apps stay installed (`tests/platform/pwa.spec.ts`).
-`tests/profile/device-settings.spec.ts` starts a device that still holds `lingora:device-preferences`:
-sound and vibration stay off after the update, and the value moves to `lumastar:device-preferences`.
+The tests expect the name Lumastar in texts, mails, file names, notification tags and the worker's
+messages, the session cookie `LUMASTAR_SESSION` (`tests/smoke/login.spec.ts`) and the env names
+`LUMASTAR_*` (the runner's own ones too: `LUMASTAR_E2E_RUN_ID`, `LUMASTAR_E2E_HEAD_EXPORTED`). The
+manifest id is `/`, so installed apps stay installed across updates (`tests/platform/pwa.spec.ts`).
+`tests/profile/device-settings.spec.ts` starts a device that still holds the key of earlier versions,
+`lingora:device-preferences`: sound and vibration stay off after the update, and the value moves to
+`lumastar:device-preferences`.
 
 ## Screenshots
 
-Every core screen is saved to `screenshots/<milestone>/<width>x<height>/` for the visual review
-(PRD 12.5). The milestone is set in `support/env.ts` or via `LUMASTAR_E2E_MILESTONE`.
+Every core screen is saved to `screenshots/<width>x<height>/` for the visual review. The folder is
+not committed.

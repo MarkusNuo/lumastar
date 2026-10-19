@@ -29,7 +29,7 @@ import { escapeRegExp } from '../../support/regex.ts';
 import { scrollToTop, snap } from '../../support/screenshots.ts';
 
 /*
- * The checkpoint at the end of the learner's stage (PRD 5, F3, F9, 12.3). The lessons of the stage
+ * The checkpoint at the end of the learner's stage. The lessons of the stage
  * are played through the API (the lesson player has its own tests); the checkpoint itself through
  * the UI: the node becomes the next step, its sheet says what it takes, a failed try encourages and
  * shows how close it came, a pass celebrates the new level, which the top bar, the path (with the
@@ -37,7 +37,7 @@ import { scrollToTop, snap } from '../../support/screenshots.ts';
  * good, so it runs in the level-up projects, after every other test (see playwright.config.ts).
  */
 
-/** PRD 5: a checkpoint is passed with 80 % of the first answers right. */
+/** A checkpoint is passed with 80 % of the first answers right. */
 const PASS_ACCURACY = 0.8;
 const CHECKPOINT_EXERCISES = 15;
 const TOP_BAR_GAP = 88;
@@ -80,8 +80,8 @@ test('the checkpoint of the stage: intro sheet, a failed try with encouragement,
   );
   const { level } = stage;
   expect(level, 'the path starts at the learner level').toBe(before.currentLevel);
-  expect(stage.checkpoint.requiredAccuracy, 'PRD 5: 80 % to pass').toBe(PASS_ACCURACY);
-  expect(stage.checkpoint.exerciseCount, 'PRD 5: about 15 tasks').toBeGreaterThan(0);
+  expect(stage.checkpoint.requiredAccuracy, '80 % to pass').toBe(PASS_ACCURACY);
+  expect(stage.checkpoint.exerciseCount, 'about 15 tasks').toBeGreaterThan(0);
   expect(stage.checkpoint.exerciseCount).toBeLessThanOrEqual(CHECKPOINT_EXERCISES);
   const intro = new CheckpointIntroSheet(page, level);
   const node = path.checkpoint(level);
@@ -191,7 +191,7 @@ test('the checkpoint of the stage: intro sheet, a failed try with encouragement,
 
     const after = await fetchPath(page.request);
     expect(after.currentLevel).toBe(next.level);
-    // The plan runs from the current level up to C2 (PRD F3), so the passed stage leaves the path.
+    // The plan runs from the current level up to C2, so the passed stage leaves the path.
     expect(after.stages[0]?.level).toBe(next.level);
     expect(after.stages.map((candidate) => candidate.level)).not.toContain(level);
     await expect(path.stage(next.level, next.title)).toBeAttached();

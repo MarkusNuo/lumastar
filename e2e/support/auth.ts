@@ -6,7 +6,7 @@ import { ONBOARDING } from './learner.ts';
 import { Inbox, linkIn, SUBJECTS } from './mailpit.ts';
 import type { PlacementResult } from './placementApi.ts';
 
-/* Accounts through the API (M8): what the tests need besides the screens they are about. */
+/* Accounts through the API: what the tests need besides the screens they are about. */
 
 export type RegistrationMode = 'open' | 'invite' | 'closed';
 

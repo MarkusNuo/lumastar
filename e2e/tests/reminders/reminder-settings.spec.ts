@@ -26,7 +26,7 @@ import { snap } from '../../support/screenshots.ts';
 import { moveLearnerTo, zoneAroundMidday } from '../../support/timeZones.ts';
 
 /*
- * "Erinnerungen" under Profil (M9): the switch subscribes this browser and registers it with the
+ * "Erinnerungen" under Profil: the switch subscribes this browser and registers it with the
  * backend, the times save themselves, a test reminder travels backend → push service → service
  * worker → notification, and the states where reminders cannot be switched on. The browser's push
  * service is the stub of the test at both ends (support/browserPush.ts); everything in between is real.

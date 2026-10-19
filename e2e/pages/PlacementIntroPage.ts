@@ -7,7 +7,7 @@ const TITLES: Record<PlacementIntroKind, string> = {
   replacement: 'Neu einstufen',
 };
 
-/** Placement intro (/einstufung): before the first test and for "Neu einstufen" (PRD 6, F2). */
+/** Placement intro (/einstufung): before the first test and for "Neu einstufen". */
 export class PlacementIntroPage {
   readonly page: Page;
   readonly startButton: Locator;

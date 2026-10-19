@@ -33,17 +33,17 @@ import { escapeRegExp } from '../../support/regex.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * "Neu einstufen" (PRD F2): a full placement test through the UI. The API sends no solutions, so the
+ * "Neu einstufen": a full placement test through the UI. The API sends no solutions, so the
  * test answers every item wrong for sure (content/placement.json knows the solutions): the staircase
  * then walks down to A0 and ends there, so the level stays the same in every run, whichever items
  * the (seeded) engine picks. The plan is revised with the mastery proven in the lessons so far,
- * never by the placement alone, and the change shows up in the "Plan-Verlauf" (PRD F3). The finished
- * test counts as practice time like a lesson (PRD F9): had it met today's goal first, the streak
+ * never by the placement alone, and the change shows up in the "Plan-Verlauf". The finished
+ * test counts as practice time like a lesson: had it met today's goal first, the streak
  * flame would follow the reveal. The daily-goal project has met it already in every run, so here the
  * reveal leads straight to the plan.
  */
 
-/** PRD F2: a beginner lands on A0/A1.1 after 6 items at the latest. */
+/** A beginner lands on A0/A1.1 after 6 items at the latest. */
 const BEGINNER_ITEMS = 6;
 
 test('"Neu einstufen" runs a placement test without feedback, reveals the level and revises the plan', async ({
@@ -111,7 +111,7 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
       position = progress.position;
       if (progress.finished) expect(position, 'answered items').toBe(answers.length);
     }
-    expect(answers.length, 'a beginner is placed within 6 items (PRD F2)').toBeLessThanOrEqual(
+    expect(answers.length, 'a beginner is placed within 6 items').toBeLessThanOrEqual(
       BEGINNER_ITEMS,
     );
   });
@@ -168,7 +168,7 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
     );
     expect(streak.extendedToday).toBe(progressBefore.streak.extendedToday || dailyGoal.justMet);
     if (!dailyGoal.justMet) expect(streak.current, 'the streak stays').toBe(progressBefore.streak.current);
-    expect(streak.previous, 'the streak before the test (M10)').toBe(
+    expect(streak.previous, 'the streak before the test').toBe(
       dailyGoal.justMet ? streak.current - 1 : streak.current,
     );
   });
@@ -194,7 +194,7 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
     await snap(page, 'replacement-plan-history', { fullPage: false });
   });
 
-  await test.step('the placement is stored completely (placement_*, PRD F2)', async () => {
+  await test.step('the placement is stored completely (placement_*)', async () => {
     const backup = await fetchExport(page.request);
     const stored = backup.rows<PlacementTestRow>('placement_tests').find((row) => row.id === testId);
     expect(stored).toMatchObject({ status: 'completed', startLevel: START_LEVEL, resultLevel: START_LEVEL });
@@ -213,7 +213,7 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
     await path.expectVisible();
     const pathAfter = await fetchPath(page.request);
     const unitAfter = currentUnit(pathAfter);
-    // A stage whose units are all done offers its checkpoint as the next step (PRD 5).
+    // A stage whose units are all done offers its checkpoint as the next step.
     const checkpoint = checkpointAsNextStep(pathAfter);
     await expect(path.currentNode).toHaveAccessibleName(
       checkpoint
@@ -228,7 +228,7 @@ test('"Neu einstufen" runs a placement test without feedback, reveals the level 
       .filter((change) => change.planVersion === planBefore.version + 1)
       .map((change) => change.reason);
     if (unitAfter.unitId !== unitBefore.unitId) {
-      // Only mastery proven in lessons shortens a unit (PRD F3), and that may finish the one in progress.
+      // Only mastery proven in lessons shortens a unit, and that may finish the one in progress.
       expect(after.get(unitBefore.unitId)?.status, `"${unitBefore.title}" is done, not skipped`).toBe(
         'completed',
       );

@@ -1,6 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-/** Welcome screen (/willkommen): where everyone without a session starts (M8). */
+/** Welcome screen (/willkommen): where everyone without a session starts. */
 export class WelcomePage {
   readonly page: Page;
   readonly heading: Locator;

@@ -28,5 +28,5 @@ export function readSkillTagLabels(): string[] {
   return tags.map((tag) => tag.label);
 }
 
-/** PRD F10: only words and phrases count as learned words, grammar items do not. */
+/** Only words and phrases count as learned words, grammar items do not. */
 export const isVocabulary = (kind: ItemKind | undefined) => kind === 'word' || kind === 'phrase';

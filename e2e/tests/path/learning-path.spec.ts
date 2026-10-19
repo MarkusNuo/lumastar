@@ -12,9 +12,9 @@ import {
 import { scrollToTop, snap } from '../../support/screenshots.ts';
 
 /*
- * The learning path on the home tab (PRD 12.3, F3): every stage from the current level up to C2 with
+ * The learning path on the home tab: every stage from the current level up to C2 with
  * its unit banners, one node per planned lesson, the next lesson as the only current node and the
- * checkpoint at the end of each stage with its live status (PRD 5).
+ * checkpoint at the end of each stage with its live status.
  */
 
 type NodeStatus = 'abgeschlossen' | 'als Nächstes' | 'verfügbar' | 'gesperrt';
@@ -29,7 +29,7 @@ const CHECKPOINT_NODE: Record<CheckpointStatus, NodeStatus> = {
 const TOP_BAR_GAP = 88;
 
 /**
- * PRD 5: a checkpoint not passed yet opens once every unit of its stage that has exercises is done
+ * A checkpoint not passed yet opens once every unit of its stage that has exercises is done
  * (completed or skipped); focus units are extra practice and do not count.
  */
 function openCheckpointStatus(stage: PathStage): Exclude<CheckpointStatus, 'passed'> {
@@ -39,9 +39,9 @@ function openCheckpointStatus(stage: PathStage): Exclude<CheckpointStatus, 'pass
 }
 
 /**
- * The status a node of the unit must show (PRD 12.3): skipped and done units stay repeatable (F3), a
- * focus unit is open as soon as the plan inserts it (F7), and while an open checkpoint is the next
- * step the next lesson stays playable without being the current node (PRD 5).
+ * The status a node of the unit must show: skipped and done units stay repeatable, a
+ * focus unit is open as soon as the plan inserts it, and while an open checkpoint is the next
+ * step the next lesson stays playable without being the current node.
  */
 function expectedStatuses(unit: PathUnit, checkpointIsNext: boolean): NodeStatus[] {
   return Array.from({ length: Math.max(1, unit.estimatedLessons) }, (_, lesson): NodeStatus => {

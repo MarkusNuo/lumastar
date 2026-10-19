@@ -19,7 +19,7 @@ export function cheerFor(days: number): string {
 }
 
 /**
- * The full screen after the lesson that met today's goal (PRD F9, 12.4, M10): it replaces the result
+ * The full screen after the lesson that met today's goal: it replaces the result
  * screen in place, the grey flame catches fire and the streak counts up from the one before; a
  * bridged missed day gets a word about the streak freeze. When the streak reached its goal, a second
  * beat follows with the trophy and the next goals.
@@ -181,7 +181,7 @@ export interface PathFlashRecord {
 
 /**
  * Watches the page from now on for any sign of the learning path between the result screen and the
- * celebration (M10: "never the path in between"): every URL change through the History API and every
+ * celebration ("never the path in between"): every URL change through the History API and every
  * element added to the document, however briefly it stays.
  */
 export async function watchForPathFlash(page: Page): Promise<() => Promise<PathFlashRecord>> {

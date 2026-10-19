@@ -19,7 +19,7 @@ export function goalRingPercent(minutes: number, goalMinutes: number): number {
   return Math.round(Math.min(1, goalMinutes > 0 ? minutes / goalMinutes : 0) * 100);
 }
 
-/** Signed-in app frame: top bar, the current tab and the bottom navigation (PRD 12.3). */
+/** Signed-in app frame: top bar, the current tab and the bottom navigation. */
 export class AppShell {
   readonly page: Page;
   readonly topBar: Locator;
@@ -28,13 +28,13 @@ export class AppShell {
   readonly logoutButton: Locator;
   /** Screen-reader text of the XP counter in the top bar, e.g. "120 XP". */
   readonly xpLabel: Locator;
-  /** Screen-reader text of the streak counter (PRD F9), see `streakText`. */
+  /** Screen-reader text of the streak counter, see `streakText`. */
   readonly streakLabel: Locator;
   /** The small shield on the flame while a streak freeze of this week is left. */
   readonly freezeShield: Locator;
-  /** The daily-goal ring of the top bar (PRD 12.3). */
+  /** The daily-goal ring of the top bar. */
   readonly goalRing: Locator;
-  /** The flame of the top bar, a link to the streak screen (M10), named like `streakLabel`. */
+  /** The flame of the top bar, a link to the streak screen, named like `streakLabel`. */
   readonly streakLink: Locator;
 
   constructor(page: Page) {
@@ -50,7 +50,7 @@ export class AppShell {
     this.streakLink = this.topBar.getByRole('link', { name: /^Streak: / });
   }
 
-  /** Taps the flame of the top bar, which opens the streak screen (M10). */
+  /** Taps the flame of the top bar, which opens the streak screen. */
   async openStreak(): Promise<void> {
     await this.streakLink.tap();
     await expect(this.page).toHaveURL(/\/streak$/);

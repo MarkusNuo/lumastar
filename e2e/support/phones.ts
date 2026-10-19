@@ -23,7 +23,7 @@ function androidPhone(width: number, height: number): Phone {
   };
 }
 
-/** Mobile-first range of PRD 12 (360–430 px): the common size and the narrowest one. */
+/** The mobile-first range (360–430 px): the common size and the narrowest one. */
 export const PHONES = {
   'phone-390': androidPhone(390, 844),
   'phone-360': androidPhone(360, 740),
