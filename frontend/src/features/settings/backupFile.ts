@@ -1,8 +1,8 @@
-/** Mirrors the backend limit `lingora.backup.max-archive-size` (Spring counts 1 MB as 1024² bytes). */
+/** Mirrors the backend limit `lumastar.backup.max-archive-size` (Spring counts 1 MB as 1024² bytes). */
 export const MAX_BACKUP_MB = 20;
 export const MAX_BACKUP_BYTES = MAX_BACKUP_MB * 1024 * 1024;
 
-export const FALLBACK_BACKUP_NAME = 'lingora-export.zip';
+export const FALLBACK_BACKUP_NAME = 'lumastar-export.zip';
 
 // RFC 6266: `filename*=UTF-8''name` (RFC 8187 encoding) wins over the plain `filename=` parameter.
 const EXTENDED_FILENAME = /filename\*\s*=\s*([\w!#$%&+^`{}~.-]*)'[^']*'([^;\s]+)/iu;

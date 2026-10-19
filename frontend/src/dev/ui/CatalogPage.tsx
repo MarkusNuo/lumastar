@@ -58,7 +58,7 @@ export function CatalogPage() {
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
             <p className="text-micro font-extrabold tracking-wider text-primary-soft uppercase">
-              Lingora Design-System
+              Lumastar Design-System
             </p>
             <h1 className="text-lead font-black">Komponenten-Katalog</h1>
           </div>

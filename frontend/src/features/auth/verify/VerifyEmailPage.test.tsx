@@ -47,7 +47,7 @@ describe('VerifyEmailPage', () => {
     ).toBeInTheDocument();
     expect(posts('/api/auth/verify-email')).toHaveLength(1);
     expect(await posts('/api/auth/verify-email')[0]?.json()).toEqual({ token: 'abc' });
-    expect(await screen.findByRole('link', { name: 'Weiter zu Lingora' })).toHaveAttribute(
+    expect(await screen.findByRole('link', { name: 'Weiter zu Lumastar' })).toHaveAttribute(
       'href',
       '/',
     );

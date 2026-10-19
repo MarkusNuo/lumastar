@@ -10,7 +10,7 @@ const ANDROID =
 function backendAnswering(answer: () => Response, csrfToken?: string) {
   const requests: Request[] = [];
   const backend = createWorkerBackend({
-    baseUrl: 'https://lingora.test',
+    baseUrl: 'https://lumastar.test',
     fetch: (request) => {
       requests.push(request);
       return Promise.resolve(answer());

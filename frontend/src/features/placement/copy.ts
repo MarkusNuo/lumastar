@@ -10,7 +10,7 @@ export const PLACEMENT_COPY = {
     },
     replacementTitle: 'Neu einstufen',
     replacementText:
-      'Der Test prüft dein aktuelles Niveau. Danach passt Lingora deinen Lernplan an.',
+      'Der Test prüft dein aktuelles Niveau. Danach passt Lumastar deinen Lernplan an.',
     start: 'Test starten',
     skip: 'Ich fange bei null an',
     back: 'Zurück',
@@ -33,7 +33,7 @@ export const PLACEMENT_COPY = {
     },
     failure: {
       title: 'Der Test konnte nicht starten',
-      network: 'Lingora erreicht den Server gerade nicht. Prüfe deine Verbindung.',
+      network: 'Lumastar erreicht den Server gerade nicht. Prüfe deine Verbindung.',
       unavailable: 'Für den Einstufungstest gibt es noch keine Aufgaben.',
       retry: 'Nochmals versuchen',
       back: 'Zurück',
@@ -47,7 +47,7 @@ export const PLACEMENT_COPY = {
   reveal: {
     loading: 'Ergebnis wird geladen',
     loadFailed: 'Dein Ergebnis konnte nicht geladen werden',
-    network: 'Lingora erreicht den Server gerade nicht. Prüfe deine Verbindung.',
+    network: 'Lumastar erreicht den Server gerade nicht. Prüfe deine Verbindung.',
     unknownTest: 'Zu diesem Test gibt es kein Ergebnis.',
     retry: 'Nochmals versuchen',
     back: 'Zum Lernpfad',

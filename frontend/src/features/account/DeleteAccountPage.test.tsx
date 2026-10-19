@@ -76,7 +76,7 @@ describe('DeleteAccountPage', () => {
         new Response('PK', {
           headers: {
             'Content-Type': 'application/zip',
-            'Content-Disposition': 'attachment; filename="lingora-export-2026-10-07.zip"',
+            'Content-Disposition': 'attachment; filename="lumastar-export-2026-10-07.zip"',
           },
         }),
     });
@@ -84,7 +84,7 @@ describe('DeleteAccountPage', () => {
     await user.click(await screen.findByRole('button', { name: 'Backup herunterladen' }));
 
     await waitFor(() =>
-      expect(saveBlob).toHaveBeenCalledWith(expect.any(Blob), 'lingora-export-2026-10-07.zip'),
+      expect(saveBlob).toHaveBeenCalledWith(expect.any(Blob), 'lumastar-export-2026-10-07.zip'),
     );
     expect(requests.some((request) => request.url.endsWith('/api/profile/export'))).toBe(true);
   });

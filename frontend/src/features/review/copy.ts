@@ -7,7 +7,7 @@ export const REVIEW_COPY = {
   loading: 'Wiederholungen werden geladen',
   loadFailed: 'Deine Wiederholungen konnten nicht geladen werden. Prüfe deine Verbindung.',
   explanation:
-    'Jedes Wort und jede Regel, die du übst, wird zu einer Karte. Lingora plant jede Wiederholung mit FSRS: kurz bevor du sie vergessen würdest, kommt sie wieder.',
+    'Jedes Wort und jede Regel, die du übst, wird zu einer Karte. Lumastar plant jede Wiederholung mit FSRS: kurz bevor du sie vergessen würdest, kommt sie wieder.',
   due: {
     label: (count: number) => `${cards(count)} fällig`,
     text: 'Eine kurze Lektion mit genau den Karten, die jetzt dran sind.',

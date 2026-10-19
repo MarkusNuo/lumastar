@@ -1,4 +1,5 @@
 import { safeLocalStorage } from '../../lib/safeLocalStorage';
+import { storageKey } from '../../lib/storageKey';
 
 /*
  * Which learner this browser's push subscription was made for. The subscription belongs to the
@@ -7,7 +8,7 @@ import { safeLocalStorage } from '../../lib/safeLocalStorage';
  * address is stored, so a shared device does not show who used it before.
  */
 
-export const DEVICE_OWNER_KEY = 'lingora:push-owner';
+export const DEVICE_OWNER_KEY = storageKey('push-owner');
 
 async function learnerKey(email: string): Promise<string | undefined> {
   // Only secure contexts have it, and only they can receive web push.

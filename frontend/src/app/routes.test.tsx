@@ -24,7 +24,7 @@ describe('routes', () => {
     const { router } = renderRoutes(createRoutes(), '/');
 
     expect(
-      await screen.findByRole('heading', { name: 'Willkommen bei Lingora!' }),
+      await screen.findByRole('heading', { name: 'Willkommen bei Lumastar!' }),
     ).toBeInTheDocument();
     expect(router.state.location.pathname).toBe('/willkommen');
   });

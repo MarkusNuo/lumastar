@@ -11,7 +11,7 @@ const DAILY = {
   title: 'Zeit für Gheg!',
   body: 'Dein 12-Tage-Streak wartet auf dich.',
   url: '/',
-  tag: 'lingora-daily-reminder',
+  tag: 'lumastar-daily-reminder',
   renotify: true,
   icon: '/icons/icon-192.png',
   badge: '/icons/badge-96.png',
@@ -33,11 +33,11 @@ describe('push', () => {
       body: 'Dein 12-Tage-Streak wartet auf dich.',
       icon: '/icons/icon-192.png',
       badge: '/icons/badge-96.png',
-      tag: 'lingora-daily-reminder',
+      tag: 'lumastar-daily-reminder',
       renotify: true,
       actions: DAILY.actions,
       lang: 'de-CH',
-      data: { url: '/', tag: 'lingora-daily-reminder', snoozeToken: 'snooze-123' },
+      data: { url: '/', tag: 'lumastar-daily-reminder', snoozeToken: 'snooze-123' },
     });
   });
 
@@ -89,9 +89,9 @@ describe('push', () => {
 });
 
 describe('notificationclick', () => {
-  const data = { url: '/wiederholen', tag: 'lingora-daily-reminder', snoozeToken: 'snooze-123' };
+  const data = { url: '/wiederholen', tag: 'lumastar-daily-reminder', snoozeToken: 'snooze-123' };
 
-  it('opens the app at the reminder path when no Lingora window is open', async () => {
+  it('opens the app at the reminder path when no Lumastar window is open', async () => {
     const worker = fakeWorker();
 
     await handleNotificationClick(worker, { action: '', data });
@@ -159,8 +159,8 @@ describe('notificationclick', () => {
       WORKER_COPY.snoozeFailed.title,
       expect.objectContaining({
         body: WORKER_COPY.snoozeFailed.body,
-        tag: 'lingora-daily-reminder',
-        data: { url: '/wiederholen', tag: 'lingora-daily-reminder' },
+        tag: 'lumastar-daily-reminder',
+        data: { url: '/wiederholen', tag: 'lumastar-daily-reminder' },
       }),
     );
   });

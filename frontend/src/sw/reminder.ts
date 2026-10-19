@@ -16,7 +16,7 @@ export const SNOOZE_MINUTES = 60;
 
 export const REMINDER_ICON = '/icons/icon-192.png';
 export const REMINDER_BADGE = '/icons/badge-96.png';
-const DEFAULT_TAG = 'lingora-reminder';
+const DEFAULT_TAG = 'lumastar-reminder';
 
 /** The push payload as the worker shows it, every field checked; `url` is a path within the app. */
 export type Reminder = Omit<PushNotification, 'kind'>;

@@ -9,7 +9,7 @@ function clientAnswering(answer: (request: Request) => Response | Promise<Respon
   const requests: Request[] = [];
   const onUnauthorized = vi.fn();
   const client = createApiClient({
-    baseUrl: 'http://lingora.test',
+    baseUrl: 'http://lumastar.test',
     fetch: async (request) => {
       requests.push(request);
       return answer(request);
@@ -21,7 +21,7 @@ function clientAnswering(answer: (request: Request) => Response | Promise<Respon
 
 /** Runs a request through the CSRF middleware alone. */
 async function throughCsrf(method: string, readToken: CsrfTokenReader): Promise<Request> {
-  const request = new Request('http://lingora.test/api/x', { method });
+  const request = new Request('http://lumastar.test/api/x', { method });
   const params = { request } as Parameters<NonNullable<Middleware['onRequest']>>[0];
   await csrfMiddleware(readToken).onRequest?.(params);
   return request;

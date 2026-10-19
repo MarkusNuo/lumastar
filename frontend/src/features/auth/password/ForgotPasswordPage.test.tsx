@@ -80,7 +80,7 @@ describe('ForgotPasswordPage', () => {
 
     await user.click(submit());
 
-    expect(await screen.findByRole('link', { name: 'Weiter zu Lingora' })).toHaveAttribute(
+    expect(await screen.findByRole('link', { name: 'Weiter zu Lumastar' })).toHaveAttribute(
       'href',
       '/',
     );

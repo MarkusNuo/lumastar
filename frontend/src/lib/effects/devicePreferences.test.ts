@@ -38,6 +38,20 @@ describe('useDevicePreferences', () => {
     expect(useDevicePreferences.getState()).toMatchObject({ sound: false, haptics: true });
   });
 
+  it('keeps the choices this device stored before the rename to Lumastar', async () => {
+    localStorage.clear();
+    localStorage.setItem(
+      'lingora:device-preferences',
+      JSON.stringify({ state: { sound: false, haptics: false }, version: 1 }),
+    );
+    vi.resetModules();
+
+    const renamed = await import('./devicePreferences');
+
+    expect(renamed.useDevicePreferences.getState()).toMatchObject({ sound: false, haptics: false });
+    expect(localStorage.getItem('lingora:device-preferences')).toBeNull();
+  });
+
   it('keeps working for the session when the browser blocks localStorage', () => {
     vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
       throw new DOMException('The quota has been exceeded.', 'QuotaExceededError');

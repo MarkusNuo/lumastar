@@ -1,5 +1,5 @@
 /*
- * Geometry of Lingora's own mascot, a chubby aurora star (viewBox 0 0 120 120). Mascot.tsx draws it
+ * Geometry of Lumastar's own mascot, a chubby aurora star (viewBox 0 0 120 120). Mascot.tsx draws it
  * in every expression; scripts/generate-icons.js builds the favicon and the app icons from it.
  * Plain data without imports, so the Node script can load this file directly.
  */

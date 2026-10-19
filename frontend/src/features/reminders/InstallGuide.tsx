@@ -9,7 +9,7 @@ const STEP_ICONS: readonly Icon[] = [ExportIcon, PlusSquareIcon, DeviceMobileIco
 
 /**
  * iPhone and iPad: Safari sends notifications only to apps on the home screen (iOS 16.4+), so the
- * reminders start with installing Lingora there.
+ * reminders start with installing Lumastar there.
  */
 export function InstallGuide() {
   const titleId = useId();

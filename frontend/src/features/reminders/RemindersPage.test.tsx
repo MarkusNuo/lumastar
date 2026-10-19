@@ -470,7 +470,7 @@ describe('RemindersPage', () => {
       });
       expect(
         within(guide).getByText(
-          'Tippe auf Teilen → Zum Home-Bildschirm, dann öffne Lingora von dort.',
+          'Tippe auf Teilen → Zum Home-Bildschirm, dann öffne Lumastar von dort.',
         ),
       ).toBeInTheDocument();
       expect(

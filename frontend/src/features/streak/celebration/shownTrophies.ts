@@ -1,4 +1,5 @@
 import { safeLocalStorage } from '../../../lib/safeLocalStorage';
+import { storageKey } from '../../../lib/storageKey';
 
 /*
  * The backend reports a reached streak goal again with every fetch of the result until the next
@@ -7,7 +8,7 @@ import { safeLocalStorage } from '../../../lib/safeLocalStorage';
  * streak) gets its trophy again.
  */
 
-export const SHOWN_TROPHIES_KEY = 'lingora:shown-streak-trophies';
+export const SHOWN_TROPHIES_KEY = storageKey('shown-streak-trophies');
 
 function localDay(now: Date): string {
   const pad = (value: number) => String(value).padStart(2, '0');

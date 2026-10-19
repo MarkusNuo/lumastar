@@ -24,7 +24,7 @@ export const pwaOptions: Partial<VitePWAOptions> = {
   srcDir: 'src',
   filename: 'sw.ts',
   // Nothing asks the user or reloads the page: a new version (src/sw.ts never skips waiting) takes
-  // over once every Lingora window is closed, so a running lesson goes on.
+  // over once every Lumastar window is closed, so a running lesson goes on.
   registerType: 'autoUpdate',
   // Only `vite build` registers the worker; the dev server never has one (devOptions are off).
   injectRegister: 'script-defer',
@@ -33,8 +33,8 @@ export const pwaOptions: Partial<VitePWAOptions> = {
   includeManifestIcons: false,
   manifest: {
     id: '/',
-    name: 'Lingora',
-    short_name: 'Lingora',
+    name: 'Lumastar',
+    short_name: 'Lumastar',
     description:
       'Gheg-Albanisch lernen: adaptiv, spielerisch und mit deinem persönlichen Lernplan.',
     lang: 'de-CH',
@@ -64,7 +64,7 @@ export const pwaOptions: Partial<VitePWAOptions> = {
 /** `<meta name="theme-color">` from the tokens, so the browser bars match the app background. */
 export function themeColorMeta(): Plugin {
   return {
-    name: 'lingora-theme-color',
+    name: 'lumastar-theme-color',
     transformIndexHtml: () => [
       { tag: 'meta', attrs: { name: 'theme-color', content: APP_BACKGROUND }, injectTo: 'head' },
     ],
@@ -88,7 +88,7 @@ self.addEventListener('activate', (event) => {
 
 export function devServiceWorkerReset(): Plugin {
   return {
-    name: 'lingora-dev-service-worker-reset',
+    name: 'lumastar-dev-service-worker-reset',
     apply: 'serve',
     configureServer(server) {
       server.middlewares.use('/sw.js', (_request, response) => {

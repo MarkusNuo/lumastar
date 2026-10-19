@@ -68,7 +68,7 @@ describe('AuthGuard', () => {
     stubApi({ 'GET /api/auth/status': () => new Promise<Response>(() => undefined) });
     renderApp('/');
 
-    expect(screen.getByRole('status')).toHaveTextContent('Lingora wird geladen');
+    expect(screen.getByRole('status')).toHaveTextContent('Lumastar wird geladen');
     expect(screen.queryByRole('heading')).not.toBeInTheDocument();
   });
 

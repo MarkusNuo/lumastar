@@ -14,7 +14,7 @@ export const FIELD_COPY = {
   displayName: {
     label: 'Dein Name',
     placeholder: 'Vorname oder Spitzname',
-    hint: 'So begrüsst dich Lingora.',
+    hint: 'So begrüsst dich Lumastar.',
     errors: {
       required: 'Bitte gib einen Namen ein.',
       tooLong: `Höchstens ${DISPLAY_NAME_MAX_LENGTH} Zeichen, bitte.`,
@@ -59,7 +59,7 @@ export const AUTH_COPY = {
   invalid: 'Deine Angaben wurden nicht angenommen. Prüfe sie bitte.',
   throttledWait: (countdown: string) => `Warten (${countdown})`,
   welcome: {
-    title: 'Willkommen bei Lingora!',
+    title: 'Willkommen bei Lumastar!',
     text: 'Hier lernst du Gheg-Albanisch: spielerisch, in kleinen Schritten und in deinem Tempo.',
     register: 'Konto erstellen',
     login: 'Ich habe schon ein Konto',
@@ -88,7 +88,7 @@ export const AUTH_COPY = {
       `Willkommen! Wir haben dir einen Bestätigungslink an ${email} geschickt.`,
     closed: {
       title: 'Gerade keine neuen Konten',
-      text: 'Lingora nimmt im Moment keine neuen Konten auf. Schau später wieder vorbei. Hast du schon ein Konto? Dann melde dich an.',
+      text: 'Lumastar nimmt im Moment keine neuen Konten auf. Schau später wieder vorbei. Hast du schon ein Konto? Dann melde dich an.',
       login: 'Anmelden',
     },
   },
@@ -124,7 +124,7 @@ export const AUTH_COPY = {
         `Falls es ein Konto mit ${email} gibt, ist ein Link für ein neues Passwort unterwegs. Schau auch im Spam-Ordner nach.`,
     },
     toLogin: 'Zur Anmeldung',
-    toApp: 'Weiter zu Lingora',
+    toApp: 'Weiter zu Lumastar',
     throttled: THROTTLED,
     failed: `Der Link konnte nicht angefordert werden. ${CONNECTION}`,
   },
@@ -138,7 +138,7 @@ export const AUTH_COPY = {
       text: 'Du kannst dich jetzt mit deinem neuen Passwort anmelden.',
     },
     toLogin: 'Zur Anmeldung',
-    toApp: 'Weiter zu Lingora',
+    toApp: 'Weiter zu Lumastar',
     requestNew: 'Neuen Link anfordern',
     requestNewHint: 'Fordere einfach einen neuen an.',
     failed: `Das Passwort konnte nicht gespeichert werden. ${CONNECTION}`,
@@ -155,7 +155,7 @@ export const AUTH_COPY = {
     },
     expiredSignedIn: 'Kein Problem: Wir schicken dir gerne einen neuen.',
     expiredSignedOut: 'Melde dich an, dann kannst du einen neuen Link anfordern.',
-    toApp: 'Weiter zu Lingora',
+    toApp: 'Weiter zu Lumastar',
     toLogin: 'Zur Anmeldung',
     failedTitle: 'Das hat nicht geklappt',
     failed: `Die Bestätigung hat nicht geklappt. ${CONNECTION}`,

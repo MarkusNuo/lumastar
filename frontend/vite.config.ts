@@ -7,7 +7,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { devServiceWorkerReset, pwaOptions, themeColorMeta } from './pwa.config.ts';
 import { BACKEND_PATHS } from './src/sw/backendPaths.ts';
 
-const backendUrl = process.env.LINGORA_BACKEND_URL ?? 'http://localhost:8080';
+const backendUrl = process.env.LUMASTAR_BACKEND_URL ?? 'http://localhost:8080';
 
 const backendProxy: Record<string, ProxyOptions> = Object.fromEntries(
   BACKEND_PATHS.map((path) => [path, { target: backendUrl }]),

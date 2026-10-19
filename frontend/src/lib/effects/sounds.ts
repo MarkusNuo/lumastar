@@ -1,7 +1,7 @@
 import type { FeedbackCue } from './cue';
 
 /*
- * Lingora's own sound effects, synthesized at runtime from a few oscillator notes and filtered
+ * Lumastar's own sound effects, synthesized at runtime from a few oscillator notes and filtered
  * noise: no audio files, nothing sampled or copied. Short, soft and friendly; the wrong-answer
  * sound is a gentle "bonk", never a buzzer.
  */

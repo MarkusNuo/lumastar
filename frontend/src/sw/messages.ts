@@ -3,7 +3,7 @@
  * to show its screen instead of reloading it, so nothing in progress is lost.
  */
 
-export const OPEN_SCREEN = 'lingora:open-screen';
+export const OPEN_SCREEN = 'lumastar:open-screen';
 
 export interface OpenScreenMessage {
   type: typeof OPEN_SCREEN;

@@ -1,5 +1,5 @@
 /*
- * A deliberately tiny Markdown subset for texts Lingora generates itself (e.g. learner_summary.md):
+ * A deliberately tiny Markdown subset for texts Lumastar generates itself (e.g. learner_summary.md):
  * ATX headings, paragraphs and nested bullet lists. Everything else stays plain text, and nothing is
  * ever interpreted as HTML.
  */

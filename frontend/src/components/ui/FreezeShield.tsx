@@ -12,7 +12,7 @@ const EDGE_OFFSET = 3;
 const CHECK = 'M16 27.5l5.5 5.5L33 21.5';
 const SHINE = 'M11.5 13v12.5c0 6 2 11 5.5 15';
 
-/** Lingora's own "Streak-Schutz" shield; decorative, the text next to it names its state. */
+/** Lumastar's own "Streak-Schutz" shield; decorative, the text next to it names its state. */
 export function FreezeShield({ ready, className }: FreezeShieldProps) {
   return (
     <svg

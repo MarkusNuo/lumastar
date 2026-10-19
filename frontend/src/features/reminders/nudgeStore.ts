@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { safeLocalStorage } from '../../lib/safeLocalStorage';
+import { storageKey } from '../../lib/storageKey';
 
 /*
  * The suggestion to switch reminders on comes once per device and learner: after the first lesson
@@ -8,7 +9,7 @@ import { safeLocalStorage } from '../../lib/safeLocalStorage';
  * so the suggestion does too; signing out releases the device, so the next learner is asked anew.
  */
 
-export const REMINDER_NUDGE_KEY = 'lingora:reminder-nudge';
+export const REMINDER_NUDGE_KEY = storageKey('reminder-nudge');
 
 /** `waiting` for the first lesson, `due` after it, `done` once accepted or dismissed. */
 export type ReminderNudgeState = 'waiting' | 'due' | 'done';

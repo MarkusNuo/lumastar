@@ -99,7 +99,7 @@ function renderProfile(routes: Routes = {}) {
 
 async function backupFile(size?: number): Promise<File> {
   await switchToNodeFileApi();
-  const file = new File(['PK'], 'lingora-export-2026-09-24.zip', { type: 'application/zip' });
+  const file = new File(['PK'], 'lumastar-export-2026-09-24.zip', { type: 'application/zip' });
   if (size !== undefined) Object.defineProperty(file, 'size', { value: size });
   return file;
 }
@@ -258,7 +258,7 @@ describe('ProfilePage', () => {
       });
       Object.defineProperty(URL, 'createObjectURL', {
         configurable: true,
-        value: vi.fn(() => 'blob:lingora-backup'),
+        value: vi.fn(() => 'blob:lumastar-backup'),
       });
       Object.defineProperty(URL, 'revokeObjectURL', { configurable: true, value: vi.fn() });
       return saved;
@@ -274,28 +274,28 @@ describe('ProfilePage', () => {
       const { user, row } = renderProfile({
         'GET /api/profile/export': () =>
           zipResponse({
-            'Content-Disposition': 'attachment; filename="lingora-export-2026-09-25.zip"',
+            'Content-Disposition': 'attachment; filename="lumastar-export-2026-09-25.zip"',
           }),
       });
 
       await user.click(row('Backup herunterladen'));
 
       expect(
-        await screen.findByText('Backup gespeichert: lingora-export-2026-09-25.zip'),
+        await screen.findByText('Backup gespeichert: lumastar-export-2026-09-25.zip'),
       ).toBeInTheDocument();
       expect(saved).toEqual([
-        { href: 'blob:lingora-backup', download: 'lingora-export-2026-09-25.zip' },
+        { href: 'blob:lumastar-backup', download: 'lumastar-export-2026-09-25.zip' },
       ]);
     });
 
-    it('falls back to lingora-export.zip without a file name', async () => {
+    it('falls back to lumastar-export.zip without a file name', async () => {
       const saved = captureDownloads();
       const { user, row } = renderProfile({ 'GET /api/profile/export': () => zipResponse({}) });
 
       await user.click(row('Backup herunterladen'));
 
       await waitFor(() =>
-        expect(saved.map((file) => file.download)).toEqual(['lingora-export.zip']),
+        expect(saved.map((file) => file.download)).toEqual(['lumastar-export.zip']),
       );
     });
 
@@ -338,7 +338,7 @@ describe('ProfilePage', () => {
       await user.upload(fileInput(), await backupFile());
       const dialog = await screen.findByRole('alertdialog', { name: 'Backup importieren?' });
       expect(dialog).toHaveAccessibleDescription(
-        'Alle aktuellen Lerndaten werden durch das Backup „lingora-export-2026-09-24.zip“ ersetzt. Fortfahren?',
+        'Alle aktuellen Lerndaten werden durch das Backup „lumastar-export-2026-09-24.zip“ ersetzt. Fortfahren?',
       );
       await user.click(within(dialog).getByRole('button', { name: 'Abbrechen' }));
 
@@ -365,7 +365,7 @@ describe('ProfilePage', () => {
       expect(upload?.headers.get('X-XSRF-TOKEN')).toBe('token-123');
       const part = (await upload?.formData())?.get('file');
       expect(part).toBeInstanceOf(File);
-      expect((part as File).name).toBe('lingora-export-2026-09-24.zip');
+      expect((part as File).name).toBe('lumastar-export-2026-09-24.zip');
       await waitFor(() => expect(count('GET /api/me')).toBe(profileLoads + 1));
       expect(queryClient.getQueryState(['curriculum'])?.isInvalidated).toBe(true);
     });

@@ -19,7 +19,7 @@ import {
 } from './mascotArt';
 
 /*
- * Lingora's own mascot: a chubby aurora star with a 3D edge like the buttons (PRD 12.2; the final
+ * Lumastar's own mascot: a chubby aurora star with a 3D edge like the buttons (PRD 12.2; the final
  * character is still open, see QUESTIONS.md). Its arms (the side points) carry the body language:
  * up when celebrating, one waving when encouraging, drooping when sad. Drawn inline so every
  * expression can animate without extra assets.

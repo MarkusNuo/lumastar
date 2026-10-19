@@ -59,7 +59,7 @@ describe('account rules', () => {
   });
 
   describe('e-mail address', () => {
-    it.each(['erza@example.ch', ' erza@example.ch ', 'e.rza+lingora@mail.example.co'])(
+    it.each(['erza@example.ch', ' erza@example.ch ', 'e.rza+lumastar@mail.example.co'])(
       'accepts %j',
       (email) => {
         expect(validateEmail(email)).toBeUndefined();

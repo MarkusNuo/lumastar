@@ -29,7 +29,7 @@ export const LESSON_COPY = {
   },
   failure: {
     title: 'Die Lektion konnte nicht starten',
-    network: 'Lingora erreicht den Server gerade nicht. Prüfe deine Verbindung.',
+    network: 'Lumastar erreicht den Server gerade nicht. Prüfe deine Verbindung.',
     noContent: 'Für diese Einheit gibt es noch keine Übungen.',
     unknownUnit: 'Diese Einheit gibt es nicht.',
     retry: 'Nochmals versuchen',

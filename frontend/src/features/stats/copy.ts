@@ -88,7 +88,7 @@ export const STATS_COPY = {
   practice: {
     failureTitle: 'Gezielt üben konnte nicht starten',
     noExercises: 'Für diese Fertigkeit gibt es auf deinem Niveau noch keine Übungen.',
-    unknownSkill: 'Diese Fertigkeit kennt Lingora nicht.',
+    unknownSkill: 'Diese Fertigkeit kennt Lumastar nicht.',
     back: 'Zur Statistik',
   },
 } as const;

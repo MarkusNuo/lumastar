@@ -1,5 +1,5 @@
 /*
- * Lingora design tokens: the only file that contains raw colour values.
+ * Lumastar design tokens: the only file that contains raw colour values.
  *
  * Dark mode only. Everything in `@theme` becomes a CSS variable on :root and a Tailwind utility
  * (e.g. --color-primary -> bg-primary, --radius-card -> rounded-card). Tailwind's default palette,
@@ -108,7 +108,7 @@
   --color-unit-coral-edge: #d45a3e;
   --color-on-unit-coral: #2e0e05;
 
-  /* Mascot: Lingora's own aurora star */
+  /* Mascot: Lumastar's own aurora star */
   --color-mascot-top: #5ce8da;
   --color-mascot-bottom: #8e6bff;
   --color-mascot-edge: #5b3cc8;

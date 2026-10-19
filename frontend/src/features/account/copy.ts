@@ -106,7 +106,7 @@ export const ACCOUNT_COPY = {
   addEmail: {
     saved: (email: string) => `Gespeichert! Bestätige ${email} noch mit dem Link aus der E-Mail.`,
     title: 'Eine Sache noch: deine E-Mail-Adresse',
-    text: 'Lingora hat jetzt Konten für mehrere Personen. Ab jetzt meldest du dich mit deiner E-Mail-Adresse an. Deine Lerndaten bleiben, wie sie sind.',
+    text: 'Lumastar hat jetzt Konten für mehrere Personen. Ab jetzt meldest du dich mit deiner E-Mail-Adresse an. Deine Lerndaten bleiben, wie sie sind.',
     submit: 'Speichern und weiter',
   },
 } as const;

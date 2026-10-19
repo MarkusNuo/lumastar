@@ -7,7 +7,7 @@ export interface WordmarkProps {
 
 const sizeClass = { sm: 'text-lead', md: 'text-title', lg: 'text-display' } as const;
 
-/** The Lingora name set in the aurora gradient of the mascot. */
+/** The Lumastar name set in the aurora gradient of the mascot. */
 export function Wordmark({ size = 'md', className }: WordmarkProps) {
   return (
     <span
@@ -17,7 +17,7 @@ export function Wordmark({ size = 'md', className }: WordmarkProps) {
         className,
       )}
     >
-      Lingora
+      Lumastar
     </span>
   );
 }

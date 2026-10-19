@@ -11,7 +11,7 @@ import {
   targetPath,
 } from './reminder';
 
-const ORIGIN = 'https://lingora.test';
+const ORIGIN = 'https://lumastar.test';
 
 describe('readPushData', () => {
   it('reads the JSON of the message', () => {
@@ -36,7 +36,7 @@ describe('parseReminder', () => {
       title: WORKER_COPY.fallback.title,
       body: WORKER_COPY.fallback.body,
       url: '/',
-      tag: 'lingora-reminder',
+      tag: 'lumastar-reminder',
       renotify: true,
       icon: REMINDER_ICON,
       badge: REMINDER_BADGE,

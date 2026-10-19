@@ -1,12 +1,12 @@
 import type { DevicePlatform } from './pushDevice';
 
-const INSTALL_SUMMARY = 'Tippe auf Teilen → Zum Home-Bildschirm, dann öffne Lingora von dort.';
+const INSTALL_SUMMARY = 'Tippe auf Teilen → Zum Home-Bildschirm, dann öffne Lumastar von dort.';
 
 /** UI copy of the reminders (German, Swiss orthography). */
 export const REMINDER_COPY = {
   title: 'Erinnerungen',
   intro:
-    'Lingora erinnert dich, wenn dein Tagesziel noch offen ist, damit dein Streak weiterbrennt.',
+    'Lumastar erinnert dich, wenn dein Tagesziel noch offen ist, damit dein Streak weiterbrennt.',
   loading: 'Erinnerungen werden geladen',
   loadFailed: 'Die Erinnerungen konnten nicht geladen werden.',
   row: {
@@ -32,9 +32,9 @@ export const REMINDER_COPY = {
   disabled: 'Erinnerungen auf diesem Gerät aus',
   enableFailed: {
     dismissed:
-      'Ohne deine Erlaubnis kann Lingora dich nicht erinnern. Tippe nochmals auf den Schalter, wenn du es dir anders überlegst.',
+      'Ohne deine Erlaubnis kann Lumastar dich nicht erinnern. Tippe nochmals auf den Schalter, wenn du es dir anders überlegst.',
     pushServiceNotSupported:
-      'Dieser Browser nutzt einen Mitteilungsdienst, den Lingora nicht kennt. Versuch es in Chrome, Edge, Firefox oder Safari.',
+      'Dieser Browser nutzt einen Mitteilungsdienst, den Lumastar nicht kennt. Versuch es in Chrome, Edge, Firefox oder Safari.',
     failed:
       'Die Erinnerungen konnten nicht eingeschaltet werden. Prüfe deine Verbindung und versuch es nochmals.',
   },
@@ -49,39 +49,39 @@ export const REMINDER_COPY = {
     sent: 'Test-Erinnerung gesendet. Sie erscheint gleich.',
     notDelivered: 'Die Test-Erinnerung kam nicht an. Schalte die Erinnerungen aus und wieder ein.',
     noDevice:
-      'Für dein Konto ist kein Gerät für Erinnerungen gespeichert. Schalte die Erinnerungen aus und wieder ein, dann speichert Lingora dieses Gerät neu.',
+      'Für dein Konto ist kein Gerät für Erinnerungen gespeichert. Schalte die Erinnerungen aus und wieder ein, dann speichert Lumastar dieses Gerät neu.',
     tooMany: 'Du hast schon viele Test-Erinnerungen gesendet. Versuch es später nochmals.',
     failed: 'Die Test-Erinnerung konnte nicht gesendet werden. Versuch es nochmals.',
   },
   installed: 'Als App installiert',
   installTip:
-    'Tipp: Installiere Lingora als App. Dann kommen die Erinnerungen wie bei jeder anderen App.',
+    'Tipp: Installiere Lumastar als App. Dann kommen die Erinnerungen wie bei jeder anderen App.',
   states: {
     serverUnavailable: {
       title: 'Erinnerungen sind noch nicht eingerichtet',
-      text: 'Auf diesem Lingora-Server sind Mitteilungen ausgeschaltet. Frag die Person, die Lingora betreibt.',
+      text: 'Auf diesem Lumastar-Server sind Mitteilungen ausgeschaltet. Frag die Person, die Lumastar betreibt.',
     },
     unsupported: {
       title: 'Hier gehen keine Erinnerungen',
       text: {
-        ios: 'Erinnerungen brauchen iOS 16.4 oder neuer. Aktualisiere dein Gerät und öffne Lingora dann vom Home-Bildschirm.',
+        ios: 'Erinnerungen brauchen iOS 16.4 oder neuer. Aktualisiere dein Gerät und öffne Lumastar dann vom Home-Bildschirm.',
         android:
-          'Dieser Browser kann keine Mitteilungen von Lingora zeigen. Öffne Lingora in Chrome, Firefox oder Samsung Internet.',
+          'Dieser Browser kann keine Mitteilungen von Lumastar zeigen. Öffne Lumastar in Chrome, Firefox oder Samsung Internet.',
         desktop:
-          'Dieser Browser kann keine Mitteilungen von Lingora zeigen. Öffne Lingora in Chrome, Edge, Firefox oder Safari.',
+          'Dieser Browser kann keine Mitteilungen von Lumastar zeigen. Öffne Lumastar in Chrome, Edge, Firefox oder Safari.',
       } satisfies Record<DevicePlatform, string>,
     },
     denied: {
       title: 'Mitteilungen sind blockiert',
-      text: 'Du hast Lingora das Senden von Mitteilungen verboten. So erlaubst du es wieder:',
+      text: 'Du hast Lumastar das Senden von Mitteilungen verboten. So erlaubst du es wieder:',
       steps: {
         ios: [
           'Öffne die Einstellungen und tippe auf Mitteilungen.',
-          'Wähle Lingora und erlaube Mitteilungen.',
+          'Wähle Lumastar und erlaube Mitteilungen.',
         ],
         android: [
           'Öffne die Einstellungen und tippe auf Apps.',
-          'Wähle Lingora (oder deinen Browser) und erlaube Benachrichtigungen.',
+          'Wähle Lumastar (oder deinen Browser) und erlaube Benachrichtigungen.',
         ],
         androidBrowser: [
           'Tippe in der Adressleiste auf das Symbol links neben der Adresse.',
@@ -101,7 +101,7 @@ export const REMINDER_COPY = {
       steps: [
         'Tippe in Safari auf Teilen.',
         'Wähle „Zum Home-Bildschirm“ und tippe auf Hinzufügen.',
-        'Öffne Lingora vom Home-Bildschirm und schalte hier die Erinnerungen ein.',
+        'Öffne Lumastar vom Home-Bildschirm und schalte hier die Erinnerungen ein.',
       ],
       illustration: 'Safari mit hervorgehobenem Teilen-Knopf und dem Eintrag „Zum Home-Bildschirm“',
       addToHomeScreen: 'Zum Home-Bildschirm',
@@ -109,7 +109,7 @@ export const REMINDER_COPY = {
   },
   preview: {
     label: 'Vorschau einer Erinnerung',
-    app: 'Lingora',
+    app: 'Lumastar',
     when: 'jetzt',
     title: 'Zeit für Gheg!',
     body: 'Dein 12-Tage-Streak wartet auf dich.',

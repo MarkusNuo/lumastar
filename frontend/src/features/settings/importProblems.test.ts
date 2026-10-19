@@ -16,8 +16,8 @@ const UNCHANGED = 'Deine Lerndaten sind unverändert.';
 describe('importProblem', () => {
   it.each([
     [413, 'upload_too_large', 'Die Datei ist zu gross. Ein Backup darf höchstens 20 MB haben'],
-    [422, 'invalid_backup_archive', 'Diese Datei ist kein Lingora-Backup.'],
-    [422, 'unsupported_schema_version', 'aus einer Lingora-Version, die diese Installation nicht'],
+    [422, 'invalid_backup_archive', 'Diese Datei ist kein Lumastar-Backup.'],
+    [422, 'unsupported_schema_version', 'aus einer Lumastar-Version, die diese Installation nicht'],
   ])('explains %i %s and says that nothing changed', (status, code, text) => {
     const { message, details } = importProblem(apiError(status, code));
 
@@ -74,7 +74,7 @@ describe('importProblem', () => {
     const offline = new ApiError('offline', { status: 0, code: CLIENT_ERROR_CODES.network });
 
     expect(importProblem(offline).message).toBe(
-      'Lingora erreicht den Server gerade nicht. Prüfe deine Verbindung.',
+      'Lumastar erreicht den Server gerade nicht. Prüfe deine Verbindung.',
     );
   });
 

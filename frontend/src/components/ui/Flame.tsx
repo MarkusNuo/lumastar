@@ -1,5 +1,5 @@
 /*
- * Lingora's own streak flame (viewBox 0 0 24 24): an outer tongue with a hot core. The big flame of
+ * Lumastar's own streak flame (viewBox 0 0 24 24): an outer tongue with a hot core. The big flame of
  * the streak celebration and the streak screen draws the same silhouette, so the top-bar flame is
  * recognisably the one that ignites there.
  */

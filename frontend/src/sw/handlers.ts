@@ -18,7 +18,7 @@ import { decodeBase64Url } from './subscription';
  * worker's globals, so they run in unit tests and in the worker alike (src/sw.ts wires them up).
  */
 
-/** An open Lingora window. */
+/** An open Lumastar window. */
 export interface AppWindow {
   readonly url: string;
   readonly focused: boolean;
@@ -70,7 +70,7 @@ export interface NotificationClick {
 
 /**
  * `notificationclick` (the notification is already closed): "In 1 Stunde" postpones the reminder
- * without opening the app; a tap or "Jetzt üben" brings Lingora to the front at the right screen.
+ * without opening the app; a tap or "Jetzt üben" brings Lumastar to the front at the right screen.
  */
 export async function handleNotificationClick(
   worker: ReminderWorker,
@@ -85,7 +85,7 @@ export async function handleNotificationClick(
 }
 
 /**
- * Focuses a running Lingora window and lets the app change the screen itself (no reload, nothing
+ * Focuses a running Lumastar window and lets the app change the screen itself (no reload, nothing
  * in progress is lost), or opens a new window, which an installed app opens as the app.
  */
 export async function openApp(worker: ReminderWorker, path: string): Promise<void> {

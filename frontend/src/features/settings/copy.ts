@@ -105,8 +105,8 @@ export const PROFILE_COPY = {
     details: 'Details',
     problems: {
       tooLarge: `Die Datei ist zu gross. Ein Backup darf höchstens ${MAX_BACKUP_MB} MB haben, auch entpackt. ${UNCHANGED}`,
-      invalidArchive: `Diese Datei ist kein Lingora-Backup. Wähle eine ZIP-Datei, die du hier heruntergeladen hast. ${UNCHANGED}`,
-      unsupportedVersion: `Dieses Backup stammt aus einer Lingora-Version, die diese Installation nicht kennt. ${UNCHANGED}`,
+      invalidArchive: `Diese Datei ist kein Lumastar-Backup. Wähle eine ZIP-Datei, die du hier heruntergeladen hast. ${UNCHANGED}`,
+      unsupportedVersion: `Dieses Backup stammt aus einer Lumastar-Version, die diese Installation nicht kennt. ${UNCHANGED}`,
       invalidData: `Das Backup enthält ungültige Daten. ${UNCHANGED}`,
       unknownContent: (parts: string[]) =>
         `Das Backup verweist auf Inhalte, die es hier nicht gibt${parts.length > 0 ? ` (${parts.join(', ')})` : ''}. ${UNCHANGED}`,
@@ -116,7 +116,7 @@ export const PROFILE_COPY = {
         items: (n: number) => count(n, 'Wort', 'Wörter'),
         skillTags: (n: number) => count(n, 'Fertigkeit', 'Fertigkeiten'),
       },
-      network: 'Lingora erreicht den Server gerade nicht. Prüfe deine Verbindung.',
+      network: 'Lumastar erreicht den Server gerade nicht. Prüfe deine Verbindung.',
       failed: 'Der Import hat nicht geklappt. Versuch es nochmals.',
     },
   },

@@ -3,7 +3,7 @@ import type { AppWindow, ReminderWorker, WorkerBackend } from '../sw/handlers';
 
 /* Fakes of the service worker's environment for the handler tests. */
 
-export const ORIGIN = 'https://lingora.test';
+export const ORIGIN = 'https://lumastar.test';
 
 export function fakeWindow(url: string, focused = false) {
   return {

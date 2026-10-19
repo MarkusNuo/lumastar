@@ -3,13 +3,13 @@ import { filenameFromContentDisposition, isBackupTooLarge, MAX_BACKUP_BYTES } fr
 
 describe('filenameFromContentDisposition', () => {
   it.each([
-    ['attachment; filename="lingora-export-2026-09-25.zip"', 'lingora-export-2026-09-25.zip'],
-    ['attachment; filename=lingora-export-2026-09-25.zip', 'lingora-export-2026-09-25.zip'],
+    ['attachment; filename="lumastar-export-2026-09-25.zip"', 'lumastar-export-2026-09-25.zip'],
+    ['attachment; filename=lumastar-export-2026-09-25.zip', 'lumastar-export-2026-09-25.zip'],
     ['attachment;filename="backup; alt.zip"', 'backup; alt.zip'],
     ['attachment; filename="say \\"hi\\".zip"', 'say "hi".zip'],
     [
-      'attachment; filename="lingora.zip"; filename*=UTF-8\'\'lingora-%C3%BCbung.zip',
-      'lingora-übung.zip',
+      'attachment; filename="lumastar.zip"; filename*=UTF-8\'\'lumastar-%C3%BCbung.zip',
+      'lumastar-übung.zip',
     ],
     ["attachment; filename*=utf-8'de'sich%C3%A4rung.zip", 'sichärung.zip'],
   ])('reads %s', (header, expected) => {
@@ -25,12 +25,12 @@ describe('filenameFromContentDisposition', () => {
     expect(filenameFromContentDisposition('attachment; filename=".hidden.zip"')).toBe('hidden.zip');
   });
 
-  it('falls back to lingora-export.zip without a usable name', () => {
-    expect(filenameFromContentDisposition(null)).toBe('lingora-export.zip');
-    expect(filenameFromContentDisposition('attachment')).toBe('lingora-export.zip');
-    expect(filenameFromContentDisposition('attachment; filename=""')).toBe('lingora-export.zip');
+  it('falls back to lumastar-export.zip without a usable name', () => {
+    expect(filenameFromContentDisposition(null)).toBe('lumastar-export.zip');
+    expect(filenameFromContentDisposition('attachment')).toBe('lumastar-export.zip');
+    expect(filenameFromContentDisposition('attachment; filename=""')).toBe('lumastar-export.zip');
     expect(filenameFromContentDisposition("attachment; filename*=UTF-8''%E0%A4%A")).toBe(
-      'lingora-export.zip',
+      'lumastar-export.zip',
     );
   });
 
@@ -45,7 +45,7 @@ describe('filenameFromContentDisposition', () => {
 
 describe('isBackupTooLarge', () => {
   const fileOfSize = (size: number) => {
-    const file = new File(['PK'], 'lingora-export.zip', { type: 'application/zip' });
+    const file = new File(['PK'], 'lumastar-export.zip', { type: 'application/zip' });
     Object.defineProperty(file, 'size', { value: size });
     return file;
   };

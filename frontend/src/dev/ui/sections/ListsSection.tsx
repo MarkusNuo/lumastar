@@ -150,7 +150,7 @@ export function ListsSection() {
         <Toast tone="primary" message="Neue Inhalte sind da." onDismiss={() => undefined} />
         <Button
           variant="neutral"
-          onClick={() => showToast('Backup gespeichert: lingora-export-2026-09-25.zip')}
+          onClick={() => showToast('Backup gespeichert: lumastar-export-2026-09-25.zip')}
         >
           Toast zeigen
         </Button>
