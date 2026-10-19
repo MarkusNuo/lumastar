@@ -5,7 +5,7 @@ export class VerifyEmailPage {
   readonly page: Page;
   readonly doneHeading: Locator;
   readonly invalidHeading: Locator;
-  /** "Weiter zu Lingora" with a session, "Zur Anmeldung" without one. */
+  /** "Weiter zu Lumastar" with a session, "Zur Anmeldung" without one. */
   readonly toAppLink: Locator;
   readonly toLoginLink: Locator;
 
@@ -13,7 +13,7 @@ export class VerifyEmailPage {
     this.page = page;
     this.doneHeading = page.getByRole('heading', { name: 'E-Mail-Adresse bestätigt!', level: 1 });
     this.invalidHeading = page.getByRole('heading', { name: 'Link ungültig', level: 1 });
-    this.toAppLink = page.getByRole('link', { name: 'Weiter zu Lingora', exact: true });
+    this.toAppLink = page.getByRole('link', { name: 'Weiter zu Lumastar', exact: true });
     this.toLoginLink = page.getByRole('link', { name: 'Zur Anmeldung', exact: true });
   }
 

@@ -18,9 +18,9 @@ import { PHONES } from './support/phones.ts';
 type WebServer = Extract<NonNullable<PlaywrightTestConfig['webServer']>, { command: string }>;
 
 const isCI = Boolean(process.env.CI);
-/** Seed of the backend's lesson composer (lingora.lesson.random-seed); older commits ignore it. */
+/** Seed of the backend's lesson composer (lumastar.lesson.random-seed); older commits ignore it. */
 const LESSON_SEED = 20261005;
-/** Seed of the placement engine's pick among the items of a stage (lingora.placement.random-seed). */
+/** Seed of the placement engine's pick among the items of a stage (lumastar.placement.random-seed). */
 const PLACEMENT_SEED = 20261005;
 /** Spring cron of the reminder job: every 5 seconds, so a reminder set to "now" goes out at once. */
 const REMINDER_CRON = '*/5 * * * * *';
@@ -45,15 +45,15 @@ function backendServer(cwd: string): WebServer {
   return {
     name: 'backend',
     // Fixed seeds make the composed lessons and placement tests the same in every run of the same tests.
-    command: `${gradle} bootTestRun "--args=--server.port=${BACKEND_PORT} --lingora.lesson.random-seed=${LESSON_SEED} --lingora.placement.random-seed=${PLACEMENT_SEED}" --console=plain`,
+    command: `${gradle} bootTestRun "--args=--server.port=${BACKEND_PORT} --lumastar.lesson.random-seed=${LESSON_SEED} --lumastar.placement.random-seed=${PLACEMENT_SEED}" --console=plain`,
     cwd,
     env: {
       // Account mails go to Mailpit, and their links to the pages of the e2e frontend.
-      LINGORA_MAIL_HOST: HOST,
-      LINGORA_MAIL_PORT: String(MAILPIT.smtpPort),
-      LINGORA_PUBLIC_URL: FRONTEND_URL,
+      LUMASTAR_MAIL_HOST: HOST,
+      LUMASTAR_MAIL_PORT: String(MAILPIT.smtpPort),
+      LUMASTAR_PUBLIC_URL: FRONTEND_URL,
       // The reminder job looks for due reminders every 5 seconds instead of every 5 minutes (M9).
-      LINGORA_REMINDER_CRON: REMINDER_CRON,
+      LUMASTAR_REMINDER_CRON: REMINDER_CRON,
       // The JDK on the Windows dev machine cannot open its loopback socket in the user temp dir.
       ...(isWindows ? { TEMP: PATHS.gradleTemp, TMP: PATHS.gradleTemp } : {}),
     },
@@ -77,7 +77,7 @@ function frontendServer(cwd: string): WebServer {
     name: 'frontend',
     command: `${vite} build ${outDir} --emptyOutDir --logLevel warn && ${vite} preview ${outDir} --host ${HOST} --port ${FRONTEND_PORT} --strictPort`,
     cwd,
-    env: { LINGORA_BACKEND_URL: BACKEND_URL },
+    env: { LUMASTAR_BACKEND_URL: BACKEND_URL },
     url: FRONTEND_URL,
     timeout: 3 * 60_000,
     reuseExistingServer,

@@ -23,7 +23,7 @@ import { snap } from '../../support/screenshots.ts';
  */
 test.use({ storageState: { cookies: [], origins: [] } });
 
-const BACKUP_FILENAME = /^lingora-export-\d{4}-\d{2}-\d{2}\.zip$/;
+const BACKUP_FILENAME = /^lumastar-export-\d{4}-\d{2}-\d{2}\.zip$/;
 
 test('deleting the account: the consequences, a backup first, the password and a last confirmation; then the address no longer signs in', async ({
   page,

@@ -53,7 +53,7 @@ export async function fetchAccount(request: APIRequestContext): Promise<AccountI
 export function newCredentials(purpose: string, displayName = 'Arta'): Credentials {
   return {
     displayName,
-    email: `e2e-${RUN_ID}-${purpose}-${randomUUID().slice(0, 8)}@lingora.test`,
+    email: `e2e-${RUN_ID}-${purpose}-${randomUUID().slice(0, 8)}@lumastar.test`,
     password: `pw-${randomUUID()}`,
   };
 }

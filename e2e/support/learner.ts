@@ -7,11 +7,11 @@ import { RUN_ID } from './env.ts';
  */
 export const LEARNER = {
   displayName: 'Testa',
-  email: `e2e-${RUN_ID}-learner@lingora.test`,
-  password: 'lingora-e2e-password',
+  email: `e2e-${RUN_ID}-learner@lumastar.test`,
+  password: 'lumastar-e2e-password',
 } as const;
 
-export const WRONG_PASSWORD = 'lingora-e2e-wrong-password';
+export const WRONG_PASSWORD = 'lumastar-e2e-wrong-password';
 
 /**
  * The answers of the onboarding questions (PRD F1) the setup project gives, with the labels of the

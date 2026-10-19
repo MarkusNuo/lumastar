@@ -3,7 +3,7 @@ import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 
-const SCHEMA_ID_BASE = 'https://lingora.invalid/schema/';
+const SCHEMA_ID_BASE = 'https://lumastar.invalid/schema/';
 
 /**
  * Loads all JSON Schemas of `schemaDir` into one Ajv (draft 2020-12) instance and compiles them

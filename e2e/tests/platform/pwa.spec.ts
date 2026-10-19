@@ -50,8 +50,10 @@ test('the build serves a web app manifest: name, standalone display, theme colou
   expect(response.headers()['content-type']).toMatch(/^application\/manifest\+json/);
   const manifest = (await response.json()) as WebAppManifest;
   expect(manifest).toMatchObject({
-    name: 'Lingora',
-    short_name: 'Lingora',
+    // The id from before the rename (DECISIONS #103): installed apps stay installed and just update.
+    id: '/',
+    name: 'Lumastar',
+    short_name: 'Lumastar',
     start_url: '/',
     scope: '/',
     display: 'standalone',

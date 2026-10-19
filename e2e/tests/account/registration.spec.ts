@@ -50,7 +50,7 @@ test('the backend refuses what the form already blocks: a short password, an add
   };
 
   expect(await register({ password: '1234567' })).toEqual(['password']);
-  expect(await register({ email: 'arta@lingora' })).toEqual(['email']);
+  expect(await register({ email: 'arta@lumastar' })).toEqual(['email']);
   expect(await register({ displayName: ' ' })).toEqual(['displayName']);
   expect((await fetchAuthStatus(page.request)).authenticated).toBe(false);
 });

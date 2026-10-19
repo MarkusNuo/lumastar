@@ -46,6 +46,31 @@ export async function openLesson(
   return { lesson: (await response.json()) as LessonResponse, completion };
 }
 
+/** How often a lesson is composed anew before a test gives up on one that fits its plan. */
+const COMPOSITIONS = 5;
+
+/**
+ * Opens a lesson that `fits` a test's plan, e.g. three exercises of one skill tag to answer wrong.
+ * The composer draws from one seeded random sequence for the whole run, so a lesson depends on every
+ * lesson composed before it. One that does not fit is closed (nothing of it is saved) and `open` runs
+ * again, which composes a new one.
+ */
+export async function openFittingLesson(
+  page: Page,
+  open: () => Promise<void>,
+  fits: (lesson: LessonResponse) => boolean,
+): Promise<OpenedLesson> {
+  const player = new LessonPlayer(page);
+  for (let composition = 1; ; composition += 1) {
+    const opened = await openLesson(page, open);
+    if (fits(opened.lesson)) return opened;
+    if (composition === COMPOSITIONS) throw new Error(`None of ${COMPOSITIONS} composed lessons fits the test`);
+    await player.closeButton.click();
+    await player.quitDialog.getByRole('button', { name: 'Beenden', exact: true }).click();
+    await new AppShell(page).expectHome();
+  }
+}
+
 export interface UiPlayOptions {
   intentOf?: IntentOf;
   /** Shows once the last exercise is done, e.g. the heading of the result screen. */

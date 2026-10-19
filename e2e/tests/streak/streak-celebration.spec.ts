@@ -7,8 +7,8 @@ import { StreakCelebration, watchForPathFlash, type PathFlashRecord } from '../.
 import { StreakPage } from '../../pages/StreakPage.ts';
 import { newLearnerViaApi } from '../../support/auth.ts';
 import { mostWrongableTag } from '../../support/lessonAnswers.ts';
-import { isLessonStart } from '../../support/lessonApi.ts';
-import { openLesson, playLessonToResult, playOpenedLesson } from '../../support/lessonFlow.ts';
+import { isLessonStart, type LessonExercise } from '../../support/lessonApi.ts';
+import { openFittingLesson, playLessonToResult, playOpenedLesson } from '../../support/lessonFlow.ts';
 import { fetchTodayProgress } from '../../support/progressApi.ts';
 import { escapeRegExp } from '../../support/regex.ts';
 import { snap } from '../../support/screenshots.ts';
@@ -458,12 +458,13 @@ test.describe('motion reduced', () => {
     await path.goto();
 
     const result = await test.step(`${FOCUS_MISTAKES} mistakes on one skill tag, in the lesson that meets the goal`, async () => {
-      const opened = await openLesson(page, () => path.startCurrentLesson());
-      const weak = mostWrongableTag(opened.lesson.exercises);
-      if (!weak || weak.candidates.length < FOCUS_MISTAKES) {
-        throw new Error(`No skill tag of the lesson has ${FOCUS_MISTAKES} exercises to answer wrong for sure`);
-      }
-      const wrong = new Set(weak.candidates.slice(0, FOCUS_MISTAKES).map((exercise) => exercise.id));
+      const wrongable = (exercises: readonly LessonExercise[]) => mostWrongableTag(exercises)?.candidates ?? [];
+      const opened = await openFittingLesson(
+        page,
+        () => path.startCurrentLesson(),
+        (lesson) => wrongable(lesson.exercises).length >= FOCUS_MISTAKES,
+      );
+      const wrong = new Set(wrongable(opened.lesson.exercises).slice(0, FOCUS_MISTAKES).map((exercise) => exercise.id));
       const deadline = Date.now() + LESSON_MS;
       return playOpenedLesson(page, opened, {
         intentOf: (exercise) => (wrong.has(exercise.id) ? 'wrong' : 'correct'),

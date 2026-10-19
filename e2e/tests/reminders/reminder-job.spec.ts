@@ -17,7 +17,7 @@ import { hhmm, localTime, moveLearnerTo, secondsLeftInDay, zoneAroundMidday } fr
 
 /*
  * The reminder job (M9): the e2e backend looks for due reminders every 5 seconds
- * (LINGORA_REMINDER_CRON in playwright.config.ts) instead of every 5 minutes. A test moves its
+ * (LUMASTAR_REMINDER_CRON in playwright.config.ts) instead of every 5 minutes. A test moves its
  * learner into a time zone where it is around midday and sets the daily reminder to the current
  * minute; the job then sends it to the learner's device at the stub push service.
  */
@@ -75,7 +75,7 @@ test('the job sends the daily reminder at the learner’s time, once, with “Je
     title: 'Zeit für Gheg!',
     body: `${ONBOARDING.dailyGoal.minutes} Minuten reichen für dein Tagesziel.`,
     url: '/',
-    tag: 'lingora-daily-reminder',
+    tag: 'lumastar-daily-reminder',
     renotify: true,
     icon: '/icons/icon-192.png',
     badge: '/icons/badge-96.png',
@@ -89,7 +89,7 @@ test('the job sends the daily reminder at the learner’s time, once, with “Je
 
   await test.step('the push service may hold it as long as a reminder may be late, and replace it by its topic', () => {
     const [message] = pushService.messagesTo(phone.json.endpoint);
-    expect(message?.headers).toMatchObject({ topic: 'lingora-daily-reminder', urgency: 'normal' });
+    expect(message?.headers).toMatchObject({ topic: 'lumastar-daily-reminder', urgency: 'normal' });
     // min(lateness limit, rest of the learner's day): around midday the limit is the shorter one.
     const leftInDay = secondsLeftInDay(localTime(zone, new Date(message?.receivedAt ?? 0)));
     expect(leftInDay).toBeGreaterThan(MAX_DELAY_SECONDS);

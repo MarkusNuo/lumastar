@@ -55,7 +55,7 @@ test('a reminder of the job becomes a system notification with its buttons, a ne
   const shown = {
     title: 'Zeit für Gheg!',
     body: `${ONBOARDING.dailyGoal.minutes} Minuten reichen für dein Tagesziel.`,
-    tag: 'lingora-daily-reminder',
+    tag: 'lumastar-daily-reminder',
     lang: 'de-CH',
     timestamp: expect.any(Number),
     icon: expect.stringMatching(/\/icons\/icon-192\.png$/),
@@ -64,7 +64,7 @@ test('a reminder of the job becomes a system notification with its buttons, a ne
       { action: 'practise', title: 'Jetzt üben' },
       { action: 'snooze', title: 'In 1 Stunde' },
     ],
-    data: { url: '/', tag: 'lingora-daily-reminder', snoozeToken: reminder.snoozeToken },
+    data: { url: '/', tag: 'lumastar-daily-reminder', snoozeToken: reminder.snoozeToken },
   };
   await expect.poll(() => worker.notifications()).toEqual([shown]);
 
@@ -80,8 +80,8 @@ test('a reminder of the job becomes a system notification with its buttons, a ne
   await test.step('a message without readable JSON still becomes a reminder', async () => {
     await worker.deliver('not json');
     await expect
-      .poll(async () => (await worker.notifications()).find((notification) => notification.tag === 'lingora-reminder'))
-      .toMatchObject({ title: 'Lingora', body: 'Zeit für eine kurze Lektion.', actions: [], data: { url: '/' } });
+      .poll(async () => (await worker.notifications()).find((notification) => notification.tag === 'lumastar-reminder'))
+      .toMatchObject({ title: 'Lumastar', body: 'Zeit für eine kurze Lektion.', actions: [], data: { url: '/' } });
   });
 
   await test.step('opening the app clears the delivered reminders', async () => {
@@ -100,7 +100,7 @@ async function openScreenFromWorker(worker: Worker, path: string): Promise<void>
     };
     const windows = await scope.clients.matchAll({ type: 'window', includeUncontrolled: true });
     for (const window of windows) window.postMessage(message);
-  }, { type: 'lingora:open-screen', path });
+  }, { type: 'lumastar:open-screen', path });
 }
 
 test('a tapped reminder shows its screen in the running app, but never leaves a running lesson', async ({

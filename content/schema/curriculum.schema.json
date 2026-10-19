@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://lingora.invalid/schema/curriculum.schema.json",
-  "title": "Lingora curriculum",
+  "$id": "https://lumastar.invalid/schema/curriculum.schema.json",
+  "title": "Lumastar curriculum",
   "description": "content/curriculum.json: stages A0 to C2.3 and their units in path order (docs/CONTENT_FORMAT.md).",
   "type": "object",
   "required": ["schemaVersion", "variety", "stages"],

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "description": "Standard-Formen (Tosk-Basis), die in Gheg-Texten von Lingora nie vorkommen dürfen: Lösungen, Satzbausteine, Wortbank, Lückentexte, Gheg-Aufgabenstellungen, linke Seite von Wortpaaren und Item-Formen. Geprüft werden ganze Wörter (klein geschrieben, Unicode NFC) und Wortmuster (regulärer Ausdruck auf ein einzelnes Wort). Nicht geprüft werden standardForms, Erklärungen und errorHints. Regeln und Begründungen: content/LANGUAGE_GUIDE.md, Abschnitt 10.",
+  "description": "Standard-Formen (Tosk-Basis), die in Gheg-Texten von Lumastar nie vorkommen dürfen: Lösungen, Satzbausteine, Wortbank, Lückentexte, Gheg-Aufgabenstellungen, linke Seite von Wortpaaren und Item-Formen. Geprüft werden ganze Wörter (klein geschrieben, Unicode NFC) und Wortmuster (regulärer Ausdruck auf ein einzelnes Wort). Nicht geprüft werden standardForms, Erklärungen und errorHints. Regeln und Begründungen: content/LANGUAGE_GUIDE.md, Abschnitt 10.",
   "words": [
     { "standard": "është", "gheg": "âsht", "reason": "„ist“ (3. Person Singular von „sein“); im Gheg mit Nasalvokal." },
     { "standard": "nënë", "gheg": "nânë", "reason": "„Mutter“; Standard-ë vor Nasal entspricht Gheg-â." },

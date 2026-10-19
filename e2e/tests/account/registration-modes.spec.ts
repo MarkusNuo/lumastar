@@ -6,7 +6,7 @@ import { newCredentials, type AuthStatus } from '../../support/auth.ts';
 import { snap } from '../../support/screenshots.ts';
 
 /*
- * LINGORA_REGISTRATION_MODE (open, invite, closed) and the sign-in of the single-user version are
+ * LUMASTAR_REGISTRATION_MODE (open, invite, closed) and the sign-in of the single-user version are
  * fixed when the backend starts, and the e2e backend runs "open" on a fresh database. Another backend
  * per mode would cost a Testcontainer and a minute of start-up for what the backend tests already
  * prove (InviteRegistrationApiTest, RegistrationPropertiesTest, LegacyAccountApiTest). Here

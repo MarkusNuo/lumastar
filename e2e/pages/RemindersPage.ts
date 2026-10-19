@@ -47,7 +47,7 @@ export class RemindersPage {
     this.rescueTimeInput = page.getByLabel('Uhrzeit des Streak-Retters', { exact: true });
     this.testButton = page.getByRole('button', { name: 'Test-Erinnerung senden', exact: true });
     this.installedChip = page.getByText('Als App installiert', { exact: true });
-    this.installTip = page.getByText(/^Tipp: Installiere Lingora als App\./);
+    this.installTip = page.getByText(/^Tipp: Installiere Lumastar als App\./);
     this.blocker = (title) => page.getByRole('region', { name: title, exact: true });
   }
 

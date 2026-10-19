@@ -14,7 +14,7 @@ export const DOCUMENTS = [
   'learner_summary.md',
 ] as const;
 
-/** The export format this Lingora writes; an import upgrades older ones and rejects newer ones (PRD 13). */
+/** The export format this version of Lumastar writes; an import upgrades older ones and rejects newer ones (PRD 13). */
 export const EXPORT_FORMAT = 5;
 
 /** Learner tables of export format 5; data/profile.json holds the account row without its identity. */
@@ -304,7 +304,7 @@ function withoutColumn(entries: BackupEntries, table: DataTable, column: string)
 }
 
 /**
- * The export as a Lingora of M9 wrote it (format 4): without data/streak_goals.json, new in format 5.
+ * The export as Lumastar of M9 wrote it (format 4): without data/streak_goals.json, new in format 5.
  * Format 4 could not hold a streak goal, so an import of it starts with the first goal of 10 days.
  */
 export function asFormat4(backup: BackupArchive): BackupEntries {
@@ -312,7 +312,7 @@ export function asFormat4(backup: BackupArchive): BackupEntries {
 }
 
 /**
- * The export as a Lingora of M5 wrote it (format 3): format 4 without the placement test that met
+ * The export as Lumastar of M5 wrote it (format 3): format 4 without the placement test that met
  * the goal of a streak day, new in format 4. An import of it restores the days, met by no placement
  * test.
  */
@@ -321,7 +321,7 @@ export function asFormat3(backup: BackupArchive): BackupEntries {
 }
 
 /**
- * The export as a Lingora of M4 wrote it (format 2): format 3 without data/streak_days.json, new in
+ * The export as Lumastar of M4 wrote it (format 2): format 3 without data/streak_days.json, new in
  * format 3. Format 2 could not hold the days of the streak, so an import of it restores none.
  */
 export function asFormat2(backup: BackupArchive): BackupEntries {
@@ -329,7 +329,7 @@ export function asFormat2(backup: BackupArchive): BackupEntries {
 }
 
 /**
- * The export as a Lingora before M4 wrote it (format 1): format 2 without data/badges.json, without
+ * The export as Lumastar before M4 wrote it (format 1): format 2 without data/badges.json, without
  * the checkpoint result of each session and the target retention of each review. Format 1 could hold
  * neither badges nor checkpoints, so only an export without them can be turned back.
  */

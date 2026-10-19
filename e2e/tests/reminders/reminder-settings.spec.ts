@@ -179,11 +179,11 @@ withProfile.describe('on a phone that can receive web push', () => {
       await expect.poll(() => worker.notifications()).toEqual([
         expect.objectContaining({
           title: 'Erinnerungen sind bereit 🔔',
-          body: 'So erinnert dich Lingora an dein Tagesziel.',
-          tag: 'lingora-test',
+          body: 'So erinnert dich Lumastar an dein Tagesziel.',
+          tag: 'lumastar-test',
           lang: 'de-CH',
           actions: [],
-          data: expect.objectContaining({ url: '/', tag: 'lingora-test' }),
+          data: expect.objectContaining({ url: '/', tag: 'lumastar-test' }),
         }),
       ]);
     });
@@ -360,7 +360,7 @@ test.describe('where reminders cannot be switched on', () => {
       await expect(
         reminders
           .blocker(REMINDER_BLOCKERS.denied)
-          .or(page.getByText(/^Ohne deine Erlaubnis kann Lingora dich nicht erinnern./)),
+          .or(page.getByText(/^Ohne deine Erlaubnis kann Lumastar dich nicht erinnern./)),
       ).toBeVisible();
       expect(await hasPushSubscription(page)).toBe(false);
       expect(await fetchPushDevices(page.request)).toEqual([]);
@@ -386,7 +386,7 @@ test.describe('where reminders cannot be switched on', () => {
     await page.goto('/');
     await reminders.openFromProfile();
     const blocker = reminders.blocker(REMINDER_BLOCKERS.unsupported);
-    await expect(blocker).toContainText('Öffne Lingora in Chrome, Firefox oder Samsung Internet.');
+    await expect(blocker).toContainText('Öffne Lumastar in Chrome, Firefox oder Samsung Internet.');
     await expect(reminders.reminderSwitch).toHaveCount(0);
     await snap(page, 'reminders-unsupported');
   });
@@ -398,7 +398,7 @@ test.describe('where reminders cannot be switched on', () => {
     await page.goto('/');
     await reminders.openFromProfile();
     await expect(reminders.blocker(REMINDER_BLOCKERS.serverUnavailable)).toContainText(
-      'Frag die Person, die Lingora betreibt.',
+      'Frag die Person, die Lumastar betreibt.',
     );
     await expect(reminders.reminderSwitch).toHaveCount(0);
     await snap(page, 'reminders-server-without-push');
@@ -417,7 +417,7 @@ test.describe('where reminders cannot be switched on', () => {
       await expect(guide.getByRole('listitem')).toHaveText([
         '1. Tippe in Safari auf Teilen.',
         '2. Wähle „Zum Home-Bildschirm“ und tippe auf Hinzufügen.',
-        '3. Öffne Lingora vom Home-Bildschirm und schalte hier die Erinnerungen ein.',
+        '3. Öffne Lumastar vom Home-Bildschirm und schalte hier die Erinnerungen ein.',
       ]);
       await expect(reminders.reminderSwitch).toHaveCount(0);
       await snap(page, 'reminders-ios-install');

@@ -5,7 +5,7 @@ import { LessonPlayer } from '../../pages/LessonPlayer.ts';
 import { LessonResultScreen } from '../../pages/LessonResultScreen.ts';
 import { mostWrongableTag } from '../../support/lessonAnswers.ts';
 import type { LessonExercise } from '../../support/lessonApi.ts';
-import { openLesson, playOpenedLesson } from '../../support/lessonFlow.ts';
+import { openFittingLesson, openLesson, playOpenedLesson } from '../../support/lessonFlow.ts';
 import {
   fetchPath,
   fetchPlanChanges,
@@ -66,8 +66,14 @@ test('three mistakes on one skill tag suggest a focus lesson, which plays and sh
 
   await path.goto();
   const node = lessonOfLearnerStage(await fetchPath(page.request), path);
-  await node.scrollIntoViewIfNeeded();
-  const lesson = await openLesson(page, () => node.tap());
+  const lesson = await openFittingLesson(
+    page,
+    async () => {
+      await node.scrollIntoViewIfNeeded();
+      await node.tap();
+    },
+    ({ exercises }) => (mostWrongableTag(exercises)?.candidates.length ?? 0) >= FOCUS_MISTAKES,
+  );
   const { tag, wrong } = weakTagPlan(lesson.lesson.exercises);
 
   const result = await test.step(`${FOCUS_MISTAKES} mistakes on ${tag}`, () =>

@@ -44,14 +44,14 @@ import { chooseStreakGoal, fetchStreak, FIRST_GOAL, isRung } from '../../support
  * sessions, attempts, an error and mastery to show, whichever test runs first.
  */
 
-const FILENAME = /^lingora-export-\d{4}-\d{2}-\d{2}\.zip$/;
+const FILENAME = /^lumastar-export-\d{4}-\d{2}-\d{2}\.zip$/;
 const ISO_INSTANT = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/;
 /** Timestamps of the data files, as PostgreSQL writes them in UTC. */
 const PG_INSTANT = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?\+00:00$/;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const UNCHANGED = 'Deine Lerndaten sind unverändert.';
-const NOT_A_BACKUP = `Diese Datei ist kein Lingora-Backup. Wähle eine ZIP-Datei, die du hier heruntergeladen hast. ${UNCHANGED}`;
-const NEWER_VERSION = `Dieses Backup stammt aus einer Lingora-Version, die diese Installation nicht kennt. ${UNCHANGED}`;
+const NOT_A_BACKUP = `Diese Datei ist kein Lumastar-Backup. Wähle eine ZIP-Datei, die du hier heruntergeladen hast. ${UNCHANGED}`;
+const NEWER_VERSION = `Dieses Backup stammt aus einer Lumastar-Version, die diese Installation nicht kennt. ${UNCHANGED}`;
 
 /** The target retention of FSRS while the learner keeps the default (PRD F8). */
 const DEFAULT_RETENTION = 0.9;
@@ -98,7 +98,7 @@ test('the downloaded backup holds the manifest, the five profile documents and a
     }
     const { timeZone } = backup.json<ProfileData>('data/profile.json');
     expect(download.filename, 'named after the export day of the learner').toBe(
-      `lingora-export-${localDate(manifest.exportedAt, timeZone)}.zip`,
+      `lumastar-export-${localDate(manifest.exportedAt, timeZone)}.zip`,
     );
   });
 
@@ -458,7 +458,7 @@ test('a backup of export format 4 is upgraded on import and restores the same st
   await chooseStreakGoal(page.request, nextGoal);
   const current = await fetchExport(page.request);
   expect(current.rows<StreakGoalRow>('streak_goals'), 'a goal of its own').toHaveLength(1);
-  const formatFour = testInfo.outputPath('lingora-export-format-4.zip');
+  const formatFour = testInfo.outputPath('lumastar-export-format-4.zip');
   await writeZip(formatFour, asFormat4(current));
   await importUpgraded(page, formatFour, current, 4, current.rows<StreakDayRow>('streak_days'));
 });
@@ -469,7 +469,7 @@ test('a backup of export format 3 is upgraded on import and restores the same st
   // Format 3 holds everything but the placement test that met a day's goal, so any state will do.
   // The days come back, met by the same lessons and by no placement test.
   const current = await fetchExport(page.request);
-  const formatThree = testInfo.outputPath('lingora-export-format-3.zip');
+  const formatThree = testInfo.outputPath('lumastar-export-format-3.zip');
   await writeZip(formatThree, asFormat3(current));
   const days = current.rows<StreakDayRow>('streak_days');
   await importUpgraded(page, formatThree, current, 3, days.map((day) => ({ ...day, placementTestId: null })));
@@ -480,7 +480,7 @@ test('a backup of export format 2 is upgraded on import and restores the same st
 }, testInfo) => {
   // Format 2 holds everything but the streak days, so any state of the learner will do.
   const current = await fetchExport(page.request);
-  const formatTwo = testInfo.outputPath('lingora-export-format-2.zip');
+  const formatTwo = testInfo.outputPath('lumastar-export-format-2.zip');
   await writeZip(formatTwo, asFormat2(current));
   await importUpgraded(page, formatTwo, current, 2, []);
 });
@@ -497,7 +497,7 @@ test('a backup of export format 1 is upgraded on import and restores the same st
     current.rows<SessionRow>('sessions').filter((session) => session.kind === 'checkpoint'),
     'no checkpoint played yet',
   ).toEqual([]);
-  const formatOne = testInfo.outputPath('lingora-export-format-1.zip');
+  const formatOne = testInfo.outputPath('lumastar-export-format-1.zip');
   await writeZip(formatOne, asFormat1(current));
   await importUpgraded(page, formatOne, current, 1, []);
 });
@@ -514,7 +514,7 @@ test('an invalid backup is rejected with a German message and changes nothing', 
   await profile.goto();
 
   const notAZip = testInfo.outputPath('kein-backup.zip');
-  await writeFile(notAZip, 'Das ist kein Lingora-Backup.', 'utf8');
+  await writeFile(notAZip, 'Das ist kein Lumastar-Backup.', 'utf8');
 
   await test.step('cancelling the confirmation uploads nothing', async () => {
     await profile.chooseBackup(notAZip);
@@ -529,8 +529,8 @@ test('an invalid backup is rejected with a German message and changes nothing', 
     await snap(page, 'profile-import-error', { fullPage: false });
   });
 
-  await test.step(`an export of a newer Lingora (schemaVersion ${EXPORT_FORMAT + 1})`, async () => {
-    const newer = testInfo.outputPath('lingora-export-neuer.zip');
+  await test.step(`an export of a newer Lumastar (schemaVersion ${EXPORT_FORMAT + 1})`, async () => {
+    const newer = testInfo.outputPath('lumastar-export-neuer.zip');
     await writeZip(newer, {
       'manifest.json': JSON.stringify({
         schemaVersion: EXPORT_FORMAT + 1,
@@ -541,7 +541,7 @@ test('an invalid backup is rejected with a German message and changes nothing', 
   });
 
   await test.step('an entry that would escape the folder when unpacked (zip slip)', async () => {
-    const slip = testInfo.outputPath('lingora-export-slip.zip');
+    const slip = testInfo.outputPath('lumastar-export-slip.zip');
     await writeZip(slip, {
       'manifest.json': JSON.stringify({
         schemaVersion: EXPORT_FORMAT,

@@ -11,8 +11,8 @@ import { FRONTEND_URL, MAILPIT } from './env.ts';
 export const SUBJECTS = {
   verify: 'Bitte bestätige deine E-Mail-Adresse',
   confirmChange: 'Bestätige deine neue E-Mail-Adresse',
-  reset: 'Neues Passwort für Lingora',
-  deleted: 'Dein Lingora-Konto wurde gelöscht',
+  reset: 'Neues Passwort für Lumastar',
+  deleted: 'Dein Lumastar-Konto wurde gelöscht',
 } as const;
 export type Subject = (typeof SUBJECTS)[keyof typeof SUBJECTS];
 
@@ -127,7 +127,7 @@ export class Inbox {
 
 /**
  * The link of an account mail, checked as a learner would see it: the text and the HTML part carry
- * the same link to a page of the e2e frontend (LINGORA_PUBLIC_URL) with a URL-safe token.
+ * the same link to a page of the e2e frontend (LUMASTAR_PUBLIC_URL) with a URL-safe token.
  */
 export function linkIn(mail: Mail, page: LinkPage): string {
   const links = mail.text.match(/https?:\/\/\S+/g) ?? [];
@@ -141,7 +141,7 @@ export function linkIn(mail: Mail, page: LinkPage): string {
 /** The parts every account mail shares: German greeting with the name, signature, no ß. */
 export function expectAccountMail(mail: Mail, displayName: string): void {
   expect(mail.text.startsWith(`Hallo ${displayName}\n`), mail.text).toBe(true);
-  expect(mail.text.trimEnd().endsWith('Lingora'), mail.text).toBe(true);
+  expect(mail.text.trimEnd().endsWith('Lumastar'), mail.text).toBe(true);
   expect(mail.html).toContain('<html lang="de">');
   expect(`${mail.subject}\n${mail.text}`, 'Swiss orthography').not.toContain('ß');
 }

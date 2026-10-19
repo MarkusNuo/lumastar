@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://lingora.invalid/schema/common.schema.json",
-  "title": "Lingora shared content definitions",
-  "description": "Shared $defs for all content files (docs/CONTENT_FORMAT.md). The host lingora.invalid is a reserved, never-resolving TLD used only as a stable schema id.",
+  "$id": "https://lumastar.invalid/schema/common.schema.json",
+  "title": "Lumastar shared content definitions",
+  "description": "Shared $defs for all content files (docs/CONTENT_FORMAT.md). The host lumastar.invalid is a reserved, never-resolving TLD used only as a stable schema id.",
   "$defs": {
     "schemaVersion": { "const": 1 },
     "nonEmptyString": { "type": "string", "minLength": 1, "pattern": "\\S" },

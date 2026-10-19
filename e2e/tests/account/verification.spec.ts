@@ -62,7 +62,7 @@ test('the link works without a session too and then leads to the sign-in', async
   await registerViaApi(request, credentials);
   const mail = await new Inbox(credentials.email).next(SUBJECTS.verify);
 
-  // A browser that has shown Lingora before, signed out (a fresh one: the next test).
+  // A browser that has shown Lumastar before, signed out (a fresh one: the next test).
   await page.goto('/');
   await new WelcomePage(page).expectVisible();
   const verify = new VerifyEmailPage(page);
@@ -74,7 +74,7 @@ test('the link works without a session too and then leads to the sign-in', async
   expect(await fetchAccount(request)).toMatchObject({ email: credentials.email, emailVerified: true });
 });
 
-test('the link works at the first try in a browser that never opened Lingora', async ({ page, request }) => {
+test('the link works at the first try in a browser that never opened Lumastar', async ({ page, request }) => {
   const credentials = newCredentials('verify-fresh-browser');
   await registerViaApi(request, credentials);
   const mail = await new Inbox(credentials.email).next(SUBJECTS.verify);

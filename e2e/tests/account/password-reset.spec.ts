@@ -95,7 +95,7 @@ test('a forgotten password: the mailed link sets a new one once, the old one sto
   await new WelcomePage(page).expectVisible();
 });
 
-test('the reset link works at the first try in a browser that never opened Lingora', async ({ page, request }) => {
+test('the reset link works at the first try in a browser that never opened Lumastar', async ({ page, request }) => {
   const credentials = newCredentials('reset-fresh-browser');
   const inbox = new Inbox(credentials.email);
   await registerViaApi(request, credentials);

@@ -9,6 +9,9 @@ import { snap } from '../../support/screenshots.ts';
 // Starts signed out with its own session, so logging out never ends the shared storage-state session.
 test.use({ storageState: { cookies: [], origins: [] } });
 
+/** Named after the app since the rename; the script of the page never sees it. */
+const SESSION_COOKIE = 'LUMASTAR_SESSION';
+
 test('a signed-out visitor is sent to the welcome screen', async ({ page }) => {
   await page.goto('/profil');
   await new WelcomePage(page).expectVisible();
@@ -43,4 +46,9 @@ test('the learner signs in with the e-mail address in any case; logout, a wrong 
   await login.submitButton.click();
   await shell.expectHome();
   expect(await fetchAuthStatus(page.request)).toMatchObject({ authenticated: true, displayName: LEARNER.displayName });
+  const cookies = await page.context().cookies();
+  expect(cookies.find((cookie) => cookie.name === SESSION_COOKIE), 'the session cookie (DECISIONS #103)').toMatchObject({
+    httpOnly: true,
+    sameSite: 'Lax',
+  });
 });

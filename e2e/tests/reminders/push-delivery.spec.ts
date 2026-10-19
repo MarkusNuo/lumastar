@@ -32,9 +32,9 @@ import {
 const TEST_NOTIFICATION: PushNotification = {
   kind: 'test',
   title: 'Erinnerungen sind bereit 🔔',
-  body: 'So erinnert dich Lingora an dein Tagesziel.',
+  body: 'So erinnert dich Lumastar an dein Tagesziel.',
   url: '/',
-  tag: 'lingora-test',
+  tag: 'lumastar-test',
   renotify: true,
   icon: '/icons/icon-192.png',
   badge: '/icons/badge-96.png',
@@ -102,7 +102,7 @@ test('the test notification reaches the push service encrypted for the device, w
       'content-type': 'application/octet-stream',
       ttl: '600',
       urgency: 'normal',
-      topic: 'lingora-test',
+      topic: 'lumastar-test',
     });
   });
 
@@ -112,7 +112,7 @@ test('the test notification reaches the push service encrypted for the device, w
     expect(vapid.publicKey).toBe(config.publicKey);
     expect(vapid.signatureValid, 'the signature verifies with k').toBe(true);
     expect(vapid.claims.aud).toBe(pushService.origin);
-    expect(vapid.claims.sub, 'the contact of the instance (LINGORA_PUBLIC_URL of the e2e run)').toBe(FRONTEND_URL);
+    expect(vapid.claims.sub, 'the contact of the instance (LUMASTAR_PUBLIC_URL of the e2e run)').toBe(FRONTEND_URL);
     expect(vapid.claims.exp).toBeGreaterThan(sentAt);
     expect(vapid.claims.exp).toBeLessThanOrEqual(sentAt + MAX_TOKEN_SECONDS + 5);
   });

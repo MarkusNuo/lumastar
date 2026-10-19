@@ -22,13 +22,13 @@ export const MAILPIT = {
 } as const;
 
 /** Screenshots land in screenshots/<milestone>/; bump per milestone or override via env. */
-export const MILESTONE = process.env.LINGORA_E2E_MILESTONE ?? 'm10';
+export const MILESTONE = process.env.LUMASTAR_E2E_MILESTONE ?? 'm11';
 
 /**
  * Identifies this run in the e-mail addresses of its accounts, so the tests find their own mails in
  * Mailpit, which outlives the throwaway database. Set once by the runner process; its workers inherit it.
  */
-const RUN_ID_ENV = 'LINGORA_E2E_RUN_ID';
+const RUN_ID_ENV = 'LUMASTAR_E2E_RUN_ID';
 export const RUN_ID: string = (process.env[RUN_ID_ENV] ||= Date.now().toString(36));
 
 /**

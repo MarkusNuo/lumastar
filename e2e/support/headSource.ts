@@ -31,7 +31,7 @@ export interface SourceRoots {
 }
 
 /** Set by the runner process; workers evaluate the config again and must not export a newer HEAD. */
-const EXPORTED_ENV = 'LINGORA_E2E_HEAD_EXPORTED';
+const EXPORTED_ENV = 'LUMASTAR_E2E_HEAD_EXPORTED';
 
 export function exportHead(repoRoot: string, target: string, ref: string): SourceRoots {
   const roots = { backend: path.join(target, 'backend'), frontend: path.join(target, 'frontend') };

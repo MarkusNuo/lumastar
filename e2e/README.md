@@ -1,11 +1,11 @@
-# Lingora e2e
+# Lumastar e2e
 
 Playwright tests on mobile Chromium (390×844 and 360×740, touch). The config starts the backend
 (`gradlew bootTestRun` on port 8181, throwaway PostgreSQL Testcontainer, content seeded from `/content`)
 and a production build of the frontend (`vite preview` on port 5183). Docker must be running. The
 account mails go to Mailpit (`docker compose up -d mail`, SMTP 1025, API on 8025): the global setup
 starts it when it is not running and stops it again after the run; the backend gets
-`LINGORA_MAIL_HOST/PORT` and `LINGORA_PUBLIC_URL=http://127.0.0.1:5183`, so the links in the mails
+`LUMASTAR_MAIL_HOST/PORT` and `LUMASTAR_PUBLIC_URL=http://127.0.0.1:5183`, so the links in the mails
 open the e2e frontend.
 
 Projects run in this order: `setup` (first start), `daily-goal`, `phone-390` and `phone-360` (all
@@ -32,7 +32,7 @@ with `git archive` before the servers start. The export is refreshed only when o
 `backend/build`, `backend/.gradle` and `frontend/node_modules` are kept, and `npm ci` runs only when
 the lockfile changed. The tests themselves always come from the working tree's `e2e/`.
 
-The backend runs with a fixed `lingora.lesson.random-seed` and `lingora.placement.random-seed`, so the
+The backend runs with a fixed `lumastar.lesson.random-seed` and `lumastar.placement.random-seed`, so the
 same tests get the same lessons and placement items.
 
 Locally, working-tree mode reuses servers already listening on 8181/5183 (each run registers accounts
@@ -49,7 +49,7 @@ session for both phone projects. Every other test of that learner starts from it
 independent of the order: lessons start from the current node of the path, and expectations come from
 the API (`GET /api/path`, `/api/plan/changes`, …).
 
-Every address of a run contains its run id (`e2e-<runId>-<purpose>-<random>@lingora.test`, see
+Every address of a run contains its run id (`e2e-<runId>-<purpose>-<random>@lumastar.test`, see
 `support/env.ts`), because Mailpit outlives the throwaway database. A test finds its mails by
 recipient (`support/mailpit.ts`); the global teardown deletes the run's mails.
 
@@ -82,7 +82,7 @@ lesson of a curriculum unit (`finishOpenFocusUnits`).
 `tests/reminders` covers web push without any real push service. The e2e backend (`bootTestRun`)
 has a throwaway VAPID key pair and accepts push endpoints on the loopback address over plain HTTP
 and on any port (everywhere else only HTTPS on port 443);
-the config sets `LINGORA_REMINDER_CRON` to every 5 seconds, so a reminder set to the current minute
+the config sets `LUMASTAR_REMINDER_CRON` to every 5 seconds, so a reminder set to the current minute
 goes out at once. `support/pushService.ts` is a stub push service on a free loopback port: each
 subscription has a real P-256 key pair and authentication secret, the tests decrypt every message
 with Node's crypto (RFC 8291) and verify its VAPID token (RFC 8292), independently of the backend.
@@ -206,7 +206,17 @@ relearning and is due only after ten minutes, so the test reads the cards from t
 mistakes on new items). When nothing is due, the test waits up to two minutes for such a card. The review summary counts only cards
 a review lesson can practise, so the test expects a review to start whenever something is due.
 
+## Rename to Lumastar (M11)
+
+The app was called Lingora until M11 (DECISIONS #103). The tests expect the new name in texts, mails,
+file names, notification tags and the worker's messages, the session cookie `LUMASTAR_SESSION`
+(`tests/smoke/login.spec.ts`) and the env names `LUMASTAR_*` (the runner's own ones too:
+`LUMASTAR_E2E_MILESTONE`, `LUMASTAR_E2E_RUN_ID`, `LUMASTAR_E2E_HEAD_EXPORTED`). The manifest keeps its
+id `/`, so installed apps stay installed (`tests/platform/pwa.spec.ts`).
+`tests/profile/device-settings.spec.ts` starts a device that still holds `lingora:device-preferences`:
+sound and vibration stay off after the update, and the value moves to `lumastar:device-preferences`.
+
 ## Screenshots
 
 Every core screen is saved to `screenshots/<milestone>/<width>x<height>/` for the visual review
-(PRD 12.5). The milestone is set in `support/env.ts` or via `LINGORA_E2E_MILESTONE`.
+(PRD 12.5). The milestone is set in `support/env.ts` or via `LUMASTAR_E2E_MILESTONE`.

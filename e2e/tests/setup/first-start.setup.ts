@@ -63,7 +63,7 @@ test('the welcome screen leads to the registration, which checks every field bef
   await register.expectFieldError(register.emailInput, 'Bitte gib deine E-Mail-Adresse ein.');
   await register.expectFieldError(register.passwordInput, 'Bitte wähle ein Passwort.');
 
-  await register.fill({ displayName: '   ', email: 'testa@lingora', password: 'kurz123' });
+  await register.fill({ displayName: '   ', email: 'testa@lumastar', password: 'kurz123' });
   await register.submitButton.click();
   await register.expectFieldError(register.nameInput, 'Bitte gib einen Namen ein.');
   await register.expectFieldError(register.emailInput, 'Diese E-Mail-Adresse sieht nicht vollständig aus.');

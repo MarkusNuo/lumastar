@@ -9,7 +9,7 @@ export class WelcomePage {
 
   constructor(page: Page) {
     this.page = page;
-    this.heading = page.getByRole('heading', { name: 'Willkommen bei Lingora!', level: 1 });
+    this.heading = page.getByRole('heading', { name: 'Willkommen bei Lumastar!', level: 1 });
     this.registerLink = page.getByRole('link', { name: 'Konto erstellen', exact: true });
     this.loginLink = page.getByRole('link', { name: 'Ich habe schon ein Konto', exact: true });
   }

@@ -1,4 +1,4 @@
-# Lingora – Gheg-Sprachrichtlinie
+# Lumastar – Gheg-Sprachrichtlinie
 
 **Status:** Entwurf 0.3 (M6: Entscheide zu *makinë*, *do* und *kena/jena*; Abschnitt 13 nennt zu jeder wiederkehrenden unsicheren Form die betroffenen Einheiten). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
 
@@ -14,7 +14,7 @@ Das technische Format der Dateien steht in `docs/CONTENT_FORMAT.md`. Die maschin
 
 ## 1. Grundsatz
 
-Lingora lehrt **Gheg (Gegisch)**, nicht Standardalbanisch. Standardalbanisch beruht weitgehend auf dem Toskischen. Wer im Kosovo mit Familie und Freunden spricht, hört aber Gheg: *âsht* statt *është*, *nji* statt *një*, *me punue* statt *të punoj*.
+Lumastar lehrt **Gheg (Gegisch)**, nicht Standardalbanisch. Standardalbanisch beruht weitgehend auf dem Toskischen. Wer im Kosovo mit Familie und Freunden spricht, hört aber Gheg: *âsht* statt *është*, *nji* statt *një*, *me punue* statt *të punoj*.
 
 - In **Lösungen** (`solutions`), Satzbausteinen, Wortbank, Wortpaaren und Items steht **nur Gheg**.
 - Standard-Formen stehen **nur** in `standardForms`. Schreibt ein Lernender sie, gilt die Antwort als **„richtig, aber Standard“** (Fehler-Tag `variant.standard_form`, kein Punktabzug).
@@ -90,7 +90,7 @@ Das albanische Alphabet hat 36 Buchstaben, darunter 9 Doppelbuchstaben (dh, gj, 
 
 Der Zirkumflex markiert einen Nasalvokal. **Faustregel:** Wo Standardalbanisch ein **ë vor m/n** (oder in einigen Wörtern ein ë, das auf einen alten Nasal zurückgeht) hat, hat Gheg oft ein nasales **â**: *nënë → nânë*, *këngë → kângë*, *është → âsht*. Die Faustregel hat Ausnahmen – verbindlich ist die folgende Liste.
 
-**Wörter mit â in Lingora:**
+**Wörter mit â in Lumastar:**
 
 | Gheg | Standard | Deutsch |
 |---|---|---|
@@ -133,7 +133,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 
 ### 5.1 Verben und Verbformen
 
-| Gheg (Lingora) | Standard (Tosk-Basis) | Deutsch | Hinweis |
+| Gheg (Lumastar) | Standard (Tosk-Basis) | Deutsch | Hinweis |
 |---|---|---|---|
 | âsht | është | ist | |
 | jemi, jeni, janë | jemi, jeni, janë | wir sind, ihr seid, sie sind | im Kosovo-Alltag auch *jena*: in getippten Antworten überall als weitere Lösung akzeptiert (Abschnitt 13, Nr. 15) |
@@ -164,7 +164,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 
 ### 5.2 Funktionswörter
 
-| Gheg (Lingora) | Standard | Deutsch | Hinweis |
+| Gheg (Lumastar) | Standard | Deutsch | Hinweis |
 |---|---|---|---|
 | nji | një | ein, eine, eins | |
 | asnji, ndonji | asnjë, ndonjë | kein, irgendein | |
@@ -180,7 +180,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 
 ### 5.3 Nomen und Adjektive
 
-| Gheg (Lingora) | Standard | Deutsch | Hinweis |
+| Gheg (Lumastar) | Standard | Deutsch | Hinweis |
 |---|---|---|---|
 | shpi, shpija | shtëpi, shtëpia | Haus, das Haus | |
 | nânë, nâna | nënë, nëna | Mutter, die Mutter | |
@@ -208,7 +208,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 
 ### 5.4 Grüsse
 
-| Gheg (Lingora) | Standard | Deutsch | Hinweis |
+| Gheg (Lumastar) | Standard | Deutsch | Hinweis |
 |---|---|---|---|
 | mirëdita, mirëmëngjes | gleich | guten Tag, guten Morgen | |
 | mirëmbrâma | mirëmbrëma | guten Abend | (zu prüfen) |
@@ -258,7 +258,7 @@ Gheg hat einen echten Infinitiv: **me + Partizip**. Standardalbanisch hat keinen
 | Âsht mirë me mësue shqip. | Është mirë të mësosh shqip. | Es ist gut, Albanisch zu lernen. |
 | pa punue | pa punuar | ohne zu arbeiten |
 
-- Lingora lehrt **me + Partizip**. Konstruktionen mit *të* + Konjunktiv kommen in `standardForms` (Fehler-Tag `variant.standard_form`). Sie sind im Kosovo ebenfalls zu hören (zu prüfen, ob sie als Gheg-Lösung zählen sollen).
+- Lumastar lehrt **me + Partizip**. Konstruktionen mit *të* + Konjunktiv kommen in `standardForms` (Fehler-Tag `variant.standard_form`). Sie sind im Kosovo ebenfalls zu hören (zu prüfen, ob sie als Gheg-Lösung zählen sollen).
 - Fehler beim Bilden (z. B. *me punoj*, *me punuar*) haben die Kategorie `grammar.infinitive`.
 
 ### 7.3 Kurze Gheg-Partizipien
@@ -266,7 +266,7 @@ Gheg hat einen echten Infinitiv: **me + Partizip**. Standardalbanisch hat keinen
 Gheg-Partizipien sind kürzer als die Standard-Partizipien. Regeln:
 
 - Verben auf **-oj**: Partizip auf **-ue** statt *-uar*: *punoj → punue, mësoj → mësue, shkoj → shkue*.
-- Verben auf **-uaj**: Partizip ebenfalls auf **-ue**: *shkruaj → shkrue, gatuaj → gatue*. Das Präsens schreibt Lingora wie im Standard auf *-uaj* (*gatuaj, shkruaj*, Abschnitt 7.1); Kosovo-Aussprachen wie *gatuej* oder *gatuj* werden nicht geschrieben (zu prüfen, Abschnitt 13, Nr. 16).
+- Verben auf **-uaj**: Partizip ebenfalls auf **-ue**: *shkruaj → shkrue, gatuaj → gatue*. Das Präsens schreibt Lumastar wie im Standard auf *-uaj* (*gatuaj, shkruaj*, Abschnitt 7.1); Kosovo-Aussprachen wie *gatuej* oder *gatuj* werden nicht geschrieben (zu prüfen, Abschnitt 13, Nr. 16).
 - Standard-Partizipien auf **-ur** verlieren die Endung: *ardhur → ardhë, fjetur → fjetë, pasur → pasë*.
 - Standard-Partizipien auf **-ënë** werden zu **-ânë**: *dhënë → dhânë, thënë → thânë, ngrënë → ngrânë*.
 
@@ -298,7 +298,7 @@ Gheg-Partizipien sind kürzer als die Standard-Partizipien. Regeln:
 
 ### 7.5 Zukunft
 
-Typisch für Kosovo-Gheg ist **kam me + Partizip**: *Kam me shkue nesër.* – „Ich werde morgen gehen.“ Die Standard-Zukunft *do të shkoj* ist im Kosovo auch verbreitet; in Lingora steht sie in `standardForms` (zu prüfen).
+Typisch für Kosovo-Gheg ist **kam me + Partizip**: *Kam me shkue nesër.* – „Ich werde morgen gehen.“ Die Standard-Zukunft *do të shkoj* ist im Kosovo auch verbreitet; in Lumastar steht sie in `standardForms` (zu prüfen).
 
 ### 7.6 Gerundium
 
@@ -348,7 +348,7 @@ Vor Adjektiven und Genitiven steht ein **Verbindungsartikel**, der sich nach dem
 
 *unë* (ich), *ti* (du), *ai* (er), *ajo* (sie), *ne* (wir; im Kosovo-Alltag auch *na*, zu prüfen), *ju* (ihr, Sie), *ata* (sie, m.), *ato* (sie, f.).
 
-- **Du oder Sie:** *ti* ist die Normalform in Lingora. *ju* nur, wenn Höflichkeit das Thema ist: *Si jeni? Ju lutem. Më falni.*
+- **Du oder Sie:** *ti* ist die Normalform in Lumastar. *ju* nur, wenn Höflichkeit das Thema ist: *Si jeni? Ju lutem. Më falni.*
 - **Demonstrativ:** *ky* (dieser, m.), *kjo* (diese, f.); Plural *këta, këto*.
 
 ### 9.2 Klitika (Kurzformen der Objektpronomen)

@@ -25,7 +25,7 @@ interface Timings {
 
 declare global {
   interface Window {
-    lingoraTimings: Timings;
+    lumastarTimings: Timings;
   }
 }
 
@@ -33,7 +33,7 @@ declare global {
 async function recordTimings(page: Page): Promise<void> {
   await page.addInitScript(() => {
     const timings: Timings = { continues: [], exercises: [] };
-    window.lingoraTimings = timings;
+    window.lumastarTimings = timings;
     let shownExercise: string | null = null;
     const painted = (note: (at: number) => void) => requestAnimationFrame(() => note(performance.now()));
     new MutationObserver(() => {
@@ -58,7 +58,7 @@ async function recordTimings(page: Page): Promise<void> {
   });
 }
 
-const timingsOf = (page: Page) => page.evaluate(() => window.lingoraTimings);
+const timingsOf = (page: Page) => page.evaluate(() => window.lumastarTimings);
 
 test('the app starts in under 2 s: from the address bar to the painted learning path', async ({ page }) => {
   await recordTimings(page);

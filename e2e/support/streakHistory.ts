@@ -101,7 +101,7 @@ export async function importViaApi(request: APIRequestContext, entries: BackupEn
   const response = await request.post('/api/profile/import', {
     headers: await csrfHeaders(request),
     multipart: {
-      file: { name: 'lingora-export.zip', mimeType: 'application/zip', buffer: Buffer.from(zipSync(files)) },
+      file: { name: 'lumastar-export.zip', mimeType: 'application/zip', buffer: Buffer.from(zipSync(files)) },
     },
   });
   expect(response.status(), await response.text()).toBe(200);

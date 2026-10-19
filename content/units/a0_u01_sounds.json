@@ -13,7 +13,7 @@
     },
     {
       "title": "Nasalvokale mit Zirkumflex",
-      "explanation": "Gheg hat **Nasalvokale**: Die Luft geht auch durch die Nase. Lingora schreibt sie mit Zirkumflex, vor allem **â**: *âsht* (ist), *nânë* (Mutter), *kângë* (Lied), *zâ* (Stimme).\n\nIm Kosovo klingt **â** oft wie ein nasales „o“ (*nâna* ≈ „nona“) – geschrieben wird aber **â**. Das Standardalbanische hat an diesen Stellen ein **ë**: *është, nënë, këngë*.\n\nOhne Zirkumflex (*asht*) ist deine Antwort „fast richtig“. **ê, î, ô, û** gibt es auch, sie sind im Kosovo aber selten."
+      "explanation": "Gheg hat **Nasalvokale**: Die Luft geht auch durch die Nase. Lumastar schreibt sie mit Zirkumflex, vor allem **â**: *âsht* (ist), *nânë* (Mutter), *kângë* (Lied), *zâ* (Stimme).\n\nIm Kosovo klingt **â** oft wie ein nasales „o“ (*nâna* ≈ „nona“) – geschrieben wird aber **â**. Das Standardalbanische hat an diesen Stellen ein **ë**: *është, nënë, këngë*.\n\nOhne Zirkumflex (*asht*) ist deine Antwort „fast richtig“. **ê, î, ô, û** gibt es auch, sie sind im Kosovo aber selten."
     }
   ],
   "items": [
@@ -226,7 +226,7 @@
       "prompt": { "lang": "de", "text": "Welche Schreibung von „ist“ ist richtig?" },
       "choices": ["âsht", "osht", "asht", "âshtë"],
       "solutions": ["âsht"],
-      "explanation": "Lingora schreibt „âsht“ mit Zirkumflex. Im Kosovo klingt es oft wie „oscht“, geschrieben wird aber â.",
+      "explanation": "Lumastar schreibt „âsht“ mit Zirkumflex. Im Kosovo klingt es oft wie „oscht“, geschrieben wird aber â.",
       "errorHints": [
         { "pattern": "^osht$", "category": "spelling.nasal_vowel", "hint": "So klingt es oft. Geschrieben wird aber „âsht“." },
         { "pattern": "^asht$", "category": "spelling.nasal_vowel", "hint": "Hier fehlt der Zirkumflex: „âsht“." },

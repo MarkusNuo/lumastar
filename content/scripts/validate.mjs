@@ -1,4 +1,4 @@
-// Validates the Lingora content set: JSON Schemas, Unicode NFC, ids, cross references, exercise-type rules,
+// Validates the Lumastar content set: JSON Schemas, Unicode NFC, ids, cross references, exercise-type rules,
 // placement coverage, the Gheg blocklist and the shared evaluator cases, and summarises the review progress. Exits
 // non-zero on any error.
 import path from 'node:path';
@@ -32,6 +32,6 @@ checkGhegBlocklist(content, report);
 checkEvaluatorCases(content, report);
 summarizeReviewed(content, report);
 
-console.log(`Lingora content validation (${contentDir})\n`);
+console.log(`Lumastar content validation (${contentDir})\n`);
 report.print();
 process.exitCode = report.errorCount > 0 ? 1 : 0;
