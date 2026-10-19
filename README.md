@@ -75,3 +75,21 @@ The in-app export (ZIP with JSON + Markdown profile documents) is a second, port
 | `content/` | Gheg language guide, curriculum, units and exercises (JSON) |
 | `e2e/` | Playwright end-to-end tests and mobile screenshots |
 | `docs/` | Cross-cutting contracts (content format), content review guide, prompt templates |
+
+## License
+
+Copyright (C) 2026 MarkusNuo
+
+- **Code** — everything in this repository except the course content below, including the content
+  validator (`content/scripts/`) and the schemas (`content/schema/`) — is licensed under the
+  [GNU Affero General Public License v3.0 only](LICENSE) (`AGPL-3.0-only`). You may use, change and host it,
+  also commercially, as long as you publish the complete source code of your version under the same
+  license — this includes versions that are only offered over a network.
+- **Course content** — `content/LANGUAGE_GUIDE.md`, `curriculum.json`, `placement.json`, `skill_tags.json`,
+  `gheg_blocklist.json`, `units/` and `fixtures/` — is licensed under
+  [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](content/LICENSE) (`CC-BY-NC-SA-4.0`):
+  no commercial use, adaptations under the same license.
+- **Name and logo** are not covered by these licenses; your own version needs its own name.
+- **Other terms**, e.g. a commercial license, are available from the author (GitHub: @MarkusNuo).
+- **Third-party parts** keep their own licenses: the Nunito font (SIL Open Font License 1.1), Phosphor Icons
+  (MIT) and the libraries listed in `frontend/package.json` and `backend/build.gradle.kts`.
