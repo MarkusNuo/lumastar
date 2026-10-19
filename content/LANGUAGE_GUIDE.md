@@ -1,6 +1,6 @@
 # Lumastar – Gheg-Sprachrichtlinie
 
-**Status:** Entwurf 0.3 (M6: Entscheide zu *makinë*, *do* und *kena/jena*; Abschnitt 13 nennt zu jeder wiederkehrenden unsicheren Form die betroffenen Einheiten). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
+**Status:** Entwurf 0.3 (mit Entscheiden zu *makinë*, *do* und *kena/jena*; Abschnitt 13 nennt zu jeder wiederkehrenden unsicheren Form die betroffenen Einheiten). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
 
 Diese Richtlinie ist verbindlich für:
 
@@ -21,7 +21,7 @@ Lumastar lehrt **Gheg (Gegisch)**, nicht Standardalbanisch. Standardalbanisch be
 
 ## 2. Referenzvarietät: Kosovo-Gheg
 
-- **Varietät:** Kosovo-Gheg, wie es im Alltag gesprochen wird (Familie, Freunde, Einkauf, Arbeit). Siehe `QUESTIONS.md`, Frage 1 (Bestätigung durch den Autor offen).
+- **Varietät:** Kosovo-Gheg, wie es im Alltag gesprochen wird (Familie, Freunde, Einkauf, Arbeit). Die Bestätigung durch den Autor ist offen (Abschnitt 13, Nr. 1).
 - **Gemässigte Schreibweise:** Basis ist die Rechtschreibung des Standardalbanischen (Alphabet, Wortgrenzen, End-ë). Wo Gheg im Kosovo-Alltag eine eigene Form hat, schreiben wir die **Gheg-Form**: *âsht, nji, shpi, nânë, bâ, me punue, punue*.
 - **Nicht** verwendet werden:
   - rein lautnahe Chat-Schreibungen wie *osht, nona, punu, bon* (so klingt es zwar oft, geschrieben wird aber *âsht, nâna, punue, bân*),
@@ -384,7 +384,7 @@ Vor Adjektiven und Genitiven steht ein **Verbindungsartikel**, der sich nach dem
 
 ## 11. Toleranzregeln der Antwortprüfung
 
-Verbindlich ist `docs/CONTENT_FORMAT.md`, Abschnitt „Answer normalisation and tokenisation“ (Punkte 1–8, DECISIONS.md #43–45). Umgesetzt werden die Regeln im Backend (`AnswerEvaluator`, PRD F5) und gleich in der Vorprüfung des Frontends. Beide prüfen sich gegen dieselben Testfälle: `content/fixtures/evaluator-cases.json`.
+Verbindlich ist `docs/CONTENT_FORMAT.md`, Abschnitt „Answer normalisation and tokenisation“ (Punkte 1–8). Umgesetzt werden die Regeln im Backend (`AnswerEvaluator`) und gleich in der Vorprüfung des Frontends. Beide prüfen sich gegen dieselben Testfälle: `content/fixtures/evaluator-cases.json`.
 
 **Grundsatz:** Toleranz (fehlende Sonderzeichen, Tippfehler, Standard-Formen) gibt es nur bei **getippten** Antworten: `translate_free` und `fill_gap` ohne `choices`. Antworten aus Bausteinen oder einer Auswahl (`translate_wordbank`, `word_order`, `multiple_choice`, `fill_gap` mit `choices`, `match_pairs`) sind **exakt**: richtig oder falsch.
 
@@ -399,11 +399,11 @@ Die erste zutreffende Regel entscheidet:
 1. **Exakt gleich** einer Lösung aus `solutions` → **richtig**.
 2. **Standard-Form** → **„richtig, aber Standard“**, Tag `variant.standard_form`, kein Punktabzug; der Hinweis zeigt die Gheg-Lösung. Als Standard-Form gilt:
    - eine Form aus `standardForms`, oder
-   - bei Antworten auf Albanisch: jedes Wort, das von der Lösung abweicht, ist laut `gheg_blocklist.json` die Standard-Form des Lösungsworts (*është* für *âsht*, *punuar* für *punue*, *shtëpia* für *shpija*; DECISIONS.md #32, zu prüfen).
+   - bei Antworten auf Albanisch: jedes Wort, das von der Lösung abweicht, ist laut `gheg_blocklist.json` die Standard-Form des Lösungsworts (*është* für *âsht*, *punuar* für *punue*, *shtëpia* für *shpija*; zu prüfen).
 3. **Nur fehlende Sonderzeichen** → **fast richtig**. Jedes Zeichen, in dem die Antwort von der Lösung abweicht, muss der Grundbuchstabe des Lösungszeichens sein (`ë→e`, `ç→c`, `â→a`, `ê→e`, `î→i`, `ô→o`, `û→u`):
    - nur der Zirkumflex fehlt (*asht* statt *âsht*) → `spelling.nasal_vowel`,
    - ë oder ç fehlt (*shume* statt *shumë*, *cka* statt *çka*) → `spelling.diacritics`,
-   - Zirkumflex **und** ë/ç fehlen (*asht shume*) → `spelling.diacritics` (DECISIONS.md #30, zu prüfen).
+   - Zirkumflex **und** ë/ç fehlen (*asht shume*) → `spelling.diacritics` (zu prüfen).
 
    **Nicht** darunter fallen hinzugefügte oder falsche Sonderzeichen (*jâm* statt *jam*, *mirêdita* statt *mirëdita*) und ganz weggelassene Buchstaben (*mirdita* statt *mirëdita*: das ë fehlt als Buchstabe). Sie zählen höchstens als Tippfehler (Regel 7).
 4. **Standard-Form mit fehlenden Sonderzeichen** (*eshte* statt *është*, *Cfare po ben*, auch *Çfarë po ban*) → trotzdem **„richtig, aber Standard“** wie in 2.
@@ -416,7 +416,7 @@ Die erste zutreffende Regel entscheidet:
    (gezählt werden Buchstaben und Ziffern der Lösung ohne Leerzeichen) → **fast richtig**, Tag `spelling.other`. Lösungen mit weniger als 6 Buchstaben haben keine Tippfehler-Toleranz: *mir* statt *mirë* (als ganze Antwort) ist falsch, *mirdita* statt *mirëdita* fast richtig, *Asht mrie* statt *Âsht mirë* auch (ein Vertauschen; die fehlenden Sonderzeichen kosten nichts).
 8. **Sonst falsch.** Die Fehlerkategorie kommt aus den `skillTags` (11.4), sonst `vocab.unknown`.
 
-Wichtig für Content-Autoren: Weil 5 und 6 **vor** 7 geprüft werden, zählt ein vorhersehbarer Grammatikfehler nie als Tippfehler – *nâna im* statt *nâna ime* ist mit passendem `errorHint` falsch (`grammar.gender`), ohne Hint aber „fast richtig“ (Distanz 1). Ebenso *Shpi âsht e madhe* statt *Shpija âsht e madhe*: zwei Zeichen bei 16 Buchstaben wären ein Tippfehler, mit Hint ist es `grammar.definite_article`. Vorhersehbare Fehler, die nur ein oder zwei Buchstaben ausmachen, brauchen deshalb einen `errorHint` (DECISIONS.md #31). Umgekehrt greift ein Muster nie bei einer Antwort, der nur Sonderzeichen fehlen (Regel 3 kommt vorher).
+Wichtig für Content-Autoren: Weil 5 und 6 **vor** 7 geprüft werden, zählt ein vorhersehbarer Grammatikfehler nie als Tippfehler – *nâna im* statt *nâna ime* ist mit passendem `errorHint` falsch (`grammar.gender`), ohne Hint aber „fast richtig“ (Distanz 1). Ebenso *Shpi âsht e madhe* statt *Shpija âsht e madhe*: zwei Zeichen bei 16 Buchstaben wären ein Tippfehler, mit Hint ist es `grammar.definite_article`. Vorhersehbare Fehler, die nur ein oder zwei Buchstaben ausmachen, brauchen deshalb einen `errorHint`. Umgekehrt greift ein Muster nie bei einer Antwort, der nur Sonderzeichen fehlen (Regel 3 kommt vorher).
 
 ### 11.3 Bausteine, Auswahl und Paare (exakt)
 
@@ -428,7 +428,7 @@ Wichtig für Content-Autoren: Weil 5 und 6 **vor** 7 geprüft werden, zählt ein
 
 Trifft kein Muster, nimmt der Evaluator den ersten Skill-Tag der Aufgabe (in ihrer Reihenfolge), der zu einer Kategorie passt: `grammar.definite_article…` → `grammar.definite_article`, `grammar.linking_article…` → `grammar.linking_article`, `grammar.case…` → `grammar.case`, `grammar.clitics…` → `grammar.clitics`, `grammar.adjective_agreement…` → `grammar.gender`, `grammar.infinitive…` und `grammar.verbs.infinitive…` → `grammar.infinitive`, `grammar.participle…` und `grammar.verbs.participle…` → `grammar.participle`, Zeitformen unter `grammar.verbs.` (`past_simple`, `perfect`, `imperfect`, `future`, `subjunctive`, `conditional`, `admirative`, `optative`) → `grammar.verb_tense`, übrige `grammar.verbs…` → `grammar.verb_conjugation`. `vocab.*`, `phrase.*`, `spelling.*`, `reading.*` und z. B. `grammar.possessive` ergeben keine Kategorie.
 
-„Fast richtig“ zählt als richtig, aber mit Hinweis (FSRS-Bewertung *Hard*, PRD F8). Mehrere Gheg-Schreibweisen können als Lösung hinterlegt sein.
+„Fast richtig“ zählt als richtig, aber mit Hinweis (FSRS-Bewertung *Hard*). Mehrere Gheg-Schreibweisen können als Lösung hinterlegt sein.
 
 **errorHints schreiben:**
 
@@ -478,7 +478,7 @@ Trifft kein Muster, nimmt der Evaluator den ersten Skill-Tag der Aufgabe (in ihr
 
 Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 
-1. Referenzvarietät Kosovo-Gheg und Zirkumflex-Schreibung bestätigen (`QUESTIONS.md` 1 und 2).
+1. Referenzvarietät Kosovo-Gheg und Zirkumflex-Schreibung bestätigen.
 2. Schreibungen mit â: *mbrâmje, mirëmbrâma, lânë*; Verwendung von ê, î, ô, û.
 3. Rhotazismus-Formen, die im Kosovo oft durch Standard-Formen ersetzt werden: *emni/emri, emnin/emrin*.
 4. Formen der Familien-Einheit: *vlla, vllau, vllazën* als Kosovo-Formen (Standard *vëlla, vëllai, vëllezër*) und ob *vëlla* als weitere Schreibung akzeptiert bleibt oder als Standard-Form gilt, *gruja* (Standard *gruaja*), *axhë/axha* (Standard *xhaxhai*), *babai* oder *baba* als bestimmte Form, *jem/jeme* als Alternative zu *im/ime*, *dhe / edhe / e* für „und“, *çikë* neben *vajzë*.
@@ -487,17 +487,17 @@ Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 7. Funktionswörter: *po* als „aber“, *prej* für „von/aus“, *kah*, *veç*, *gja/gjâ*.
 8. Ob *të* + Konjunktiv (*du të punoj*) und *do të* + Konjunktiv (Zukunft) als Gheg-Lösung oder als Standard-Form gelten.
 9. Ausnahmen der Blockliste: *gëzuar* (Prost) und *duar* (Hände); Muster *-ënë*.
-10. Evaluator: Bewertung von Formen ohne End-ë (*mir*) und von lautnahen Schreibungen (*osht, nona*), die in getippten Antworten je nach Länge falsch oder Tippfehler sind; Schwellen der Tippfehler-Toleranz (6 und 16 Buchstaben); Tag `spelling.diacritics`, wenn Zirkumflex und ë/ç zugleich fehlen (DECISIONS.md #30); automatische Erkennung von Standard-Formen über die Blockliste (DECISIONS.md #32); `match_pairs` mit einer falschen Zuordnung ist falsch statt „fast richtig“ (DECISIONS.md #43).
+10. Evaluator: Bewertung von Formen ohne End-ë (*mir*) und von lautnahen Schreibungen (*osht, nona*), die in getippten Antworten je nach Länge falsch oder Tippfehler sind; Schwellen der Tippfehler-Toleranz (6 und 16 Buchstaben); Tag `spelling.diacritics`, wenn Zirkumflex und ë/ç zugleich fehlen; automatische Erkennung von Standard-Formen über die Blockliste; `match_pairs` mit einer falschen Zuordnung ist falsch statt „fast richtig“.
 11. Kurzformen mit Apostroph (*m'fal, t'lutem*) als zusätzliche Lösungen zulassen?
 12. Formen aus der Einstufungsbank (`placement.json`, vor allem B2–C2): Konditional *kisha me* + Partizip (*kisha me ardhë*), Bedingung mit *me pasë / me e pasë ditë*, Partizipien *ra* (von *bie*), *ble*, *vozitë*, *mbrojtë*, *ndezë*, *hedhë*, *gjetë*, *mërzitë*, *rritë*, *vendosë*, *qëndrue*, Passiv mit *prej* als Agens, *i lumtun*, *pare* (Geld), *veturë*, *me bâ muhabet*, Klitikon-Stellung in *për me të pa*, ironisches *Punë e madhe!*, Sprichwort *Gjuha kockë s'ka, po kockë thyen*. Die betroffenen Aufgaben haben eine `note`.
 13. Regionale Formen: *qumësht* (Milch) als Kosovo-Form; *tamël* ist Nordwest-Gheg und wird nicht verwendet.
-14. **Auto: *veturë* und *makinë*.** Entscheid (M6): *makinë* ist im Kosovo verbreitet und gilt überall als **Gheg-Lösung** neben *veturë*; in getippten Aufgaben mit *veturë* ist *makinë* immer als weitere Lösung hinterlegt, nie in `standardForms`. Bausteine und Auswahl zeigen nur *veturë*. Zu prüfen: *veturë* als Hauptform.
-15. **Varianten, die getippt überall akzeptiert werden.** Entscheid (M6): Wo *don* (du willst, er/sie will) in einer getippten Lösung steht, ist auch *do* hinterlegt; wo *kemi/jemi* steht, auch *kena/jena*. Bausteine und Auswahl bleiben bei *don*, *kemi*, *jemi*. Ausnahme: die feste Grussformel *ç'kemi?* (ohne *ç'kena?*). Zu prüfen: ob *do*, *kena*, *jena* Hauptform werden sollen (Nr. 6).
+14. **Auto: *veturë* und *makinë*.** Entscheid: *makinë* ist im Kosovo verbreitet und gilt überall als **Gheg-Lösung** neben *veturë*; in getippten Aufgaben mit *veturë* ist *makinë* immer als weitere Lösung hinterlegt, nie in `standardForms`. Bausteine und Auswahl zeigen nur *veturë*. Zu prüfen: *veturë* als Hauptform.
+15. **Varianten, die getippt überall akzeptiert werden.** Entscheid: Wo *don* (du willst, er/sie will) in einer getippten Lösung steht, ist auch *do* hinterlegt; wo *kemi/jemi* steht, auch *kena/jena*. Bausteine und Auswahl bleiben bei *don*, *kemi*, *jemi*. Ausnahme: die feste Grussformel *ç'kemi?* (ohne *ç'kena?*). Zu prüfen: ob *do*, *kena*, *jena* Hauptform werden sollen (Nr. 6).
 16. **Verben auf -uaj:** Präsens *gatuaj* (wie *shkruaj*, *luaj*), Partizip *gatue*; die Kosovo-Aussprache *gatuej/gatuj* wird nicht geschrieben (Abschnitt 7.3).
 
 ### 13.1 Wiederkehrende unsichere Formen: betroffene Einheiten
 
-Diese Formen kommen in vielen Aufgaben vor. Nicht jede Aufgabe trägt dazu eine eigene `note`; massgeblich ist diese Liste. Eine Entscheidung hier gilt für alle genannten Einheiten und wird danach überall angewendet. Zahlen: Aufgaben (+ Items) mit der Form in Gheg-Feldern, Stand M6; „Einstufung“ = `placement.json`.
+Diese Formen kommen in vielen Aufgaben vor. Nicht jede Aufgabe trägt dazu eine eigene `note`; massgeblich ist diese Liste. Eine Entscheidung hier gilt für alle genannten Einheiten und wird danach überall angewendet. Zahlen: Aufgaben (+ Items) mit der Form in Gheg-Feldern, Stand Entwurf 0.3; „Einstufung“ = `placement.json`.
 
 | Form | Standard | Punkt | Betroffene Einheiten |
 |---|---|---|---|

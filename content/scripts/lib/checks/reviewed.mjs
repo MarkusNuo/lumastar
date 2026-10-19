@@ -1,5 +1,5 @@
 /**
- * Summarises the review progress: only the author sets `reviewed: true` (PRD chapter 4), so the flag
+ * Summarises the review progress: only the author sets `reviewed: true`, so the flag
  * is reported per file and in total instead of being checked. Counts every entry of the parsed files.
  */
 export function summarizeReviewed(content, report) {

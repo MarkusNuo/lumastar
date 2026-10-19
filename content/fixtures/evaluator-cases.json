@@ -80,7 +80,7 @@
     },
     {
       "id": "norm_comma_without_space_hint",
-      "description": "M1 review (ex_a0_u02_first_words_031): \"Jo,faleminderit\" splits into \"jo faleminderit\", so the hint ^jo matches.",
+      "description": "Regression (ex_a0_u02_first_words_031): \"Jo,faleminderit\" splits into \"jo faleminderit\", so the hint ^jo matches.",
       "exercise": {
         "type": "translate_free",
         "answerLang": "sq",
@@ -505,7 +505,7 @@
     },
     {
       "id": "standard_lexicon_mixed",
-      "description": "M1 review (ex_a1_u01_greetings_010): \"Çfarë po bân?\" – çfarë is the Standard form of çka (lexicon).",
+      "description": "Regression (ex_a1_u01_greetings_010): \"Çfarë po bân?\" – çfarë is the Standard form of çka (lexicon).",
       "exercise": {
         "type": "translate_free",
         "answerLang": "sq",
@@ -659,7 +659,7 @@
     },
     {
       "id": "hint_missing_article",
-      "description": "M1 review: \"Shpi âsht e madhe\" is 2 edits from a 16-letter solution, but the hint wins.",
+      "description": "Regression: \"Shpi âsht e madhe\" is 2 edits from a 16-letter solution, but the hint wins.",
       "exercise": {
         "type": "translate_free",
         "answerLang": "sq",
@@ -759,7 +759,7 @@
     },
     {
       "id": "hint_confused_word",
-      "description": "M1 review (ex_a0_u02_first_words_031): \"Jo, faleminderit\" for \"Po, faleminderit\".",
+      "description": "Regression (ex_a0_u02_first_words_031): \"Jo, faleminderit\" for \"Po, faleminderit\".",
       "exercise": {
         "type": "translate_free",
         "answerLang": "sq",
@@ -1079,7 +1079,7 @@
     },
     {
       "id": "tiles_bank_distractor_is_wrong",
-      "description": "M1 review (ex_a1_u04_family_007): the distractor tile \"mein\" instead of \"meine\" is wrong, not a typo; grammar.possessive maps to no category.",
+      "description": "Regression (ex_a1_u04_family_007): the distractor tile \"mein\" instead of \"meine\" is wrong, not a typo; grammar.possessive maps to no category.",
       "exercise": {
         "type": "translate_wordbank",
         "answerLang": "de",
