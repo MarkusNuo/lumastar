@@ -8,7 +8,7 @@ import { expect, test } from '../../support/persistentBrowser.ts';
 import { currentUnit, fetchPath } from '../../support/planApi.ts';
 import { decryptPushMessage, StubPushService } from '../../support/pushService.ts';
 import { saveReminders, subscribeViaApi, type PushNotification } from '../../support/reminderApi.ts';
-import { hhmm, localTime, moveLearnerTo, zoneAroundMidday } from '../../support/timeZones.ts';
+import { hhmm, localTime, moveLearnerAfterAppStart, zoneAroundMidday } from '../../support/timeZones.ts';
 
 /*
  * The service worker of the production build with reminders, in a browser profile on disk
@@ -40,9 +40,8 @@ test('a reminder of the job becomes a system notification with its buttons, a ne
   await new AppShell(page).expectHome();
   const worker = await ServiceWorkerPush.attach(page);
 
-  // The app has stored the device's time zone at its start; the learner moves on after that.
   const { zone } = zoneAroundMidday();
-  await moveLearnerTo(page.request, zone);
+  await moveLearnerAfterAppStart(page, zone);
   const phone = pushService.subscribe();
   expect((await subscribeViaApi(page.request, phone.json)).status()).toBe(200);
   const time = hhmm(localTime(zone));

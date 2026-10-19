@@ -1,4 +1,4 @@
-import { expect, type APIRequestContext } from '@playwright/test';
+import { expect, type APIRequestContext, type Page } from '@playwright/test';
 import { csrfHeaders } from './csrf.ts';
 import { fetchSettings } from './progressApi.ts';
 
@@ -76,4 +76,16 @@ export async function moveLearnerTo(request: APIRequestContext, zone: string): P
     data: { ...settings, timeZone: zone },
   });
   expect(response.status(), await response.text()).toBe(200);
+}
+
+/**
+ * Moves the learner of a running app into the time zone. The app stores the device's time zone once
+ * at the start of a session, so the move waits for that store: made earlier, it would be undone.
+ */
+export async function moveLearnerAfterAppStart(page: Page, zone: string): Promise<void> {
+  const deviceZone = await page.evaluate(() => Intl.DateTimeFormat().resolvedOptions().timeZone);
+  await expect
+    .poll(async () => (await fetchSettings(page.request)).timeZone, { message: "the app stores the device's time zone" })
+    .toBe(deviceZone);
+  await moveLearnerTo(page.request, zone);
 }
