@@ -46,9 +46,9 @@ interface ExerciseBase {
   prompt: ExercisePrompt;
   /** German explanation for the feedback sheet. */
   explanation: string;
-  /** False until the author has checked the content (PRD chapter 4); shown as a small marker. */
+  /** False until the author has checked the content; shown as a small marker. */
   reviewed: boolean;
-  /** Classify a wrong answer: the first matching hint, else the first grammar tag (PRD F6). */
+  /** Classify a wrong answer: the first matching hint, else the first grammar tag. */
   errorHints: ErrorHint[];
   skillTags: string[];
 }
@@ -137,7 +137,7 @@ export type Outcome = 'correct' | 'almost_correct' | 'correct_standard_form' | '
 
 export interface Verdict {
   outcome: Outcome;
-  /** What went wrong (PRD F6); absent for a correct answer. */
+  /** What went wrong; absent for a correct answer. */
   errorCategory?: ErrorCategory;
   /** Correct, almost correct and standard-form answers count; only wrong ones are repeated. */
   countsAsCorrect: boolean;
@@ -180,11 +180,11 @@ export interface LessonResult {
   durationMs: number;
   learnedItems: LearnedItem[];
   saved: boolean;
-  /** A focus lesson on a skill tag answered wrongly three times or more (PRD F7). */
+  /** A focus lesson on a skill tag answered wrongly three times or more. */
   focusSuggestion?: FocusSuggestion;
   /** Passed or not, the new level and the badges earned; only for a saved checkpoint. */
   checkpoint?: CheckpointResult;
-  /** Today's minutes up to this lesson (PRD F9); absent when the result was not saved. */
+  /** Today's minutes up to this lesson; absent when the result was not saved. */
   dailyGoal?: LessonDailyGoal;
   /** The streak after the lesson; absent when the result was not saved. */
   streak?: LessonStreak;

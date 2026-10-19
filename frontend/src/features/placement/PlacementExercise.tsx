@@ -23,7 +23,7 @@ export interface PlacementExerciseProps {
 
 /**
  * One placement item in the lesson player's exercise components, without a verdict: the test
- * neither teaches nor discourages (PRD F2), so "Weiter" simply moves on.
+ * neither teaches nor discourages, so "Weiter" simply moves on.
  */
 export function PlacementExercise({
   exercise,

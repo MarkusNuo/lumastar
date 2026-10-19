@@ -26,7 +26,7 @@ export interface PlacementTestState {
 }
 
 /**
- * Runs one placement test: every answer goes to the backend, which picks the next item (PRD F2).
+ * Runs one placement test: every answer goes to the backend, which picks the next item.
  * The test gives no verdict, so the learner just moves on.
  */
 export function usePlacementTest(

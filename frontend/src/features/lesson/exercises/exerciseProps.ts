@@ -28,7 +28,7 @@ export function reactionOf(verdict: Verdict | undefined): Reaction {
   return verdict.countsAsCorrect ? 'success' : 'error';
 }
 
-/** The mascot reacts to the verdict (PRD F9); a wrong answer gets encouragement, never sadness. */
+/** The mascot reacts to the verdict; a wrong answer gets encouragement, never sadness. */
 export function mascotFor(verdict: Verdict | undefined): MascotExpression {
   if (!verdict) return 'happy';
   if (verdict.outcome === 'correct') return 'celebrating';

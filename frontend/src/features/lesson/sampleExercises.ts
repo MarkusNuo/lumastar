@@ -149,7 +149,7 @@ export const SAMPLE_FILL_GAP_TYPED: FillGapExercise = {
   explanation: '„Jam“ heisst „ich bin“. „Mirë jam“ ist die übliche Antwort auf „Si je?“.',
 };
 
-/** PRD chapter 9 example: "Das Haus ist gross." with the Gheg nasal vowel. */
+/** "Das Haus ist gross." with the Gheg nasal vowel. */
 export const SAMPLE_FILL_GAP_NASAL: FillGapExercise = {
   id: 'ex_sample_nasal_001',
   skillTags: ['grammar.verbs.jam'],

@@ -2,7 +2,7 @@ import type { Heatmap, HeatmapDay } from '../../api/types';
 import { parseDay } from '../plan/estimates';
 
 /*
- * The calendar heatmap of the statistics tab (PRD F10): one column per week (Monday on top, as in
+ * The calendar heatmap of the statistics tab: one column per week (Monday on top, as in
  * Swiss calendars), the oldest week on the left, today in the last column.
  */
 

@@ -21,7 +21,7 @@ interface GoalChange {
 }
 
 /**
- * "Tagesziel" (PRD F1, F9): 5 to 20 minutes a day, saved at once. The plan's time estimates follow
+ * "Tagesziel": 5 to 20 minutes a day, saved at once. The plan's time estimates follow
  * the goal, so the row shows the re-estimated next band afterwards.
  */
 export function DailyGoalSetting() {

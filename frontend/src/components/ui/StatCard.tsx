@@ -12,7 +12,7 @@ export interface StatCardProps {
   className?: string;
 }
 
-/** Coloured result card of the lesson end (PRD 12.3): label on the face, value below. */
+/** Coloured result card of the lesson end: label on the face, value below. */
 export function StatCard({
   label,
   icon: StatIcon,

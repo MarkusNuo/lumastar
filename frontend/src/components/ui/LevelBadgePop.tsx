@@ -7,7 +7,7 @@ export interface LevelBadgePopProps extends LevelBadgeProps {
   revealed: boolean;
 }
 
-/** A level badge that pops in for a big moment, e.g. the placement result (PRD 12.3). */
+/** A level badge that pops in for a big moment, e.g. the placement result. */
 export function LevelBadgePop({ revealed, ...badge }: LevelBadgePopProps) {
   return (
     <motion.div

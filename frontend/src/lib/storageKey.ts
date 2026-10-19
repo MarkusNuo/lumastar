@@ -1,7 +1,7 @@
 import { safeLocalStorage } from './safeLocalStorage';
 
 const PREFIX = 'lumastar:';
-// The keys from before the rename in M11 (DECISIONS #103), still on the devices.
+// The keys from before the rename from Lingora to Lumastar, still on the devices.
 const LEGACY_PREFIX = 'lingora:';
 
 /**

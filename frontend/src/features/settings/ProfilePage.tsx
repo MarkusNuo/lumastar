@@ -10,8 +10,8 @@ import { ProfileHeader } from './ProfileHeader';
 import { SettingsSection } from './SettingsSection';
 
 /**
- * Profile tab: who is learning, the level badges, the plan and a new placement, the learning data
- * (PRD F11), the settings (daily goal, sounds, vibration, target retention), the account and the
+ * Profile tab: who is learning, the level badges, the plan and a new placement, the learning data,
+ * the settings (daily goal, sounds, vibration, target retention), the account and the
  * way out.
  */
 export function ProfilePage() {

@@ -31,7 +31,7 @@ export interface PlanTimelineProps {
   today: Date;
 }
 
-/** The plan as a vertical timeline up to C2 (PRD 12.3); the current band starts expanded. */
+/** The plan as a vertical timeline up to C2; the current band starts expanded. */
 export function PlanTimeline({ bands, targetLevel, today }: PlanTimelineProps) {
   const finalDay = bands.at(-1)?.day;
   return (

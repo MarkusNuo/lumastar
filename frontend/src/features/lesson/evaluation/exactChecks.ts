@@ -52,7 +52,7 @@ export function checkTiles(
   return wrong(errorCategory, closest, hint);
 }
 
-/** Matched pairs: no wrong match is correct, any wrong match a confusion (DECISIONS #52). */
+/** Matched pairs: no wrong match is correct, any wrong match a confusion. */
 export function checkPairs(
   pairs: readonly WordPair[],
   wrongMatches: readonly WordPair[],

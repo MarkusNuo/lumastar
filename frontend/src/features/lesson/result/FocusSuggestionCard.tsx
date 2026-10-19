@@ -12,7 +12,7 @@ export interface FocusSuggestionCardProps {
   className?: string;
 }
 
-/** A focus lesson on the skill tag the lesson got wrong three times or more (PRD F7). */
+/** A focus lesson on the skill tag the lesson got wrong three times or more. */
 export function FocusSuggestionCard({ suggestion, onStart, className }: FocusSuggestionCardProps) {
   return (
     <section

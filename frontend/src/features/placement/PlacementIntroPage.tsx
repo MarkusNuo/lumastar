@@ -19,8 +19,8 @@ import { useOpenPlacementResult } from './useOpenPlacementResult';
 const copy = PLACEMENT_COPY.intro;
 
 /**
- * Route `/einstufung`: what the placement test is about, before the first test (PRD 6) and for
- * "Neu einstufen". A learner who cannot speak a word yet may start at A0 straight away (PRD F1).
+ * Route `/einstufung`: what the placement test is about, before the first test and for
+ * "Neu einstufen". A learner who cannot speak a word yet may start at A0 straight away.
  */
 export function PlacementIntroPage() {
   const me = useMe();

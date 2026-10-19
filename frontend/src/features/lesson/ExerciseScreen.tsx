@@ -36,7 +36,7 @@ export interface ExerciseScreenProps {
   keyboardEnabled: boolean;
 }
 
-/** One exercise: the task, a fixed "Prüfen" button and the feedback sheet (PRD 12.3). */
+/** One exercise: the task, a fixed "Prüfen" button and the feedback sheet. */
 export function ExerciseScreen({
   entry,
   shuffleSeed,

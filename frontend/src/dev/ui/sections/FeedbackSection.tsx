@@ -16,7 +16,7 @@ interface FeedbackExample {
   hint?: string;
 }
 
-// Example answer from PRD chapter 9 ("Das Haus ist gross.").
+// Example answer for "Das Haus ist gross.".
 const EXAMPLES: FeedbackExample[] = [
   {
     variant: 'correct',

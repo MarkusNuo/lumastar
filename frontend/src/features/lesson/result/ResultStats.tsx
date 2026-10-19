@@ -21,7 +21,7 @@ export interface ResultStatsProps {
   delay?: number;
 }
 
-/** The result cards of a lesson end (PRD 12.3): XP counting up, accuracy and time. */
+/** The result cards of a lesson end: XP counting up, accuracy and time. */
 export function ResultStats({ result, accuracyTone = 'success', delay = 0 }: ResultStatsProps) {
   return (
     <div className="grid w-full grid-cols-3 gap-3">

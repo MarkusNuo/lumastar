@@ -23,7 +23,7 @@ const hidden = { opacity: 0, y: 16 };
 const shown = { opacity: 1, y: 0 };
 
 /**
- * The animated level reveal after the placement (PRD 12.3): the mascot thinks for a moment, then
+ * The animated level reveal after the placement: the mascot thinks for a moment, then
  * the level badge springs in with confetti, followed by the strengths and weaknesses.
  */
 export function LevelReveal({ result, onContinue }: LevelRevealProps) {

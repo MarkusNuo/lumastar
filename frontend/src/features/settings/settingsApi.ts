@@ -8,7 +8,7 @@ import { PROGRESS_QUERY_KEY } from '../stats/progressApi';
 import { STATS_QUERY_KEY } from '../stats/statsApi';
 import { STREAK_QUERY_KEY } from '../streak/streakApi';
 
-/** Target retention of the FSRS reviews (PRD F8; DECISIONS #61). */
+/** Target retention of the FSRS reviews. */
 export const RETENTION = { min: 0.7, max: 0.99, default: 0.9, step: 0.01 } as const;
 
 export const settingsQuery = queryOptions({

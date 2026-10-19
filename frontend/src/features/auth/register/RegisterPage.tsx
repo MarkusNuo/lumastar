@@ -35,7 +35,7 @@ const copy = AUTH_COPY.register;
 const CREATED_TOAST_MS = 6000;
 
 /**
- * Route `/registrieren` (first step of the first start, PRD F1): the account. Once it exists the
+ * Route `/registrieren` (first step of the first start): the account. Once it exists the
  * learner is signed in and the guards continue with the onboarding questions.
  */
 export function RegisterPage() {

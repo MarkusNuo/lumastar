@@ -15,7 +15,7 @@ const HANDLES = 'M15 12H8.5c0 8 3.5 13 9.5 14M49 12h6.5c0 8-3.5 13-9.5 14';
 const STEM = 'M28 37h8l-1.5 9h-5Z';
 const SHINE = 'M18.5 25.5c1.6 3.6 4.6 6.2 8.5 7.2';
 
-/** Lumastar's own trophy for the streak goal (PRD 12.1 "Belohnung sichtbar machen"); decorative. */
+/** Lumastar's own trophy for the streak goal, so the reward is visible; decorative. */
 export function Trophy({ won, engraving, className }: TrophyProps) {
   const face = won ? 'fill-xp' : 'fill-locked';
   const edge = won ? 'fill-xp-edge' : 'fill-locked-edge';

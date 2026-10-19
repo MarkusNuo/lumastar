@@ -3,7 +3,7 @@ import type { AttemptSubmission, Verdict } from '../model';
 
 /*
  * Sends answers to the backend in the background, one after another, so the lesson never waits
- * for the network (PRD 13). Failed sends are retried quietly with backoff until the outbox is
+ * for the network. Failed sends are retried quietly with backoff until the outbox is
  * disposed. Order matters: the backend only accepts a retry after the first answer of an exercise.
  */
 

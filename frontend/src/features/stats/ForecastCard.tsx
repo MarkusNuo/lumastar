@@ -17,7 +17,7 @@ export interface ForecastCardProps {
   onReview: () => void;
 }
 
-/** The FSRS forecast (PRD F10: "morgen fällig: 34 Items") with the next 7 days as columns. */
+/** The FSRS forecast ("morgen fällig: 34 Items") with the next 7 days as columns. */
 export function ForecastCard({ forecast, onReview }: ForecastCardProps) {
   const bars = useMemo(() => forecastBars(forecast), [forecast]);
 

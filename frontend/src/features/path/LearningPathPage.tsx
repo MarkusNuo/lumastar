@@ -22,7 +22,7 @@ import { PassedStageCard } from './PassedStageCard';
 import { PlanTeaser } from './PlanTeaser';
 import { UnitPath } from './UnitPath';
 
-/** Home (Lernpfad): the personal plan from the current level to C2 with live progress (PRD 12.3). */
+/** Home (Lernpfad): the personal plan from the current level to C2 with live progress. */
 export function LearningPathPage() {
   const path = useQuery(pathQuery);
   useScrollToCurrentNode(path.data !== undefined);
@@ -86,8 +86,9 @@ function LearningPathStages({ path }: { path: LearningPath }) {
 }
 
 /**
- * Opens the path at the next lesson instead of the top. "nearest" leaves a node
- * that is already in view where it is, so the plan teaser above it stays visible.
+ * Opens the path at the next lesson instead of the top, so the learner sees the next step at
+ * once. "nearest" leaves a node that is already in view where it is, so the plan teaser above it
+ * stays visible.
  */
 function useScrollToCurrentNode(ready: boolean) {
   useOnceWhen(ready, () => {

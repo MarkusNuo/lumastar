@@ -14,7 +14,7 @@ const STATES: { state: WordTileState; label: string }[] = [
   { state: 'wrong', label: 'shpi' },
 ];
 
-// Demo sentence from PRD chapter 9 ("Das Haus ist gross.").
+// Demo sentence: "Das Haus ist gross.".
 const WORDS = [
   { id: 'madhe', text: 'madhe' },
   { id: 'shpija', text: 'Shpija' },

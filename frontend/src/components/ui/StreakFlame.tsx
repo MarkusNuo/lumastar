@@ -86,7 +86,7 @@ const SPARKLES = [
 const svgFill = 'origin-bottom [transform-box:fill-box]';
 
 /**
- * Lumastar's big streak flame (PRD 12.4 "Streak-Flamme lodert"): grey and shivering while cold,
+ * Lumastar's big streak flame: grey and shivering while cold,
  * glowing, flickering and sparking while it burns. Decorative; the text next to it says it all.
  */
 export function StreakFlame({ lit, ignition = false, className }: StreakFlameProps) {

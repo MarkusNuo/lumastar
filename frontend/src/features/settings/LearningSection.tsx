@@ -6,7 +6,7 @@ import { PROFILE_COPY } from './copy';
 
 const copy = PROFILE_COPY.learning;
 
-/** "Lernen": the plan up to C2 and a new placement test (PRD F2 "Neu einstufen"). */
+/** "Lernen": the plan up to C2 and a new placement test ("Neu einstufen"). */
 export function LearningSection() {
   const navigate = useNavigate();
 

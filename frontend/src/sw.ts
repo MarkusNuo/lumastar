@@ -17,7 +17,7 @@ import { readPushData } from './sw/reminder';
 import { createWorkerBackend } from './sw/workerBackend';
 
 /*
- * Lumastar's service worker (vite-plugin-pwa injectManifest; PRD 2, 11.1; DECISIONS #59, #85).
+ * Lumastar's service worker (vite-plugin-pwa injectManifest).
  *
  * App shell: the build's code, styles and fonts are precached for installability and a fast
  * start; navigations fall back to index.html. Learning data is never cached: there is no runtime

@@ -11,7 +11,7 @@ import { useOpenPlacementResult } from './useOpenPlacementResult';
 
 const copy = PLACEMENT_COPY.test;
 
-/** Every visit starts a new test; the backend abandons an unfinished one (PRD F2). */
+/** Every visit starts a new test; the backend abandons an unfinished one. */
 const placementStartQuery = queryOptions({
   queryKey: ['placement', 'test'],
   queryFn: startPlacement,

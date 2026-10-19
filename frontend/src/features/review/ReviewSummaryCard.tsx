@@ -24,7 +24,7 @@ const mascot: Record<ReviewState, MascotExpression> = {
 
 const count = (value: number) => value.toLocaleString('de-CH');
 
-/** The review tab's card (PRD F8): what is due now, tomorrow and in total, then one action. */
+/** The review tab's card: what is due now, tomorrow and in total, then one action. */
 export function ReviewSummaryCard({ summary, onStart, onLearn }: ReviewSummaryCardProps) {
   const state = reviewState(summary);
   const titleId = useId();

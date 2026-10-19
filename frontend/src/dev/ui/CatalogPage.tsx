@@ -50,7 +50,7 @@ const SECTIONS = [
   { id: 'juice', title: 'Juice & Sound', Content: JuiceSection },
 ] as const;
 
-/** Component catalog (PRD 12.5): every design-system component in all variants and states. */
+/** Component catalog: every design-system component in all variants and states. */
 export function CatalogPage() {
   return (
     <div className="mx-auto max-w-app px-gutter pb-28">

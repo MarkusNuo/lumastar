@@ -5,7 +5,7 @@ import type { StandardFormLexicon } from './standardFormLexicon';
 import { checkTyped } from './textCheck';
 
 /*
- * Instant pre-check (PRD 11.2) with the rules of the backend's RuleBasedAnswerEvaluator, so its
+ * Instant pre-check with the rules of the backend's RuleBasedAnswerEvaluator, so its
  * verdict is the same in all but rare cases; the backend's binding verdict replaces it when they
  * differ. Tolerance (missing diacritics, typos) applies to typed answers only; answers built from
  * tiles, choices or pairs are exact (docs/CONTENT_FORMAT.md point 7).

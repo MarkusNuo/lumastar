@@ -29,7 +29,7 @@ const KIND_LOOK: Record<PlanChangeKind, { icon: Icon; tone: Tone }> = {
 const swissDateTime = new Intl.DateTimeFormat('de-CH', { dateStyle: 'medium' });
 
 /**
- * "Plan-Verlauf" (PRD F3): every change of the plan with its German reason, in the order of the
+ * "Plan-Verlauf": every change of the plan with its German reason, in the order of the
  * API: newest plan version first, the changes within a version as they happened.
  */
 export function PlanHistory() {

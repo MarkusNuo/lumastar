@@ -14,7 +14,7 @@ export interface ReactionSurfaceProps {
   className?: string;
 }
 
-/** The answer area: hops with a shine when correct, shakes when wrong (PRD 12.4). */
+/** The answer area: hops with a shine when correct, shakes when wrong. */
 export function ReactionSurface({ reaction, children, className }: ReactionSurfaceProps) {
   const [scope, animate] = useAnimate<HTMLDivElement>();
   const reduceMotion = useReducedMotion();

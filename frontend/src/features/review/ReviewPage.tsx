@@ -6,7 +6,7 @@ import { reviewSummaryQuery } from './reviewApi';
 import { REVIEW_ROUTES } from './reviewRoutes';
 import { ReviewSummaryCard } from './ReviewSummaryCard';
 
-/** Tab "Wiederholen" (PRD F8): the due items as a lesson of their own. */
+/** Tab "Wiederholen": the due items as a lesson of their own. */
 export function ReviewPage() {
   const summary = useQuery(reviewSummaryQuery);
   const navigate = useNavigate();

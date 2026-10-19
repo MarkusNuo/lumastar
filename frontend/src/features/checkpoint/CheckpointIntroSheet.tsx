@@ -26,7 +26,7 @@ export interface CheckpointIntroSheetProps {
   onClose: () => void;
 }
 
-/** What the checkpoint at the end of a stage asks and what passing it brings (PRD chapter 5). */
+/** What the checkpoint at the end of a stage asks and what passing it brings. */
 export function CheckpointIntroSheet({
   open,
   checkpoint,

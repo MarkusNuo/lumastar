@@ -86,7 +86,7 @@ export function createRoutes(): RouteObject[] {
                     { path: '*', Component: NotFoundPage },
                   ],
                 },
-                // Full screens without the app navigation: one task per screen (PRD 12.1).
+                // Full screens without the app navigation: one task per screen.
                 { path: '/lesson/:unitId', Component: LessonPage },
                 { path: NEXT_LESSON_ROUTE, Component: NextLessonPage },
                 { path: REVIEW_ROUTES.lesson, Component: ReviewLessonPage },

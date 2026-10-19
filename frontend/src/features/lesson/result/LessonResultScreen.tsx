@@ -33,7 +33,7 @@ export interface LessonResultScreenProps {
   retrying: boolean;
 }
 
-/** Lesson end (PRD 12.3): the mascot celebrates, confetti, XP counting up, accuracy and time. */
+/** Lesson end: the mascot celebrates, confetti, XP counting up, accuracy and time. */
 export function LessonResultScreen({
   result,
   onContinue,

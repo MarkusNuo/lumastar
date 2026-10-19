@@ -3,7 +3,7 @@ import type { CefrLevel } from '../../components/ui/levels';
 import { bandOf } from './estimates';
 
 /*
- * The plan as a timeline up to C2 (PRD F3, 12.3): CEFR bands with their expected dates, the stages
+ * The plan as a timeline up to C2: CEFR bands with their expected dates, the stages
  * and units inside, and where the learner stands.
  */
 

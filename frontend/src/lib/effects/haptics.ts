@@ -3,7 +3,7 @@ import type { FeedbackCue } from './cue';
 /**
  * Vibration patterns in ms (vibrate, pause, vibrate, ...): a short tick for correct, a double
  * buzz for wrong, a longer rhythm for finishing, crackling ticks and a long pulse as the flame
- * catches (PRD 12.4).
+ * catches.
  */
 export const HAPTIC_PATTERNS: Record<FeedbackCue, number | number[]> = {
   tap: 8,

@@ -9,7 +9,7 @@ export const REVIEW_QUERY_KEY = ['review'] as const;
 /** FSRS learning steps make new cards due within minutes, so the count refreshes now and then. */
 const SUMMARY_REFRESH_MS = 60_000;
 
-/** Due now, due tomorrow and all cards (PRD F8). */
+/** Due now, due tomorrow and all cards. */
 export const reviewSummaryQuery = queryOptions({
   queryKey: [...REVIEW_QUERY_KEY, 'summary'],
   queryFn: () => unwrap(api.GET('/api/review/summary')),

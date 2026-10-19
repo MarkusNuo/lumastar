@@ -18,7 +18,7 @@ import { PlanTimeline } from './PlanTimeline';
 
 const copy = PLAN_COPY;
 
-/** Route `/plan`: the personal plan as a timeline up to C2 and its history (PRD F3). */
+/** Route `/plan`: the personal plan as a timeline up to C2 and its history. */
 export function PlanPage() {
   const navigate = useNavigate();
   const goBack = useGoBack(ONBOARDING_ROUTES.home);

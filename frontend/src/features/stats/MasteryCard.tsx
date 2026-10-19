@@ -5,7 +5,7 @@ import { STATS_COPY } from './copy';
 
 const copy = STATS_COPY.mastery;
 
-/** Average mastery per area in the API's order (PRD F10: Wortschatz, Grammatik, Schreiben …). */
+/** Average mastery per area in the API's order (Wortschatz, Grammatik, Schreiben …). */
 export function MasteryCard({ areas }: { areas: readonly MasteryArea[] }) {
   return (
     <StatsSection title={copy.title}>

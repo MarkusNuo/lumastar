@@ -13,7 +13,7 @@ export interface StatsSummaryProps {
 const format = (value: number | undefined) =>
   value === undefined ? '–' : value.toLocaleString('de-CH');
 
-/** The headline numbers: streak, longest streak and learned words (PRD F9, F10). */
+/** The headline numbers: streak, longest streak and learned words. */
 export function StatsSummary({ streak, learnedWords }: StatsSummaryProps) {
   return (
     <div className="grid grid-cols-3 gap-3">

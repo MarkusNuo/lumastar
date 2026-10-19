@@ -13,7 +13,7 @@ export interface FocusScreenProps {
   children: ReactNode;
 }
 
-/** Full-height screen without app navigation: one task, one big button (PRD 12.1). */
+/** Full-height screen without app navigation: one task, one big button. */
 export function FocusScreen({
   header,
   footer,

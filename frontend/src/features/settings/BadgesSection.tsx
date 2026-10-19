@@ -9,7 +9,7 @@ import { CHECKPOINT_COPY } from '../checkpoint/copy';
 
 const copy = CHECKPOINT_COPY.profile;
 
-/** The level badges A1 … C2 (PRD F9): the earned ones in colour, the rest still to reach. */
+/** The level badges A1 … C2: the earned ones in colour, the rest still to reach. */
 export function BadgesSection() {
   const badges = useQuery(badgesQuery);
   const titleId = useId();

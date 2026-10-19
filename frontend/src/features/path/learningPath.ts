@@ -10,7 +10,7 @@ import { UNIT_COLORS, type UnitColor } from '../../components/ui/tones';
 import { PATH_COPY } from './copy';
 
 /*
- * The learning path of the home screen (PRD 12.3), built from the plan with its live progress
+ * The learning path of the home screen, built from the plan with its live progress
  * (GET /api/path): one node per planned lesson, the next lesson of the current unit pulses, the
  * lessons after it stay locked until it is done.
  */
@@ -133,11 +133,11 @@ function lessonStatus(unit: LearningPathUnit, lesson: number): PathNodeStatus {
   switch (unit.status) {
     case 'in_progress':
       return lesson === unit.lessonsCompleted ? 'current' : 'locked';
-    // Done or skipped units stay open for practice (PRD F3: skipped units remain repeatable).
+    // Done or skipped units stay open for practice: skipped units remain repeatable.
     case 'completed':
     case 'skipped':
       return 'available';
-    // A focus unit is extra practice, open as soon as the plan inserts it (PRD F7).
+    // A focus unit is extra practice, open as soon as the plan inserts it.
     case 'planned':
       return unit.focus ? 'available' : 'locked';
   }

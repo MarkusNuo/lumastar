@@ -1,7 +1,7 @@
 import type { Lesson, LessonExercise, Verdict } from '../model';
 
 /*
- * Order of play (PRD F5): every exercise once, then the wrongly answered ones again at the end
+ * Order of play: every exercise once, then the wrongly answered ones again at the end
  * until they are answered correctly. The backend's verdict wins over the pre-check, also after
  * the learner moved on: a late "wrong" queues the exercise again, a late "correct" removes a
  * repetition that has not been played yet.

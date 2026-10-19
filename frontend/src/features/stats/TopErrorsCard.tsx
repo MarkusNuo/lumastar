@@ -14,7 +14,7 @@ export interface TopErrorsCardProps {
   onPractice: (skillTag: string) => void;
 }
 
-/** The five skill tags with the most wrong first answers of the last 30 days (PRD F10). */
+/** The five skill tags with the most wrong first answers of the last 30 days. */
 export function TopErrorsCard({ errors, onPractice }: TopErrorsCardProps) {
   return (
     <StatsSection title={copy.title} subtitle={copy.subtitle}>

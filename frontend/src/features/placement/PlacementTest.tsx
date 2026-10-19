@@ -26,7 +26,7 @@ export interface PlacementTestProps {
   restarting: boolean;
 }
 
-/** The adaptive placement test (PRD F2): one item per screen, no verdict, at most `maxItems`. */
+/** The adaptive placement test: one item per screen, no verdict, at most `maxItems`. */
 export function PlacementTest({
   started,
   onFinished,

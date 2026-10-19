@@ -22,7 +22,7 @@ const LEVEL_CLASS: Record<HeatLevel, string> = {
 const LEVELS: readonly HeatLevel[] = ['none', 'practised', 'goal', 'frozen'];
 
 /**
- * The learning days of the last 365 days (PRD F10). On a phone the year is wider than the
+ * The learning days of the last 365 days. On a phone the year is wider than the
  * screen, so it scrolls sideways and opens at today; the summary line says it in words.
  */
 export function ActivityHeatmap({ heatmap }: { heatmap: Heatmap }) {

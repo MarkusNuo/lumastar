@@ -16,7 +16,7 @@ const CHECKPOINT_LOOK: Record<CheckpointStatus, { icon: Icon; tone: Tone }> = {
   passed: { icon: CheckCircleIcon, tone: 'success' },
 };
 
-/** The learner's stage and how far it is to its checkpoint, which leads to the next stage (PRD F10). */
+/** The learner's stage and how far it is to its checkpoint, which leads to the next stage. */
 export function LevelProgressCard({ level }: { level: LevelProgress | undefined }) {
   return (
     <StatsSection title={copy.title}>

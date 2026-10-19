@@ -17,7 +17,7 @@ export interface StreakGoalCardProps {
 }
 
 /**
- * The progressive streak goal (DECISIONS #98): progress towards it, the next goals once it is
+ * The progressive streak goal: progress towards it, the next goals once it is
  * reached, and a way to switch to another goal before. The chips close on a save (and on
  * "Abbrechen"), so the focus moves to the card's heading instead of falling back to the page.
  */

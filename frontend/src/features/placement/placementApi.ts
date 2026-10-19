@@ -72,7 +72,7 @@ function required<T>(value: T | undefined, field: string, item: PlacementItem): 
 
 /**
  * A placement item as an exercise of the lesson player, so the same components render it. Items
- * come without solutions and explanation: the test gives no feedback (PRD F2).
+ * come without solutions and explanation: the test gives no feedback.
  */
 export function toPlacementExercise(item: PlacementItem): LessonExercise {
   const need = <T>(value: T | undefined, field: string) => required(value, field, item);

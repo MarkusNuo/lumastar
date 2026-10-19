@@ -9,7 +9,7 @@ export const durations = {
 } as const;
 
 /**
- * Spring presets. `visualDuration` keeps every spring inside the 150-300 ms window of PRD 12.4
+ * Spring presets. `visualDuration` keeps every spring inside a 150-300 ms window
  * while `bounce` controls how juicy it feels.
  */
 export const springs = {

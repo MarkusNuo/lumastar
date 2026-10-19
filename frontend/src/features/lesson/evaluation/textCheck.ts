@@ -8,7 +8,7 @@ import type { StandardFormLexicon } from './standardFormLexicon';
 import { categoryFromSkillTags, matchingHint, type WrongAnswerRules } from './wrongAnswers';
 
 /*
- * Tolerant check of a typed answer (PRD F5, LANGUAGE_GUIDE section 11, docs/CONTENT_FORMAT.md
+ * Tolerant check of a typed answer (content/LANGUAGE_GUIDE.md section 11, docs/CONTENT_FORMAT.md
  * points 4, 6 and 7), in the order of the backend's TextAnswerCheck: exact match, Standard form,
  * missing diacritics, Standard form with missing diacritics, known error, word order, typo, wrong.
  * Only missing diacritics are tolerated; an added or wrong diacritic counts as a typo.

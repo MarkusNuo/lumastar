@@ -70,7 +70,7 @@ export function todayProgress(
   };
 }
 
-/** GET /api/onboarding/options as the backend serves it (DECISIONS #46). */
+/** GET /api/onboarding/options as the backend serves it. */
 export const ONBOARDING_OPTIONS: OnboardingOptions = {
   motivations: [
     { value: 'family', label: 'Familie/Partner' },

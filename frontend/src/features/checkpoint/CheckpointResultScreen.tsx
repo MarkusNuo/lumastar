@@ -24,7 +24,7 @@ export interface CheckpointResultScreenProps {
 }
 
 /**
- * The end of a checkpoint (PRD chapter 5, F9): a pass celebrates the new level and then reveals
+ * The end of a checkpoint: a pass celebrates the new level and then reveals
  * the badges it earned, one moment per screen; a fail encourages and shows how close it was.
  */
 export function CheckpointResultScreen({

@@ -6,7 +6,7 @@ import type { StreakFreezes } from './model';
 
 const copy = STREAK_COPY.freeze;
 
-/** "Streak-Schutz" (PRD F9): this week's freeze, what it does and when the next one comes. */
+/** "Streak-Schutz": this week's freeze, what it does and when the next one comes. */
 export function StreakFreezeCard({ freezes }: { freezes: StreakFreezes }) {
   const titleId = useId();
   const { available, perWeek, resetsOn, lastUsedOn } = freezes;

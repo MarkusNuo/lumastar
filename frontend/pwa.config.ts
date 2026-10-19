@@ -3,10 +3,10 @@ import type { VitePWAOptions } from 'vite-plugin-pwa';
 import { readColorTokens } from './scripts/designTokens.ts';
 
 /*
- * Installable PWA (PRD 2, 11.1): manifest, own icons (npm run gen:icons) and an own service worker
+ * Installable PWA: manifest, own icons (npm run gen:icons) and an own service worker
  * (src/sw.ts) that precaches the app shell for installability and a fast start and shows the
- * reminders as native notifications (DECISIONS #85). Learning data is never cached: every /api
- * call goes to the network (offline use and sync are PRD non-goals).
+ * reminders as native notifications. Learning data is never cached: every /api
+ * call goes to the network (the app has no offline mode and no sync).
  */
 
 const color = readColorTokens();

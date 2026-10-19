@@ -1,7 +1,7 @@
 import type { ErrorCategory, ErrorHint } from '../model';
 
 /*
- * Error category and hint of a wrong answer from the exercise metadata (PRD F6), as in the
+ * Error category and hint of a wrong answer from the exercise metadata, as in the
  * backend's WrongAnswers and SkillTagErrorCategories. The shared fixture
  * content/fixtures/evaluator-cases.json keeps both implementations in step.
  */

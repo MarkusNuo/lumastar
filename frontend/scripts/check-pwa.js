@@ -13,7 +13,7 @@ const expect = (condition, message) => {
 };
 const read = (file) => readFileSync(join(dist, file), 'utf8');
 
-// The reminders name the status-bar badge (DECISIONS #85); the app icon is checked below.
+// The reminders name the status-bar badge; the app icon is checked below.
 const files = ['manifest.webmanifest', 'sw.js', 'index.html', 'favicon.svg', 'icons/badge-96.png'];
 for (const file of files) {
   expect(existsSync(join(dist, file)), `${file} is missing`);
@@ -23,7 +23,7 @@ if (problems.length === 0) {
   const manifest = JSON.parse(read('manifest.webmanifest'));
   const background = readColorTokens()('bg');
   expect(manifest.name === 'Lumastar', 'manifest name is not "Lumastar"');
-  // Only the same id keeps installed apps the same app across a rename (DECISIONS #103).
+  // Only the same id keeps installed apps the same app across a rename.
   expect(manifest.id === '/', 'manifest id is not /');
   expect(manifest.lang === 'de-CH', 'manifest lang is not de-CH');
   expect(manifest.display === 'standalone', 'manifest display is not standalone');

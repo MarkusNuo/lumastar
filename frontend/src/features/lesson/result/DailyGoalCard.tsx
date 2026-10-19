@@ -16,7 +16,7 @@ export interface DailyGoalCardProps {
 }
 
 /**
- * Today's minutes after the lesson (PRD F9). The lesson that meets the goal fills the ring with a
+ * Today's minutes after the lesson. The lesson that meets the goal fills the ring with a
  * burst of sparks and its own sound.
  */
 export function DailyGoalCard({ goal, delay = 0 }: DailyGoalCardProps) {

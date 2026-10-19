@@ -16,7 +16,7 @@ const copy = PROFILE_COPY.settings;
 /**
  * "Einstellungen": the daily goal, the reminders (their own screen) and, as an advanced setting,
  * the target retention of the reviews, stored on the server; sounds and vibration belong to this
- * device (PRD 12.4).
+ * device.
  */
 export function SettingsSection() {
   const settings = useQuery(settingsQuery);

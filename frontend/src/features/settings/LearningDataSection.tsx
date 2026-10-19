@@ -18,7 +18,7 @@ import { useCopySummary } from './useCopySummary';
 
 const copy = PROFILE_COPY.learningData;
 
-/** "Lerndaten" (PRD F11): the AI summary, and the backup as ZIP export and import. */
+/** "Lerndaten": the AI summary, and the backup as ZIP export and import. */
 export function LearningDataSection() {
   const [sheet, setSheet] = useState<SummarySheetView | null>(null);
   const summary = useCopySummary({ onManualCopy: (text) => setSheet({ kind: 'plain', text }) });

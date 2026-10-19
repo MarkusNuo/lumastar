@@ -3,7 +3,7 @@ import { playCue } from '../../lib/effects/playCue';
 import type { QueueEntry } from './session/lessonQueue';
 
 /**
- * Sound and vibration once per checked answer (PRD 12.4): correct, wrong, or the brighter combo
+ * Sound and vibration once per checked answer: correct, wrong, or the brighter combo
  * chime for a run of correct answers. A later verdict from the backend stays silent.
  */
 export function useAnswerCue(entry: QueueEntry | undefined, combo: boolean): void {

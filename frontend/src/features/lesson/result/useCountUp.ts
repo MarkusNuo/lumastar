@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
-/** Counts from 0 up to `target` (PRD 12.3); shows the target at once with reduced motion. */
+/** Counts from 0 up to `target`; shows the target at once with reduced motion. */
 export function useCountUp(target: number, durationMs = 900, delayMs = 250): number {
   const reduceMotion = useReducedMotion();
   const [value, setValue] = useState(0);

@@ -17,7 +17,7 @@ const MAX = toPercent(RETENTION.max);
 const DEFAULT = toPercent(RETENTION.default);
 
 /**
- * "Ziel-Behaltensrate" (PRD F8), an advanced setting behind a disclosure: how likely a word should
+ * "Ziel-Behaltensrate", an advanced setting behind a disclosure: how likely a word should
  * still be known when its FSRS review comes, 70 to 99 %.
  */
 export function RetentionSetting() {

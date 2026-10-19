@@ -3,7 +3,7 @@ import { api, unwrap, unwrapWithResponse } from '../../api/client';
 import type { ImportResult } from '../../api/types';
 import { filenameFromContentDisposition } from './backupFile';
 
-/** learner_summary.md (PRD F11): a compact Markdown text for an AI chat. */
+/** learner_summary.md: a compact Markdown text for an AI chat. */
 export const summaryQuery = queryOptions({
   queryKey: ['profile', 'summary'],
   queryFn: () => unwrap(api.GET('/api/profile/summary', { parseAs: 'text' })),

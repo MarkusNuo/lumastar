@@ -23,7 +23,7 @@ const answerTileState: Record<Reaction, WordTileState> = {
   error: 'wrong',
 };
 
-/** Answer line above the word bank; tapped chips fly between the two (PRD 12.4). */
+/** Answer line above the word bank; tapped chips fly between the two. */
 export function WordBankBoard({
   words,
   bankOrder,

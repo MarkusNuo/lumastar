@@ -8,7 +8,7 @@ const swissDate = new Intl.DateTimeFormat('de-CH', { dateStyle: 'medium' });
 
 /**
  * The stage passed last, collapsed above the current one with its golden trophy, so the path
- * shows where the learner comes from (PRD 12.3).
+ * shows where the learner comes from.
  */
 export function PassedStageCard({ stage }: { stage: PassedStage }) {
   return (

@@ -31,7 +31,7 @@ export interface IgniteBeatProps {
 }
 
 /**
- * The streak grows (PRD 12.4 "Streak-Flamme lodert"): the grey flame shivers, catches fire, hops
+ * The streak grows: the grey flame shivers, catches fire, hops
  * and throws embers while the number counts up, with confetti in flame colours, its own sound and
  * vibration and a cheer from the mascot. A tap skips to the end; "Weiter" is there from the start.
  */

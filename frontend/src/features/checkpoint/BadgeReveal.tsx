@@ -21,7 +21,7 @@ export interface BadgeRevealProps {
   onContinue: () => void;
 }
 
-/** The level badges a checkpoint earned (PRD F9), springing in with a glow and confetti. */
+/** The level badges a checkpoint earned, springing in with a glow and confetti. */
 export function BadgeReveal({ badges, onContinue }: BadgeRevealProps) {
   const revealed = useRevealMoment(BADGE_DELAY_MS);
   useCelebration(revealed, 'complete');

@@ -14,7 +14,7 @@ import { practiceRoute } from './statsRoutes';
 import { StatsSummary } from './StatsSummary';
 import { TopErrorsCard } from './TopErrorsCard';
 
-/** Tab "Statistik" (PRD F10): level, mastery, frequent errors, learning days and the forecast. */
+/** Tab "Statistik": level, mastery, frequent errors, learning days and the forecast. */
 export function StatsPage() {
   const stats = useQuery(statsQuery);
 

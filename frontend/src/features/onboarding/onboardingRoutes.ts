@@ -1,6 +1,6 @@
 import type { OnboardingStep } from '../../api/types';
 
-/** Routes of the onboarding after the account step and of the placement test (PRD chapter 6). */
+/** Routes of the onboarding after the account step and of the placement test. */
 export const ONBOARDING_ROUTES = {
   questions: '/onboarding',
   placementIntro: '/einstufung',

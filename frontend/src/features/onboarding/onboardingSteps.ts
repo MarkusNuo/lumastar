@@ -1,5 +1,5 @@
 /*
- * The counted steps of the first start (PRD F1) in order: the account is created on /registrieren,
+ * The counted steps of the first start in order: the account is created on /registrieren,
  * the questions follow on /onboarding once signed in. Both show one shared progress bar.
  */
 export const ACCOUNT_STEP = 'account';

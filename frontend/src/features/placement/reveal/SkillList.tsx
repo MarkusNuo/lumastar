@@ -17,7 +17,7 @@ const barTone: Record<SkillListProps['tone'], ProgressBarTone> = {
   warning: 'xp',
 };
 
-/** Top strengths or weaknesses of a placement with their estimated mastery (PRD F2). */
+/** Top strengths or weaknesses of a placement with their estimated mastery. */
 export function SkillList({ title, icon: TitleIcon, tone, skills }: SkillListProps) {
   const titleId = useId();
 

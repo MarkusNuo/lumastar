@@ -18,7 +18,7 @@ import { useStepFlow } from './useStepFlow';
 
 const copy = ONBOARDING_COPY;
 
-/** Route `/onboarding`: motivation, daily goal and self-assessment (PRD F1), then the placement. */
+/** Route `/onboarding`: motivation, daily goal and self-assessment, then the placement. */
 export function OnboardingPage() {
   const me = useMe();
   const options = useQuery(onboardingOptionsQuery);

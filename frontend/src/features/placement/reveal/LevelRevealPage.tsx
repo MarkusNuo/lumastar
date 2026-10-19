@@ -12,7 +12,7 @@ import { LevelReveal } from './LevelReveal';
 const copy = PLACEMENT_COPY.reveal;
 
 /**
- * Route `/einstufung/ergebnis/:testId`: the reveal, then the plan (PRD 6). A test that met today's
+ * Route `/einstufung/ergebnis/:testId`: the reveal, then the plan. A test that met today's
  * goal counts like a lesson, so the streak flame follows the reveal.
  */
 export function LevelRevealPage() {
