@@ -1,0 +1,26 @@
+# Serves the PWA and forwards /api to the API container. With a domain as site address Caddy obtains
+# and renews the TLS certificate automatically; ":80" serves plain HTTP (local tests only).
+{$LUMASTAR_SITE_ADDRESS:localhost} {
+	encode gzip
+
+	handle /api/* {
+		reverse_proxy app:8080
+	}
+
+	# The app shell must always be fresh so an update arrives at once; hashed assets never change.
+	@shell path / /index.html /sw.js /registerSW.js /manifest.webmanifest
+	header @shell Cache-Control "no-cache"
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=31536000, immutable"
+
+	header {
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+}

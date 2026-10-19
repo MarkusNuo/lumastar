@@ -1,0 +1,59 @@
+# Self-hosted Lumastar: PostgreSQL, the API and the web front (Caddy with automatic HTTPS).
+# Setup: copy docker/.env.example to docker/.env, fill it in, then
+#   docker compose -f docker/compose.yml up -d --build
+name: lumastar-server
+
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: lumastar
+      POSTGRES_USER: lumastar
+      POSTGRES_PASSWORD: ${LUMASTAR_DB_PASSWORD:?set LUMASTAR_DB_PASSWORD in docker/.env}
+    volumes:
+      # PostgreSQL 18 images keep versioned data below /var/lib/postgresql
+      - db-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lumastar -d lumastar"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build:
+      context: ..
+      dockerfile: docker/app.Dockerfile
+    image: lumastar-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      LUMASTAR_DB_URL: jdbc:postgresql://db:5432/lumastar
+      LUMASTAR_DB_USER: lumastar
+      LUMASTAR_COOKIE_SECURE: ${LUMASTAR_COOKIE_SECURE:-true}
+      # Caddy forwards the client address; without this all clients would share one rate-limit key
+      LUMASTAR_FORWARD_HEADERS_STRATEGY: native
+
+  web:
+    build:
+      context: ..
+      dockerfile: docker/web.Dockerfile
+    image: lumastar-web
+    restart: unless-stopped
+    depends_on:
+      - app
+    env_file: .env
+    ports:
+      - "${LUMASTAR_HTTP_PORT:-80}:80"
+      - "${LUMASTAR_HTTPS_PORT:-443}:443"
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  db-data:
+  caddy-data:
+  caddy-config:

@@ -1,7 +1,8 @@
 # Content format contract
 
-Shared contract between `/content` (validated by `content/schema/*.schema.json`)
-and the backend seed importer (`app.lumastar.content`). Based on PRD chapter 9.
+Shared contract between the course content in `/content` (validated by `content/schema/*.schema.json`)
+and the backend seed importer (`app.lumastar.content`). Change it together with the schemas, the
+validator and the importer.
 
 All files are UTF-8 JSON with `"schemaVersion": 1`. All Gheg text follows `content/LANGUAGE_GUIDE.md`.
 
@@ -50,8 +51,8 @@ Every stage ends with a checkpoint that is composed automatically from the stage
 - Unit ids: `^[a-z][a-z0-9_]*$`, globally unique. Order in the file is the path order.
 - `color` ∈ `violet, teal, sky, rose, amber, lime, indigo, coral` (frontend maps them to tokens).
 - `icon`: free icon key (frontend falls back to a default icon).
-- `file` is omitted for units whose exercises are not written yet (all B1–C2 units in the MVP, and A0–A2
-  units until M6). Such units have title, goals and tags only; the importer and the plan must handle them.
+- `file` is omitted for units whose exercises are not written yet (currently all B1–C2 units). Such
+  units have title, goals and tags only; the importer and the plan must handle them.
 
 ## skill_tags.json
 
@@ -157,7 +158,7 @@ Shared by the backend evaluator, the frontend pre-check and the content validato
 Shared evaluator test cases live in `content/fixtures/evaluator-cases.json` and are run by the backend and
 frontend test suites.
 
-## Error categories (PRD F6)
+## Error categories
 
 `vocab.unknown`, `vocab.confused`, `spelling.diacritics`, `spelling.nasal_vowel`, `spelling.other`,
 `variant.standard_form`, `grammar.definite_article`, `grammar.case`, `grammar.linking_article`,
