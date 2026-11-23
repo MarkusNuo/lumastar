@@ -1133,8 +1133,8 @@
       "itemIds": ["item_fillimisht", "item_laj", "item_patate", "item_pastaj", "item_karote"],
       "prompt": { "lang": "de", "text": "Zuerst wasch die Kartoffeln, dann die Karotten." },
       "answerLang": "sq",
-      "solutions": ["Fillimisht laj patatet, pastaj karotat.", "Fillimisht laj patatet, mandej karotat."],
-      "wordBank": ["Fillimisht", "laj", "patatet", "pastaj", "karotat", "mandej", "qëro", "patate"],
+      "solutions": ["Fillimisht laj patatet, pastaj karotat."],
+      "wordBank": ["Fillimisht", "laj", "patatet", "pastaj", "karotat", "sot", "qëro", "patate"],
       "explanation": "„Fillimisht“ – zuerst, „pastaj“ oder „mandej“ – dann.",
       "errorHints": [
         { "pattern": "q[eë]ro", "category": "vocab.confused", "hint": "„Qëro“ heisst „schäl!“. Waschen: „laj!“." },
@@ -1251,8 +1251,8 @@
       "itemIds": ["item_kur", "item_uje", "item_vlon", "item_hidh", "item_makarona"],
       "prompt": { "lang": "de", "text": "Wenn das Wasser kocht, gib die Teigwaren hinein." },
       "answerLang": "sq",
-      "solutions": ["Kur uji vlon, hidh makaronat.", "Kur uji vlon, shto makaronat."],
-      "wordBank": ["Kur", "uji", "vlon", "hidh", "makaronat", "shto", "vlojnë", "makarona"],
+      "solutions": ["Kur uji vlon, hidh makaronat."],
+      "wordBank": ["Kur", "uji", "vlon", "hidh", "makaronat", "piq", "vlojnë", "makarona"],
       "explanation": "„Kur …“ – wenn … „Uji vlon“ – das Wasser kocht.",
       "errorHints": [
         { "pattern": "vlojn[eë]", "category": "grammar.verb_conjugation", "hint": "„Uji“ ist Einzahl – darum „vlon“." },

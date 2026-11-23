@@ -1110,8 +1110,7 @@
       "prompt": { "lang": "sq", "text": "Çka thua, a shkojmë me biçikletë në mal?" },
       "answerLang": "de",
       "solutions": [
-        "Was meinst du, fahren wir mit dem Velo in die Berge?",
-        "Was meinst du, fahren wir mit dem Fahrrad in die Berge?"
+        "Was meinst du, fahren wir mit dem Velo in die Berge?"
       ],
       "wordBank": [
         "Was",
@@ -1125,7 +1124,7 @@
         "in",
         "die",
         "Berge",
-        "Fahrrad",
+        "Zug",
         "Auto",
         "Meer"
       ],
