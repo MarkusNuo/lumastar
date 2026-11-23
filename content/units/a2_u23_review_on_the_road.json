@@ -1,0 +1,1655 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u23_review_on_the_road",
+  "level": "A2.3",
+  "grammar": [
+    {
+      "title": "Was ist passiert? – Perfekt mit „kam“ und „jam“",
+      "explanation": "Mit dem **Perfekt** erzählst du, was unterwegs passiert ist. Fast alle Verben nehmen **kam** + Partizip – auch „gehen“, „kommen“ und „sein“:\n\n| Gheg | Deutsch | Standard |\n|---|---|---|\n| Kam humbë pasaportën. | Ich habe den Pass verloren. | humbur |\n| Valixhja nuk ka ardhë. | Der Koffer ist nicht angekommen. | ardhur |\n| Kemi pritë dy orë. | Wir haben zwei Stunden gewartet. | pritur |\n| Kam kânë te mjeku. | Ich bin beim Arzt gewesen. | qenë |\n\n**Reflexive Verben** und das **Passiv** nehmen **jam**: *Jam ftohë.* (Ich habe mich erkältet.) *Jam rrëzue.* (Ich bin hingefallen.) *Jam kthye.* (Ich bin zurückgekommen.) *Fluturimi âsht anulue.* (Der Flug wurde annulliert.)\n\nMit einer genauen Zeitangabe (*dje, vjet*) nimmst du oft die einfache Vergangenheit: *Dje u ktheva.* (Gestern kam ich zurück.)"
+    },
+    {
+      "title": "Präpositionen und Fälle auf einen Blick",
+      "explanation": "| Präposition | Fall | Beispiel |\n|---|---|---|\n| prej, afër, pranë, larg, përballë, para, mbrapa | Ablativ | *prej aeroportit, përballë postës* |\n| kundër, gjatë, pas | Ablativ | *kundër kollës, gjatë udhëtimit, pas punës* |\n| te, deri te | Nominativ | *te mjeku, deri te semafori* |\n| në, për | Akkusativ | *në qendër, për nânën* |\n| me + Verkehrsmittel | ohne Artikel | *me taksi, me tren* |\n\nAblativ und **Dativ** haben dieselbe Endung: maskulin **-it** (nach k, g, h **-ut**: *mjekut, kolegut*), feminin **-s / -ës** (bei Wörtern auf -e: **-es**, z. B. *barnatores, mjekes*). Den Dativ erkennst du an der Kurzform **i** vor dem Verb: *I kam dhânë farmacistit recetën.* – *Shefit i kam dërgue nji mesazh.* (Standard: *nga aeroporti, kam dërguar*)"
+    },
+    {
+      "title": "Befehle unterwegs: der Imperativ",
+      "explanation": "| zu einer Person | höflich / zu mehreren | Deutsch |\n|---|---|---|\n| Shko drejt! | Shkoni drejt! | Geh geradeaus! |\n| Kalo urën! | Kaloni urën! | Geh über die Brücke! |\n| Merr nji taksi! | Merrni nji taksi! | Nimm ein Taxi! |\n| Zbrit te spitali! | Zbritni te spitali! | Steig beim Spital aus! |\n| Kthehu majtas! | Kthehuni majtas! | Bieg links ab! |\n| Ulu! Shtrihu! | Uluni! Shtrihuni! | Setz dich! Leg dich hin! |\n\nReflexive Verben enden auf **-u** (*kthehu, ulu, shtrihu*). Verneint wird mit **mos**: *Mos harro pasaportën!* – Vergiss den Pass nicht! Die Kurzform steht vor dem Befehl: *Më trego rrugën!* – Zeig mir den Weg!"
+    }
+  ],
+  "items": [
+    { "id": "item_atehere", "kind": "word", "gheg": "atëherë", "de": "dann, in dem Fall", "partOfSpeech": "adverb", "note": "Schreibung „atëherë“ wie im Standard; ob im Kosovo-Alltag eine kürzere Form üblicher ist – zu prüfen.", "reviewed": false },
+    { "id": "item_gjate_prep", "kind": "word", "gheg": "gjatë", "de": "während (mit Ablativ)", "partOfSpeech": "preposition", "reviewed": false },
+    { "id": "item_pas_prep", "kind": "word", "gheg": "pas", "de": "nach (zeitlich, mit Ablativ)", "partOfSpeech": "preposition", "reviewed": false },
+    { "id": "item_prape", "kind": "word", "gheg": "prapë", "de": "wieder, schon wieder", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_fatmiresisht", "kind": "word", "gheg": "fatmirësisht", "de": "zum Glück, glücklicherweise", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_dhurate", "kind": "word", "gheg": "dhuratë", "de": "Geschenk", "partOfSpeech": "noun", "gender": "f", "definite": "dhurata", "plural": "dhurata", "reviewed": false },
+    { "id": "item_jam_kthye", "kind": "phrase", "gheg": "jam kthye", "de": "ich bin zurückgekommen (Perfekt von kthehem)", "partOfSpeech": "phrase", "note": "Partizip „kthye“ (Standard: kthyer) nach dem Muster von „thye“ – zu prüfen.", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u23_review_on_the_road_001",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.participle", "grammar.verbs.perfect"],
+      "itemIds": ["item_humbe", "item_harrue", "item_marre", "item_prite", "item_ardhe"],
+      "prompt": { "lang": "de", "text": "Ordne die Partizipien zu." },
+      "pairs": [
+        { "left": "humbë", "right": "verloren" },
+        { "left": "harrue", "right": "vergessen" },
+        { "left": "marrë", "right": "genommen" },
+        { "left": "pritë", "right": "gewartet" },
+        { "left": "ardhë", "right": "gekommen" }
+      ],
+      "explanation": "Gheg-Partizipien sind kurz: „humbë, pritë, ardhë“ (Standard: humbur, pritur, ardhur), „harrue“ (Standard: harruar).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_002",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative"],
+      "itemIds": ["item_perballe", "item_mbrapa", "item_kunder", "item_gjate_prep", "item_pas_prep"],
+      "prompt": { "lang": "de", "text": "Ordne die Präpositionen zu." },
+      "pairs": [
+        { "left": "përballë", "right": "gegenüber" },
+        { "left": "mbrapa", "right": "hinter" },
+        { "left": "kundër", "right": "gegen" },
+        { "left": "gjatë", "right": "während" },
+        { "left": "pas", "right": "nach (zeitlich)" }
+      ],
+      "explanation": "Nach all diesen Präpositionen steht der Ablativ: „përballë postës, mbrapa hotelit, kundër kollës, gjatë udhëtimit, pas punës“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_003",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "vocab.travel"],
+      "itemIds": ["item_humbe", "item_anulue", "item_ardhe", "item_jam_ftohe", "item_jam_rrezue", "item_gjate_prep"],
+      "prompt": { "lang": "de", "text": "Was ist unterwegs passiert? Ordne zu." },
+      "pairs": [
+        { "left": "Kam humbë pasaportën.", "right": "Ich habe den Pass verloren." },
+        { "left": "Fluturimi âsht anulue.", "right": "Der Flug wurde annulliert." },
+        { "left": "Valixhja nuk ka ardhë.", "right": "Der Koffer ist nicht angekommen." },
+        { "left": "Jam ftohë gjatë udhëtimit.", "right": "Ich habe mich auf der Reise erkältet." },
+        { "left": "Jam rrëzue në aeroport.", "right": "Ich bin am Flughafen hingefallen." }
+      ],
+      "explanation": "Reflexive Verben und das Passiv bilden das Perfekt mit „jam“ (jam ftohë, âsht anulue), alle anderen mit „kam“ (kam humbë, ka ardhë).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_004",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.imperative", "phrase.directions"],
+      "itemIds": ["item_kalo", "item_zbrit", "item_shtrihem", "item_therras", "item_mos"],
+      "prompt": { "lang": "de", "text": "Ordne die Befehle zu." },
+      "pairs": [
+        { "left": "Kalo urën!", "right": "Geh über die Brücke!" },
+        { "left": "Zbrit te spitali!", "right": "Steig beim Spital aus!" },
+        { "left": "Shtrihu këtu!", "right": "Leg dich hier hin!" },
+        { "left": "Thirr nji taksi!", "right": "Ruf ein Taxi!" },
+        { "left": "Mos harro pasaportën!", "right": "Vergiss den Pass nicht!" }
+      ],
+      "explanation": "Zu einer Person steht der Verbstamm: „kalo, zbrit, thirr“. Reflexive Verben enden auf -u: „shtrihu“. Verneint wird mit „mos“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_005",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "vocab.work"],
+      "itemIds": ["item_mjek", "item_farmacist", "item_polic", "item_shef", "item_taksist"],
+      "prompt": { "lang": "de", "text": "Wem? Ordne die Dativformen zu." },
+      "pairs": [
+        { "left": "mjekut", "right": "dem Arzt" },
+        { "left": "farmacistes", "right": "der Apothekerin" },
+        { "left": "policit", "right": "dem Polizisten" },
+        { "left": "shefit", "right": "dem Chef" },
+        { "left": "taksistit", "right": "dem Taxifahrer" }
+      ],
+      "explanation": "Dativ mit Artikel: maskulin -it („policit, shefit, taksistit“), nach k, g, h -ut („mjekut“), feminin auf -e: -es („farmacistes“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_006",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions", "vocab.city"],
+      "itemIds": ["item_afer", "item_prane", "item_larg", "item_prej", "item_para_prep", "item_barnatore", "item_spital", "item_aeroport", "item_hotel", "item_stacion"],
+      "prompt": { "lang": "de", "text": "Wo? Woher? Ordne zu." },
+      "pairs": [
+        { "left": "afër barnatores", "right": "in der Nähe der Apotheke" },
+        { "left": "pranë spitalit", "right": "neben dem Spital" },
+        { "left": "larg aeroportit", "right": "weit weg vom Flughafen" },
+        { "left": "prej hotelit", "right": "vom Hotel" },
+        { "left": "para stacionit", "right": "vor dem Bahnhof" }
+      ],
+      "explanation": "Nach „afër, pranë, larg, prej, para“ steht der Ablativ: „barnatores“ (feminin), „spitalit, aeroportit, hotelit, stacionit“ (maskulin).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_007",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.travel", "grammar.verbs.perfect"],
+      "itemIds": ["item_atehere", "item_prape", "item_fatmiresisht", "item_dhurate", "item_jam_kthye"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "atëherë", "right": "dann, in dem Fall" },
+        { "left": "prapë", "right": "wieder" },
+        { "left": "fatmirësisht", "right": "zum Glück" },
+        { "left": "dhuratë", "right": "Geschenk" },
+        { "left": "jam kthye", "right": "ich bin zurückgekommen" }
+      ],
+      "explanation": "„Fatmirësisht“ (zum Glück) ist das Gegenteil von „fatkeqësisht“ (leider). „Jam kthye“ ist das Perfekt von „kthehem“ – reflexiv, darum mit „jam“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „kthye“ (Standard: kthyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_008",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.case.ablative", "grammar.prepositions"],
+      "itemIds": ["item_dergoj", "item_nane", "item_spital", "item_kunder", "item_shurup", "item_polic", "item_gjate_prep", "item_fjete"],
+      "prompt": { "lang": "de", "text": "Dativ oder Ablativ? Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "I dërgoj nânës nji mesazh.", "right": "Ich schicke der Mutter eine Nachricht." },
+        { "left": "Vij prej spitalit.", "right": "Ich komme vom Spital." },
+        { "left": "Nji shurup kundër kollës.", "right": "Ein Sirup gegen den Husten." },
+        { "left": "I tregoj policit pasaportën.", "right": "Ich zeige dem Polizisten den Pass." },
+        { "left": "Gjatë fluturimit kam fjetë.", "right": "Während des Flugs habe ich geschlafen." }
+      ],
+      "explanation": "Dieselbe Endung, zwei Fälle: Mit der Kurzform „i“ vor dem Verb ist es Dativ („i dërgoj nânës“), nach „prej, kundër, gjatë“ Ablativ.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_009",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "vocab.health"],
+      "itemIds": ["item_prite", "item_urgjence", "item_ore"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kam pritë dy orë në urgjencë.“?" },
+      "choices": ["Ich habe zwei Stunden in der Notfallstation gewartet.", "Ich werde zwei Stunden in der Notfallstation warten.", "Ich warte seit zwei Stunden auf den Krankenwagen.", "Ich habe zwei Stunden am Flughafen gewartet."],
+      "solutions": ["Ich habe zwei Stunden in der Notfallstation gewartet."],
+      "explanation": "„Kam pritë“ ist Perfekt: ich habe gewartet. „Urgjenca“ ist die Notfallstation.",
+      "errorHints": [
+        { "pattern": "werde", "category": "grammar.verb_tense", "hint": "„Kam pritë“ ist Perfekt. Zukunft wäre „kam me pritë“." },
+        { "pattern": "krankenwagen", "category": "vocab.confused", "hint": "Der Krankenwagen heisst „ambulanca“. „Urgjenca“ ist die Notfallstation." },
+        { "pattern": "flughafen", "category": "vocab.confused", "hint": "Der Flughafen heisst „aeroporti“. „Urgjenca“ ist die Notfallstation." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_010",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "vocab.travel"],
+      "itemIds": ["item_perballe", "item_hotel", "item_mbrapa"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „gegenüber dem Hotel“?" },
+      "choices": ["përballë hotelit", "përballë hoteli", "përballë hotelin", "mbrapa hotelit"],
+      "solutions": ["përballë hotelit"],
+      "explanation": "Nach „përballë“ steht der Ablativ, maskulin mit -it: „përballë hotelit“.",
+      "errorHints": [
+        { "pattern": "hoteli$", "category": "grammar.case", "hint": "„Hoteli“ ist Nominativ. Nach „përballë“ steht der Ablativ: „hotelit“." },
+        { "pattern": "hotelin$", "category": "grammar.case", "hint": "„Hotelin“ ist Akkusativ. Nach „përballë“ steht der Ablativ: „hotelit“." },
+        { "pattern": "^mbrapa", "category": "vocab.confused", "hint": "„Mbrapa“ heisst „hinter“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_011",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "vocab.travel"],
+      "itemIds": ["item_polic", "item_pasaporte", "item_trego"],
+      "prompt": { "lang": "de", "text": "Welche Form passt? „I kam tregue ___ pasaportën.“ (dem Polizisten)" },
+      "choices": ["policit", "polici", "policin", "policë"],
+      "solutions": ["policit"],
+      "explanation": "Wem? → Dativ: „policit“. Die Kurzform „i“ vor „kam“ kündigt den Dativ an.",
+      "errorHints": [
+        { "pattern": "^polici$", "category": "grammar.case", "hint": "„Polici“ ist Nominativ. Wem? → Dativ „policit“." },
+        { "pattern": "^policin$", "category": "grammar.case", "hint": "„Policin“ ist Akkusativ (wen?). Wem? → „policit“." },
+        { "pattern": "^polic[eë]$", "category": "grammar.case", "hint": "„Policë“ ist Plural (Polizisten). Wem? → „policit“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_012",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_jam_rrezue", "item_me_dhemb", "item_gju"],
+      "prompt": { "lang": "de", "text": "Du bist hingefallen und dein Knie tut weh. Was sagst du der Ärztin?" },
+      "choices": ["Jam rrëzue dhe më dhemb gjuni.", "Kam rrëzue dhe më dhemb gjuni.", "Jam rrëzue dhe më dhemb gjoksi.", "Rrëzohem dhe më dhemb gjuni."],
+      "solutions": ["Jam rrëzue dhe më dhemb gjuni."],
+      "explanation": "„Rrëzohem“ ist reflexiv, darum Perfekt mit „jam“: „jam rrëzue“. Das Knie heisst „gjuni“.",
+      "errorHints": [
+        { "pattern": "^kam rr", "category": "grammar.verb_conjugation", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „jam rrëzue“." },
+        { "pattern": "gjoksi", "category": "vocab.confused", "hint": "„Gjoksi“ ist die Brust. Das Knie heisst „gjuni“." },
+        { "pattern": "^rr[eë]zohem", "category": "grammar.verb_tense", "hint": "„Rrëzohem“ ist Präsens (ich falle hin). Perfekt: „jam rrëzue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_013",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.prepositions", "phrase.directions"],
+      "itemIds": ["item_zbrit", "item_shko", "item_drejt", "item_poste", "item_te_bei"],
+      "prompt": { "lang": "de", "text": "Du sagst einer älteren Frau höflich: „Steigen Sie bei der Post aus und gehen Sie geradeaus!“" },
+      "choices": ["Zbritni te posta dhe shkoni drejt!", "Zbrit te posta dhe shko drejt!", "Zbritni te postës dhe shkoni drejt!", "Zbritni te posta dhe shkoni djathtas!"],
+      "solutions": ["Zbritni te posta dhe shkoni drejt!"],
+      "explanation": "Höflich hängst du -ni an: „zbritni, shkoni“. Nach „te“ steht der Nominativ: „te posta“.",
+      "errorHints": [
+        { "pattern": "^zbrit te", "category": "grammar.verb_conjugation", "hint": "Höflich (Sie) hängst du -ni an: „zbritni, shkoni“." },
+        { "pattern": "post[eë]s", "category": "grammar.case", "hint": "Nach „te“ steht der Nominativ: „te posta“." },
+        { "pattern": "djathtas", "category": "vocab.confused", "hint": "„Djathtas“ heisst „rechts“. Geradeaus: „drejt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_014",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "vocab.travel"],
+      "itemIds": ["item_pas_prep", "item_udhetim", "item_i_lodhun", "item_gjate_prep", "item_para_prep"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Nach der Reise bin ich müde.“? (Ein Mann spricht.)" },
+      "choices": ["Pas udhëtimit jam i lodhun.", "Pas udhëtimi jam i lodhun.", "Para udhëtimit jam i lodhun.", "Gjatë udhëtimit jam i lodhun."],
+      "solutions": ["Pas udhëtimit jam i lodhun."],
+      "explanation": "„Pas“ heisst „nach“ und verlangt den Ablativ: „pas udhëtimit“. „I lodhun“ ist die Gheg-Form (Standard: i lodhur).",
+      "errorHints": [
+        { "pattern": "udh[eë]timi(\\s|$)", "category": "grammar.case", "hint": "Nach „pas“ steht der Ablativ: „udhëtimit“." },
+        { "pattern": "^para", "category": "vocab.confused", "hint": "„Para“ heisst „vor“." },
+        { "pattern": "^gjat", "category": "vocab.confused", "hint": "„Gjatë“ heisst „während“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_015",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "grammar.clitics", "phrase.health"],
+      "itemIds": ["item_thane", "item_mjeke", "item_me_dhemb"],
+      "prompt": { "lang": "de", "text": "Welcher Satz ist richtig? (Ich habe der Ärztin gesagt, wo es mir wehtut.)" },
+      "choices": ["I kam thânë mjekes ku më dhemb.", "I kam thânë mjeken ku më dhemb.", "Kam thânë mjekja ku më dhemb.", "I kam thânë mjekes ku të dhemb."],
+      "solutions": ["I kam thânë mjekes ku më dhemb."],
+      "explanation": "„Mjekes“ ist Dativ (der Ärztin), angekündigt durch „i“. „Më dhemb“ heisst „es tut mir weh“. Gheg-Partizip „thânë“ (Standard: thënë).",
+      "errorHints": [
+        { "pattern": "mjeken", "category": "grammar.case", "hint": "„Mjeken“ ist Akkusativ. Wem? → Dativ „mjekes“." },
+        { "pattern": "mjekja", "category": "grammar.case", "hint": "„Mjekja“ ist Nominativ. Wem? → „mjekes“, mit „i“ vor dem Verb." },
+        { "pattern": "t[eë] dhemb", "category": "grammar.clitics", "hint": "„Të dhemb“ heisst „es tut dir weh“. Mir: „më dhemb“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_016",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.case.ablative", "vocab.travel"],
+      "itemIds": ["item_jam_kthye", "item_prej"],
+      "prompt": { "lang": "de", "text": "Arta ruft an: „Jam kthye prej Prizrenit.“ Was bedeutet das?" },
+      "choices": ["Ich bin aus Prizren zurückgekommen.", "Ich fahre nach Prizren zurück.", "Ich werde aus Prizren zurückkommen.", "Ich bin in Prizren geblieben."],
+      "solutions": ["Ich bin aus Prizren zurückgekommen."],
+      "explanation": "„Jam kthye“ ist Perfekt mit „jam“, weil „kthehem“ reflexiv ist. „Prej Prizrenit“ (aus Prizren) steht im Ablativ.",
+      "errorHints": [
+        { "pattern": "fahre", "category": "grammar.verb_tense", "hint": "„Jam kthye“ ist Perfekt: ich bin zurückgekommen." },
+        { "pattern": "werde", "category": "grammar.verb_tense", "hint": "„Jam kthye“ ist Perfekt, keine Zukunft." },
+        { "pattern": "geblieben", "category": "vocab.confused", "hint": "„Kthehem“ heisst „zurückkehren“, nicht „bleiben“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „kthye“ (Standard: kthyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_017",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.health", "grammar.verbs.perfect", "grammar.negation"],
+      "itemIds": ["item_fatmiresisht", "item_kocke", "item_thye"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Fatmirësisht, kocka nuk âsht thye.“?" },
+      "choices": ["Zum Glück ist der Knochen nicht gebrochen.", "Leider ist der Knochen gebrochen.", "Zum Glück ist die Wunde klein.", "Leider ist das Knie gebrochen."],
+      "solutions": ["Zum Glück ist der Knochen nicht gebrochen."],
+      "explanation": "„Fatmirësisht“ heisst „zum Glück“, „fatkeqësisht“ „leider“. „Kocka“ ist der Knochen.",
+      "errorHints": [
+        { "pattern": "leider", "category": "vocab.confused", "hint": "„Leider“ heisst „fatkeqësisht“. „Fatmirësisht“ heisst „zum Glück“." },
+        { "pattern": "wunde", "category": "vocab.confused", "hint": "„Kocka“ ist der Knochen. Die Wunde heisst „plaga“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_018",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "phrase.directions", "grammar.case.ablative", "grammar.verbs.imperative"],
+      "itemIds": ["item_barnatore", "item_afer", "item_kalo", "item_ure", "item_vazhdo", "item_deri", "item_kryqezim", "item_mbrapa", "item_poste", "item_sa_larg_asht", "item_ne_kambe"],
+      "prompt": { "lang": "sq", "text": "– Më fal, a ka nji barnatore afër?\n– Po. Kalo urën dhe vazhdo drejt deri te kryqëzimi. Barnatorja âsht mbrapa postës.\n– Sa larg âsht?\n– Pesë minuta në kâmbë.\n\nFrage: Wo ist die Apotheke?" },
+      "choices": ["Hinter der Post.", "Vor der Post.", "Bei der Brücke.", "Gegenüber der Kreuzung."],
+      "solutions": ["Hinter der Post."],
+      "explanation": "„Mbrapa postës“ heisst „hinter der Post“ – nach „mbrapa“ steht der Ablativ. Über die Brücke gehst du nur.",
+      "errorHints": [
+        { "pattern": "^vor", "category": "vocab.confused", "hint": "„Vor“ wäre „para“. Hier steht „mbrapa“ – hinter." },
+        { "pattern": "br[uü]cke", "category": "vocab.confused", "hint": "Über die Brücke („urën“) gehst du nur hinüber." },
+        { "pattern": "gegen[uü]ber", "category": "vocab.confused", "hint": "„Gegenüber“ wäre „përballë“. Bis zur Kreuzung gehst du nur geradeaus." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_019",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "grammar.verbs.perfect", "grammar.prepositions", "vocab.health"],
+      "itemIds": ["item_kane_partizip", "item_i_dyte", "item_jam_ftohe", "item_pase", "item_temperature", "item_barnatore", "item_marre", "item_shurup", "item_per_mu", "item_pas_prep", "item_sherohem"],
+      "prompt": { "lang": "sq", "text": "Nji herë kam kânë me familjen në Durrës. Ditën e dytë jam ftohë dhe kam pasë temperaturë. Nâna ka shkue në barnatore dhe ka marrë nji shurup për mu. Pas tri ditësh jam shërue.\n\nFrage: Was hat die Mutter gemacht?" },
+      "choices": ["Sie hat in der Apotheke einen Sirup geholt.", "Sie hat den Arzt angerufen.", "Sie hat sich auch erkältet.", "Sie ist mit dem Kind ins Spital gegangen."],
+      "solutions": ["Sie hat in der Apotheke einen Sirup geholt."],
+      "explanation": "„Nâna ka shkue në barnatore dhe ka marrë nji shurup për mu“ – die Mutter ist in die Apotheke gegangen und hat einen Sirup für mich geholt. „Pas tri ditësh“ heisst „nach drei Tagen“.",
+      "errorHints": [
+        { "pattern": "arzt", "category": "vocab.confused", "hint": "Vom Arzt ist nicht die Rede: „Nâna ka shkue në barnatore.“" },
+        { "pattern": "erk[aä]ltet", "category": "vocab.confused", "hint": "Erkältet hat sich die Person, die erzählt: „jam ftohë“." },
+        { "pattern": "spital", "category": "vocab.confused", "hint": "„Barnatorja“ ist die Apotheke, nicht das Spital." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_020",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "grammar.verbs.perfect", "vocab.travel"],
+      "itemIds": ["item_mire_se_erdhe", "item_cka_ka_ndodhe", "item_fluturim", "item_pase", "item_vonese", "item_valixhe", "item_ardhe", "item_pasaporte", "item_fatmiresisht", "item_cante"],
+      "prompt": { "lang": "sq", "text": "– Mirë se erdhe, Arben! Çka ka ndodhë?\n– Fluturimi ka pasë dy orë vonesë. Pastaj valixhja ime nuk ka ardhë.\n– Po pasaporta?\n– Fatmirësisht, pasaportën e kam në çantë.\n\nFrage: Was ist nicht angekommen?" },
+      "choices": ["Der Koffer.", "Der Pass.", "Das Flugzeug.", "Die Tasche."],
+      "solutions": ["Der Koffer."],
+      "explanation": "„Valixhja ime nuk ka ardhë“ – mein Koffer ist nicht angekommen. Den Pass hat Arben zum Glück in der Tasche.",
+      "errorHints": [
+        { "pattern": "pass", "category": "vocab.confused", "hint": "Den Pass hat Arben: „pasaportën e kam në çantë“." },
+        { "pattern": "flugzeug", "category": "vocab.confused", "hint": "Der Flug hatte nur Verspätung: „dy orë vonesë“." },
+        { "pattern": "tasche", "category": "vocab.confused", "hint": "Die Tasche („çanta“) hat Arben dabei." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ndodhë“ (Standard: ndodhur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_021",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["reading.dialogues", "phrase.health", "grammar.verbs.imperative", "grammar.verbs.perfect"],
+      "itemIds": ["item_prej_kur", "item_me_dhemb", "item_kambe", "item_prej_dje", "item_jam_rrezue", "item_palester", "item_shtrihem", "item_fatmiresisht", "item_kocke", "item_thye", "item_kete", "item_pomade", "item_here"],
+      "prompt": { "lang": "sq", "text": "– Prej kur të dhemb kâmba?\n– Prej dje. Jam rrëzue në palestër.\n– Shtrihu këtu, të lutem. … Fatmirësisht, kocka nuk âsht thye. Merr këtë pomadë dy herë në ditë.\n\nFrage: Was sagt der Arzt?" },
+      "choices": ["Der Knochen ist nicht gebrochen.", "Das Bein ist gebrochen.", "Du musst ins Spital.", "Nimm die Salbe dreimal täglich."],
+      "solutions": ["Der Knochen ist nicht gebrochen."],
+      "explanation": "„Kocka nuk âsht thye“ heisst „der Knochen ist nicht gebrochen“. „Dy herë në ditë“ heisst „zweimal täglich“.",
+      "errorHints": [
+        { "pattern": "^das bein", "category": "vocab.confused", "hint": "„Kocka nuk âsht thye“ – der Knochen ist nicht gebrochen." },
+        { "pattern": "spital", "category": "vocab.confused", "hint": "Vom Spital ist nicht die Rede." },
+        { "pattern": "dreimal", "category": "vocab.confused", "hint": "„Dy herë në ditë“ heisst „zweimal täglich“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_022",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "grammar.case.dative", "grammar.verbs.perfect", "vocab.work"],
+      "itemIds": ["item_pune", "item_sepse", "item_jam_ftohe", "item_shef", "item_dergue", "item_mesazh", "item_pas_prep", "item_koleg", "item_telefonoj", "item_kam_me", "item_mjek"],
+      "prompt": { "lang": "sq", "text": "Sot nuk kam shkue në punë, sepse jam ftohë. Shefit i kam dërgue nji mesazh. Pas punës kolegu më ka telefonue. Nesër kam me shkue te mjeku.\n\nFrage: Wem hat die Person eine Nachricht geschickt?" },
+      "choices": ["Dem Chef.", "Dem Kollegen.", "Dem Arzt.", "Der Mutter."],
+      "solutions": ["Dem Chef."],
+      "explanation": "„Shefit“ ist Dativ: „Shefit i kam dërgue nji mesazh“ – dem Chef habe ich eine Nachricht geschickt.",
+      "errorHints": [
+        { "pattern": "kollegen", "category": "vocab.confused", "hint": "Der Kollege hat angerufen: „kolegu më ka telefonue“." },
+        { "pattern": "arzt", "category": "vocab.confused", "hint": "Zum Arzt („te mjeku“) geht die Person erst morgen." },
+        { "pattern": "mutter", "category": "vocab.confused", "hint": "Von der Mutter ist nicht die Rede. „Shefit“ heisst „dem Chef“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_023",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["reading.dialogues", "grammar.case.ablative", "grammar.prepositions", "vocab.travel"],
+      "itemIds": ["item_mirembrama", "item_rezervim", "item_kat", "item_i_trete", "item_ashensor", "item_mbrapa", "item_recepsion", "item_perfshihet", "item_mengjes", "item_prej", "item_deri"],
+      "prompt": { "lang": "sq", "text": "– Mirëmbrâma! Kam nji rezervim për dy netë.\n– Po. Dhoma âsht në katin e tretë. Ashensori âsht mbrapa recepsionit.\n– Faleminderit. A përfshihet mëngjesi?\n– Po, prej orës shtatë deri në orën dhjetë.\n\nFrage: Wo ist der Lift?" },
+      "choices": ["Hinter der Rezeption.", "Vor der Rezeption.", "Im dritten Stock.", "Neben dem Frühstücksraum."],
+      "solutions": ["Hinter der Rezeption."],
+      "explanation": "„Mbrapa recepsionit“ heisst „hinter der Rezeption“ – nach „mbrapa“ steht der Ablativ.",
+      "errorHints": [
+        { "pattern": "^vor", "category": "vocab.confused", "hint": "„Vor“ wäre „para“. Hier steht „mbrapa“ – hinter." },
+        { "pattern": "stock", "category": "vocab.confused", "hint": "Im dritten Stock („në katin e tretë“) ist das Zimmer." },
+        { "pattern": "fr[uü]hst", "category": "vocab.confused", "hint": "Vom Frühstücksraum ist nicht die Rede, nur von der Frühstückszeit." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_024",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "grammar.verbs.perfect", "grammar.prepositions", "vocab.travel"],
+      "itemIds": ["item_kam_humbe_rrugen", "item_polic", "item_trego", "item_deri", "item_stacioni_i_autobuseve", "item_atehere", "item_marre", "item_autobus", "item_gjate_prep", "item_fjete"],
+      "prompt": { "lang": "sq", "text": "Sot kam humbë rrugën në Prishtinë. Nji polic më ka tregue rrugën deri te stacioni i autobusëve. Atëherë kam marrë autobusin për Prizren. Gjatë udhëtimit kam fjetë.\n\nFrage: Was hat die Person während der Fahrt gemacht?" },
+      "choices": ["Sie hat geschlafen.", "Sie hat den Weg gesucht.", "Sie hat mit einem Polizisten gesprochen.", "Sie hat ein Taxi genommen."],
+      "solutions": ["Sie hat geschlafen."],
+      "explanation": "„Gjatë udhëtimit kam fjetë“ – während der Fahrt habe ich geschlafen. Nach „gjatë“ steht der Ablativ.",
+      "errorHints": [
+        { "pattern": "weg", "category": "vocab.confused", "hint": "Den Weg hat sie vorher verloren: „kam humbë rrugën“." },
+        { "pattern": "polizist", "category": "vocab.confused", "hint": "Der Polizist hat ihr vorher den Weg gezeigt." },
+        { "pattern": "taxi", "category": "vocab.confused", "hint": "Sie hat den Bus genommen: „kam marrë autobusin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_025",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions", "grammar.case.accusative", "vocab.family"],
+      "itemIds": ["item_dhurate", "item_per", "item_nane"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ein Geschenk für die Mutter“?" },
+      "choices": ["nji dhuratë për nânën", "nji dhuratë për nâna", "nji dhuratë për nânës", "nji dhuratë prej nânës"],
+      "solutions": ["nji dhuratë për nânën"],
+      "explanation": "Nach „për“ (für) steht der Akkusativ: „për nânën“.",
+      "errorHints": [
+        { "pattern": "n[aâ]na$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „për nânën“." },
+        { "pattern": "për n[aâ]n[eë]s", "category": "grammar.case", "hint": "„Nânës“ ist Dativ oder Ablativ. Nach „për“ steht der Akkusativ: „nânën“." },
+        { "pattern": "prej", "category": "vocab.confused", "hint": "„Prej nânës“ heisst „von der Mutter“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_026",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "vocab.travel"],
+      "itemIds": ["item_harrue", "item_pasaporte"],
+      "prompt": { "lang": "de", "text": "Ich habe den Pass vergessen." },
+      "answerLang": "sq",
+      "solutions": ["Kam harrue pasaportën."],
+      "wordBank": ["Kam", "harrue", "pasaportën", "harroj", "pasaporta", "biletën"],
+      "explanation": "Perfekt: „kam“ + Partizip „harrue“ (Standard: harruar). Als Objekt steht „pasaportën“.",
+      "errorHints": [
+        { "pattern": "harroj", "category": "grammar.participle", "hint": "Nach „kam“ steht das Partizip: „harrue“." },
+        { "pattern": "pasaporta(\\s|$)", "category": "grammar.case", "hint": "Als Objekt steht der Akkusativ: „pasaportën“." },
+        { "pattern": "bilet", "category": "vocab.confused", "hint": "„Bileta“ ist die Fahrkarte. Der Pass heisst „pasaporta“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_027",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.prepositions", "phrase.health"],
+      "itemIds": ["item_kane_partizip", "item_te_bei", "item_mjek"],
+      "prompt": { "lang": "sq", "text": "Kam kânë te mjeku." },
+      "answerLang": "de",
+      "solutions": ["Ich bin beim Arzt gewesen."],
+      "wordBank": ["Ich", "bin", "beim", "Arzt", "gewesen", "werde", "Apotheker", "sein"],
+      "explanation": "„Kam kânë“ heisst „ich bin gewesen“ – im Gheg mit „kam“. „Te mjeku“ heisst „beim Arzt“.",
+      "errorHints": [
+        { "pattern": "werde", "category": "grammar.verb_tense", "hint": "„Kam kânë“ ist Perfekt: ich bin gewesen." },
+        { "pattern": "apotheker", "category": "vocab.confused", "hint": "„Mjeku“ ist der Arzt. Der Apotheker heisst „farmacisti“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_028",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.case.ablative", "grammar.clitics", "vocab.travel"],
+      "itemIds": ["item_dergoj", "item_nane", "item_mesazh", "item_prej", "item_aeroport"],
+      "prompt": { "lang": "de", "text": "Ich schicke der Mutter eine Nachricht vom Flughafen." },
+      "answerLang": "sq",
+      "solutions": ["I dërgoj nânës nji mesazh prej aeroportit.", "Prej aeroportit i dërgoj nânës nji mesazh."],
+      "wordBank": ["I", "dërgoj", "nânës", "nji", "mesazh", "prej", "aeroportit", "nânën", "aeroporti", "dërgova"],
+      "explanation": "Zwei Fälle mit derselben Endung: „nânës“ ist Dativ (angekündigt durch „i“), „prej aeroportit“ Ablativ.",
+      "errorHints": [
+        { "pattern": "n[aâ]n[eë]n", "category": "grammar.case", "hint": "Wem? → Dativ: „nânës“." },
+        { "pattern": "aeroporti(\\s|$)", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „aeroportit“." },
+        { "pattern": "d[eë]rgova", "category": "grammar.verb_tense", "hint": "„Dërgova“ ist Vergangenheit. Ich schicke: „dërgoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_029",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "grammar.verbs.perfect"],
+      "itemIds": ["item_gjate_prep", "item_fluturim", "item_fjete"],
+      "prompt": { "lang": "sq", "text": "Gjatë fluturimit kam fjetë." },
+      "answerLang": "de",
+      "solutions": ["Während des Flugs habe ich geschlafen.", "Ich habe während des Flugs geschlafen."],
+      "wordBank": ["Während", "des", "Flugs", "habe", "ich", "geschlafen", "Nach", "gegessen", "schlafe"],
+      "explanation": "„Gjatë“ heisst „während“ und verlangt den Ablativ: „gjatë fluturimit“. „Fjetë“ ist das Gheg-Partizip von „fle“ (Standard: fjetur).",
+      "errorHints": [
+        { "pattern": "(^|\\s)nach(\\s|$)", "category": "vocab.confused", "hint": "„Gjatë“ heisst „während“. „Nach“ wäre „pas“." },
+        { "pattern": "gegessen", "category": "vocab.confused", "hint": "„Fjetë“ heisst „geschlafen“. Gegessen wäre „ngrânë“." },
+        { "pattern": "(^|\\s)schlafe(\\s|$)", "category": "grammar.verb_tense", "hint": "„Kam fjetë“ ist Perfekt: habe geschlafen." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_030",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.prepositions", "vocab.city"],
+      "itemIds": ["item_merr", "item_autobus", "item_zbrit", "item_te_bei", "item_spital"],
+      "prompt": { "lang": "de", "text": "Nimm den Bus und steig beim Spital aus!" },
+      "answerLang": "sq",
+      "solutions": ["Merr autobusin dhe zbrit te spitali!"],
+      "wordBank": ["Merr", "autobusin", "dhe", "zbrit", "te", "spitali", "spitalit", "zbritni", "autobus"],
+      "explanation": "Zwei Befehle zu einer Person: „merr“ und „zbrit“. Nach „te“ steht der Nominativ: „te spitali“.",
+      "errorHints": [
+        { "pattern": "spitalit", "category": "grammar.case", "hint": "Nach „te“ steht der Nominativ: „te spitali“." },
+        { "pattern": "zbritni", "category": "grammar.verb_conjugation", "hint": "Zu einer Person (du): „zbrit“. „Zbritni“ ist höflich oder Plural." },
+        { "pattern": "autobus(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel im Akkusativ: „autobusin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_031",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "grammar.clitics", "phrase.health"],
+      "itemIds": ["item_dhane", "item_farmacist", "item_recete"],
+      "prompt": { "lang": "de", "text": "Ich habe dem Apotheker das Rezept gegeben." },
+      "answerLang": "sq",
+      "solutions": ["I kam dhânë farmacistit recetën.", "Farmacistit i kam dhânë recetën."],
+      "wordBank": ["I", "kam", "dhânë", "farmacistit", "recetën", "farmacistin", "jap", "recetë"],
+      "explanation": "„Farmacistit“ ist Dativ (dem Apotheker), die Kurzform „i“ steht vor „kam“. Gheg-Partizip „dhânë“ (Standard: dhënë).",
+      "errorHints": [
+        { "pattern": "farmacistin", "category": "grammar.case", "hint": "Wem? → Dativ: „farmacistit“." },
+        { "pattern": "(^|s)jap(s|$)", "category": "grammar.participle", "hint": "Nach „kam“ steht das Partizip: „dhânë“." },
+        { "pattern": "recet[eë](\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel im Akkusativ: „recetën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_032",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "vocab.work", "vocab.health"],
+      "itemIds": ["item_shef", "item_shkrue", "item_i_semure"],
+      "prompt": { "lang": "sq", "text": "Shefit i kam shkrue se jam i sëmurë." },
+      "answerLang": "de",
+      "solutions": ["Ich habe dem Chef geschrieben, dass ich krank bin."],
+      "wordBank": ["Ich", "habe", "dem", "Chef", "geschrieben", "dass", "ich", "krank", "bin", "den", "gesagt", "müde"],
+      "explanation": "„Shefit“ ist Dativ: dem Chef. „Se“ heisst hier „dass“. „Shkrue“ ist das Gheg-Partizip von „shkruaj“ (Standard: shkruar).",
+      "errorHints": [
+        { "pattern": "(^|\\s)den chef", "category": "grammar.case", "hint": "„Shefit“ ist Dativ: dem Chef." },
+        { "pattern": "gesagt", "category": "vocab.confused", "hint": "„Shkrue“ heisst „geschrieben“. Gesagt wäre „thânë“." },
+        { "pattern": "m[uü]de", "category": "vocab.confused", "hint": "„I sëmurë“ heisst „krank“. Müde wäre „i lodhun“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_033",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "vocab.city"],
+      "itemIds": ["item_barnatore", "item_prane", "item_hotel"],
+      "prompt": { "lang": "de", "text": "Die Apotheke ist neben dem Hotel." },
+      "answerLang": "sq",
+      "solutions": ["Barnatorja âsht pranë hotelit."],
+      "wordBank": ["Barnatorja", "âsht", "pranë", "hotelit", "hoteli", "larg", "barnatore"],
+      "explanation": "Nach „pranë“ (neben) steht der Ablativ: „pranë hotelit“.",
+      "errorHints": [
+        { "pattern": "hoteli(\\s|$)", "category": "grammar.case", "hint": "Nach „pranë“ steht der Ablativ: „hotelit“." },
+        { "pattern": "larg", "category": "vocab.confused", "hint": "„Larg“ heisst „weit weg“. Neben: „pranë“." },
+        { "pattern": "barnatore(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „barnatorja“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_034",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["reading.dialogues", "grammar.verbs.perfect", "grammar.prepositions", "phrase.health"],
+      "itemIds": ["item_ku_ke_kane", "item_te_bei", "item_mjeke", "item_jam_ftohe"],
+      "prompt": { "lang": "sq", "text": "– Ku ke kânë? – Te mjekja, jam ftohë." },
+      "answerLang": "de",
+      "solutions": ["Wo bist du gewesen? – Bei der Ärztin, ich bin erkältet."],
+      "wordBank": ["Wo", "bist", "du", "gewesen", "Bei", "der", "Ärztin", "ich", "bin", "erkältet", "Apotheke", "verletzt", "Arzt"],
+      "explanation": "„Ku ke kânë?“ – wo bist du gewesen? „Te mjekja“ heisst „bei der Ärztin“, „jam ftohë“ „ich bin erkältet“.",
+      "errorHints": [
+        { "pattern": "apotheke", "category": "vocab.confused", "hint": "„Mjekja“ ist die Ärztin. Die Apotheke heisst „barnatorja“." },
+        { "pattern": "verletzt", "category": "vocab.confused", "hint": "„Jam ftohë“ heisst „ich bin erkältet“. Verletzt wäre „jam lëndue“." },
+        { "pattern": "(^|\\s)arzt(\\s|$)", "category": "vocab.confused", "hint": "„Mjekja“ ist die Ärztin (feminin). Der Arzt heisst „mjeku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_035",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.past_simple", "grammar.clitics", "vocab.family"],
+      "itemIds": ["item_dje", "item_bleva", "item_vlla", "item_nji", "item_dhurate"],
+      "prompt": { "lang": "de", "text": "Gestern kaufte ich dem Bruder ein Geschenk." },
+      "answerLang": "sq",
+      "solutions": ["Dje i bleva vllaut nji dhuratë.", "I bleva vllaut nji dhuratë dje."],
+      "wordBank": ["Dje", "i", "bleva", "vllaut", "nji", "dhuratë", "vllau", "blej", "dhurata"],
+      "explanation": "„Vllaut“ ist Dativ (dem Bruder), mit „i“ vor dem Verb. Mit „dje“ steht die einfache Vergangenheit: „bleva“.",
+      "errorHints": [
+        { "pattern": "vllau(\\s|$)", "category": "grammar.case", "hint": "Wem? → Dativ: „vllaut“." },
+        { "pattern": "(^|\\s)blej(\\s|$)", "category": "grammar.verb_tense", "hint": "„Dje“ verlangt die Vergangenheit: „bleva“." },
+        { "pattern": "dhurata", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „dhuratë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_036",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "grammar.case.ablative", "grammar.prepositions"],
+      "itemIds": ["item_gjate_prep", "item_udhetim", "item_jam_ftohe"],
+      "prompt": { "lang": "de", "text": "Während der Reise habe ich mich erkältet." },
+      "answerLang": "sq",
+      "solutions": ["Gjatë udhëtimit jam ftohë.", "Jam ftohë gjatë udhëtimit."],
+      "wordBank": ["Gjatë", "udhëtimit", "jam", "ftohë", "kam", "udhëtimi", "pas"],
+      "explanation": "„Ftohem“ ist reflexiv, darum Perfekt mit „jam“: „jam ftohë“. Nach „gjatë“ steht der Ablativ: „udhëtimit“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam ftoh", "category": "grammar.verb_conjugation", "hint": "„Ftohem“ ist reflexiv – Perfekt mit „jam“: „jam ftohë“." },
+        { "pattern": "udh[eë]timi(\\s|$)", "category": "grammar.case", "hint": "Nach „gjatë“ steht der Ablativ: „udhëtimit“." },
+        { "pattern": "(^|\\s)pas(\\s|$)", "category": "vocab.confused", "hint": "„Pas“ heisst „nach“. Während: „gjatë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_037",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.negation", "phrase.health"],
+      "itemIds": ["item_mos", "item_ilac", "item_pas_ngranies"],
+      "prompt": { "lang": "sq", "text": "Mos harro ilaçin pas ngrânies!" },
+      "answerLang": "de",
+      "solutions": ["Vergiss das Medikament nach dem Essen nicht!"],
+      "wordBank": ["Vergiss", "das", "Medikament", "nach", "dem", "Essen", "nicht", "vor", "Nimm", "Rezept"],
+      "explanation": "„Mos harro!“ heisst „Vergiss nicht!“. „Pas ngrânies“ heisst „nach dem Essen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)vor(\\s|$)", "category": "vocab.confused", "hint": "„Pas ngrânies“ heisst „nach dem Essen“. Vor wäre „para“." },
+        { "pattern": "nimm", "category": "vocab.confused", "hint": "„Mos harro!“ heisst „Vergiss nicht!“." },
+        { "pattern": "rezept", "category": "vocab.confused", "hint": "„Ilaçi“ ist das Medikament. Das Rezept heisst „receta“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_038",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.case.ablative", "grammar.clitics", "phrase.health"],
+      "itemIds": ["item_mjeke", "item_dhane", "item_ilac", "item_kunder", "item_kolle"],
+      "prompt": { "lang": "de", "text": "Die Ärztin hat mir ein Medikament gegen den Husten gegeben." },
+      "answerLang": "sq",
+      "solutions": ["Mjekja më ka dhânë nji ilaç kundër kollës."],
+      "wordBank": ["Mjekja", "më", "ka", "dhânë", "nji", "ilaç", "kundër", "kollës", "kolla", "kam", "mjeku"],
+      "explanation": "„Më ka dhânë“ – sie hat mir gegeben. Nach „kundër“ (gegen) steht der Ablativ: „kollës“.",
+      "errorHints": [
+        { "pattern": "koll[aë](\\s|$)", "category": "grammar.case", "hint": "Nach „kundër“ steht der Ablativ: „kollës“." },
+        { "pattern": "(^|\\s)kam(\\s|$)", "category": "grammar.verb_conjugation", "hint": "Die Ärztin (3. Person): „ka dhânë“." },
+        { "pattern": "mjeku", "category": "vocab.confused", "hint": "„Mjeku“ ist der Arzt. Die Ärztin heisst „mjekja“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_039",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.health", "vocab.body"],
+      "itemIds": ["item_prape", "item_me_dhemb", "item_koke"],
+      "prompt": { "lang": "sq", "text": "Prapë më dhemb koka." },
+      "answerLang": "de",
+      "solutions": ["Mir tut wieder der Kopf weh.", "Wieder tut mir der Kopf weh."],
+      "wordBank": ["Mir", "tut", "wieder", "der", "Kopf", "weh", "Bauch", "nicht", "immer"],
+      "explanation": "„Prapë“ heisst „wieder“. „Më dhemb koka“ – mir tut der Kopf weh.",
+      "errorHints": [
+        { "pattern": "bauch", "category": "vocab.confused", "hint": "„Koka“ ist der Kopf. Der Bauch heisst „barku“." },
+        { "pattern": "nicht", "category": "vocab.confused", "hint": "Der Satz ist nicht verneint." },
+        { "pattern": "immer", "category": "vocab.confused", "hint": "„Prapë“ heisst „wieder“. Immer wäre „gjithmonë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_040",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.negation", "vocab.travel"],
+      "itemIds": ["item_fatmiresisht", "item_fluturim", "item_anulue", "item_fatkeqesisht"],
+      "prompt": { "lang": "de", "text": "Zum Glück wurde der Flug nicht annulliert." },
+      "answerLang": "sq",
+      "solutions": ["Fatmirësisht, fluturimi nuk âsht anulue."],
+      "wordBank": ["Fatmirësisht", "fluturimi", "nuk", "âsht", "anulue", "Fatkeqësisht", "ka", "fluturim"],
+      "explanation": "Beim Passiv steht „jam“ + Partizip: „âsht anulue“ (Standard: është anuluar). „Fatmirësisht“ heisst „zum Glück“.",
+      "errorHints": [
+        { "pattern": "fatkeq", "category": "vocab.confused", "hint": "„Fatkeqësisht“ heisst „leider“. Zum Glück: „fatmirësisht“." },
+        { "pattern": "nuk ka anulue", "category": "grammar.verb_conjugation", "hint": "Beim Passiv steht „jam“: „âsht anulue“." },
+        { "pattern": "(^|\\s)fluturim(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „fluturimi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_041",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.case.ablative", "grammar.verbs.perfect", "vocab.travel"],
+      "itemIds": ["item_atehere", "item_telefonoj", "item_hotel", "item_prej", "item_aeroport"],
+      "prompt": { "lang": "sq", "text": "Atëherë i kam telefonue hotelit prej aeroportit." },
+      "answerLang": "de",
+      "solutions": ["Dann habe ich das Hotel vom Flughafen aus angerufen.", "Dann habe ich vom Flughafen aus das Hotel angerufen."],
+      "wordBank": ["Dann", "habe", "ich", "das", "Hotel", "vom", "Flughafen", "aus", "angerufen", "zum", "Spital", "werde"],
+      "explanation": "„Telefonoj“ verlangt den Dativ: „i telefonoj hotelit“ (dem Hotel). „Prej aeroportit“ (vom Flughafen) ist Ablativ.",
+      "errorHints": [
+        { "pattern": "(^|\\s)zum(\\s|$)", "category": "grammar.case", "hint": "„Prej aeroportit“ heisst „vom Flughafen“." },
+        { "pattern": "spital", "category": "vocab.confused", "hint": "„Hoteli“ ist das Hotel. Das Spital heisst „spitali“." },
+        { "pattern": "werde", "category": "grammar.verb_tense", "hint": "„Kam telefonue“ ist Perfekt: habe angerufen." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_042",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.prepositions", "phrase.directions"],
+      "itemIds": ["item_semafor", "item_kthehu", "item_djathtas", "item_vazhdo", "item_deri", "item_te_bei", "item_poste"],
+      "prompt": { "lang": "de", "text": "Bieg bei der Ampel rechts ab und geh weiter bis zur Post!" },
+      "answerLang": "sq",
+      "solutions": ["Te semafori kthehu djathtas dhe vazhdo deri te posta!", "Kthehu djathtas te semafori dhe vazhdo deri te posta!"],
+      "wordBank": ["Te", "semafori", "kthehu", "djathtas", "dhe", "vazhdo", "deri", "te", "posta", "postës", "majtas", "kthehuni"],
+      "explanation": "Nach „te“ und „deri te“ steht der Nominativ: „te semafori, deri te posta“. Befehle zu einer Person: „kthehu, vazhdo“.",
+      "errorHints": [
+        { "pattern": "post[eë]s", "category": "grammar.case", "hint": "Nach „deri te“ steht der Nominativ: „deri te posta“." },
+        { "pattern": "majtas", "category": "vocab.confused", "hint": "„Majtas“ heisst „links“. Rechts: „djathtas“." },
+        { "pattern": "kthehuni", "category": "grammar.verb_conjugation", "hint": "Zu einer Person (du): „kthehu“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_043",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "grammar.case.ablative"],
+      "itemIds": ["item_jam_kthye", "item_prej", "item_udhetim"],
+      "prompt": { "lang": "de", "text": "Ich bin von der Reise zurückgekommen." },
+      "answerLang": "sq",
+      "solutions": ["Jam kthye prej udhëtimit.", "U ktheva prej udhëtimit."],
+      "standardForms": ["Jam kthyer nga udhëtimi.", "Jam kthyer prej udhëtimit.", "U ktheva nga udhëtimi."],
+      "explanation": "„Kthehem“ ist reflexiv, darum Perfekt mit „jam“: „jam kthye“ (Standard: jam kthyer). Nach „prej“ steht der Ablativ: „udhëtimit“.",
+      "errorHints": [
+        { "pattern": "udh[eë]timi(\\s|$)", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „udhëtimit“." },
+        { "pattern": "(^|\\s)kam kthye", "category": "grammar.verb_conjugation", "hint": "„Kthehem“ ist reflexiv – Perfekt mit „jam“: „jam kthye“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „kthye“ (Standard: kthyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_044",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.imperative", "phrase.requests", "vocab.city"],
+      "itemIds": ["item_therras", "item_taksi", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Ruf ein Taxi, bitte!" },
+      "answerLang": "sq",
+      "solutions": ["Thirr nji taksi, të lutem!", "Të lutem, thirr nji taksi!"],
+      "standardForms": ["Thirr një taksi, të lutem!", "Të lutem, thirr një taksi!"],
+      "explanation": "„Thirr!“ ist der Befehl von „thërras“ (rufen). „Nji“ ist die Gheg-Form (Standard: një).",
+      "errorHints": [
+        { "pattern": "thirrni", "category": "grammar.verb_conjugation", "hint": "Zu einer Person (du): „thirr“. „Thirrni“ ist höflich oder Plural." },
+        { "pattern": "(^|\\s)th[eë]rras", "category": "grammar.verb_conjugation", "hint": "„Thërras“ heisst „ich rufe“. Der Befehl lautet „thirr!“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_045",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.clitics", "vocab.travel"],
+      "itemIds": ["item_jap", "item_polic", "item_pasaporte"],
+      "prompt": { "lang": "de", "text": "Ich gebe dem Polizisten den Pass." },
+      "answerLang": "sq",
+      "solutions": ["I jap policit pasaportën.", "Policit i jap pasaportën.", "Ia jap policit pasaportën.", "Policit ia jap pasaportën."],
+      "explanation": "Wem? → Dativ „policit“, mit der Kurzform „i“ vor dem Verb. Den Pass (Akkusativ): „pasaportën“.",
+      "errorHints": [
+        { "pattern": "policin", "category": "grammar.case", "hint": "Wem? → Dativ: „policit“." },
+        { "pattern": "^jap", "category": "grammar.clitics", "hint": "Vor dem Verb steht die Kurzform „i“: „I jap policit …“." },
+        { "pattern": "pasaporta(\\s|$)", "category": "grammar.case", "hint": "Als Objekt steht der Akkusativ: „pasaportën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_046",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.case.ablative", "phrase.health"],
+      "itemIds": ["item_marre", "item_shurup", "item_kunder", "item_kolle"],
+      "prompt": { "lang": "de", "text": "Ich habe einen Sirup gegen den Husten genommen." },
+      "answerLang": "sq",
+      "solutions": ["Kam marrë nji shurup kundër kollës.", "Kam marrë shurup kundër kollës.", "Kam marrë nji shurup për kollë."],
+      "standardForms": ["Kam marrë një shurup kundër kollës.", "Kam marrë një shurup për kollën."],
+      "explanation": "Perfekt mit „kam marrë“. Nach „kundër“ (gegen) steht der Ablativ: „kollës“.",
+      "errorHints": [
+        { "pattern": "kund[eë]r koll[aë](\\s|$)", "category": "grammar.case", "hint": "Nach „kundër“ steht der Ablativ: „kollës“." },
+        { "pattern": "(^|\\s)marr(\\s|$)", "category": "grammar.participle", "hint": "Nach „kam“ steht das Partizip: „marrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_047",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.imperative", "phrase.directions", "grammar.linking_article"],
+      "itemIds": ["item_kalo", "item_ure", "item_merr", "item_rruge", "item_i_pare", "item_majtas"],
+      "prompt": { "lang": "de", "text": "Gehen Sie über die Brücke und nehmen Sie die erste Strasse links!" },
+      "answerLang": "sq",
+      "solutions": ["Kaloni urën dhe merrni rrugën e parë majtas!", "Kaloni urën, pastaj merrni rrugën e parë majtas!"],
+      "explanation": "Höflich hängst du -ni an: „kaloni, merrni“. Nach „rrugën“ steht der Verbindungsartikel „e“: „rrugën e parë“.",
+      "errorHints": [
+        { "pattern": "^kalo ur", "category": "grammar.verb_conjugation", "hint": "Höflich (Sie): „kaloni“ und „merrni“." },
+        { "pattern": "(^|\\s)merr rrug", "category": "grammar.verb_conjugation", "hint": "Höflich (Sie): „merrni“." },
+        { "pattern": "rrug[eë]n i par", "category": "grammar.linking_article", "hint": "Nach „rrugën“ steht „e“: „rrugën e parë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_048",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "vocab.health", "grammar.prepositions"],
+      "itemIds": ["item_prite", "item_urgjence", "item_ore"],
+      "prompt": { "lang": "de", "text": "Wir haben zwei Stunden in der Notfallstation gewartet." },
+      "answerLang": "sq",
+      "solutions": ["Kemi pritë dy orë në urgjencë.", "Kena pritë dy orë në urgjencë.", "Në urgjencë kemi pritë dy orë.", "Në urgjencë kena pritë dy orë."],
+      "standardForms": ["Kemi pritur dy orë në urgjencë.", "Në urgjencë kemi pritur dy orë."],
+      "explanation": "„Kemi pritë“ – wir haben gewartet. Gheg-Partizip „pritë“ (Standard: pritur).",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam prit", "category": "grammar.verb_conjugation", "hint": "Wir: „kemi pritë“." },
+        { "pattern": "(^|\\s)prit(\\s|$)", "category": "grammar.participle", "hint": "Nach „kemi“ steht das Partizip: „pritë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_049",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.case.ablative", "grammar.verbs.perfect", "grammar.clitics"],
+      "itemIds": ["item_dergue", "item_shok", "item_mesazh", "item_prej", "item_spital"],
+      "prompt": { "lang": "de", "text": "Ich habe dem Freund eine Nachricht aus dem Spital geschickt." },
+      "answerLang": "sq",
+      "solutions": ["I kam dërgue shokut nji mesazh prej spitalit.", "Shokut i kam dërgue nji mesazh prej spitalit.", "Prej spitalit i kam dërgue shokut nji mesazh.", "I kam dërgue nji mesazh shokut prej spitalit."],
+      "standardForms": ["I kam dërguar shokut një mesazh nga spitali.", "I kam dërguar shokut një mesazh prej spitalit."],
+      "explanation": "„Shokut“ ist Dativ (dem Freund), „prej spitalit“ Ablativ (aus dem Spital). Gheg-Partizip „dërgue“ (Standard: dërguar).",
+      "errorHints": [
+        { "pattern": "shokun", "category": "grammar.case", "hint": "Wem? → Dativ: „shokut“." },
+        { "pattern": "spitali(\\s|$)", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „spitalit“." },
+        { "pattern": "(^|\\s)d[eë]rgoj(\\s|$)", "category": "grammar.participle", "hint": "Nach „kam“ steht das Partizip: „dërgue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_050",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "grammar.question_particle", "phrase.health"],
+      "itemIds": ["item_thane", "item_mjek", "item_prej_kur", "item_me_dhemb"],
+      "prompt": { "lang": "de", "text": "Hast du dem Arzt gesagt, seit wann es dir wehtut?" },
+      "answerLang": "sq",
+      "solutions": ["A i ke thânë mjekut prej kur të dhemb?", "A ia ke thânë mjekut prej kur të dhemb?", "I ke thânë mjekut prej kur të dhemb?"],
+      "standardForms": ["A i ke thënë mjekut që kur të dhemb?", "A i ke thënë mjekut prej kur të dhemb?"],
+      "explanation": "„Mjekut“ ist Dativ (dem Arzt), mit „i“ vor „ke“. „Të dhemb“ heisst „es tut dir weh“. Gheg-Partizip „thânë“ (Standard: thënë).",
+      "errorHints": [
+        { "pattern": "mjekun", "category": "grammar.case", "hint": "Wem? → Dativ: „mjekut“." },
+        { "pattern": "m[eë] dhemb", "category": "grammar.clitics", "hint": "„Dir“ heisst „të“: „të dhemb“." },
+        { "pattern": "(^|\\s)kam th", "category": "grammar.verb_conjugation", "hint": "Du: „ke thânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_051",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "vocab.city"],
+      "itemIds": ["item_barnatore", "item_perballe", "item_spital"],
+      "prompt": { "lang": "sq", "text": "Barnatorja âsht përballë spitalit." },
+      "answerLang": "de",
+      "solutions": ["Die Apotheke ist gegenüber dem Spital.", "Die Apotheke ist gegenüber vom Spital.", "Die Apotheke liegt gegenüber dem Spital.", "Die Apotheke ist dem Spital gegenüber.", "Die Apotheke ist gegenüber dem Krankenhaus.", "Die Apotheke ist gegenüber vom Krankenhaus."],
+      "explanation": "„Përballë“ heisst „gegenüber“ und verlangt den Ablativ: „përballë spitalit“.",
+      "errorHints": [
+        { "pattern": "neben", "category": "vocab.confused", "hint": "„Përballë“ heisst „gegenüber“. Neben wäre „pranë“." },
+        { "pattern": "hinter", "category": "vocab.confused", "hint": "„Hinter“ wäre „mbrapa“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_052",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.prepositions", "grammar.verbs.perfect", "vocab.travel"],
+      "itemIds": ["item_gjate_prep", "item_pushime", "item_pa_partizip", "item_qytet", "item_shume"],
+      "prompt": { "lang": "sq", "text": "Gjatë pushimeve kam pa shumë qytete." },
+      "answerLang": "de",
+      "solutions": ["In den Ferien habe ich viele Städte gesehen.", "Während der Ferien habe ich viele Städte gesehen.", "Im Urlaub habe ich viele Städte gesehen.", "Während des Urlaubs habe ich viele Städte gesehen.", "In den Ferien sah ich viele Städte.", "Ich habe in den Ferien viele Städte gesehen."],
+      "explanation": "„Gjatë pushimeve“ – während der Ferien (Ablativ Plural). „Kam pa“ heisst „ich habe gesehen“ (Standard: kam parë).",
+      "errorHints": [
+        { "pattern": "d[oö]rfer", "category": "vocab.confused", "hint": "„Qytete“ heisst „Städte“. Dörfer wäre „fshatra“." },
+        { "pattern": "werde", "category": "grammar.verb_tense", "hint": "„Kam pa“ ist Perfekt: ich habe gesehen." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_053",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.clitics", "phrase.health"],
+      "itemIds": ["item_pyet", "item_farmacist", "item_ndihmoj"],
+      "prompt": { "lang": "sq", "text": "Pyet farmacisten, ajo të ndihmon." },
+      "answerLang": "de",
+      "solutions": ["Frag die Apothekerin, sie hilft dir.", "Frag die Apothekerin, sie wird dir helfen.", "Frage die Apothekerin, sie hilft dir."],
+      "explanation": "„Pyet!“ ist der Befehl zu einer Person. „Farmacisten“ (Akkusativ) ist die Apothekerin, „të ndihmon“ heisst „sie hilft dir“.",
+      "errorHints": [
+        { "pattern": "apotheker(\\s|$)", "category": "vocab.confused", "hint": "„Farmacistja“ ist feminin: die Apothekerin." },
+        { "pattern": "arzt", "category": "vocab.confused", "hint": "„Farmacistja“ ist die Apothekerin, nicht die Ärztin." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_054",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "grammar.prepositions", "vocab.city"],
+      "itemIds": ["item_fatmiresisht", "item_taksist", "item_trego", "item_rruge", "item_deri", "item_hotel"],
+      "prompt": { "lang": "de", "text": "Zum Glück hat mir ein Taxifahrer den Weg zum Hotel gezeigt." },
+      "answerLang": "sq",
+      "solutions": ["Fatmirësisht, nji taksist më ka tregue rrugën deri te hoteli.", "Fatmirësisht, nji taksist ma ka tregue rrugën deri te hoteli.", "Fatmirësisht, nji taksist më ka tregue rrugën te hoteli.", "Fatmirësisht, nji taksist ma ka tregue rrugën te hoteli."],
+      "standardForms": ["Fatmirësisht, një taksist më ka treguar rrugën deri te hoteli.", "Fatmirësisht, një taksist ma ka treguar rrugën deri te hoteli."],
+      "explanation": "„Më ka tregue“ – er hat mir gezeigt (Standard: treguar). Nach „deri te“ steht der Nominativ: „deri te hoteli“.",
+      "errorHints": [
+        { "pattern": "deri te hotelit", "category": "grammar.case", "hint": "Nach „deri te“ steht der Nominativ: „deri te hoteli“." },
+        { "pattern": "(^|\\s)tregoj(\\s|$)", "category": "grammar.participle", "hint": "Nach „ka“ steht das Partizip: „tregue“." },
+        { "pattern": "fatkeq", "category": "vocab.confused", "hint": "„Fatkeqësisht“ heisst „leider“. Zum Glück: „fatmirësisht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_055",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.case.ablative", "vocab.city"],
+      "itemIds": ["item_atehere", "item_merr", "item_taksi", "item_prej", "item_stacion"],
+      "prompt": { "lang": "de", "text": "Dann nimm ein Taxi vom Bahnhof!" },
+      "answerLang": "sq",
+      "solutions": ["Atëherë merr nji taksi prej stacionit!", "Atëherë merr taksi prej stacionit!"],
+      "standardForms": ["Atëherë merr një taksi nga stacioni!", "Atëherë merr një taksi prej stacionit!"],
+      "explanation": "„Atëherë“ heisst „dann, in dem Fall“. Nach „prej“ steht der Ablativ: „prej stacionit“.",
+      "errorHints": [
+        { "pattern": "stacioni(\\s|$)", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „stacionit“." },
+        { "pattern": "merrni", "category": "grammar.verb_conjugation", "hint": "Zu einer Person (du): „merr“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_056",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "vocab.travel"],
+      "itemIds": ["item_humbe", "item_pasaporte"],
+      "prompt": { "lang": "de", "text": "Ich habe den Pass verloren." },
+      "answerLang": "sq",
+      "text": "Kam ___ pasaportën.",
+      "solutions": ["humbë"],
+      "choices": ["humbë", "humb", "harroj", "marr"],
+      "explanation": "Nach „kam“ steht das Partizip: „humbë“ (Standard: humbur).",
+      "errorHints": [
+        { "pattern": "^humb$", "category": "grammar.participle", "hint": "Nach „kam“ steht das Partizip: „humbë“." },
+        { "pattern": "^harroj$", "category": "grammar.participle", "hint": "„Harroj“ heisst „ich vergesse“ – und nach „kam“ steht das Partizip." },
+        { "pattern": "^marr$", "category": "vocab.confused", "hint": "„Marr“ heisst „ich nehme“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_057",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions", "vocab.city"],
+      "itemIds": ["item_barnatore", "item_afer", "item_stacion"],
+      "prompt": { "lang": "de", "text": "Die Apotheke ist in der Nähe des Bahnhofs." },
+      "answerLang": "sq",
+      "text": "Barnatorja âsht afër ___.",
+      "solutions": ["stacionit"],
+      "choices": ["stacionit", "stacioni", "stacionin", "stacion"],
+      "explanation": "Nach „afër“ steht der Ablativ, maskulin mit -it: „afër stacionit“.",
+      "errorHints": [
+        { "pattern": "^stacioni$", "category": "grammar.case", "hint": "Nach „afër“ steht der Ablativ: „stacionit“." },
+        { "pattern": "^stacionin$", "category": "grammar.case", "hint": "„Stacionin“ ist Akkusativ. Nach „afër“: „stacionit“." },
+        { "pattern": "^stacion$", "category": "grammar.case", "hint": "Nach „afër“ steht der bestimmte Ablativ: „stacionit“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_058",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.imperative", "phrase.directions"],
+      "itemIds": ["item_kalo", "item_ure", "item_kthehu", "item_majtas"],
+      "prompt": { "lang": "de", "text": "Geh über die Brücke und bieg links ab!" },
+      "answerLang": "sq",
+      "text": "___ urën dhe kthehu majtas!",
+      "solutions": ["Kalo"],
+      "choices": ["Kalo", "Kaloni", "Kaloj", "Kalue"],
+      "explanation": "„Kthehu“ zeigt: Du sprichst zu einer Person – darum „kalo“.",
+      "errorHints": [
+        { "pattern": "^kaloni$", "category": "grammar.verb_conjugation", "hint": "„Kthehu“ zeigt: Du sprichst zu einer Person – darum „kalo“." },
+        { "pattern": "^kaloj$", "category": "grammar.verb_conjugation", "hint": "„Kaloj“ heisst „ich überquere“. Der Befehl lautet „kalo!“." },
+        { "pattern": "^kalue$", "category": "grammar.participle", "hint": "„Kalue“ ist das Partizip. Der Befehl lautet „kalo!“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_059",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "phrase.health"],
+      "itemIds": ["item_mjeke", "item_me_dhemb"],
+      "prompt": { "lang": "de", "text": "Ich zeige der Ärztin, wo es mir wehtut." },
+      "answerLang": "sq",
+      "text": "I tregoj ___ ku më dhemb.",
+      "solutions": ["mjekes"],
+      "explanation": "Wem? → Dativ. „Mjeke“ endet auf -e, darum „mjekes“.",
+      "errorHints": [
+        { "pattern": "^mjeke$", "category": "grammar.case", "hint": "Wem? → Dativ mit Artikel: „mjekes“." },
+        { "pattern": "^mjekja$", "category": "grammar.case", "hint": "„Mjekja“ ist Nominativ. Wem? → „mjekes“." },
+        { "pattern": "^mjeken$", "category": "grammar.case", "hint": "„Mjeken“ ist Akkusativ. Wem? → „mjekes“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_060",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.travel"],
+      "itemIds": ["item_jam_rrezue", "item_gjyshe", "item_aeroport"],
+      "prompt": { "lang": "de", "text": "Die Grossmutter ist am Flughafen hingefallen." },
+      "answerLang": "sq",
+      "text": "Gjyshja ___ rrëzue në aeroport.",
+      "solutions": ["âsht"],
+      "standardForms": ["është"],
+      "explanation": "„Rrëzohem“ ist reflexiv – Perfekt mit „jam“: „âsht rrëzue“ (Standard: është rrëzuar).",
+      "errorHints": [
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Rrëzohem“ ist reflexiv – Perfekt mit „jam“: „âsht rrëzue“." },
+        { "pattern": "^jam$", "category": "grammar.verb_conjugation", "hint": "Die Grossmutter (3. Person): „âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_061",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "grammar.verbs.perfect"],
+      "itemIds": ["item_gjate_prep", "item_fluturim", "item_lexue", "item_liber"],
+      "prompt": { "lang": "de", "text": "Während des Flugs habe ich ein Buch gelesen." },
+      "answerLang": "sq",
+      "text": "Gjatë ___ kam lexue nji libër.",
+      "solutions": ["fluturimit"],
+      "choices": ["fluturimit", "fluturimi", "fluturimin", "fluturim"],
+      "explanation": "Nach „gjatë“ (während) steht der Ablativ: „gjatë fluturimit“.",
+      "errorHints": [
+        { "pattern": "^fluturimi$", "category": "grammar.case", "hint": "Nach „gjatë“ steht der Ablativ: „fluturimit“." },
+        { "pattern": "^fluturimin$", "category": "grammar.case", "hint": "„Fluturimin“ ist Akkusativ. Nach „gjatë“: „fluturimit“." },
+        { "pattern": "^fluturim$", "category": "grammar.case", "hint": "Nach „gjatë“ steht der bestimmte Ablativ: „fluturimit“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_062",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "vocab.leisure", "vocab.work"],
+      "itemIds": ["item_pas_prep", "item_pune", "item_palester"],
+      "prompt": { "lang": "de", "text": "Nach der Arbeit gehe ich ins Fitnessstudio." },
+      "answerLang": "sq",
+      "text": "Pas ___ shkoj në palestër.",
+      "solutions": ["punës"],
+      "explanation": "Nach „pas“ (nach) steht der Ablativ: „pas punës“.",
+      "errorHints": [
+        { "pattern": "^pun[aë]$", "category": "grammar.case", "hint": "Nach „pas“ steht der Ablativ: „punës“." },
+        { "pattern": "^pun[eë]n$", "category": "grammar.case", "hint": "„Punën“ ist Akkusativ. Nach „pas“: „punës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_063",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.imperative", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_ulem", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Setz dich bitte hier hin!" },
+      "answerLang": "sq",
+      "text": "___ këtu, të lutem!",
+      "solutions": ["Ulu"],
+      "choices": ["Ulu", "Ulem", "Uluni", "Ul"],
+      "explanation": "Befehle reflexiver Verben enden auf -u: „ulem“ → „ulu!“.",
+      "errorHints": [
+        { "pattern": "^ulem$", "category": "grammar.verb_conjugation", "hint": "„Ulem“ heisst „ich setze mich“. Der Befehl lautet „ulu!“." },
+        { "pattern": "^uluni$", "category": "grammar.verb_conjugation", "hint": "„Të lutem“ zeigt: Du sprichst zu einer Person – darum „ulu“." },
+        { "pattern": "^ul$", "category": "grammar.verb_conjugation", "hint": "Reflexive Befehle enden auf -u: „ulu!“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_064",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "vocab.travel"],
+      "itemIds": ["item_fluturim", "item_anulue", "item_fjete", "item_hotel"],
+      "prompt": { "lang": "de", "text": "Der Flug wurde annulliert und wir haben im Hotel geschlafen." },
+      "answerLang": "sq",
+      "text": "Fluturimi ___ anulue dhe kemi fjetë në hotel.",
+      "solutions": ["âsht"],
+      "standardForms": ["është"],
+      "explanation": "Beim Passiv steht „jam“ + Partizip: „âsht anulue“ (Standard: është anuluar). „Kemi fjetë“ ist Perfekt mit „kam“.",
+      "errorHints": [
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "Beim Passiv steht „jam“: „âsht anulue“." },
+        { "pattern": "^kemi$", "category": "grammar.verb_conjugation", "hint": "Der Flug (3. Person, Passiv): „âsht anulue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_065",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.ablative", "grammar.prepositions", "grammar.verbs.perfect", "phrase.health"],
+      "itemIds": ["item_marre", "item_tablete", "item_kunder", "item_temperature"],
+      "prompt": { "lang": "de", "text": "Ich habe eine Tablette gegen das Fieber genommen." },
+      "answerLang": "sq",
+      "text": "Kam marrë nji tabletë kundër ___.",
+      "solutions": ["temperaturës"],
+      "explanation": "Nach „kundër“ (gegen) steht der Ablativ: „temperaturës“.",
+      "errorHints": [
+        { "pattern": "^temperatur[aë]$", "category": "grammar.case", "hint": "Nach „kundër“ steht der Ablativ: „temperaturës“." },
+        { "pattern": "^temperatur[eë]n$", "category": "grammar.case", "hint": "„Temperaturën“ ist Akkusativ. Nach „kundër“: „temperaturës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_066",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "grammar.case.genitive"],
+      "itemIds": ["item_koleg", "item_dhane", "item_celes", "item_dhome"],
+      "prompt": { "lang": "de", "text": "Ich habe dem Kollegen den Zimmerschlüssel gegeben." },
+      "answerLang": "sq",
+      "text": "I kam dhânë ___ çelësin e dhomës.",
+      "solutions": ["kolegut"],
+      "choices": ["kolegut", "kolegu", "kolegun", "kolegit"],
+      "explanation": "Wem? → Dativ. Nach g steht -ut: „kolegut“. „Çelësin e dhomës“ – den Schlüssel des Zimmers (Genitiv).",
+      "errorHints": [
+        { "pattern": "^kolegu$", "category": "grammar.case", "hint": "„Kolegu“ ist Nominativ. Wem? → Dativ „kolegut“." },
+        { "pattern": "^kolegun$", "category": "grammar.case", "hint": "„Kolegun“ ist Akkusativ. Wem? → Dativ „kolegut“." },
+        { "pattern": "^kolegit$", "category": "grammar.case", "hint": "Nach g steht -ut: „kolegut“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_067",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "phrase.health"],
+      "itemIds": ["item_ku_ke_kane", "item_kane_partizip", "item_barnatore"],
+      "prompt": { "lang": "de", "text": "– Wo bist du gewesen? – Ich bin in der Apotheke gewesen." },
+      "answerLang": "sq",
+      "text": "– Ku ke kânë? – Kam ___ në barnatore.",
+      "solutions": ["kânë", "kjenë"],
+      "standardForms": ["qenë"],
+      "explanation": "„Kam kânë“ heisst „ich bin gewesen“ – im Gheg mit „kam“. Gheg-Partizip „kânë“ (Standard: qenë).",
+      "errorHints": [
+        { "pattern": "^pas[eë]$", "category": "vocab.confused", "hint": "„Pasë“ heisst „gehabt“. Gewesen: „kânë“." },
+        { "pattern": "^shkue$", "category": "vocab.confused", "hint": "„Kam shkue“ heisst „ich bin gegangen“. Gewesen: „kânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_068",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.negation", "phrase.health"],
+      "itemIds": ["item_mos", "item_harrue", "item_ilac"],
+      "prompt": { "lang": "de", "text": "Vergiss das Medikament nicht!" },
+      "answerLang": "sq",
+      "text": "Mos ___ ilaçin!",
+      "solutions": ["harro"],
+      "choices": ["harro", "harroni", "harrove", "harrue"],
+      "explanation": "Verneinter Befehl: „mos“ + Befehlsform: „Mos harro!“",
+      "errorHints": [
+        { "pattern": "^harroni$", "category": "grammar.verb_conjugation", "hint": "Zu einer Person (du): „mos harro!“." },
+        { "pattern": "^harrove$", "category": "grammar.verb_tense", "hint": "„Harrove“ ist Vergangenheit (du vergasst)." },
+        { "pattern": "^harrue$", "category": "grammar.participle", "hint": "„Harrue“ ist das Partizip. Der Befehl lautet „harro!“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_069",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.past_simple", "grammar.verbs.reflexive", "grammar.case.ablative"],
+      "itemIds": ["item_u_ktheva", "item_prej"],
+      "prompt": { "lang": "de", "text": "Gestern kam ich aus Prizren zurück. (einfache Vergangenheit)" },
+      "answerLang": "sq",
+      "text": "Dje ___ prej Prizrenit.",
+      "solutions": ["u ktheva"],
+      "explanation": "Reflexive Verben bilden die einfache Vergangenheit mit „u“: „u ktheva“. „Prej Prizrenit“ steht im Ablativ.",
+      "errorHints": [
+        { "pattern": "^jam kthye$", "category": "grammar.verb_tense", "hint": "Gesucht ist die einfache Vergangenheit: „u ktheva“." },
+        { "pattern": "^ktheva$", "category": "grammar.verb_conjugation", "hint": "Reflexiv in der Vergangenheit mit „u“: „u ktheva“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_070",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "grammar.case.ablative", "grammar.question_particle"],
+      "itemIds": ["item_jam_kthye", "item_a", "item_tash"],
+      "prompt": { "lang": "de", "text": "– Bist du aus Deutschland zurückgekommen? – Ja, jetzt bin ich in Prishtina." },
+      "answerLang": "sq",
+      "text": "– A je ___ prej Gjermanie? – Po, tash jam në Prishtinë.",
+      "solutions": ["kthye"],
+      "standardForms": ["kthyer"],
+      "explanation": "Nach „je“ steht das Partizip: „je kthye“ (Standard: kthyer). „Prej Gjermanie“ – aus Deutschland (Ablativ).",
+      "errorHints": [
+        { "pattern": "^kthehesh$", "category": "grammar.participle", "hint": "Nach „je“ steht das Partizip: „kthye“." },
+        { "pattern": "^u kthye", "category": "grammar.verb_tense", "hint": "Hier steht das Perfekt: „je kthye“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „kthye“ (Standard: kthyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_071",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "grammar.verbs.modal", "vocab.city"],
+      "itemIds": ["item_larg", "item_hotel", "item_qender", "item_duhet", "item_taksi"],
+      "prompt": { "lang": "de", "text": "Das Hotel ist weit vom Zentrum, man muss ein Taxi nehmen." },
+      "answerLang": "sq",
+      "text": "Hoteli âsht ___ qendrës, duhet me marrë taksi.",
+      "solutions": ["larg"],
+      "choices": ["larg", "afër", "pranë", "përballë"],
+      "explanation": "„Larg“ heisst „weit weg von“ – dann braucht es ein Taxi. Danach steht der Ablativ: „qendrës“.",
+      "errorHints": [
+        { "pattern": "^af[eë]r$", "category": "vocab.confused", "hint": "„Afër“ heisst „nahe“ – dann brauchst du kein Taxi." },
+        { "pattern": "^pran[eë]$", "category": "vocab.confused", "hint": "„Pranë“ heisst „neben“." },
+        { "pattern": "^p[eë]rball[eë]$", "category": "vocab.confused", "hint": "„Përballë“ heisst „gegenüber“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_072",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.case.dative", "grammar.case.ablative"],
+      "itemIds": ["item_dergue", "item_gjyshe", "item_dhurate", "item_prej"],
+      "prompt": { "lang": "de", "text": "Wir haben der Grossmutter ein Geschenk aus Prizren geschickt." },
+      "answerLang": "sq",
+      "text": "I kemi ___ gjyshes nji dhuratë prej Prizrenit.",
+      "solutions": ["dërgue"],
+      "standardForms": ["dërguar"],
+      "explanation": "Perfekt: „kemi“ + Partizip „dërgue“ (Standard: dërguar). „Gjyshes“ ist Dativ, „prej Prizrenit“ Ablativ.",
+      "errorHints": [
+        { "pattern": "^d[eë]rgojm[eë]$", "category": "grammar.participle", "hint": "Nach „kemi“ steht das Partizip: „dërgue“." },
+        { "pattern": "^d[eë]rguam$", "category": "grammar.verb_tense", "hint": "„Dërguam“ ist die einfache Vergangenheit. Perfekt: „kemi dërgue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_073",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "vocab.home"],
+      "itemIds": ["item_prape", "item_harrue", "item_celes"],
+      "prompt": { "lang": "de", "text": "Ich habe schon wieder den Schlüssel vergessen." },
+      "answerLang": "sq",
+      "tokens": ["Prapë", "kam", "harrue", "çelësin"],
+      "solutions": ["Prapë kam harrue çelësin.", "Kam harrue prapë çelësin.", "Kam harrue çelësin prapë."],
+      "explanation": "„Prapë“ heisst „wieder“. Perfekt: „kam harrue“ (Standard: kam harruar).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_074",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "vocab.city"],
+      "itemIds": ["item_barnatore", "item_mbrapa", "item_poste"],
+      "prompt": { "lang": "de", "text": "Die Apotheke ist hinter der Post." },
+      "answerLang": "sq",
+      "tokens": ["Barnatorja", "âsht", "mbrapa", "postës"],
+      "solutions": ["Barnatorja âsht mbrapa postës."],
+      "explanation": "„Mbrapa“ (hinter) steht vor dem Nomen, das Nomen im Ablativ: „mbrapa postës“.",
+      "errorHints": [
+        { "pattern": "post[eë]s mbrapa", "category": "grammar.word_order", "hint": "„Mbrapa“ steht vor dem Nomen: „mbrapa postës“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_075",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "grammar.clitics"],
+      "itemIds": ["item_dergue", "item_nane", "item_dhurate"],
+      "prompt": { "lang": "de", "text": "Ich habe der Mutter ein Geschenk geschickt." },
+      "answerLang": "sq",
+      "tokens": ["I", "kam", "dërgue", "nânës", "nji", "dhuratë"],
+      "solutions": ["I kam dërgue nânës nji dhuratë.", "Nânës i kam dërgue nji dhuratë."],
+      "explanation": "Die Kurzform „i“ steht vor „kam“ und kündigt den Dativ „nânës“ an.",
+      "errorHints": [
+        { "pattern": "kam i d", "category": "grammar.clitics", "hint": "Die Kurzform „i“ steht vor „kam“: „i kam dërgue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_076",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "grammar.verbs.perfect", "vocab.health"],
+      "itemIds": ["item_gjate_prep", "item_udhetim", "item_pase", "item_temperature"],
+      "prompt": { "lang": "de", "text": "Während der Reise habe ich Fieber gehabt." },
+      "answerLang": "sq",
+      "tokens": ["Gjatë", "udhëtimit", "kam", "pasë", "temperaturë"],
+      "solutions": ["Gjatë udhëtimit kam pasë temperaturë.", "Kam pasë temperaturë gjatë udhëtimit."],
+      "explanation": "„Gjatë udhëtimit“ – während der Reise. „Kam pasë“ ist das Perfekt von „kam“ (Standard: kam pasur).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_077",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "phrase.directions", "grammar.prepositions"],
+      "itemIds": ["item_shko", "item_drejt", "item_kthehu", "item_majtas", "item_semafor"],
+      "prompt": { "lang": "de", "text": "Gehen Sie geradeaus und biegen Sie bei der Ampel links ab!" },
+      "answerLang": "sq",
+      "tokens": ["Shkoni", "drejt", "dhe", "kthehuni", "majtas", "te", "semafori"],
+      "solutions": ["Shkoni drejt dhe kthehuni majtas te semafori!", "Shkoni drejt dhe te semafori kthehuni majtas!"],
+      "explanation": "Höflich mit -ni: „shkoni, kthehuni“. Nach „te“ steht der Nominativ: „te semafori“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_078",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "grammar.verbs.infinitive_me", "phrase.health"],
+      "itemIds": ["item_mjek", "item_thane", "item_pacient", "item_me_pushue", "item_dite"],
+      "prompt": { "lang": "de", "text": "Der Arzt hat dem Patienten gesagt, er solle zwei Tage ruhen." },
+      "answerLang": "sq",
+      "tokens": ["Mjeku", "i", "ka", "thânë", "pacientit", "me", "pushue", "dy", "ditë"],
+      "solutions": ["Mjeku i ka thânë pacientit me pushue dy ditë."],
+      "explanation": "„Pacientit“ ist Dativ (dem Patienten). Was er tun soll, steht im Gheg-Infinitiv: „me pushue“.",
+      "errorHints": [
+        { "pattern": "ka i th", "category": "grammar.clitics", "hint": "Die Kurzform „i“ steht vor „ka“: „i ka thânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„i ka thânë … me pushue“ (Gheg-Infinitiv nach „them“; Standard: t’i ka thënë të pushojë) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_079",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "grammar.verbs.perfect", "grammar.verbs.reflexive"],
+      "itemIds": ["item_pas_prep", "item_pune", "item_jam_rrezue", "item_rruge"],
+      "prompt": { "lang": "de", "text": "Nach der Arbeit bin ich auf der Strasse hingefallen." },
+      "answerLang": "sq",
+      "tokens": ["Pas", "punës", "jam", "rrëzue", "në", "rrugë"],
+      "solutions": ["Pas punës jam rrëzue në rrugë.", "Jam rrëzue në rrugë pas punës."],
+      "explanation": "„Pas punës“ – nach der Arbeit (Ablativ). „Jam rrëzue“ – Perfekt eines reflexiven Verbs mit „jam“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_080",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.dative", "grammar.verbs.perfect", "grammar.clitics", "vocab.travel"],
+      "itemIds": ["item_atehere", "item_polic", "item_pasaporte", "item_trego"],
+      "prompt": { "lang": "de", "text": "Dann habe ich dem Polizisten den Pass gezeigt." },
+      "answerLang": "sq",
+      "tokens": ["Atëherë", "i", "kam", "tregue", "policit", "pasaportën"],
+      "solutions": ["Atëherë i kam tregue policit pasaportën.", "Atëherë policit i kam tregue pasaportën."],
+      "explanation": "„Policit“ ist Dativ (dem Polizisten), die Kurzform „i“ steht vor „kam“. Gheg-Partizip „tregue“ (Standard: treguar).",
+      "errorHints": [
+        { "pattern": "kam i t", "category": "grammar.clitics", "hint": "Die Kurzform „i“ steht vor „kam“: „i kam tregue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_081",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.case.ablative", "grammar.negation", "vocab.travel"],
+      "itemIds": ["item_bagazh", "item_hala", "item_ardhe", "item_prej"],
+      "prompt": { "lang": "de", "text": "Das Gepäck ist noch nicht aus Wien angekommen." },
+      "answerLang": "sq",
+      "tokens": ["Bagazhi", "hala", "nuk", "ka", "ardhë", "prej", "Vjenës"],
+      "solutions": ["Bagazhi hala nuk ka ardhë prej Vjenës."],
+      "explanation": "„Hala nuk …“ heisst „noch nicht“. „Ka ardhë“ – ist angekommen (Standard: ka ardhur). „Prej Vjenës“ steht im Ablativ.",
+      "errorHints": [
+        { "pattern": "nuk hala", "category": "grammar.word_order", "hint": "„Hala“ steht vor „nuk“: „hala nuk ka ardhë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_082",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "grammar.adjective_agreement", "grammar.negation"],
+      "itemIds": ["item_fatmiresisht", "item_plage", "item_i_rende"],
+      "prompt": { "lang": "de", "text": "Zum Glück ist die Wunde nicht schlimm." },
+      "answerLang": "sq",
+      "tokens": ["Fatmirësisht", "plaga", "nuk", "âsht", "e", "rëndë"],
+      "solutions": ["Fatmirësisht, plaga nuk âsht e rëndë."],
+      "explanation": "„Plaga“ ist feminin, darum „e rëndë“. „Fatmirësisht“ heisst „zum Glück“.",
+      "errorHints": [
+        { "pattern": "r[eë]nd[eë] e(\\s|$)", "category": "grammar.word_order", "hint": "Der Verbindungsartikel steht vor dem Adjektiv: „e rëndë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_083",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.imperative", "grammar.prepositions", "grammar.linking_article", "vocab.city"],
+      "itemIds": ["item_zbrit", "item_ndalese", "item_i_dyte", "item_pyet", "item_farmacist"],
+      "prompt": { "lang": "de", "text": "Steig an der zweiten Haltestelle aus und frag den Apotheker!" },
+      "answerLang": "sq",
+      "tokens": ["Zbrit", "te", "ndalesa", "e", "dytë", "dhe", "pyet", "farmacistin"],
+      "solutions": ["Zbrit te ndalesa e dytë dhe pyet farmacistin!"],
+      "explanation": "Zwei Befehle zu einer Person: „zbrit“ und „pyet“. „Ndalesa e dytë“ – die zweite Haltestelle.",
+      "errorHints": [
+        { "pattern": "ndalesa dyt[eë] e", "category": "grammar.word_order", "hint": "Der Verbindungsartikel steht vor der Ordnungszahl: „ndalesa e dytë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u23_review_on_the_road_084",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.prepositions", "grammar.case.ablative", "grammar.verbs.perfect", "vocab.city"],
+      "itemIds": ["item_marre", "item_taksi", "item_prej", "item_hotel", "item_deri", "item_spital"],
+      "prompt": { "lang": "de", "text": "Ich habe ein Taxi vom Hotel bis zum Spital genommen." },
+      "answerLang": "sq",
+      "tokens": ["Kam", "marrë", "nji", "taksi", "prej", "hotelit", "deri", "te", "spitali"],
+      "solutions": ["Kam marrë nji taksi prej hotelit deri te spitali."],
+      "explanation": "„Prej hotelit“ (vom Hotel) steht im Ablativ, „deri te spitali“ (bis zum Spital) im Nominativ.",
+      "errorHints": [
+        { "pattern": "prej spitali(s|$)", "category": "grammar.word_order", "hint": "Vom Hotel: „prej hotelit“ – bis zum Spital: „deri te spitali“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
