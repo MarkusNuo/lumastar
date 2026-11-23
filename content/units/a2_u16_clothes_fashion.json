@@ -1,0 +1,5821 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u16_clothes_fashion",
+  "level": "A2.1",
+  "grammar": [
+    {
+      "title": "Dieser, diese: ky, kjo, këta, këto",
+      "explanation": "Mit **ky, kjo, këta, këto** zeigst du auf etwas: „dieser, diese, dieses“.\n\n| | maskulin | feminin |\n|---|---|---|\n| Einzahl | **ky** fustan – dieses Kleid | **kjo** xhaketë – diese Jacke |\n| Mehrzahl | **këta** rripa – diese Gürtel | **këto** këpucë – diese Schuhe |\n\n- Nach dem Demonstrativ steht das Nomen **ohne** Artikel: *kjo xhaketë* (nicht *kjo xhaketa*).\n- Als Objekt (Akkusativ) werden *ky* und *kjo* zu **këtë**: *Du me provue këtë fustan. E marr këtë kapelë.*\n- „Jener, jene“: **ai, ajo, ata, ato** – *Kjo bluzë âsht ma e lirë se ajo.*\n- Das Genus ist oft anders als im Deutschen: *kjo pallto* – dieser Mantel. *Pantallona* (Hose) und *xhinse* (Jeans) sind Mehrzahl: *këto pantallona*."
+    },
+    {
+      "title": "Vergleichen: ma … se",
+      "explanation": "Für „grösser, billiger, schöner“ stellst du **ma** vor das Adjektiv. „Als“ heisst **se**. Im Standard heisst es *më* statt *ma*.\n\n- *Ky fustan âsht **ma i shkurtër se** ai.* – Dieses Kleid ist kürzer als jenes.\n- *Kjo xhaketë âsht **ma e lirë se** ajo.* – Diese Jacke ist billiger als jene.\n- *Këto çizme janë **ma të ngrohta se** patikat.* – Diese Stiefel sind wärmer als die Turnschuhe.\n\nDer Verbindungsartikel richtet sich wie immer nach dem Nomen: *ma **i*** (maskulin), *ma **e*** (feminin), *ma **të*** (Mehrzahl und im Akkusativ nach *nji*): *A keni nji numër **ma të madh**?* – Haben Sie eine grössere Grösse?\n\n„Besser“ heisst **ma mirë**: *Kjo xhaketë të rri ma mirë.* „Zu gross“ ist kein Vergleich: **tepër i madh** (im Alltag auch *shumë i madh*)."
+    },
+    {
+      "title": "Adjektive in der Mehrzahl, Farben und Material",
+      "explanation": "In der Mehrzahl heisst der Verbindungsartikel **të**. Feminine Adjektive enden dann oft auf **-a**:\n\n| Einzahl (f) | Mehrzahl (f) | Deutsch |\n|---|---|---|\n| e gjatë | të gjata | lang |\n| e shkurtër | të shkurtra | kurz |\n| e re | të reja | neu |\n| e zezë | të zeza | schwarz |\n| e bardhë | të bardha | weiss |\n| e ngushtë | të ngushta | eng |\n| e rehatshme | të rehatshme | bequem |\n\n*Këpucët janë të reja.* – Die Schuhe sind neu. Direkt nach einem bestimmten Nomen in der Mehrzahl steht **e**: *këpucët e zeza* – die schwarzen Schuhe.\n\nOhne Verbindungsartikel bleiben **blu, gri, rozë** und Wörter wie **elegant** (feminin *elegante*): *Shalli âsht gri. Xhaketa âsht elegante.*\n\nDas Material sagst du mit **prej**: *prej pambuku* (aus Baumwolle), *prej leshi* (aus Wolle), *prej lëkure* (aus Leder)."
+    },
+    {
+      "title": "Im Kleidergeschäft",
+      "explanation": "- **Veç po shikoj, faleminderit.** – Ich schaue nur, danke. (*veç* = nur; Standard: *vetëm*)\n- **A muj me provue …?** – Kann ich … anprobieren? (Standard: *A mund të provoj …?*)\n- **Ku âsht kabina?** – Wo ist die Umkleidekabine?\n- **Si më rri?** – Wie steht es mir? Antwort: **Të rri mirë!** – Es steht dir gut!\n- **Sa numër mban?** – Welche Grösse trägst du? *Mbaj numrin dyzet.* – Ich trage Grösse 40.\n- **Du me ndërrue …** – Ich möchte … umtauschen. Den Kassenzettel (*kuponi*) nimmst du mit.\n\n*Më* (mir) und *të* (dir) in *si më rri* und *të rri mirë* sind Kurzformen; hier lernst du sie als feste Wendungen."
+    }
+  ],
+  "items": [
+    {"id":"item_rroba","kind":"word","gheg":"rroba","de":"Kleider, Kleidung","partOfSpeech":"noun","gender":"f","definite":"rrobat","note":"Mehrzahlwort.","reviewed":false},
+    {"id":"item_bluze","kind":"word","gheg":"bluzë","de":"Bluse, Oberteil","partOfSpeech":"noun","gender":"f","definite":"bluza","plural":"bluza","note":"Im Kosovo für Bluse, Oberteil oder dünnen Pulli gebraucht – Bedeutungsumfang zu prüfen.","reviewed":false},
+    {"id":"item_fanelle","kind":"word","gheg":"fanellë","de":"T-Shirt, Trikot","partOfSpeech":"noun","gender":"f","definite":"fanella","plural":"fanella","note":"„fanellë“ für T-Shirt im Kosovo-Alltag zu prüfen (daneben hört man „maicë“).","reviewed":false},
+    {"id":"item_pantallona","kind":"word","gheg":"pantallona","de":"Hose","partOfSpeech":"noun","gender":"f","definite":"pantallonat","note":"Mehrzahlwort (wie „die Hosen“).","reviewed":false},
+    {"id":"item_xhinse","kind":"word","gheg":"xhinse","de":"Jeans","partOfSpeech":"noun","gender":"f","definite":"xhinset","note":"Mehrzahlwort.","reviewed":false},
+    {"id":"item_fustan","kind":"word","gheg":"fustan","de":"Kleid","partOfSpeech":"noun","gender":"m","definite":"fustani","plural":"fustane","reviewed":false},
+    {"id":"item_fund","kind":"word","gheg":"fund","de":"Rock, Jupe","partOfSpeech":"noun","gender":"m","definite":"fundi","plural":"funde","note":"Heisst auch „Ende“ (vgl. fundjavë).","reviewed":false},
+    {"id":"item_xhakete","kind":"word","gheg":"xhaketë","de":"Jacke","partOfSpeech":"noun","gender":"f","definite":"xhaketa","plural":"xhaketa","reviewed":false},
+    {"id":"item_pallto","kind":"word","gheg":"pallto","de":"Mantel","partOfSpeech":"noun","gender":"f","definite":"palltoja","plural":"pallto","reviewed":false},
+    {"id":"item_kostum","kind":"word","gheg":"kostum","de":"Anzug","partOfSpeech":"noun","gender":"m","definite":"kostumi","plural":"kostume","reviewed":false},
+    {"id":"item_kepuce","kind":"word","gheg":"këpucë","de":"Schuh, Schuhe","partOfSpeech":"noun","gender":"f","definite":"këpuca","plural":"këpucë","reviewed":false},
+    {"id":"item_patika","kind":"word","gheg":"patika","de":"Turnschuhe","partOfSpeech":"noun","gender":"f","definite":"patikat","note":"Kosovo-Alltagswort, Mehrzahlwort (Standard: atlete) – zu prüfen.","reviewed":false},
+    {"id":"item_corape","kind":"word","gheg":"çorape","de":"Socken","partOfSpeech":"noun","gender":"f","definite":"çorapet","note":"Hier als Mehrzahl „Socken“ (Standard-Einzahl: çorap); Kosovo-Form der Einzahl zu prüfen.","reviewed":false},
+    {"id":"item_cizme","kind":"word","gheg":"çizme","de":"Stiefel","partOfSpeech":"noun","gender":"f","definite":"çizmet","note":"Mehrzahlwort.","reviewed":false},
+    {"id":"item_kapele","kind":"word","gheg":"kapelë","de":"Mütze, Hut, Kappe","partOfSpeech":"noun","gender":"f","definite":"kapela","plural":"kapela","reviewed":false},
+    {"id":"item_shall","kind":"word","gheg":"shall","de":"Schal","partOfSpeech":"noun","gender":"m","definite":"shalli","plural":"shalle","reviewed":false},
+    {"id":"item_doreza","kind":"word","gheg":"dorëza","de":"Handschuhe","partOfSpeech":"noun","gender":"f","definite":"dorëzat","note":"Mehrzahlwort (von „dorë“, Hand).","reviewed":false},
+    {"id":"item_rrip","kind":"word","gheg":"rrip","de":"Gürtel","partOfSpeech":"noun","gender":"m","definite":"rripi","plural":"rripa","note":"Im Kosovo-Alltag auch „kaish“ (Lehnwort) – zu prüfen.","reviewed":false},
+    {"id":"item_syze","kind":"word","gheg":"syze","de":"Brille","partOfSpeech":"noun","gender":"f","definite":"syzet","note":"Mehrzahlwort.","reviewed":false},
+    {"id":"item_unaze","kind":"word","gheg":"unazë","de":"Ring","partOfSpeech":"noun","gender":"f","definite":"unaza","plural":"unaza","reviewed":false},
+    {"id":"item_kravate","kind":"word","gheg":"kravatë","de":"Krawatte","partOfSpeech":"noun","gender":"f","definite":"kravata","plural":"kravata","reviewed":false},
+    {"id":"item_gri","kind":"word","gheg":"gri","de":"grau (unveränderlich, ohne Verbindungsartikel)","partOfSpeech":"adjective","reviewed":false},
+    {"id":"item_roze","kind":"word","gheg":"rozë","de":"rosa (unveränderlich, ohne Verbindungsartikel)","partOfSpeech":"adjective","reviewed":false},
+    {"id":"item_pambuk","kind":"word","gheg":"pambuk","de":"Baumwolle","partOfSpeech":"noun","gender":"m","definite":"pambuku","reviewed":false},
+    {"id":"item_lesh","kind":"word","gheg":"lesh","de":"Wolle","partOfSpeech":"noun","gender":"m","definite":"leshi","reviewed":false},
+    {"id":"item_lekure","kind":"word","gheg":"lëkurë","de":"Leder; Haut","partOfSpeech":"noun","gender":"f","definite":"lëkura","reviewed":false},
+    {"id":"item_me_vija","kind":"phrase","gheg":"me vija","de":"gestreift","partOfSpeech":"phrase","note":"„me vija“ (gestreift) als Kosovo-Alltagsform zu prüfen.","reviewed":false},
+    {"id":"item_me_katrore","kind":"phrase","gheg":"me katrorë","de":"kariert","partOfSpeech":"phrase","note":"„me katrorë“ (kariert); im Alltag auch „me kuadrate“ – zu prüfen.","reviewed":false},
+    {"id":"item_me_pika","kind":"phrase","gheg":"me pika","de":"gepunktet","partOfSpeech":"phrase","reviewed":false},
+    {"id":"item_numer","kind":"word","gheg":"numër","de":"Grösse (Kleider, Schuhe); Nummer","partOfSpeech":"noun","gender":"m","definite":"numri","plural":"numra","note":"„numër“ für Kleider- und Schuhgrösse im Kosovo-Alltag zu prüfen.","reviewed":false},
+    {"id":"item_pale","kind":"word","gheg":"palë","de":"Paar","partOfSpeech":"noun","gender":"f","definite":"pala","plural":"palë","reviewed":false},
+    {"id":"item_teper","kind":"word","gheg":"tepër","de":"zu, zu sehr (tepër i madh = zu gross)","partOfSpeech":"adverb","note":"Im Alltag oft einfach „shumë“; in getippten Antworten sind beide akzeptiert – zu prüfen.","reviewed":false},
+    {"id":"item_i_ngushte","kind":"word","gheg":"i ngushtë, e ngushtë","de":"eng","partOfSpeech":"adjective","reviewed":false},
+    {"id":"item_i_rehatshem","kind":"word","gheg":"i rehatshëm, e rehatshme","de":"bequem","partOfSpeech":"adjective","note":"Im Kosovo-Alltag oft unveränderlich „rehat“ (âsht rehat) – zu prüfen, ob als Variante akzeptieren.","reviewed":false},
+    {"id":"item_i_trashe","kind":"word","gheg":"i trashë, e trashë","de":"dick (Stoff, Kleidung)","partOfSpeech":"adjective","reviewed":false},
+    {"id":"item_i_holle","kind":"word","gheg":"i hollë, e hollë","de":"dünn","partOfSpeech":"adjective","reviewed":false},
+    {"id":"item_me_provue","kind":"word","gheg":"me provue","de":"anprobieren, probieren","partOfSpeech":"verb","reviewed":false},
+    {"id":"item_provoj","kind":"word","gheg":"provoj","de":"ich probiere (an)","partOfSpeech":"verb","reviewed":false},
+    {"id":"item_provova","kind":"word","gheg":"provova","de":"ich probierte (an) (von provoj)","partOfSpeech":"verb","reviewed":false},
+    {"id":"item_kabine","kind":"word","gheg":"kabinë","de":"Umkleidekabine, Kabine","partOfSpeech":"noun","gender":"f","definite":"kabina","plural":"kabina","reviewed":false},
+    {"id":"item_pasqyre","kind":"word","gheg":"pasqyrë","de":"Spiegel","partOfSpeech":"noun","gender":"f","definite":"pasqyra","plural":"pasqyra","reviewed":false},
+    {"id":"item_si_me_rri","kind":"phrase","gheg":"si më rri?","de":"wie steht es mir?, wie sitzt es?","partOfSpeech":"phrase","note":"Kosovo-Alltagswendung mit „rri“ (sitzen, stehen); „qysh më rri?“ ist ebenfalls akzeptiert – zu prüfen.","reviewed":false},
+    {"id":"item_te_rri_mire","kind":"phrase","gheg":"të rri mirë","de":"es steht dir gut","partOfSpeech":"phrase","note":"Wendung zu prüfen; daneben hört man auch „të ka hije“.","reviewed":false},
+    {"id":"item_mbaj","kind":"word","gheg":"mbaj","de":"ich trage (Kleidung); ich halte","partOfSpeech":"verb","reviewed":false},
+    {"id":"item_vec_po_shikoj","kind":"phrase","gheg":"veç po shikoj","de":"ich schaue nur","partOfSpeech":"phrase","note":"„veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen.","reviewed":false},
+    {"id":"item_i_zane","kind":"phrase","gheg":"i zânë, e zânë","de":"besetzt","partOfSpeech":"adjective","reviewed":false},
+    {"id":"item_cmim","kind":"word","gheg":"çmim","de":"Preis","partOfSpeech":"noun","gender":"m","definite":"çmimi","plural":"çmime","reviewed":false},
+    {"id":"item_zbritje","kind":"word","gheg":"zbritje","de":"Rabatt, Ausverkauf (në zbritje = reduziert)","partOfSpeech":"noun","gender":"f","definite":"zbritja","plural":"zbritje","reviewed":false},
+    {"id":"item_perqind","kind":"word","gheg":"përqind","de":"Prozent","partOfSpeech":"noun","reviewed":false},
+    {"id":"item_arke","kind":"word","gheg":"arkë","de":"Kasse","partOfSpeech":"noun","gender":"f","definite":"arka","plural":"arka","reviewed":false},
+    {"id":"item_kupon","kind":"word","gheg":"kupon","de":"Kassenzettel, Quittung","partOfSpeech":"noun","gender":"m","definite":"kuponi","note":"Im Kosovo „kupon“ (fiskal) für den Kassenzettel; Standard eher „faturë“ – zu prüfen.","reviewed":false},
+    {"id":"item_me_nderrue","kind":"word","gheg":"me ndërrue","de":"umtauschen, wechseln","partOfSpeech":"verb","reviewed":false},
+    {"id":"item_nderroj","kind":"word","gheg":"ndërroj","de":"ich tausche um, ich wechsle","partOfSpeech":"verb","reviewed":false},
+    {"id":"item_nderrova","kind":"word","gheg":"ndërrova","de":"ich tauschte um (von ndërroj)","partOfSpeech":"verb","reviewed":false},
+    {"id":"item_pagova","kind":"word","gheg":"pagova","de":"ich bezahlte (von paguj)","partOfSpeech":"verb","note":"Vergangenheit zu „paguj“ (LANGUAGE_GUIDE §14) – Form „pagova“ zu prüfen.","reviewed":false},
+    {"id":"item_mode","kind":"word","gheg":"modë","de":"Mode (në modë = modisch)","partOfSpeech":"noun","gender":"f","definite":"moda","reviewed":false},
+    {"id":"item_elegant","kind":"word","gheg":"elegant, elegante","de":"elegant (ohne Verbindungsartikel)","partOfSpeech":"adjective","reviewed":false},
+    {"id":"item_keta","kind":"word","gheg":"këta","de":"diese (maskulin, Mehrzahl)","partOfSpeech":"pronoun","reviewed":false},
+    {"id":"item_keto","kind":"word","gheg":"këto","de":"diese (feminin, Mehrzahl)","partOfSpeech":"pronoun","reviewed":false},
+    {"id":"item_kete","kind":"word","gheg":"këtë","de":"diesen, diese, dieses (Akkusativ Einzahl)","partOfSpeech":"pronoun","reviewed":false}
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u16_clothes_fashion_001",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_xhakete",
+        "item_pantallona",
+        "item_fustan",
+        "item_pallto"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet „xhaketë“?"
+      },
+      "choices": [
+        "Jacke",
+        "Hose",
+        "Kleid",
+        "Mantel"
+      ],
+      "solutions": [
+        "Jacke"
+      ],
+      "explanation": "„Xhaketë“ ist die Jacke, bestimmt „xhaketa“. Der Mantel heisst „pallto“.",
+      "errorHints": [
+        {
+          "pattern": "^hose$",
+          "category": "vocab.confused",
+          "hint": "„Hose“ heisst „pantallona“."
+        },
+        {
+          "pattern": "^kleid$",
+          "category": "vocab.confused",
+          "hint": "„Kleid“ heisst „fustan“."
+        },
+        {
+          "pattern": "^mantel$",
+          "category": "vocab.confused",
+          "hint": "„Mantel“ heisst „pallto“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_002",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kepuce",
+        "item_corape",
+        "item_cizme",
+        "item_patika"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „Schuhe“?"
+      },
+      "choices": [
+        "këpucë",
+        "çorape",
+        "çizme",
+        "patika"
+      ],
+      "solutions": [
+        "këpucë"
+      ],
+      "explanation": "„Këpucë“ sind Schuhe – Einzahl und Mehrzahl sind gleich. „Çizme“ sind Stiefel, „patika“ Turnschuhe.",
+      "errorHints": [
+        {
+          "pattern": "^[cç]orape$",
+          "category": "vocab.confused",
+          "hint": "„Çorape“ sind Socken."
+        },
+        {
+          "pattern": "^[cç]izme$",
+          "category": "vocab.confused",
+          "hint": "„Çizme“ sind Stiefel."
+        },
+        {
+          "pattern": "^patika$",
+          "category": "vocab.confused",
+          "hint": "„Patika“ sind Turnschuhe."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_003",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_kabine",
+        "item_arke",
+        "item_pasqyre"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet „Ku âsht kabina?“"
+      },
+      "choices": [
+        "Wo ist die Umkleidekabine?",
+        "Wo ist die Kasse?",
+        "Wo ist der Spiegel?",
+        "Wie viel kostet das?"
+      ],
+      "solutions": [
+        "Wo ist die Umkleidekabine?"
+      ],
+      "explanation": "„Kabina“ ist die Umkleidekabine. Die Kasse heisst „arka“, der Spiegel „pasqyra“.",
+      "errorHints": [
+        {
+          "pattern": "kasse",
+          "category": "vocab.confused",
+          "hint": "„Kasse“ heisst „arkë“."
+        },
+        {
+          "pattern": "spiegel",
+          "category": "vocab.confused",
+          "hint": "„Spiegel“ heisst „pasqyrë“."
+        },
+        {
+          "pattern": "kostet",
+          "category": "vocab.confused",
+          "hint": "„Wie viel kostet das?“ hiesse „Sa kushton?“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_004",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "phrase.shopping",
+        "phrase.politeness"
+      ],
+      "itemIds": [
+        "item_vec_po_shikoj",
+        "item_e_marr",
+        "item_si_me_rri",
+        "item_sa_kushton"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Im Laden willst du nur schauen. Was sagst du der Verkäuferin?"
+      },
+      "choices": [
+        "Veç po shikoj, faleminderit.",
+        "E marr, faleminderit.",
+        "Si më rri?",
+        "Sa kushton?"
+      ],
+      "solutions": [
+        "Veç po shikoj, faleminderit."
+      ],
+      "explanation": "„Veç po shikoj“ heisst „Ich schaue nur“. „Veç“ ist Gheg für „nur“ (Standard: „vetëm“).",
+      "errorHints": [
+        {
+          "pattern": "^e marr",
+          "category": "vocab.confused",
+          "hint": "„E marr“ heisst „Ich nehme es“."
+        },
+        {
+          "pattern": "^si m[eë] rri",
+          "category": "vocab.confused",
+          "hint": "„Si më rri?“ heisst „Wie steht es mir?“."
+        },
+        {
+          "pattern": "^sa kushton",
+          "category": "vocab.confused",
+          "hint": "„Sa kushton?“ fragt nach dem Preis."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_005",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_zbritje",
+        "item_cmim",
+        "item_arke",
+        "item_kupon"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet „zbritje“?"
+      },
+      "choices": [
+        "Rabatt",
+        "Preis",
+        "Kasse",
+        "Quittung"
+      ],
+      "solutions": [
+        "Rabatt"
+      ],
+      "explanation": "„Zbritje“ ist der Rabatt oder Ausverkauf. Der Preis heisst „çmim“.",
+      "errorHints": [
+        {
+          "pattern": "preis",
+          "category": "vocab.confused",
+          "hint": "„Preis“ heisst „çmim“."
+        },
+        {
+          "pattern": "kasse",
+          "category": "vocab.confused",
+          "hint": "„Kasse“ heisst „arkë“."
+        },
+        {
+          "pattern": "quittung",
+          "category": "vocab.confused",
+          "hint": "„Quittung“ heisst „kupon“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_006",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_xhakete"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „diese Jacke“?"
+      },
+      "choices": [
+        "kjo xhaketë",
+        "ky xhaketë",
+        "këto xhaketë",
+        "kjo xhaketa"
+      ],
+      "solutions": [
+        "kjo xhaketë"
+      ],
+      "explanation": "„Xhaketë“ ist feminin, darum „kjo“. Nach dem Demonstrativ steht das Nomen ohne Artikel: „kjo xhaketë“.",
+      "errorHints": [
+        {
+          "pattern": "^ky ",
+          "category": "grammar.gender",
+          "hint": "„Xhaketë“ ist feminin: „kjo xhaketë“."
+        },
+        {
+          "pattern": "^k[eë]to ",
+          "category": "vocab.confused",
+          "hint": "„Këto“ ist Mehrzahl. Eine Jacke: „kjo xhaketë“."
+        },
+        {
+          "pattern": "xhaketa$",
+          "category": "grammar.definite_article",
+          "hint": "Nach „kjo“ steht das Nomen ohne Artikel: „kjo xhaketë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_007",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_keta",
+        "item_kepuce"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „diese Schuhe“?"
+      },
+      "choices": [
+        "këto këpucë",
+        "këta këpucë",
+        "kjo këpucë",
+        "këto këpucët"
+      ],
+      "solutions": [
+        "këto këpucë"
+      ],
+      "explanation": "„Këpucë“ ist feminin, in der Mehrzahl darum „këto“. Das Nomen bleibt ohne Artikel: „këto këpucë“.",
+      "errorHints": [
+        {
+          "pattern": "^k[eë]ta ",
+          "category": "grammar.gender",
+          "hint": "„Këta“ steht bei maskulinen Nomen. „Këpucë“ ist feminin: „këto“."
+        },
+        {
+          "pattern": "^kjo ",
+          "category": "vocab.confused",
+          "hint": "„Kjo“ ist Einzahl. Für mehrere Schuhe: „këto“."
+        },
+        {
+          "pattern": "k[eë]puc[eë]t$",
+          "category": "grammar.definite_article",
+          "hint": "Nach „këto“ steht das Nomen ohne Artikel: „këto këpucë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_008",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_ky",
+        "item_fustan",
+        "item_ma_se",
+        "item_i_shkurter",
+        "item_ai"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was heisst „Ky fustan âsht ma i shkurtër se ai.“?"
+      },
+      "choices": [
+        "Dieses Kleid ist kürzer als jenes.",
+        "Dieses Kleid ist länger als jenes.",
+        "Dieses Kleid ist sehr kurz.",
+        "Jenes Kleid ist kürzer als dieses."
+      ],
+      "solutions": [
+        "Dieses Kleid ist kürzer als jenes."
+      ],
+      "explanation": "„Ma i shkurtër se“ heisst „kürzer als“. „Ai“ steht hier für „jenes“ (Kleid).",
+      "errorHints": [
+        {
+          "pattern": "l[aä]nger",
+          "category": "vocab.confused",
+          "hint": "„Länger“ hiesse „ma i gjatë“."
+        },
+        {
+          "pattern": "sehr",
+          "category": "vocab.confused",
+          "hint": "„Ma … se“ vergleicht. „Sehr kurz“ wäre „shumë i shkurtër“."
+        },
+        {
+          "pattern": "^jenes",
+          "category": "vocab.confused",
+          "hint": "Vorne steht „ky fustan“: Dieses Kleid ist kürzer."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_009",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_xhakete",
+        "item_teper",
+        "item_i_vogel"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „Die Jacke ist zu klein.“?"
+      },
+      "choices": [
+        "Xhaketa âsht tepër e vogël.",
+        "Xhaketa âsht tepër i vogël.",
+        "Xhaketa âsht ma e vogël.",
+        "Xhaketë âsht tepër e vogël."
+      ],
+      "solutions": [
+        "Xhaketa âsht tepër e vogël."
+      ],
+      "explanation": "„Tepër“ heisst „zu (sehr)“. „Xhaketa“ ist feminin, darum „e vogël“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i vog",
+          "category": "grammar.linking_article",
+          "hint": "„Xhaketa“ ist feminin – darum „e vogël“."
+        },
+        {
+          "pattern": "(^|\\s)ma e vog",
+          "category": "vocab.confused",
+          "hint": "„Ma e vogël“ heisst „kleiner“. „Zu klein“ ist „tepër e vogël“."
+        },
+        {
+          "pattern": "^xhaket[eë] [aâ]sht",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: xhaketë → xhaketa."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_010",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kepuce",
+        "item_i_rehatshem"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Welcher Satz heisst „Die Schuhe sind bequem.“?"
+      },
+      "choices": [
+        "Këpucët janë të rehatshme.",
+        "Këpucët janë e rehatshme.",
+        "Këpucët âsht të rehatshme.",
+        "Këpuca janë të rehatshme."
+      ],
+      "solutions": [
+        "Këpucët janë të rehatshme."
+      ],
+      "explanation": "In der Mehrzahl heisst es „janë të …“: „Këpucët janë të rehatshme.“ „Këpucët“ sind die Schuhe.",
+      "errorHints": [
+        {
+          "pattern": "jan[eë] e rehat",
+          "category": "grammar.linking_article",
+          "hint": "In der Mehrzahl heisst der Verbindungsartikel „të“."
+        },
+        {
+          "pattern": "[aâ]sht",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Âsht“ ist Einzahl. Für die Schuhe: „janë“."
+        },
+        {
+          "pattern": "^k[eë]puca ",
+          "category": "grammar.definite_article",
+          "hint": "„Këpuca“ ist ein Schuh. Die Schuhe: „këpucët“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_011",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.linking_article",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_a_keni",
+        "item_numer",
+        "item_ma_se",
+        "item_i_madh"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Schuhe sind dir zu klein. Was fragst du die Verkäuferin?"
+      },
+      "choices": [
+        "A keni nji numër ma të madh?",
+        "A keni nji numër ma të vogël?",
+        "A keni nji numër ma i madh?",
+        "Sa numër mban?"
+      ],
+      "solutions": [
+        "A keni nji numër ma të madh?"
+      ],
+      "explanation": "„Ma i madh“ heisst „grösser“. Nach „A keni nji …“ steht der Akkusativ, darum „ma të madh“.",
+      "errorHints": [
+        {
+          "pattern": "t[eë] vog",
+          "category": "vocab.confused",
+          "hint": "„Ma të vogël“ heisst „kleiner“. Du brauchst eine grössere Grösse."
+        },
+        {
+          "pattern": "ma i madh",
+          "category": "grammar.linking_article",
+          "hint": "Nach „keni nji numër“ heisst es „ma të madh“ (Akkusativ)."
+        },
+        {
+          "pattern": "^sa num",
+          "category": "vocab.confused",
+          "hint": "„Sa numër mban?“ fragt nach deiner Grösse."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_012",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "phrase.shopping",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_te_rri_mire",
+        "item_si_me_rri"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Deine Freundin sagt: „Të rri shumë mirë!“ Was meint sie?"
+      },
+      "choices": [
+        "Es steht dir sehr gut!",
+        "Es ist sehr teuer!",
+        "Es ist dir zu eng.",
+        "Wie steht es mir?"
+      ],
+      "solutions": [
+        "Es steht dir sehr gut!"
+      ],
+      "explanation": "„Të rri mirë“ heisst „Es steht dir gut“. Die Frage dazu: „Si më rri?“ – Wie steht es mir?",
+      "errorHints": [
+        {
+          "pattern": "teuer",
+          "category": "vocab.confused",
+          "hint": "„Teuer“ heisst „i shtrenjtë“."
+        },
+        {
+          "pattern": "eng$",
+          "category": "vocab.confused",
+          "hint": "„Eng“ heisst „i ngushtë“."
+        },
+        {
+          "pattern": "^wie steht",
+          "category": "vocab.confused",
+          "hint": "„Wie steht es mir?“ ist die Frage: „Si më rri?“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendung „të rri mirë“ (es steht dir gut) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_013",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_bluze",
+        "item_pambuk",
+        "item_lesh",
+        "item_me_vija",
+        "item_lekure"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet „nji bluzë prej pambuku“?"
+      },
+      "choices": [
+        "eine Bluse aus Baumwolle",
+        "eine Bluse aus Wolle",
+        "eine gestreifte Bluse",
+        "eine Bluse aus Leder"
+      ],
+      "solutions": [
+        "eine Bluse aus Baumwolle"
+      ],
+      "explanation": "„Prej“ heisst hier „aus“: „prej pambuku“ – aus Baumwolle. Wolle ist „lesh“, Leder „lëkurë“.",
+      "errorHints": [
+        {
+          "pattern": "aus wolle",
+          "category": "vocab.confused",
+          "hint": "„Aus Wolle“ hiesse „prej leshi“."
+        },
+        {
+          "pattern": "gestreift",
+          "category": "vocab.confused",
+          "hint": "„Gestreift“ heisst „me vija“."
+        },
+        {
+          "pattern": "leder",
+          "category": "vocab.confused",
+          "hint": "„Aus Leder“ hiesse „prej lëkure“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_014",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.shopping",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_xhinse",
+        "item_zbritje"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet „Xhinset janë në zbritje.“?"
+      },
+      "choices": [
+        "Die Jeans sind reduziert.",
+        "Die Jeans sind zu eng.",
+        "Die Jeans sind neu.",
+        "Die Jeans sind an der Kasse."
+      ],
+      "solutions": [
+        "Die Jeans sind reduziert."
+      ],
+      "explanation": "„Në zbritje“ heisst „reduziert, im Ausverkauf“. „Xhinset“ (die Jeans) ist Mehrzahl, darum „janë“.",
+      "errorHints": [
+        {
+          "pattern": "eng$",
+          "category": "vocab.confused",
+          "hint": "„Zu eng“ hiesse „tepër të ngushta“."
+        },
+        {
+          "pattern": "(^|\\s)neu$",
+          "category": "vocab.confused",
+          "hint": "„Neu“ hiesse „të reja“."
+        },
+        {
+          "pattern": "kasse",
+          "category": "vocab.confused",
+          "hint": "„Kasse“ heisst „arkë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_015",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.case.accusative",
+        "vocab.numbers"
+      ],
+      "itemIds": [
+        "item_mbaj",
+        "item_numer",
+        "item_dyzet"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „Ich trage Grösse 40.“?"
+      },
+      "choices": [
+        "Mbaj numrin dyzet.",
+        "Mbaj numri dyzet.",
+        "Mban numrin dyzet.",
+        "Provoj numrin dyzet."
+      ],
+      "solutions": [
+        "Mbaj numrin dyzet."
+      ],
+      "explanation": "„Mbaj“ heisst „ich trage“. „Numrin“ ist der Akkusativ von „numri“ (die Grösse).",
+      "errorHints": [
+        {
+          "pattern": "numri dyzet",
+          "category": "grammar.case",
+          "hint": "Nach „mbaj“ steht der Akkusativ: „numrin“."
+        },
+        {
+          "pattern": "^mban ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Mban“ heisst „du trägst“ oder „er/sie trägt“. Ich trage: „mbaj“."
+        },
+        {
+          "pattern": "^provoj",
+          "category": "vocab.confused",
+          "hint": "„Provoj“ heisst „ich probiere an“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„numër“ für die Kleider- und Schuhgrösse zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_016",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.adjective_agreement",
+        "grammar.linking_article"
+      ],
+      "itemIds": [
+        "item_provova",
+        "item_fustan",
+        "item_i_ri"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „Gestern probierte ich ein neues Kleid an.“?"
+      },
+      "choices": [
+        "Dje provova nji fustan të ri.",
+        "Dje provoj nji fustan të ri.",
+        "Dje provova nji fustan i ri.",
+        "Dje provova nji fustan të re."
+      ],
+      "solutions": [
+        "Dje provova nji fustan të ri."
+      ],
+      "explanation": "„Provova“ heisst „ich probierte an“. Nach „nji fustan“ im Akkusativ steht „të ri“.",
+      "errorHints": [
+        {
+          "pattern": "^dje provoj ",
+          "category": "grammar.verb_tense",
+          "hint": "„Provoj“ ist Präsens. Gestern: „provova“."
+        },
+        {
+          "pattern": "fustan i ri",
+          "category": "grammar.linking_article",
+          "hint": "Im Akkusativ nach „nji“ heisst es „të ri“."
+        },
+        {
+          "pattern": "t[eë] re$",
+          "category": "grammar.gender",
+          "hint": "„Fustan“ ist maskulin: „të ri“, nicht „të re“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_017",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_cizme",
+        "item_ma_se",
+        "item_i_ngrohte",
+        "item_patika"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „Diese Stiefel sind wärmer als die Turnschuhe.“?"
+      },
+      "choices": [
+        "Këto çizme janë ma të ngrohta se patikat.",
+        "Këto çizme janë ma të ngrohtë se patikat.",
+        "Këto çizme janë ma të ngrohta se patika.",
+        "Këta çizme janë ma të ngrohta se patikat."
+      ],
+      "solutions": [
+        "Këto çizme janë ma të ngrohta se patikat."
+      ],
+      "explanation": "„Çizme“ ist feminin Mehrzahl: „këto çizme … ma të ngrohta“. Nach „se“ steht „patikat“ mit Artikel.",
+      "errorHints": [
+        {
+          "pattern": "ngroht[eë] se",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl endet auf -a: „të ngrohta“."
+        },
+        {
+          "pattern": "se patika$",
+          "category": "grammar.definite_article",
+          "hint": "Gemeint sind die Turnschuhe: „patikat“."
+        },
+        {
+          "pattern": "^k[eë]ta ",
+          "category": "grammar.gender",
+          "hint": "„Çizme“ ist feminin: „këto çizme“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_018",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "reading.dialogues",
+        "vocab.shopping",
+        "vocab.numbers"
+      ],
+      "itemIds": [
+        "item_sa_kushton",
+        "item_kjo",
+        "item_xhakete",
+        "item_zbritje",
+        "item_perqind",
+        "item_e_marr",
+        "item_shtatedhjete",
+        "item_pesedhjete"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Mirëdita! Sa kushton kjo xhaketë?\n– Shtatëdhjetë euro. Po sot ka zbritje: pesëdhjetë përqind.\n– Shumë mirë, e marr!\n\nFrage: Wie viel bezahlt die Kundin?"
+      },
+      "choices": [
+        "35 Euro",
+        "70 Euro",
+        "50 Euro",
+        "20 Euro"
+      ],
+      "solutions": [
+        "35 Euro"
+      ],
+      "explanation": "Die Jacke kostet „shtatëdhjetë euro“ (70 Euro), heute gibt es „pesëdhjetë përqind“ (50 %) Rabatt – also 35 Euro. „Po“ heisst hier „aber“.",
+      "errorHints": [
+        {
+          "pattern": "^70",
+          "category": "vocab.confused",
+          "hint": "70 Euro ist der Preis ohne Rabatt. Heute gibt es 50 % „zbritje“."
+        },
+        {
+          "pattern": "^50",
+          "category": "vocab.confused",
+          "hint": "„Pesëdhjetë përqind“ ist der Rabatt, nicht der Preis."
+        },
+        {
+          "pattern": "^20",
+          "category": "vocab.confused",
+          "hint": "Rechne nach: 50 % von 70 Euro sind 35 Euro."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_019",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "reading.dialogues",
+        "grammar.comparison",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_si_me_rri",
+        "item_ky",
+        "item_fustan",
+        "item_te_rri_mire",
+        "item_pak",
+        "item_i_gjate",
+        "item_numer",
+        "item_ma_se",
+        "item_i_vogel"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Si më rri ky fustan?\n– Të rri mirë, po âsht pak i gjatë.\n– A keni nji numër ma të vogël?\n\nFrage: Was stimmt mit dem Kleid nicht?"
+      },
+      "choices": [
+        "Es ist etwas zu lang.",
+        "Es ist zu teuer.",
+        "Es ist zu eng.",
+        "Es ist zu kurz."
+      ],
+      "solutions": [
+        "Es ist etwas zu lang."
+      ],
+      "explanation": "„Pak i gjatë“ heisst „etwas (zu) lang“. Darum fragt die Kundin nach „nji numër ma të vogël“ – einer kleineren Grösse.",
+      "errorHints": [
+        {
+          "pattern": "teuer",
+          "category": "vocab.confused",
+          "hint": "Vom Preis ist nicht die Rede. „I gjatë“ heisst „lang“."
+        },
+        {
+          "pattern": "eng$",
+          "category": "vocab.confused",
+          "hint": "„Eng“ hiesse „i ngushtë“. Das Kleid ist „pak i gjatë“."
+        },
+        {
+          "pattern": "kurz",
+          "category": "vocab.confused",
+          "hint": "„Kurz“ hiesse „i shkurtër“. Das Kleid ist „i gjatë“ (lang)."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendungen „si më rri?“ und „të rri mirë“ sowie „po“ als „aber“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_020",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "reading.dialogues",
+        "phrase.shopping",
+        "grammar.verbs.past_simple"
+      ],
+      "itemIds": [
+        "item_bleva",
+        "item_keto",
+        "item_pantallona",
+        "item_teper",
+        "item_i_ngushte",
+        "item_kupon",
+        "item_ketu",
+        "item_kabine",
+        "item_atje",
+        "item_provoj",
+        "item_numer",
+        "item_ma_se",
+        "item_i_madh"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Mirëdita. Dje bleva këto pantallona, po janë tepër të ngushta.\n– A e keni kuponin?\n– Po, kuponi âsht këtu.\n– Mirë. Kabina âsht atje, provoni nji numër ma të madh.\n\nFrage: Warum kommt der Kunde zurück?"
+      },
+      "choices": [
+        "Die Hose ist zu eng.",
+        "Die Hose ist zu lang.",
+        "Er hat keine Quittung.",
+        "Die Hose ist zu teuer."
+      ],
+      "solutions": [
+        "Die Hose ist zu eng."
+      ],
+      "explanation": "„Tepër të ngushta“ heisst „zu eng“. Die Quittung („kuponi“) hat er dabei, und er soll eine grössere Grösse probieren.",
+      "errorHints": [
+        {
+          "pattern": "lang",
+          "category": "vocab.confused",
+          "hint": "„Lang“ hiesse „të gjata“. Die Hose ist „tepër të ngushta“."
+        },
+        {
+          "pattern": "quittung",
+          "category": "vocab.confused",
+          "hint": "„Kuponi âsht këtu“ – die Quittung ist da."
+        },
+        {
+          "pattern": "teuer",
+          "category": "vocab.confused",
+          "hint": "Vom Preis ist nicht die Rede."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Kurzform „e“ in „A e keni kuponin?“ hier als feste Wendung; „kupon“ für den Kassenzettel und „po“ als „aber“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_021",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "reading.short_texts",
+        "grammar.comparison",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_rroba",
+        "item_i_ri",
+        "item_bleva",
+        "item_xhakete",
+        "item_lekure",
+        "item_bluze",
+        "item_i_bardhe",
+        "item_ma_se",
+        "item_i_shtrenjte",
+        "item_i_bukur"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Sot bleva rroba të reja: nji xhaketë prej lëkure dhe nji bluzë të bardhë. Xhaketa âsht ma e shtrenjtë se bluza, po âsht shumë e bukur.\n\nFrage: Was ist teurer?"
+      },
+      "choices": [
+        "Die Jacke.",
+        "Die Bluse.",
+        "Beide kosten gleich viel.",
+        "Die Jeans."
+      ],
+      "solutions": [
+        "Die Jacke."
+      ],
+      "explanation": "„Xhaketa âsht ma e shtrenjtë se bluza“ – die Jacke ist teurer als die Bluse. „Rroba të reja“ sind neue Kleider.",
+      "errorHints": [
+        {
+          "pattern": "bluse",
+          "category": "vocab.confused",
+          "hint": "„Ma e shtrenjtë se bluza“: Die Bluse ist billiger."
+        },
+        {
+          "pattern": "gleich",
+          "category": "vocab.confused",
+          "hint": "„Ma … se“ vergleicht: Die Jacke ist teurer."
+        },
+        {
+          "pattern": "jeans",
+          "category": "vocab.confused",
+          "hint": "Von Jeans („xhinse“) ist nicht die Rede."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_022",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_gri",
+        "item_roze",
+        "item_blu",
+        "item_i_zi"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet „gri“?"
+      },
+      "choices": [
+        "grau",
+        "rosa",
+        "blau",
+        "schwarz"
+      ],
+      "solutions": [
+        "grau"
+      ],
+      "explanation": "„Gri“ heisst „grau“ und bleibt immer gleich – ohne Verbindungsartikel: „nji shall gri“.",
+      "errorHints": [
+        {
+          "pattern": "rosa",
+          "category": "vocab.confused",
+          "hint": "„Rosa“ heisst „rozë“."
+        },
+        {
+          "pattern": "blau",
+          "category": "vocab.confused",
+          "hint": "„Blau“ heisst „blu“ oder „i kaltër“."
+        },
+        {
+          "pattern": "schwarz",
+          "category": "vocab.confused",
+          "hint": "„Schwarz“ heisst „i zi / e zezë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_023",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.plural"
+      ],
+      "itemIds": [
+        "item_pale",
+        "item_corape"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „ein Paar Socken“?"
+      },
+      "choices": [
+        "nji palë çorape",
+        "nji palë çorapet",
+        "dy palë çorape",
+        "nji çorape"
+      ],
+      "solutions": [
+        "nji palë çorape"
+      ],
+      "explanation": "„Palë“ heisst „Paar“. Nach der Mengenangabe steht das Nomen ohne Artikel: „nji palë çorape“.",
+      "errorHints": [
+        {
+          "pattern": "[cç]orapet$",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji palë“ steht das Nomen ohne Artikel: „çorape“."
+        },
+        {
+          "pattern": "^dy ",
+          "category": "vocab.confused",
+          "hint": "„Dy“ heisst „zwei“. Ein Paar: „nji palë“."
+        },
+        {
+          "pattern": "^nji [cç]orape$",
+          "category": "vocab.confused",
+          "hint": "Hier fehlt „palë“ (Paar)."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_024",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.infinitive_me",
+        "grammar.demonstratives",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_muj",
+        "item_me_provue",
+        "item_kete",
+        "item_fustan"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie fragst du „Kann ich dieses Kleid anprobieren?“"
+      },
+      "choices": [
+        "A muj me provue këtë fustan?",
+        "A muj me provoj këtë fustan?",
+        "A muj me provue ky fustan?",
+        "A muj me provue këtë fustani?"
+      ],
+      "solutions": [
+        "A muj me provue këtë fustan?"
+      ],
+      "explanation": "Nach „muj“ folgt der Gheg-Infinitiv „me provue“ (Standard: „të provoj“). Als Objekt wird „ky“ zu „këtë“.",
+      "errorHints": [
+        {
+          "pattern": "me provoj",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip: „me provue“."
+        },
+        {
+          "pattern": "ky fustan",
+          "category": "grammar.case",
+          "hint": "Als Objekt heisst es „këtë fustan“ (Akkusativ)."
+        },
+        {
+          "pattern": "fustani$",
+          "category": "grammar.definite_article",
+          "hint": "Nach „këtë“ steht das Nomen ohne Artikel: „këtë fustan“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_025",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_fustan",
+        "item_elegant",
+        "item_xhakete"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Welcher Satz heisst „Das Kleid ist elegant.“?"
+      },
+      "choices": [
+        "Fustani âsht elegant.",
+        "Fustani âsht i elegant.",
+        "Fustani âsht elegante.",
+        "Fustani âsht e elegant."
+      ],
+      "solutions": [
+        "Fustani âsht elegant."
+      ],
+      "explanation": "„Elegant“ hat keinen Verbindungsartikel. Maskulin heisst es „elegant“, feminin „elegante“: „Xhaketa âsht elegante.“",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i elegant",
+          "category": "grammar.linking_article",
+          "hint": "„Elegant“ hat keinen Verbindungsartikel."
+        },
+        {
+          "pattern": "elegante$",
+          "category": "grammar.gender",
+          "hint": "„Fustani“ ist maskulin: „elegant“. „Elegante“ ist die feminine Form."
+        },
+        {
+          "pattern": "(^|\\s)e elegant",
+          "category": "grammar.linking_article",
+          "hint": "„Elegant“ hat keinen Verbindungsartikel – und „fustani“ ist maskulin."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_026",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_fanelle",
+        "item_mode",
+        "item_i_ngushte",
+        "item_zbritje",
+        "item_lesh"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet „Kjo fanellë âsht në modë.“?"
+      },
+      "choices": [
+        "Dieses T-Shirt ist modisch.",
+        "Dieses T-Shirt ist zu eng.",
+        "Dieses T-Shirt ist reduziert.",
+        "Dieses T-Shirt ist aus Wolle."
+      ],
+      "solutions": [
+        "Dieses T-Shirt ist modisch."
+      ],
+      "explanation": "„Në modë“ heisst „in Mode, modisch“. „Fanellë“ (T-Shirt) ist feminin, darum „kjo“.",
+      "errorHints": [
+        {
+          "pattern": "eng$",
+          "category": "vocab.confused",
+          "hint": "„Zu eng“ hiesse „tepër e ngushtë“."
+        },
+        {
+          "pattern": "reduziert",
+          "category": "vocab.confused",
+          "hint": "„Reduziert“ hiesse „në zbritje“."
+        },
+        {
+          "pattern": "wolle",
+          "category": "vocab.confused",
+          "hint": "„Aus Wolle“ hiesse „prej leshi“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„fanellë“ für T-Shirt im Kosovo-Alltag zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_027",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.colours",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_xhakete",
+        "item_i_zi"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Jacke ist schwarz."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Xhaketa âsht e zezë."
+      ],
+      "wordBank": [
+        "Xhaketa",
+        "âsht",
+        "e",
+        "zezë",
+        "i",
+        "zi",
+        "kuqe"
+      ],
+      "explanation": "„Xhaketa“ ist feminin, darum „e zezë“ (maskulin: „i zi“).",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i z",
+          "category": "grammar.linking_article",
+          "hint": "„Xhaketa“ ist feminin – darum „e zezë“."
+        },
+        {
+          "pattern": "(^|\\s)e zi(\\s|$)",
+          "category": "grammar.gender",
+          "hint": "Feminin heisst „schwarz“ „e zezë“."
+        },
+        {
+          "pattern": "kuqe",
+          "category": "vocab.confused",
+          "hint": "„E kuqe“ heisst „rot“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_028",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_blej",
+        "item_pale",
+        "item_kepuce"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich kaufe ein Paar Schuhe."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Blej nji palë këpucë."
+      ],
+      "wordBank": [
+        "Blej",
+        "nji",
+        "palë",
+        "këpucë",
+        "këpucët",
+        "çorape",
+        "bleva"
+      ],
+      "explanation": "„Nji palë këpucë“ – ein Paar Schuhe. Nach der Mengenangabe steht „këpucë“ ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "k[eë]puc[eë]t",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji palë“ steht das Nomen ohne Artikel: „këpucë“."
+        },
+        {
+          "pattern": "[cç]orape",
+          "category": "vocab.confused",
+          "hint": "„Çorape“ sind Socken."
+        },
+        {
+          "pattern": "^bleva",
+          "category": "grammar.verb_tense",
+          "hint": "„Bleva“ heisst „ich kaufte“. Jetzt: „blej“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_029",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "phrase.shopping",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kabine",
+        "item_arke"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wo ist die Umkleidekabine?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Ku âsht kabina?",
+        "Kabina ku âsht?"
+      ],
+      "wordBank": [
+        "Ku",
+        "âsht",
+        "kabina",
+        "kabinë",
+        "arka",
+        "sa"
+      ],
+      "explanation": "„Kabina“ ist die Umkleidekabine – hier mit bestimmtem Artikel.",
+      "errorHints": [
+        {
+          "pattern": "kabin[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: kabinë → kabina."
+        },
+        {
+          "pattern": "arka",
+          "category": "vocab.confused",
+          "hint": "„Arka“ ist die Kasse."
+        },
+        {
+          "pattern": "^sa ",
+          "category": "vocab.confused",
+          "hint": "„Sa“ heisst „wie viel“. „Wo“ ist „ku“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_030",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_ky",
+        "item_rrip",
+        "item_lekure",
+        "item_lesh"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Dieser Gürtel ist aus Leder."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Ky rrip âsht prej lëkure."
+      ],
+      "wordBank": [
+        "Ky",
+        "rrip",
+        "âsht",
+        "prej",
+        "lëkure",
+        "kjo",
+        "rripi",
+        "leshi"
+      ],
+      "explanation": "„Rrip“ ist maskulin, darum „ky rrip“. „Prej lëkure“ heisst „aus Leder“.",
+      "errorHints": [
+        {
+          "pattern": "^kjo ",
+          "category": "grammar.gender",
+          "hint": "„Rrip“ ist maskulin: „ky rrip“."
+        },
+        {
+          "pattern": "ky rripi",
+          "category": "grammar.definite_article",
+          "hint": "Nach „ky“ steht das Nomen ohne Artikel: „ky rrip“."
+        },
+        {
+          "pattern": "leshi",
+          "category": "vocab.confused",
+          "hint": "„Prej leshi“ heisst „aus Wolle“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_031",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.adjective_agreement",
+        "grammar.plural"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_pantallona",
+        "item_teper",
+        "item_i_gjate"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Hose ist zu lang."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Këto pantallona janë tepër të gjata."
+      ],
+      "wordBank": [
+        "Këto",
+        "pantallona",
+        "janë",
+        "tepër",
+        "të",
+        "gjata",
+        "âsht",
+        "kjo",
+        "gjatë"
+      ],
+      "explanation": "„Pantallona“ ist im Albanischen Mehrzahl: „këto pantallona janë …“. Feminin Mehrzahl: „të gjata“.",
+      "errorHints": [
+        {
+          "pattern": "^kjo ",
+          "category": "vocab.confused",
+          "hint": "„Pantallona“ ist Mehrzahl: „këto pantallona“."
+        },
+        {
+          "pattern": "[aâ]sht",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Pantallona“ ist Mehrzahl, darum „janë“."
+        },
+        {
+          "pattern": "gjat[eë]$",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl endet auf -a: „të gjata“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_032",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_xhakete",
+        "item_i_kuq",
+        "item_ma_se",
+        "item_i_lire",
+        "item_i_zi"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die rote Jacke ist billiger als die schwarze Jacke."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Xhaketa e kuqe âsht ma e lirë se xhaketa e zezë."
+      ],
+      "wordBank": [
+        "Xhaketa",
+        "e",
+        "kuqe",
+        "âsht",
+        "ma",
+        "e",
+        "lirë",
+        "se",
+        "xhaketa",
+        "e",
+        "zezë",
+        "i",
+        "shtrenjtë",
+        "zi"
+      ],
+      "explanation": "„Ma e lirë se“ heisst „billiger als“. Alle Adjektive stehen feminin, weil „xhaketa“ feminin ist.",
+      "errorHints": [
+        {
+          "pattern": "shtrenjt",
+          "category": "vocab.confused",
+          "hint": "„E shtrenjtë“ heisst „teuer“. Billig ist „e lirë“."
+        },
+        {
+          "pattern": "(^|\\s)i (lir|kuq)",
+          "category": "grammar.linking_article",
+          "hint": "„Xhaketa“ ist feminin – darum „e“."
+        },
+        {
+          "pattern": "(^|\\s)(e|i) zi(\\s|$)",
+          "category": "grammar.gender",
+          "hint": "Feminin heisst es „e zezë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_033",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.present",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_me_pague",
+        "item_kartele"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich bezahle mit Karte."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Paguj me kartelë.",
+        "Paguaj me kartelë."
+      ],
+      "wordBank": [
+        "Paguj",
+        "me",
+        "kartelë",
+        "pagova",
+        "pa",
+        "paguan"
+      ],
+      "explanation": "„Paguj“ heisst „ich bezahle“ (Infinitiv: „me pagu“). Die ältere Form „paguaj“ gilt auch.",
+      "errorHints": [
+        {
+          "pattern": "pagova",
+          "category": "grammar.verb_tense",
+          "hint": "„Pagova“ heisst „ich bezahlte“. Jetzt: „paguj“."
+        },
+        {
+          "pattern": "(^|\\s)pa(\\s|$)",
+          "category": "vocab.confused",
+          "hint": "„Pa“ heisst „ohne“. „Mit“ heisst „me“."
+        },
+        {
+          "pattern": "paguan",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Paguan“ heisst „du bezahlst“. Ich bezahle: „paguj“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kartelë“ (Standard: kartë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_034",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.infinitive_me",
+        "grammar.demonstratives",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_du",
+        "item_me_nderrue",
+        "item_keto",
+        "item_kepuce"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich möchte diese Schuhe umtauschen."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Du me ndërrue këto këpucë."
+      ],
+      "wordBank": [
+        "Du",
+        "me",
+        "ndërrue",
+        "këto",
+        "këpucë",
+        "ndërroj",
+        "këta",
+        "provue"
+      ],
+      "explanation": "Nach „du“ folgt der Gheg-Infinitiv „me ndërrue“ (Standard: „dua të ndërroj“). „Këpucë“ ist feminin: „këto“.",
+      "errorHints": [
+        {
+          "pattern": "nd[eë]rroj",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip: „me ndërrue“."
+        },
+        {
+          "pattern": "k[eë]ta",
+          "category": "grammar.gender",
+          "hint": "„Këpucë“ ist feminin: „këto këpucë“."
+        },
+        {
+          "pattern": "provue",
+          "category": "vocab.confused",
+          "hint": "„Me provue“ heisst „anprobieren“. Umtauschen: „me ndërrue“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_035",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.adjective_agreement",
+        "grammar.linking_article"
+      ],
+      "itemIds": [
+        "item_bleva",
+        "item_pallto",
+        "item_i_ngrohte"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern kaufte ich einen warmen Mantel."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Dje bleva nji pallto të ngrohtë.",
+        "Bleva nji pallto të ngrohtë dje."
+      ],
+      "wordBank": [
+        "Dje",
+        "bleva",
+        "nji",
+        "pallto",
+        "të",
+        "ngrohtë",
+        "blej",
+        "e",
+        "i"
+      ],
+      "explanation": "„Pallto“ ist feminin. Nach „bleva nji …“ (Akkusativ) heisst der Verbindungsartikel „të“: „nji pallto të ngrohtë“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e ngroht",
+          "category": "grammar.linking_article",
+          "hint": "Im Akkusativ nach „nji“ heisst es „të ngrohtë“."
+        },
+        {
+          "pattern": "(^|\\s)i ngroht",
+          "category": "grammar.linking_article",
+          "hint": "Im Akkusativ nach „nji“ heisst es „të ngrohtë“ – und „pallto“ ist feminin."
+        },
+        {
+          "pattern": "(^|\\s)blej(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Blej“ heisst „ich kaufe“. Gestern: „bleva“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_036",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.comparison",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_bluze",
+        "item_ma_se",
+        "item_i_bukur",
+        "item_ajo"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Bluse ist schöner als jene."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Kjo bluzë âsht ma e bukur se ajo."
+      ],
+      "wordBank": [
+        "Kjo",
+        "bluzë",
+        "âsht",
+        "ma",
+        "e",
+        "bukur",
+        "se",
+        "ajo",
+        "ky",
+        "i",
+        "bluza"
+      ],
+      "explanation": "„Bluzë“ ist feminin: „kjo bluzë … ma e bukur“. „Ajo“ steht hier für „jene“ (Bluse).",
+      "errorHints": [
+        {
+          "pattern": "^ky ",
+          "category": "grammar.gender",
+          "hint": "„Bluzë“ ist feminin: „kjo bluzë“."
+        },
+        {
+          "pattern": "kjo bluza",
+          "category": "grammar.definite_article",
+          "hint": "Nach „kjo“ steht das Nomen ohne Artikel: „kjo bluzë“."
+        },
+        {
+          "pattern": "(^|\\s)i bukur",
+          "category": "grammar.linking_article",
+          "hint": "„Bluzë“ ist feminin – darum „ma e bukur“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_037",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.linking_article",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_a_keni",
+        "item_numer",
+        "item_ma_se",
+        "item_i_vogel"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Haben Sie eine kleinere Grösse?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "A keni nji numër ma të vogël?"
+      ],
+      "wordBank": [
+        "A",
+        "keni",
+        "nji",
+        "numër",
+        "ma",
+        "të",
+        "vogël",
+        "i",
+        "e",
+        "kemi"
+      ],
+      "explanation": "„Ma i vogël“ heisst „kleiner“. Nach „A keni nji …“ steht der Akkusativ: „ma të vogël“.",
+      "errorHints": [
+        {
+          "pattern": "ma (i|e) vog",
+          "category": "grammar.linking_article",
+          "hint": "Nach „keni nji numër“ heisst es „ma të vogël“ (Akkusativ)."
+        },
+        {
+          "pattern": "kemi",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Kemi“ heisst „wir haben“. Höflich: „A keni …?“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_038",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.colours",
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_shall",
+        "item_gri",
+        "item_roze"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Der Schal ist grau."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Shalli âsht gri."
+      ],
+      "wordBank": [
+        "Shalli",
+        "âsht",
+        "gri",
+        "i",
+        "shall",
+        "rozë"
+      ],
+      "explanation": "„Gri“ bleibt immer gleich und hat keinen Verbindungsartikel: „Shalli âsht gri.“",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i gri",
+          "category": "grammar.linking_article",
+          "hint": "„Gri“ hat keinen Verbindungsartikel."
+        },
+        {
+          "pattern": "^shall [aâ]sht",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: shall → shalli."
+        },
+        {
+          "pattern": "roz",
+          "category": "vocab.confused",
+          "hint": "„Rozë“ heisst „rosa“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_039",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.demonstratives",
+        "vocab.clothes",
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_kapele",
+        "item_i_kuq"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Kjo kapelë âsht e kuqe."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Diese Mütze ist rot."
+      ],
+      "wordBank": [
+        "Diese",
+        "Mütze",
+        "ist",
+        "rot",
+        "Brille",
+        "rosa",
+        "dieser"
+      ],
+      "explanation": "„Kjo kapelë“ – diese Mütze. „Kapelë“ steht für Mütze, Hut oder Kappe.",
+      "errorHints": [
+        {
+          "pattern": "brille",
+          "category": "vocab.confused",
+          "hint": "„Brille“ heisst „syze“."
+        },
+        {
+          "pattern": "rosa",
+          "category": "vocab.confused",
+          "hint": "„Rosa“ heisst „rozë“; „e kuqe“ heisst „rot“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_040",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.adjective_agreement",
+        "grammar.plural"
+      ],
+      "itemIds": [
+        "item_rroba",
+        "item_i_ri",
+        "item_shume",
+        "item_i_bukur"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Rrobat e reja janë shumë të bukura."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Die neuen Kleider sind sehr schön."
+      ],
+      "wordBank": [
+        "Die",
+        "neuen",
+        "Kleider",
+        "sind",
+        "sehr",
+        "schön",
+        "alten",
+        "Schuhe",
+        "ist"
+      ],
+      "explanation": "„Rrobat“ sind die Kleider (Mehrzahl). Nach dem bestimmten Nomen steht „e reja“, nach „janë“ steht „të bukura“.",
+      "errorHints": [
+        {
+          "pattern": "alten",
+          "category": "vocab.confused",
+          "hint": "„Alt“ hiesse „të vjetra“. „Të reja“ heisst „neu“."
+        },
+        {
+          "pattern": "schuhe",
+          "category": "vocab.confused",
+          "hint": "„Schuhe“ heisst „këpucë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_041",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.adjective_agreement",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_patika",
+        "item_i_rehatshem"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Këto patika janë shumë të rehatshme."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Diese Turnschuhe sind sehr bequem."
+      ],
+      "wordBank": [
+        "Diese",
+        "Turnschuhe",
+        "sind",
+        "sehr",
+        "bequem",
+        "Stiefel",
+        "eng",
+        "ist"
+      ],
+      "explanation": "„Patika“ sind Turnschuhe (Mehrzahl), „të rehatshme“ heisst „bequem“.",
+      "errorHints": [
+        {
+          "pattern": "stiefel",
+          "category": "vocab.confused",
+          "hint": "„Stiefel“ heisst „çizme“."
+        },
+        {
+          "pattern": "eng$",
+          "category": "vocab.confused",
+          "hint": "„Eng“ hiesse „të ngushta“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_042",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_xhakete",
+        "item_i_ngushte",
+        "item_si_me_rri"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Xhaketa më rri e ngushtë."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Die Jacke ist mir zu eng.",
+        "Die Jacke ist mir eng."
+      ],
+      "wordBank": [
+        "Die",
+        "Jacke",
+        "ist",
+        "mir",
+        "zu",
+        "eng",
+        "weit",
+        "Hose",
+        "dir"
+      ],
+      "explanation": "„Më rri e ngushtë“ heisst wörtlich „sitzt mir eng“ – die Jacke ist dir zu eng. „Më“ heisst „mir“.",
+      "errorHints": [
+        {
+          "pattern": "weit",
+          "category": "vocab.confused",
+          "hint": "„I ngushtë“ heisst „eng“, nicht „weit“."
+        },
+        {
+          "pattern": "hose",
+          "category": "vocab.confused",
+          "hint": "„Hose“ heisst „pantallona“; „xhaketa“ ist die Jacke."
+        },
+        {
+          "pattern": "(^|\\s)dir(\\s|$)",
+          "category": "vocab.confused",
+          "hint": "„Më“ heisst „mir“. „Dir“ wäre „të“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendung „më rri“ (sitzt mir, steht mir) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_043",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_bluze",
+        "item_pambuk"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Kjo bluzë âsht prej pambuku."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Diese Bluse ist aus Baumwolle."
+      ],
+      "wordBank": [
+        "Diese",
+        "Bluse",
+        "ist",
+        "aus",
+        "Baumwolle",
+        "Wolle",
+        "Leder",
+        "Jacke"
+      ],
+      "explanation": "„Prej pambuku“ heisst „aus Baumwolle“. Wolle ist „lesh“, Leder „lëkurë“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)wolle",
+          "category": "vocab.confused",
+          "hint": "„Wolle“ heisst „lesh“. „Pambuk“ ist Baumwolle."
+        },
+        {
+          "pattern": "leder",
+          "category": "vocab.confused",
+          "hint": "„Leder“ heisst „lëkurë“."
+        },
+        {
+          "pattern": "jacke",
+          "category": "vocab.confused",
+          "hint": "„Jacke“ heisst „xhaketë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_044",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_provova",
+        "item_fustan",
+        "item_fund"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Dje provova nji fustan dhe nji fund."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Gestern probierte ich ein Kleid und einen Rock an.",
+        "Ich probierte gestern ein Kleid und einen Rock an."
+      ],
+      "wordBank": [
+        "Gestern",
+        "probierte",
+        "ich",
+        "ein",
+        "Kleid",
+        "und",
+        "einen",
+        "Rock",
+        "an",
+        "kaufte",
+        "Mantel",
+        "Hose"
+      ],
+      "explanation": "„Provova“ heisst „ich probierte an“ (Präsens: „provoj“). „Fund“ ist der Rock.",
+      "errorHints": [
+        {
+          "pattern": "kaufte",
+          "category": "vocab.confused",
+          "hint": "„Kaufte“ hiesse „bleva“. „Provova“ heisst „probierte an“."
+        },
+        {
+          "pattern": "mantel",
+          "category": "vocab.confused",
+          "hint": "„Mantel“ heisst „pallto“."
+        },
+        {
+          "pattern": "hose",
+          "category": "vocab.confused",
+          "hint": "„Hose“ heisst „pantallona“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_045",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_zbritje",
+        "item_dyqan",
+        "item_sot"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Sot ka zbritje në dyqan."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Heute gibt es Rabatt im Laden.",
+        "Heute gibt es im Laden Rabatt."
+      ],
+      "wordBank": [
+        "Heute",
+        "gibt",
+        "es",
+        "Rabatt",
+        "im",
+        "Laden",
+        "Kasse",
+        "Markt",
+        "Preis"
+      ],
+      "explanation": "„Zbritje“ ist der Rabatt, „ka“ heisst hier „es gibt“.",
+      "errorHints": [
+        {
+          "pattern": "preis",
+          "category": "vocab.confused",
+          "hint": "„Preis“ heisst „çmim“."
+        },
+        {
+          "pattern": "markt",
+          "category": "vocab.confused",
+          "hint": "„Markt“ heisst „treg“; „dyqan“ ist der Laden."
+        },
+        {
+          "pattern": "kasse",
+          "category": "vocab.confused",
+          "hint": "„Kasse“ heisst „arkë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_046",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.demonstratives",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_cizme",
+        "item_ma_se",
+        "item_i_shtrenjte",
+        "item_ato"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Këto çizme janë ma të shtrenjta se ato."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Diese Stiefel sind teurer als jene.",
+        "Diese Stiefel sind teurer als die da."
+      ],
+      "wordBank": [
+        "Diese",
+        "Stiefel",
+        "sind",
+        "teurer",
+        "als",
+        "jene",
+        "billiger",
+        "Schuhe",
+        "ist"
+      ],
+      "explanation": "„Ma të shtrenjta se“ heisst „teurer als“. „Ato“ steht hier für „jene“ (Stiefel).",
+      "errorHints": [
+        {
+          "pattern": "billiger",
+          "category": "vocab.confused",
+          "hint": "„Billiger“ hiesse „ma të lira“."
+        },
+        {
+          "pattern": "schuhe",
+          "category": "vocab.confused",
+          "hint": "„Schuhe“ heisst „këpucë“; „çizme“ sind Stiefel."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_047",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.shopping",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_cmim",
+        "item_shume",
+        "item_i_mire"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Çmimi âsht shumë i mirë."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Der Preis ist sehr gut."
+      ],
+      "wordBank": [
+        "Der",
+        "Preis",
+        "ist",
+        "sehr",
+        "gut",
+        "Rabatt",
+        "teuer",
+        "zu"
+      ],
+      "explanation": "„Çmimi“ ist der Preis – maskulin, darum „i mirë“.",
+      "errorHints": [
+        {
+          "pattern": "rabatt",
+          "category": "vocab.confused",
+          "hint": "„Rabatt“ heisst „zbritje“."
+        },
+        {
+          "pattern": "teuer",
+          "category": "vocab.confused",
+          "hint": "„Teuer“ hiesse „i shtrenjtë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_048",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.demonstratives",
+        "vocab.numbers"
+      ],
+      "itemIds": [
+        "item_pagova",
+        "item_pesedhjete",
+        "item_euro",
+        "item_per",
+        "item_kete",
+        "item_kostum"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Pagova pesëdhjetë euro për këtë kostum."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Ich bezahlte fünfzig Euro für diesen Anzug.",
+        "Für diesen Anzug bezahlte ich fünfzig Euro."
+      ],
+      "wordBank": [
+        "Ich",
+        "bezahlte",
+        "fünfzig",
+        "Euro",
+        "für",
+        "diesen",
+        "Anzug",
+        "bezahle",
+        "fünfzehn",
+        "Mantel"
+      ],
+      "explanation": "„Pagova“ heisst „ich bezahlte“ (Präsens: „paguj“). „Këtë“ ist „diesen“ im Akkusativ.",
+      "errorHints": [
+        {
+          "pattern": "bezahle(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Pagova“ ist Vergangenheit: „ich bezahlte“."
+        },
+        {
+          "pattern": "f[uü]nfzehn",
+          "category": "vocab.confused",
+          "hint": "„Fünfzehn“ hiesse „pesëmbëdhjetë“."
+        },
+        {
+          "pattern": "mantel",
+          "category": "vocab.confused",
+          "hint": "„Mantel“ heisst „pallto“; „kostum“ ist der Anzug."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Vergangenheit „pagova“ zu „paguj“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_049",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_pasqyre"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Ku âsht pasqyra?"
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Wo ist der Spiegel?"
+      ],
+      "wordBank": [
+        "Wo",
+        "ist",
+        "der",
+        "Spiegel",
+        "Kasse",
+        "die",
+        "wie"
+      ],
+      "explanation": "„Pasqyra“ ist der Spiegel – im Albanischen feminin.",
+      "errorHints": [
+        {
+          "pattern": "kasse",
+          "category": "vocab.confused",
+          "hint": "„Kasse“ heisst „arkë“."
+        },
+        {
+          "pattern": "^wie ",
+          "category": "vocab.confused",
+          "hint": "„Wie“ hiesse „si“ oder „qysh“. „Ku“ heisst „wo“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_050",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.linking_article",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_mbaj",
+        "item_syze",
+        "item_kapele",
+        "item_i_bardhe"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Arta mban syze dhe nji kapelë të bardhë."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Arta trägt eine Brille und eine weisse Mütze."
+      ],
+      "wordBank": [
+        "Arta",
+        "trägt",
+        "eine",
+        "Brille",
+        "und",
+        "eine",
+        "weisse",
+        "Mütze",
+        "schwarze",
+        "Schal",
+        "kauft"
+      ],
+      "explanation": "„Mban“ heisst „trägt“. „Syze“ (Brille) ist Mehrzahl. Nach „nji kapelë“ im Akkusativ steht „të bardhë“.",
+      "errorHints": [
+        {
+          "pattern": "schwarze",
+          "category": "vocab.confused",
+          "hint": "„Schwarz“ hiesse „të zezë“. „Të bardhë“ heisst „weiss“."
+        },
+        {
+          "pattern": "schal",
+          "category": "vocab.confused",
+          "hint": "„Schal“ heisst „shall“."
+        },
+        {
+          "pattern": "kauft",
+          "category": "vocab.confused",
+          "hint": "„Kauft“ hiesse „blen“. „Mban“ heisst „trägt“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_051",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kepuce",
+        "item_i_ri"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Schuhe sind neu."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Këpucët janë të reja."
+      ],
+      "explanation": "„Këpucët“ (die Schuhe) ist feminin Mehrzahl: „të reja“ (Einzahl: „e re“).",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e re",
+          "category": "grammar.linking_article",
+          "hint": "In der Mehrzahl heisst der Verbindungsartikel „të“: „të reja“."
+        },
+        {
+          "pattern": "t[eë] re$",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl: „të reja“."
+        },
+        {
+          "pattern": "t[eë] ri$",
+          "category": "grammar.gender",
+          "hint": "„Të ri“ ist maskulin. „Këpucët“ sind feminin: „të reja“."
+        },
+        {
+          "pattern": "^k[eë]puc[eë] ",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: „këpucët“."
+        },
+        {
+          "pattern": "[aâ]sht",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Âsht“ ist Einzahl. Für die Schuhe: „janë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_052",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.linking_article",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kemishe",
+        "item_i_bardhe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Das Hemd ist weiss."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Këmisha âsht e bardhë."
+      ],
+      "standardForms": [
+        "Këmisha është e bardhë."
+      ],
+      "explanation": "„Këmisha“ ist feminin, darum „e bardhë“. „Âsht“ ist Gheg für „ist“ (Standard: „është“).",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i bardh",
+          "category": "grammar.linking_article",
+          "hint": "„Këmisha“ ist feminin – darum „e bardhë“."
+        },
+        {
+          "pattern": "^k[eë]mish[eë] ",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: këmishë → këmisha."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_053",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.demonstratives",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_sa_kushton",
+        "item_kjo",
+        "item_xhakete"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie viel kostet diese Jacke?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Sa kushton kjo xhaketë?",
+        "Kjo xhaketë sa kushton?"
+      ],
+      "explanation": "„Kjo xhaketë“ – diese Jacke. Nach „kjo“ steht das Nomen ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "ky xhaket",
+          "category": "grammar.gender",
+          "hint": "„Xhaketë“ ist feminin: „kjo xhaketë“."
+        },
+        {
+          "pattern": "kjo xhaketa",
+          "category": "grammar.definite_article",
+          "hint": "Nach „kjo“ steht das Nomen ohne Artikel: „kjo xhaketë“."
+        },
+        {
+          "pattern": "kushtojn",
+          "category": "grammar.verb_conjugation",
+          "hint": "Eine Jacke: „kushton“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_054",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "phrase.shopping",
+        "phrase.politeness"
+      ],
+      "itemIds": [
+        "item_vec_po_shikoj",
+        "item_faleminderit"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich schaue nur, danke."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Veç po shikoj, faleminderit.",
+        "Veç po shikoj, falemnderit.",
+        "Faleminderit, veç po shikoj.",
+        "Falemnderit, veç po shikoj."
+      ],
+      "standardForms": [
+        "Vetëm po shikoj, faleminderit.",
+        "Vetëm po shikoj, falemnderit.",
+        "Faleminderit, vetëm po shikoj."
+      ],
+      "explanation": "„Veç po shikoj“ – ich schaue nur. „Veç“ ist Gheg für „nur“ (Standard: „vetëm“), „po“ zeigt, dass es gerade geschieht.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_055",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.infinitive_me",
+        "grammar.demonstratives",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_muj",
+        "item_me_provue",
+        "item_keto",
+        "item_pantallona"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Kann ich diese Hose anprobieren?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "A muj me provue këto pantallona?",
+        "Muj me provue këto pantallona?",
+        "A muj me i provue këto pantallona?"
+      ],
+      "standardForms": [
+        "A mund të provoj këto pantallona?",
+        "A mund t'i provoj këto pantallona?",
+        "Mund të provoj këto pantallona?"
+      ],
+      "explanation": "„A muj me provue …?“ – Kann ich … anprobieren? „Pantallona“ ist Mehrzahl, darum „këto“.",
+      "errorHints": [
+        {
+          "pattern": "me provoj",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip: „me provue“."
+        },
+        {
+          "pattern": "kjo pantallon",
+          "category": "vocab.confused",
+          "hint": "„Pantallona“ ist Mehrzahl: „këto pantallona“."
+        },
+        {
+          "pattern": "k[eë]to pantallonat",
+          "category": "grammar.definite_article",
+          "hint": "Nach „këto“ steht das Nomen ohne Artikel."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„muj“ (Standard: mund) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_056",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_xhakete",
+        "item_teper",
+        "item_i_madh"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Jacke ist zu gross."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Xhaketa âsht tepër e madhe.",
+        "Xhaketa âsht shumë e madhe."
+      ],
+      "standardForms": [
+        "Xhaketa është tepër e madhe.",
+        "Xhaketa është shumë e madhe."
+      ],
+      "explanation": "„Tepër“ heisst „zu (sehr)“; im Alltag sagt man auch „shumë“. „Xhaketa“ ist feminin: „e madhe“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i madh",
+          "category": "grammar.linking_article",
+          "hint": "„Xhaketa“ ist feminin – darum „e madhe“."
+        },
+        {
+          "pattern": "(^|\\s)e madh(\\s|$)",
+          "category": "grammar.gender",
+          "hint": "Feminin heisst es „e madhe“."
+        },
+        {
+          "pattern": "(^|\\s)ma e madhe",
+          "category": "vocab.confused",
+          "hint": "„Ma e madhe“ heisst „grösser“. „Zu gross“: „tepër e madhe“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_057",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_ky",
+        "item_fustan",
+        "item_ma_se",
+        "item_i_shkurter",
+        "item_ai"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Dieses Kleid ist kürzer als jenes."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Ky fustan âsht ma i shkurtër se ai."
+      ],
+      "standardForms": [
+        "Ky fustan është më i shkurtër se ai.",
+        "Ky fustan âsht më i shkurtër se ai."
+      ],
+      "explanation": "„Ma i shkurtër se“ heisst „kürzer als“ (Standard: „më“). „Fustan“ ist maskulin, darum „ky“ und „i“.",
+      "errorHints": [
+        {
+          "pattern": "^kjo ",
+          "category": "grammar.gender",
+          "hint": "„Fustan“ ist maskulin: „ky fustan“."
+        },
+        {
+          "pattern": "(ma|m[eë]) e shkurt",
+          "category": "grammar.linking_article",
+          "hint": "„Fustan“ ist maskulin: „ma i shkurtër“."
+        },
+        {
+          "pattern": "ky fustani",
+          "category": "grammar.definite_article",
+          "hint": "Nach „ky“ steht das Nomen ohne Artikel."
+        },
+        {
+          "pattern": "gjat",
+          "category": "vocab.confused",
+          "hint": "„I gjatë“ heisst „lang“. Kurz ist „i shkurtër“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_058",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.case.accusative",
+        "vocab.numbers"
+      ],
+      "itemIds": [
+        "item_mbaj",
+        "item_numer",
+        "item_dyzet"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich trage Grösse 40."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Mbaj numrin dyzet.",
+        "Unë mbaj numrin dyzet.",
+        "Mbaj numrin 40.",
+        "Unë mbaj numrin 40."
+      ],
+      "explanation": "„Mbaj“ heisst „ich trage“. Die Grösse heisst „numër“; als Objekt: „numrin“.",
+      "errorHints": [
+        {
+          "pattern": "mbaj numri(\\s|$)",
+          "category": "grammar.case",
+          "hint": "Nach „mbaj“ steht der Akkusativ: „numrin“."
+        },
+        {
+          "pattern": "mbaj num[eë]r(\\s|$)",
+          "category": "grammar.definite_article",
+          "hint": "Hier sagt man „numrin“ (mit Artikel): „mbaj numrin dyzet“."
+        },
+        {
+          "pattern": "^(un[eë] )?mban ",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Mban“ heisst „du trägst“. Ich trage: „mbaj“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„numër“ für die Kleider- und Schuhgrösse zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_059",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_bleva",
+        "item_bluze",
+        "item_me_vija"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern kaufte ich eine gestreifte Bluse."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Dje bleva nji bluzë me vija.",
+        "Bleva nji bluzë me vija dje."
+      ],
+      "standardForms": [
+        "Dje bleva një bluzë me vija.",
+        "Bleva një bluzë me vija dje."
+      ],
+      "explanation": "„Me vija“ heisst „gestreift“ (wörtlich: mit Streifen). „Bleva“ – ich kaufte.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)blej(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Blej“ heisst „ich kaufe“. Gestern: „bleva“."
+        },
+        {
+          "pattern": "bluza me",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji“ steht das Nomen ohne Artikel: „nji bluzë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„me vija“ (gestreift) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_060",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_kepuce",
+        "item_ma_se",
+        "item_i_rehatshem",
+        "item_cizme"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Schuhe sind bequemer als die Stiefel."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Këto këpucë janë ma të rehatshme se çizmet."
+      ],
+      "standardForms": [
+        "Këto këpucë janë më të rehatshme se çizmet."
+      ],
+      "explanation": "„Ma të rehatshme se“ – bequemer als. Nach „se“ steht „çizmet“ (die Stiefel) mit Artikel.",
+      "errorHints": [
+        {
+          "pattern": "k[eë]ta k[eë]puc",
+          "category": "grammar.gender",
+          "hint": "„Këpucë“ ist feminin: „këto“."
+        },
+        {
+          "pattern": "se [cç]izme$",
+          "category": "grammar.definite_article",
+          "hint": "Gemeint sind die Stiefel: „çizmet“."
+        },
+        {
+          "pattern": "rehatsh[eë]m(\\s|$)",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl: „të rehatshme“."
+        },
+        {
+          "pattern": "ma e rehat",
+          "category": "grammar.linking_article",
+          "hint": "In der Mehrzahl heisst es „ma të rehatshme“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_061",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.infinitive_me",
+        "grammar.demonstratives",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_du",
+        "item_me_nderrue",
+        "item_kete",
+        "item_xhakete",
+        "item_teper",
+        "item_i_ngushte"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich möchte diese Jacke umtauschen, sie ist zu eng."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Du me ndërrue këtë xhaketë, âsht tepër e ngushtë.",
+        "Due me ndërrue këtë xhaketë, âsht tepër e ngushtë.",
+        "Du me ndërrue këtë xhaketë, âsht shumë e ngushtë.",
+        "Due me ndërrue këtë xhaketë, âsht shumë e ngushtë.",
+        "Du me e ndërrue këtë xhaketë, âsht tepër e ngushtë.",
+        "Du me e ndërrue këtë xhaketë, âsht shumë e ngushtë."
+      ],
+      "standardForms": [
+        "Dua ta ndërroj këtë xhaketë, është tepër e ngushtë.",
+        "Dua ta ndërroj këtë xhaketë, është shumë e ngushtë.",
+        "Dua të ndërroj këtë xhaketë, është tepër e ngushtë.",
+        "Dua të ndërroj këtë xhaketë, është shumë e ngushtë."
+      ],
+      "explanation": "„Du me ndërrue“ – ich möchte umtauschen (Standard: „dua ta ndërroj“). Als Objekt wird „kjo“ zu „këtë“.",
+      "errorHints": [
+        {
+          "pattern": "me nd[eë]rroj",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip: „me ndërrue“."
+        },
+        {
+          "pattern": "kjo xhaket",
+          "category": "grammar.case",
+          "hint": "Als Objekt heisst es „këtë xhaketë“."
+        },
+        {
+          "pattern": "(^|\\s)i ngusht",
+          "category": "grammar.linking_article",
+          "hint": "„Xhaketa“ ist feminin: „e ngushtë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ / „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_062",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.plural"
+      ],
+      "itemIds": [
+        "item_kemishe",
+        "item_me_katrore",
+        "item_mode"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Karierte Hemden sind in Mode."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Këmishat me katrorë janë në modë.",
+        "Këmisha me katrorë janë në modë."
+      ],
+      "explanation": "„Me katrorë“ heisst „kariert“, „në modë“ heisst „in Mode“. Mehrere Hemden: „janë“.",
+      "errorHints": [
+        {
+          "pattern": "[aâ]sht",
+          "category": "grammar.verb_conjugation",
+          "hint": "Mehrere Hemden: „janë“, nicht „âsht“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„me katrorë“ (kariert; im Alltag auch „me kuadrate“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_063",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "phrase.shopping",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_si_me_rri",
+        "item_kjo",
+        "item_kemishe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie steht mir dieses Hemd?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Si më rri kjo këmishë?",
+        "Qysh më rri kjo këmishë?"
+      ],
+      "explanation": "„Si më rri …?“ – Wie steht mir …? „Këmishë“ ist feminin, darum „kjo“.",
+      "errorHints": [
+        {
+          "pattern": "ky k[eë]mish",
+          "category": "grammar.gender",
+          "hint": "„Këmishë“ ist feminin: „kjo këmishë“."
+        },
+        {
+          "pattern": "kjo k[eë]misha",
+          "category": "grammar.definite_article",
+          "hint": "Nach „kjo“ steht das Nomen ohne Artikel: „kjo këmishë“."
+        },
+        {
+          "pattern": "t[eë] rri",
+          "category": "grammar.clitics",
+          "hint": "„Të rri“ heisst „steht dir“. Für „mir“: „më rri“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendung „si më rri?“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_064",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.demonstratives",
+        "vocab.numbers"
+      ],
+      "itemIds": [
+        "item_pagova",
+        "item_tridhjete",
+        "item_euro",
+        "item_per",
+        "item_keto",
+        "item_kepuce"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich bezahlte dreissig Euro für diese Schuhe."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Pagova tridhjetë euro për këto këpucë.",
+        "Për këto këpucë pagova tridhjetë euro.",
+        "Pagova 30 euro për këto këpucë.",
+        "Unë pagova tridhjetë euro për këto këpucë."
+      ],
+      "explanation": "„Pagova“ heisst „ich bezahlte“ (Präsens: „paguj“). „Këpucë“ ist feminin Mehrzahl: „këto këpucë“.",
+      "errorHints": [
+        {
+          "pattern": "^(un[eë] )?pagu(a)?j",
+          "category": "grammar.verb_tense",
+          "hint": "„Paguj“ ist Präsens. Vergangenheit: „pagova“."
+        },
+        {
+          "pattern": "p[eë]r k[eë]ta",
+          "category": "grammar.gender",
+          "hint": "„Këpucë“ ist feminin: „këto këpucë“."
+        },
+        {
+          "pattern": "k[eë]to k[eë]puc[eë]t",
+          "category": "grammar.definite_article",
+          "hint": "Nach „këto“ steht das Nomen ohne Artikel."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Vergangenheit „pagova“ zu „paguj“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_065",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "phrase.shopping",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_arke"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wo ist die Kasse?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Ku âsht arka?",
+        "Arka ku âsht?"
+      ],
+      "standardForms": [
+        "Ku është arka?"
+      ],
+      "explanation": "„Arka“ ist die Kasse – mit bestimmtem Artikel.",
+      "errorHints": [
+        {
+          "pattern": "ark[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: arkë → arka."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_066",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.question_particle",
+        "vocab.shopping",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_xhinse",
+        "item_zbritje"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Sind die Jeans reduziert?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "A janë xhinset në zbritje?",
+        "Xhinset a janë në zbritje?",
+        "A janë në zbritje xhinset?"
+      ],
+      "explanation": "„Në zbritje“ heisst „reduziert, im Ausverkauf“. „Xhinset“ ist Mehrzahl, darum „janë“.",
+      "errorHints": [
+        {
+          "pattern": "[aâ]sht",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Xhinset“ ist Mehrzahl: „janë“."
+        },
+        {
+          "pattern": "xhinse( |$)",
+          "category": "grammar.definite_article",
+          "hint": "Gemeint sind die Jeans: „xhinset“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_067",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_pallto",
+        "item_lesh",
+        "item_ma_se",
+        "item_i_ngrohte",
+        "item_xhakete"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ein Mantel aus Wolle ist wärmer als eine Jacke."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Nji pallto prej leshi âsht ma e ngrohtë se nji xhaketë."
+      ],
+      "standardForms": [
+        "Një pallto prej leshi është më e ngrohtë se një xhaketë.",
+        "Nji pallto prej leshi âsht më e ngrohtë se nji xhaketë."
+      ],
+      "explanation": "„Pallto“ ist feminin – anders als „der Mantel“. Darum „ma e ngrohtë“. „Prej leshi“ heisst „aus Wolle“.",
+      "errorHints": [
+        {
+          "pattern": "(ma|m[eë]) i ngroht",
+          "category": "grammar.gender",
+          "hint": "„Pallto“ ist feminin: „ma e ngrohtë“."
+        },
+        {
+          "pattern": "prej lesh(\\s|$)",
+          "category": "grammar.case",
+          "hint": "Nach „prej“ heisst es „leshi“: „prej leshi“."
+        },
+        {
+          "pattern": "prej l[eë]kur",
+          "category": "vocab.confused",
+          "hint": "„Prej lëkure“ heisst „aus Leder“. Wolle ist „lesh“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_068",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "phrase.shopping",
+        "grammar.adjective_agreement",
+        "spelling.nasal_vowels"
+      ],
+      "itemIds": [
+        "item_kabine",
+        "item_i_zane"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Umkleidekabine ist besetzt."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Kabina âsht e zânë."
+      ],
+      "standardForms": [
+        "Kabina është e zënë.",
+        "Kabina âsht e zënë."
+      ],
+      "explanation": "„E zânë“ heisst „besetzt“ – im Gheg mit Nasalvokal (Standard: „e zënë“). „Kabina“ ist feminin, darum „e“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i z[aâë]n",
+          "category": "grammar.linking_article",
+          "hint": "„Kabina“ ist feminin – darum „e zânë“."
+        },
+        {
+          "pattern": "^kabin[eë] ",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: kabinë → kabina."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_069",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_xhakete",
+        "item_i_ri"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Jacke ist neu."
+      },
+      "answerLang": "sq",
+      "text": "___ xhaketë âsht e re.",
+      "solutions": [
+        "Kjo"
+      ],
+      "choices": [
+        "Kjo",
+        "Ky",
+        "Këta",
+        "Këto"
+      ],
+      "explanation": "„Xhaketë“ ist feminin Einzahl, darum „kjo“.",
+      "errorHints": [
+        {
+          "pattern": "^ky$",
+          "category": "grammar.gender",
+          "hint": "„Xhaketë“ ist feminin: „kjo“."
+        },
+        {
+          "pattern": "^k[eë]t[ao]$",
+          "category": "vocab.confused",
+          "hint": "„Këta/këto“ ist Mehrzahl. Eine Jacke: „kjo“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_070",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_ky",
+        "item_shall",
+        "item_i_ngrohte"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Dieser Schal ist warm."
+      },
+      "answerLang": "sq",
+      "text": "___ shall âsht i ngrohtë.",
+      "solutions": [
+        "Ky"
+      ],
+      "choices": [
+        "Ky",
+        "Kjo",
+        "Këta",
+        "Këto"
+      ],
+      "explanation": "„Shall“ ist maskulin Einzahl, darum „ky“ – und „i ngrohtë“.",
+      "errorHints": [
+        {
+          "pattern": "^kjo$",
+          "category": "grammar.gender",
+          "hint": "„Shall“ ist maskulin: „ky shall“."
+        },
+        {
+          "pattern": "^k[eë]t[ao]$",
+          "category": "vocab.confused",
+          "hint": "„Këta/këto“ ist Mehrzahl. Ein Schal: „ky“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_071",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_corape",
+        "item_i_bardhe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Socken sind weiss."
+      },
+      "answerLang": "sq",
+      "text": "___ çorape janë të bardha.",
+      "solutions": [
+        "Këto"
+      ],
+      "choices": [
+        "Këto",
+        "Këta",
+        "Kjo",
+        "Ky"
+      ],
+      "explanation": "„Çorape“ ist feminin Mehrzahl, darum „këto“ – und „të bardha“.",
+      "errorHints": [
+        {
+          "pattern": "^k[eë]ta$",
+          "category": "grammar.gender",
+          "hint": "„Çorape“ ist feminin: „këto“."
+        },
+        {
+          "pattern": "^(kjo|ky)$",
+          "category": "vocab.confused",
+          "hint": "„Kjo/ky“ ist Einzahl. Mehrere Socken: „këto“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_072",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_keta",
+        "item_rrip",
+        "item_i_shtrenjte"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Gürtel sind teuer."
+      },
+      "answerLang": "sq",
+      "text": "___ rripa janë të shtrenjtë.",
+      "solutions": [
+        "Këta"
+      ],
+      "choices": [
+        "Këta",
+        "Këto",
+        "Ky",
+        "Kjo"
+      ],
+      "explanation": "„Rripa“ (Gürtel, Mehrzahl) ist maskulin, darum „këta“ – und „të shtrenjtë“ ohne -a.",
+      "errorHints": [
+        {
+          "pattern": "^k[eë]to$",
+          "category": "grammar.gender",
+          "hint": "„Rrip“ ist maskulin: „këta rripa“."
+        },
+        {
+          "pattern": "^(ky|kjo)$",
+          "category": "vocab.confused",
+          "hint": "„Ky/kjo“ ist Einzahl. Mehrere Gürtel: „këta“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Mehrzahl „rripa“ mit „këta … të shtrenjtë“ (maskulin) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_073",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.verbs.infinitive_me",
+        "grammar.case.accusative"
+      ],
+      "itemIds": [
+        "item_du",
+        "item_me_provue",
+        "item_kete",
+        "item_fustan"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich möchte dieses Kleid anprobieren."
+      },
+      "answerLang": "sq",
+      "text": "Du me provue ___ fustan.",
+      "solutions": [
+        "këtë"
+      ],
+      "choices": [
+        "këtë",
+        "ky",
+        "kjo",
+        "këta"
+      ],
+      "explanation": "Als Objekt (Akkusativ) wird „ky“ zu „këtë“: „Du me provue këtë fustan.“",
+      "errorHints": [
+        {
+          "pattern": "^ky$",
+          "category": "grammar.case",
+          "hint": "Als Objekt heisst es „këtë“ (Akkusativ)."
+        },
+        {
+          "pattern": "^kjo$",
+          "category": "grammar.case",
+          "hint": "„Fustan“ ist maskulin – und als Objekt heisst es „këtë“."
+        },
+        {
+          "pattern": "^k[eë]ta$",
+          "category": "vocab.confused",
+          "hint": "„Këta“ ist Mehrzahl."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_074",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_pantallona",
+        "item_teper",
+        "item_i_shkurter"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Hose ist zu kurz."
+      },
+      "answerLang": "sq",
+      "text": "Pantallonat janë tepër të ___.",
+      "solutions": [
+        "shkurtra"
+      ],
+      "choices": [
+        "shkurtra",
+        "shkurtër",
+        "gjata",
+        "ngushta"
+      ],
+      "explanation": "„Pantallonat“ ist feminin Mehrzahl: „të shkurtra“ (Einzahl: „e shkurtër“).",
+      "errorHints": [
+        {
+          "pattern": "^shkurt[eë]r$",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl endet auf -a: „të shkurtra“."
+        },
+        {
+          "pattern": "^gjata$",
+          "category": "vocab.confused",
+          "hint": "„Të gjata“ heisst „lang“."
+        },
+        {
+          "pattern": "^ngushta$",
+          "category": "vocab.confused",
+          "hint": "„Të ngushta“ heisst „eng“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_075",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_xhakete",
+        "item_ma_se",
+        "item_i_lire",
+        "item_ajo"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Jacke ist billiger als jene."
+      },
+      "answerLang": "sq",
+      "text": "Kjo xhaketë âsht ma e ___ se ajo.",
+      "solutions": [
+        "lirë"
+      ],
+      "choices": [
+        "lirë",
+        "shtrenjtë",
+        "lira",
+        "madhe"
+      ],
+      "explanation": "„Ma e lirë se“ heisst „billiger als“. Eine Jacke: „e lirë“, nicht die Mehrzahl „të lira“.",
+      "errorHints": [
+        {
+          "pattern": "^shtrenjt",
+          "category": "vocab.confused",
+          "hint": "„E shtrenjtë“ heisst „teuer“."
+        },
+        {
+          "pattern": "^lira$",
+          "category": "grammar.gender",
+          "hint": "„Lira“ ist Mehrzahl. Eine Jacke: „e lirë“."
+        },
+        {
+          "pattern": "^madhe$",
+          "category": "vocab.confused",
+          "hint": "„Ma e madhe“ heisst „grösser“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_076",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.linking_article",
+        "grammar.comparison",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_a_keni",
+        "item_numer",
+        "item_ma_se",
+        "item_i_madh"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Haben Sie eine grössere Grösse?"
+      },
+      "answerLang": "sq",
+      "text": "A keni nji numër ma ___ madh?",
+      "solutions": [
+        "të"
+      ],
+      "choices": [
+        "të",
+        "i",
+        "e",
+        "së"
+      ],
+      "explanation": "Nach „A keni nji …“ steht der Akkusativ, darum „ma të madh“.",
+      "errorHints": [
+        {
+          "pattern": "^i$",
+          "category": "grammar.linking_article",
+          "hint": "Im Akkusativ nach „nji numër“ heisst es „të“."
+        },
+        {
+          "pattern": "^e$",
+          "category": "grammar.linking_article",
+          "hint": "„Numër“ ist maskulin – und im Akkusativ heisst es „të“."
+        },
+        {
+          "pattern": "^s[eë]$",
+          "category": "grammar.linking_article",
+          "hint": "„Së“ passt hier nicht. Akkusativ nach „nji“: „të“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_077",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_nderrova",
+        "item_kepuce",
+        "item_nderroj",
+        "item_me_nderrue"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern tauschte ich die Schuhe um."
+      },
+      "answerLang": "sq",
+      "text": "Dje ___ këpucët.",
+      "solutions": [
+        "ndërrova"
+      ],
+      "choices": [
+        "ndërrova",
+        "ndërroj",
+        "ndërrue",
+        "provova"
+      ],
+      "explanation": "„Ndërrova“ heisst „ich tauschte um“ (Präsens: „ndërroj“, Infinitiv: „me ndërrue“).",
+      "errorHints": [
+        {
+          "pattern": "^nd[eë]rroj$",
+          "category": "grammar.verb_tense",
+          "hint": "„Ndërroj“ ist Präsens. Gestern: „ndërrova“."
+        },
+        {
+          "pattern": "^nd[eë]rrue$",
+          "category": "grammar.participle",
+          "hint": "„Ndërrue“ ist das Partizip (me ndërrue). Gestern: „ndërrova“."
+        },
+        {
+          "pattern": "^provova$",
+          "category": "vocab.confused",
+          "hint": "„Provova“ heisst „ich probierte an“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_078",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.definite_article.fem"
+      ],
+      "itemIds": [
+        "item_kabine",
+        "item_arke",
+        "item_pasqyre",
+        "item_atje"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Umkleidekabine ist dort."
+      },
+      "answerLang": "sq",
+      "text": "___ âsht atje.",
+      "solutions": [
+        "Kabina"
+      ],
+      "choices": [
+        "Kabina",
+        "Kabinë",
+        "Arka",
+        "Pasqyra"
+      ],
+      "explanation": "„Kabina“ ist die Umkleidekabine, mit bestimmtem Artikel. „Arka“ ist die Kasse, „pasqyra“ der Spiegel.",
+      "errorHints": [
+        {
+          "pattern": "^kabin[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "Hier braucht es den bestimmten Artikel: kabinë → kabina."
+        },
+        {
+          "pattern": "^arka$",
+          "category": "vocab.confused",
+          "hint": "„Arka“ ist die Kasse."
+        },
+        {
+          "pattern": "^pasqyra$",
+          "category": "vocab.confused",
+          "hint": "„Pasqyra“ ist der Spiegel."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_079",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_pallto",
+        "item_lekure",
+        "item_lesh",
+        "item_pambuk"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Der Mantel ist aus Leder."
+      },
+      "answerLang": "sq",
+      "text": "Palltoja âsht prej ___.",
+      "solutions": [
+        "lëkure"
+      ],
+      "choices": [
+        "lëkure",
+        "lëkura",
+        "leshi",
+        "pambuku"
+      ],
+      "explanation": "Nach „prej“ (aus) endet „lëkurë“ auf -e: „prej lëkure“. „Leshi“ ist Wolle, „pambuku“ Baumwolle.",
+      "errorHints": [
+        {
+          "pattern": "^l[eë]kura$",
+          "category": "grammar.case",
+          "hint": "Nach „prej“ heisst es „lëkure“."
+        },
+        {
+          "pattern": "^leshi$",
+          "category": "vocab.confused",
+          "hint": "„Prej leshi“ heisst „aus Wolle“."
+        },
+        {
+          "pattern": "^pambuku$",
+          "category": "vocab.confused",
+          "hint": "„Prej pambuku“ heisst „aus Baumwolle“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_080",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.definite_article.fem",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_cizme",
+        "item_ma_se",
+        "item_i_rehatshem",
+        "item_patika"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Stiefel sind bequemer als die Turnschuhe."
+      },
+      "answerLang": "sq",
+      "text": "Çizmet janë ma të rehatshme se ___.",
+      "solutions": [
+        "patikat"
+      ],
+      "choices": [
+        "patikat",
+        "patika",
+        "këpuca",
+        "çizmet"
+      ],
+      "explanation": "Nach „se“ (als) steht hier das bestimmte Nomen: „patikat“ – die Turnschuhe.",
+      "errorHints": [
+        {
+          "pattern": "^patika$",
+          "category": "grammar.definite_article",
+          "hint": "Gemeint sind die Turnschuhe: „patikat“."
+        },
+        {
+          "pattern": "^k[eë]puca$",
+          "category": "vocab.confused",
+          "hint": "„Këpuca“ ist ein Schuh."
+        },
+        {
+          "pattern": "^[cç]izmet$",
+          "category": "vocab.confused",
+          "hint": "Die Stiefel werden mit den Turnschuhen verglichen: „se patikat“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_081",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.colours",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_bluze",
+        "item_roze"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Bluse ist rosa."
+      },
+      "answerLang": "sq",
+      "text": "Bluza âsht ___.",
+      "solutions": [
+        "rozë"
+      ],
+      "explanation": "„Rozë“ (rosa) bleibt immer gleich und hat keinen Verbindungsartikel.",
+      "errorHints": [
+        {
+          "pattern": "^e roz",
+          "category": "grammar.linking_article",
+          "hint": "„Rozë“ hat keinen Verbindungsartikel: „Bluza âsht rozë.“"
+        },
+        {
+          "pattern": "^e kuqe$",
+          "category": "vocab.confused",
+          "hint": "„E kuqe“ heisst „rot“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_082",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.linking_article",
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_fustan",
+        "item_i_verdhe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Das Kleid ist gelb."
+      },
+      "answerLang": "sq",
+      "text": "Fustani âsht ___ verdhë.",
+      "solutions": [
+        "i"
+      ],
+      "explanation": "„Fustani“ ist maskulin, darum „i verdhë“.",
+      "errorHints": [
+        {
+          "pattern": "^e$",
+          "category": "grammar.linking_article",
+          "hint": "„Fustani“ ist maskulin – darum „i verdhë“."
+        },
+        {
+          "pattern": "^t[eë]$",
+          "category": "grammar.linking_article",
+          "hint": "Ein Kleid, Nominativ: „i verdhë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_083",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_xhakete",
+        "item_teper",
+        "item_i_vogel"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Jacke ist zu klein."
+      },
+      "answerLang": "sq",
+      "text": "Xhaketa âsht ___ e vogël.",
+      "solutions": [
+        "tepër",
+        "shumë"
+      ],
+      "explanation": "„Tepër“ heisst „zu (sehr)“. Im Alltag hört man auch „shumë“.",
+      "errorHints": [
+        {
+          "pattern": "^ma$",
+          "category": "vocab.confused",
+          "hint": "„Ma e vogël“ heisst „kleiner“. „Zu klein“: „tepër e vogël“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_084",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.infinitive_me",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_du",
+        "item_me_nderrue",
+        "item_xhinse"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich möchte die Jeans umtauschen. (ndërroj = ich tausche um)"
+      },
+      "answerLang": "sq",
+      "text": "Du me ___ xhinset.",
+      "solutions": [
+        "ndërrue"
+      ],
+      "standardForms": [
+        "ndërruar"
+      ],
+      "explanation": "Der Gheg-Infinitiv ist „me“ + Partizip: „me ndërrue“ (Standard: „ndërruar“).",
+      "errorHints": [
+        {
+          "pattern": "^nd[eë]rroj$",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip „ndërrue“, nicht „ndërroj“."
+        },
+        {
+          "pattern": "^nd[eë]rrova$",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip: „ndërrue“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_085",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.infinitive_me",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_muj",
+        "item_me_provue",
+        "item_kete",
+        "item_fund"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Kann ich diesen Rock anprobieren? (provoj = ich probiere an)"
+      },
+      "answerLang": "sq",
+      "text": "A muj me ___ këtë fund?",
+      "solutions": [
+        "provue"
+      ],
+      "standardForms": [
+        "provuar"
+      ],
+      "explanation": "„Provoj“ hat das Gheg-Partizip „provue“: „me provue“ = anprobieren (Standard: „provuar“).",
+      "errorHints": [
+        {
+          "pattern": "^provoj$",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip „provue“."
+        },
+        {
+          "pattern": "^provova$",
+          "category": "grammar.infinitive",
+          "hint": "Nach „me“ steht das Partizip „provue“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_086",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.present",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_me_pague",
+        "item_arke"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich bezahle an der Kasse. (me pagu = bezahlen)"
+      },
+      "answerLang": "sq",
+      "text": "___ në arkë.",
+      "solutions": [
+        "Paguj",
+        "Paguaj"
+      ],
+      "explanation": "„Paguj“ heisst „ich bezahle“ (Infinitiv: „me pagu“). Die ältere Form „paguaj“ gilt auch.",
+      "errorHints": [
+        {
+          "pattern": "^pagova$",
+          "category": "grammar.verb_tense",
+          "hint": "„Pagova“ heisst „ich bezahlte“. Jetzt: „paguj“."
+        },
+        {
+          "pattern": "^paguan$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Paguan“ heisst „du bezahlst“. Ich: „paguj“."
+        },
+        {
+          "pattern": "^pagu$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Pagu“ ist das Partizip (me pagu). Ich bezahle: „paguj“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_087",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.plural",
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_kepuce",
+        "item_i_zi"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Schuhe sind schwarz."
+      },
+      "answerLang": "sq",
+      "text": "Këto këpucë janë të ___.",
+      "solutions": [
+        "zeza"
+      ],
+      "explanation": "„E zezë“ (schwarz, feminin) wird in der Mehrzahl zu „të zeza“.",
+      "errorHints": [
+        {
+          "pattern": "^zez[eë]$",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl: „të zeza“."
+        },
+        {
+          "pattern": "^zi$",
+          "category": "grammar.gender",
+          "hint": "„Zi“ ist maskulin. „Këpucë“ sind feminin: „të zeza“."
+        },
+        {
+          "pattern": "^zinj$",
+          "category": "grammar.gender",
+          "hint": "„Të zinj“ ist maskulin Mehrzahl. Für „këpucë“: „të zeza“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_088",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_xhinse",
+        "item_ma_se",
+        "item_i_ngushte",
+        "item_ato"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Jeans sind enger als jene."
+      },
+      "answerLang": "sq",
+      "text": "Këto xhinse janë ma të ___ se ato.",
+      "solutions": [
+        "ngushta"
+      ],
+      "explanation": "„Xhinse“ ist feminin Mehrzahl: „ma të ngushta“ – enger.",
+      "errorHints": [
+        {
+          "pattern": "^ngusht[eë]$",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl endet auf -a: „ngushta“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_089",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_numer",
+        "item_mbaj",
+        "item_sa"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Welche Grösse trägst du?"
+      },
+      "answerLang": "sq",
+      "text": "Sa ___ mban?",
+      "solutions": [
+        "numër"
+      ],
+      "explanation": "„Sa numër mban?“ fragt nach der Grösse. Nach „sa“ steht das Nomen ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "^numr(i|in)$",
+          "category": "grammar.definite_article",
+          "hint": "Nach „sa“ steht das Nomen ohne Artikel: „sa numër“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Sa numër mban?“ als Frage nach der Grösse im Kosovo-Alltag zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_090",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.linking_article",
+        "grammar.verbs.past_simple",
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_provova",
+        "item_pallto",
+        "item_i_gjelber"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern probierte ich einen grünen Mantel an."
+      },
+      "answerLang": "sq",
+      "text": "Dje provova nji pallto ___ gjelbër.",
+      "solutions": [
+        "të"
+      ],
+      "explanation": "Im Akkusativ nach „nji“ heisst der Verbindungsartikel „të“: „nji pallto të gjelbër“.",
+      "errorHints": [
+        {
+          "pattern": "^e$",
+          "category": "grammar.linking_article",
+          "hint": "Nach „provova nji pallto“ (Akkusativ) heisst es „të gjelbër“."
+        },
+        {
+          "pattern": "^i$",
+          "category": "grammar.linking_article",
+          "hint": "„Pallto“ ist feminin – und im Akkusativ heisst es „të“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_091",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kostum",
+        "item_ma_se",
+        "item_i_shtrenjte",
+        "item_xhakete"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Der Anzug ist teurer als die Jacke."
+      },
+      "answerLang": "sq",
+      "text": "Kostumi âsht ___ i shtrenjtë se xhaketa.",
+      "solutions": [
+        "ma"
+      ],
+      "standardForms": [
+        "më"
+      ],
+      "explanation": "„Ma“ vor dem Adjektiv bildet den Vergleich: „ma i shtrenjtë se“ – teurer als (Standard: „më“).",
+      "errorHints": [
+        {
+          "pattern": "^shum[eë]$",
+          "category": "vocab.confused",
+          "hint": "„Shumë“ heisst „sehr“. Für „teurer“: „ma“."
+        },
+        {
+          "pattern": "^t[eë]p[eë]r$",
+          "category": "vocab.confused",
+          "hint": "„Tepër“ heisst „zu (sehr)“. Für „teurer als“: „ma“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_092",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kapele",
+        "item_lesh"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Mütze ist aus Wolle."
+      },
+      "answerLang": "sq",
+      "text": "Kapela âsht prej ___.",
+      "solutions": [
+        "leshi"
+      ],
+      "explanation": "„Lesh“ ist die Wolle. Nach „prej“ (aus) heisst es „leshi“: „prej leshi“.",
+      "errorHints": [
+        {
+          "pattern": "^lesh$",
+          "category": "grammar.case",
+          "hint": "Nach „prej“ heisst es „leshi“."
+        },
+        {
+          "pattern": "^pambuku$",
+          "category": "vocab.confused",
+          "hint": "„Prej pambuku“ heisst „aus Baumwolle“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_093",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_fustan",
+        "item_xhakete",
+        "item_pantallona",
+        "item_kemishe",
+        "item_bluze"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Kleider zu."
+      },
+      "pairs": [
+        {
+          "left": "fustan",
+          "right": "Kleid"
+        },
+        {
+          "left": "xhaketë",
+          "right": "Jacke"
+        },
+        {
+          "left": "pantallona",
+          "right": "Hose"
+        },
+        {
+          "left": "këmishë",
+          "right": "Hemd"
+        },
+        {
+          "left": "bluzë",
+          "right": "Bluse"
+        }
+      ],
+      "explanation": "„Pantallona“ ist im Albanischen eine Mehrzahl – wie „die Hosen“: „pantallonat janë …“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_094",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kepuce",
+        "item_patika",
+        "item_cizme",
+        "item_corape",
+        "item_pale"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Wörter zu."
+      },
+      "pairs": [
+        {
+          "left": "këpucë",
+          "right": "Schuhe"
+        },
+        {
+          "left": "patika",
+          "right": "Turnschuhe"
+        },
+        {
+          "left": "çizme",
+          "right": "Stiefel"
+        },
+        {
+          "left": "çorape",
+          "right": "Socken"
+        },
+        {
+          "left": "palë",
+          "right": "Paar"
+        }
+      ],
+      "explanation": "„Nji palë këpucë“ ist ein Paar Schuhe, „nji palë çorape“ ein Paar Socken.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„patika“ (Turnschuhe) als Kosovo-Alltagswort zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_095",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kapele",
+        "item_shall",
+        "item_doreza",
+        "item_rrip",
+        "item_syze"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Accessoires zu."
+      },
+      "pairs": [
+        {
+          "left": "kapelë",
+          "right": "Mütze"
+        },
+        {
+          "left": "shall",
+          "right": "Schal"
+        },
+        {
+          "left": "dorëza",
+          "right": "Handschuhe"
+        },
+        {
+          "left": "rrip",
+          "right": "Gürtel"
+        },
+        {
+          "left": "syze",
+          "right": "Brille"
+        }
+      ],
+      "explanation": "„Dorëza“ kommt von „dorë“ (Hand). „Syze“ (Brille) ist Mehrzahl – wie die Augen („sy“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_096",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_xhinse",
+        "item_fund",
+        "item_pallto",
+        "item_kostum",
+        "item_kravate"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Kleider zu."
+      },
+      "pairs": [
+        {
+          "left": "xhinse",
+          "right": "Jeans"
+        },
+        {
+          "left": "fund",
+          "right": "Rock"
+        },
+        {
+          "left": "pallto",
+          "right": "Mantel"
+        },
+        {
+          "left": "kostum",
+          "right": "Anzug"
+        },
+        {
+          "left": "kravatë",
+          "right": "Krawatte"
+        }
+      ],
+      "explanation": "Achtung Genus: „pallto“ ist feminin (palltoja), „fund“ und „kostum“ sind maskulin.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_097",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_gri",
+        "item_roze",
+        "item_i_zi",
+        "item_i_bardhe",
+        "item_i_kuq"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Farben zu."
+      },
+      "pairs": [
+        {
+          "left": "gri",
+          "right": "grau"
+        },
+        {
+          "left": "rozë",
+          "right": "rosa"
+        },
+        {
+          "left": "i zi",
+          "right": "schwarz"
+        },
+        {
+          "left": "i bardhë",
+          "right": "weiss"
+        },
+        {
+          "left": "i kuq",
+          "right": "rot"
+        }
+      ],
+      "explanation": "„Gri“ und „rozë“ bleiben immer gleich, ohne Verbindungsartikel: „nji fustan rozë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_098",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_pambuk",
+        "item_lesh",
+        "item_lekure",
+        "item_me_vija",
+        "item_me_pika"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne Material und Muster zu."
+      },
+      "pairs": [
+        {
+          "left": "pambuk",
+          "right": "Baumwolle"
+        },
+        {
+          "left": "lesh",
+          "right": "Wolle"
+        },
+        {
+          "left": "lëkurë",
+          "right": "Leder"
+        },
+        {
+          "left": "me vija",
+          "right": "gestreift"
+        },
+        {
+          "left": "me pika",
+          "right": "gepunktet"
+        }
+      ],
+      "explanation": "Material mit „prej“: „prej pambuku, prej leshi, prej lëkure“. Muster mit „me“: „me vija, me pika“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„me vija“ (gestreift) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_099",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_i_ngushte",
+        "item_i_rehatshem",
+        "item_i_trashe",
+        "item_i_holle",
+        "item_teper",
+        "item_i_madh"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Adjektive zu."
+      },
+      "pairs": [
+        {
+          "left": "i ngushtë",
+          "right": "eng"
+        },
+        {
+          "left": "i rehatshëm",
+          "right": "bequem"
+        },
+        {
+          "left": "i trashë",
+          "right": "dick"
+        },
+        {
+          "left": "i hollë",
+          "right": "dünn"
+        },
+        {
+          "left": "tepër i madh",
+          "right": "zu gross"
+        }
+      ],
+      "explanation": "Feminin heissen sie „e ngushtë, e rehatshme, e trashë, e hollë“. „Tepër“ heisst „zu (sehr)“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_100",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.shopping",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_kabine",
+        "item_pasqyre",
+        "item_arke",
+        "item_kupon",
+        "item_zbritje"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Wörter aus dem Geschäft zu."
+      },
+      "pairs": [
+        {
+          "left": "kabinë",
+          "right": "Umkleidekabine"
+        },
+        {
+          "left": "pasqyrë",
+          "right": "Spiegel"
+        },
+        {
+          "left": "arkë",
+          "right": "Kasse"
+        },
+        {
+          "left": "kupon",
+          "right": "Quittung"
+        },
+        {
+          "left": "zbritje",
+          "right": "Rabatt"
+        }
+      ],
+      "explanation": "Für den Umtausch brauchst du meist den „kupon“ (Quittung).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kupon“ für den Kassenzettel zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_101",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_si_me_rri",
+        "item_te_rri_mire",
+        "item_vec_po_shikoj",
+        "item_numer",
+        "item_mbaj",
+        "item_kabine",
+        "item_i_zane"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Sätze zu."
+      },
+      "pairs": [
+        {
+          "left": "Si më rri?",
+          "right": "Wie steht es mir?"
+        },
+        {
+          "left": "Të rri mirë.",
+          "right": "Es steht dir gut."
+        },
+        {
+          "left": "Veç po shikoj.",
+          "right": "Ich schaue nur."
+        },
+        {
+          "left": "Sa numër mban?",
+          "right": "Welche Grösse trägst du?"
+        },
+        {
+          "left": "Kabina âsht e zânë.",
+          "right": "Die Kabine ist besetzt."
+        }
+      ],
+      "explanation": "„Më“ heisst „mir“, „të“ heisst „dir“ – hier in festen Wendungen. „E zânë“ (besetzt) schreibt man mit Nasalvokal.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendungen „si më rri?“ und „të rri mirë“, „veç“ und „numër“ als Kleidergrösse zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_102",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.present",
+        "grammar.verbs.past_simple"
+      ],
+      "itemIds": [
+        "item_provoj",
+        "item_provova",
+        "item_nderroj",
+        "item_nderrova",
+        "item_pagova"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Verbformen zu."
+      },
+      "pairs": [
+        {
+          "left": "provoj",
+          "right": "ich probiere an"
+        },
+        {
+          "left": "provova",
+          "right": "ich probierte an"
+        },
+        {
+          "left": "ndërroj",
+          "right": "ich tausche um"
+        },
+        {
+          "left": "ndërrova",
+          "right": "ich tauschte um"
+        },
+        {
+          "left": "pagova",
+          "right": "ich bezahlte"
+        }
+      ],
+      "explanation": "Verben auf -oj bilden die Vergangenheit auf -ova: „provoj → provova“. „Pagova“ gehört zu „paguj“ (ich bezahle).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Vergangenheit „pagova“ zu „paguj“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_103",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_ky",
+        "item_kjo",
+        "item_keta",
+        "item_keto",
+        "item_shall",
+        "item_pallto",
+        "item_rrip",
+        "item_corape",
+        "item_kravate"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne zu."
+      },
+      "pairs": [
+        {
+          "left": "ky shall",
+          "right": "dieser Schal"
+        },
+        {
+          "left": "kjo pallto",
+          "right": "dieser Mantel"
+        },
+        {
+          "left": "këta rripa",
+          "right": "diese Gürtel"
+        },
+        {
+          "left": "këto çorape",
+          "right": "diese Socken"
+        },
+        {
+          "left": "kjo kravatë",
+          "right": "diese Krawatte"
+        }
+      ],
+      "explanation": "Das Demonstrativ richtet sich nach dem albanischen Genus: „pallto“ ist feminin, darum „kjo pallto“ – auch wenn es „der Mantel“ heisst.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_104",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison"
+      ],
+      "itemIds": [
+        "item_ma_se",
+        "item_i_madh",
+        "item_i_vogel",
+        "item_i_lire",
+        "item_i_shtrenjte",
+        "item_ma_mire"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Vergleichsformen zu."
+      },
+      "pairs": [
+        {
+          "left": "ma i madh",
+          "right": "grösser"
+        },
+        {
+          "left": "ma i vogël",
+          "right": "kleiner"
+        },
+        {
+          "left": "ma i lirë",
+          "right": "billiger"
+        },
+        {
+          "left": "ma i shtrenjtë",
+          "right": "teurer"
+        },
+        {
+          "left": "ma mirë",
+          "right": "besser"
+        }
+      ],
+      "explanation": "„Ma“ vor dem Adjektiv bildet den Vergleich (Standard: „më“). „Als“ heisst „se“: „ma i lirë se …“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_105",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_me_katrore",
+        "item_me_pika",
+        "item_fanelle",
+        "item_unaze",
+        "item_rroba"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Wörter zu."
+      },
+      "pairs": [
+        {
+          "left": "me katrorë",
+          "right": "kariert"
+        },
+        {
+          "left": "me pika",
+          "right": "gepunktet"
+        },
+        {
+          "left": "fanellë",
+          "right": "T-Shirt"
+        },
+        {
+          "left": "unazë",
+          "right": "Ring"
+        },
+        {
+          "left": "rroba",
+          "right": "Kleider"
+        }
+      ],
+      "explanation": "„Rroba“ (Kleider) ist Mehrzahl: „rrobat e reja“ – die neuen Kleider.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„me katrorë“ (kariert) und „fanellë“ (T-Shirt) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_106",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_kravate",
+        "item_i_bukur"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Das ist eine schöne Krawatte."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Kjo",
+        "âsht",
+        "nji",
+        "kravatë",
+        "e",
+        "bukur"
+      ],
+      "solutions": [
+        "Kjo âsht nji kravatë e bukur."
+      ],
+      "explanation": "„Kjo âsht …“ – das ist … „Kravatë“ ist feminin, darum „e bukur“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_107",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_fund",
+        "item_i_shkurter"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Der Rock ist kurz."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Fundi",
+        "âsht",
+        "i",
+        "shkurtër"
+      ],
+      "solutions": [
+        "Fundi âsht i shkurtër."
+      ],
+      "explanation": "„Fundi“ (der Rock) ist maskulin – darum „i shkurtër“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_108",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.clothes",
+        "grammar.verbs.present"
+      ],
+      "itemIds": [
+        "item_ajo",
+        "item_mbaj",
+        "item_fustan",
+        "item_me_pika"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Sie trägt ein gepunktetes Kleid."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Ajo",
+        "mban",
+        "nji",
+        "fustan",
+        "me",
+        "pika"
+      ],
+      "solutions": [
+        "Ajo mban nji fustan me pika."
+      ],
+      "explanation": "„Mban“ heisst „sie trägt“ (ich trage: „mbaj“). „Me pika“ heisst „gepunktet“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_109",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.adjective_agreement",
+        "grammar.plural"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_cizme",
+        "item_shume",
+        "item_i_ngrohte"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Stiefel sind sehr warm."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Këto",
+        "çizme",
+        "janë",
+        "shumë",
+        "të",
+        "ngrohta"
+      ],
+      "solutions": [
+        "Këto çizme janë shumë të ngrohta."
+      ],
+      "explanation": "„Çizme“ ist feminin Mehrzahl: „këto çizme … të ngrohta“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_110",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.infinitive_me",
+        "phrase.shopping",
+        "grammar.question_particle"
+      ],
+      "itemIds": [
+        "item_muj",
+        "item_me_pague",
+        "item_kartele"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Kann ich mit Karte bezahlen?"
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "A",
+        "muj",
+        "me",
+        "pagu",
+        "me",
+        "kartelë"
+      ],
+      "solutions": [
+        "A muj me pagu me kartelë?"
+      ],
+      "explanation": "„Me pagu“ ist der Gheg-Infinitiv zu „paguj“ (ich bezahle). Das erste „me“ bildet den Infinitiv, das zweite heisst „mit“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„muj“ (Standard: mund) und „kartelë“ (Standard: kartë) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_111",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "phrase.shopping",
+        "grammar.demonstratives"
+      ],
+      "itemIds": [
+        "item_sa_kushton",
+        "item_kushton",
+        "item_keto",
+        "item_doreza"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie viel kosten diese Handschuhe?"
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Sa",
+        "kushtojnë",
+        "këto",
+        "dorëza"
+      ],
+      "solutions": [
+        "Sa kushtojnë këto dorëza?"
+      ],
+      "explanation": "Mehrere Dinge: „kushtojnë“ (sie kosten). „Dorëza“ ist feminin Mehrzahl: „këto“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_112",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_unaze",
+        "item_shume",
+        "item_i_bukur"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Der Ring ist sehr schön."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Unaza",
+        "âsht",
+        "shumë",
+        "e",
+        "bukur"
+      ],
+      "solutions": [
+        "Unaza âsht shumë e bukur."
+      ],
+      "explanation": "„Unaza“ (der Ring) ist feminin – darum „e bukur“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_113",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.demonstratives",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_pallto",
+        "item_ma_se",
+        "item_i_ngrohte",
+        "item_xhakete"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Dieser Mantel ist wärmer als die Jacke."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Kjo",
+        "pallto",
+        "âsht",
+        "ma",
+        "e",
+        "ngrohtë",
+        "se",
+        "xhaketa"
+      ],
+      "solutions": [
+        "Kjo pallto âsht ma e ngrohtë se xhaketa."
+      ],
+      "explanation": "„Pallto“ ist feminin: „kjo pallto … ma e ngrohtë“. Nach „se“ folgt „xhaketa“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_114",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_bleva",
+        "item_fustan",
+        "item_elegant"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern kaufte ich ein elegantes Kleid."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Dje",
+        "bleva",
+        "nji",
+        "fustan",
+        "elegant"
+      ],
+      "solutions": [
+        "Dje bleva nji fustan elegant.",
+        "Bleva nji fustan elegant dje."
+      ],
+      "explanation": "„Elegant“ steht ohne Verbindungsartikel direkt nach dem Nomen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_115",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.shopping",
+        "vocab.numbers"
+      ],
+      "itemIds": [
+        "item_sot",
+        "item_zbritje",
+        "item_perqind",
+        "item_pesedhjete"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Heute gibt es fünfzig Prozent Rabatt."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Sot",
+        "ka",
+        "pesëdhjetë",
+        "përqind",
+        "zbritje"
+      ],
+      "solutions": [
+        "Sot ka pesëdhjetë përqind zbritje.",
+        "Sot ka zbritje pesëdhjetë përqind."
+      ],
+      "explanation": "„Ka“ heisst hier „es gibt“. „Përqind“ ist das Prozent.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_116",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.shopping",
+        "grammar.plural"
+      ],
+      "itemIds": [
+        "item_patika",
+        "item_zbritje"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Turnschuhe sind reduziert."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Patikat",
+        "janë",
+        "në",
+        "zbritje"
+      ],
+      "solutions": [
+        "Patikat janë në zbritje."
+      ],
+      "explanation": "„Në zbritje“ heisst „reduziert, im Ausverkauf“. „Patikat“ ist Mehrzahl, darum „janë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_117",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.demonstratives",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_xhakete",
+        "item_te_rri_mire",
+        "item_ma_mire"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Jacke steht dir besser."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Kjo",
+        "xhaketë",
+        "të",
+        "rri",
+        "ma",
+        "mirë"
+      ],
+      "solutions": [
+        "Kjo xhaketë të rri ma mirë."
+      ],
+      "explanation": "„Të rri mirë“ – steht dir gut; „ma mirë“ – besser. Das kurze „të“ (dir) steht direkt vor dem Verb.",
+      "errorHints": [
+        {
+          "pattern": "^kjo xhaket[eë] rri t",
+          "category": "grammar.clitics",
+          "hint": "Das kurze „të“ steht direkt vor „rri“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendung „të rri mirë“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_118",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "vocab.shopping",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kupon",
+        "item_cante"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Quittung ist in der Tasche."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Kuponi",
+        "âsht",
+        "në",
+        "çantë"
+      ],
+      "solutions": [
+        "Kuponi âsht në çantë."
+      ],
+      "explanation": "„Kuponi“ ist die Quittung. „Në çantë“ – in der Tasche.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kupon“ für den Kassenzettel zu prüfen."
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_119",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "grammar.plural"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_xhinse",
+        "item_ma_se",
+        "item_i_gjate",
+        "item_pantallona"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Jeans sind länger als die Hose."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Këto",
+        "xhinse",
+        "janë",
+        "ma",
+        "të",
+        "gjata",
+        "se",
+        "pantallonat"
+      ],
+      "solutions": [
+        "Këto xhinse janë ma të gjata se pantallonat."
+      ],
+      "explanation": "„Xhinse“ und „pantallona“ sind beide Mehrzahl. Darum „janë ma të gjata“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_120",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.linking_article",
+        "grammar.adjective_agreement",
+        "grammar.verbs.present"
+      ],
+      "itemIds": [
+        "item_provoj",
+        "item_kepuce",
+        "item_i_zi"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich probiere die schwarzen Schuhe an."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Provoj",
+        "këpucët",
+        "e",
+        "zeza"
+      ],
+      "solutions": [
+        "Provoj këpucët e zeza."
+      ],
+      "explanation": "Direkt nach einem bestimmten Nomen in der Mehrzahl steht „e“: „këpucët e zeza“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_121",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.demonstratives",
+        "phrase.shopping"
+      ],
+      "itemIds": [
+        "item_e_marr",
+        "item_kete",
+        "item_kapele"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich nehme diese Mütze."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "E",
+        "marr",
+        "këtë",
+        "kapelë"
+      ],
+      "solutions": [
+        "E marr këtë kapelë.",
+        "Këtë kapelë e marr."
+      ],
+      "explanation": "„E marr“ – ich nehme es. Als Objekt heisst „kjo“ „këtë“: „këtë kapelë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_122",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.demonstratives",
+        "vocab.seasons"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_bluze",
+        "item_i_holle",
+        "item_per",
+        "item_vere"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Bluse ist dünn, sie ist für den Sommer."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Kjo",
+        "bluzë",
+        "âsht",
+        "e",
+        "hollë",
+        "âsht",
+        "për",
+        "verë"
+      ],
+      "solutions": [
+        "Kjo bluzë âsht e hollë, âsht për verë."
+      ],
+      "explanation": "„E hollë“ heisst „dünn“. „Verë“ ist der Sommer – nicht der Wein („venë“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u16_clothes_fashion_123",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes",
+        "vocab.seasons"
+      ],
+      "itemIds": [
+        "item_me_duhet",
+        "item_xhakete",
+        "item_i_trashe",
+        "item_per",
+        "item_dimen"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich brauche eine dicke Jacke für den Winter."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Më",
+        "duhet",
+        "nji",
+        "xhaketë",
+        "e",
+        "trashë",
+        "për",
+        "dimën"
+      ],
+      "solutions": [
+        "Më duhet nji xhaketë e trashë për dimën."
+      ],
+      "explanation": "„Më duhet“ – ich brauche. „Dimën“ ist Gheg für Winter (Standard: „dimër“).",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
