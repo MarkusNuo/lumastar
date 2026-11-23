@@ -1,0 +1,1652 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u19_review_plans",
+  "level": "A2.2",
+  "grammar": [
+    {
+      "title": "Pläne und Wünsche auf einen Blick",
+      "explanation": "Nach Zukunft und Modalverben folgt im Gheg immer **me + Partizip**:\n\n| Was? | Gheg | Deutsch |\n|---|---|---|\n| Zukunft | *Kam me shkue.* / *Ka me ra shi.* | Ich werde gehen. / Es wird regnen. |\n| wollen | *Du me dalë.* / *A don me ardhë?* | Ich will ausgehen. / Willst du kommen? |\n| können | *Muj me ardhë.* / *S'muj.* / *A mundesh me …?* | Ich kann kommen. / Ich kann nicht. / Kannst du …? |\n| gelernt haben | *Di me notue.* | Ich kann schwimmen. |\n| müssen | *Më duhet me punue.* | Ich muss arbeiten. |\n| höflich wünschen | *Kisha dashtë nji kafe.* | Ich hätte gern einen Kaffee. |\n\nPläne mit Bedingung: **nëse** (wenn, falls) + Präsens, danach die Zukunft: *Nëse bie shi, kemi me kânë në shpi.* Mit **kur** (wenn, sobald): *Kur mbaron ndeshja, të ftoj në darkë.*\n\nStandard-Formen wie *do të shkoj* oder *dua të dal* gelten als „richtig, aber Standard“."
+    },
+    {
+      "title": "Kurzformen: wo sie stehen",
+      "explanation": "| Wo? | Gheg | Deutsch |\n|---|---|---|\n| vor dem Verb | *Të pres te kafeneja.* | Ich warte beim Café auf dich. |\n| beim Befehl | *Ma jep kripën!* | Gib mir das Salz! |\n| zwischen *me* und Partizip | *A mundesh me më ndihmue?* | Kannst du mir helfen? |\n| in der Zukunft | *Kam me ta tregue nesër.* | Ich werde es dir morgen erzählen. |\n\n**ma** (më + e), **ta** (të + e), **ia** (i + e) und **jua** (ju + e) brauchen ein „es“ oder ein bestimmtes Objekt: *Ma bje supën!* – aber *Më bje nji supë!*\n\nAchtung: **të** (dich, dir) und **te** (bei) klingen gleich: *Të pres te stadiumi.* Und **ma** heisst auch „mehr“: *ma ftohtë* – kälter."
+    },
+    {
+      "title": "Adjektive und Vergleiche",
+      "explanation": "Das Adjektiv richtet sich nach dem Nomen:\n\n| | Gheg | Deutsch |\n|---|---|---|\n| maskulin | *moti i mirë* | das schöne Wetter |\n| feminin | *dita e bukur* | der schöne Tag |\n| Mehrzahl | *lojtarët janë të lodhun* | die Spieler sind müde |\n\nVergleichen (Standard: *më* statt *ma*):\n\n- **ma … se** – -er als: *Byreku âsht ma i lirë se tava.*\n- **aq … sa** – so … wie: *Peja âsht aq e bukur sa Prizreni.*\n- **bestimmtes Nomen + ma** – der/die/das …ste: *restoranti ma i mirë*, *stina ma e bukur*\n- **ma shumë, ma pak, ma mirë** – mehr, weniger, besser\n\nOhne Nomen steht kein Verbindungsartikel: *Nesër ka me kânë ma ngrohtë.*"
+    }
+  ],
+  "items": [
+    { "id": "item_nese", "kind": "word", "gheg": "nëse", "de": "wenn, falls (Bedingung)", "partOfSpeech": "conjunction", "note": "Im Kosovo-Alltag geläufig – zu prüfen.", "reviewed": false },
+    { "id": "item_ose", "kind": "word", "gheg": "ose", "de": "oder (in Aussagen; in Fragen meist „apo“)", "partOfSpeech": "conjunction", "reviewed": false },
+    { "id": "item_mbaron", "kind": "word", "gheg": "mbaron", "de": "(es) endet, hört auf", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_urime", "kind": "phrase", "gheg": "urime!", "de": "gratuliere!, herzlichen Glückwunsch!", "partOfSpeech": "interjection", "reviewed": false },
+    { "id": "item_me_dhane", "kind": "phrase", "gheg": "me dhânë", "de": "geben (Infinitiv von jap)", "partOfSpeech": "verb", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u19_review_plans_001",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_nese", "item_bie_shi", "item_kam_me", "item_ne_shpi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Nëse bie shi, kemi me kânë në shpi.“?" },
+      "choices": ["Wenn es regnet, werden wir zu Hause sein.", "Weil es regnet, sind wir zu Hause.", "Wenn es schneit, werden wir zu Hause sein.", "Wenn es regnet, gehen wir hinaus."],
+      "solutions": ["Wenn es regnet, werden wir zu Hause sein."],
+      "explanation": "„Nëse“ heisst „wenn, falls“. Danach folgt der Plan in der Zukunft: „kemi me kânë“ – wir werden sein.",
+      "errorHints": [
+        { "pattern": "^weil", "category": "vocab.confused", "hint": "„Weil“ heisst „sepse“. „Nëse“ heisst „wenn, falls“." },
+        { "pattern": "schneit", "category": "vocab.confused", "hint": "„Es schneit“ heisst „bie borë“. „Bie shi“ heisst „es regnet“." },
+        { "pattern": "hinaus", "category": "vocab.confused", "hint": "„Në shpi“ heisst „zu Hause“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_002",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather", "phrase.plans"],
+      "itemIds": ["item_nese", "item_neser", "item_ka_diell", "item_kemi", "item_kam_me", "item_me_shkue", "item_liqen"],
+      "prompt": { "lang": "de", "text": "Wenn morgen die Sonne scheint, werden wir an den See gehen." },
+      "answerLang": "sq",
+      "solutions": ["Nëse nesër ka diell, kemi me shkue në liqen.", "Nëse ka diell nesër, kemi me shkue në liqen.", "Kemi me shkue në liqen nëse nesër ka diell.", "Nesër kemi me shkue në liqen nëse ka diell."],
+      "wordBank": ["Nëse", "nesër", "ka", "diell", "kemi", "me", "shkue", "në", "liqen", "sepse", "shi", "bjeshkë"],
+      "explanation": "„Ka diell“ heisst „die Sonne scheint“. Nach dem Teil mit „nëse“ folgt der Plan in der Gheg-Zukunft: „kemi me shkue“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)sepse(\\s|$)", "category": "vocab.confused", "hint": "„Sepse“ heisst „weil“. „Wenn, falls“ heisst „nëse“." },
+        { "pattern": "(^|\\s)shi(\\s|$)", "category": "vocab.confused", "hint": "„Shi“ ist der Regen. Die Sonne scheint: „ka diell“." },
+        { "pattern": "bjeshk", "category": "vocab.confused", "hint": "„Bjeshkë“ sind die Berge (die Alp). Der See heisst „liqen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_003",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.sport", "phrase.plans"],
+      "itemIds": ["item_te_dielen", "item_kemi", "item_kam_me", "item_me_luejte", "item_basketboll", "item_park"],
+      "prompt": { "lang": "de", "text": "Am Sonntag werden wir im Park Basketball spielen." },
+      "answerLang": "sq",
+      "solutions": ["Të dielën kemi me luejtë basketboll në park.", "Të dielën kena me luejtë basketboll në park.", "Kemi me luejtë basketboll në park të dielën.", "Kena me luejtë basketboll në park të dielën.", "Të dielën në park kemi me luejtë basketboll.", "Të dielën në park kena me luejtë basketboll."],
+      "standardForms": ["Të dielën do të luajmë basketboll në park.", "Do të luajmë basketboll në park të dielën."],
+      "explanation": "„Wir werden“: „kemi me“ + Partizip. Das Gheg-Partizip von „luaj“ ist „luejtë“.",
+      "errorHints": [
+        { "pattern": "me luaj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me luejtë“." },
+        { "pattern": "(^|\\s)kam me", "category": "grammar.verb_conjugation", "hint": "„Kam me“ heisst „ich werde“. Wir werden: „kemi me“." },
+        { "pattern": "basketbolli", "category": "grammar.definite_article", "hint": "Die Sportart steht ohne Artikel: „basketboll“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_004",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_bjeshke", "item_kam_me", "item_bie_bore"],
+      "prompt": { "lang": "de", "text": "In den Bergen wird es schneien." },
+      "answerLang": "sq",
+      "tokens": ["Në", "bjeshkë", "ka", "me", "ra", "borë"],
+      "solutions": ["Në bjeshkë ka me ra borë.", "Ka me ra borë në bjeshkë."],
+      "explanation": "„Bie borë“ heisst „es schneit“. In der Zukunft: „ka me ra borë“ – „ra“ ist das Partizip von „bie“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_005",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.clitics", "vocab.weather"],
+      "itemIds": ["item_nese", "item_i_ftohte", "item_clitic_te", "item_duhet", "item_me_veshe", "item_xhakete"],
+      "prompt": { "lang": "de", "text": "Wenn es kalt ist, musst du die Jacke anziehen." },
+      "answerLang": "sq",
+      "text": "Nëse âsht ftohtë, të ___ me veshë xhaketën.",
+      "solutions": ["duhet"],
+      "explanation": "„Duhet“ bleibt immer gleich. Wer muss, zeigt die Kurzform davor: „të duhet“ – du musst.",
+      "errorHints": [
+        { "pattern": "^duhesh$", "category": "grammar.verb_conjugation", "hint": "„Duhet“ bleibt immer gleich – „të“ davor zeigt, dass du musst." },
+        { "pattern": "^mundesh$", "category": "vocab.confused", "hint": "„Mundesh“ heisst „du kannst“. Müssen: „duhet“." },
+        { "pattern": "^don$", "category": "vocab.confused", "hint": "„Don“ heisst „du willst“. Müssen: „duhet“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „veshë“ (Standard: veshur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_006",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_kam_me", "item_te_shtunen", "item_nese", "item_ka_diell", "item_liqen", "item_bie_shi", "item_kam_me_gatue", "item_fli", "item_hajde", "item_kam_me_ngrane", "item_bashke"],
+      "prompt": { "lang": "sq", "text": "– Çka ke me bâ të shtunën, Besa?\n– Nëse ka diell, kam me shkue në liqen. Nëse bie shi, kam me gatue fli.\n– Të shtunën ka me ra shi.\n– Mirë, hajde te ne! Kemi me ngrânë fli bashkë.\n\nFrage: Was macht Besa am Samstag?" },
+      "choices": ["Sie kocht Flija.", "Sie geht an den See.", "Sie geht ins Kino.", "Sie spielt Tennis."],
+      "solutions": ["Sie kocht Flija."],
+      "explanation": "An den See geht Besa nur, „nëse ka diell“. Am Samstag „ka me ra shi“ – also kocht sie Flija: „kam me gatue fli“.",
+      "errorHints": [
+        { "pattern": "see", "category": "vocab.confused", "hint": "An den See geht Besa nur, wenn die Sonne scheint („nëse ka diell“). Am Samstag regnet es aber." },
+        { "pattern": "kino", "category": "vocab.confused", "hint": "Vom Kino ist nicht die Rede. Bei Regen kocht Besa Flija." },
+        { "pattern": "tennis", "category": "vocab.confused", "hint": "Vom Tennis ist nicht die Rede. Bei Regen kocht Besa Flija." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_007",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather", "phrase.plans"],
+      "itemIds": ["item_nese", "item_bie_shi", "item_kam_me_shkue", "item_kinema"],
+      "prompt": { "lang": "de", "text": "Wenn es regnet, werde ich ins Kino gehen." },
+      "answerLang": "sq",
+      "tokens": ["Nëse", "bie", "shi", "kam", "me", "shkue", "në", "kinema"],
+      "solutions": ["Nëse bie shi, kam me shkue në kinema.", "Kam me shkue në kinema nëse bie shi."],
+      "explanation": "Der Teil mit „nëse“ kann vorne oder hinten stehen. „Në kinema“ heisst „ins Kino“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_008",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_neser", "item_kam_me_kane", "item_ma_se", "item_i_ngrohte", "item_sot"],
+      "prompt": { "lang": "de", "text": "Morgen wird es wärmer sein als heute." },
+      "answerLang": "sq",
+      "solutions": ["Nesër ka me kânë ma ngrohtë se sot."],
+      "wordBank": ["Nesër", "ka", "me", "kânë", "ma", "ngrohtë", "se", "sot", "sa", "ftohtë", "âsht"],
+      "explanation": "„Ka me kânë“ heisst „es wird sein“. Verglichen wird mit „ma … se“ (Standard: „më … se“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)sa(\\s|$)", "category": "vocab.confused", "hint": "„Sa“ gehört zu „aq … sa“ (so … wie). Nach „ma …“ steht „se“." },
+        { "pattern": "ftoht", "category": "vocab.confused", "hint": "„Ma ftohtë“ heisst „kälter“. Wärmer: „ma ngrohtë“." },
+        { "pattern": "(^|\\s)[aâ]sht(\\s|$)", "category": "grammar.verb_tense", "hint": "„Âsht“ ist Gegenwart. Es wird sein: „ka me kânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_009",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather", "phrase.plans"],
+      "itemIds": ["item_nese", "item_neser", "item_i_ftohte", "item_nuk", "item_kam_me", "item_me_notue"],
+      "prompt": { "lang": "de", "text": "Wenn es morgen kalt ist, werde ich nicht schwimmen." },
+      "answerLang": "sq",
+      "solutions": ["Nëse nesër âsht ftohtë, nuk kam me notue.", "Nëse nesër âsht ftohtë, s'kam me notue.", "Nëse âsht ftohtë nesër, nuk kam me notue.", "Nëse âsht ftohtë nesër, s'kam me notue.", "Nuk kam me notue nëse nesër âsht ftohtë.", "S'kam me notue nëse nesër âsht ftohtë."],
+      "standardForms": ["Nëse nesër është ftohtë, nuk do të notoj.", "Nëse nesër bën ftohtë, nuk do të notoj."],
+      "explanation": "Verneint wird vor „kam“: „nuk kam me notue“ oder „s'kam me notue“. Standard wäre „nuk do të notoj“.",
+      "errorHints": [
+        { "pattern": "me noto(j|n)(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me notue“." },
+        { "pattern": "(^|\\s)sepse(\\s|$)", "category": "vocab.confused", "hint": "„Sepse“ heisst „weil“. Wenn, falls: „nëse“." },
+        { "pattern": "kam nuk me", "category": "grammar.word_order", "hint": "„Nuk“ steht vor „kam“: „nuk kam me notue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_010",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_kam_me", "item_bie_shi", "item_ka_me_pase", "item_diell", "item_vranet", "item_mjegull", "item_i_ftohte", "item_ma_se"],
+      "prompt": { "lang": "de", "text": "Ordne den Wetterbericht für morgen zu." },
+      "pairs": [
+        { "left": "Ka me ra shi.", "right": "Es wird regnen." },
+        { "left": "Ka me pasë diell.", "right": "Die Sonne wird scheinen." },
+        { "left": "Ka me kânë vranët.", "right": "Es wird bewölkt sein." },
+        { "left": "Ka me kânë ma ftohtë.", "right": "Es wird kälter sein." },
+        { "left": "Ka me pasë mjegull.", "right": "Es wird Nebel geben." }
+      ],
+      "explanation": "Im Wetterbericht hörst du „ka me“ + Partizip: „ra“ (von „bie“), „pasë“ (von „kam“), „kânë“ (von „jam“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_011",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather", "vocab.sport"],
+      "itemIds": ["item_nese", "item_bie_bore", "item_kemi", "item_kam_me", "item_me_skijue", "item_bjeshke"],
+      "prompt": { "lang": "sq", "text": "Nëse bie borë, kemi me skijue në bjeshkë." },
+      "answerLang": "de",
+      "solutions": ["Wenn es schneit, werden wir in den Bergen Ski fahren.", "Wenn es schneit, fahren wir in den Bergen Ski."],
+      "wordBank": ["Wenn", "es", "schneit", "werden", "wir", "in", "den", "Bergen", "Ski", "fahren", "regnet", "weil", "schwimmen"],
+      "explanation": "„Bie borë“ heisst „es schneit“, „me skijue“ heisst „Ski fahren“. „Kemi me“ zeigt die Zukunft.",
+      "errorHints": [
+        { "pattern": "regnet", "category": "vocab.confused", "hint": "„Es regnet“ wäre „bie shi“. „Bie borë“ heisst „es schneit“." },
+        { "pattern": "(^|\\s)weil(\\s|$)", "category": "vocab.confused", "hint": "„Weil“ heisst „sepse“. „Nëse“ heisst „wenn, falls“." },
+        { "pattern": "schwimmen", "category": "vocab.confused", "hint": "„Schwimmen“ heisst „me notue“. „Me skijue“ heisst „Ski fahren“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_012",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.verbs.future"],
+      "itemIds": ["item_ose", "item_kemi", "item_kam_me", "item_liqen", "item_bjeshke"],
+      "prompt": { "lang": "de", "text": "Wir werden an den See oder in die Berge gehen." },
+      "answerLang": "sq",
+      "text": "Kemi me shkue në liqen ___ në bjeshkë.",
+      "choices": ["ose", "sepse", "nëse", "se"],
+      "solutions": ["ose"],
+      "explanation": "„Ose“ heisst „oder“ in einer Aussage. In Fragen sagt man meist „apo“: „Liqen apo bjeshkë?“",
+      "errorHints": [
+        { "pattern": "^sepse$", "category": "vocab.confused", "hint": "„Sepse“ heisst „weil“." },
+        { "pattern": "^n[eë]se$", "category": "vocab.confused", "hint": "„Nëse“ heisst „wenn, falls“." },
+        { "pattern": "^se$", "category": "vocab.confused", "hint": "„Se“ steht beim Vergleich: „ma … se“ (-er als)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_013",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.future"],
+      "itemIds": ["item_sot", "item_s_muj", "item_neser", "item_kam_me_ardhe"],
+      "prompt": { "lang": "sq", "text": "Sot s'muj, po nesër kam me ardhë." },
+      "answerLang": "de",
+      "solutions": ["Heute kann ich nicht, aber morgen werde ich kommen.", "Heute kann ich nicht, aber ich werde morgen kommen."],
+      "wordBank": ["Heute", "kann", "ich", "nicht", "aber", "morgen", "werde", "ich", "kommen", "will", "muss", "gestern"],
+      "explanation": "„S'muj“ heisst „ich kann nicht“, „kam me ardhë“ heisst „ich werde kommen“. „Po“ heisst hier „aber“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)will(\\s|$)", "category": "vocab.confused", "hint": "„Ich will“ heisst „du“. „S'muj“ heisst „ich kann nicht“." },
+        { "pattern": "(^|\\s)muss(\\s|$)", "category": "vocab.confused", "hint": "„Ich muss“ heisst „më duhet“. „Kam me ardhë“ heisst „ich werde kommen“." },
+        { "pattern": "gestern", "category": "vocab.confused", "hint": "„Gestern“ heisst „dje“. „Nesër“ heisst „morgen“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_014",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "phrase.plans"],
+      "itemIds": ["item_don", "item_me_luejte", "item_futboll", "item_me_mu", "item_te_dielen"],
+      "prompt": { "lang": "de", "text": "Willst du am Sonntag mit mir Fussball spielen?" },
+      "answerLang": "sq",
+      "solutions": ["A don me luejtë futboll me mu të dielën?", "A don me luejtë futboll të dielën me mu?", "A don të dielën me luejtë futboll me mu?", "Të dielën a don me luejtë futboll me mu?"],
+      "wordBank": ["A", "don", "me", "luejtë", "futboll", "me", "mu", "të", "dielën", "du", "luan", "shtunën"],
+      "explanation": "„A don me …?“ heisst „Willst du …?“ – danach der Gheg-Infinitiv „me luejtë“. „Me mu“ heisst „mit mir“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)du(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Du“ heisst „ich will“. Willst du: „don“." },
+        { "pattern": "(^|\\s)luan(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me luejtë“." },
+        { "pattern": "shtun", "category": "vocab.confused", "hint": "„Të shtunën“ heisst „am Samstag“. Am Sonntag: „të dielën“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen. „me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_015",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "phrase.plans"],
+      "itemIds": ["item_sot", "item_s_muj", "item_kam_pune", "item_nji_here_tjeter"],
+      "prompt": { "lang": "de", "text": "Heute kann ich nicht, ich habe zu tun. Ein andermal!" },
+      "answerLang": "sq",
+      "solutions": ["Sot s'muj, kam punë. Nji herë tjetër!", "Sot nuk muj, kam punë. Nji herë tjetër!", "S'muj sot, kam punë. Nji herë tjetër!", "Nuk muj sot, kam punë. Nji herë tjetër!"],
+      "standardForms": ["Sot nuk mundem, kam punë. Një herë tjetër!", "Sot s'mundem, kam punë. Një herë tjetër!", "Sot nuk mund, kam punë. Një herë tjetër!"],
+      "explanation": "„S'muj“ heisst „ich kann nicht“ (Standard: „s'mundem“). „Kam punë“ – ich habe zu tun.",
+      "errorHints": [
+        { "pattern": "(^|\\s)s?mundesh(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Mundesh“ heisst „du kannst“. Ich kann nicht: „s'muj“." },
+        { "pattern": "(^|\\s)nuk du(\\s|$)", "category": "vocab.confused", "hint": "„Nuk du“ heisst „ich will nicht“. Ich kann nicht: „s'muj“." },
+        { "pattern": "(^|\\s)sdu(\\s|$)", "category": "vocab.confused", "hint": "„S'du“ heisst „ich will nicht“. Ich kann nicht: „s'muj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_016",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.clitics"],
+      "itemIds": ["item_me_duhet", "item_clitic_me", "item_neser", "item_me_punue"],
+      "prompt": { "lang": "de", "text": "Morgen muss ich arbeiten." },
+      "answerLang": "sq",
+      "text": "Nesër ___ duhet me punue.",
+      "choices": ["më", "të", "i", "na"],
+      "solutions": ["më"],
+      "explanation": "„Më duhet“ heisst „ich muss“ (wörtlich: mir ist nötig). Die Kurzform zeigt, wer muss.",
+      "errorHints": [
+        { "pattern": "^t[eë]$", "category": "grammar.clitics", "hint": "„Të duhet“ heisst „du musst“." },
+        { "pattern": "^i$", "category": "grammar.clitics", "hint": "„I duhet“ heisst „er/sie muss“." },
+        { "pattern": "^na$", "category": "grammar.clitics", "hint": "„Na duhet“ heisst „wir müssen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_017",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_mundesh", "item_clitic_me", "item_me_prite", "item_stadium", "item_ore", "item_shtate"],
+      "prompt": { "lang": "de", "text": "Kannst du um sieben beim Stadion auf mich warten?" },
+      "answerLang": "sq",
+      "tokens": ["A", "mundesh", "me", "më", "pritë", "te", "stadiumi", "në", "orën", "shtatë"],
+      "solutions": ["A mundesh me më pritë te stadiumi në orën shtatë?", "A mundesh me më pritë në orën shtatë te stadiumi?"],
+      "explanation": "Beim Gheg-Infinitiv steht die Kurzform zwischen „me“ und dem Partizip: „me më pritë“ – auf mich warten.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_018",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans", "grammar.clitics"],
+      "itemIds": ["item_a_je_i_lire", "item_sonte", "item_me_ftue", "item_koncert", "item_me_kenaqesi", "item_me_vjen_keq", "item_fatkeqesisht", "item_s_muj", "item_nji_here_tjeter"],
+      "prompt": { "lang": "de", "text": "Arta fragt: „A je e lirë sonte? Të ftoj në koncert.“ Du hast Lust. Was antwortest du?" },
+      "choices": ["Po, me kënaqësi!", "Më vjen keq, kam punë.", "Fatkeqësisht s'muj.", "Nji herë tjetër!"],
+      "solutions": ["Po, me kënaqësi!"],
+      "explanation": "„Të ftoj“ heisst „ich lade dich ein“. Zusagen kannst du mit „Po, me kënaqësi!“ – Ja, gern!",
+      "errorHints": [
+        { "pattern": "vjen keq", "category": "vocab.confused", "hint": "„Më vjen keq“ heisst „es tut mir leid“ – das ist eine Absage." },
+        { "pattern": "^fatkeq", "category": "vocab.confused", "hint": "„Fatkeqësisht“ heisst „leider“ – das ist eine Absage." },
+        { "pattern": "her[eë] tjet[eë]r", "category": "vocab.confused", "hint": "„Nji herë tjetër“ heisst „ein andermal“ – das ist eine Absage." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_019",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_du", "item_clitic_te", "item_me_ftue", "item_restorant", "item_te_shtunen"],
+      "prompt": { "lang": "de", "text": "Ich will dich am Samstag ins Restaurant einladen." },
+      "answerLang": "sq",
+      "solutions": ["Du me të ftue në restorant të shtunën.", "Due me të ftue në restorant të shtunën.", "Të shtunën du me të ftue në restorant.", "Të shtunën due me të ftue në restorant.", "Du me të ftue të shtunën në restorant.", "Due me të ftue të shtunën në restorant."],
+      "standardForms": ["Dua të të ftoj në restorant të shtunën.", "Të shtunën dua të të ftoj në restorant."],
+      "explanation": "Die Kurzform „të“ (dich) steht zwischen „me“ und dem Partizip: „du me të ftue“. Standard wäre „dua të të ftoj“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)me ftue(\\s|$)", "category": "grammar.clitics", "hint": "„Dich“ fehlt: Die Kurzform „të“ steht zwischen „me“ und „ftue“." },
+        { "pattern": "me (t[eë] )?ftoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „ftue“." },
+        { "pattern": "(^|\\s)don me", "category": "grammar.verb_conjugation", "hint": "„Don“ heisst „du willst“. Ich will: „du“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_020",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_di", "item_me_notue", "item_du", "item_duhet", "item_don"],
+      "prompt": { "lang": "de", "text": "Ich kann gut schwimmen (ich habe es gelernt)." },
+      "answerLang": "sq",
+      "text": "___ me notue mirë.",
+      "choices": ["Di", "Du", "Duhet", "Don"],
+      "solutions": ["Di"],
+      "explanation": "Für Gelerntes sagt man „di me …“: „Di me notue.“ – Ich kann schwimmen.",
+      "errorHints": [
+        { "pattern": "^du$", "category": "vocab.confused", "hint": "„Du me notue“ heisst „ich will schwimmen“." },
+        { "pattern": "^duhet$", "category": "vocab.confused", "hint": "„Duhet me notue“ heisst „man muss schwimmen“." },
+        { "pattern": "^don$", "category": "grammar.verb_conjugation", "hint": "„Don“ heisst „du willst, er/sie will“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_021",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_du", "item_me_fjete", "item_muj", "item_me_ardhe", "item_duhet", "item_me_prite", "item_di", "item_me_gatue", "item_kohe", "item_me_dale"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Du me fjetë.", "right": "Ich will schlafen." },
+        { "left": "Muj me ardhë.", "right": "Ich kann kommen." },
+        { "left": "Duhet me pritë.", "right": "Man muss warten." },
+        { "left": "Di me gatue.", "right": "Ich kann kochen." },
+        { "left": "S'kam kohë me dalë.", "right": "Ich habe keine Zeit auszugehen." }
+      ],
+      "explanation": "Nach Modalverben und nach „s'kam kohë“ folgt im Gheg immer „me“ + Partizip.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_022",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.adjective_agreement", "phrase.ordering"],
+      "itemIds": ["item_duhet", "item_me_rezervue", "item_tavoline", "item_sepse", "item_restorant", "item_gjithmone", "item_i_zane"],
+      "prompt": { "lang": "sq", "text": "Duhet me rezervue nji tavolinë, sepse restoranti âsht gjithmonë i zânë." },
+      "answerLang": "de",
+      "solutions": ["Man muss einen Tisch reservieren, weil das Restaurant immer voll ist.", "Einen Tisch muss man reservieren, weil das Restaurant immer voll ist."],
+      "wordBank": ["Man", "muss", "einen", "Tisch", "reservieren", "weil", "das", "Restaurant", "immer", "voll", "ist", "nie", "kann", "billig"],
+      "explanation": "„I zânë“ heisst „besetzt, voll“ (Standard: „i zënë“). „Restoranti“ ist maskulin, darum „i zânë“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)nie(\\s|$)", "category": "vocab.confused", "hint": "„Nie“ heisst „kurrë“. „Gjithmonë“ heisst „immer“." },
+        { "pattern": "(^|\\s)kann(\\s|$)", "category": "vocab.confused", "hint": "„Duhet“ heisst „man muss“." },
+        { "pattern": "billig", "category": "vocab.confused", "hint": "„Billig“ heisst „i lirë“. „I zânë“ heisst „besetzt, voll“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_023",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "grammar.verbs.modal", "phrase.plans"],
+      "itemIds": ["item_a_je_i_lire", "item_neser", "item_pasdite", "item_s_muj", "item_duhet", "item_me_ndihmue", "item_baba", "item_pasneser", "item_ka_me_pase", "item_don", "item_me_luejte", "item_tenis", "item_patjeter", "item_takohemi", "item_fushe", "item_kater"],
+      "prompt": { "lang": "sq", "text": "– Blerim, a je i lirë nesër pasdite?\n– Nesër s'muj, duhet me ndihmue babain. Po pasnesër jam i lirë.\n– Mirë. Pasnesër ka me pasë diell. A don me luejtë tenis?\n– Patjetër! Takohemi te fusha në orën katër.\n\nFrage: Wann spielen die beiden Tennis?" },
+      "choices": ["Übermorgen um vier.", "Morgen am Nachmittag.", "Übermorgen am Vormittag.", "Morgen um vier."],
+      "solutions": ["Übermorgen um vier."],
+      "explanation": "Morgen muss Blerim dem Vater helfen („duhet me ndihmue babain“). Übermorgen („pasnesër“) hat er Zeit; sie treffen sich „në orën katër“.",
+      "errorHints": [
+        { "pattern": "^morgen am", "category": "vocab.confused", "hint": "Morgen kann Blerim nicht: „Nesër s'muj“." },
+        { "pattern": "vormittag", "category": "vocab.confused", "hint": "Sie treffen sich um vier: „në orën katër“." },
+        { "pattern": "^morgen um", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“, „pasnesër“ heisst „übermorgen“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen. Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_024",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "grammar.clitics"],
+      "itemIds": ["item_sonte", "item_me_duhet", "item_me_mesue"],
+      "prompt": { "lang": "de", "text": "Heute Abend muss ich lernen." },
+      "answerLang": "sq",
+      "tokens": ["Sonte", "më", "duhet", "me", "mësue"],
+      "solutions": ["Sonte më duhet me mësue.", "Më duhet me mësue sonte."],
+      "explanation": "„Më duhet me …“ heisst „ich muss …“. „Sonte“ heisst „heute Abend“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_025",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "phrase.ordering"],
+      "itemIds": ["item_clitic_ta", "item_bje", "item_menu"],
+      "prompt": { "lang": "de", "text": "Der Kellner fragt: „A ta bje menunë?“ Was bedeutet das?" },
+      "choices": ["Soll ich dir die Speisekarte bringen?", "Bringst du mir die Speisekarte?", "Soll ich ihm die Speisekarte bringen?", "Soll ich euch die Speisekarte bringen?"],
+      "solutions": ["Soll ich dir die Speisekarte bringen?"],
+      "explanation": "„Ta“ ist „të“ (dir) + „e“ (sie, es): „A ta bje menunë?“ – Soll ich dir die Speisekarte bringen?",
+      "errorHints": [
+        { "pattern": "(^|\\s)mir(\\s|$)", "category": "grammar.clitics", "hint": "„Mir es“ hiesse „ma“. „Ta“ heisst „dir es“." },
+        { "pattern": "(^|\\s)ihm(\\s|$)", "category": "grammar.clitics", "hint": "„Ihm es“ hiesse „ia“." },
+        { "pattern": "euch", "category": "grammar.clitics", "hint": "„Euch es“ hiesse „jua“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_026",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "grammar.verbs.modal", "phrase.politeness"],
+      "itemIds": ["item_mundesh", "item_clitic_ma", "item_me_dhane", "item_kripe", "item_te_lutem"],
+      "prompt": { "lang": "de", "text": "Kannst du mir bitte das Salz geben?" },
+      "answerLang": "sq",
+      "solutions": ["A mundesh me ma dhânë kripën, të lutem?", "Të lutem, a mundesh me ma dhânë kripën?", "Mundesh me ma dhânë kripën, të lutem?"],
+      "wordBank": ["A", "mundesh", "me", "ma", "dhânë", "kripën", "të", "lutem", "më", "jep", "sheqerin"],
+      "explanation": "„Me dhânë“ ist der Infinitiv von „jap“ (geben). „Kripën“ ist bestimmt, darum steht „ma“ (mir + es) zwischen „me“ und „dhânë“.",
+      "errorHints": [
+        { "pattern": "me m[eë] dh", "category": "grammar.clitics", "hint": "„Das Salz“ ist bestimmt (kripën): mir + es = „ma“." },
+        { "pattern": "(^|\\s)jep(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me dhânë“." },
+        { "pattern": "sheqer", "category": "vocab.confused", "hint": "„Sheqer“ ist der Zucker. Salz heisst „kripë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_027",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.clitics", "phrase.ordering"],
+      "itemIds": ["item_clitic_na", "item_bje", "item_dy", "item_kafe"],
+      "prompt": { "lang": "de", "text": "Bring uns zwei Kaffee, bitte!" },
+      "answerLang": "sq",
+      "text": "___ bje dy kafe, të lutem!",
+      "choices": ["Na", "Ma", "Më", "Jua"],
+      "solutions": ["Na"],
+      "explanation": "„Na“ heisst „uns“: „Na bje dy kafe!“ Bei „dy kafe“ (unbestimmt) braucht es keine Verbindung mit „e“.",
+      "errorHints": [
+        { "pattern": "^ma$", "category": "grammar.clitics", "hint": "„Ma“ heisst „mir es“. Uns: „na“." },
+        { "pattern": "^m[eë]$", "category": "grammar.clitics", "hint": "„Më“ heisst „mir“. Uns: „na“." },
+        { "pattern": "^jua$", "category": "grammar.clitics", "hint": "„Jua“ heisst „euch es“. Uns: „na“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_028",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "grammar.verbs.future"],
+      "itemIds": ["item_kam_me", "item_clitic_ta", "item_me_dhane", "item_liber", "item_neser"],
+      "prompt": { "lang": "de", "text": "Ich werde dir das Buch morgen geben." },
+      "answerLang": "sq",
+      "solutions": ["Kam me ta dhânë librin nesër.", "Nesër kam me ta dhânë librin.", "Librin kam me ta dhânë nesër.", "Kam me ta dhânë nesër librin.", "Librin nesër kam me ta dhânë."],
+      "standardForms": ["Do të ta jap librin nesër.", "Nesër do të ta jap librin."],
+      "explanation": "„Librin“ ist bestimmt, darum steht „ta“ (dir + es) zwischen „me“ und „dhânë“. Standard wäre „do të ta jap“.",
+      "errorHints": [
+        { "pattern": "me t[eë] dh[aâ]n", "category": "grammar.clitics", "hint": "„Das Buch“ ist bestimmt (librin): dir + es = „ta“." },
+        { "pattern": "me ta jap", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ta dhânë“." },
+        { "pattern": "(^|\\s)ma dh[aâ]n", "category": "grammar.clitics", "hint": "„Ma“ heisst „mir es“. Dir es: „ta“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_029",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "phrase.ordering"],
+      "itemIds": ["item_sonte", "item_du", "item_me_rezervue", "item_nji", "item_tavoline", "item_per_sa_veta", "item_kater"],
+      "prompt": { "lang": "de", "text": "Ich möchte heute Abend einen Tisch für vier Personen reservieren." },
+      "answerLang": "sq",
+      "tokens": ["Sonte", "du", "me", "rezervue", "nji", "tavolinë", "për", "katër", "veta"],
+      "solutions": ["Sonte du me rezervue nji tavolinë për katër veta.", "Du me rezervue nji tavolinë për katër veta sonte."],
+      "explanation": "„Du me rezervue“ – ich möchte reservieren. „Për katër veta“ heisst „für vier Personen“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_030",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.ordering", "phrase.politeness"],
+      "itemIds": ["item_kisha_dashte", "item_tave", "item_uje_me_gaz", "item_sok"],
+      "prompt": { "lang": "de", "text": "Wie sagst du höflich „Ich hätte gern eine Tavë und ein Mineralwasser.“?" },
+      "choices": ["Kisha dashtë nji tavë dhe nji ujë me gaz.", "Kam dashtë nji tavë dhe nji ujë me gaz.", "Kisha dashtë nji tavë dhe nji ujë pa gaz.", "Kisha dashtë nji tavë dhe nji sok."],
+      "solutions": ["Kisha dashtë nji tavë dhe nji ujë me gaz."],
+      "explanation": "„Kisha dashtë …“ ist die höfliche Kosovo-Wendung für „ich hätte gern …“. „Ujë me gaz“ ist Wasser mit Kohlensäure.",
+      "errorHints": [
+        { "pattern": "^kam dasht", "category": "grammar.verb_tense", "hint": "„Kam dashtë“ heisst „ich habe gewollt“. Höflich: „kisha dashtë“." },
+        { "pattern": "pa gaz", "category": "vocab.confused", "hint": "„Ujë pa gaz“ ist Wasser ohne Kohlensäure." },
+        { "pattern": "(^|\\s)sok(\\s|$)", "category": "vocab.confused", "hint": "„Sok“ ist Saft oder Süssgetränk." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_031",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "phrase.ordering"],
+      "itemIds": ["item_clitic_ta", "item_bje", "item_kafe", "item_tash"],
+      "prompt": { "lang": "de", "text": "Den Kaffee? Ich bringe ihn dir gleich." },
+      "answerLang": "sq",
+      "text": "Kafen? ___ bje tash.",
+      "solutions": ["Ta"],
+      "explanation": "„Ta“ ist „të“ (dir) + „e“ (ihn, es). Weil „kafen“ bestimmt ist, steht „ta“.",
+      "errorHints": [
+        { "pattern": "^t[eë]$", "category": "grammar.clitics", "hint": "„Të“ heisst nur „dir“. Dir + ihn/es = „ta“." },
+        { "pattern": "^ma$", "category": "grammar.clitics", "hint": "„Ma“ heisst „mir es“. Dir es: „ta“." },
+        { "pattern": "^e$", "category": "grammar.clitics", "hint": "„E“ heisst nur „ihn, es“. Dir + ihn/es = „ta“." },
+        { "pattern": "^ia$", "category": "grammar.clitics", "hint": "„Ia“ heisst „ihm/ihr es“. Dir es: „ta“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_032",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "phrase.politeness"],
+      "itemIds": ["item_clitic_ma", "item_jep", "item_menu", "item_clitic_ta", "item_jap", "item_kripe", "item_clitic_ia", "item_clitic_jua", "item_bje", "item_clitic_na", "item_llogari"],
+      "prompt": { "lang": "de", "text": "Ordne die Bitten zu." },
+      "pairs": [
+        { "left": "Ma jep menunë!", "right": "Gib mir die Speisekarte!" },
+        { "left": "Ta jap kripën.", "right": "Ich gebe dir das Salz." },
+        { "left": "Ia jap Artës.", "right": "Ich gebe es Arta." },
+        { "left": "Jua bje tash.", "right": "Ich bringe es euch gleich." },
+        { "left": "Na bjeni llogarinë!", "right": "Bringen Sie uns die Rechnung!" }
+      ],
+      "explanation": "„Ma, ta, ia, jua“ verbinden „mir, dir, ihm/ihr, euch“ mit „e“ (es). „Na“ allein heisst „uns“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_033",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "phrase.ordering"],
+      "itemIds": ["item_clitic_ma", "item_clitic_me", "item_bje", "item_supe"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Bring mir die Suppe!“?" },
+      "choices": ["Ma bje supën!", "Më bje supën!", "Ma bje nji supë!", "Ta bje supën!"],
+      "solutions": ["Ma bje supën!"],
+      "explanation": "„Supën“ ist bestimmt, darum steht „ma“ (mir + sie). Mit „nji supë“ (unbestimmt) hiesse es „Më bje nji supë!“.",
+      "errorHints": [
+        { "pattern": "^m[eë] bje sup[eë]n", "category": "grammar.clitics", "hint": "„Die Suppe“ ist bestimmt (supën): mir + sie = „ma“." },
+        { "pattern": "ma bje nji", "category": "grammar.clitics", "hint": "Bei „nji supë“ (unbestimmt) steht nur „më“. Gefragt ist aber „die Suppe“." },
+        { "pattern": "^ta bje", "category": "grammar.clitics", "hint": "„Ta“ heisst „dir es“. Mir es: „ma“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_034",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.ordering", "grammar.clitics"],
+      "itemIds": ["item_sot", "item_paguj", "item_une", "item_te_qeras"],
+      "prompt": { "lang": "de", "text": "Heute bezahle ich, ich lade dich ein!" },
+      "answerLang": "sq",
+      "solutions": ["Sot paguj unë, të qeras!", "Sot paguaj unë, të qeras!", "Sot unë paguj, të qeras!", "Sot unë paguaj, të qeras!", "Paguj unë sot, të qeras!", "Unë paguj sot, të qeras!"],
+      "explanation": "„Paguj“ heisst „ich bezahle“ (älter auch „paguaj“). „Të qeras!“ – ich lade dich ein.",
+      "errorHints": [
+        { "pattern": "(^|\\s)paguan(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Paguan“ heisst „du bezahlst, er/sie bezahlt“. Ich bezahle: „paguj“." },
+        { "pattern": "(^|\\s)m[eë] qeras", "category": "grammar.clitics", "hint": "„Më qeras“ heisst „du lädst mich ein“. Ich lade dich ein: „të qeras“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_035",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement", "vocab.food"],
+      "itemIds": ["item_ky", "item_restorant", "item_ma_se", "item_i_shtrenjte", "item_gjelle", "item_i_shijshem"],
+      "prompt": { "lang": "sq", "text": "Ky restorant âsht ma i shtrenjtë se ai, po gjellët janë ma të shijshme." },
+      "answerLang": "de",
+      "solutions": ["Dieses Restaurant ist teurer als jenes, aber die Gerichte sind leckerer."],
+      "wordBank": ["Dieses", "Restaurant", "ist", "teurer", "als", "jenes", "aber", "die", "Gerichte", "sind", "leckerer", "billiger", "wie", "kälter"],
+      "explanation": "„Ma i shtrenjtë se“ heisst „teurer als“. „Gjellët“ ist Mehrzahl, darum „ma të shijshme“.",
+      "errorHints": [
+        { "pattern": "billiger", "category": "vocab.confused", "hint": "„Billiger“ hiesse „ma i lirë“. „Ma i shtrenjtë“ heisst „teurer“." },
+        { "pattern": "(^|\\s)wie(\\s|$)", "category": "vocab.confused", "hint": "„Se“ heisst beim Vergleich „als“. „So … wie“ wäre „aq … sa“." },
+        { "pattern": "kälter", "category": "vocab.confused", "hint": "„Ma të shijshme“ heisst „leckerer“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_036",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison"],
+      "itemIds": ["item_ma_se", "item_aq_sa", "item_ma_i_ftohti", "item_ma_pak", "item_ma_shume", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Ordne die Vergleiche zu." },
+      "pairs": [
+        { "left": "ma i madh se", "right": "grösser als" },
+        { "left": "aq i madh sa", "right": "so gross wie" },
+        { "left": "ma i madhi", "right": "der Grösste" },
+        { "left": "ma pak", "right": "weniger" },
+        { "left": "ma shumë", "right": "mehr" }
+      ],
+      "explanation": "Gheg vergleicht mit „ma“ (Standard: „më“). „Ma i madhi“ mit Artikel heisst „der Grösste“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_037",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.wishes", "vocab.sport"],
+      "itemIds": ["item_urime", "item_me_fitue"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Urime! Fituat!“?" },
+      "choices": ["Gratuliere! Ihr habt gewonnen!", "Schade! Ihr habt verloren!", "Prost! Ihr habt gewonnen!", "Gratuliere! Ihr werdet gewinnen!"],
+      "solutions": ["Gratuliere! Ihr habt gewonnen!"],
+      "explanation": "„Urime!“ heisst „Gratuliere!“. „Fituat“ ist die Vergangenheit von „me fitue“: ihr habt gewonnen.",
+      "errorHints": [
+        { "pattern": "schade", "category": "vocab.confused", "hint": "„Urime!“ heisst „Gratuliere!“ – und „fituat“ heisst „ihr habt gewonnen“." },
+        { "pattern": "prost", "category": "vocab.confused", "hint": "„Prost!“ heisst „Gëzuar!“. „Urime!“ heisst „Gratuliere!“." },
+        { "pattern": "werdet", "category": "grammar.verb_tense", "hint": "„Fituat“ ist Vergangenheit. Ihr werdet gewinnen: „keni me fitue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_038",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "phrase.plans", "vocab.sport"],
+      "itemIds": ["item_kur", "item_mbaron", "item_ndeshje", "item_clitic_te", "item_me_ftue", "item_darke"],
+      "prompt": { "lang": "de", "text": "Wenn das Match vorbei ist, lade ich dich zum Abendessen ein." },
+      "answerLang": "sq",
+      "solutions": ["Kur mbaron ndeshja, të ftoj në darkë.", "Të ftoj në darkë kur mbaron ndeshja."],
+      "wordBank": ["Kur", "mbaron", "ndeshja", "të", "ftoj", "në", "darkë", "fillon", "drekë", "më"],
+      "explanation": "„Mbaron“ heisst „(es) endet“, „fillon“ heisst „(es) beginnt“. „Të ftoj“ – ich lade dich ein.",
+      "errorHints": [
+        { "pattern": "fillon", "category": "vocab.confused", "hint": "„Fillon“ heisst „beginnt“. Endet: „mbaron“." },
+        { "pattern": "drek", "category": "vocab.confused", "hint": "„Drekë“ ist das Mittagessen. Abendessen: „darkë“." },
+        { "pattern": "(^|\\s)m[eë] ftoj", "category": "grammar.clitics", "hint": "Ich lade dich ein: „të ftoj“ („më“ hiesse „mich“)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_039",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.sport"],
+      "itemIds": ["item_kush", "item_kam_me", "item_me_fitue", "item_neser"],
+      "prompt": { "lang": "de", "text": "Wer wird morgen gewinnen?" },
+      "answerLang": "sq",
+      "solutions": ["Kush ka me fitue nesër?", "Nesër kush ka me fitue?"],
+      "standardForms": ["Kush do të fitojë nesër?", "Nesër kush do të fitojë?"],
+      "explanation": "Nach „kush“ (wer) steht die 3. Person: „ka me fitue“ – wird gewinnen (Standard: „do të fitojë“).",
+      "errorHints": [
+        { "pattern": "kush kam me", "category": "grammar.verb_conjugation", "hint": "Nach „kush“ steht „ka me“: „Kush ka me fitue?“" },
+        { "pattern": "kush ke me", "category": "grammar.verb_conjugation", "hint": "Nach „kush“ steht „ka me“, nicht „ke me“." },
+        { "pattern": "me fito(j|n)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me fitue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_040",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.future", "vocab.sport"],
+      "itemIds": ["item_ekip", "item_kam_me", "item_me_humbe", "item_me_fitue", "item_neser"],
+      "prompt": { "lang": "de", "text": "Die Mannschaft wird morgen nicht verlieren." },
+      "answerLang": "sq",
+      "text": "Ekipi nuk ka me ___ nesër.",
+      "choices": ["humbë", "humb", "humbet", "fitue"],
+      "solutions": ["humbë"],
+      "explanation": "Nach „ka me“ steht das Partizip: „humbë“ (Standard: „humbur“).",
+      "errorHints": [
+        { "pattern": "^humb$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip mit „ë“: „humbë“." },
+        { "pattern": "^humbet$", "category": "grammar.infinitive", "hint": "„Humbet“ ist Präsens. Nach „me“ steht das Partizip „humbë“." },
+        { "pattern": "^fitue$", "category": "vocab.confused", "hint": "„Me fitue“ heisst „gewinnen“. Verlieren: „me humbë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_041",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "vocab.sport", "phrase.plans"],
+      "itemIds": ["item_ndeshje", "item_mbaron", "item_nande", "item_vjen", "item_restorant", "item_patjeter", "item_nese", "item_ekip", "item_paguj", "item_me_humbe", "item_dakord"],
+      "prompt": { "lang": "sq", "text": "– Arben, ndeshja mbaron në orën nândë. A vjen me ne në restorant?\n– Patjetër! Po kush paguan?\n– Nëse fiton ekipi i Prishtinës, paguj unë. Nëse humb, paguan Besa!\n– Dakord!\n\nFrage: Wer bezahlt, wenn die Mannschaft aus Prishtina verliert?" },
+      "choices": ["Besa.", "Arben.", "Die Person, die einlädt.", "Niemand."],
+      "solutions": ["Besa."],
+      "explanation": "„Nëse humb, paguan Besa“ – verliert die Mannschaft, bezahlt Besa. Gewinnt sie, bezahlt die Person, die einlädt: „paguj unë“.",
+      "errorHints": [
+        { "pattern": "arben", "category": "vocab.confused", "hint": "Arben ist eingeladen; er fragt nur „Po kush paguan?“ – wer bezahlt?" },
+        { "pattern": "einl[aä]dt", "category": "vocab.confused", "hint": "Die Person, die einlädt, bezahlt nur, wenn die Mannschaft gewinnt: „Nëse fiton …, paguj unë.“" },
+        { "pattern": "niemand", "category": "vocab.confused", "hint": "Bezahlt wird auf jeden Fall: Verliert die Mannschaft, bezahlt Besa." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_042",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "phrase.plans"],
+      "itemIds": ["item_kemi", "item_kam_me", "item_me_u_takue", "item_stadium", "item_ore", "item_shtate"],
+      "prompt": { "lang": "de", "text": "Wir werden uns um sieben beim Stadion treffen." },
+      "answerLang": "sq",
+      "tokens": ["Kemi", "me", "u", "takue", "te", "stadiumi", "në", "orën", "shtatë"],
+      "solutions": ["Kemi me u takue te stadiumi në orën shtatë.", "Kemi me u takue në orën shtatë te stadiumi.", "Në orën shtatë kemi me u takue te stadiumi."],
+      "explanation": "„Me u takue“ heisst „sich treffen“. In der Zukunft: „kemi me u takue“ – wir werden uns treffen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_043",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans", "phrase.wishes"],
+      "itemIds": ["item_urime", "item_pse_jo", "item_patjeter", "item_me_vjen_keq", "item_cka_thua"],
+      "prompt": { "lang": "de", "text": "Ordne die Wendungen zu." },
+      "pairs": [
+        { "left": "Urime!", "right": "Gratuliere!" },
+        { "left": "Pse jo?", "right": "Warum nicht?" },
+        { "left": "Patjetër!", "right": "Auf jeden Fall!" },
+        { "left": "Më vjen keq.", "right": "Es tut mir leid." },
+        { "left": "Çka thua?", "right": "Was meinst du?" }
+      ],
+      "explanation": "Mit „Pse jo?“ und „Patjetër!“ sagst du zu, mit „Më vjen keq“ entschuldigst du dich. „Urime!“ sagst du, wenn jemand gewonnen hat.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_044",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "grammar.adjective_agreement", "vocab.sport"],
+      "itemIds": ["item_kur", "item_mbaron", "item_trening", "item_kam_me_kane", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Wenn das Training vorbei ist, werde ich müde sein." },
+      "answerLang": "sq",
+      "solutions": ["Kur mbaron treningu, kam me kânë i lodhun.", "Kur mbaron treningu, kam me kânë e lodhun.", "Kam me kânë i lodhun kur mbaron treningu.", "Kam me kânë e lodhun kur mbaron treningu."],
+      "standardForms": ["Kur mbaron treningu, do të jem i lodhur.", "Kur mbaron treningu, do të jem e lodhur.", "Kur mbaron treningu, kam me kânë i lodhur.", "Kur mbaron treningu, kam me kânë e lodhur."],
+      "explanation": "„Kam me kânë“ heisst „ich werde sein“. Das Adjektiv richtet sich nach dir: „i lodhun“ (Mann) oder „e lodhun“ (Frau).",
+      "errorHints": [
+        { "pattern": "(^|\\s)fillon(\\s|$)", "category": "vocab.confused", "hint": "„Fillon“ heisst „beginnt“. Endet: „mbaron“." },
+        { "pattern": "(^|\\s)jam [ie] lodhun", "category": "grammar.verb_tense", "hint": "„Jam i lodhun“ ist Gegenwart. Ich werde sein: „kam me kânë“." },
+        { "pattern": "kam me k[aâ]n[eë] lodhun", "category": "grammar.linking_article", "hint": "Das Adjektiv braucht „i“ oder „e“: „i lodhun“, „e lodhun“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_045",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.sport"],
+      "itemIds": ["item_luaj", "item_ma_mire", "item_ma_se"],
+      "prompt": { "lang": "de", "text": "Arta spielt besser als Blerim." },
+      "answerLang": "sq",
+      "text": "Arta luan ___ mirë se Blerimi.",
+      "solutions": ["ma"],
+      "standardForms": ["më"],
+      "explanation": "„Ma mirë“ heisst „besser“ (Standard: „më mirë“). Danach folgt „se“ – als.",
+      "errorHints": [
+        { "pattern": "^aq$", "category": "vocab.confused", "hint": "„Aq … sa“ heisst „so … wie“. Besser als: „ma mirë se“." },
+        { "pattern": "^shum[eë]$", "category": "vocab.confused", "hint": "„Shumë mirë“ heisst „sehr gut“. Besser: „ma mirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_046",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "phrase.plans"],
+      "itemIds": ["item_don", "item_me_ardhe", "item_me_mu", "item_stadium", "item_te_dielen"],
+      "prompt": { "lang": "sq", "text": "A don me ardhë me mu në stadium të dielën?" },
+      "answerLang": "de",
+      "solutions": ["Willst du am Sonntag mit mir ins Stadion kommen?", "Willst du mit mir am Sonntag ins Stadion kommen?"],
+      "wordBank": ["Willst", "du", "am", "Sonntag", "mit", "mir", "ins", "Stadion", "kommen", "Kannst", "Samstag", "uns"],
+      "explanation": "„A don me …?“ heisst „Willst du …?“. „Me mu“ heisst „mit mir“ (Standard: „me mua“).",
+      "errorHints": [
+        { "pattern": "kannst", "category": "vocab.confused", "hint": "„Kannst du“ hiesse „a mundesh“. „A don“ heisst „willst du“." },
+        { "pattern": "samstag", "category": "vocab.confused", "hint": "„Të dielën“ heisst „am Sonntag“." },
+        { "pattern": "(^|\\s)uns(\\s|$)", "category": "vocab.confused", "hint": "„Mit uns“ hiesse „me ne“. „Me mu“ heisst „mit mir“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_047",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement", "vocab.sport"],
+      "itemIds": ["item_lojtar", "item_ma_i_ftohti", "item_i_mire", "item_ekip"],
+      "prompt": { "lang": "de", "text": "Arta ist die beste Spielerin im Team." },
+      "answerLang": "sq",
+      "text": "Arta âsht ___ ma e mirë në ekip.",
+      "choices": ["lojtarja", "lojtari", "lojtare", "lojtarët"],
+      "solutions": ["lojtarja"],
+      "explanation": "Beim Superlativ steht das Nomen bestimmt: „lojtarja ma e mirë“ – die beste Spielerin. „Lojtare“ ist feminin, darum „e mirë“.",
+      "errorHints": [
+        { "pattern": "^lojtari$", "category": "grammar.gender", "hint": "„Lojtari“ ist der Spieler (maskulin). Arta ist „lojtarja“." },
+        { "pattern": "^lojtare$", "category": "grammar.definite_article", "hint": "Beim Superlativ steht das Nomen bestimmt: „lojtarja ma e mirë“." },
+        { "pattern": "^lojtar[eë]t$", "category": "grammar.definite_article", "hint": "„Lojtarët“ heisst „die Spieler“ (Mehrzahl)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_048",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "grammar.verbs.future"],
+      "itemIds": ["item_kur", "item_mbaron", "item_ndeshje", "item_kam_me", "item_clitic_te", "item_therras"],
+      "prompt": { "lang": "de", "text": "Wenn das Match vorbei ist, werde ich dich anrufen." },
+      "answerLang": "sq",
+      "tokens": ["Kur", "mbaron", "ndeshja", "kam", "me", "të", "thirrë"],
+      "solutions": ["Kur mbaron ndeshja, kam me të thirrë.", "Kam me të thirrë kur mbaron ndeshja."],
+      "explanation": "„Thirrë“ ist das Gheg-Partizip von „thërras“ (anrufen). Die Kurzform „të“ steht zwischen „me“ und „thirrë“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „thirrë“ (von „thërras“, Standard: thirrur) nach der Regel -ur → -ë – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_049",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_nji", "item_dite", "item_i_bukur"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „ein schöner Tag“?" },
+      "choices": ["nji ditë e bukur", "nji ditë i bukur", "nji ditë të bukur", "nji ditë bukur"],
+      "solutions": ["nji ditë e bukur"],
+      "explanation": "„Ditë“ ist feminin, darum steht „e“: „nji ditë e bukur“.",
+      "errorHints": [
+        { "pattern": "dit[eë] i bukur", "category": "grammar.gender", "hint": "„Ditë“ ist feminin: „e bukur“." },
+        { "pattern": "dit[eë] t[eë] bukur", "category": "grammar.linking_article", "hint": "Hier steht „e“: „nji ditë e bukur“." },
+        { "pattern": "dit[eë] bukur$", "category": "grammar.linking_article", "hint": "Das Adjektiv braucht den Verbindungsartikel: „e bukur“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_050",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.weather", "vocab.nature"],
+      "itemIds": ["item_bjeshke", "item_ma_se", "item_fresket", "item_qytet"],
+      "prompt": { "lang": "de", "text": "In den Bergen ist es kühler als in der Stadt." },
+      "answerLang": "sq",
+      "solutions": ["Në bjeshkë âsht ma freskët se në qytet.", "Âsht ma freskët në bjeshkë se në qytet."],
+      "wordBank": ["Në", "bjeshkë", "âsht", "ma", "freskët", "se", "në", "qytet", "sa", "nxehtë", "det"],
+      "explanation": "„Ma freskët se“ heisst „kühler als“. Ohne Nomen steht kein Verbindungsartikel: „âsht freskët“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)sa(\\s|$)", "category": "vocab.confused", "hint": "Nach „ma …“ steht „se“ (als)." },
+        { "pattern": "nxeht", "category": "vocab.confused", "hint": "„Nxehtë“ heisst „heiss“. Kühl: „freskët“." },
+        { "pattern": "(^|\\s)det(\\s|$)", "category": "vocab.confused", "hint": "„Det“ ist das Meer. Stadt: „qytet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_051",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement"],
+      "itemIds": ["item_aq_sa", "item_i_bukur"],
+      "prompt": { "lang": "de", "text": "Peja ist so schön wie Prizren." },
+      "answerLang": "sq",
+      "solutions": ["Peja âsht aq e bukur sa Prizreni.", "Peja âsht aq e bukur sa Prizren."],
+      "standardForms": ["Peja është aq e bukur sa Prizreni."],
+      "explanation": "„Aq … sa“ heisst „so … wie“. „Peja“ ist feminin, darum „e bukur“.",
+      "errorHints": [
+        { "pattern": "aq [ie] bukur se", "category": "vocab.confused", "hint": "Zu „aq“ gehört „sa“: „aq … sa“ (so … wie)." },
+        { "pattern": "peja [aâ]sht aq i bukur", "category": "grammar.gender", "hint": "„Peja“ ist feminin: „e bukur“." },
+        { "pattern": "ma e bukur", "category": "vocab.confused", "hint": "„Ma e bukur“ heisst „schöner“. So schön wie: „aq e bukur sa“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_052",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.seasons"],
+      "itemIds": ["item_dimen", "item_zvicer", "item_ma_se", "item_i_gjate", "item_kosove"],
+      "prompt": { "lang": "de", "text": "Der Winter in der Schweiz ist länger als in Kosovo." },
+      "answerLang": "sq",
+      "text": "Dimni në Zvicër âsht ma i gjatë ___ në Kosovë.",
+      "solutions": ["se"],
+      "explanation": "Nach „ma …“ folgt „se“ – als. „Dimni“ (Standard: „dimri“) ist maskulin: „ma i gjatë“.",
+      "errorHints": [
+        { "pattern": "^sa$", "category": "vocab.confused", "hint": "„Sa“ gehört zu „aq … sa“. Nach „ma …“ steht „se“." },
+        { "pattern": "^si$", "category": "vocab.confused", "hint": "„Si“ heisst „wie“. Beim Vergleich: „se“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_053",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "grammar.plural", "vocab.sport"],
+      "itemIds": ["item_lojtar", "item_jane", "item_i_lodhun"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Die Spieler sind müde.“?" },
+      "choices": ["Lojtarët janë të lodhun.", "Lojtarët janë i lodhun.", "Lojtarët âsht të lodhun.", "Lojtari âsht të lodhun."],
+      "solutions": ["Lojtarët janë të lodhun."],
+      "explanation": "In der Mehrzahl steht „të“: „Lojtarët janë të lodhun.“ (Standard: „të lodhur“).",
+      "errorHints": [
+        { "pattern": "jan[eë] i lodhun", "category": "grammar.gender", "hint": "In der Mehrzahl steht „të“: „të lodhun“." },
+        { "pattern": "lojtar[eë]t [aâ]sht", "category": "grammar.verb_conjugation", "hint": "Bei der Mehrzahl steht „janë“." },
+        { "pattern": "^lojtari", "category": "grammar.definite_article", "hint": "„Lojtari“ ist „der Spieler“ (Einzahl). Die Spieler: „lojtarët“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_054",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement", "vocab.seasons"],
+      "itemIds": ["item_pranvere", "item_stine", "item_ma_i_ftohti", "item_i_bukur"],
+      "prompt": { "lang": "de", "text": "Der Frühling ist die schönste Jahreszeit." },
+      "answerLang": "sq",
+      "tokens": ["Pranvera", "âsht", "stina", "ma", "e", "bukur"],
+      "solutions": ["Pranvera âsht stina ma e bukur.", "Stina ma e bukur âsht pranvera."],
+      "explanation": "Der Superlativ: bestimmtes Nomen + „ma“ + Adjektiv: „stina ma e bukur“ – die schönste Jahreszeit.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_055",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_mot", "item_i_keq", "item_dite", "item_i_ngrohte", "item_supe", "item_i_ftohte", "item_caj", "item_i_nxehte", "item_akullore", "item_i_ambel"],
+      "prompt": { "lang": "de", "text": "Ordne zu." },
+      "pairs": [
+        { "left": "moti i keq", "right": "das schlechte Wetter" },
+        { "left": "dita e ngrohtë", "right": "der warme Tag" },
+        { "left": "supa e ftohtë", "right": "die kalte Suppe" },
+        { "left": "çaji i nxehtë", "right": "der heisse Tee" },
+        { "left": "akullorja e âmbël", "right": "die süsse Glace" }
+      ],
+      "explanation": "Maskuline Nomen haben „i“ (moti i keq), feminine „e“ (dita e ngrohtë). „Âmbël“ schreibt man mit „â“ (Standard: „ëmbël“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_056",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement", "grammar.demonstratives"],
+      "itemIds": ["item_ky", "item_restorant", "item_ma_i_ftohti", "item_i_mire"],
+      "prompt": { "lang": "de", "text": "Das ist das beste Restaurant in Prizren." },
+      "answerLang": "sq",
+      "solutions": ["Ky âsht restoranti ma i mirë në Prizren.", "Ky restorant âsht ma i miri në Prizren."],
+      "standardForms": ["Ky është restoranti më i mirë në Prizren."],
+      "explanation": "Beim Superlativ steht das Nomen bestimmt: „restoranti ma i mirë“ – das beste Restaurant (Standard: „më i mirë“).",
+      "errorHints": [
+        { "pattern": "restorant ma i", "category": "grammar.definite_article", "hint": "Beim Superlativ steht das Nomen bestimmt: „restoranti ma i mirë“." },
+        { "pattern": "ma e mir", "category": "grammar.gender", "hint": "„Restoranti“ ist maskulin: „ma i mirë“." },
+        { "pattern": "(^|\\s)kjo(\\s|$)", "category": "grammar.gender", "hint": "„Restorant“ ist maskulin: „ky“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_057",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement", "vocab.food"],
+      "itemIds": ["item_byrek", "item_ma_se", "item_i_lire", "item_tave", "item_i_shtrenjte"],
+      "prompt": { "lang": "de", "text": "Der Burek ist billiger als die Tavë." },
+      "answerLang": "sq",
+      "text": "Byreku âsht ma i ___ se tava.",
+      "choices": ["lirë", "shtrenjtë", "lira", "liri"],
+      "solutions": ["lirë"],
+      "explanation": "„Ma i lirë se“ heisst „billiger als“. „Byreku“ ist maskulin, darum „i lirë“.",
+      "errorHints": [
+        { "pattern": "^shtrenjt", "category": "vocab.confused", "hint": "„Ma i shtrenjtë“ heisst „teurer“." },
+        { "pattern": "^lira$", "category": "grammar.gender", "hint": "„Byreku“ ist maskulin: „i lirë“." },
+        { "pattern": "^liri$", "category": "grammar.definite_article", "hint": "Hier steht das Adjektiv unbestimmt: „ma i lirë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_058",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.comparison", "vocab.sport"],
+      "itemIds": ["item_me_vrapue", "item_shpejt", "item_ma_se", "item_une"],
+      "prompt": { "lang": "sq", "text": "Blerimi vrapon ma shpejt se unë." },
+      "answerLang": "de",
+      "solutions": ["Blerim läuft schneller als ich."],
+      "wordBank": ["Blerim", "läuft", "schneller", "als", "ich", "langsamer", "wie", "du"],
+      "explanation": "„Ma shpejt se“ heisst „schneller als“. „Vrapon“ kommt von „me vrapue“ – laufen.",
+      "errorHints": [
+        { "pattern": "langsamer", "category": "vocab.confused", "hint": "„Langsamer“ hiesse „ma ngadalë“." },
+        { "pattern": "(^|\\s)wie(\\s|$)", "category": "vocab.confused", "hint": "„Se“ heisst beim Vergleich „als“." },
+        { "pattern": "(^|\\s)du(\\s|$)", "category": "vocab.confused", "hint": "„Unë“ heisst „ich“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_059",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "grammar.comparison"],
+      "itemIds": ["item_clitic_ma", "item_jep", "item_cader", "item_ma_se", "item_ma_mire", "item_ndihem", "item_ska_ma"],
+      "prompt": { "lang": "de", "text": "In welchem Satz heisst „ma“ „mir es“?" },
+      "choices": ["Ma jep çadrën!", "Sot âsht ma ftohtë.", "Ndihem ma mirë.", "S'ka ma byrek."],
+      "solutions": ["Ma jep çadrën!"],
+      "explanation": "In „Ma jep çadrën!“ ist „ma“ = „më“ + „e“: Gib mir den Schirm! Sonst heisst „ma“ im Gheg „mehr“.",
+      "errorHints": [
+        { "pattern": "ma ftoht", "category": "vocab.confused", "hint": "Hier heisst „ma“ „mehr“: „ma ftohtë“ – kälter." },
+        { "pattern": "ma mir", "category": "vocab.confused", "hint": "Hier heisst „ma“ „mehr“: „ma mirë“ – besser." },
+        { "pattern": "ska ma", "category": "vocab.confused", "hint": "„S'ka ma“ heisst „es hat keinen mehr“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_060",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "vocab.weather"],
+      "itemIds": ["item_ere", "item_i_forte", "item_shi"],
+      "prompt": { "lang": "de", "text": "Der Wind ist stark und der Regen ist stark." },
+      "answerLang": "sq",
+      "text": "Era âsht e fortë dhe shiu âsht ___ fortë.",
+      "solutions": ["i"],
+      "explanation": "„Era“ ist feminin (e fortë), „shiu“ ist maskulin: „i fortë“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.gender", "hint": "„Shiu“ ist maskulin: „i fortë“." },
+        { "pattern": "^t[eë]$", "category": "grammar.linking_article", "hint": "„Të“ steht in der Mehrzahl. Hier: „i fortë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_061",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "grammar.verbs.future"],
+      "itemIds": ["item_kam_me", "item_clitic_te", "item_therras", "item_sonte", "item_clitic_me", "item_clitic_e"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ich werde dich heute Abend anrufen.“?" },
+      "choices": ["Kam me të thirrë sonte.", "Kam me më thirrë sonte.", "Kam me e thirrë sonte.", "Kam me të thirrë nesër."],
+      "solutions": ["Kam me të thirrë sonte."],
+      "explanation": "Die Kurzform „të“ (dich) steht zwischen „me“ und „thirrë“. „Sonte“ heisst „heute Abend“.",
+      "errorHints": [
+        { "pattern": "me m[eë] thirr", "category": "grammar.clitics", "hint": "„Më“ heisst „mich“. Dich: „të“." },
+        { "pattern": "me e thirr", "category": "grammar.clitics", "hint": "„E“ heisst „ihn, sie“. Dich: „të“." },
+        { "pattern": "nes[eë]r", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“. Heute Abend: „sonte“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „thirrë“ (von „thërras“, Standard: thirrur) nach der Regel -ur → -ë – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_062",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "grammar.verbs.future"],
+      "itemIds": ["item_film", "item_kam_me_pa", "item_clitic_e", "item_te_dielen"],
+      "prompt": { "lang": "de", "text": "Den Film werde ich am Sonntag anschauen." },
+      "answerLang": "sq",
+      "solutions": ["Filmin kam me e pa të dielën.", "Kam me e pa filmin të dielën.", "Të dielën kam me e pa filmin."],
+      "wordBank": ["Filmin", "kam", "me", "e", "pa", "të", "dielën", "ta", "shoh", "shtunën"],
+      "explanation": "„Filmin“ ist bestimmt, darum wird er mit „e“ wiederholt: „kam me e pa“. „Pa“ ist das Partizip von „shoh“ (sehen).",
+      "errorHints": [
+        { "pattern": "me ta pa", "category": "grammar.clitics", "hint": "„Ta“ heisst „dir es“. Den Film (ihn): „e“." },
+        { "pattern": "(^|\\s)shoh(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me pa“." },
+        { "pattern": "shtun", "category": "vocab.confused", "hint": "„Të shtunën“ heisst „am Samstag“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_063",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_mundesh", "item_clitic_me", "item_me_ndihmue"],
+      "prompt": { "lang": "de", "text": "Kannst du mir helfen?" },
+      "answerLang": "sq",
+      "solutions": ["A mundesh me më ndihmue?", "Mundesh me më ndihmue?"],
+      "standardForms": ["A mund të më ndihmosh?", "Mund të më ndihmosh?", "A mundesh të më ndihmosh?"],
+      "explanation": "Beim Gheg-Infinitiv steht die Kurzform zwischen „me“ und dem Partizip: „me më ndihmue“. Standard: „a mund të më ndihmosh?“",
+      "errorHints": [
+        { "pattern": "mundesh me ndihmue", "category": "grammar.clitics", "hint": "„Mir“ fehlt: „me më ndihmue“." },
+        { "pattern": "m[eë] mundesh", "category": "grammar.clitics", "hint": "Die Kurzform steht zwischen „me“ und dem Partizip: „a mundesh me më ndihmue?“" },
+        { "pattern": "me (m[eë] )?ndihmo(j|n|sh)?(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „ndihmue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_064",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "grammar.verbs.future"],
+      "itemIds": ["item_clitic_ia", "item_kam_me", "item_me_dhane", "item_neser"],
+      "prompt": { "lang": "de", "text": "Ich werde es ihr morgen geben." },
+      "answerLang": "sq",
+      "text": "Nesër kam me ___ dhânë.",
+      "choices": ["ia", "ta", "ma", "jua"],
+      "solutions": ["ia"],
+      "explanation": "„Ia“ ist „i“ (ihr, ihm) + „e“ (es). Es steht zwischen „me“ und „dhânë“.",
+      "errorHints": [
+        { "pattern": "^ta$", "category": "grammar.clitics", "hint": "„Ta“ heisst „dir es“." },
+        { "pattern": "^ma$", "category": "grammar.clitics", "hint": "„Ma“ heisst „mir es“." },
+        { "pattern": "^jua$", "category": "grammar.clitics", "hint": "„Jua“ heisst „euch es“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_065",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_duhet", "item_clitic_e", "item_me_pague", "item_llogari"],
+      "prompt": { "lang": "de", "text": "Ich muss die Rechnung bezahlen." },
+      "answerLang": "sq",
+      "tokens": ["Më", "duhet", "me", "e", "pagu", "llogarinë"],
+      "solutions": ["Më duhet me e pagu llogarinë.", "Llogarinë më duhet me e pagu."],
+      "explanation": "Das bestimmte Objekt „llogarinë“ wird mit „e“ wiederholt – zwischen „me“ und „pagu“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_066",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.wishes"],
+      "itemIds": ["item_pushime_te_mbara", "item_sherim_te_shpejte", "item_ju_befte_mire", "item_urime"],
+      "prompt": { "lang": "de", "text": "Deine Freunde fahren in die Ferien. Was wünschst du ihnen?" },
+      "choices": ["Pushime të mbara!", "Shërim të shpejtë!", "Ju bëftë mirë!", "Urime!"],
+      "solutions": ["Pushime të mbara!"],
+      "explanation": "„Pushime të mbara!“ heisst „Schöne Ferien!“.",
+      "errorHints": [
+        { "pattern": "sh[eë]rim", "category": "vocab.confused", "hint": "„Shërim të shpejtë!“ heisst „Gute Besserung!“." },
+        { "pattern": "b[eë]ft[eë]", "category": "vocab.confused", "hint": "„Ju bëftë mirë!“ heisst „En Guete!“ (zu mehreren)." },
+        { "pattern": "urime", "category": "vocab.confused", "hint": "„Urime!“ heisst „Gratuliere!“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_067",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "grammar.verbs.future"],
+      "itemIds": ["item_kemi", "item_kam_me", "item_clitic_ju", "item_me_prite", "item_restorant", "item_ore", "item_tete"],
+      "prompt": { "lang": "de", "text": "Wir werden um acht im Restaurant auf euch warten." },
+      "answerLang": "sq",
+      "solutions": ["Kemi me ju pritë në restorant në orën tetë.", "Kena me ju pritë në restorant në orën tetë.", "Kemi me ju pritë në orën tetë në restorant.", "Kena me ju pritë në orën tetë në restorant.", "Në orën tetë kemi me ju pritë në restorant.", "Në orën tetë kena me ju pritë në restorant."],
+      "standardForms": ["Do t'ju presim në restorant në orën tetë.", "Do të ju presim në restorant në orën tetë."],
+      "explanation": "„Ju“ (euch) steht zwischen „me“ und „pritë“: „kemi me ju pritë“ – wir werden auf euch warten.",
+      "errorHints": [
+        { "pattern": "me ju pres", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ju pritë“." },
+        { "pattern": "(kemi|kena) me prit", "category": "grammar.clitics", "hint": "„Euch“ fehlt: „kemi me ju pritë“." },
+        { "pattern": "me na prit", "category": "grammar.clitics", "hint": "„Na“ heisst „uns“. Euch: „ju“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_068",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "grammar.verbs.future"],
+      "itemIds": ["item_kam_me", "item_clitic_te", "item_therras", "item_clitic_ta", "item_trego", "item_clitic_ia", "item_me_dhane", "item_clitic_ju", "item_me_prite", "item_clitic_e", "item_me_pague"],
+      "prompt": { "lang": "de", "text": "Ordne die Pläne zu." },
+      "pairs": [
+        { "left": "Kam me të thirrë.", "right": "Ich werde dich anrufen." },
+        { "left": "Kam me ta tregue.", "right": "Ich werde es dir erzählen." },
+        { "left": "Kam me ia dhânë.", "right": "Ich werde es ihm geben." },
+        { "left": "Kam me ju pritë.", "right": "Ich werde auf euch warten." },
+        { "left": "Kam me e pagu.", "right": "Ich werde es bezahlen." }
+      ],
+      "explanation": "In der Zukunft steht die Kurzform immer zwischen „me“ und dem Partizip: „kam me ta tregue“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „thirrë“ (von „thërras“, Standard: thirrur) nach der Regel -ur → -ë – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_069",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "grammar.comparison", "vocab.seasons"],
+      "itemIds": ["item_clitic_te", "item_pelqen", "item_dimen", "item_ma_shume", "item_vere"],
+      "prompt": { "lang": "de", "text": "Gefällt dir der Winter mehr als der Sommer?" },
+      "answerLang": "sq",
+      "text": "A ___ pëlqen dimni ma shumë se vera?",
+      "solutions": ["të"],
+      "explanation": "„Të pëlqen“ heisst „dir gefällt“. „Vera“ ist im Gheg der Sommer – der Wein heisst „vena“.",
+      "errorHints": [
+        { "pattern": "^m[eë]$", "category": "grammar.clitics", "hint": "„Më pëlqen“ heisst „mir gefällt“. Dir: „të“." },
+        { "pattern": "^i$", "category": "grammar.clitics", "hint": "„I pëlqen“ heisst „ihm/ihr gefällt“. Dir: „të“." },
+        { "pattern": "^ju$", "category": "grammar.clitics", "hint": "„Ju pëlqen“ heisst „euch gefällt“. Dir: „të“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_070",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.clitics", "grammar.verbs.future", "grammar.verbs.modal"],
+      "itemIds": ["item_nese", "item_don", "item_kam_me", "item_clitic_ta", "item_trego", "item_recete"],
+      "prompt": { "lang": "sq", "text": "Nëse don, kam me ta tregue recetën." },
+      "answerLang": "de",
+      "solutions": ["Wenn du willst, werde ich dir das Rezept zeigen."],
+      "wordBank": ["Wenn", "du", "willst", "werde", "ich", "dir", "das", "Rezept", "zeigen", "mir", "kannst", "ihm"],
+      "explanation": "„Ta“ = „të“ (dir) + „e“ (es): „kam me ta tregue“ – ich werde es dir zeigen. „Nëse don“ heisst „wenn du willst“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)mir(\\s|$)", "category": "grammar.clitics", "hint": "„Ta“ heisst „dir es“. Mir es wäre „ma“." },
+        { "pattern": "kannst", "category": "vocab.confused", "hint": "„Don“ heisst „du willst“." },
+        { "pattern": "(^|\\s)ihm(\\s|$)", "category": "grammar.clitics", "hint": "Ihm es wäre „ia“. „Ta“ heisst „dir es“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_071",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "grammar.clitics", "grammar.verbs.future"],
+      "itemIds": ["item_mesazh", "item_neser", "item_kam_me", "item_clitic_ta", "item_me_dhane", "item_liber", "item_mundesh", "item_clitic_me", "item_me_prite", "item_kafene", "item_ore", "item_dhjete", "item_nese", "item_bie_shi", "item_takohemi", "item_brenda", "item_me_pague"],
+      "prompt": { "lang": "sq", "text": "Mesazh prej Artës:\nBesa, nesër kam me ta dhânë librin. A mundesh me më pritë te kafeneja në orën dhjetë? Nëse bie shi, takohemi brenda. Kafen kam me ta pagu unë!\n\nFrage: Wo treffen sich die beiden, wenn es regnet?" },
+      "choices": ["Drinnen im Café.", "Draussen vor dem Café.", "Bei Besa zu Hause.", "Beim Stadion."],
+      "solutions": ["Drinnen im Café."],
+      "explanation": "„Nëse bie shi, takohemi brenda“ – wenn es regnet, treffen wir uns drinnen. „Kafen kam me ta pagu“ – den Kaffee werde ich dir bezahlen.",
+      "errorHints": [
+        { "pattern": "draussen", "category": "vocab.confused", "hint": "„Brenda“ heisst „drinnen“; draussen wäre „jashtë“." },
+        { "pattern": "zu hause", "category": "vocab.confused", "hint": "Arta wartet „te kafeneja“ – beim Café." },
+        { "pattern": "stadion", "category": "vocab.confused", "hint": "Vom Stadion ist nicht die Rede. Sie treffen sich „te kafeneja“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_072",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.clitics"],
+      "itemIds": ["item_clitic_te", "item_pres", "item_te_bei", "item_kafene"],
+      "prompt": { "lang": "de", "text": "Ich warte beim Café auf dich." },
+      "answerLang": "sq",
+      "tokens": ["Të", "pres", "te", "kafeneja"],
+      "solutions": ["Të pres te kafeneja."],
+      "explanation": "Achtung: „të“ (dich) und „te“ (bei) klingen gleich. „Të pres te kafeneja“ – ich warte beim Café auf dich.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_073",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "grammar.comparison", "phrase.ordering"],
+      "itemIds": ["item_mirembrama", "item_a_ka_vend", "item_per_sa_veta", "item_kater", "item_clitic_jua", "item_bje", "item_menu", "item_cka_na_rekomandoni", "item_tave", "item_i_shijshem", "item_byrek", "item_ma_se", "item_i_lire"],
+      "prompt": { "lang": "sq", "text": "– Mirëmbrâma! A ka vend për katër veta?\n– Po. A jua bje menunë?\n– Po, ju lutem. Çka na rekomandoni?\n– Tava âsht shumë e shijshme, po byreku âsht ma i lirë.\n\nFrage: Was ist laut Kellner günstiger?" },
+      "choices": ["Der Burek.", "Die Tavë.", "Die Speisekarte.", "Die Qebape."],
+      "solutions": ["Der Burek."],
+      "explanation": "„Byreku âsht ma i lirë“ – der Burek ist billiger. Die Tavë ist „shumë e shijshme“ – sehr lecker.",
+      "errorHints": [
+        { "pattern": "tav", "category": "vocab.confused", "hint": "Die Tavë ist „shumë e shijshme“ – sehr lecker, aber nicht billiger." },
+        { "pattern": "speisekarte", "category": "vocab.confused", "hint": "Die Speisekarte bringt der Kellner nur: „A jua bje menunë?“" },
+        { "pattern": "qebape", "category": "vocab.confused", "hint": "Von Qebape ist nicht die Rede." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„mirëmbrâma“ mit â laut Sprachrichtlinie zu prüfen. „po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_074",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "phrase.plans"],
+      "itemIds": ["item_vitin_tjeter", "item_du", "item_udhetoj", "item_zvicer", "item_ose", "item_gjermani", "item_kisha_dashte"],
+      "prompt": { "lang": "de", "text": "Nächstes Jahr möchte ich in die Schweiz oder nach Deutschland reisen." },
+      "answerLang": "sq",
+      "solutions": ["Vitin tjetër du me udhëtue në Zvicër ose në Gjermani.", "Vitin tjetër due me udhëtue në Zvicër ose në Gjermani.", "Du me udhëtue në Zvicër ose në Gjermani vitin tjetër.", "Due me udhëtue në Zvicër ose në Gjermani vitin tjetër.", "Vitin tjetër kisha dashtë me udhëtue në Zvicër ose në Gjermani."],
+      "standardForms": ["Vitin tjetër dua të udhëtoj në Zvicër ose në Gjermani.", "Dua të udhëtoj në Zvicër ose në Gjermani vitin tjetër."],
+      "explanation": "„Du me udhëtue“ – ich möchte reisen (Standard: „dua të udhëtoj“). „Ose“ heisst „oder“.",
+      "errorHints": [
+        { "pattern": "me udh[eë]to(j|n)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me udhëtue“." },
+        { "pattern": "(^|\\s)vjet(\\s|$)", "category": "vocab.confused", "hint": "„Vjet“ heisst „letztes Jahr“. Nächstes Jahr: „vitin tjetër“." },
+        { "pattern": "(^|\\s)kam me udh", "category": "grammar.verb_tense", "hint": "„Kam me udhëtue“ heisst „ich werde reisen“. Ich möchte: „du me udhëtue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kisha dashtë me“ + Partizip (ich möchte …) als Erweiterung des bestätigten „kisha dashtë …“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_075",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather", "grammar.verbs.imperative"],
+      "itemIds": ["item_vishu_mire", "item_sot", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Zieh dich warm an, heute ist es kalt!" },
+      "answerLang": "sq",
+      "solutions": ["Vishu mirë, sot âsht ftohtë!", "Sot âsht ftohtë, vishu mirë!"],
+      "wordBank": ["Vishu", "mirë", "sot", "âsht", "ftohtë", "nxehtë", "nesër", "vish"],
+      "explanation": "„Vishu mirë!“ heisst „Zieh dich warm an!“. Ohne Nomen steht „ftohtë“ ohne Artikel: „Âsht ftohtë.“",
+      "errorHints": [
+        { "pattern": "nxeht", "category": "vocab.confused", "hint": "„Nxehtë“ heisst „heiss“. Kalt: „ftohtë“." },
+        { "pattern": "nes[eë]r", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“. Heute: „sot“." },
+        { "pattern": "(^|\\s)vish(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Vish!“ heisst „zieh (etwas) an!“. Zieh dich an: „vishu!“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_076",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.future", "phrase.plans"],
+      "itemIds": ["item_kam_me", "item_ke", "item_me_ba", "item_fundjave"],
+      "prompt": { "lang": "de", "text": "Was wirst du am Wochenende machen?" },
+      "answerLang": "sq",
+      "text": "Çka ___ me bâ në fundjavë?",
+      "choices": ["ke", "kam", "ka", "keni"],
+      "solutions": ["ke"],
+      "explanation": "Du wirst: „ke me“ + Partizip. „Çka ke me bâ?“ – Was wirst du machen?",
+      "errorHints": [
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„Kam me“ heisst „ich werde“. Du wirst: „ke me“." },
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Ka me“ heisst „er/sie wird“." },
+        { "pattern": "^keni$", "category": "grammar.verb_conjugation", "hint": "„Keni me“ heisst „ihr werdet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_077",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans", "vocab.time"],
+      "itemIds": ["item_sonte", "item_pasneser", "item_javen_tjeter", "item_vitin_tjeter", "item_ma_vone"],
+      "prompt": { "lang": "de", "text": "Ordne die Zeitangaben zu." },
+      "pairs": [
+        { "left": "sonte", "right": "heute Abend" },
+        { "left": "pasnesër", "right": "übermorgen" },
+        { "left": "javën tjetër", "right": "nächste Woche" },
+        { "left": "vitin tjetër", "right": "nächstes Jahr" },
+        { "left": "ma vonë", "right": "später" }
+      ],
+      "explanation": "Mit diesen Zeitangaben sprichst du über Pläne: „Javën tjetër kam me udhëtue.“ „Ma vonë“ heisst im Standard „më vonë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_078",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "grammar.adjective_agreement", "vocab.weather"],
+      "itemIds": ["item_nese", "item_mot", "item_i_mire", "item_kemi", "item_kam_me_ngrane", "item_jashte"],
+      "prompt": { "lang": "de", "text": "Wenn das Wetter schön ist, werden wir draussen essen." },
+      "answerLang": "sq",
+      "tokens": ["Nëse", "moti", "âsht", "i", "mirë", "kemi", "me", "ngrânë", "jashtë"],
+      "solutions": ["Nëse moti âsht i mirë, kemi me ngrânë jashtë.", "Kemi me ngrânë jashtë nëse moti âsht i mirë."],
+      "explanation": "„Moti“ ist maskulin: „moti i mirë“. „Me ngrânë“ ist der Gheg-Infinitiv von „ha“ (essen).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_079",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "grammar.comparison", "grammar.verbs.modal"],
+      "itemIds": ["item_neser", "item_kam_me_kane", "item_ma_se", "item_i_ftohte", "item_duhet", "item_me_veshe", "item_pallto"],
+      "prompt": { "lang": "de", "text": "Morgen wird es kälter sein, du musst den Mantel anziehen." },
+      "answerLang": "sq",
+      "solutions": ["Nesër ka me kânë ma ftohtë, duhet me veshë pallton.", "Nesër ka me kânë ma ftohtë, të duhet me veshë pallton.", "Nesër ka me kânë ma ftohtë, duhet me e veshë pallton.", "Nesër ka me kânë ma ftohtë, të duhet me e veshë pallton."],
+      "standardForms": ["Nesër do të jetë më ftohtë, duhet të veshësh pallton.", "Nesër do të bëjë më ftohtë, duhet të veshësh pallton."],
+      "explanation": "„Ka me kânë ma ftohtë“ – es wird kälter sein. Nach „duhet“ folgt „me veshë“ (anziehen).",
+      "errorHints": [
+        { "pattern": "ma ngroht", "category": "vocab.confused", "hint": "„Ma ngrohtë“ heisst „wärmer“. Kälter: „ma ftohtë“." },
+        { "pattern": "xhaket", "category": "vocab.confused", "hint": "„Xhaketë“ ist die Jacke. Mantel: „pallto“." },
+        { "pattern": "me vesh pallton", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me veshë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „veshë“ (Standard: veshur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_080",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.infinitive_me", "grammar.verbs.future", "grammar.clitics"],
+      "itemIds": ["item_kam_me", "item_clitic_te", "item_me_shkrue", "item_mesazh"],
+      "prompt": { "lang": "de", "text": "Ich werde dir eine Nachricht schreiben." },
+      "answerLang": "sq",
+      "text": "Kam me të ___ nji mesazh.",
+      "solutions": ["shkrue"],
+      "standardForms": ["shkruar"],
+      "explanation": "Nach „me“ steht das kurze Gheg-Partizip: „shkrue“ (Standard: „shkruar“).",
+      "errorHints": [
+        { "pattern": "^shkruaj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „shkrue“." },
+        { "pattern": "^shkruan$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „shkrue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_081",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["reading.short_texts", "grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_parashikimi_i_motit", "item_sot", "item_bie_shi", "item_i_ftohte", "item_neser", "item_kam_me_kane", "item_ma_se", "item_i_ngrohte", "item_ka_me_pase", "item_diell", "item_pasneser", "item_vranet", "item_liqen"],
+      "prompt": { "lang": "sq", "text": "Parashikimi i motit: Sot në Prishtinë bie shi dhe âsht ftohtë. Nesër ka me kânë ma ngrohtë dhe ka me pasë diell. Pasnesër ka me kânë vranët.\n\nFrage: Welcher Tag passt am besten für einen Ausflug an den See?" },
+      "choices": ["Morgen.", "Heute.", "Übermorgen.", "Keiner."],
+      "solutions": ["Morgen."],
+      "explanation": "„Nesër ka me kânë ma ngrohtë dhe ka me pasë diell“ – morgen wird es wärmer und sonnig.",
+      "errorHints": [
+        { "pattern": "heute", "category": "vocab.confused", "hint": "Heute regnet es, und es ist kalt: „bie shi dhe âsht ftohtë“." },
+        { "pattern": "[uü]bermorgen", "category": "vocab.confused", "hint": "Übermorgen wird es bewölkt: „ka me kânë vranët“." },
+        { "pattern": "keiner", "category": "vocab.confused", "hint": "Morgen wird es sonnig: „ka me pasë diell“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_082",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "phrase.plans"],
+      "itemIds": ["item_nese", "item_a_ke_kohe", "item_te_dielen", "item_clitic_te", "item_me_ftue", "item_dreke", "item_te_bei", "item_gjyshe"],
+      "prompt": { "lang": "sq", "text": "Nëse ke kohë të dielën, të ftoj në drekë te gjyshja." },
+      "answerLang": "de",
+      "solutions": ["Wenn du am Sonntag Zeit hast, lade ich dich zum Mittagessen bei der Grossmutter ein.", "Wenn du am Sonntag Zeit hast, lade ich dich bei der Grossmutter zum Mittagessen ein."],
+      "wordBank": ["Wenn", "du", "am", "Sonntag", "Zeit", "hast", "lade", "ich", "dich", "zum", "Mittagessen", "bei", "der", "Grossmutter", "ein", "Abendessen", "Samstag", "mich"],
+      "explanation": "Achte auf „të“ und „te“: „të ftoj“ – ich lade dich ein, „te gjyshja“ – bei der Grossmutter. „Drekë“ ist das Mittagessen.",
+      "errorHints": [
+        { "pattern": "abendessen", "category": "vocab.confused", "hint": "„Darkë“ wäre das Abendessen. „Drekë“ ist das Mittagessen." },
+        { "pattern": "samstag", "category": "vocab.confused", "hint": "„Të dielën“ heisst „am Sonntag“." },
+        { "pattern": "(^|\\s)mich(\\s|$)", "category": "grammar.clitics", "hint": "„Të ftoj“ heisst „ich lade dich ein“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u19_review_plans_083",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "grammar.verbs.modal", "grammar.comparison"],
+      "itemIds": ["item_vitin_tjeter", "item_kam_me_udhetue", "item_zvicer", "item_moter", "item_du", "item_me_skijue", "item_alpet", "item_atje", "item_dimen", "item_ma_se", "item_i_gjate", "item_i_ftohte", "item_kosove", "item_ime", "item_di", "item_don", "item_me_mesue"],
+      "prompt": { "lang": "sq", "text": "Blerimi shkruan: Vitin tjetër kam me udhëtue në Zvicër me motrën. Du me skijue në Alpe. Atje dimni âsht ma i gjatë dhe ma i ftohtë se në Kosovë. Motra ime s'di me skijue, po ajo don me mësue.\n\nFrage: Was stimmt?" },
+      "choices": ["Die Schwester will Ski fahren lernen.", "Die Schwester kann gut Ski fahren.", "In Kosovo ist der Winter länger.", "Blerim reist allein in die Schweiz."],
+      "solutions": ["Die Schwester will Ski fahren lernen."],
+      "explanation": "„Motra ime s'di me skijue, po ajo don me mësue“ – meine Schwester kann nicht Ski fahren, aber sie will es lernen.",
+      "errorHints": [
+        { "pattern": "kann gut", "category": "vocab.confused", "hint": "„S'di me skijue“ heisst „sie kann nicht Ski fahren“." },
+        { "pattern": "l[aä]nger", "category": "vocab.confused", "hint": "In der Schweiz ist der Winter länger: „atje dimni âsht ma i gjatë“." },
+        { "pattern": "allein", "category": "vocab.confused", "hint": "Blerim reist „me motrën“ – mit seiner Schwester." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u19_review_plans_084",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.clitics", "vocab.food"],
+      "itemIds": ["item_akullore", "item_clitic_jua", "item_blej", "item_une", "item_clitic_ju"],
+      "prompt": { "lang": "de", "text": "Die Glace? Ich kaufe sie euch!" },
+      "answerLang": "sq",
+      "text": "Akulloren? ___ blej unë!",
+      "choices": ["Jua", "Ju", "Ua", "Ia"],
+      "solutions": ["Jua"],
+      "explanation": "„Jua“ ist „ju“ (euch) + „e“ (sie, es). Weil „akulloren“ bestimmt ist, steht die Verbindung.",
+      "errorHints": [
+        { "pattern": "^ju$", "category": "grammar.clitics", "hint": "„Ju“ allein heisst „euch“. Euch + sie (die Glace) = „jua“." },
+        { "pattern": "^ua$", "category": "grammar.clitics", "hint": "„Ua“ heisst „ihnen es“." },
+        { "pattern": "^ia$", "category": "grammar.clitics", "hint": "„Ia“ heisst „ihm/ihr es“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
