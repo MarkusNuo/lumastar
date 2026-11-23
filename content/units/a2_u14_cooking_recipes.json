@@ -36,7 +36,7 @@
     { "id": "item_piq", "kind": "word", "gheg": "piq, piqni", "de": "back!, backt! (von pjek)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_hidh", "kind": "word", "gheg": "hidh, hidhni", "de": "gib hinein!, wirf hinein! (von hedh)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_trazo", "kind": "word", "gheg": "trazo, trazoni", "de": "rühr um!, rührt um! (von trazoj)", "partOfSpeech": "verb", "note": "Für „vermischen“ im Kosovo auch „përzie“ – zu prüfen.", "reviewed": false },
-    { "id": "item_merr", "kind": "word", "gheg": "merr, merrni", "de": "nimm!, nehmt! (von marr)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_merr", "kind": "word", "gheg": "merr, merrni", "de": "nimm!, nehmt!; du nimmst, er/sie nimmt (von marr)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_mbush", "kind": "word", "gheg": "mbush, mbushni", "de": "füll!, füllt! (von mbush)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_ndiz", "kind": "word", "gheg": "ndiz, ndizni", "de": "schalt ein!, zünd an! (von ndez)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_fik", "kind": "word", "gheg": "fik, fikni", "de": "schalt aus!, lösch! (von fik)", "partOfSpeech": "verb", "reviewed": false },

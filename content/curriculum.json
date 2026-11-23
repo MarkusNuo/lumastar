@@ -262,7 +262,8 @@
           "skillTags": ["vocab.food", "vocab.shopping", "vocab.numbers", "grammar.plural", "grammar.case.accusative"],
           "color": "amber",
           "icon": "shopping-basket",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u12_groceries_market.json"
         },
         {
           "id": "a2_u14_cooking_recipes",
@@ -272,7 +273,8 @@
           "skillTags": ["vocab.cooking", "vocab.food", "grammar.verbs.imperative", "grammar.verbs.participle", "reading.short_texts"],
           "color": "lime",
           "icon": "chef-hat",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u14_cooking_recipes.json"
         },
         {
           "id": "a2_u16_clothes_fashion",
@@ -282,7 +284,8 @@
           "skillTags": ["vocab.clothes", "vocab.colours", "vocab.shopping", "grammar.adjective_agreement", "grammar.demonstratives", "grammar.comparison"],
           "color": "rose",
           "icon": "shirt",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u16_clothes_fashion.json"
         },
         {
           "id": "a2_u15_review_everyday",
@@ -352,7 +355,8 @@
           "skillTags": ["vocab.food", "vocab.drinks", "phrase.ordering", "phrase.politeness", "grammar.verbs.modal", "grammar.clitics"],
           "color": "coral",
           "icon": "utensils-crossed",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u13_restaurant_cafe.json"
         },
         {
           "id": "a2_u17_weather_climate",
@@ -362,7 +366,8 @@
           "skillTags": ["vocab.weather", "vocab.seasons", "vocab.nature", "grammar.verbs.future", "grammar.comparison", "reading.short_texts"],
           "color": "sky",
           "icon": "cloud-sun-rain",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u17_weather_climate.json"
         },
         {
           "id": "a2_u18_sport_hobbies",
@@ -372,7 +377,8 @@
           "skillTags": ["vocab.sport", "vocab.leisure", "vocab.time", "phrase.plans", "grammar.verbs.present", "grammar.verbs.perfect"],
           "color": "teal",
           "icon": "trophy",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u18_sport_hobbies.json"
         },
         {
           "id": "a2_u19_review_plans",
@@ -442,7 +448,8 @@
           "skillTags": ["vocab.city", "vocab.travel", "phrase.directions", "grammar.prepositions", "grammar.case.ablative", "grammar.verbs.imperative"],
           "color": "indigo",
           "icon": "bus",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u20_city_transport.json"
         },
         {
           "id": "a2_u21_hotel_airport",
@@ -452,7 +459,8 @@
           "skillTags": ["vocab.travel", "phrase.requests", "grammar.verbs.future", "grammar.verbs.past_simple", "grammar.question_particle"],
           "color": "sky",
           "icon": "plane",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u21_hotel_airport.json"
         },
         {
           "id": "a2_u22_doctor_pharmacy",
@@ -462,7 +470,8 @@
           "skillTags": ["vocab.body", "vocab.health", "phrase.health", "vocab.time", "grammar.verbs.perfect", "grammar.verbs.reflexive"],
           "color": "rose",
           "icon": "stethoscope",
-          "estimatedLessons": 6
+          "estimatedLessons": 6,
+          "file": "units/a2_u22_doctor_pharmacy.json"
         },
         {
           "id": "a2_u23_review_on_the_road",

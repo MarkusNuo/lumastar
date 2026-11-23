@@ -18,14 +18,11 @@
   ],
   "items": [
     { "id": "item_hotel", "kind": "word", "gheg": "hotel", "de": "Hotel", "partOfSpeech": "noun", "gender": "m", "definite": "hoteli", "plural": "hotele", "reviewed": false },
-    { "id": "item_rezervim", "kind": "word", "gheg": "rezervim", "de": "Reservation", "partOfSpeech": "noun", "gender": "m", "definite": "rezervimi", "plural": "rezervime", "reviewed": false },
-    { "id": "item_me_rezervue", "kind": "phrase", "gheg": "me rezervue", "de": "reservieren", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_recepsion", "kind": "word", "gheg": "recepsion", "de": "Rezeption", "partOfSpeech": "noun", "gender": "m", "definite": "recepsioni", "reviewed": false },
     { "id": "item_dhome_teke", "kind": "phrase", "gheg": "dhomë teke", "de": "Einzelzimmer", "partOfSpeech": "phrase", "note": "„dhomë teke“ (Einzelzimmer) im Kosovo-Alltag zu prüfen; Standard auch „dhomë njëshe“.", "reviewed": false },
     { "id": "item_dhome_dyshe", "kind": "phrase", "gheg": "dhomë dyshe", "de": "Doppelzimmer", "partOfSpeech": "phrase", "note": "„dhomë dyshe“ (Doppelzimmer) im Kosovo-Alltag zu prüfen.", "reviewed": false },
     { "id": "item_kat", "kind": "word", "gheg": "kat", "de": "Stockwerk, Stock", "partOfSpeech": "noun", "gender": "m", "definite": "kati", "plural": "kate", "reviewed": false },
     { "id": "item_ashensor", "kind": "word", "gheg": "ashensor", "de": "Lift", "partOfSpeech": "noun", "gender": "m", "definite": "ashensori", "reviewed": false },
-    { "id": "item_cmim", "kind": "word", "gheg": "çmim", "de": "Preis", "partOfSpeech": "noun", "gender": "m", "definite": "çmimi", "plural": "çmime", "reviewed": false },
     { "id": "item_perfshihet", "kind": "word", "gheg": "përfshihet", "de": "(es) ist inbegriffen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_me_lirue", "kind": "phrase", "gheg": "me lirue", "de": "(ein Zimmer) räumen, frei machen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_ankese", "kind": "word", "gheg": "ankesë", "de": "Beschwerde, Reklamation", "partOfSpeech": "noun", "gender": "f", "definite": "ankesa", "reviewed": false },
@@ -33,7 +30,6 @@
     { "id": "item_ngrohje", "kind": "word", "gheg": "ngrohje", "de": "Heizung", "partOfSpeech": "noun", "gender": "f", "definite": "ngrohja", "reviewed": false },
     { "id": "item_peshqir", "kind": "word", "gheg": "peshqir", "de": "Handtuch", "partOfSpeech": "noun", "gender": "m", "definite": "peshqiri", "plural": "peshqirë", "reviewed": false },
     { "id": "item_i_paster", "kind": "phrase", "gheg": "i pastër, e pastër", "de": "sauber", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_i_zane", "kind": "phrase", "gheg": "i zânë, e zânë", "de": "besetzt", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_nuk_punon", "kind": "phrase", "gheg": "nuk punon", "de": "(es) funktioniert nicht", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_pasaporte", "kind": "word", "gheg": "pasaportë", "de": "Pass (Reisepass)", "partOfSpeech": "noun", "gender": "f", "definite": "pasaporta", "plural": "pasaporta", "reviewed": false },
     { "id": "item_leternjoftim", "kind": "word", "gheg": "letërnjoftim", "de": "Identitätskarte", "partOfSpeech": "noun", "gender": "m", "definite": "letërnjoftimi", "reviewed": false },
@@ -55,7 +51,6 @@
     { "id": "item_autostrade", "kind": "word", "gheg": "autostradë", "de": "Autobahn", "partOfSpeech": "noun", "gender": "f", "definite": "autostrada", "reviewed": false },
     { "id": "item_kontroll", "kind": "word", "gheg": "kontroll", "de": "Kontrolle", "partOfSpeech": "noun", "gender": "m", "definite": "kontrolli", "reviewed": false },
     { "id": "item_me_deklarue", "kind": "phrase", "gheg": "me deklarue", "de": "verzollen, deklarieren", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_nderrue", "kind": "phrase", "gheg": "me ndërrue", "de": "wechseln; umsteigen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_me_ike", "kind": "phrase", "gheg": "me ikë", "de": "abreisen, weggehen", "partOfSpeech": "verb", "note": "Partizip „ikë“ (Standard: ikur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
     { "id": "item_arrita", "kind": "word", "gheg": "arrita", "de": "ich kam an (von arrij)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_fluturova", "kind": "word", "gheg": "fluturova", "de": "ich flog (von fluturoj)", "partOfSpeech": "verb", "reviewed": false },
@@ -66,13 +61,10 @@
     { "id": "item_a_keni_dhome_te_lire", "kind": "phrase", "gheg": "a keni nji dhomë të lirë?", "de": "haben Sie ein Zimmer frei?, habt ihr ein freies Zimmer?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_turist", "kind": "word", "gheg": "turist, turiste", "de": "Tourist, Touristin", "partOfSpeech": "noun", "gender": "m", "definite": "turisti", "plural": "turistë", "reviewed": false },
     { "id": "item_apartament", "kind": "word", "gheg": "apartament", "de": "Apartment, Ferienwohnung", "partOfSpeech": "noun", "gender": "m", "definite": "apartamenti", "reviewed": false },
-    { "id": "item_i_rehatshem", "kind": "phrase", "gheg": "i rehatshëm, e rehatshme", "de": "bequem", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_dush", "kind": "word", "gheg": "dush", "de": "Dusche", "partOfSpeech": "noun", "gender": "m", "definite": "dushi", "reviewed": false },
     { "id": "item_ballkon", "kind": "word", "gheg": "ballkon", "de": "Balkon", "partOfSpeech": "noun", "gender": "m", "definite": "ballkoni", "reviewed": false },
     { "id": "item_ja", "kind": "word", "gheg": "ja", "de": "hier ist, da ist (beim Zeigen oder Geben)", "partOfSpeech": "particle", "reviewed": false },
-    { "id": "item_humbe", "kind": "word", "gheg": "humbë", "de": "verloren (Partizip von humb)", "partOfSpeech": "verb", "alternatives": ["hupë"], "note": "Partizip „humbë“ (Standard: humbur); im Kosovo-Alltag oft „hupë“ – zu prüfen.", "reviewed": false },
-    { "id": "item_kisha_dashte", "kind": "phrase", "gheg": "kisha dashtë …", "de": "ich hätte gern …, ich möchte …", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_a_mundeni_me", "kind": "phrase", "gheg": "a mundeni me …?", "de": "können Sie …?, könnt ihr …?", "partOfSpeech": "phrase", "reviewed": false }
+    { "id": "item_humbe", "kind": "word", "gheg": "humbë", "de": "verloren (Partizip von humb)", "partOfSpeech": "verb", "alternatives": ["hupë"], "note": "Partizip „humbë“ (Standard: humbur); im Kosovo-Alltag oft „hupë“ – zu prüfen.", "reviewed": false }
   ],
   "exercises": [
     {

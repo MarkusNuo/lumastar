@@ -69,7 +69,7 @@
     { "id": "item_i_bute", "kind": "phrase", "gheg": "i butë, e butë", "de": "weich", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_i_kalbun", "kind": "phrase", "gheg": "i kalbun, e kalbun", "de": "faul, verdorben", "partOfSpeech": "adjective", "note": "Gheg-Adjektiv auf -un wie „i hapun“ (Standard: i kalbur) – zu prüfen.", "reviewed": false },
     { "id": "item_urdheno", "kind": "word", "gheg": "urdhëno", "de": "bitte schön!, hier, bitte! (beim Geben)", "partOfSpeech": "interjection", "alternatives": ["urdhno"], "note": "Gheg-Form mit -n- (Standard: urdhëro, urdhëroni); höflich „urdhënoni“ – Schreibung zu prüfen.", "reviewed": false },
-    { "id": "item_me_provue", "kind": "phrase", "gheg": "me provue", "de": "probieren, kosten", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_provue", "kind": "phrase", "gheg": "me provue", "de": "probieren, kosten; anprobieren", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_shes", "kind": "word", "gheg": "shes", "de": "ich verkaufe (shet: du verkaufst, er/sie verkauft)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_kushtojne", "kind": "word", "gheg": "kushtojnë", "de": "(sie) kosten", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_kos", "kind": "word", "gheg": "kos", "de": "Joghurt (zum Löffeln)", "partOfSpeech": "noun", "gender": "m", "definite": "kosi", "reviewed": false },
