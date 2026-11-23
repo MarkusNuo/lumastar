@@ -1,0 +1,2518 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u22_doctor_pharmacy",
+  "level": "A2.3",
+  "grammar": [
+    {
+      "title": "Was ist passiert? – Perfekt mit „jam“",
+      "explanation": "Die meisten Verben bilden das Perfekt mit **kam** + Partizip: *Kam marrë nji tabletë.* (Ich habe eine Tablette genommen.) *E kam thye dorën.* (Ich habe mir die Hand gebrochen.) *Doktori më ka shkrue nji recetë.*\n\n**Reflexive Verben** bilden das Perfekt mit **jam** + Partizip:\n\n| Präsens | Perfekt | Deutsch |\n|---|---|---|\n| rrëzohem | jam rrëzue | ich bin hingefallen |\n| lëndohem | jam lëndue | ich habe mich verletzt |\n| ftohem | jam ftohë | ich habe mich erkältet |\n| shërohem | jam shërue | ich bin gesund geworden |\n\nSo fragst du: **Çka ka ndodhë?** – Was ist passiert? Standard: *jam rrëzuar, jam ftohur, ka ndodhur*."
+    },
+    {
+      "title": "Reflexive Verben und „më dhemb“",
+      "explanation": "Viele Beschwerden drückst du mit reflexiven Verben aus: *kollitem* (ich huste), *ndihem keq* (ich fühle mich schlecht). Mit **u** entsteht die einfache Vergangenheit: *Dje u rrëzova.* (Gestern fiel ich hin.)\n\nWie **më dhemb** funktionieren auch **më kruhet** (es juckt mich) und **më rrjedh hunda** (mir läuft die Nase): Die Kurzform zeigt die Person – *më* (mir), *të* (dir), *i* (ihm, ihr). Bei mehreren Dingen steht das Verb im Plural: *Më kruhen sytë.*\n\nBefehle reflexiver Verben enden auf **-u**: *Shtrihu!* (Leg dich hin!), *Ulu!* (Setz dich!)"
+    },
+    {
+      "title": "Seit wann? Wie oft?",
+      "explanation": "**Prej kur?** – Seit wann? Nach *prej* steht der Ablativ: *prej dje* (seit gestern), *prej nji jave* (seit einer Woche), *prej tri ditësh* (seit drei Tagen). Wie im Deutschen bleibt das Verb im Präsens: *Kollitem prej tri ditësh.*\n\n**Sa herë?** – Wie oft? *nji herë në ditë* (einmal täglich), *tri herë në ditë* (dreimal täglich), *para ngrânies* (vor dem Essen), *pas ngrânies* (nach dem Essen; Standard: *ngrënies*).\n\nAuch **kundër** (gegen) verlangt den Ablativ: *nji ilaç kundër dhimbjes, nji shurup kundër kollës*."
+    }
+  ],
+  "items": [
+    { "id": "item_dhimbje_koke", "kind": "phrase", "gheg": "dhimbje koke", "de": "Kopfschmerzen, Kopfweh", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_ftohje", "kind": "word", "gheg": "ftohje", "de": "Erkältung", "partOfSpeech": "noun", "gender": "f", "definite": "ftohja", "reviewed": false },
+    { "id": "item_jam_ftohe", "kind": "phrase", "gheg": "jam ftohë", "de": "ich bin erkältet, ich habe mich erkältet", "partOfSpeech": "phrase", "note": "Partizip „ftohë“ (von ftohem, Standard: ftohur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_rrjedh_hunda", "kind": "phrase", "gheg": "më rrjedh hunda", "de": "ich habe eine laufende Nase (wörtlich: mir läuft die Nase)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_me_vjen_me_vjelle", "kind": "phrase", "gheg": "më vjen me vjellë", "de": "mir ist übel (wörtlich: es kommt mir zu erbrechen)", "partOfSpeech": "phrase", "note": "Gheg-Infinitiv „me vjellë“ (Standard: më vjen të vjell); im Kosovo auch „më përzihet“ – zu prüfen.", "reviewed": false },
+    { "id": "item_alergji", "kind": "word", "gheg": "alergji", "de": "Allergie", "partOfSpeech": "noun", "gender": "f", "note": "Bestimmte Form „alergjia“ oder wie „shpija“ „alergjija“ – zu prüfen; in den Aufgaben nur unbestimmt verwendet.", "reviewed": false },
+    { "id": "item_marramendje", "kind": "word", "gheg": "marramendje", "de": "Schwindel", "partOfSpeech": "noun", "gender": "f", "definite": "marramendja", "note": "Im Kosovo auch „më merren mendt“ (mir wird schwindlig) – zu prüfen, ob als eigenes Item aufnehmen.", "reviewed": false },
+    { "id": "item_plage", "kind": "word", "gheg": "plagë", "de": "Wunde", "partOfSpeech": "noun", "gender": "f", "definite": "plaga", "plural": "plagë", "reviewed": false },
+    { "id": "item_kollitem", "kind": "word", "gheg": "kollitem", "de": "ich huste (kollitesh: du hustest)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_teshtij", "kind": "word", "gheg": "teshtij", "de": "ich niese", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_kruhet", "kind": "phrase", "gheg": "më kruhet", "de": "es juckt mich (Plural: më kruhen)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_i_rende", "kind": "phrase", "gheg": "i rëndë, e rëndë", "de": "schwer; schlimm, ernst", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_gjak", "kind": "word", "gheg": "gjak", "de": "Blut", "partOfSpeech": "noun", "gender": "m", "definite": "gjaku", "reviewed": false },
+    { "id": "item_rrezohem", "kind": "word", "gheg": "rrëzohem", "de": "ich falle hin, ich stürze", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_jam_rrezue", "kind": "phrase", "gheg": "jam rrëzue", "de": "ich bin hingefallen, ich bin gestürzt", "partOfSpeech": "phrase", "note": "Perfekt mit „jam“ + Partizip „rrëzue“ (Standard: jam rrëzuar) – zu prüfen.", "reviewed": false },
+    { "id": "item_lendohem", "kind": "word", "gheg": "lëndohem", "de": "ich verletze mich", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_jam_lendue", "kind": "phrase", "gheg": "jam lëndue", "de": "ich habe mich verletzt, ich bin verletzt", "partOfSpeech": "phrase", "note": "Perfekt mit „jam“ + Partizip „lëndue“ (Standard: jam lënduar) – zu prüfen.", "reviewed": false },
+    { "id": "item_sherohem", "kind": "word", "gheg": "shërohem", "de": "ich werde gesund, ich erhole mich (Perfekt: jam shërue)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_shtrihem", "kind": "word", "gheg": "shtrihem", "de": "ich lege mich hin (shtrihu! – leg dich hin!)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_thye", "kind": "word", "gheg": "thye", "de": "gebrochen (Partizip von thyej, ich breche)", "partOfSpeech": "verb", "note": "Gheg-Partizip „thye“ (Standard: thyer) – zu prüfen.", "reviewed": false },
+    { "id": "item_cka_ka_ndodhe", "kind": "phrase", "gheg": "çka ka ndodhë?", "de": "was ist passiert?", "partOfSpeech": "phrase", "note": "Partizip „ndodhë“ (Standard: ndodhur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_qafe", "kind": "word", "gheg": "qafë", "de": "Hals (aussen), Nacken", "partOfSpeech": "noun", "gender": "f", "definite": "qafa", "reviewed": false },
+    { "id": "item_gjoks", "kind": "word", "gheg": "gjoks", "de": "Brust", "partOfSpeech": "noun", "gender": "m", "definite": "gjoksi", "reviewed": false },
+    { "id": "item_stomak", "kind": "word", "gheg": "stomak", "de": "Magen", "partOfSpeech": "noun", "gender": "m", "definite": "stomaku", "reviewed": false },
+    { "id": "item_gju", "kind": "word", "gheg": "gju", "de": "Knie", "partOfSpeech": "noun", "gender": "m", "definite": "gjuni", "plural": "gjunj", "note": "Gheg „gjuni“ mit -n- (Standard: gjuri, Rhotazismus); Plural „gjunj“ – zu prüfen.", "reviewed": false },
+    { "id": "item_lekure", "kind": "word", "gheg": "lëkurë", "de": "Haut", "partOfSpeech": "noun", "gender": "f", "definite": "lëkura", "reviewed": false },
+    { "id": "item_kocke", "kind": "word", "gheg": "kockë", "de": "Knochen", "partOfSpeech": "noun", "gender": "f", "definite": "kocka", "plural": "kocka", "reviewed": false },
+    { "id": "item_doktor", "kind": "word", "gheg": "doktor", "de": "Doktor, Arzt (Alltag)", "partOfSpeech": "noun", "gender": "m", "definite": "doktori", "plural": "doktorë", "reviewed": false },
+    { "id": "item_termin", "kind": "word", "gheg": "termin", "de": "Termin (z. B. beim Arzt)", "partOfSpeech": "noun", "gender": "m", "definite": "termini", "plural": "termine", "note": "Im Kosovo-Alltag sehr üblich (Standard eher „takim“ oder „orar“) – zu prüfen.", "reviewed": false },
+    { "id": "item_me_marre_termin", "kind": "phrase", "gheg": "me marrë termin", "de": "einen Termin abmachen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_dhoma_e_pritjes", "kind": "phrase", "gheg": "dhoma e pritjes", "de": "das Wartezimmer", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_kontroll", "kind": "word", "gheg": "kontroll", "de": "Untersuchung, Kontrolle", "partOfSpeech": "noun", "gender": "m", "definite": "kontrolli", "plural": "kontrolle", "reviewed": false },
+    { "id": "item_me_kontrollue", "kind": "phrase", "gheg": "me kontrollue", "de": "untersuchen, kontrollieren", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_recete", "kind": "word", "gheg": "recetë", "de": "Rezept (vom Arzt)", "partOfSpeech": "noun", "gender": "f", "definite": "receta", "plural": "receta", "reviewed": false },
+    { "id": "item_sigurim_shendetesor", "kind": "phrase", "gheg": "sigurim shëndetësor", "de": "Krankenversicherung, Krankenkasse", "partOfSpeech": "noun", "gender": "m", "definite": "sigurimi shëndetësor", "reviewed": false },
+    { "id": "item_urgjence", "kind": "word", "gheg": "urgjencë", "de": "Notfall; Notfallstation", "partOfSpeech": "noun", "gender": "f", "definite": "urgjenca", "reviewed": false },
+    { "id": "item_ambulance", "kind": "word", "gheg": "ambulancë", "de": "Krankenwagen", "partOfSpeech": "noun", "gender": "f", "definite": "ambulanca", "note": "Im Kosovo heisst „ambulanca“ auch die Arztpraxis im Quartier – Bedeutung zu prüfen.", "reviewed": false },
+    { "id": "item_pacient", "kind": "word", "gheg": "pacient, paciente", "de": "Patient, Patientin", "partOfSpeech": "noun", "gender": "m", "definite": "pacienti", "plural": "pacientë", "reviewed": false },
+    { "id": "item_merr_fryme_thelle", "kind": "phrase", "gheg": "merr frymë thellë", "de": "atme tief ein!", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_tension", "kind": "word", "gheg": "tension", "de": "Blutdruck", "partOfSpeech": "noun", "gender": "m", "definite": "tensioni", "note": "Im Kosovo-Alltag „tension“ (Standard eher „presion i gjakut“) – zu prüfen.", "reviewed": false },
+    { "id": "item_analize", "kind": "word", "gheg": "analizë", "de": "(Labor-)Untersuchung, Analyse", "partOfSpeech": "noun", "gender": "f", "definite": "analiza", "plural": "analiza", "reviewed": false },
+    { "id": "item_i_nalte", "kind": "phrase", "gheg": "i naltë, e naltë", "de": "hoch", "partOfSpeech": "adjective", "note": "Gheg-Form (Standard: i lartë) – zu prüfen.", "reviewed": false },
+    { "id": "item_tablete", "kind": "word", "gheg": "tabletë", "de": "Tablette", "partOfSpeech": "noun", "gender": "f", "definite": "tableta", "plural": "tableta", "reviewed": false },
+    { "id": "item_pike", "kind": "word", "gheg": "pikë", "de": "Tropfen (auch: Punkt)", "partOfSpeech": "noun", "gender": "f", "definite": "pika", "plural": "pika", "reviewed": false },
+    { "id": "item_shurup", "kind": "word", "gheg": "shurup", "de": "Sirup", "partOfSpeech": "noun", "gender": "m", "definite": "shurupi", "reviewed": false },
+    { "id": "item_pomade", "kind": "word", "gheg": "pomadë", "de": "Salbe", "partOfSpeech": "noun", "gender": "f", "definite": "pomada", "reviewed": false },
+    { "id": "item_antibiotik", "kind": "word", "gheg": "antibiotik", "de": "Antibiotikum", "partOfSpeech": "noun", "gender": "m", "definite": "antibiotiku", "plural": "antibiotikë", "reviewed": false },
+    { "id": "item_kunder", "kind": "word", "gheg": "kundër", "de": "gegen (mit Ablativ)", "partOfSpeech": "preposition", "reviewed": false },
+    { "id": "item_flaster", "kind": "word", "gheg": "flaster", "de": "Pflaster", "partOfSpeech": "noun", "gender": "m", "definite": "flasteri", "note": "Kosovo-Alltagswort – zu prüfen.", "reviewed": false },
+    { "id": "item_fashe", "kind": "word", "gheg": "fashë", "de": "Verband, Binde", "partOfSpeech": "noun", "gender": "f", "definite": "fasha", "reviewed": false },
+    { "id": "item_farmacist", "kind": "word", "gheg": "farmacist, farmaciste", "de": "Apotheker, Apothekerin", "partOfSpeech": "noun", "gender": "m", "definite": "farmacisti", "reviewed": false },
+    { "id": "item_me_marre", "kind": "phrase", "gheg": "me marrë", "de": "nehmen; (ein Medikament) einnehmen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_prej_kur", "kind": "phrase", "gheg": "prej kur?", "de": "seit wann?", "partOfSpeech": "phrase", "note": "Gheg „prej“ (Standard eher „që kur“); „që kur“ wird als weitere Lösung akzeptiert – zu prüfen.", "reviewed": false },
+    { "id": "item_prej_dje", "kind": "phrase", "gheg": "prej dje", "de": "seit gestern (auch: që dje)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_prej_tri_ditesh", "kind": "phrase", "gheg": "prej tri ditësh", "de": "seit drei Tagen", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_prej_nji_jave", "kind": "phrase", "gheg": "prej nji jave", "de": "seit einer Woche", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_here", "kind": "word", "gheg": "herë", "de": "Mal", "partOfSpeech": "noun", "gender": "f", "definite": "hera", "plural": "herë", "reviewed": false },
+    { "id": "item_tri_here_ne_dite", "kind": "phrase", "gheg": "tri herë në ditë", "de": "dreimal täglich", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_para_ngranies", "kind": "phrase", "gheg": "para ngrânies", "de": "vor dem Essen", "partOfSpeech": "phrase", "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen.", "reviewed": false },
+    { "id": "item_pas_ngranies", "kind": "phrase", "gheg": "pas ngrânies", "de": "nach dem Essen", "partOfSpeech": "phrase", "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen.", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_001",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.body"],
+      "itemIds": ["item_qafe", "item_gjoks", "item_stomak", "item_gju", "item_lekure"],
+      "prompt": { "lang": "de", "text": "Ordne die Körperteile zu." },
+      "pairs": [
+        { "left": "qafa", "right": "der Nacken" },
+        { "left": "gjoksi", "right": "die Brust" },
+        { "left": "stomaku", "right": "der Magen" },
+        { "left": "gjuni", "right": "das Knie" },
+        { "left": "lëkura", "right": "die Haut" }
+      ],
+      "explanation": "„Qafa“ ist der Hals von aussen, „fyti“ der Hals innen. „Gjuni“ (das Knie) ist eine Gheg-Form mit -n- (Standard: „gjuri“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „gjuni“ (Standard: gjuri) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_002",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.body", "phrase.health"],
+      "itemIds": ["item_me_dhemb", "item_stomak", "item_gju", "item_qafe", "item_me_vjen_me_vjelle"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Më dhemb stomaku.“?" },
+      "choices": ["Ich habe Magenschmerzen.", "Mir tut das Knie weh.", "Mir tut der Nacken weh.", "Mir ist übel."],
+      "solutions": ["Ich habe Magenschmerzen."],
+      "explanation": "„Stomaku“ ist der Magen, „barku“ der Bauch. „Më dhemb …“ heisst „mir tut … weh“.",
+      "errorHints": [
+        { "pattern": "knie", "category": "vocab.confused", "hint": "Das Knie heisst „gjuni“." },
+        { "pattern": "nacken", "category": "vocab.confused", "hint": "Der Nacken heisst „qafa“." },
+        { "pattern": "[uü]bel", "category": "vocab.confused", "hint": "„Mir ist übel“ heisst „Më vjen me vjellë.“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_003",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.body", "grammar.definite_article.masc"],
+      "itemIds": ["item_gju", "item_qafe", "item_gjoks", "item_kocke"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „das Knie“?" },
+      "choices": ["gjuni", "qafa", "gjoksi", "kocka"],
+      "solutions": ["gjuni"],
+      "explanation": "„Gju“ heisst „Knie“, bestimmt „gjuni“. Gheg behält hier das -n- (Standard: „gjuri“).",
+      "errorHints": [
+        { "pattern": "^qafa$", "category": "vocab.confused", "hint": "„Qafa“ ist der Nacken." },
+        { "pattern": "^gjoksi$", "category": "vocab.confused", "hint": "„Gjoksi“ ist die Brust." },
+        { "pattern": "^kocka$", "category": "vocab.confused", "hint": "„Kocka“ ist der Knochen." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „gjuni“ (Standard: gjuri) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_004",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "vocab.body", "grammar.definite_article.masc"],
+      "itemIds": ["item_me_dhemb", "item_gju"],
+      "prompt": { "lang": "de", "text": "Mir tut das Knie weh." },
+      "answerLang": "sq",
+      "text": "Më dhemb ___.",
+      "solutions": ["gjuni"],
+      "standardForms": ["gjuri"],
+      "explanation": "Im Gheg heisst das Knie „gjuni“ (Standard: „gjuri“) – wie „emni“ statt „emri“.",
+      "errorHints": [
+        { "pattern": "^gju$", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „gjuni“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „gjuni“ (Standard: gjuri) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_005",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.health", "vocab.body", "grammar.definite_article.fem"],
+      "itemIds": ["item_me_dhemb", "item_qafe", "item_gjoks"],
+      "prompt": { "lang": "de", "text": "Mir tut der Nacken weh." },
+      "answerLang": "sq",
+      "solutions": ["Më dhemb qafa.", "Qafa më dhemb."],
+      "wordBank": ["Më", "dhemb", "qafa", "qafë", "dhembin", "gjoksi"],
+      "explanation": "„Qafë“ ist der Hals von aussen, der Nacken; mit Artikel „qafa“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)qafë(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „qafa“." },
+        { "pattern": "(^|\\s)dhembin(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Dhembin“ ist Plural. Für den Nacken: „dhemb“." },
+        { "pattern": "(^|\\s)gjoksi(\\s|$)", "category": "vocab.confused", "hint": "„Gjoksi“ ist die Brust." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_006",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "vocab.time", "vocab.body"],
+      "itemIds": ["item_prej_dje", "item_me_dhemb", "item_gjoks"],
+      "prompt": { "lang": "de", "text": "Seit gestern tut mir die Brust weh." },
+      "answerLang": "sq",
+      "tokens": ["Prej", "dje", "më", "dhemb", "gjoksi"],
+      "solutions": ["Prej dje më dhemb gjoksi.", "Më dhemb gjoksi prej dje."],
+      "explanation": "„Prej dje“ heisst „seit gestern“. Wie im Deutschen steht das Verb im Präsens.",
+      "errorHints": [
+        { "pattern": "dhemb m[eë](\\s|$)", "category": "grammar.word_order", "hint": "Die Kurzform „më“ steht vor dem Verb: „më dhemb“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_007",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.health", "grammar.verbs.reflexive", "vocab.body"],
+      "itemIds": ["item_me_kruhet", "item_lekure", "item_plage", "item_marramendje"],
+      "prompt": { "lang": "de", "text": "Arben sagt: „Më kruhet lëkura.“ Was bedeutet das?" },
+      "choices": ["Meine Haut juckt.", "Meine Haut ist rot.", "Ich habe eine Wunde.", "Mir ist schwindlig."],
+      "solutions": ["Meine Haut juckt."],
+      "explanation": "„Më kruhet“ heisst „es juckt mich“ – eine reflexive Form wie „ndihem“. Bei mehreren Dingen: „Më kruhen sytë.“",
+      "errorHints": [
+        { "pattern": "rot", "category": "vocab.confused", "hint": "„Rot“ heisst „e kuqe“." },
+        { "pattern": "wunde", "category": "vocab.confused", "hint": "Die Wunde heisst „plaga“." },
+        { "pattern": "schwindlig", "category": "vocab.confused", "hint": "Schwindel heisst „marramendje“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_008",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health"],
+      "itemIds": ["item_ftohje", "item_alergji", "item_marramendje", "item_plage", "item_dhimbje_koke"],
+      "prompt": { "lang": "de", "text": "Ordne die Beschwerden zu." },
+      "pairs": [
+        { "left": "ftohje", "right": "Erkältung" },
+        { "left": "alergji", "right": "Allergie" },
+        { "left": "marramendje", "right": "Schwindel" },
+        { "left": "plagë", "right": "Wunde" },
+        { "left": "dhimbje koke", "right": "Kopfschmerzen" }
+      ],
+      "explanation": "„Dhimbje koke“ heisst wörtlich „Schmerz des Kopfes“: Kopfschmerzen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_009",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "grammar.verbs.reflexive", "grammar.verbs.perfect"],
+      "itemIds": ["item_jam_ftohe", "item_me_rrjedh_hunda", "item_me_vjen_me_vjelle", "item_kollitem", "item_teshtij"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Jam ftohë.", "right": "Ich bin erkältet." },
+        { "left": "Më rrjedh hunda.", "right": "Ich habe eine laufende Nase." },
+        { "left": "Më vjen me vjellë.", "right": "Mir ist übel." },
+        { "left": "Kollitem shumë.", "right": "Ich huste viel." },
+        { "left": "Teshtij shumë.", "right": "Ich niese viel." }
+      ],
+      "explanation": "„Kollitem“ (ich huste) ist reflexiv wie „ndihem“. „Jam ftohë“ ist das Perfekt von „ftohem“ – wörtlich „ich habe mich erkältet“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ftohë“ (Standard: ftohur) und „më vjen me vjellë“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_010",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.health"],
+      "itemIds": ["item_jam_ftohe", "item_jam_rrezue", "item_ftohje"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Jam ftohë.“?" },
+      "choices": ["Ich bin erkältet.", "Mir ist kalt.", "Ich bin hingefallen.", "Ich bin müde."],
+      "solutions": ["Ich bin erkältet."],
+      "explanation": "„Jam ftohë“ ist das Perfekt von „ftohem“ (sich erkälten). Reflexive Verben bilden das Perfekt mit „jam“ (Standard: „jam ftohur“).",
+      "errorHints": [
+        { "pattern": "kalt", "category": "vocab.confused", "hint": "„Mir ist kalt“ heisst „Kam ftohtë.“" },
+        { "pattern": "hingefallen", "category": "vocab.confused", "hint": "Hingefallen heisst „rrëzue“: „Jam rrëzue.“" },
+        { "pattern": "m[uü]de", "category": "vocab.confused", "hint": "Müde heisst „i lodhun / e lodhun“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ftohë“ (Standard: ftohur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_011",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "vocab.health", "vocab.body"],
+      "itemIds": ["item_kam", "item_dhimbje_koke", "item_me_rrjedh_hunda"],
+      "prompt": { "lang": "de", "text": "Ich habe Kopfschmerzen und eine laufende Nase." },
+      "answerLang": "sq",
+      "solutions": ["Kam dhimbje koke dhe më rrjedh hunda.", "Më rrjedh hunda dhe kam dhimbje koke.", "Kam dhimbje koke edhe më rrjedh hunda."],
+      "wordBank": ["Kam", "dhimbje", "koke", "dhe", "më", "rrjedh", "hunda", "kokë", "hundë", "kollë"],
+      "explanation": "„Dhimbje koke“ sind Kopfschmerzen (wörtlich „Schmerz des Kopfes“). „Më rrjedh hunda“ heisst „mir läuft die Nase“.",
+      "errorHints": [
+        { "pattern": "dhimbje kokë(\\s|$)", "category": "grammar.case", "hint": "Nach „dhimbje“ steht „koke“: „dhimbje koke“ (Schmerz des Kopfes)." },
+        { "pattern": "(^|\\s)hundë(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „hunda“." },
+        { "pattern": "(^|\\s)kollë(\\s|$)", "category": "vocab.confused", "hint": "„Kollë“ heisst „Husten“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_012",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.health"],
+      "itemIds": ["item_jam_ftohe", "item_ftohje"],
+      "prompt": { "lang": "de", "text": "Ich habe mich erkältet." },
+      "answerLang": "sq",
+      "solutions": ["Jam ftohë.", "Unë jam ftohë.", "U ftoha."],
+      "standardForms": ["Jam ftohur.", "Unë jam ftohur."],
+      "explanation": "Reflexive Verben bilden das Perfekt mit „jam“ + Partizip: „Jam ftohë“ (Standard: „jam ftohur“). „U ftoha“ (einfache Vergangenheit) geht auch.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam ftoh[eë](\\s|$)", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „Jam ftohë.“" },
+        { "pattern": "(^|\\s)kam ftoht[eë](\\s|$)", "category": "vocab.confused", "hint": "„Kam ftohtë“ heisst „mir ist kalt“. Erkältet: „Jam ftohë.“" },
+        { "pattern": "(^|\\s)ftohem(\\s|$)", "category": "grammar.verb_tense", "hint": "„Ftohem“ ist Präsens. Perfekt: „Jam ftohë.“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ftohë“ (Standard: ftohur) und die Vergangenheitsform „u ftoha“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_013",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.reflexive", "phrase.health", "vocab.health"],
+      "itemIds": ["item_teshtij", "item_kollitem", "item_me_kruhet", "item_rrezohem"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ich niese viel.“?" },
+      "choices": ["Teshtij shumë.", "Kollitem shumë.", "Më kruhet shumë.", "Rrëzohem shumë."],
+      "solutions": ["Teshtij shumë."],
+      "explanation": "„Teshtij“ heisst „ich niese“. Wer niest, hört im Kosovo oft „Shëndet!“ – Gesundheit!",
+      "errorHints": [
+        { "pattern": "^kollitem", "category": "vocab.confused", "hint": "„Kollitem“ heisst „ich huste“." },
+        { "pattern": "^m[eë] kruhet", "category": "vocab.confused", "hint": "„Më kruhet“ heisst „es juckt mich“." },
+        { "pattern": "^rr[eë]zohem", "category": "vocab.confused", "hint": "„Rrëzohem“ heisst „ich falle hin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_014",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health"],
+      "itemIds": ["item_kam", "item_alergji", "item_marramendje", "item_plage", "item_ftohje"],
+      "prompt": { "lang": "de", "text": "Ich habe eine Allergie." },
+      "answerLang": "sq",
+      "text": "Kam ___.",
+      "solutions": ["alergji"],
+      "choices": ["alergji", "marramendje", "plagë", "ftohje"],
+      "explanation": "„Alergji“ heisst „Allergie“. Wie bei „temperaturë“ (Fieber) sagt man einfach „kam“: „Kam alergji.“",
+      "errorHints": [
+        { "pattern": "^marramendje$", "category": "vocab.confused", "hint": "„Marramendje“ heisst „Schwindel“." },
+        { "pattern": "^plag[eë]$", "category": "vocab.confused", "hint": "„Plagë“ heisst „Wunde“." },
+        { "pattern": "^ftohje$", "category": "vocab.confused", "hint": "„Ftohje“ heisst „Erkältung“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_015",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive", "vocab.time", "vocab.health"],
+      "itemIds": ["item_kollitem", "item_prej_tri_ditesh"],
+      "prompt": { "lang": "de", "text": "Ich huste seit drei Tagen." },
+      "answerLang": "sq",
+      "text": "___ prej tri ditësh.",
+      "solutions": ["Kollitem"],
+      "explanation": "„Kollitem“ ist reflexiv: kollitem, kollitesh, kollitet. „Prej tri ditësh“ heisst „seit drei Tagen“.",
+      "errorHints": [
+        { "pattern": "^kollitesh$", "category": "grammar.verb_conjugation", "hint": "„Kollitesh“ heisst „du hustest“. Für „ich“: „kollitem“." },
+        { "pattern": "^kollitet$", "category": "grammar.verb_conjugation", "hint": "„Kollitet“ heisst „er/sie hustet“. Für „ich“: „kollitem“." },
+        { "pattern": "^koll[eë]$", "category": "vocab.confused", "hint": "„Kollë“ ist das Nomen „Husten“. „Ich huste“ heisst „kollitem“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_016",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.health", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_vjen_me_vjelle"],
+      "prompt": { "lang": "de", "text": "Mir ist übel." },
+      "answerLang": "sq",
+      "tokens": ["Më", "vjen", "me", "vjellë"],
+      "solutions": ["Më vjen me vjellë."],
+      "explanation": "Wörtlich: „Es kommt mir zu erbrechen.“ Gheg verwendet den Infinitiv „me vjellë“ (Standard: „më vjen të vjell“).",
+      "errorHints": [
+        { "pattern": "^vjen m[eë] me", "category": "grammar.word_order", "hint": "Die Kurzform „më“ steht am Anfang, vor dem Verb: „Më vjen …“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Më vjen me vjellë“ (Standard: më vjen të vjell) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_017",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "vocab.health"],
+      "itemIds": ["item_marramendje", "item_me_vjen_me_vjelle"],
+      "prompt": { "lang": "sq", "text": "Kam marramendje dhe më vjen me vjellë." },
+      "answerLang": "de",
+      "solutions": ["Mir ist schwindlig und mir ist übel.", "Mir ist schwindlig und übel.", "Ich habe Schwindel und mir ist übel."],
+      "wordBank": ["Mir", "ist", "schwindlig", "und", "mir", "ist", "übel", "kalt", "müde"],
+      "explanation": "„Marramendje“ heisst „Schwindel“, „më vjen me vjellë“ „mir ist übel“.",
+      "errorHints": [
+        { "pattern": "kalt", "category": "vocab.confused", "hint": "„Kalt“ wäre „ftohtë“." },
+        { "pattern": "m[uü]de", "category": "vocab.confused", "hint": "„Müde“ heisst „i lodhun“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Më vjen me vjellë“ (Standard: më vjen të vjell) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_018",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "phrase.health"],
+      "itemIds": ["item_cka_ka_ndodhe", "item_prej_kur"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Çka ka ndodhë?“" },
+      "choices": ["Was ist passiert?", "Was tut dir weh?", "Wie fühlst du dich?", "Seit wann?"],
+      "solutions": ["Was ist passiert?"],
+      "explanation": "„Ka ndodhë“ ist das Perfekt von „ndodh“ (geschehen): „ka“ + Gheg-Partizip „ndodhë“ (Standard: „ndodhur“).",
+      "errorHints": [
+        { "pattern": "weh", "category": "vocab.confused", "hint": "„Was tut dir weh?“ heisst „Çka të dhemb?“" },
+        { "pattern": "f[uü]hlst", "category": "vocab.confused", "hint": "„Wie fühlst du dich?“ heisst „Si ndihesh?“" },
+        { "pattern": "seit wann", "category": "vocab.confused", "hint": "„Seit wann?“ heisst „Prej kur?“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ndodhë“ (Standard: ndodhur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_019",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "grammar.verbs.participle"],
+      "itemIds": ["item_jam_rrezue", "item_rrezohem"],
+      "prompt": { "lang": "de", "text": "Welcher Satz bedeutet „Ich bin hingefallen.“?" },
+      "choices": ["Jam rrëzue.", "Kam rrëzue.", "Rrëzohem.", "Jam rrëzohem."],
+      "solutions": ["Jam rrëzue."],
+      "explanation": "Reflexive Verben wie „rrëzohem“ bilden das Perfekt mit „jam“ + Partizip: „Jam rrëzue.“ (Standard: „jam rrëzuar“).",
+      "errorHints": [
+        { "pattern": "^kam rr[eë]zue$", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „Jam rrëzue.“" },
+        { "pattern": "^rr[eë]zohem$", "category": "grammar.verb_tense", "hint": "„Rrëzohem“ ist Präsens: „ich falle hin“." },
+        { "pattern": "^jam rr[eë]zohem$", "category": "grammar.participle", "hint": "Nach „jam“ steht das Partizip: „rrëzue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_020",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_jam_rrezue", "item_rruge"],
+      "prompt": { "lang": "de", "text": "Ich bin auf der Strasse hingefallen." },
+      "answerLang": "sq",
+      "solutions": ["Jam rrëzue në rrugë.", "Në rrugë jam rrëzue."],
+      "wordBank": ["Jam", "rrëzue", "në", "rrugë", "Kam", "rrëzohem", "shpi"],
+      "explanation": "„Jam rrëzue“ – Perfekt mit „jam“, weil „rrëzohem“ reflexiv ist. „Në rrugë“ heisst „auf der Strasse“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam(\\s|$)", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „Jam rrëzue.“" },
+        { "pattern": "(^|\\s)rrëzohem(\\s|$)", "category": "grammar.participle", "hint": "„Rrëzohem“ ist Präsens. Nach „jam“ steht das Partizip „rrëzue“." },
+        { "pattern": "(^|\\s)shpi(\\s|$)", "category": "vocab.confused", "hint": "„Shpi“ heisst „Haus“. Die Strasse heisst „rrugë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_021",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "phrase.health"],
+      "itemIds": ["item_cka_ka_ndodhe"],
+      "prompt": { "lang": "de", "text": "Was ist passiert?" },
+      "answerLang": "sq",
+      "solutions": ["Çka ka ndodhë?", "Çka ndodhi?"],
+      "standardForms": ["Çfarë ka ndodhur?", "Çka ka ndodhur?", "Çfarë ndodhi?"],
+      "explanation": "Gheg bildet das Partizip ohne -ur: „ndodhë“ (Standard: „ndodhur“). Im Kosovo fragt man mit „çka“ (Standard: „çfarë“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)ndodh(\\s|$)", "category": "grammar.verb_tense", "hint": "„Ndodh“ ist Präsens („es geschieht“). Perfekt: „ka ndodhë“." },
+        { "pattern": "(^|\\s)kam ndodh", "category": "grammar.verb_conjugation", "hint": "„Es ist passiert“ steht in der 3. Person: „ka ndodhë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ndodhë“ (Standard: ndodhur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_022",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.body"],
+      "itemIds": ["item_jam_lendue", "item_lendohem", "item_kambe"],
+      "prompt": { "lang": "de", "text": "Ich habe mich am Bein verletzt." },
+      "answerLang": "sq",
+      "text": "Jam ___ në kâmbë.",
+      "solutions": ["lëndue"],
+      "standardForms": ["lënduar"],
+      "explanation": "„Lëndohem“ (sich verletzen) bildet das Perfekt mit „jam“: „Jam lëndue.“ Gheg-Partizip auf -ue (Standard: „lënduar“).",
+      "errorHints": [
+        { "pattern": "^l[eë]ndohem$", "category": "grammar.participle", "hint": "Nach „jam“ steht das Partizip: „lëndue“." },
+        { "pattern": "^rr[eë]zue$", "category": "vocab.confused", "hint": "„Rrëzue“ heisst „hingefallen“. Verletzt: „lëndue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_023",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "vocab.body"],
+      "itemIds": ["item_thye", "item_dore", "item_kam"],
+      "prompt": { "lang": "sq", "text": "E kam thye dorën." },
+      "answerLang": "de",
+      "solutions": ["Ich habe mir die Hand gebrochen.", "Ich habe die Hand gebrochen.", "Ich habe meine Hand gebrochen."],
+      "wordBank": ["Ich", "habe", "mir", "die", "Hand", "gebrochen", "Fuss", "verletzt", "dir"],
+      "explanation": "„Thye“ ist das Gheg-Partizip von „thyej“ (brechen; Standard: „thyer“). Mit Objekt steht „kam“: „E kam thye dorën.“",
+      "errorHints": [
+        { "pattern": "fuss", "category": "vocab.confused", "hint": "„Kâmba“ wäre der Fuss. „Dora“ ist die Hand." },
+        { "pattern": "verletzt", "category": "vocab.confused", "hint": "„Verletzt“ heisst „lëndue“. „Thye“ heisst „gebrochen“." },
+        { "pattern": "(^|\\s)dir(\\s|$)", "category": "grammar.clitics", "hint": "„Dir“ wäre „të“. Hier geht es um dich selbst: „e kam thye“ – ich habe gebrochen." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_024",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive"],
+      "itemIds": ["item_jam_rrezue", "item_asht"],
+      "prompt": { "lang": "de", "text": "Arta ist hingefallen." },
+      "answerLang": "sq",
+      "text": "Arta ___ rrëzue.",
+      "solutions": ["âsht"],
+      "choices": ["âsht", "ka", "je", "kanë"],
+      "explanation": "Perfekt reflexiver Verben: jam rrëzue, je rrëzue, âsht rrëzue … Für Arta also „âsht rrëzue“.",
+      "errorHints": [
+        { "pattern": "^ka$", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „Arta âsht rrëzue.“" },
+        { "pattern": "^je$", "category": "grammar.verb_conjugation", "hint": "„Je“ heisst „du bist“. Für Arta: „âsht“." },
+        { "pattern": "^kan[eë]$", "category": "grammar.verb_conjugation", "hint": "„Kanë“ heisst „sie haben“ (Plural)." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_025",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "vocab.body", "vocab.family"],
+      "itemIds": ["item_vlla", "item_im", "item_thye", "item_kambe"],
+      "prompt": { "lang": "de", "text": "Mein Bruder hat sich das Bein gebrochen." },
+      "answerLang": "sq",
+      "tokens": ["Vllau", "im", "e", "ka", "thye", "kâmbën"],
+      "solutions": ["Vllau im e ka thye kâmbën."],
+      "explanation": "Die Kurzform „e“ nimmt „kâmbën“ vorweg und steht vor „ka“. „Kâmbën“ ist Akkusativ (Gheg mit â, Standard: „këmbën“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)ka e thye", "category": "grammar.clitics", "hint": "Die Kurzform „e“ steht vor „ka“: „e ka thye“." },
+        { "pattern": "^im vllau", "category": "grammar.word_order", "hint": "Das Possessivpronomen steht nach dem Nomen: „vllau im“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „thye“ (Standard: thyer) und „vllau“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_026",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "grammar.case.accusative", "vocab.body"],
+      "itemIds": ["item_thye", "item_gisht"],
+      "prompt": { "lang": "de", "text": "Ich habe mir den Finger gebrochen." },
+      "answerLang": "sq",
+      "solutions": ["E kam thye gishtin.", "Kam thye gishtin.", "Gishtin e kam thye."],
+      "standardForms": ["E kam thyer gishtin.", "Kam thyer gishtin.", "Gishtin e kam thyer."],
+      "explanation": "„Thyej“ (brechen) bildet das Perfekt mit „kam“ + Partizip „thye“ (Standard: „thyer“). Die Kurzform „e“ nimmt „gishtin“ vorweg.",
+      "errorHints": [
+        { "pattern": "(^|\\s)gisht(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „gishtin“." },
+        { "pattern": "(^|\\s)gishti(\\s|$)", "category": "grammar.case", "hint": "Als Objekt steht der Akkusativ: „gishtin“." },
+        { "pattern": "(^|\\s)jam thye", "category": "grammar.verb_tense", "hint": "Mit Objekt bildest du das Perfekt mit „kam“: „E kam thye gishtin.“" }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_027",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "grammar.verbs.perfect", "grammar.verbs.reflexive"],
+      "itemIds": ["item_cka_ka_ndodhe", "item_jam_rrezue", "item_me_dhemb", "item_gju", "item_thye", "item_plage", "item_i_rende"],
+      "prompt": { "lang": "sq", "text": "– Çka ka ndodhë, Blerim?\n– Jam rrëzue në rrugë. Më dhemb gjuni.\n– A e ke thye?\n– Jo, kam veç nji plagë të vogël. S'âsht gja e rëndë.\n\nFrage: Was stimmt?" },
+      "choices": [
+        "Blerim hat nur eine kleine Wunde.",
+        "Blerim hat sich das Knie gebrochen.",
+        "Blerim ist zu Hause hingefallen.",
+        "Blerim hat eine schwere Wunde."
+      ],
+      "solutions": ["Blerim hat nur eine kleine Wunde."],
+      "explanation": "„Kam veç nji plagë të vogël“ heisst „ich habe nur eine kleine Wunde“. „S'âsht gja e rëndë“ heisst „es ist nichts Schlimmes“.",
+      "errorHints": [
+        { "pattern": "gebrochen", "category": "vocab.confused", "hint": "„A e ke thye?“ – „Jo“: Das Knie ist nicht gebrochen." },
+        { "pattern": "zu hause", "category": "vocab.confused", "hint": "Blerim ist „në rrugë“ hingefallen – auf der Strasse." },
+        { "pattern": "schwere", "category": "vocab.confused", "hint": "„S'âsht gja e rëndë“ heisst „es ist nichts Schlimmes“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„veç“ (nur), „gja“ (Sache, etwas) und das Partizip „ndodhë“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_028",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.family"],
+      "itemIds": ["item_femije", "item_jam_rrezue", "item_jam_lendue", "item_thye", "item_sherohem"],
+      "prompt": { "lang": "de", "text": "Das Kind ist hingefallen und hat sich verletzt." },
+      "answerLang": "sq",
+      "text": "Fëmija âsht rrëzue dhe âsht ___.",
+      "solutions": ["lëndue"],
+      "choices": ["lëndue", "lëndohet", "thye", "shërue"],
+      "explanation": "Beide Verben sind reflexiv, darum zweimal „âsht“ + Partizip: „âsht rrëzue“, „âsht lëndue“.",
+      "errorHints": [
+        { "pattern": "^l[eë]ndohet$", "category": "grammar.participle", "hint": "„Lëndohet“ ist Präsens. Nach „âsht“ steht das Partizip „lëndue“." },
+        { "pattern": "^thye$", "category": "vocab.confused", "hint": "„Thye“ heisst „gebrochen“ und steht mit „ka“ und einem Objekt." },
+        { "pattern": "^sh[eë]rue$", "category": "vocab.confused", "hint": "„Shërue“ heisst „gesund geworden“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_029",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.health"],
+      "itemIds": ["item_sherohem", "item_jam_lendue", "item_jam_ftohe", "item_sherim_te_shpejte"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Jam shërue.“?" },
+      "choices": ["Ich bin wieder gesund.", "Ich bin krank geworden.", "Ich habe mich verletzt.", "Ich habe mich erkältet."],
+      "solutions": ["Ich bin wieder gesund."],
+      "explanation": "„Shërohem“ heisst „gesund werden“. Perfekt mit „jam“: „Jam shërue.“ (Standard: „jam shëruar“). Daher kommt auch „Shërim të shpejtë!“",
+      "errorHints": [
+        { "pattern": "krank", "category": "vocab.confused", "hint": "„Krank“ heisst „i sëmurë“. „Shërue“ heisst „geheilt, gesund geworden“." },
+        { "pattern": "verletzt", "category": "vocab.confused", "hint": "„Verletzt“ heisst „lëndue“." },
+        { "pattern": "erk[aä]ltet", "category": "vocab.confused", "hint": "„Erkältet“ heisst „ftohë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_030",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "phrase.health", "reading.dialogues"],
+      "itemIds": ["item_sherohem", "item_ndihem", "item_ma_mire"],
+      "prompt": { "lang": "sq", "text": "– A je shërue? – Po, ndihem ma mirë." },
+      "answerLang": "de",
+      "solutions": ["Bist du wieder gesund? – Ja, ich fühle mich besser.", "Bist du wieder gesund? – Ja, mir geht es besser."],
+      "wordBank": ["Bist", "du", "wieder", "gesund", "Ja", "ich", "fühle", "mich", "besser", "krank", "schlechter", "Nein"],
+      "explanation": "„A je shërue?“ ist Perfekt mit „jam“: wörtlich „Bist du geheilt?“. „Ma mirë“ heisst „besser“ (Standard: „më mirë“).",
+      "errorHints": [
+        { "pattern": "krank", "category": "vocab.confused", "hint": "„Shërue“ heisst „gesund geworden“." },
+        { "pattern": "schlechter", "category": "vocab.confused", "hint": "„Ma mirë“ heisst „besser“." },
+        { "pattern": "(^|\\s)nein(\\s|$)", "category": "vocab.confused", "hint": "„Po“ heisst „ja“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_031",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "grammar.negation"],
+      "itemIds": ["item_sherohem", "item_hala"],
+      "prompt": { "lang": "de", "text": "Ich bin noch nicht gesund." },
+      "answerLang": "sq",
+      "text": "Hala nuk jam ___.",
+      "solutions": ["shërue"],
+      "standardForms": ["shëruar"],
+      "explanation": "„Hala nuk …“ heisst „noch nicht“. Gheg-Partizip „shërue“ (Standard: „shëruar“).",
+      "errorHints": [
+        { "pattern": "^sh[eë]rohem$", "category": "grammar.participle", "hint": "Nach „jam“ steht das Partizip: „shërue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_032",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "grammar.case.ablative", "vocab.health", "grammar.adjective_agreement"],
+      "itemIds": ["item_prej_nji_jave", "item_i_semure"],
+      "prompt": { "lang": "de", "text": "Ich bin seit einer Woche krank. (Ein Mann spricht.)" },
+      "answerLang": "sq",
+      "solutions": ["Jam i sëmurë prej nji jave.", "Prej nji jave jam i sëmurë.", "Jam i sëmurë që prej nji jave.", "Unë jam i sëmurë prej nji jave."],
+      "standardForms": ["Jam i sëmurë prej një jave.", "Prej një jave jam i sëmurë.", "Jam i sëmurë që prej një jave."],
+      "explanation": "„Prej nji jave“ heisst „seit einer Woche“: Nach „prej“ steht der Ablativ (javë → jave). Wie im Deutschen bleibt das Verb im Präsens.",
+      "errorHints": [
+        { "pattern": "(^|\\s)e s[eë]mur", "category": "grammar.gender", "hint": "Ein Mann sagt „i sëmurë“." },
+        { "pattern": "(^|\\s)javë(\\s|$)", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „prej nji jave“." },
+        { "pattern": "(^|\\s)jav[eë]n(\\s|$)", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „prej nji jave“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_033",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "phrase.health"],
+      "itemIds": ["item_prej_kur", "item_prej_tri_ditesh", "item_tri_here_ne_dite", "item_pas_ngranies", "item_dhoma_e_pritjes"],
+      "prompt": { "lang": "de", "text": "Die Ärztin fragt: „Prej kur je i sëmurë?“ Welche Antwort passt?" },
+      "choices": ["Prej tri ditësh.", "Tri herë në ditë.", "Pas ngrânies.", "Në dhomën e pritjes."],
+      "solutions": ["Prej tri ditësh."],
+      "explanation": "„Prej kur?“ heisst „seit wann?“. Antwort: „Prej tri ditësh“ – seit drei Tagen.",
+      "errorHints": [
+        { "pattern": "^tri her", "category": "vocab.confused", "hint": "„Tri herë në ditë“ heisst „dreimal täglich“ – das antwortet auf „Wie oft?“." },
+        { "pattern": "^pas ngr", "category": "vocab.confused", "hint": "„Pas ngrânies“ heisst „nach dem Essen“." },
+        { "pattern": "dhom", "category": "vocab.confused", "hint": "Das ist ein Ort: „im Wartezimmer“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_034",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_prej_kur", "item_kollitem"],
+      "prompt": { "lang": "de", "text": "Seit wann hustest du?" },
+      "answerLang": "sq",
+      "tokens": ["Prej", "kur", "kollitesh"],
+      "solutions": ["Prej kur kollitesh?"],
+      "explanation": "„Prej kur?“ heisst „seit wann?“. „Kollitesh“ ist die Du-Form von „kollitem“ (ich huste).",
+      "errorHints": [
+        { "pattern": "^kur prej", "category": "grammar.word_order", "hint": "„Seit wann“ heisst „prej kur“ – „prej“ kommt zuerst." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_035",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "grammar.case.ablative", "vocab.health"],
+      "itemIds": ["item_prej_tri_ditesh", "item_kam", "item_temperature"],
+      "prompt": { "lang": "de", "text": "Seit drei Tagen habe ich Fieber." },
+      "answerLang": "sq",
+      "solutions": ["Prej tri ditësh kam temperaturë.", "Kam temperaturë prej tri ditësh."],
+      "wordBank": ["Prej", "tri", "ditësh", "kam", "temperaturë", "ditë", "tre", "herë"],
+      "explanation": "„Prej tri ditësh“ heisst „seit drei Tagen“. „Tri“ ist die feminine Form von „tre“, weil „ditë“ feminin ist.",
+      "errorHints": [
+        { "pattern": "(^|\\s)tre(\\s|$)", "category": "grammar.gender", "hint": "„Ditë“ ist feminin – darum „tri“." },
+        { "pattern": "(^|\\s)ditë(\\s|$)", "category": "grammar.case", "hint": "Nach „prej“ + Zahl steht „ditësh“: „prej tri ditësh“." },
+        { "pattern": "(^|\\s)herë(\\s|$)", "category": "vocab.confused", "hint": "„Herë“ heisst „Mal“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_036",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "phrase.health"],
+      "itemIds": ["item_termin", "item_recete", "item_kontroll", "item_pacient", "item_urgjence"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "termin", "right": "Termin" },
+        { "left": "recetë", "right": "Rezept" },
+        { "left": "kontroll", "right": "Untersuchung" },
+        { "left": "pacient", "right": "Patient" },
+        { "left": "urgjencë", "right": "Notfall" }
+      ],
+      "explanation": "„Termin“ ist im Kosovo-Alltag üblich, wie im Deutschen. „Në urgjencë“ heisst „in der Notfallstation“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„termin“ (Standard eher „takim“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_037",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "grammar.case.accusative"],
+      "itemIds": ["item_dhoma_e_pritjes", "item_urgjence", "item_barnatore", "item_me_prite"],
+      "prompt": { "lang": "de", "text": "Wo wartest du beim Arzt?" },
+      "choices": ["në dhomën e pritjes", "në urgjencë", "në barnatore", "në kuzhinë"],
+      "solutions": ["në dhomën e pritjes"],
+      "explanation": "„Dhoma e pritjes“ ist das Wartezimmer („me pritë“ = warten). Nach „në“ steht der Akkusativ: „në dhomën e pritjes“.",
+      "errorHints": [
+        { "pattern": "urgjenc", "category": "vocab.confused", "hint": "„Urgjenca“ ist die Notfallstation." },
+        { "pattern": "barnatore", "category": "vocab.confused", "hint": "In der Apotheke („barnatore“) kaufst du Medikamente." },
+        { "pattern": "kuzhin", "category": "vocab.confused", "hint": "„Kuzhina“ ist die Küche." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_038",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_du", "item_me_marre_termin", "item_nji", "item_termin", "item_mjek"],
+      "prompt": { "lang": "de", "text": "Ich möchte einen Termin beim Arzt abmachen." },
+      "answerLang": "sq",
+      "solutions": ["Du me marrë nji termin te mjeku.", "Du me marrë termin te mjeku.", "Du me marrë nji termin te doktori."],
+      "wordBank": ["Du", "me", "marrë", "nji", "termin", "te", "mjeku", "marr", "mjek", "recetë"],
+      "explanation": "„Me marrë termin“ heisst „einen Termin abmachen“ (wörtlich: nehmen). „Te mjeku“ heisst „beim Arzt“ oder „zum Arzt“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)me marr(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me marrë“." },
+        { "pattern": "(^|\\s)mjek(\\s|$)", "category": "grammar.definite_article", "hint": "Nach „te“ steht das Nomen mit Artikel: „te mjeku“." },
+        { "pattern": "recet", "category": "vocab.confused", "hint": "„Recetë“ heisst „Rezept“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Schreibung „du“ (ich will) und „termin“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_039",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "vocab.time"],
+      "itemIds": ["item_neser", "item_termin", "item_recete", "item_tension", "item_pomade"],
+      "prompt": { "lang": "de", "text": "Morgen um zehn habe ich einen Termin." },
+      "answerLang": "sq",
+      "text": "Nesër në orën dhjetë kam ___.",
+      "solutions": ["termin"],
+      "choices": ["termin", "recetë", "tension", "pomadë"],
+      "explanation": "„Kam termin“ heisst „ich habe einen Termin“. „Në orën dhjetë“ heisst „um zehn Uhr“.",
+      "errorHints": [
+        { "pattern": "^recet[eë]$", "category": "vocab.confused", "hint": "„Recetë“ heisst „Rezept“." },
+        { "pattern": "^tension$", "category": "vocab.confused", "hint": "„Tension“ heisst „Blutdruck“." },
+        { "pattern": "^pomad[eë]$", "category": "vocab.confused", "hint": "„Pomadë“ heisst „Salbe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_040",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["reading.dialogues", "phrase.health", "vocab.health"],
+      "itemIds": ["item_termin", "item_kartele", "item_sigurim_shendetesor", "item_ulem", "item_dhoma_e_pritjes"],
+      "prompt": { "lang": "sq", "text": "– Mirëdita, kam termin te doktori në orën nândë.\n– A e keni kartelën e sigurimit shëndetësor?\n– Po, urdhëroni.\n– Faleminderit. Uluni në dhomën e pritjes, ju lutem.\n\nFrage: Was soll der Patient jetzt tun?" },
+      "choices": ["Im Wartezimmer warten.", "Die Versichertenkarte suchen.", "Morgen wiederkommen.", "In die Apotheke gehen."],
+      "solutions": ["Im Wartezimmer warten."],
+      "explanation": "„Uluni“ heisst „setzen Sie sich“ (von „ulem“). „Dhoma e pritjes“ ist das Wartezimmer, „kartela e sigurimit shëndetësor“ die Versichertenkarte.",
+      "errorHints": [
+        { "pattern": "karte", "category": "vocab.confused", "hint": "Die Karte hat er schon gegeben: „Po, urdhëroni.“" },
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "Der Termin ist heute um neun: „në orën nândë“." },
+        { "pattern": "apotheke", "category": "vocab.confused", "hint": "Von der Apotheke ist nicht die Rede." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„urdhëroni“ (bitte schön, hier bitte; im Kosovo auch „urdhno“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_041",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.health", "phrase.politeness", "grammar.question_particle", "grammar.case.genitive"],
+      "itemIds": ["item_keni", "item_kartele", "item_sigurim_shendetesor"],
+      "prompt": { "lang": "de", "text": "Haben Sie die Versichertenkarte? (höflich)" },
+      "answerLang": "sq",
+      "solutions": [
+        "A e keni kartelën e sigurimit?",
+        "A e keni kartelën e sigurimit shëndetësor?",
+        "A keni kartelën e sigurimit?",
+        "A keni kartelën e sigurimit shëndetësor?"
+      ],
+      "explanation": "Ja/Nein-Fragen beginnen mit „a“. Die Kurzform „e“ nimmt „kartelën“ vorweg; „e sigurimit“ ist Genitiv: „der Versicherung“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ke(\\s|$)", "category": "grammar.verb_conjugation", "hint": "Höflich mit „Sie“: „keni“." },
+        { "pattern": "(^|\\s)kartel[eë](\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den Artikel im Akkusativ: „kartelën“." },
+        { "pattern": "(^|\\s)kartela(\\s|$)", "category": "grammar.case", "hint": "Als Objekt steht der Akkusativ: „kartelën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_042",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.clitics", "grammar.verbs.present", "vocab.health"],
+      "itemIds": ["item_mjeke", "item_me_kontrollue"],
+      "prompt": { "lang": "de", "text": "Die Ärztin untersucht mich." },
+      "answerLang": "sq",
+      "tokens": ["Mjekja", "më", "kontrollon"],
+      "solutions": ["Mjekja më kontrollon."],
+      "explanation": "„Kontrolloj“ heisst „untersuchen, kontrollieren“, Infinitiv „me kontrollue“. Die Kurzform „më“ steht vor dem Verb.",
+      "errorHints": [
+        { "pattern": "kontrollon m[eë]", "category": "grammar.word_order", "hint": "Die Kurzform „më“ steht vor dem Verb: „më kontrollon“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_043",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "vocab.health"],
+      "itemIds": ["item_mjek", "item_me_kontrollue", "item_ka"],
+      "prompt": { "lang": "de", "text": "Der Arzt hat mich untersucht." },
+      "answerLang": "sq",
+      "solutions": ["Mjeku më ka kontrollue.", "Doktori më ka kontrollue."],
+      "wordBank": ["Mjeku", "më", "ka", "kontrollue", "kam", "kontrollon", "mjek"],
+      "explanation": "Perfekt: „ka“ + Partizip „kontrollue“ (Standard: „kontrolluar“). Die Kurzform „më“ steht vor „ka“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kontrollon(\\s|$)", "category": "grammar.verb_tense", "hint": "„Kontrollon“ ist Präsens. Perfekt: „ka kontrollue“." },
+        { "pattern": "^mjeku ka m[eë]", "category": "grammar.clitics", "hint": "Die Kurzform steht vor „ka“: „më ka kontrollue“." },
+        { "pattern": "(^|\\s)kam(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Der Arzt: „ka“." },
+        { "pattern": "(^|\\s)mjek(\\s|$)", "category": "grammar.definite_article", "hint": "„Der Arzt“ braucht den Artikel: „mjeku“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_044",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_shtrihem", "item_merr_fryme_thelle"],
+      "prompt": { "lang": "de", "text": "Die Ärztin sagt: „Shtrihu këtu dhe merr frymë thellë!“ Was sollst du tun?" },
+      "choices": [
+        "Dich hier hinlegen und tief einatmen.",
+        "Dich hier hinsetzen und den Mund öffnen.",
+        "Hier warten und Wasser trinken.",
+        "Aufstehen und tief einatmen."
+      ],
+      "solutions": ["Dich hier hinlegen und tief einatmen."],
+      "explanation": "„Shtrihu!“ ist der Befehl von „shtrihem“ (sich hinlegen). Befehle reflexiver Verben enden auf -u: „Ulu!“, „Çohu!“.",
+      "errorHints": [
+        { "pattern": "hinsetzen", "category": "vocab.confused", "hint": "„Hinsetzen“ wäre „Ulu!“." },
+        { "pattern": "warten", "category": "vocab.confused", "hint": "„Warten“ wäre „Prit!“." },
+        { "pattern": "aufstehen", "category": "vocab.confused", "hint": "„Aufstehen“ wäre „Çohu!“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_045",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "grammar.verbs.reflexive"],
+      "itemIds": ["item_shtrihem", "item_ulem"],
+      "prompt": { "lang": "de", "text": "Leg dich bitte hier hin!" },
+      "answerLang": "sq",
+      "text": "___ këtu, të lutem!",
+      "solutions": ["Shtrihu"],
+      "choices": ["Shtrihu", "Shtrihem", "Shtrihet", "Ulu"],
+      "explanation": "Der Befehl reflexiver Verben endet auf -u: shtrihem → „Shtrihu!“, ulem → „Ulu!“.",
+      "errorHints": [
+        { "pattern": "^shtrihem$", "category": "grammar.verb_conjugation", "hint": "„Shtrihem“ heisst „ich lege mich hin“. Befehl: „Shtrihu!“" },
+        { "pattern": "^shtrihet$", "category": "grammar.verb_conjugation", "hint": "„Shtrihet“ heisst „er/sie legt sich hin“. Befehl: „Shtrihu!“" },
+        { "pattern": "^ulu$", "category": "vocab.confused", "hint": "„Ulu!“ heisst „Setz dich!“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_046",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.imperative", "phrase.health", "grammar.verbs.reflexive"],
+      "itemIds": ["item_shtrihem", "item_ulem", "item_merr_fryme_thelle", "item_hap", "item_goje", "item_trego", "item_me_dhemb"],
+      "prompt": { "lang": "de", "text": "Ordne die Anweisungen der Ärztin zu." },
+      "pairs": [
+        { "left": "Shtrihu!", "right": "Leg dich hin!" },
+        { "left": "Ulu!", "right": "Setz dich!" },
+        { "left": "Merr frymë thellë!", "right": "Atme tief ein!" },
+        { "left": "Hap gojën!", "right": "Öffne den Mund!" },
+        { "left": "Trego ku të dhemb!", "right": "Zeig, wo es dir wehtut!" }
+      ],
+      "explanation": "So spricht die Ärztin bei der Untersuchung. „Shtrihu!“ und „Ulu!“ sind Befehle reflexiver Verben.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_047",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "vocab.health"],
+      "itemIds": ["item_mjek", "item_me_kontrollue", "item_tension"],
+      "prompt": { "lang": "sq", "text": "Mjeku më ka kontrollue tensionin." },
+      "answerLang": "de",
+      "solutions": [
+        "Der Arzt hat meinen Blutdruck kontrolliert.",
+        "Der Arzt hat meinen Blutdruck gemessen.",
+        "Der Arzt hat mir den Blutdruck gemessen.",
+        "Der Arzt hat mir den Blutdruck kontrolliert.",
+        "Der Arzt hat den Blutdruck kontrolliert.",
+        "Der Arzt hat den Blutdruck gemessen."
+      ],
+      "explanation": "„Tensioni“ heisst im Kosovo-Alltag „der Blutdruck“. „Më ka kontrollue“ – wörtlich „hat mir kontrolliert“.",
+      "errorHints": [
+        { "pattern": "fieber", "category": "vocab.confused", "hint": "„Fieber“ heisst „temperaturë“. „Tensioni“ ist der Blutdruck." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„tension“ (Blutdruck; Standard eher „presion i gjakut“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_048",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.genitive", "grammar.verbs.infinitive_me", "vocab.health"],
+      "itemIds": ["item_duhet", "item_analize", "item_gjak"],
+      "prompt": { "lang": "de", "text": "Ich muss eine Blutuntersuchung machen." },
+      "answerLang": "sq",
+      "tokens": ["Duhet", "me", "bâ", "analizat", "e", "gjakut"],
+      "solutions": ["Duhet me bâ analizat e gjakut."],
+      "explanation": "„Analizat e gjakut“ heisst wörtlich „die Analysen des Blutes“: Genitiv mit „e“. „Me bâ“ ist Gheg (Standard: „të bëj“).",
+      "errorHints": [
+        { "pattern": "gjakut e analizat|e gjakut analizat|gjakut analizat", "category": "grammar.word_order", "hint": "Der Genitiv steht nach dem Nomen: „analizat e gjakut“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_049",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.health", "grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_tension", "item_asht", "item_i_nalte"],
+      "prompt": { "lang": "de", "text": "Der Blutdruck ist hoch." },
+      "answerLang": "sq",
+      "text": "Tensioni âsht i ___.",
+      "solutions": ["naltë"],
+      "standardForms": ["lartë"],
+      "explanation": "Gheg sagt „i naltë“ (hoch), Standard „i lartë“. „Tensioni“ ist maskulin, darum „i“.",
+      "errorHints": [
+        { "pattern": "^nalt$", "category": "spelling.other", "hint": "Das Adjektiv endet auf -ë: „i naltë“." },
+        { "pattern": "^ult[eë]$", "category": "vocab.confused", "hint": "„I ultë“ heisst „tief, niedrig“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „i naltë“ (Standard: i lartë) und „tension“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_050",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.imperative", "vocab.health"],
+      "itemIds": ["item_therras", "item_ambulance"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Thirr ambulancën!“?" },
+      "choices": ["Ruf den Krankenwagen!", "Geh in die Apotheke!", "Ruf deine Mutter an!", "Warte im Wartezimmer!"],
+      "solutions": ["Ruf den Krankenwagen!"],
+      "explanation": "„Thirr!“ ist der Befehl von „thërras“ (rufen). „Ambulanca“ ist der Krankenwagen.",
+      "errorHints": [
+        { "pattern": "apotheke", "category": "vocab.confused", "hint": "„In die Apotheke“ hiesse „në barnatore“." },
+        { "pattern": "mutter", "category": "vocab.confused", "hint": "„Ambulanca“ ist der Krankenwagen, nicht die Mutter („nâna“)." },
+        { "pattern": "warte", "category": "vocab.confused", "hint": "„Warte!“ hiesse „Prit!“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„ambulancë“ (Krankenwagen) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_051",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "vocab.health"],
+      "itemIds": ["item_duhet", "item_me_shkue", "item_urgjence", "item_ambulance", "item_termin"],
+      "prompt": { "lang": "de", "text": "Wir müssen in die Notfallstation gehen." },
+      "answerLang": "sq",
+      "solutions": ["Duhet me shkue në urgjencë.", "Na duhet me shkue në urgjencë."],
+      "wordBank": ["Duhet", "me", "shkue", "në", "urgjencë", "shkojmë", "ambulancë", "termin"],
+      "explanation": "„Duhet me shkue“ heisst „man muss gehen“; mit Kurzform genauer: „na duhet“ (wir müssen). „Urgjenca“ ist die Notfallstation.",
+      "errorHints": [
+        { "pattern": "(^|\\s)shkojmë(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." },
+        { "pattern": "ambulanc", "category": "vocab.confused", "hint": "„Ambulanca“ ist der Krankenwagen." },
+        { "pattern": "termin", "category": "vocab.confused", "hint": "„Termin“ heisst „Termin“. Notfallstation: „urgjencë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_052",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "grammar.prepositions"],
+      "itemIds": ["item_ajo", "item_spital", "item_prej_dje"],
+      "prompt": { "lang": "de", "text": "Sie ist seit gestern im Spital." },
+      "answerLang": "sq",
+      "text": "Ajo âsht në spital ___ dje.",
+      "solutions": ["prej"],
+      "choices": ["prej", "para", "pas", "kundër"],
+      "explanation": "„Prej dje“ heisst „seit gestern“ (auch: „që dje“).",
+      "errorHints": [
+        { "pattern": "^para$", "category": "vocab.confused", "hint": "„Para“ heisst „vor“. „Seit“ heisst „prej“." },
+        { "pattern": "^pas$", "category": "vocab.confused", "hint": "„Pas“ heisst „nach“. „Seit“ heisst „prej“." },
+        { "pattern": "^kund[eë]r$", "category": "vocab.confused", "hint": "„Kundër“ heisst „gegen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_053",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.family"],
+      "itemIds": ["item_gjysh", "item_im", "item_jam_rrezue", "item_tash", "item_spital"],
+      "prompt": { "lang": "de", "text": "Mein Grossvater ist hingefallen und ist jetzt im Spital." },
+      "answerLang": "sq",
+      "solutions": [
+        "Gjyshi im âsht rrëzue dhe tash âsht në spital.",
+        "Gjyshi im âsht rrëzue dhe âsht në spital tash.",
+        "Gjyshi im âsht rrëzue dhe tashti âsht në spital.",
+        "Gjyshi im âsht rrëzue edhe tash âsht në spital."
+      ],
+      "standardForms": ["Gjyshi im është rrëzuar dhe tani është në spital.", "Gjyshi im është rrëzuar dhe është në spital tani."],
+      "explanation": "„Âsht rrëzue“ – Perfekt mit „jam“, weil „rrëzohem“ reflexiv ist. „Tash“ heisst „jetzt“ (Standard: „tani“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)ka rr[eë]zue", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „âsht rrëzue“." },
+        { "pattern": "^gjysh im", "category": "grammar.definite_article", "hint": "Mit „im“ steht das Nomen mit Artikel: „gjyshi im“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_054",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "grammar.verbs.perfect", "grammar.verbs.reflexive"],
+      "itemIds": ["item_jam_rrezue", "item_pune", "item_thye", "item_dore", "item_urgjence", "item_fashe", "item_me_pushue"],
+      "prompt": { "lang": "sq", "text": "Drita âsht rrëzue në punë dhe e ka thye dorën. Tash âsht në urgjencë. Ka nji fashë në dorë dhe duhet me pushue dy javë.\n\nFrage: Was stimmt?" },
+      "choices": [
+        "Drita hat sich die Hand gebrochen.",
+        "Drita ist zu Hause hingefallen.",
+        "Drita muss zwei Tage ruhen.",
+        "Drita hat einen Verband am Fuss."
+      ],
+      "solutions": ["Drita hat sich die Hand gebrochen."],
+      "explanation": "„E ka thye dorën“ heisst „sie hat sich die Hand gebrochen“. „Âsht rrëzue“ ist Perfekt mit „jam“, „e ka thye“ Perfekt mit „kam“.",
+      "errorHints": [
+        { "pattern": "zu hause", "category": "vocab.confused", "hint": "Drita ist „në punë“ hingefallen – bei der Arbeit." },
+        { "pattern": "tage", "category": "vocab.confused", "hint": "„Dy javë“ heisst „zwei Wochen“." },
+        { "pattern": "fuss", "category": "vocab.confused", "hint": "Der Verband ist „në dorë“ – an der Hand." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen. Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_055",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health"],
+      "itemIds": ["item_tablete", "item_pike", "item_shurup", "item_pomade", "item_flaster"],
+      "prompt": { "lang": "de", "text": "Ordne zu, was es in der Apotheke gibt." },
+      "pairs": [
+        { "left": "tabletë", "right": "Tablette" },
+        { "left": "pika", "right": "Tropfen" },
+        { "left": "shurup", "right": "Sirup" },
+        { "left": "pomadë", "right": "Salbe" },
+        { "left": "flaster", "right": "Pflaster" }
+      ],
+      "explanation": "„Pika“ ist der Plural von „pikë“ (Tropfen): „pika për sy“ sind Augentropfen.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„flaster“ (Pflaster) als Kosovo-Alltagswort zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_056",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "grammar.prepositions"],
+      "itemIds": ["item_shurup", "item_kolle", "item_pike", "item_pomade", "item_fashe"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Hustensirup“?" },
+      "choices": ["shurup për kollë", "pika për sy", "pomadë për lëkurë", "fashë për dorë"],
+      "solutions": ["shurup për kollë"],
+      "explanation": "„Për“ heisst „für“: „shurup për kollë“ ist Sirup für (gegen) den Husten.",
+      "errorHints": [
+        { "pattern": "^pika", "category": "vocab.confused", "hint": "„Pika për sy“ sind Augentropfen." },
+        { "pattern": "^pomad", "category": "vocab.confused", "hint": "„Pomadë për lëkurë“ ist eine Hautsalbe." },
+        { "pattern": "^fash", "category": "vocab.confused", "hint": "„Fashë për dorë“ ist ein Verband für die Hand." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_057",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "grammar.case.ablative", "phrase.politeness"],
+      "itemIds": ["item_a_keni", "item_kunder", "item_kolle"],
+      "prompt": { "lang": "de", "text": "Haben Sie etwas gegen Husten?" },
+      "answerLang": "sq",
+      "solutions": ["A keni diçka kundër kollës?", "Keni diçka kundër kollës?"],
+      "wordBank": ["A", "keni", "diçka", "kundër", "kollës", "kollë", "ke", "para"],
+      "explanation": "„Kundër“ (gegen) verlangt den Ablativ: kollë → „kollës“. „A keni …?“ ist die höfliche Frage in der Apotheke.",
+      "errorHints": [
+        { "pattern": "(^|\\s)koll[eë](\\s|$)", "category": "grammar.case", "hint": "Nach „kundër“ steht der Ablativ: „kundër kollës“." },
+        { "pattern": "(^|\\s)ke(\\s|$)", "category": "grammar.verb_conjugation", "hint": "Höflich mit „Sie“: „keni“." },
+        { "pattern": "(^|\\s)para(\\s|$)", "category": "vocab.confused", "hint": "„Para“ heisst „vor“. „Gegen“ heisst „kundër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_058",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.ablative", "vocab.health"],
+      "itemIds": ["item_me_duhet", "item_ilac", "item_kunder", "item_dhimbje"],
+      "prompt": { "lang": "de", "text": "Ich brauche ein Medikament gegen die Schmerzen." },
+      "answerLang": "sq",
+      "text": "Më duhet nji ilaç kundër ___.",
+      "solutions": ["dhimbjes"],
+      "explanation": "„Kundër“ verlangt den Ablativ: dhimbja → „kundër dhimbjes“ (gegen die Schmerzen).",
+      "errorHints": [
+        { "pattern": "^dhimbje$", "category": "grammar.case", "hint": "Nach „kundër“ steht der Ablativ: „dhimbjes“." },
+        { "pattern": "^dhimbja$", "category": "grammar.case", "hint": "Nach „kundër“ steht der Ablativ: „dhimbjes“." },
+        { "pattern": "^dhimbjen$", "category": "grammar.case", "hint": "Nach „kundër“ steht der Ablativ: „dhimbjes“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_059",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "phrase.health"],
+      "itemIds": ["item_farmacist", "item_tri_here_ne_dite", "item_here", "item_prej_tri_ditesh"],
+      "prompt": { "lang": "de", "text": "Die Apothekerin sagt: „Tri herë në ditë.“ Was bedeutet das?" },
+      "choices": ["Dreimal täglich.", "Seit drei Tagen.", "Alle drei Stunden.", "In drei Tagen."],
+      "solutions": ["Dreimal täglich."],
+      "explanation": "„Herë“ heisst „Mal“: „nji herë“ (einmal), „dy herë“ (zweimal), „tri herë në ditë“ (dreimal täglich).",
+      "errorHints": [
+        { "pattern": "seit", "category": "vocab.confused", "hint": "„Seit drei Tagen“ heisst „prej tri ditësh“." },
+        { "pattern": "stunden", "category": "vocab.confused", "hint": "„Alle drei Stunden“ heisst „çdo tri orë“." },
+        { "pattern": "^in drei", "category": "vocab.confused", "hint": "„Herë“ heisst „Mal“: „tri herë“ = dreimal." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_060",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "phrase.health", "grammar.verbs.imperative"],
+      "itemIds": ["item_tablete", "item_tri_here_ne_dite", "item_pas_ngranies"],
+      "prompt": { "lang": "sq", "text": "Merr nji tabletë tri herë në ditë, pas ngrânies." },
+      "answerLang": "de",
+      "solutions": [
+        "Nimm dreimal täglich eine Tablette, nach dem Essen.",
+        "Nimm eine Tablette dreimal täglich, nach dem Essen.",
+        "Nimm dreimal täglich nach dem Essen eine Tablette.",
+        "Nimm nach dem Essen dreimal täglich eine Tablette."
+      ],
+      "wordBank": ["Nimm", "dreimal", "täglich", "eine", "Tablette", "nach", "dem", "Essen", "vor", "zweimal", "Tropfen"],
+      "explanation": "„Merr!“ ist der Befehl von „marr“ (nehmen). „Pas ngrânies“ heisst „nach dem Essen“ (Standard: „pas ngrënies“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)vor(\\s|$)", "category": "vocab.confused", "hint": "„Pas“ heisst „nach“; „vor“ wäre „para“." },
+        { "pattern": "zweimal", "category": "vocab.confused", "hint": "„Tri herë“ heisst „dreimal“." },
+        { "pattern": "tropfen", "category": "vocab.confused", "hint": "„Tabletë“ ist die Tablette; Tropfen heissen „pika“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_061",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "grammar.verbs.imperative", "grammar.clitics"],
+      "itemIds": ["item_pike", "item_para_ngranies", "item_pas_ngranies"],
+      "prompt": { "lang": "de", "text": "Nimm die Tropfen vor dem Essen." },
+      "answerLang": "sq",
+      "text": "Merri pikat ___ ngrânies.",
+      "solutions": ["para"],
+      "choices": ["para", "pas", "prej", "kundër"],
+      "explanation": "„Para ngrânies“ heisst „vor dem Essen“, „pas ngrânies“ „nach dem Essen“. „Merri“ heisst „nimm sie“ (merr + i).",
+      "errorHints": [
+        { "pattern": "^pas$", "category": "vocab.confused", "hint": "„Pas“ heisst „nach“. „Vor“ heisst „para“." },
+        { "pattern": "^prej$", "category": "vocab.confused", "hint": "„Prej“ heisst „seit, von“." },
+        { "pattern": "^kund[eë]r$", "category": "vocab.confused", "hint": "„Kundër“ heisst „gegen“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_062",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.case.ablative", "vocab.time", "grammar.clitics"],
+      "itemIds": ["item_e_marr", "item_ilac", "item_pas_ngranies"],
+      "prompt": { "lang": "de", "text": "Ich nehme das Medikament nach dem Essen." },
+      "answerLang": "sq",
+      "solutions": [
+        "E marr ilaçin pas ngrânies.",
+        "Ilaçin e marr pas ngrânies.",
+        "Marr ilaçin pas ngrânies.",
+        "Pas ngrânies e marr ilaçin.",
+        "Unë e marr ilaçin pas ngrânies."
+      ],
+      "standardForms": ["E marr ilaçin pas ngrënies.", "Ilaçin e marr pas ngrënies.", "Marr ilaçin pas ngrënies.", "Pas ngrënies e marr ilaçin."],
+      "explanation": "„Pas ngrânies“ heisst „nach dem Essen“ – mit Gheg-â wie in „ngrânë“ (Standard: „ngrënies“). Die Kurzform „e“ nimmt „ilaçin“ vorweg.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ila[cç](\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den Artikel: „ilaçin“." },
+        { "pattern": "(^|\\s)para ngr", "category": "vocab.confused", "hint": "„Para“ heisst „vor“. Nach dem Essen: „pas ngrânies“." },
+        { "pattern": "(^|\\s)ngr[aâ]nie(\\s|$)", "category": "grammar.case", "hint": "Nach „pas“ steht der Ablativ: „pas ngrânies“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_063",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.time", "grammar.verbs.modal", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_here", "item_duhet", "item_me_marre", "item_tablete"],
+      "prompt": { "lang": "de", "text": "Wie oft am Tag muss ich die Tabletten nehmen?" },
+      "answerLang": "sq",
+      "tokens": ["Sa", "herë", "në", "ditë", "duhet", "me", "marrë", "tabletat"],
+      "solutions": ["Sa herë në ditë duhet me marrë tabletat?", "Sa herë duhet me marrë tabletat në ditë?"],
+      "explanation": "„Sa herë?“ heisst „wie oft?“ (wörtlich: wie viele Male). Nach „duhet“ folgt „me marrë“.",
+      "errorHints": [
+        { "pattern": "^duhet sa", "category": "grammar.word_order", "hint": "Das Fragewort steht am Anfang: „Sa herë …?“" }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_064",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "phrase.health", "vocab.time"],
+      "itemIds": ["item_a_keni", "item_kunder", "item_kolle", "item_recete", "item_shurup", "item_here", "item_para_ngranies"],
+      "prompt": { "lang": "sq", "text": "– Mirëdita, a keni diçka kundër kollës?\n– A keni recetë?\n– Jo, s'kam.\n– Atëherë ju jap nji shurup pa recetë. Merreni dy herë në ditë, para ngrânies.\n\nFrage: Wie soll der Kunde den Sirup nehmen?" },
+      "choices": [
+        "Zweimal täglich vor dem Essen.",
+        "Dreimal täglich nach dem Essen.",
+        "Zweimal täglich nach dem Essen.",
+        "Einmal täglich vor dem Schlafen."
+      ],
+      "solutions": ["Zweimal täglich vor dem Essen."],
+      "explanation": "„Pa recetë“ heisst „ohne Rezept“. „Merreni“ ist die höfliche Befehlsform mit Kurzform: „nehmen Sie ihn“.",
+      "errorHints": [
+        { "pattern": "dreimal", "category": "vocab.confused", "hint": "„Dy herë“ heisst „zweimal“." },
+        { "pattern": "^zweimal t[aä]glich nach", "category": "vocab.confused", "hint": "„Para ngrânies“ heisst „vor dem Essen“." },
+        { "pattern": "schlafen", "category": "vocab.confused", "hint": "Vom Schlafen ist nicht die Rede: „para ngrânies“ – vor dem Essen." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_065",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.health", "grammar.clitics", "grammar.case.accusative"],
+      "itemIds": ["item_me_duhet", "item_recete", "item_antibiotik"],
+      "prompt": { "lang": "de", "text": "Brauche ich für dieses Antibiotikum ein Rezept?" },
+      "answerLang": "sq",
+      "solutions": [
+        "A më duhet recetë për këtë antibiotik?",
+        "A më duhet nji recetë për këtë antibiotik?",
+        "Për këtë antibiotik a më duhet recetë?",
+        "A duhet recetë për këtë antibiotik?"
+      ],
+      "standardForms": ["A më duhet një recetë për këtë antibiotik?"],
+      "explanation": "„Më duhet“ heisst „ich brauche“ (wörtlich: mir ist nötig). Nach „për“ steht der Akkusativ: „këtë antibiotik“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ky antibiotik", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „për këtë antibiotik“." },
+        { "pattern": "(^|\\s)t[eë] duhet", "category": "grammar.clitics", "hint": "„Të duhet“ heisst „du brauchst“. Für „ich“: „më duhet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_066",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "grammar.plural"],
+      "itemIds": ["item_sy", "item_pike", "item_pomade", "item_fashe", "item_shurup"],
+      "prompt": { "lang": "de", "text": "Für die Augen brauchst du Tropfen." },
+      "answerLang": "sq",
+      "text": "Për sytë të duhen ___.",
+      "solutions": ["pika"],
+      "choices": ["pika", "pomadë", "fashë", "shurup"],
+      "explanation": "„Pika“ ist der Plural von „pikë“ (Tropfen). Weil es mehrere sind, steht „të duhen“ im Plural.",
+      "errorHints": [
+        { "pattern": "^pomad[eë]$", "category": "vocab.confused", "hint": "„Pomadë“ ist eine Salbe." },
+        { "pattern": "^fash[eë]$", "category": "vocab.confused", "hint": "„Fashë“ ist ein Verband." },
+        { "pattern": "^shurup$", "category": "vocab.confused", "hint": "„Shurup“ ist Sirup." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_067",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "grammar.case.ablative"],
+      "itemIds": ["item_tri_here_ne_dite", "item_para_ngranies", "item_pas_ngranies", "item_prej_tri_ditesh", "item_prej_kur"],
+      "prompt": { "lang": "de", "text": "Ordne die Zeitangaben zu." },
+      "pairs": [
+        { "left": "tri herë në ditë", "right": "dreimal täglich" },
+        { "left": "para ngrânies", "right": "vor dem Essen" },
+        { "left": "pas ngrânies", "right": "nach dem Essen" },
+        { "left": "prej tri ditësh", "right": "seit drei Tagen" },
+        { "left": "prej kur?", "right": "seit wann?" }
+      ],
+      "explanation": "„Para“ heisst „vor“, „pas“ „nach“, „prej“ „seit“. Danach steht der Ablativ: „ngrânies“, „ditësh“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_068",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health"],
+      "itemIds": ["item_farmacist", "item_recete", "item_antibiotik", "item_fashe", "item_sigurim_shendetesor"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "farmacist", "right": "Apotheker" },
+        { "left": "recetë", "right": "Rezept" },
+        { "left": "antibiotik", "right": "Antibiotikum" },
+        { "left": "fashë", "right": "Verband" },
+        { "left": "sigurim shëndetësor", "right": "Krankenversicherung" }
+      ],
+      "explanation": "„Sigurim shëndetësor“ ist die Krankenversicherung; die Karte dazu heisst „kartela e sigurimit“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_069",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.health", "vocab.body", "vocab.time"],
+      "itemIds": ["item_prej_dje", "item_me_dhemb", "item_stomak"],
+      "prompt": { "lang": "de", "text": "Seit gestern tut mir der Magen weh." },
+      "answerLang": "sq",
+      "solutions": ["Prej dje më dhemb stomaku.", "Më dhemb stomaku prej dje.", "Që dje më dhemb stomaku.", "Më dhemb stomaku që dje."],
+      "wordBank": ["Prej", "dje", "më", "dhemb", "stomaku", "stomak", "sot", "dhembin"],
+      "explanation": "„Stomaku“ ist der Magen. „Prej dje“ heisst „seit gestern“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)stomak(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „stomaku“." },
+        { "pattern": "(^|\\s)sot(\\s|$)", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“. Gestern: „dje“." },
+        { "pattern": "(^|\\s)dhembin(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Dhembin“ ist Plural. Für den Magen: „dhemb“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_070",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.health", "phrase.health", "grammar.verbs.reflexive"],
+      "itemIds": ["item_alergji", "item_teshtij", "item_me_kruhet", "item_sy"],
+      "prompt": { "lang": "sq", "text": "Kam alergji: teshtij shumë dhe më kruhen sytë." },
+      "answerLang": "de",
+      "solutions": [
+        "Ich habe eine Allergie: Ich niese viel und meine Augen jucken.",
+        "Ich habe eine Allergie, ich niese viel und meine Augen jucken.",
+        "Ich habe eine Allergie: Ich niese viel und mir jucken die Augen."
+      ],
+      "wordBank": ["Ich", "habe", "eine", "Allergie", "ich", "niese", "viel", "und", "meine", "Augen", "jucken", "huste", "Ohren", "wenig"],
+      "explanation": "„Më kruhen sytë“ steht im Plural, weil es zwei Augen sind. Bei einem Ding: „më kruhet“.",
+      "errorHints": [
+        { "pattern": "huste", "category": "vocab.confused", "hint": "„Teshtij“ heisst „ich niese“; husten heisst „kollitem“." },
+        { "pattern": "ohren", "category": "vocab.confused", "hint": "„Sytë“ sind die Augen; die Ohren heissen „veshët“." },
+        { "pattern": "wenig", "category": "vocab.confused", "hint": "„Shumë“ heisst „viel“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_071",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.body", "grammar.case.ablative", "phrase.health"],
+      "itemIds": ["item_gjak", "item_me_rrjedh_hunda", "item_hunde"],
+      "prompt": { "lang": "de", "text": "Ich habe Nasenbluten. (wörtlich: Mir fliesst Blut aus der Nase.)" },
+      "answerLang": "sq",
+      "text": "Më rrjedh ___ prej hundës.",
+      "solutions": ["gjak", "gjaku"],
+      "explanation": "„Gjak“ heisst „Blut“. Nach „prej“ steht der Ablativ: „prej hundës“ (aus der Nase).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„Më rrjedh gjak prej hundës“ (Standard eher „nga hunda“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_072",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.body", "grammar.definite_article.fem"],
+      "itemIds": ["item_kocke", "item_lekure", "item_gjak", "item_gjoks"],
+      "prompt": { "lang": "de", "text": "Was ist „kocka“?" },
+      "choices": ["der Knochen", "die Haut", "das Blut", "die Brust"],
+      "solutions": ["der Knochen"],
+      "explanation": "„Kockë“ heisst „Knochen“, bestimmt „kocka“, Plural „kocka“.",
+      "errorHints": [
+        { "pattern": "haut", "category": "vocab.confused", "hint": "„Lëkura“ ist die Haut." },
+        { "pattern": "blut", "category": "vocab.confused", "hint": "„Gjaku“ ist das Blut." },
+        { "pattern": "brust", "category": "vocab.confused", "hint": "„Gjoksi“ ist die Brust." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_073",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "vocab.body", "grammar.negation"],
+      "itemIds": ["item_mjek", "item_kocke", "item_thye"],
+      "prompt": { "lang": "de", "text": "Der Arzt sagt, dass der Knochen nicht gebrochen ist." },
+      "answerLang": "sq",
+      "tokens": ["Mjeku", "thotë", "se", "kocka", "nuk", "âsht", "thye"],
+      "solutions": ["Mjeku thotë se kocka nuk âsht thye."],
+      "explanation": "„Âsht thye“ heisst „ist gebrochen“: „jam“ + Partizip steht auch im Passiv. „Se“ heisst „dass“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)[aâ]sht nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Passiv „âsht thye“ (Standard: është thyer) laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_074",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.body", "vocab.health"],
+      "itemIds": ["item_lekure", "item_kocke", "item_gjak", "item_plage", "item_fashe"],
+      "prompt": { "lang": "de", "text": "Ordne zu." },
+      "pairs": [
+        { "left": "lëkura", "right": "die Haut" },
+        { "left": "kocka", "right": "der Knochen" },
+        { "left": "gjaku", "right": "das Blut" },
+        { "left": "plaga", "right": "die Wunde" },
+        { "left": "fasha", "right": "der Verband" }
+      ],
+      "explanation": "Bei einer Wunde („plaga“) hilft ein Verband („fasha“) oder ein Pflaster („flaster“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_075",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.health", "grammar.adjective_agreement", "grammar.negation"],
+      "itemIds": ["item_plage", "item_i_rende"],
+      "prompt": { "lang": "de", "text": "Die Wunde ist nicht schlimm." },
+      "answerLang": "sq",
+      "solutions": ["Plaga nuk âsht e rëndë.", "Plaga s'âsht e rëndë."],
+      "standardForms": ["Plaga nuk është e rëndë.", "Plaga s'është e rëndë."],
+      "explanation": "„I rëndë / e rëndë“ heisst „schwer“, bei Krankheiten auch „schlimm, ernst“. „Plaga“ ist feminin, darum „e“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)i r[eë]nd", "category": "grammar.gender", "hint": "„Plaga“ ist feminin – darum „e rëndë“." },
+        { "pattern": "^plag[eë](\\s|$)", "category": "grammar.definite_article", "hint": "„Die Wunde“ braucht den Artikel: „plaga“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_076",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "grammar.case.accusative", "vocab.health"],
+      "itemIds": ["item_me_duhet", "item_flaster", "item_gisht"],
+      "prompt": { "lang": "de", "text": "Ich brauche ein Pflaster für den Finger." },
+      "answerLang": "sq",
+      "solutions": ["Më duhet nji flaster për gishtin.", "Për gishtin më duhet nji flaster."],
+      "wordBank": ["Më", "duhet", "nji", "flaster", "për", "gishtin", "gishti", "fashë", "pika"],
+      "explanation": "„Më duhet“ heisst „ich brauche“. Nach „për“ (für) steht der Akkusativ: „gishtin“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)gishti(\\s|$)", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „për gishtin“." },
+        { "pattern": "fash", "category": "vocab.confused", "hint": "„Fashë“ ist ein Verband." },
+        { "pattern": "(^|\\s)pika(\\s|$)", "category": "vocab.confused", "hint": "„Pika“ sind Tropfen." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„flaster“ (Pflaster) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_077",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "grammar.definite_article.fem"],
+      "itemIds": ["item_barnatore", "item_farmacist", "item_mjeke", "item_infermiere", "item_pacient"],
+      "prompt": { "lang": "de", "text": "In der Apotheke arbeitet die Apothekerin." },
+      "answerLang": "sq",
+      "text": "Në barnatore punon ___.",
+      "solutions": ["farmacistja"],
+      "choices": ["farmacistja", "mjekja", "infermierja", "pacientja"],
+      "explanation": "„Farmacist / farmaciste“ heisst „Apotheker / Apothekerin“, bestimmt „farmacistja“.",
+      "errorHints": [
+        { "pattern": "^mjekja$", "category": "vocab.confused", "hint": "„Mjekja“ ist die Ärztin." },
+        { "pattern": "^infermierja$", "category": "vocab.confused", "hint": "„Infermierja“ ist die Pflegefachfrau." },
+        { "pattern": "^pacientja$", "category": "vocab.confused", "hint": "„Pacientja“ ist die Patientin." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_078",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.health", "grammar.verbs.infinitive_me", "phrase.health"],
+      "itemIds": ["item_duhet", "item_me_shkue", "item_doktor"],
+      "prompt": { "lang": "de", "text": "Ich muss zum Doktor gehen." },
+      "answerLang": "sq",
+      "solutions": [
+        "Duhet me shkue te doktori.",
+        "Më duhet me shkue te doktori.",
+        "Duhet me shkue te mjeku.",
+        "Më duhet me shkue te mjeku.",
+        "Duhet me shkue te mjekja.",
+        "Më duhet me shkue te mjekja."
+      ],
+      "standardForms": ["Duhet të shkoj te doktori.", "Më duhet të shkoj te doktori.", "Duhet të shkoj te mjeku."],
+      "explanation": "Im Kosovo-Alltag sagt man oft „doktori“ statt „mjeku“. „Te“ heisst „zu“ oder „bei“: „te doktori“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." },
+        { "pattern": "(^|\\s)te doktor(\\s|$)", "category": "grammar.definite_article", "hint": "Nach „te“ steht das Nomen mit Artikel: „te doktori“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_079",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health"],
+      "itemIds": ["item_pacient", "item_doktor", "item_farmacist", "item_ambulance", "item_dhoma_e_pritjes"],
+      "prompt": { "lang": "de", "text": "Wer wartet im Wartezimmer auf den Arzt?" },
+      "choices": ["pacienti", "doktori", "farmacisti", "ambulanca"],
+      "solutions": ["pacienti"],
+      "explanation": "„Pacient / paciente“ heisst „Patient / Patientin“. Die Patienten warten „në dhomën e pritjes“.",
+      "errorHints": [
+        { "pattern": "^doktori$", "category": "vocab.confused", "hint": "Der Doktor wartet nicht – er untersucht." },
+        { "pattern": "^farmacisti$", "category": "vocab.confused", "hint": "Der Apotheker arbeitet in der Apotheke." },
+        { "pattern": "^ambulanca$", "category": "vocab.confused", "hint": "„Ambulanca“ ist der Krankenwagen." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_080",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "grammar.plural"],
+      "itemIds": ["item_pacient", "item_jane", "item_dhoma_e_pritjes"],
+      "prompt": { "lang": "de", "text": "Die Patienten sind im Wartezimmer." },
+      "answerLang": "sq",
+      "tokens": ["Pacientët", "janë", "në", "dhomën", "e", "pritjes"],
+      "solutions": ["Pacientët janë në dhomën e pritjes."],
+      "explanation": "„Pacientët“ ist der bestimmte Plural von „pacient“. Nach „në“ steht der Akkusativ: „në dhomën e pritjes“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_081",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.health", "phrase.health"],
+      "itemIds": ["item_cdo", "item_vit", "item_shkoj", "item_kontroll"],
+      "prompt": { "lang": "de", "text": "Ich gehe jedes Jahr zur Kontrolle." },
+      "answerLang": "sq",
+      "text": "Çdo vit shkoj në ___.",
+      "solutions": ["kontroll"],
+      "explanation": "„Kontroll“ heisst „Kontrolle, Untersuchung“: „shkoj në kontroll“ – ich gehe zur Untersuchung.",
+      "errorHints": [
+        { "pattern": "^termin$", "category": "vocab.confused", "hint": "„Termin“ ist der Termin. Kontrolle heisst „kontroll“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_082",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "vocab.health"],
+      "itemIds": ["item_doktor", "item_shkrue", "item_recete"],
+      "prompt": { "lang": "sq", "text": "Doktori më ka shkrue nji recetë." },
+      "answerLang": "de",
+      "solutions": [
+        "Der Doktor hat mir ein Rezept geschrieben.",
+        "Der Arzt hat mir ein Rezept geschrieben.",
+        "Der Doktor hat mir ein Rezept ausgestellt."
+      ],
+      "wordBank": ["Der", "Doktor", "hat", "mir", "ein", "Rezept", "geschrieben", "dir", "Medikament", "gegeben"],
+      "explanation": "„Më ka shkrue“ – Perfekt mit „kam“ und der Kurzform „më“ (mir). „Shkrue“ ist das Gheg-Partizip von „shkruaj“ (Standard: „shkruar“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)dir(\\s|$)", "category": "grammar.clitics", "hint": "„Më“ heisst „mir“; „dir“ wäre „të“." },
+        { "pattern": "medikament", "category": "vocab.confused", "hint": "„Recetë“ heisst „Rezept“." },
+        { "pattern": "gegeben", "category": "vocab.confused", "hint": "„Shkrue“ heisst „geschrieben“; „gegeben“ wäre „dhânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_083",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "grammar.clitics"],
+      "itemIds": ["item_farmacist", "item_dhane", "item_pomade"],
+      "prompt": { "lang": "de", "text": "Die Apothekerin hat mir eine Salbe gegeben." },
+      "answerLang": "sq",
+      "text": "Farmacistja më ka ___ nji pomadë.",
+      "solutions": ["dhânë"],
+      "choices": ["dhânë", "dhashë", "jep", "marrë"],
+      "explanation": "„Dhânë“ ist das Gheg-Partizip von „jap“ (geben), mit â (Standard: „dhënë“).",
+      "errorHints": [
+        { "pattern": "^dhash[eë]$", "category": "grammar.verb_tense", "hint": "„Dhashë“ heisst „ich gab“. Nach „ka“ steht das Partizip „dhânë“." },
+        { "pattern": "^jep$", "category": "grammar.verb_tense", "hint": "„Jep“ ist Präsens. Nach „ka“ steht das Partizip „dhânë“." },
+        { "pattern": "^marr[eë]$", "category": "vocab.confused", "hint": "„Marrë“ heisst „genommen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_084",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.case.ablative", "vocab.health"],
+      "itemIds": ["item_marre", "item_tablete", "item_kunder", "item_dhimbje"],
+      "prompt": { "lang": "de", "text": "Ich habe eine Tablette gegen die Schmerzen genommen." },
+      "answerLang": "sq",
+      "solutions": ["Kam marrë nji tabletë kundër dhimbjes.", "Unë kam marrë nji tabletë kundër dhimbjes.", "Mora nji tabletë kundër dhimbjes."],
+      "standardForms": ["Kam marrë një tabletë kundër dhimbjes.", "Mora një tabletë kundër dhimbjes."],
+      "explanation": "Perfekt mit „kam“ + Partizip „marrë“ (gleich wie im Standard). „Kundër“ verlangt den Ablativ: „dhimbjes“.",
+      "errorHints": [
+        { "pattern": "kund[eë]r dhimbje(n|a)?(\\s|$)", "category": "grammar.case", "hint": "Nach „kundër“ steht der Ablativ: „kundër dhimbjes“." },
+        { "pattern": "(^|\\s)marr nji", "category": "grammar.verb_tense", "hint": "„Marr“ ist Präsens. Perfekt: „kam marrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_085",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "grammar.negation"],
+      "itemIds": ["item_hala", "item_marre", "item_ilac", "item_sherohem"],
+      "prompt": { "lang": "de", "text": "Die Mutter fragt: „A e ke marrë ilaçin?“ Du hast es noch nicht genommen. Was antwortest du?" },
+      "choices": ["Jo, hala s'e kam marrë.", "Po, e kam marrë.", "Jo, s'kam ilaç.", "Jo, hala s'jam shërue."],
+      "solutions": ["Jo, hala s'e kam marrë."],
+      "explanation": "„Hala s'e kam marrë“ heisst „ich habe es noch nicht genommen“. Die Kurzform „e“ steht direkt vor „kam“.",
+      "errorHints": [
+        { "pattern": "^po", "category": "vocab.confused", "hint": "„Po“ heisst „ja“ – du hast es aber noch nicht genommen." },
+        { "pattern": "skam ila", "category": "vocab.confused", "hint": "Das heisst „ich habe kein Medikament“." },
+        { "pattern": "sh[eë]rue", "category": "vocab.confused", "hint": "Das heisst „ich bin noch nicht gesund“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_086",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.question_particle", "grammar.clitics"],
+      "itemIds": ["item_ke", "item_marre", "item_ilac", "item_sot"],
+      "prompt": { "lang": "de", "text": "Hast du heute das Medikament genommen?" },
+      "answerLang": "sq",
+      "solutions": ["A e ke marrë ilaçin sot?", "A ke marrë ilaçin sot?", "Sot a e ke marrë ilaçin?"],
+      "wordBank": ["A", "e", "ke", "marrë", "ilaçin", "sot", "kam", "marr", "ilaç"],
+      "explanation": "Ja/Nein-Frage mit „a“. Die Kurzform „e“ nimmt „ilaçin“ vorweg und steht vor „ke“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Du: „ke“." },
+        { "pattern": "(^|\\s)marr(\\s|$)", "category": "grammar.participle", "hint": "Nach „ke“ steht das Partizip: „marrë“." },
+        { "pattern": "(^|\\s)ilaç(\\s|$)", "category": "grammar.definite_article", "hint": "„Das Medikament“ braucht den Artikel: „ilaçin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_087",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "phrase.health"],
+      "itemIds": ["item_tablete", "item_here"],
+      "prompt": { "lang": "de", "text": "Nimm die Tabletten zweimal täglich." },
+      "answerLang": "sq",
+      "text": "Merri tabletat dy ___ në ditë.",
+      "solutions": ["herë"],
+      "explanation": "„Dy herë në ditë“ heisst „zweimal täglich“. Achtung: „herë“ (Mal) und „herët“ (früh) sind zwei Wörter.",
+      "errorHints": [
+        { "pattern": "^her[eë]t$", "category": "vocab.confused", "hint": "„Herët“ heisst „früh“. „Mal“ heisst „herë“." },
+        { "pattern": "^or[eë]$", "category": "vocab.confused", "hint": "„Orë“ heisst „Stunde“. „Mal“ heisst „herë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_088",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "grammar.verbs.imperative", "grammar.clitics"],
+      "itemIds": ["item_shurup", "item_tri_here_ne_dite"],
+      "prompt": { "lang": "de", "text": "Nimm den Sirup dreimal täglich." },
+      "answerLang": "sq",
+      "tokens": ["Merre", "shurupin", "tri", "herë", "në", "ditë"],
+      "solutions": ["Merre shurupin tri herë në ditë.", "Tri herë në ditë merre shurupin."],
+      "explanation": "„Merre“ heisst „nimm ihn“ (merr + e). Die Kurzform nimmt „shurupin“ vorweg.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_089",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "grammar.case.ablative"],
+      "itemIds": ["item_prej_nji_jave", "item_para_ngranies", "item_pas_ngranies"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „seit einer Woche“?" },
+      "choices": ["prej nji jave", "para nji jave", "prej nji javë", "pas nji jave"],
+      "solutions": ["prej nji jave"],
+      "explanation": "„Prej“ (seit) verlangt den Ablativ: javë → „jave“. „Para nji jave“ heisst „vor einer Woche“.",
+      "errorHints": [
+        { "pattern": "^para", "category": "vocab.confused", "hint": "„Para nji jave“ heisst „vor einer Woche“." },
+        { "pattern": "javë$", "category": "grammar.case", "hint": "Nach „prej“ steht der Ablativ: „prej nji jave“." },
+        { "pattern": "^pas", "category": "vocab.confused", "hint": "„Pas nji jave“ heisst „nach einer Woche“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_090",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["vocab.time", "phrase.health", "grammar.clitics"],
+      "itemIds": ["item_prej_kur", "item_me_dhemb", "item_stomak"],
+      "prompt": { "lang": "de", "text": "Seit wann tut dir der Magen weh?" },
+      "answerLang": "sq",
+      "solutions": ["Prej kur të dhemb stomaku?", "Që kur të dhemb stomaku?"],
+      "explanation": "„Prej kur?“ heisst „seit wann?“. „Të dhemb“ – es tut dir weh. „Stomaku“ ist der Magen.",
+      "errorHints": [
+        { "pattern": "(^|\\s)m[eë] dhemb", "category": "grammar.clitics", "hint": "„Më“ heisst „mir“. Für „dir“: „të dhemb“." },
+        { "pattern": "(^|\\s)stomak(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „stomaku“." },
+        { "pattern": "^kur t", "category": "vocab.confused", "hint": "„Kur“ allein heisst „wann“. „Seit wann“ heisst „prej kur“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„prej kur“ und „që kur“ als Gheg-Lösungen zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_091",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "vocab.health", "reading.dialogues"],
+      "itemIds": ["item_prej_kur", "item_prej_dje", "item_temperature"],
+      "prompt": { "lang": "sq", "text": "– Prej kur ke temperaturë? – Prej dje." },
+      "answerLang": "de",
+      "solutions": ["Seit wann hast du Fieber? – Seit gestern."],
+      "wordBank": ["Seit", "wann", "hast", "du", "Fieber", "Seit", "gestern", "heute", "Husten", "wie"],
+      "explanation": "„Prej kur?“ – seit wann? Antwort: „Prej dje“ – seit gestern.",
+      "errorHints": [
+        { "pattern": "heute", "category": "vocab.confused", "hint": "„Dje“ heisst „gestern“; heute wäre „sot“." },
+        { "pattern": "husten", "category": "vocab.confused", "hint": "„Temperaturë“ heisst „Fieber“; Husten heisst „kollë“." },
+        { "pattern": "(^|\\s)wie(\\s|$)", "category": "vocab.confused", "hint": "„Prej kur“ heisst „seit wann“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_092",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_prej_nji_jave", "item_kollitem", "item_nate"],
+      "prompt": { "lang": "de", "text": "Seit einer Woche huste ich in der Nacht." },
+      "answerLang": "sq",
+      "tokens": ["Prej", "nji", "jave", "kollitem", "natën"],
+      "solutions": ["Prej nji jave kollitem natën.", "Kollitem natën prej nji jave.", "Natën kollitem prej nji jave."],
+      "explanation": "„Natën“ heisst „in der Nacht“ (wie „ditën“ – am Tag). „Kollitem“ ist reflexiv.",
+      "errorHints": [
+        { "pattern": "(^|\\s)nji prej(\\s|$)", "category": "grammar.word_order", "hint": "„Seit einer Woche“ heisst „prej nji jave“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_093",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.reflexive", "vocab.health"],
+      "itemIds": ["item_sherohem", "item_lendohem", "item_rrezohem", "item_kollitem"],
+      "prompt": { "lang": "de", "text": "Welches Verb heisst „gesund werden“?" },
+      "choices": ["shërohem", "lëndohem", "rrëzohem", "kollitem"],
+      "solutions": ["shërohem"],
+      "explanation": "Alle vier Verben sind reflexiv und enden auf -(h)em: shërohem (gesund werden), lëndohem (sich verletzen), rrëzohem (hinfallen), kollitem (husten).",
+      "errorHints": [
+        { "pattern": "^l[eë]ndohem$", "category": "vocab.confused", "hint": "„Lëndohem“ heisst „ich verletze mich“." },
+        { "pattern": "^rr[eë]zohem$", "category": "vocab.confused", "hint": "„Rrëzohem“ heisst „ich falle hin“." },
+        { "pattern": "^kollitem$", "category": "vocab.confused", "hint": "„Kollitem“ heisst „ich huste“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_094",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive", "grammar.verbs.perfect"],
+      "itemIds": ["item_rrezohem", "item_jam_rrezue", "item_lendohem", "item_jam_lendue", "item_sherohem"],
+      "prompt": { "lang": "de", "text": "Ordne die Verbformen zu." },
+      "pairs": [
+        { "left": "rrëzohem", "right": "ich falle hin" },
+        { "left": "jam rrëzue", "right": "ich bin hingefallen" },
+        { "left": "lëndohem", "right": "ich verletze mich" },
+        { "left": "jam lëndue", "right": "ich habe mich verletzt" },
+        { "left": "shërohem", "right": "ich werde gesund" }
+      ],
+      "explanation": "Präsens auf -hem, Perfekt mit „jam“ + Partizip auf -ue: rrëzohem → jam rrëzue.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_095",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.family"],
+      "itemIds": ["item_femije", "item_jane", "item_jam_ftohe"],
+      "prompt": { "lang": "de", "text": "Die Kinder sind erkältet." },
+      "answerLang": "sq",
+      "text": "Fëmijët ___ ftohë.",
+      "solutions": ["janë"],
+      "choices": ["janë", "kanë", "jemi", "âsht"],
+      "explanation": "Perfekt reflexiver Verben im Plural: „janë“ + Partizip: „Fëmijët janë ftohë.“",
+      "errorHints": [
+        { "pattern": "^kan[eë]$", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „janë ftohë“." },
+        { "pattern": "^jemi$", "category": "grammar.verb_conjugation", "hint": "„Jemi“ heisst „wir sind“." },
+        { "pattern": "^[aâ]sht$", "category": "grammar.verb_conjugation", "hint": "„Fëmijët“ ist Plural – darum „janë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ftohë“ (Standard: ftohur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_096",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "grammar.question_particle"],
+      "itemIds": ["item_jam_lendue"],
+      "prompt": { "lang": "de", "text": "Hast du dich verletzt?" },
+      "answerLang": "sq",
+      "solutions": ["A je lëndue?", "Je lëndue?", "A je lëndue ti?", "Ti a je lëndue?"],
+      "standardForms": ["A je lënduar?", "Je lënduar?"],
+      "explanation": "Wie „rrëzohem → jam rrëzue“: lëndohem → „je lëndue“. Ja/Nein-Fragen beginnen mit „a“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)ke l[eë]ndue", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „A je lëndue?“" },
+        { "pattern": "(^|\\s)jam l[eë]ndue", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“. Du: „je“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_097",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.past_simple", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_dje", "item_rrezohem", "item_sot", "item_me_dhemb", "item_shpine"],
+      "prompt": { "lang": "de", "text": "Gestern bin ich hingefallen, heute tut mir der Rücken weh." },
+      "answerLang": "sq",
+      "solutions": ["Dje u rrëzova dhe sot më dhemb shpina.", "Dje u rrëzova, sot më dhemb shpina."],
+      "wordBank": ["Dje", "u", "rrëzova", "dhe", "sot", "më", "dhemb", "shpina", "rrëzohem", "shpinë", "kam"],
+      "explanation": "Mit „dje“ (gestern) steht meist die einfache Vergangenheit. Reflexive Verben bilden sie mit „u“: „u rrëzova“ (wie „u çova“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)rrëzohem(\\s|$)", "category": "grammar.verb_tense", "hint": "„Rrëzohem“ ist Präsens. Gestern: „u rrëzova“." },
+        { "pattern": "(^|\\s)shpinë(\\s|$)", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „shpina“." },
+        { "pattern": "(^|\\s)kam(\\s|$)", "category": "grammar.verb_tense", "hint": "Mit „dje“ steht die einfache Vergangenheit: „u rrëzova“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_098",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.past_simple", "grammar.verbs.reflexive"],
+      "itemIds": ["item_sherohem", "item_shpejt"],
+      "prompt": { "lang": "de", "text": "Ich bin schnell gesund geworden. (einfache Vergangenheit)" },
+      "answerLang": "sq",
+      "text": "U ___ shpejt.",
+      "solutions": ["shërova"],
+      "explanation": "Einfache Vergangenheit reflexiver Verben: „u“ + Vergangenheitsform: „u shërova“ (ich wurde gesund), „u rrëzova“ (ich fiel hin).",
+      "errorHints": [
+        { "pattern": "^sh[eë]rue$", "category": "grammar.verb_tense", "hint": "„Shërue“ ist das Partizip. Nach „u“ steht die Vergangenheitsform: „u shërova“." },
+        { "pattern": "^sh[eë]rohem$", "category": "grammar.verb_tense", "hint": "„Shërohem“ ist Präsens. Vergangenheit: „u shërova“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_099",
+      "type": "multiple_choice",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.reflexive", "grammar.verbs.present", "grammar.verbs.perfect"],
+      "itemIds": ["item_rrezohem", "item_jam_rrezue", "item_shpesh"],
+      "prompt": { "lang": "de", "text": "Welcher Satz bedeutet „Ich falle oft hin.“?" },
+      "choices": ["Rrëzohem shpesh.", "Jam rrëzue shpesh.", "U rrëzova shpesh.", "Rrëzohesh shpesh."],
+      "solutions": ["Rrëzohem shpesh."],
+      "explanation": "Präsens: „rrëzohem“ (ich falle hin). Perfekt: „jam rrëzue“, einfache Vergangenheit: „u rrëzova“. „Shpesh“ heisst „oft“.",
+      "errorHints": [
+        { "pattern": "^jam rr", "category": "grammar.verb_tense", "hint": "Das ist Perfekt: „ich bin hingefallen“." },
+        { "pattern": "^u rr", "category": "grammar.verb_tense", "hint": "Das ist einfache Vergangenheit: „ich fiel hin“." },
+        { "pattern": "rr[eë]zohesh", "category": "grammar.verb_conjugation", "hint": "„Rrëzohesh“ heisst „du fällst hin“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_100",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.clitics", "vocab.health"],
+      "itemIds": ["item_mjeke", "item_shkrue", "item_recete"],
+      "prompt": { "lang": "de", "text": "Die Ärztin hat mir ein Rezept geschrieben." },
+      "answerLang": "sq",
+      "tokens": ["Mjekja", "më", "ka", "shkrue", "nji", "recetë"],
+      "solutions": ["Mjekja më ka shkrue nji recetë."],
+      "explanation": "„Më ka shkrue“ – die Kurzform „më“ (mir) steht vor „ka“. „Shkrue“ ist Gheg (Standard: „shkruar“).",
+      "errorHints": [
+        { "pattern": "^mjekja ka m[eë]", "category": "grammar.clitics", "hint": "Die Kurzform steht vor „ka“: „më ka shkrue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_101",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["phrase.health", "vocab.health"],
+      "itemIds": ["item_dhimbje_koke", "item_me_dhemb", "item_koke"],
+      "prompt": { "lang": "de", "text": "Ich habe Kopfschmerzen." },
+      "answerLang": "sq",
+      "solutions": ["Kam dhimbje koke.", "Më dhemb koka.", "Koka më dhemb."],
+      "explanation": "Zwei Möglichkeiten: „Kam dhimbje koke.“ (Ich habe Kopfschmerzen) oder „Më dhemb koka.“ (Mein Kopf tut weh).",
+      "errorHints": [
+        { "pattern": "dhimbje kok[ëa](\\s|$)", "category": "grammar.case", "hint": "Nach „dhimbje“ steht „koke“: „dhimbje koke“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_102",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.body", "phrase.health"],
+      "itemIds": ["item_me_dhemb", "item_gjoks", "item_qafe", "item_gju", "item_lekure"],
+      "prompt": { "lang": "de", "text": "Mir tut die Brust weh." },
+      "answerLang": "sq",
+      "text": "Më dhemb ___.",
+      "solutions": ["gjoksi"],
+      "choices": ["gjoksi", "qafa", "gjuni", "lëkura"],
+      "explanation": "„Gjoks“ heisst „Brust“, bestimmt „gjoksi“. Bei Brustschmerzen besser gleich zum Arzt!",
+      "errorHints": [
+        { "pattern": "^qafa$", "category": "vocab.confused", "hint": "„Qafa“ ist der Nacken." },
+        { "pattern": "^gjuni$", "category": "vocab.confused", "hint": "„Gjuni“ ist das Knie." },
+        { "pattern": "^l[eë]kura$", "category": "vocab.confused", "hint": "„Lëkura“ ist die Haut." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_103",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.body", "phrase.health", "grammar.verbs.reflexive"],
+      "itemIds": ["item_me_dhemb", "item_qafe", "item_me_kruhet", "item_lekure"],
+      "prompt": { "lang": "sq", "text": "Më dhemb qafa dhe më kruhet lëkura." },
+      "answerLang": "de",
+      "solutions": [
+        "Mir tut der Nacken weh und meine Haut juckt.",
+        "Mein Nacken tut weh und meine Haut juckt.",
+        "Mir tut der Nacken weh und die Haut juckt mich."
+      ],
+      "wordBank": ["Mir", "tut", "der", "Nacken", "weh", "und", "meine", "Haut", "juckt", "Rücken", "Hand"],
+      "explanation": "„Më dhemb“ (es tut mir weh) und „më kruhet“ (es juckt mich) funktionieren gleich: Die Kurzform „më“ steht vorne.",
+      "errorHints": [
+        { "pattern": "r[uü]cken", "category": "vocab.confused", "hint": "„Shpina“ ist der Rücken; „qafa“ der Nacken." },
+        { "pattern": "hand", "category": "vocab.confused", "hint": "„Dora“ ist die Hand; „lëkura“ die Haut." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_104",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.body"],
+      "itemIds": ["item_stomak", "item_gju", "item_gjoks", "item_qafe", "item_fyt"],
+      "prompt": { "lang": "de", "text": "Ordne die Körperteile zu." },
+      "pairs": [
+        { "left": "stomak", "right": "Magen" },
+        { "left": "gju", "right": "Knie" },
+        { "left": "gjoks", "right": "Brust" },
+        { "left": "qafë", "right": "Nacken" },
+        { "left": "fyt", "right": "Rachen" }
+      ],
+      "explanation": "„Fyt“ ist der Hals innen (Rachen), „qafë“ der Hals aussen (Nacken).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_105",
+      "type": "match_pairs",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "vocab.time", "grammar.verbs.perfect"],
+      "itemIds": ["item_cka_ka_ndodhe", "item_prej_kur", "item_i_rende", "item_sherim_te_shpejte", "item_merr_fryme_thelle"],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Çka ka ndodhë?", "right": "Was ist passiert?" },
+        { "left": "Prej kur?", "right": "Seit wann?" },
+        { "left": "S'âsht gja e rëndë.", "right": "Es ist nichts Schlimmes." },
+        { "left": "Shërim të shpejtë!", "right": "Gute Besserung!" },
+        { "left": "Merr frymë thellë!", "right": "Atme tief ein!" }
+      ],
+      "explanation": "Wichtige Sätze beim Arzt. „Gja“ heisst „Sache, etwas“ (Standard: „gjë“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„gja“ (Standard: gjë) und das Partizip „ndodhë“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_106",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.health", "vocab.time"],
+      "itemIds": ["item_neser", "item_kam_me_shkue", "item_doktor"],
+      "prompt": { "lang": "de", "text": "Morgen werde ich zum Doktor gehen." },
+      "answerLang": "sq",
+      "solutions": ["Nesër kam me shkue te doktori.", "Kam me shkue te doktori nesër.", "Nesër kam me shkue te mjeku."],
+      "wordBank": ["Nesër", "kam", "me", "shkue", "te", "doktori", "shkova", "dje", "doktor"],
+      "explanation": "Gheg-Zukunft: „kam me“ + Partizip: „kam me shkue“ (Standard: „do të shkoj“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)shkova(\\s|$)", "category": "grammar.verb_tense", "hint": "„Shkova“ ist Vergangenheit. Zukunft: „kam me shkue“." },
+        { "pattern": "(^|\\s)dje(\\s|$)", "category": "vocab.confused", "hint": "„Dje“ heisst „gestern“; morgen: „nesër“." },
+        { "pattern": "(^|\\s)doktor(\\s|$)", "category": "grammar.definite_article", "hint": "Nach „te“ steht das Nomen mit Artikel: „te doktori“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_107",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["phrase.health", "grammar.case.genitive", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_duhet", "item_me_marre_termin", "item_termin", "item_analize", "item_gjak"],
+      "prompt": { "lang": "de", "text": "Ich muss einen Termin für die Blutuntersuchung abmachen." },
+      "answerLang": "sq",
+      "solutions": [
+        "Duhet me marrë termin për analizat e gjakut.",
+        "Duhet me marrë nji termin për analizat e gjakut.",
+        "Më duhet me marrë termin për analizat e gjakut."
+      ],
+      "wordBank": ["Duhet", "me", "marrë", "termin", "për", "analizat", "e", "gjakut", "gjak", "marr", "i"],
+      "explanation": "„Analizat e gjakut“ sind die Blutuntersuchung, wörtlich „die Analysen des Blutes“. Im Plural steht der Verbindungsartikel „e“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)gjak(\\s|$)", "category": "grammar.case", "hint": "Genitiv: „analizat e gjakut“ – des Blutes." },
+        { "pattern": "(^|\\s)i gjakut", "category": "grammar.linking_article", "hint": "„Analizat“ ist Plural – darum „e gjakut“." },
+        { "pattern": "(^|\\s)me marr(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me marrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_108",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.health", "grammar.clitics", "grammar.negation"],
+      "itemIds": ["item_pacient", "item_kartele", "item_sigurim_shendetesor"],
+      "prompt": { "lang": "sq", "text": "Pacienti nuk e ka kartelën e sigurimit." },
+      "answerLang": "de",
+      "solutions": [
+        "Der Patient hat die Versichertenkarte nicht.",
+        "Der Patient hat seine Versichertenkarte nicht.",
+        "Der Patient hat die Versichertenkarte nicht dabei."
+      ],
+      "wordBank": ["Der", "Patient", "hat", "die", "Versichertenkarte", "nicht", "Ärztin", "Rezept", "kein"],
+      "explanation": "„Kartela e sigurimit (shëndetësor)“ ist die Versichertenkarte. „Nuk e ka“ – er hat sie nicht; „e“ nimmt „kartelën“ vorweg.",
+      "errorHints": [
+        { "pattern": "[aä]rztin", "category": "vocab.confused", "hint": "„Pacienti“ ist der Patient." },
+        { "pattern": "rezept", "category": "vocab.confused", "hint": "„Kartela e sigurimit“ ist die Versichertenkarte; Rezept heisst „recetë“." },
+        { "pattern": "(^|\\s)kein(\\s|$)", "category": "vocab.confused", "hint": "„Nuk“ heisst „nicht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_109",
+      "type": "translate_wordbank",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "vocab.time"],
+      "itemIds": ["item_ambulance", "item_pese", "item_minute"],
+      "prompt": { "lang": "sq", "text": "Ambulanca vjen për pesë minuta." },
+      "answerLang": "de",
+      "solutions": ["Der Krankenwagen kommt in fünf Minuten.", "Die Ambulanz kommt in fünf Minuten."],
+      "wordBank": ["Der", "Krankenwagen", "kommt", "in", "fünf", "Minuten", "Stunden", "vier", "Arzt"],
+      "explanation": "„Ambulanca“ ist der Krankenwagen. „Për pesë minuta“ heisst hier „in fünf Minuten“.",
+      "errorHints": [
+        { "pattern": "stunden", "category": "vocab.confused", "hint": "„Minuta“ sind Minuten; Stunden heissen „orë“." },
+        { "pattern": "vier", "category": "vocab.confused", "hint": "„Pesë“ heisst „fünf“." },
+        { "pattern": "arzt", "category": "vocab.confused", "hint": "„Ambulanca“ ist der Krankenwagen." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„ambulancë“ (Krankenwagen) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_110",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.imperative", "grammar.verbs.reflexive"],
+      "itemIds": ["item_therras", "item_ambulance", "item_jam_rrezue"],
+      "prompt": { "lang": "de", "text": "Ruf den Krankenwagen, sie ist hingefallen!" },
+      "answerLang": "sq",
+      "solutions": ["Thirr ambulancën, âsht rrëzue!", "Thirr ambulancën, ajo âsht rrëzue!"],
+      "standardForms": ["Thirr ambulancën, është rrëzuar!", "Thirr ambulancën, ajo është rrëzuar!"],
+      "explanation": "„Thirr!“ ist der Befehl von „thërras“ (rufen). „Âsht rrëzue“ – Perfekt mit „jam“ (Standard: „është rrëzuar“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)ambulanc[eë](\\s|$)", "category": "grammar.definite_article", "hint": "Als Objekt mit Artikel im Akkusativ: „ambulancën“." },
+        { "pattern": "(^|\\s)ambulanca(\\s|$)", "category": "grammar.case", "hint": "Als Objekt steht der Akkusativ: „ambulancën“." },
+        { "pattern": "(^|\\s)ka rr[eë]zue", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „âsht rrëzue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_111",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["phrase.health", "grammar.case.accusative", "phrase.politeness"],
+      "itemIds": ["item_a_keni", "item_pomade", "item_lekure"],
+      "prompt": { "lang": "de", "text": "Haben Sie eine Salbe für die Haut?" },
+      "answerLang": "sq",
+      "solutions": ["A keni nji pomadë për lëkurën?", "A keni pomadë për lëkurën?", "Keni nji pomadë për lëkurën?", "A keni nji pomadë për lëkurë?"],
+      "standardForms": ["A keni një pomadë për lëkurën?", "Keni një pomadë për lëkurën?"],
+      "explanation": "„Pomadë“ heisst „Salbe“. Nach „për“ (für) steht der Akkusativ: „lëkurën“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)l[eë]kura(\\s|$)", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „për lëkurën“." },
+        { "pattern": "(^|\\s)ke(\\s|$)", "category": "grammar.verb_conjugation", "hint": "Höflich mit „Sie“: „keni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_112",
+      "type": "translate_free",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.participle", "vocab.health"],
+      "itemIds": ["item_sot", "item_kane_partizip", "item_doktor"],
+      "prompt": { "lang": "de", "text": "Ich bin heute beim Doktor gewesen." },
+      "answerLang": "sq",
+      "solutions": [
+        "Sot kam kânë te doktori.",
+        "Kam kânë te doktori sot.",
+        "Sot kam kânë te mjeku.",
+        "Kam kânë te mjeku sot.",
+        "Sot kam kjenë te doktori.",
+        "Kam kjenë te doktori sot."
+      ],
+      "standardForms": ["Sot kam qenë te doktori.", "Kam qenë te doktori sot.", "Sot kam qenë te mjeku."],
+      "explanation": "Auch „sein“ bildet das Perfekt mit „kam“: „Kam kânë te doktori.“ (Standard: „kam qenë“). Achtung: „kânë“ (gewesen) ist nicht „kanë“ (sie haben).",
+      "errorHints": [
+        { "pattern": "(^|\\s)jam k[aâ]n[eë]", "category": "grammar.verb_tense", "hint": "„Sein“ bildet das Perfekt mit „kam“: „kam kânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kânë / kjenë“ (gewesen) laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_113",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["vocab.health", "grammar.adjective_agreement", "grammar.linking_article"],
+      "itemIds": ["item_femije", "item_temperature", "item_i_nalte"],
+      "prompt": { "lang": "de", "text": "Das Kind hat hohes Fieber." },
+      "answerLang": "sq",
+      "text": "Fëmija ka temperaturë të ___.",
+      "solutions": ["naltë"],
+      "standardForms": ["lartë"],
+      "explanation": "„Temperaturë të naltë“ heisst „hohes Fieber“. Gheg sagt „i naltë“, Standard „i lartë“.",
+      "errorHints": [
+        { "pattern": "^nalt$", "category": "spelling.other", "hint": "Das Adjektiv endet auf -ë: „të naltë“." },
+        { "pattern": "^ult[eë]$", "category": "vocab.confused", "hint": "„Të ultë“ heisst „tief, niedrig“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg „i naltë“ (Standard: i lartë) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_114",
+      "type": "fill_gap",
+      "level": "A2.3",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "vocab.family"],
+      "itemIds": ["item_nane", "item_ime", "item_jam_rrezue"],
+      "prompt": { "lang": "de", "text": "Meine Mutter ist gestürzt." },
+      "answerLang": "sq",
+      "text": "Nâna ime âsht ___.",
+      "solutions": ["rrëzue"],
+      "standardForms": ["rrëzuar"],
+      "explanation": "„Rrëzohem“ ist reflexiv, darum Perfekt mit „jam“: „âsht rrëzue“ (Standard: „është rrëzuar“).",
+      "errorHints": [
+        { "pattern": "^rr[eë]zohet$", "category": "grammar.participle", "hint": "Nach „âsht“ steht das Partizip: „rrëzue“." },
+        { "pattern": "^rr[eë]zua$", "category": "grammar.verb_tense", "hint": "„Rrëzua“ ist Vergangenheit („sie fiel“). Nach „âsht“ steht das Partizip „rrëzue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_115",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "vocab.time"],
+      "itemIds": ["item_termin", "item_ore", "item_nande"],
+      "prompt": { "lang": "de", "text": "Ich habe um neun Uhr einen Termin." },
+      "answerLang": "sq",
+      "tokens": ["Kam", "termin", "në", "orën", "nândë"],
+      "solutions": ["Kam termin në orën nândë.", "Në orën nândë kam termin."],
+      "explanation": "„Në orën nândë“ heisst „um neun Uhr“. „Nândë“ (neun) schreibt Gheg mit â (Standard: „nëntë“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_116",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.health", "grammar.clitics"],
+      "itemIds": ["item_farmacist", "item_me_jep", "item_pike"],
+      "prompt": { "lang": "de", "text": "Die Apothekerin gibt mir Tropfen." },
+      "answerLang": "sq",
+      "tokens": ["Farmacistja", "më", "jep", "pika"],
+      "solutions": ["Farmacistja më jep pika."],
+      "explanation": "„Më jep“ heisst „gibt mir“. „Pika“ sind Tropfen (Plural von „pikë“).",
+      "errorHints": [
+        { "pattern": "jep m[eë]", "category": "grammar.word_order", "hint": "Die Kurzform „më“ steht vor dem Verb: „më jep“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_117",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.perfect", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_ku", "item_jam_lendue"],
+      "prompt": { "lang": "de", "text": "Wo hast du dich verletzt?" },
+      "answerLang": "sq",
+      "tokens": ["Ku", "je", "lëndue"],
+      "solutions": ["Ku je lëndue?"],
+      "explanation": "„Je lëndue“ – du hast dich verletzt: Perfekt reflexiver Verben mit „jam“.",
+      "errorHints": [
+        { "pattern": "^je ku", "category": "grammar.word_order", "hint": "Das Fragewort „ku“ steht am Anfang." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_118",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "grammar.verbs.present", "vocab.health"],
+      "itemIds": ["item_prej_tri_ditesh", "item_antibiotik"],
+      "prompt": { "lang": "de", "text": "Ich nehme seit drei Tagen ein Antibiotikum." },
+      "answerLang": "sq",
+      "tokens": ["Prej", "tri", "ditësh", "marr", "antibiotik"],
+      "solutions": ["Prej tri ditësh marr antibiotik.", "Marr antibiotik prej tri ditësh."],
+      "explanation": "Wie im Deutschen steht bei „seit“ das Präsens: „Prej tri ditësh marr antibiotik.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_119",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "vocab.time"],
+      "itemIds": ["item_duhet", "item_me_marre", "item_tablete", "item_para_ngranies"],
+      "prompt": { "lang": "de", "text": "Du musst die Tablette vor dem Essen nehmen." },
+      "answerLang": "sq",
+      "tokens": ["Duhet", "me", "marrë", "tabletën", "para", "ngrânies"],
+      "solutions": ["Duhet me marrë tabletën para ngrânies.", "Para ngrânies duhet me marrë tabletën."],
+      "explanation": "Nach „duhet“ folgt der Gheg-Infinitiv „me marrë“ (Standard: „duhet ta marrësh“). „Para ngrânies“ heisst „vor dem Essen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)marr[eë] me(\\s|$)", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „me marrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u22_doctor_pharmacy_120",
+      "type": "word_order",
+      "level": "A2.3",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.imperative", "grammar.verbs.reflexive", "phrase.health"],
+      "itemIds": ["item_shtrihem", "item_shtrat", "item_pushoj"],
+      "prompt": { "lang": "de", "text": "Leg dich ins Bett und ruh dich aus!" },
+      "answerLang": "sq",
+      "tokens": ["Shtrihu", "në", "shtrat", "dhe", "pusho"],
+      "solutions": ["Shtrihu në shtrat dhe pusho!"],
+      "explanation": "Zwei Befehle: „Shtrihu!“ (reflexiv, endet auf -u) und „Pusho!“ (von „pushoj“, sich ausruhen).",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
