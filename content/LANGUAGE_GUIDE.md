@@ -512,3 +512,31 @@ Diese Formen kommen in vielen Aufgaben vor. Nicht jede Aufgabe trägt dazu eine 
 | *veturë / makinë* (Auto) | makinë | 14 | a1_u11 (13+1), a2_u08 (6), a2_u10 (5), a1_u13 (1), Einstufung (1) |
 | *kemi / kena* (wir haben) | kemi | 6, 15 | a1_u08 (13+1), a2_u09 (10), a2_u04 (9), a1_u13 (3), a1_u01 (5+1, nur *ç'kemi?*) |
 | *jemi / jena* (wir sind) | jemi | 6, 15 | a0_u03 (13+1), a1_u08 (11), a1_u09 (2), a1_u01 (1), Einstufung (1) |
+
+## 14. Entscheide des Autors (November 2026)
+
+Diese Formen hat der Autor bestätigt; sie gelten für neue Einheiten und haben Vorrang vor früheren Annahmen.
+„Beide“ heisst: beide Formen sind richtig und werden in Lösungen akzeptiert.
+
+| Thema | Gheg | Hinweis |
+|---|---|---|
+| Speisekarte | *menu*, best. *menuja* | nicht *meny* |
+| bestellen | *me porositë* | Partizip *porositë* |
+| für mich | *për mu* | nicht *për mue* (Standard: *për mua*) |
+| ich hätte gern | *kisha dashtë …* | |
+| bringen | *bje* (ich bringe, bring!), *bjeni* (bringt, bringen Sie) | immer mit **j**, nicht *bie*; nicht *sjell/sill* |
+| können Sie …? | *a mundeni me …?* | nicht *mundni* |
+| Flija | *fli* und *flija* | beide |
+| Burek | *byrek* | (meist mit Fleisch; *pite* mit Käse oder Spinat) |
+| Kebab | *qebape*, best. *qebapet* | nicht *qebapa* |
+| gefüllte Peperoni | *speca të mbushun* | nicht *të mbushuna* |
+| Pommes frites | *pomfrit* und *patate të skuqura* | beide |
+| Dessert | *âmbëlsirë* | |
+| Saft, Süssgetränk | *sok* | |
+| Joghurt (zum Löffeln) | *kos* | |
+| Schnaps | *raki*, best. *rakija* | |
+| Geld | *pare*, best. *paret* | |
+| bezahlen | *me pagu*, ich bezahle *paguj* | ältere Formen *me pague* / *paguaj* bleiben akzeptiert |
+| ich lade dich ein | *të qeras* | |
+| en Guete | *të bâftë mirë* (zu einer Person), *ju bëftë mirë* (zu mehreren oder höflich) | |
+

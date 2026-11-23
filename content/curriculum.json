@@ -265,16 +265,6 @@
           "estimatedLessons": 6
         },
         {
-          "id": "a2_u13_restaurant_cafe",
-          "title": "Im Restaurant & Café",
-          "description": "Bestellen, nachfragen, reklamieren und bezahlen – mit traditionellen Gerichten aus dem Kosovo.",
-          "goals": ["Ich kann im Restaurant oder Café bestellen und um die Rechnung bitten.", "Ich kann höflich bitten und Wünsche mit Modalverben und Pronomen-Kurzformen ausdrücken."],
-          "skillTags": ["vocab.food", "vocab.drinks", "phrase.ordering", "phrase.politeness", "grammar.verbs.modal", "grammar.clitics"],
-          "color": "coral",
-          "icon": "utensils-crossed",
-          "estimatedLessons": 6
-        },
-        {
           "id": "a2_u14_cooking_recipes",
           "title": "Kochen & Rezepte",
           "description": "Küche, Zutaten und Zubereitung – Schritt für Schritt mit dem Imperativ.",
@@ -282,6 +272,16 @@
           "skillTags": ["vocab.cooking", "vocab.food", "grammar.verbs.imperative", "grammar.verbs.participle", "reading.short_texts"],
           "color": "lime",
           "icon": "chef-hat",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u16_clothes_fashion",
+          "title": "Kleidung & Mode",
+          "description": "Kleider kaufen und anprobieren, Grössen, Farben und Materialien vergleichen.",
+          "goals": ["Ich kann Kleider beschreiben und nach Grösse und Farbe fragen.", "Ich kann Adjektive anpassen und mit dem Komparativ vergleichen."],
+          "skillTags": ["vocab.clothes", "vocab.colours", "vocab.shopping", "grammar.adjective_agreement", "grammar.demonstratives", "grammar.comparison"],
+          "color": "rose",
+          "icon": "shirt",
           "estimatedLessons": 6
         },
         {
@@ -345,13 +345,13 @@
           "file": "units/a2_u07_weather_seasons.json"
         },
         {
-          "id": "a2_u16_clothes_fashion",
-          "title": "Kleidung & Mode",
-          "description": "Kleider kaufen und anprobieren, Grössen, Farben und Materialien vergleichen.",
-          "goals": ["Ich kann Kleider beschreiben und nach Grösse und Farbe fragen.", "Ich kann Adjektive anpassen und mit dem Komparativ vergleichen."],
-          "skillTags": ["vocab.clothes", "vocab.colours", "vocab.shopping", "grammar.adjective_agreement", "grammar.demonstratives", "grammar.comparison"],
-          "color": "rose",
-          "icon": "shirt",
+          "id": "a2_u13_restaurant_cafe",
+          "title": "Im Restaurant & Café",
+          "description": "Bestellen, nachfragen, reklamieren und bezahlen – mit traditionellen Gerichten aus dem Kosovo.",
+          "goals": ["Ich kann im Restaurant oder Café bestellen und um die Rechnung bitten.", "Ich kann höflich bitten und Wünsche mit Modalverben und Pronomen-Kurzformen ausdrücken."],
+          "skillTags": ["vocab.food", "vocab.drinks", "phrase.ordering", "phrase.politeness", "grammar.verbs.modal", "grammar.clitics"],
+          "color": "coral",
+          "icon": "utensils-crossed",
           "estimatedLessons": 6
         },
         {
