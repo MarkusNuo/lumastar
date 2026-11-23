@@ -955,7 +955,9 @@
       "answerLang": "sq",
       "solutions": [
         "Dje bleva bukë dhe djathë.",
-        "Bleva bukë dhe djathë dje."
+        "Bleva bukë dhe djathë dje.",
+        "Dje bleva djathë dhe bukë.",
+        "Bleva djathë dhe bukë dje."
       ],
       "wordBank": [
         "Dje",
@@ -1004,7 +1006,8 @@
       },
       "answerLang": "sq",
       "solutions": [
-        "Këpucët janë të reja dhe të rehatshme."
+        "Këpucët janë të reja dhe të rehatshme.",
+        "Këpucët janë të rehatshme dhe të reja."
       ],
       "wordBank": [
         "Këpucët",
@@ -1119,7 +1122,8 @@
       },
       "answerLang": "sq",
       "solutions": [
-        "Bleva nji kilogram mollë dhe tre limona."
+        "Bleva nji kilogram mollë dhe tre limona.",
+        "Bleva tre limona dhe nji kilogram mollë."
       ],
       "wordBank": [
         "Bleva",
@@ -3804,7 +3808,8 @@
       ],
       "solutions": [
         "Dje bleva nji kilogram mish te kasapi.",
-        "Bleva nji kilogram mish te kasapi dje."
+        "Bleva nji kilogram mish te kasapi dje.",
+        "Dje te kasapi bleva nji kilogram mish."
       ],
       "explanation": "Nach der Mengenangabe ohne Artikel: „nji kilogram mish“. „Te kasapi“ – beim Metzger.",
       "reviewed": false,
@@ -4033,7 +4038,8 @@
       ],
       "solutions": [
         "Të shtunën bleva nji bluzë të bardhë dhe nji palë çorape.",
-        "Bleva nji bluzë të bardhë dhe nji palë çorape të shtunën."
+        "Bleva nji bluzë të bardhë dhe nji palë çorape të shtunën.",
+        "Të shtunën bleva nji palë çorape dhe nji bluzë të bardhë."
       ],
       "explanation": "„Të shtunën“ – am Samstag. Als Objekt nach „nji“: „nji bluzë të bardhë“. „Nji palë çorape“ – ein Paar Socken.",
       "reviewed": false,
