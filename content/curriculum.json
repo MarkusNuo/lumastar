@@ -253,6 +253,46 @@
           "icon": "heart-pulse",
           "estimatedLessons": 5,
           "file": "units/a2_u03_body_health.json"
+        },
+        {
+          "id": "a2_u12_groceries_market",
+          "title": "Lebensmittel & Markt",
+          "description": "Obst, Gemüse, Fleisch, Milchprodukte und Brot einkaufen – mit Mengen und Preisen.",
+          "goals": ["Ich kann auf dem Markt und im Laden Lebensmittel in bestimmten Mengen verlangen.", "Ich verwende Pluralformen und Mengenangaben sicher."],
+          "skillTags": ["vocab.food", "vocab.shopping", "vocab.numbers", "grammar.plural", "grammar.case.accusative"],
+          "color": "amber",
+          "icon": "shopping-basket",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u13_restaurant_cafe",
+          "title": "Im Restaurant & Café",
+          "description": "Bestellen, nachfragen, reklamieren und bezahlen – mit traditionellen Gerichten aus dem Kosovo.",
+          "goals": ["Ich kann im Restaurant oder Café bestellen und um die Rechnung bitten.", "Ich kann höflich bitten und Wünsche mit Modalverben und Pronomen-Kurzformen ausdrücken."],
+          "skillTags": ["vocab.food", "vocab.drinks", "phrase.ordering", "phrase.politeness", "grammar.verbs.modal", "grammar.clitics"],
+          "color": "coral",
+          "icon": "utensils-crossed",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u14_cooking_recipes",
+          "title": "Kochen & Rezepte",
+          "description": "Küche, Zutaten und Zubereitung – Schritt für Schritt mit dem Imperativ.",
+          "goals": ["Ich kann ein einfaches Rezept verstehen und erklären.", "Ich kann Anweisungen mit dem Imperativ geben."],
+          "skillTags": ["vocab.cooking", "vocab.food", "grammar.verbs.imperative", "grammar.verbs.participle", "reading.short_texts"],
+          "color": "lime",
+          "icon": "chef-hat",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u15_review_everyday",
+          "title": "Wiederholung: Mein Alltag",
+          "description": "Alles aus dieser Stufe gemischt: Präsens, Vergangenheit, Artikel und Plural mit den neuen Wörtern.",
+          "goals": ["Ich kann über Einkauf, Essen und meinen Tag in Gegenwart und Vergangenheit sprechen.", "Ich setze bestimmte Artikel und Pluralformen sicher ein."],
+          "skillTags": ["grammar.verbs.present", "grammar.verbs.past_simple", "grammar.definite_article.masc", "grammar.definite_article.fem", "grammar.plural", "reading.dialogues"],
+          "color": "violet",
+          "icon": "repeat",
+          "estimatedLessons": 4
         }
       ]
     },
@@ -303,6 +343,46 @@
           "icon": "cloud-sun",
           "estimatedLessons": 4,
           "file": "units/a2_u07_weather_seasons.json"
+        },
+        {
+          "id": "a2_u16_clothes_fashion",
+          "title": "Kleidung & Mode",
+          "description": "Kleider kaufen und anprobieren, Grössen, Farben und Materialien vergleichen.",
+          "goals": ["Ich kann Kleider beschreiben und nach Grösse und Farbe fragen.", "Ich kann Adjektive anpassen und mit dem Komparativ vergleichen."],
+          "skillTags": ["vocab.clothes", "vocab.colours", "vocab.shopping", "grammar.adjective_agreement", "grammar.demonstratives", "grammar.comparison"],
+          "color": "rose",
+          "icon": "shirt",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u17_weather_climate",
+          "title": "Wetter & Klima",
+          "description": "Wetterbericht, Temperaturen, Naturereignisse und was man bei welchem Wetter anzieht.",
+          "goals": ["Ich kann einen einfachen Wetterbericht verstehen und das Wetter von morgen ankündigen.", "Ich kann Wetter und Orte miteinander vergleichen."],
+          "skillTags": ["vocab.weather", "vocab.seasons", "vocab.nature", "grammar.verbs.future", "grammar.comparison", "reading.short_texts"],
+          "color": "sky",
+          "icon": "cloud-sun-rain",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u18_sport_hobbies",
+          "title": "Sport, Hobbys & Verabredungen",
+          "description": "Sportarten, Freizeit und sich verabreden – wie oft, wann und mit wem.",
+          "goals": ["Ich kann über meine Freizeit erzählen und sagen, wie oft ich etwas tue.", "Ich kann mich verabreden und einen Vorschlag annehmen oder ablehnen."],
+          "skillTags": ["vocab.sport", "vocab.leisure", "vocab.time", "phrase.plans", "grammar.verbs.present", "grammar.verbs.perfect"],
+          "color": "teal",
+          "icon": "trophy",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u19_review_plans",
+          "title": "Wiederholung: Pläne & Wünsche",
+          "description": "Zukunft, Modalverben, Adjektive und Pronomen-Kurzformen mit den Wörtern dieser Stufe.",
+          "goals": ["Ich kann Pläne und Wünsche für morgen und das Wochenende ausdrücken.", "Ich verwende Modalverben, Adjektive und Pronomen-Kurzformen sicher."],
+          "skillTags": ["grammar.verbs.future", "grammar.verbs.modal", "grammar.adjective_agreement", "grammar.clitics", "reading.dialogues"],
+          "color": "violet",
+          "icon": "repeat",
+          "estimatedLessons": 4
         }
       ]
     },
@@ -353,6 +433,46 @@
           "icon": "briefcase",
           "estimatedLessons": 5,
           "file": "units/a2_u11_work_leisure.json"
+        },
+        {
+          "id": "a2_u20_city_transport",
+          "title": "Stadt, Läden & Verkehr",
+          "description": "Gebäude, Geschäfte, Bus und Taxi – und wie man den Weg beschreibt.",
+          "goals": ["Ich kann nach Orten in der Stadt fragen und den Weg beschreiben.", "Ich verwende Präpositionen mit den richtigen Fällen."],
+          "skillTags": ["vocab.city", "vocab.travel", "phrase.directions", "grammar.prepositions", "grammar.case.ablative", "grammar.verbs.imperative"],
+          "color": "indigo",
+          "icon": "bus",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u21_hotel_airport",
+          "title": "Hotel, Flughafen & Reisen buchen",
+          "description": "Reservieren, einchecken, Gepäck und Grenze – Reisen planen und davon erzählen.",
+          "goals": ["Ich kann ein Zimmer reservieren und am Flughafen zurechtkommen.", "Ich kann über eine Reise in der Zukunft und in der Vergangenheit sprechen."],
+          "skillTags": ["vocab.travel", "phrase.requests", "grammar.verbs.future", "grammar.verbs.past_simple", "grammar.question_particle"],
+          "color": "sky",
+          "icon": "plane",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u22_doctor_pharmacy",
+          "title": "Beim Arzt & in der Apotheke",
+          "description": "Beschwerden schildern, Termine abmachen und Medikamente verstehen.",
+          "goals": ["Ich kann beim Arzt sagen, was mir fehlt und seit wann.", "Ich kann in der Apotheke nach einem Mittel fragen und die Einnahme verstehen."],
+          "skillTags": ["vocab.body", "vocab.health", "phrase.health", "vocab.time", "grammar.verbs.perfect", "grammar.verbs.reflexive"],
+          "color": "rose",
+          "icon": "stethoscope",
+          "estimatedLessons": 6
+        },
+        {
+          "id": "a2_u23_review_on_the_road",
+          "title": "Wiederholung: Unterwegs",
+          "description": "Perfekt, Fälle, Präpositionen und Imperativ mit den Wörtern dieser Stufe.",
+          "goals": ["Ich kann von Erlebnissen unterwegs im Perfekt erzählen.", "Ich setze Fälle, Präpositionen und den Imperativ sicher ein."],
+          "skillTags": ["grammar.verbs.perfect", "grammar.case.dative", "grammar.case.ablative", "grammar.prepositions", "grammar.verbs.imperative", "reading.dialogues"],
+          "color": "violet",
+          "icon": "repeat",
+          "estimatedLessons": 4
         }
       ]
     },
