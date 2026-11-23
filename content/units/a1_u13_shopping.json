@@ -76,10 +76,11 @@
     {
       "id": "item_me_pague",
       "kind": "word",
-      "gheg": "me pague",
+      "gheg": "me pagu",
       "de": "zahlen, bezahlen",
       "partOfSpeech": "verb",
-      "note": "Partizip „pague“ (von paguaj, Standard: paguar) nach der Regel -uar → -ue gebildet – zu prüfen.",
+      "alternatives": ["me pague"],
+      "note": "Form „me pagu“ (ich bezahle: „paguj“) laut LANGUAGE_GUIDE §14; die ältere Form „me pague“ bleibt akzeptiert. Die Id bleibt wegen bestehender Lernstände unverändert.",
       "reviewed": false
     },
     {
@@ -340,13 +341,13 @@
       "itemIds": ["item_muj", "item_me_pague", "item_kartele"],
       "prompt": { "lang": "de", "text": "Wie fragst du „Kann ich mit Karte zahlen?“" },
       "choices": [
-        "A muj me pague me kartelë?",
-        "A mundesh me pague me kartelë?",
-        "A du me pague me kartelë?",
-        "A duhet me pague me kartelë?"
+        "A muj me pagu me kartelë?",
+        "A mundesh me pagu me kartelë?",
+        "A du me pagu me kartelë?",
+        "A duhet me pagu me kartelë?"
       ],
-      "solutions": ["A muj me pague me kartelë?"],
-      "explanation": "„A muj me …?“ heisst „Kann ich …?“. „Me pague“ ist der Gheg-Infinitiv von „paguaj“ (zahlen), Standard: „të paguaj“.",
+      "solutions": ["A muj me pagu me kartelë?"],
+      "explanation": "„A muj me …?“ heisst „Kann ich …?“. „Me pagu“ ist der Gheg-Infinitiv zu „paguj“ (ich bezahle), Standard: „të paguaj“.",
       "errorHints": [
         {
           "pattern": "mundesh",
@@ -358,7 +359,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Partizip „pague“ (von paguaj, Standard: paguar) nach der Regel -uar → -ue und das Kosovo-Wort „kartelë“ (Standard: kartë) zu prüfen."
+      "note": "Kosovo-Wort „kartelë“ (Standard: kartë) zu prüfen."
     },
     {
       "id": "ex_a1_u13_shopping_013",
@@ -823,14 +824,14 @@
       "itemIds": ["item_muj", "item_me_pague", "item_kartele"],
       "prompt": { "lang": "de", "text": "Kann ich mit Karte zahlen?" },
       "answerLang": "sq",
-      "solutions": ["A muj me pague me kartelë?", "Muj me pague me kartelë?"],
+      "solutions": ["A muj me pagu me kartelë?", "Muj me pagu me kartelë?", "A muj me pague me kartelë?", "Muj me pague me kartelë?"],
       "standardForms": ["A mund të paguaj me kartë?", "A mund të paguaj me kartelë?", "Mund të paguaj me kartë?"],
-      "explanation": "„A muj me pague …?“ – „Kann ich … zahlen?“. Nach „muj“ folgt der Gheg-Infinitiv mit „me“.",
+      "explanation": "„A muj me pagu …?“ – „Kann ich … zahlen?“. Nach „muj“ folgt der Gheg-Infinitiv mit „me“.",
       "errorHints": [
         {
-          "pattern": "me paguaj",
+          "pattern": "me pagu(a)?j",
           "category": "grammar.infinitive",
-          "hint": "Nach „me“ steht das Partizip „pague“, nicht „paguaj“."
+          "hint": "Nach „me“ steht das Partizip „pagu“, nicht „paguj“."
         },
         {
           "pattern": "^(a )?mundesh",
@@ -840,7 +841,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Partizip „pague“ (von paguaj, Standard: paguar) nach der Regel -uar → -ue und das Kosovo-Wort „kartelë“ (Standard: kartë) zu prüfen. „muj“ (Standard: mund) ebenfalls zu prüfen."
+      "note": "Kosovo-Wort „kartelë“ (Standard: kartë) und „muj“ (Standard: mund) zu prüfen."
     },
     {
       "id": "ex_a1_u13_shopping_034",
@@ -1214,12 +1215,12 @@
         { "left": "me ble", "right": "kaufen" },
         { "left": "kushton", "right": "es kostet" },
         { "left": "më jep", "right": "gib mir" },
-        { "left": "me pague", "right": "zahlen" }
+        { "left": "me pagu", "right": "zahlen" }
       ],
-      "explanation": "„Me ble“ und „me pague“ sind Gheg-Infinitive: „me“ + Partizip.",
+      "explanation": "„Me ble“ und „me pagu“ sind Gheg-Infinitive: „me“ + Partizip.",
       "reviewed": false,
       "source": "manual",
-      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen. Partizip „pague“ (von paguaj, Standard: paguar) nach der Regel -uar → -ue und das Kosovo-Wort „kartelë“ (Standard: kartë) zu prüfen."
+      "note": "Gheg-Partizip „ble“ in „me ble“ (Standard: blerë) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a1_u13_shopping_052",
