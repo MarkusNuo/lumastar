@@ -1,0 +1,4158 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u15_review_everyday",
+  "level": "A2.1",
+  "grammar": [
+    {
+      "title": "Heute oder gestern?",
+      "explanation": "In dieser Stufe hast du zwei Zeiten geübt: das **Präsens** für heute, jetzt und immer – und die **einfache Vergangenheit** für gestern.\n\n| Präsens (ich) | Vergangenheit (ich) | Deutsch |\n|---|---|---|\n| blej | bleva | kaufen |\n| paguj | pagova | bezahlen |\n| provoj | provova | (an)probieren |\n| gatuaj | gatova | kochen |\n| ha | hangra | essen |\n| pi | piva | trinken |\n| bâj | bâna | machen |\n| shkoj | shkova | gehen |\n\n- **Präsens** mit *sot, tash, zakonisht, çdo ditë*: *Zakonisht ha mëngjes në shpi.*\n- **Vergangenheit** mit *dje, pardje, mbrâmë* (gestern Abend), *vjet*: *Mbrâmë gatova fasule.*\n- **Du-Form** der Vergangenheit auf **-e**: *bleve, gatove, bâne* – *Çka bleve dje?* (Was hast du gestern gekauft?)\n- **Reflexive Verben** bekommen in der Vergangenheit ein **u**: *çohem → u çova, lahem → u lava, vishem → u vesha*.\n\nGheg-Formen: *hangra* (Standard: hëngra), *bâna* (Standard: bëra), *mbrâmë* (Standard: mbrëmë)."
+    },
+    {
+      "title": "Artikel und Mehrzahl auf einen Blick",
+      "explanation": "Der bestimmte Artikel hängt am Ende des Nomens:\n\n| | unbestimmt | bestimmt | als Objekt (Akkusativ) |\n|---|---|---|---|\n| maskulin | fustan, mish | fustan**i**, mish**i** | fustan**in**, mish**in** |\n| maskulin nach k, g, h | peshk | peshk**u** | peshk**un** |\n| feminin | xhaketë, supë | xhaket**a**, sup**a** | xhaket**ën**, sup**ën** |\n| feminin auf -e | shishe | shish**ja** | shish**en** |\n| Mehrzahl | këpucë, speca | këpucë**t**, speca**t** | këpucë**t**, speca**t** |\n\n- **Ohne Artikel** nach *nji*, Zahlen und Mengen: *nji kilogram domate, dy fustane, tri dardha*.\n- Nach **ky, kjo, këta, këto** ebenfalls ohne Artikel: *kjo xhaketë, këto këpucë*.\n- Nach **për** und **me** steht der Akkusativ: *për motrën, me familjen*.\n- Die Mehrzahl lernst du am besten mit dem Wort: *limon → limona, portokall → portokalle, fustan → fustane, dardhë → dardha, mollë → mollë*.\n- Einige Wörter gibt es nur in der Mehrzahl: *pantallona, xhinse, perime* – *Pantallonat janë të gjata.*"
+    },
+    {
+      "title": "Befehlen, vergleichen, beschreiben",
+      "explanation": "**Imperativ:** zu einer Person der Verbstamm, zu mehreren (oder höflich) mit **-ni**, verneint mit **mos**: *Shto kripë! – Shtoni kripë! – Mos shto shumë kripë!* Achtung: *pjek → piq, hedh → hidh, marr → merr*.\n\n**Vergleich** mit **ma … se**: *Mishi âsht ma i shtrenjtë se peshku.* – *Kjo xhaketë âsht ma e bukur se ajo.* – *Këpucët janë ma të shtrenjta se patikat.* (Standard: *më* statt *ma*)\n\n**Adjektive** richten sich nach dem Nomen:\n\n| | maskulin | feminin |\n|---|---|---|\n| Einzahl | fustan **i** kuq | xhaketë **e** kuqe |\n| Mehrzahl | speca **të** mbushun | këpucë **të** reja |\n| als Objekt nach *nji* | Bleva nji fustan **të** kuq. | Bleva nji bluzë **të** bardhë. |\n\n*Blu, gri, rozë* und *elegant* stehen ohne Verbindungsartikel: *Shalli âsht gri.*"
+    }
+  ],
+  "items": [
+    { "id": "item_gatova", "kind": "word", "gheg": "gatova", "de": "ich kochte (von gatuaj)", "partOfSpeech": "verb", "note": "Vergangenheit von „gatuaj“ (gatova, gatove, gatoi) wie im Standard – als Gheg-Form zu prüfen.", "reviewed": false },
+    { "id": "item_bleve", "kind": "word", "gheg": "bleve", "de": "du kauftest (von blej)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_u_lava", "kind": "phrase", "gheg": "u lava", "de": "ich wusch mich (von lahem)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_u_vesha", "kind": "phrase", "gheg": "u vesha", "de": "ich zog mich an (von vishem)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_mbrame", "kind": "word", "gheg": "mbrâmë", "de": "gestern Abend", "partOfSpeech": "adverb", "note": "Gheg mit â wie „mbrâmje“ (Standard: mbrëmë) – zu prüfen.", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u15_review_everyday_001",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_bleva",
+        "item_blej",
+        "item_pagova",
+        "item_provova"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet „bleva“?"
+      },
+      "choices": [
+        "ich kaufte",
+        "ich kaufe",
+        "ich bezahlte",
+        "ich probierte an"
+      ],
+      "solutions": [
+        "ich kaufte"
+      ],
+      "explanation": "„Bleva“ ist die Vergangenheit von „blej“ (ich kaufe). „Pagova“ heisst „ich bezahlte“, „provova“ „ich probierte an“.",
+      "errorHints": [
+        {
+          "pattern": "^ich kaufe$",
+          "category": "grammar.verb_tense",
+          "hint": "„Ich kaufe“ heisst „blej“. „Bleva“ ist Vergangenheit."
+        },
+        {
+          "pattern": "bezahlte",
+          "category": "vocab.confused",
+          "hint": "„Ich bezahlte“ heisst „pagova“."
+        },
+        {
+          "pattern": "probierte",
+          "category": "vocab.confused",
+          "hint": "„Ich probierte an“ heisst „provova“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_002",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_fustan",
+        "item_dy"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Nji fustan, dy … – welche Mehrzahl passt?"
+      },
+      "choices": [
+        "fustane",
+        "fustana",
+        "fustanet",
+        "fustani"
+      ],
+      "solutions": [
+        "fustane"
+      ],
+      "explanation": "„Fustan“ bildet die Mehrzahl mit -e: „dy fustane“ (wie „portokall → portokalle“). Nach einer Zahl steht das Nomen ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "^fustana$",
+          "category": "vocab.confused",
+          "hint": "„Fustan“ bildet die Mehrzahl mit -e: „fustane“."
+        },
+        {
+          "pattern": "^fustanet$",
+          "category": "grammar.definite_article",
+          "hint": "„Fustanet“ heisst „die Kleider“. Nach einer Zahl steht das Nomen ohne Artikel: „dy fustane“."
+        },
+        {
+          "pattern": "^fustani$",
+          "category": "grammar.definite_article",
+          "hint": "„Fustani“ heisst „das Kleid“ (Einzahl, bestimmt)."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_003",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.verbs.reflexive",
+        "vocab.daily_routine"
+      ],
+      "itemIds": [
+        "item_u_vesha",
+        "item_vishem",
+        "item_u_lava",
+        "item_u_cova"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „Ich zog mich an“?"
+      },
+      "choices": [
+        "U vesha.",
+        "Vishem.",
+        "U lava.",
+        "U çova."
+      ],
+      "solutions": [
+        "U vesha."
+      ],
+      "explanation": "„Vishem“ heisst „ich ziehe mich an“. In der Vergangenheit bekommt das reflexive Verb ein „u“: „u vesha“.",
+      "errorHints": [
+        {
+          "pattern": "^vishem$",
+          "category": "grammar.verb_tense",
+          "hint": "„Vishem“ ist Präsens (ich ziehe mich an). Vergangenheit: „u vesha“."
+        },
+        {
+          "pattern": "^u lava$",
+          "category": "vocab.confused",
+          "hint": "„U lava“ heisst „ich wusch mich“."
+        },
+        {
+          "pattern": "^u [cç]ova$",
+          "category": "vocab.confused",
+          "hint": "„U çova“ heisst „ich stand auf“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_004",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_pantallona",
+        "item_i_lire",
+        "item_ma_se"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie sagt man „Diese Hose ist billiger“?"
+      },
+      "choices": [
+        "Këto pantallona janë ma të lira.",
+        "Kjo pantallona âsht ma e lirë.",
+        "Këto pantallona janë ma të lirë.",
+        "Këta pantallona janë ma të lira."
+      ],
+      "solutions": [
+        "Këto pantallona janë ma të lira."
+      ],
+      "explanation": "„Pantallona“ ist im Albanischen Mehrzahl und feminin: „këto pantallona janë …“. Das Adjektiv heisst darum „të lira“.",
+      "errorHints": [
+        {
+          "pattern": "^kjo ",
+          "category": "vocab.confused",
+          "hint": "„Pantallona“ ist eine Mehrzahl: „këto pantallona janë …“."
+        },
+        {
+          "pattern": "t[eë] lir[eë]$",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl: „të lira“."
+        },
+        {
+          "pattern": "^k[eë]ta ",
+          "category": "grammar.gender",
+          "hint": "„Pantallona“ ist feminin: „këto“, nicht „këta“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_005",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "grammar.definite_article.fem",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_piq",
+        "item_pite",
+        "item_ore"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Du sagst zu mehreren Personen: „Backt die Pite eine Stunde!“"
+      },
+      "choices": [
+        "Piqni piten nji orë!",
+        "Piq piten nji orë!",
+        "Pjekni piten nji orë!",
+        "Piqni pite nji orë!"
+      ],
+      "solutions": [
+        "Piqni piten nji orë!"
+      ],
+      "explanation": "Zu mehreren hängst du „-ni“ an: „piq → piqni“. „Die Pite“ ist hier Objekt: „piten“.",
+      "errorHints": [
+        {
+          "pattern": "^piq piten",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Piq!“ sagst du zu einer Person. Zu mehreren: „piqni!“."
+        },
+        {
+          "pattern": "^pjekni",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Pjekni“ heisst „ihr backt“. Der Befehl hat ein i: „piqni!“."
+        },
+        {
+          "pattern": "(^|\\s)pite nji",
+          "category": "grammar.definite_article",
+          "hint": "„Die Pite“ braucht den Artikel, als Objekt: „piten“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_006",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.verbs.present",
+        "vocab.daily_routine",
+        "vocab.time"
+      ],
+      "itemIds": [
+        "item_pardje",
+        "item_u_ktheva",
+        "item_vone",
+        "item_sot",
+        "item_i_lodhun"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was bedeutet: „Pardje u ktheva vonë dhe sot jam i lodhun.“?"
+      },
+      "choices": [
+        "Vorgestern kam ich spät zurück und heute bin ich müde.",
+        "Gestern kam ich spät zurück und heute bin ich müde.",
+        "Vorgestern kam ich früh zurück und heute bin ich krank.",
+        "Vorgestern ging ich spät weg und heute bin ich müde."
+      ],
+      "solutions": [
+        "Vorgestern kam ich spät zurück und heute bin ich müde."
+      ],
+      "explanation": "„Pardje“ heisst „vorgestern“, „u ktheva“ „ich kam zurück“ (Vergangenheit), „jam i lodhun“ „ich bin müde“ (Präsens).",
+      "errorHints": [
+        {
+          "pattern": "^gestern",
+          "category": "vocab.confused",
+          "hint": "„Pardje“ heisst „vorgestern“, „dje“ heisst „gestern“."
+        },
+        {
+          "pattern": "fr[uü]h",
+          "category": "vocab.confused",
+          "hint": "„Vonë“ heisst „spät“, „herët“ heisst „früh“."
+        },
+        {
+          "pattern": "ging ich",
+          "category": "vocab.confused",
+          "hint": "„U ktheva“ heisst „ich kam zurück“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_007",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.cooking",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_gatova",
+        "item_gatuaj",
+        "item_pule",
+        "item_patate",
+        "item_supe",
+        "item_spec"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Welcher Satz heisst „Ich kochte Poulet mit Kartoffeln“?"
+      },
+      "choices": [
+        "Gatova pulë me patate.",
+        "Gatuaj pulë me patate.",
+        "Gatova supë me patate.",
+        "Gatova pulë me speca."
+      ],
+      "solutions": [
+        "Gatova pulë me patate."
+      ],
+      "explanation": "„Gatova“ ist die Vergangenheit von „gatuaj“ (ich koche). „Pulë“ ist das Poulet, „patate“ sind Kartoffeln.",
+      "errorHints": [
+        {
+          "pattern": "^gatuaj",
+          "category": "grammar.verb_tense",
+          "hint": "„Gatuaj“ ist Präsens (ich koche). Vergangenheit: „gatova“."
+        },
+        {
+          "pattern": "sup",
+          "category": "vocab.confused",
+          "hint": "„Supë“ ist Suppe, nicht Poulet („pulë“)."
+        },
+        {
+          "pattern": "speca",
+          "category": "vocab.confused",
+          "hint": "„Speca“ sind Peperoni. Kartoffeln heissen „patate“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_008",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.case.accusative",
+        "grammar.definite_article.masc",
+        "grammar.definite_article.fem",
+        "vocab.food",
+        "grammar.verbs.present"
+      ],
+      "itemIds": [
+        "item_blej",
+        "item_peshk",
+        "item_buke"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Welcher Satz heisst „Ich kaufe den Fisch und das Brot“?"
+      },
+      "choices": [
+        "Blej peshkun dhe bukën.",
+        "Blej peshku dhe buka.",
+        "Blej peshk dhe bukë.",
+        "Blej peshkun dhe bukë."
+      ],
+      "solutions": [
+        "Blej peshkun dhe bukën."
+      ],
+      "explanation": "Bestimmte Objekte stehen im Akkusativ: „peshku → peshkun“, „buka → bukën“.",
+      "errorHints": [
+        {
+          "pattern": "peshku dhe buka",
+          "category": "grammar.case",
+          "hint": "Als Objekt brauchen die Nomen den Akkusativ: „peshkun“, „bukën“."
+        },
+        {
+          "pattern": "peshk dhe",
+          "category": "grammar.definite_article",
+          "hint": "„Den Fisch“ ist bestimmt: „peshkun“."
+        },
+        {
+          "pattern": "dhe buk[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "„Das Brot“ ist bestimmt: „bukën“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_009",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.definite_article.masc",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_mish",
+        "item_peshk",
+        "item_i_shtrenjte",
+        "item_ma_se"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Welcher Satz heisst „Das Fleisch ist teurer als der Fisch“?"
+      },
+      "choices": [
+        "Mishi âsht ma i shtrenjtë se peshku.",
+        "Mishi âsht ma e shtrenjtë se peshku.",
+        "Mishi âsht ma i shtrenjtë peshku.",
+        "Mish âsht ma i shtrenjtë se peshku."
+      ],
+      "solutions": [
+        "Mishi âsht ma i shtrenjtë se peshku."
+      ],
+      "explanation": "„Mishi“ ist maskulin, darum „ma i shtrenjtë“. „Als“ heisst „se“.",
+      "errorHints": [
+        {
+          "pattern": "ma e shtrenjt",
+          "category": "grammar.linking_article",
+          "hint": "„Mishi“ ist maskulin: „ma i shtrenjtë“."
+        },
+        {
+          "pattern": "shtrenjt[eë] peshku",
+          "category": "vocab.confused",
+          "hint": "„Als“ heisst „se“: „ma i shtrenjtë se peshku“."
+        },
+        {
+          "pattern": "^mish ",
+          "category": "grammar.definite_article",
+          "hint": "„Das Fleisch“ braucht den Artikel: „mishi“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_010",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "reading.dialogues",
+        "vocab.shopping",
+        "vocab.food",
+        "grammar.plural"
+      ],
+      "itemIds": [
+        "item_kushtojne",
+        "item_domate",
+        "item_fresket",
+        "item_me_jep",
+        "item_kilogram",
+        "item_gjysme_kilogrami",
+        "item_djathe",
+        "item_urdheno",
+        "item_dicka_tjeter",
+        "item_vec_kaq",
+        "item_sa_ban"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Mirëdita! Sa kushtojnë domatet?\n– Nji euro kilogrami. Janë shumë të freskëta.\n– Mirë, më jep nji kilogram domate dhe gjysmë kilogrami djathë.\n– Urdhëno. Diçka tjetër?\n– Jo, veç kaq. Sa bân?\n\nFrage: Was kauft die Kundin?"
+      },
+      "choices": [
+        "ein Kilo Tomaten und ein halbes Kilo Käse",
+        "ein halbes Kilo Tomaten und ein Kilo Käse",
+        "ein Kilo Tomaten und ein halbes Kilo Fleisch",
+        "zwei Kilo Tomaten"
+      ],
+      "solutions": [
+        "ein Kilo Tomaten und ein halbes Kilo Käse"
+      ],
+      "explanation": "„Nji kilogram domate“ ist ein Kilo Tomaten, „gjysmë kilogrami djathë“ ein halbes Kilo Käse. „Veç kaq“ heisst „nur das“.",
+      "errorHints": [
+        {
+          "pattern": "^ein halbes kilo tomaten",
+          "category": "vocab.confused",
+          "hint": "Die Tomaten will sie „nji kilogram“, den Käse „gjysmë kilogrami“."
+        },
+        {
+          "pattern": "fleisch",
+          "category": "vocab.confused",
+          "hint": "„Djathë“ ist Käse. Fleisch heisst „mish“."
+        },
+        {
+          "pattern": "^zwei",
+          "category": "vocab.confused",
+          "hint": "Sie verlangt „nji kilogram domate“ – ein Kilo."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„urdhëno“ (Standard: urdhëro) als Gheg-Form mit -n- zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_011",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "reading.dialogues",
+        "grammar.comparison",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_muj",
+        "item_me_provue",
+        "item_kete",
+        "item_xhakete",
+        "item_kabine",
+        "item_si_me_rri",
+        "item_te_rri_mire",
+        "item_i_ngushte",
+        "item_numer",
+        "item_ma_se",
+        "item_i_madh"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Mirëdita! A muj me provue këtë xhaketë?\n– Po, kabina âsht atje.\n– Si më rri?\n– Të rri mirë, po âsht pak e ngushtë.\n– A keni nji numër ma të madh?\n– Po. Ky numër âsht ma i madh.\n\nFrage: Warum will der Kunde eine andere Grösse?"
+      },
+      "choices": [
+        "Die Jacke ist etwas eng.",
+        "Die Jacke ist zu teuer.",
+        "Die Jacke ist zu lang.",
+        "Die Farbe gefällt ihm nicht."
+      ],
+      "solutions": [
+        "Die Jacke ist etwas eng."
+      ],
+      "explanation": "„Pak e ngushtë“ heisst „etwas eng“. Darum fragt der Kunde nach „nji numër ma të madh“ – einer grösseren Grösse.",
+      "errorHints": [
+        {
+          "pattern": "teuer",
+          "category": "vocab.confused",
+          "hint": "Vom Preis ist nicht die Rede. „E ngushtë“ heisst „eng“."
+        },
+        {
+          "pattern": "lang",
+          "category": "vocab.confused",
+          "hint": "„Lang“ hiesse „e gjatë“. Die Jacke ist „pak e ngushtë“."
+        },
+        {
+          "pattern": "farbe",
+          "category": "vocab.confused",
+          "hint": "Von der Farbe ist nicht die Rede: „Të rri mirë“ – sie steht ihm gut."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Wendungen „si më rri?“ und „të rri mirë“ sowie „po“ als „aber“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_012",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "reading.short_texts",
+        "grammar.verbs.past_simple",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_shkova",
+        "item_treg",
+        "item_bleva",
+        "item_mish",
+        "item_qepe",
+        "item_spec",
+        "item_gatova",
+        "item_speca_te_mbushun",
+        "item_familje"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Dje u çova herët. U lava, u vesha dhe hangra mëngjes. Pastaj shkova në treg dhe bleva mish, qepë dhe speca. Në mbrâmje gatova speca të mbushun për familjen.\n\nFrage: Was kaufte die Person auf dem Markt?"
+      },
+      "choices": [
+        "Fleisch, Zwiebeln und Peperoni",
+        "Fleisch, Kartoffeln und Peperoni",
+        "Fisch, Zwiebeln und Peperoni",
+        "Fleisch, Zwiebeln und Reis"
+      ],
+      "solutions": [
+        "Fleisch, Zwiebeln und Peperoni"
+      ],
+      "explanation": "„Bleva mish, qepë dhe speca“ – ich kaufte Fleisch, Zwiebeln und Peperoni. Daraus kocht die Person am Abend gefüllte Peperoni.",
+      "errorHints": [
+        {
+          "pattern": "kartoffeln",
+          "category": "vocab.confused",
+          "hint": "„Qepë“ sind Zwiebeln. Kartoffeln heissen „patate“."
+        },
+        {
+          "pattern": "fisch",
+          "category": "vocab.confused",
+          "hint": "„Mish“ ist Fleisch. Fisch heisst „peshk“."
+        },
+        {
+          "pattern": "reis",
+          "category": "vocab.confused",
+          "hint": "„Speca“ sind Peperoni. Reis heisst „oriz“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„u lava“, „u vesha“ und „gatova“ als Vergangenheitsformen zu prüfen; „mbrâmje“ mit â laut Sprachrichtlinie."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_013",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "reading.short_texts",
+        "grammar.verbs.past_simple",
+        "grammar.verbs.reflexive",
+        "vocab.daily_routine"
+      ],
+      "itemIds": [
+        "item_u_cova",
+        "item_heret",
+        "item_u_lava",
+        "item_u_vesha",
+        "item_hangra",
+        "item_ha_mengjes",
+        "item_pastaj"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Dje u çova herët. U lava, u vesha dhe hangra mëngjes. Pastaj shkova në treg dhe bleva mish, qepë dhe speca. Në mbrâmje gatova speca të mbushun për familjen.\n\nFrage: Was machte die Person direkt nach dem Aufstehen?"
+      },
+      "choices": [
+        "Sie wusch sich.",
+        "Sie zog sich an.",
+        "Sie ging auf den Markt.",
+        "Sie kochte."
+      ],
+      "solutions": [
+        "Sie wusch sich."
+      ],
+      "explanation": "„U çova herët. U lava, u vesha …“ – nach dem Aufstehen wusch sich die Person („u lava“), dann zog sie sich an („u vesha“).",
+      "errorHints": [
+        {
+          "pattern": "zog",
+          "category": "vocab.confused",
+          "hint": "„U vesha“ (ich zog mich an) kommt erst nach „u lava“ (ich wusch mich)."
+        },
+        {
+          "pattern": "markt",
+          "category": "vocab.confused",
+          "hint": "Auf den Markt ging die Person erst nach dem Frühstück: „pastaj shkova në treg“."
+        },
+        {
+          "pattern": "kochte",
+          "category": "vocab.confused",
+          "hint": "Gekocht hat die Person erst am Abend: „në mbrâmje gatova …“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_014",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "reading.dialogues",
+        "vocab.health",
+        "grammar.verbs.imperative",
+        "grammar.verbs.past_simple"
+      ],
+      "itemIds": [
+        "item_ndihem",
+        "item_me_dhemb",
+        "item_bark",
+        "item_hangra",
+        "item_mbrame",
+        "item_pjate",
+        "item_fasule",
+        "item_piva",
+        "item_birre",
+        "item_supe",
+        "item_caj"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Qysh ndihesh sot?\n– Keq. Më dhemb barku.\n– Çka hangre mbrâmë?\n– Hangra nji pjatë të madhe me fasule dhe piva dy birra.\n– Sot ha veç supë dhe pi shumë çaj!\n\nFrage: Was soll die Person heute tun?"
+      },
+      "choices": [
+        "Nur Suppe essen und viel Tee trinken.",
+        "Bohnen essen und Bier trinken.",
+        "Zum Arzt gehen.",
+        "Ein Medikament kaufen."
+      ],
+      "solutions": [
+        "Nur Suppe essen und viel Tee trinken."
+      ],
+      "explanation": "„Ha veç supë dhe pi shumë çaj!“ – iss nur Suppe und trink viel Tee! „Ha“ und „pi“ sind hier Befehle. „Veç“ heisst „nur“.",
+      "errorHints": [
+        {
+          "pattern": "bohnen",
+          "category": "vocab.confused",
+          "hint": "Bohnen und Bier gab es gestern Abend („mbrâmë“) – darum tut der Bauch weh."
+        },
+        {
+          "pattern": "arzt",
+          "category": "vocab.confused",
+          "hint": "Vom Arzt ist nicht die Rede."
+        },
+        {
+          "pattern": "medikament",
+          "category": "vocab.confused",
+          "hint": "Von einem Medikament ist nicht die Rede."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„mbrâmë“ (Standard: mbrëmë) und „veç“ (Standard: vetëm) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_015",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "reading.dialogues",
+        "grammar.verbs.imperative",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_si_bahet",
+        "item_supe",
+        "item_perime",
+        "item_fillimisht",
+        "item_laj",
+        "item_qero",
+        "item_mandej",
+        "item_hidh",
+        "item_tenxhere",
+        "item_shto",
+        "item_kripe",
+        "item_kur",
+        "item_vlon",
+        "item_mbulo",
+        "item_ne_fund",
+        "item_majdanoz"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Si bâhet supa me perime?\n– Fillimisht laj dhe qëro perimet. Mandej hidh perimet në tenxhere me ujë dhe shto kripë.\n– Po pastaj?\n– Kur uji vlon, mbulo tenxheren. Në fund shto pak majdanoz.\n\nFrage: Was machst du, wenn das Wasser kocht?"
+      },
+      "choices": [
+        "Den Topf zudecken.",
+        "Salz dazugeben.",
+        "Petersilie dazugeben.",
+        "Das Gemüse schälen."
+      ],
+      "solutions": [
+        "Den Topf zudecken."
+      ],
+      "explanation": "„Kur uji vlon, mbulo tenxheren“ – wenn das Wasser kocht, deck den Topf zu. „Mbulo“ ist der Imperativ von „mbuloj“.",
+      "errorHints": [
+        {
+          "pattern": "salz",
+          "category": "vocab.confused",
+          "hint": "Salz kommt schon vorher dazu: „shto kripë“."
+        },
+        {
+          "pattern": "petersilie",
+          "category": "vocab.confused",
+          "hint": "Petersilie kommt erst am Schluss: „në fund“."
+        },
+        {
+          "pattern": "sch[aä]len",
+          "category": "vocab.confused",
+          "hint": "Geschält wird ganz am Anfang: „fillimisht … qëro perimet“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_016",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "reading.dialogues",
+        "grammar.verbs.past_simple",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_bleve",
+        "item_bleva",
+        "item_qytet",
+        "item_pale",
+        "item_kepuce",
+        "item_fustan",
+        "item_moter",
+        "item_market"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Çka bleve dje në qytet?\n– Bleva nji palë këpucë dhe nji fustan për motrën.\n– Sa pagove?\n– Për këpucët pagova tridhjetë euro, për fustanin dyzet. Edhe në market bleva bukë, djathë dhe nji shishe vaj.\n\nFrage: Für wen ist das Kleid?"
+      },
+      "choices": [
+        "für die Schwester",
+        "für die Mutter",
+        "für die Freundin",
+        "für die Person selbst"
+      ],
+      "solutions": [
+        "für die Schwester"
+      ],
+      "explanation": "„Nji fustan për motrën“ – ein Kleid für die Schwester. Nach „për“ steht der Akkusativ: „motra → motrën“.",
+      "errorHints": [
+        {
+          "pattern": "mutter",
+          "category": "vocab.confused",
+          "hint": "Die Mutter hiesse „nâna“ (für die Mutter: „për nânën“). „Motrën“ ist die Schwester."
+        },
+        {
+          "pattern": "freundin",
+          "category": "vocab.confused",
+          "hint": "Die Freundin hiesse „shoqja“. „Motrën“ ist die Schwester."
+        },
+        {
+          "pattern": "selbst",
+          "category": "vocab.confused",
+          "hint": "Das Kleid ist „për motrën“ – für die Schwester."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_017",
+      "type": "multiple_choice",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "reading.dialogues",
+        "grammar.verbs.past_simple",
+        "vocab.numbers",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_bleve",
+        "item_pagova",
+        "item_kepuce",
+        "item_fustan",
+        "item_tridhjete",
+        "item_dyzet",
+        "item_shishe",
+        "item_vaj"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "– Çka bleve dje në qytet?\n– Bleva nji palë këpucë dhe nji fustan për motrën.\n– Sa pagove?\n– Për këpucët pagova tridhjetë euro, për fustanin dyzet. Edhe në market bleva bukë, djathë dhe nji shishe vaj.\n\nFrage: Wie viel bezahlte die Person für die Schuhe und das Kleid zusammen?"
+      },
+      "choices": [
+        "70 Euro",
+        "30 Euro",
+        "40 Euro",
+        "60 Euro"
+      ],
+      "solutions": [
+        "70 Euro"
+      ],
+      "explanation": "Die Schuhe kosteten „tridhjetë euro“ (30), das Kleid „dyzet“ (40) – zusammen 70 Euro. „Pagova“ heisst „ich bezahlte“.",
+      "errorHints": [
+        {
+          "pattern": "^30",
+          "category": "vocab.confused",
+          "hint": "30 Euro („tridhjetë“) kosteten nur die Schuhe."
+        },
+        {
+          "pattern": "^40",
+          "category": "vocab.confused",
+          "hint": "40 Euro („dyzet“) kostete nur das Kleid."
+        },
+        {
+          "pattern": "^60",
+          "category": "vocab.confused",
+          "hint": "Rechne nach: „tridhjetë“ (30) + „dyzet“ (40)."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_018",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.food",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_bleva",
+        "item_buke",
+        "item_djathe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern kaufte ich Brot und Käse."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Dje bleva bukë dhe djathë.",
+        "Bleva bukë dhe djathë dje."
+      ],
+      "wordBank": [
+        "Dje",
+        "bleva",
+        "bukë",
+        "dhe",
+        "djathë",
+        "blej",
+        "bukën",
+        "qumësht"
+      ],
+      "explanation": "„Bleva“ ist die Vergangenheit von „blej“. Brot und Käse allgemein stehen ohne Artikel: „bukë“, „djathë“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)blej(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Blej“ ist Präsens (ich kaufe). Für die Vergangenheit: „bleva“."
+        },
+        {
+          "pattern": "buk[eë]n",
+          "category": "grammar.definite_article",
+          "hint": "Brot allgemein steht ohne Artikel: „bukë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_019",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kepuce",
+        "item_i_ri",
+        "item_i_rehatshem"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Schuhe sind neu und bequem."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Këpucët janë të reja dhe të rehatshme."
+      ],
+      "wordBank": [
+        "Këpucët",
+        "janë",
+        "të",
+        "reja",
+        "dhe",
+        "të",
+        "rehatshme",
+        "e",
+        "re",
+        "âsht"
+      ],
+      "explanation": "„Këpucët“ ist feminin Mehrzahl: „të reja“ (Einzahl: „e re“) und „të rehatshme“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)e re(\\s|$)",
+          "category": "grammar.linking_article",
+          "hint": "In der Mehrzahl heisst es „të reja“."
+        },
+        {
+          "pattern": "t[eë] re(\\s|$)",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl: „të reja“."
+        },
+        {
+          "pattern": "[aâ]sht",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Âsht“ ist Einzahl. Für die Schuhe: „janë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_020",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "grammar.case.accusative",
+        "grammar.plural",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_laj",
+        "item_domate",
+        "item_qero",
+        "item_qepe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wasch die Tomaten und schäl die Zwiebel!"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Laj domatet dhe qëro qepën!"
+      ],
+      "wordBank": [
+        "Laj",
+        "domatet",
+        "dhe",
+        "qëro",
+        "qepën",
+        "lani",
+        "qepa",
+        "domate"
+      ],
+      "explanation": "Zu einer Person: „laj!“, „qëro!“. „Die Tomaten“ heisst „domatet“, „die Zwiebel“ als Objekt „qepën“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)qepa(\\s|$)",
+          "category": "grammar.case",
+          "hint": "Als Objekt: „qepën“."
+        },
+        {
+          "pattern": "^lani",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Lani“ sagst du zu mehreren. Zu einer Person: „laj“."
+        },
+        {
+          "pattern": "laj domate dhe",
+          "category": "grammar.definite_article",
+          "hint": "„Die Tomaten“ sind bestimmt: „domatet“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_021",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.plural",
+        "vocab.food",
+        "vocab.numbers"
+      ],
+      "itemIds": [
+        "item_bleva",
+        "item_kilogram",
+        "item_molle",
+        "item_tre",
+        "item_limon"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich kaufte ein Kilo Äpfel und drei Zitronen."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Bleva nji kilogram mollë dhe tre limona."
+      ],
+      "wordBank": [
+        "Bleva",
+        "nji",
+        "kilogram",
+        "mollë",
+        "dhe",
+        "tre",
+        "limona",
+        "mollët",
+        "tri",
+        "blej"
+      ],
+      "explanation": "Nach einer Mengenangabe ohne Artikel: „nji kilogram mollë“. „Limon“ ist maskulin, darum „tre limona“.",
+      "errorHints": [
+        {
+          "pattern": "moll[eë]t",
+          "category": "grammar.definite_article",
+          "hint": "Nach „nji kilogram“ steht das Nomen ohne Artikel: „mollë“."
+        },
+        {
+          "pattern": "(^|\\s)tri(\\s|$)",
+          "category": "grammar.gender",
+          "hint": "„Limon“ ist maskulin: „tre limona“. „Tri“ steht bei femininen Nomen."
+        },
+        {
+          "pattern": "(^|\\s)blej(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Blej“ ist Präsens (ich kaufe). Für die Vergangenheit: „bleva“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_022",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.demonstratives",
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_kjo",
+        "item_xhakete",
+        "item_i_bukur",
+        "item_ma_se"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Jacke ist schöner als jene."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Kjo xhaketë âsht ma e bukur se ajo."
+      ],
+      "wordBank": [
+        "Kjo",
+        "xhaketë",
+        "âsht",
+        "ma",
+        "e",
+        "bukur",
+        "se",
+        "ajo",
+        "Ky",
+        "i",
+        "xhaketa"
+      ],
+      "explanation": "„Xhaketë“ ist feminin: „kjo xhaketë … ma e bukur se ajo“. Nach „kjo“ steht das Nomen ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "^ky",
+          "category": "grammar.gender",
+          "hint": "„Xhaketë“ ist feminin: „kjo“."
+        },
+        {
+          "pattern": "ma i bukur",
+          "category": "grammar.linking_article",
+          "hint": "Feminin: „ma e bukur“."
+        },
+        {
+          "pattern": "kjo xhaketa",
+          "category": "grammar.definite_article",
+          "hint": "Nach „kjo“ steht das Nomen ohne Artikel: „kjo xhaketë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_023",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.present",
+        "grammar.verbs.past_simple",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_sot",
+        "item_gatuaj",
+        "item_supe",
+        "item_dje",
+        "item_gatova",
+        "item_pite"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Heute koche ich Suppe, gestern kochte ich Pite."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Sot gatuaj supë, dje gatova pite."
+      ],
+      "wordBank": [
+        "Sot",
+        "gatuaj",
+        "supë",
+        "dje",
+        "gatova",
+        "pite",
+        "gatove",
+        "gatuan",
+        "supën"
+      ],
+      "explanation": "Heute: Präsens „gatuaj“. Gestern: Vergangenheit „gatova“.",
+      "errorHints": [
+        {
+          "pattern": "sot gatova|dje gatuaj",
+          "category": "grammar.verb_tense",
+          "hint": "Heute: „gatuaj“ (Präsens). Gestern: „gatova“ (Vergangenheit)."
+        },
+        {
+          "pattern": "(^|\\s)gatove(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Gatove“ heisst „du kochtest“. Ich: „gatova“."
+        },
+        {
+          "pattern": "gatuan",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Gatuan“ heisst „du kochst“ oder „er/sie kocht“."
+        },
+        {
+          "pattern": "sup[eë]n",
+          "category": "grammar.definite_article",
+          "hint": "Suppe allgemein steht ohne Artikel: „supë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_024",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "vocab.body",
+        "grammar.plural",
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_me_dhemb",
+        "item_kambe",
+        "item_kepuce",
+        "item_teper",
+        "item_i_ngushte"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Mir tun die Füsse weh, die Schuhe sind zu eng."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Më dhembin kâmbët, këpucët janë tepër të ngushta."
+      ],
+      "wordBank": [
+        "Më",
+        "dhembin",
+        "kâmbët",
+        "këpucët",
+        "janë",
+        "tepër",
+        "të",
+        "ngushta",
+        "dhemb",
+        "kâmba",
+        "e"
+      ],
+      "explanation": "Bei mehreren Körperteilen: „më dhembin“. „Kâmbët“ sind die Füsse, „të ngushta“ ist feminin Mehrzahl.",
+      "errorHints": [
+        {
+          "pattern": "^m[eë] dhemb k",
+          "category": "grammar.verb_conjugation",
+          "hint": "Mehrere Füsse: „më dhembin“."
+        },
+        {
+          "pattern": "k[aâ]mba",
+          "category": "vocab.confused",
+          "hint": "„Kâmba“ ist ein Fuss. Die Füsse: „kâmbët“."
+        },
+        {
+          "pattern": "t[eë]p[eë]r e ngusht",
+          "category": "grammar.linking_article",
+          "hint": "In der Mehrzahl: „të ngushta“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_025",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.present",
+        "vocab.food",
+        "vocab.daily_routine"
+      ],
+      "itemIds": [
+        "item_dreke",
+        "item_ne_shpi",
+        "item_pule",
+        "item_oriz"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wir essen zu Hause zu Mittag: Poulet mit Reis."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Hamë drekë në shpi: pulë me oriz."
+      ],
+      "wordBank": [
+        "Hamë",
+        "drekë",
+        "në",
+        "shpi",
+        "pulë",
+        "me",
+        "oriz",
+        "ha",
+        "pulën",
+        "darkë"
+      ],
+      "explanation": "„Hamë“ heisst „wir essen“, „ha drekë“ „zu Mittag essen“. „Në shpi“ ist Gheg (Standard: „në shtëpi“).",
+      "errorHints": [
+        {
+          "pattern": "^ha drek",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Ha“ heisst „ich esse“ oder „du isst“. Wir: „hamë“."
+        },
+        {
+          "pattern": "pul[eë]n",
+          "category": "grammar.definite_article",
+          "hint": "Ohne Artikel: „pulë me oriz“."
+        },
+        {
+          "pattern": "dark[eë]",
+          "category": "vocab.confused",
+          "hint": "„Darkë“ ist das Abendessen. Mittagessen: „drekë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_026",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.plural",
+        "vocab.food",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_molle",
+        "item_i_lire",
+        "item_dardhe",
+        "item_i_shtrenjte"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Äpfel sind billig, aber die Birnen sind teuer."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Mollët janë të lira, po dardhat janë të shtrenjta."
+      ],
+      "wordBank": [
+        "Mollët",
+        "janë",
+        "të",
+        "lira",
+        "po",
+        "dardhat",
+        "janë",
+        "të",
+        "shtrenjta",
+        "âsht",
+        "e",
+        "lirë"
+      ],
+      "explanation": "„Mollët“ und „dardhat“ sind feminin Mehrzahl: „të lira“, „të shtrenjta“. „Po“ heisst hier „aber“.",
+      "errorHints": [
+        {
+          "pattern": "[aâ]sht",
+          "category": "grammar.verb_conjugation",
+          "hint": "Mehrzahl: „janë“."
+        },
+        {
+          "pattern": "(^|\\s)e lir",
+          "category": "grammar.linking_article",
+          "hint": "In der Mehrzahl: „të lira“."
+        },
+        {
+          "pattern": "t[eë] lir[eë](\\s|$)",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl: „të lira“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_027",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.linking_article",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_provova",
+        "item_dy",
+        "item_fustan",
+        "item_bleva",
+        "item_i_kuq"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern probierte ich zwei Kleider an und kaufte ein rotes Kleid."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Dje provova dy fustane dhe bleva nji fustan të kuq."
+      ],
+      "wordBank": [
+        "Dje",
+        "provova",
+        "dy",
+        "fustane",
+        "dhe",
+        "bleva",
+        "nji",
+        "fustan",
+        "të",
+        "kuq",
+        "i",
+        "fustana",
+        "blej"
+      ],
+      "explanation": "„Dy fustane“ – zwei Kleider. Als Objekt nach „nji“ heisst der Verbindungsartikel „të“: „nji fustan të kuq“.",
+      "errorHints": [
+        {
+          "pattern": "fustan i kuq",
+          "category": "grammar.linking_article",
+          "hint": "Als Objekt nach „nji“: „nji fustan të kuq“."
+        },
+        {
+          "pattern": "fustana",
+          "category": "vocab.confused",
+          "hint": "Die Mehrzahl von „fustan“ ist „fustane“."
+        },
+        {
+          "pattern": "(^|\\s)blej(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Blej“ ist Präsens (ich kaufe). Für die Vergangenheit: „bleva“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_028",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.verbs.reflexive",
+        "vocab.daily_routine",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_u_vesha",
+        "item_shpejt",
+        "item_shkova",
+        "item_treg"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich zog mich schnell an und ging auf den Markt."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "U vesha shpejt dhe shkova në treg.",
+        "Shpejt u vesha dhe shkova në treg."
+      ],
+      "wordBank": [
+        "U",
+        "vesha",
+        "shpejt",
+        "dhe",
+        "shkova",
+        "në",
+        "treg",
+        "vishem",
+        "shkoj",
+        "tregu"
+      ],
+      "explanation": "„U vesha“ ist die Vergangenheit von „vishem“, „shkova“ die von „shkoj“. „Në treg“ – auf den Markt.",
+      "errorHints": [
+        {
+          "pattern": "vishem",
+          "category": "grammar.verb_tense",
+          "hint": "„Vishem“ ist Präsens. Vergangenheit: „u vesha“."
+        },
+        {
+          "pattern": "(^|\\s)shkoj(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Shkoj“ ist Präsens. Vergangenheit: „shkova“."
+        },
+        {
+          "pattern": "tregu",
+          "category": "grammar.definite_article",
+          "hint": "Nach „në“ steht hier die unbestimmte Form: „në treg“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_029",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "vocab.cooking",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_mos",
+        "item_shto",
+        "item_shume",
+        "item_kripe",
+        "item_supe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gib nicht zu viel Salz in die Suppe!"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Mos shto shumë kripë në supë!"
+      ],
+      "wordBank": [
+        "Mos",
+        "shto",
+        "shumë",
+        "kripë",
+        "në",
+        "supë",
+        "nuk",
+        "shtoni",
+        "kripën"
+      ],
+      "explanation": "Einen Befehl verneinst du mit „mos“: „Mos shto!“ – gib nicht dazu! Salz allgemein: „kripë“ ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "^nuk",
+          "category": "vocab.confused",
+          "hint": "Beim Befehl heisst „nicht“ „mos“, nicht „nuk“."
+        },
+        {
+          "pattern": "shtoni",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Shtoni“ sagst du zu mehreren. Zu einer Person: „shto“."
+        },
+        {
+          "pattern": "krip[eë]n",
+          "category": "grammar.definite_article",
+          "hint": "Salz allgemein steht ohne Artikel: „kripë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_030",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "grammar.definite_article.masc",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_fund",
+        "item_i_shkurter",
+        "item_ma_se",
+        "item_fustan",
+        "item_i_shtrenjte"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Der Rock ist kürzer als das Kleid, aber teurer."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Fundi âsht ma i shkurtër se fustani, po ma i shtrenjtë."
+      ],
+      "wordBank": [
+        "Fundi",
+        "âsht",
+        "ma",
+        "i",
+        "shkurtër",
+        "se",
+        "fustani",
+        "po",
+        "ma",
+        "i",
+        "shtrenjtë",
+        "e",
+        "fustan",
+        "janë"
+      ],
+      "explanation": "„Fundi“ (der Rock) ist maskulin: „ma i shkurtër“, „ma i shtrenjtë“. „Das Kleid“ heisst „fustani“.",
+      "errorHints": [
+        {
+          "pattern": "ma e shkurt",
+          "category": "grammar.linking_article",
+          "hint": "„Fundi“ ist maskulin: „ma i shkurtër“."
+        },
+        {
+          "pattern": "ma e shtrenjt",
+          "category": "grammar.linking_article",
+          "hint": "„Fundi“ ist maskulin: „ma i shtrenjtë“."
+        },
+        {
+          "pattern": "se fustan(\\s|$)",
+          "category": "grammar.definite_article",
+          "hint": "„Das Kleid“ braucht den Artikel: „fustani“."
+        },
+        {
+          "pattern": "jan[eë]",
+          "category": "grammar.verb_conjugation",
+          "hint": "Ein Rock: „âsht“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_031",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.verbs.reflexive",
+        "vocab.daily_routine",
+        "grammar.case.accusative"
+      ],
+      "itemIds": [
+        "item_fillimisht",
+        "item_u_lava",
+        "item_pastaj",
+        "item_hangra",
+        "item_ha_mengjes",
+        "item_familje"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Zuerst wusch ich mich, dann frühstückte ich mit der Familie."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Fillimisht u lava, pastaj hangra mëngjes me familjen."
+      ],
+      "wordBank": [
+        "Fillimisht",
+        "u",
+        "lava",
+        "pastaj",
+        "hangra",
+        "mëngjes",
+        "me",
+        "familjen",
+        "lahem",
+        "ha",
+        "familja"
+      ],
+      "explanation": "„U lava“ (ich wusch mich) und „hangra mëngjes“ (ich frühstückte) sind Vergangenheit. Nach „me“ steht der Akkusativ: „me familjen“.",
+      "errorHints": [
+        {
+          "pattern": "lahem",
+          "category": "grammar.verb_tense",
+          "hint": "„Lahem“ ist Präsens. Vergangenheit: „u lava“."
+        },
+        {
+          "pattern": "(^|\\s)ha m",
+          "category": "grammar.verb_tense",
+          "hint": "„Ha“ ist Präsens. Ich ass: „hangra“."
+        },
+        {
+          "pattern": "familja",
+          "category": "grammar.case",
+          "hint": "Nach „me“ steht der Akkusativ: „me familjen“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_032",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.clothes",
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_bleva",
+        "item_shall",
+        "item_i_kalter"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Bleva nji shall të kaltër."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Ich kaufte einen blauen Schal."
+      ],
+      "wordBank": [
+        "Ich",
+        "kaufte",
+        "einen",
+        "blauen",
+        "Schal",
+        "kaufe",
+        "roten",
+        "eine"
+      ],
+      "explanation": "„Bleva“ heisst „ich kaufte“. „Të kaltër“ ist „blau“ – nach „nji“ als Objekt mit „të“.",
+      "errorHints": [
+        {
+          "pattern": "kaufe(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Bleva“ ist Vergangenheit: „ich kaufte“."
+        },
+        {
+          "pattern": "roten",
+          "category": "vocab.confused",
+          "hint": "„I kaltër“ heisst „blau“. Rot heisst „i kuq“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_033",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.body",
+        "vocab.health"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_hangra",
+        "item_shume",
+        "item_sot",
+        "item_me_dhemb",
+        "item_bark"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Dje hangra shumë dhe sot më dhemb barku."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Gestern ass ich viel und heute tut mir der Bauch weh.",
+        "Gestern ass ich viel und heute habe ich Bauchweh.",
+        "Gestern habe ich viel gegessen und heute tut mir der Bauch weh."
+      ],
+      "wordBank": [
+        "Gestern",
+        "ass",
+        "ich",
+        "viel",
+        "und",
+        "heute",
+        "tut",
+        "mir",
+        "der",
+        "Bauch",
+        "weh",
+        "esse",
+        "Kopf",
+        "morgen"
+      ],
+      "explanation": "„Hangra“ heisst „ich ass“ (Standard: „hëngra“). „Më dhemb barku“ – mir tut der Bauch weh.",
+      "errorHints": [
+        {
+          "pattern": "esse(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Hangra“ ist Vergangenheit: „ich ass“."
+        },
+        {
+          "pattern": "kopf",
+          "category": "vocab.confused",
+          "hint": "„Barku“ ist der Bauch. Der Kopf heisst „koka“."
+        },
+        {
+          "pattern": "morgen",
+          "category": "vocab.confused",
+          "hint": "„Sot“ heisst „heute“. Morgen heisst „nesër“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_034",
+      "type": "translate_wordbank",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "grammar.definite_article.masc",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_kur",
+        "item_uje",
+        "item_vlon",
+        "item_hidh",
+        "item_makarona",
+        "item_trazo"
+      ],
+      "prompt": {
+        "lang": "sq",
+        "text": "Kur uji vlon, hidhni makaronat dhe trazoni."
+      },
+      "answerLang": "de",
+      "solutions": [
+        "Wenn das Wasser kocht, gebt die Teigwaren hinein und rührt um.",
+        "Wenn das Wasser kocht, werft die Teigwaren hinein und rührt um."
+      ],
+      "wordBank": [
+        "Wenn",
+        "das",
+        "Wasser",
+        "kocht",
+        "gebt",
+        "die",
+        "Teigwaren",
+        "hinein",
+        "und",
+        "rührt",
+        "um",
+        "gib",
+        "Reis",
+        "Milch"
+      ],
+      "explanation": "„Hidhni“ und „trazoni“ sind Befehle an mehrere Personen (mit -ni). „Uji“ ist das Wasser, „makaronat“ die Teigwaren.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)gib(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Hidhni“ ist die Mehrzahl: „gebt hinein“."
+        },
+        {
+          "pattern": "reis",
+          "category": "vocab.confused",
+          "hint": "„Makaronat“ sind Teigwaren. Reis heisst „oriz“."
+        },
+        {
+          "pattern": "milch",
+          "category": "vocab.confused",
+          "hint": "„Uji“ ist das Wasser. Milch heisst „qumësht“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_035",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.definite_article.fem",
+        "grammar.definite_article.masc",
+        "vocab.clothes",
+        "vocab.colours"
+      ],
+      "itemIds": [
+        "item_kemishe",
+        "item_i_bardhe",
+        "item_shall",
+        "item_gri"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Das Hemd ist weiss und der Schal ist grau."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Këmisha âsht e bardhë dhe shalli âsht gri.",
+        "Këmisha âsht e bardhë, shalli âsht gri."
+      ],
+      "standardForms": [
+        "Këmisha është e bardhë dhe shalli është gri."
+      ],
+      "explanation": "„Këmisha“ ist feminin: „e bardhë“. „Gri“ steht ohne Verbindungsartikel: „shalli âsht gri“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)i bardh",
+          "category": "grammar.linking_article",
+          "hint": "„Këmisha“ ist feminin: „e bardhë“."
+        },
+        {
+          "pattern": "(^|\\s)[ie] gri",
+          "category": "grammar.linking_article",
+          "hint": "„Gri“ steht ohne Verbindungsartikel: „shalli âsht gri“."
+        },
+        {
+          "pattern": "^k[eë]mish[eë] ",
+          "category": "grammar.definite_article",
+          "hint": "„Das Hemd“ braucht den Artikel: „këmisha“."
+        },
+        {
+          "pattern": "(^|\\s)shall [aâ]",
+          "category": "grammar.definite_article",
+          "hint": "„Der Schal“ braucht den Artikel: „shalli“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_036",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_hangra",
+        "item_buke",
+        "item_djathe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich ass Brot mit Käse."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Hangra bukë me djathë."
+      ],
+      "standardForms": [
+        "Hëngra bukë me djathë."
+      ],
+      "explanation": "„Hangra“ ist die Gheg-Form für „ich ass“ (Standard: „hëngra“).",
+      "errorHints": [
+        {
+          "pattern": "^ha ",
+          "category": "grammar.verb_tense",
+          "hint": "„Ha“ ist Präsens. Ich ass: „hangra“."
+        },
+        {
+          "pattern": "^hangre",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Hangre“ heisst „du asst“. Ich: „hangra“."
+        },
+        {
+          "pattern": "buk[eë]n",
+          "category": "grammar.definite_article",
+          "hint": "Brot allgemein steht ohne Artikel: „bukë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_037",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.plural",
+        "grammar.verbs.present",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_sa",
+        "item_kushtojne",
+        "item_molle"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wie viel kosten die Äpfel?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Sa kushtojnë mollët?"
+      ],
+      "explanation": "Bei mehreren Dingen heisst es „kushtojnë“. „Die Äpfel“: „mollët“.",
+      "errorHints": [
+        {
+          "pattern": "kushton(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "Mehrere Äpfel: „kushtojnë“."
+        },
+        {
+          "pattern": "moll[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "„Die Äpfel“ brauchen den Artikel: „mollët“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_038",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.shopping",
+        "vocab.time"
+      ],
+      "itemIds": [
+        "item_bleve",
+        "item_dje",
+        "item_cka"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was hast du gestern gekauft?"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Çka bleve dje?",
+        "Dje çka bleve?",
+        "Çka ke ble dje?"
+      ],
+      "standardForms": [
+        "Çfarë bleve dje?",
+        "Çfarë ke blerë dje?",
+        "Çka ke blerë dje?"
+      ],
+      "explanation": "Die Du-Form der Vergangenheit endet auf -e: „bleve“. „Çka“ ist Gheg für „was“ (Standard: „çfarë“).",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)bleva(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Bleva“ heisst „ich kaufte“. Du: „bleve“."
+        },
+        {
+          "pattern": "(^|\\s)blen(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Blen“ ist Präsens. Gestern: „bleve“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Perfekt „ke ble“ (Partizip „ble“, Standard: blerë) als weitere Lösung akzeptiert – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_039",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_shto",
+        "item_piper",
+        "item_trazo"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gib Pfeffer dazu und rühr um!"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Shto piper dhe trazo!"
+      ],
+      "explanation": "Zu einer Person ist der Imperativ der Verbstamm: „shtoj → shto“, „trazoj → trazo“.",
+      "errorHints": [
+        {
+          "pattern": "shtoni|trazoni",
+          "category": "grammar.verb_conjugation",
+          "hint": "Zu einer Person ohne -ni: „shto“, „trazo“."
+        },
+        {
+          "pattern": "(^|\\s)shtoj(\\s|$)|(^|\\s)trazoj(\\s|$)",
+          "category": "grammar.verb_conjugation",
+          "hint": "Beim Befehl fällt das -j weg: „shto!“, „trazo!“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„trazo“ für „umrühren“ zu prüfen (auch „përzie“)."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_040",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.present",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_sot",
+        "item_mbaj",
+        "item_xhinse",
+        "item_patika"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Heute trage ich Jeans und Turnschuhe."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Sot mbaj xhinse dhe patika.",
+        "Mbaj xhinse dhe patika sot."
+      ],
+      "explanation": "„Mbaj“ heisst „ich trage“ (Kleidung). „Xhinse“ und „patika“ sind Mehrzahlwörter.",
+      "errorHints": [
+        {
+          "pattern": "xhinset|patikat",
+          "category": "grammar.definite_article",
+          "hint": "Hier ohne Artikel: „xhinse“, „patika“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„patika“ (Turnschuhe) als Kosovo-Alltagswort zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_041",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.definite_article.masc",
+        "vocab.body",
+        "vocab.health",
+        "vocab.drinks",
+        "grammar.verbs.present"
+      ],
+      "itemIds": [
+        "item_me_dhemb",
+        "item_dhamb",
+        "item_nuk",
+        "item_pi",
+        "item_kafe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Mir tut der Zahn weh, ich trinke keinen Kaffee."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Më dhemb dhâmbi, nuk pi kafe.",
+        "Më dhemb dhâmbi, s'pi kafe.",
+        "Më dhemb dhâmbi dhe nuk pi kafe."
+      ],
+      "standardForms": [
+        "Më dhemb dhëmbi, nuk pi kafe.",
+        "Më dhemb dhëmbi dhe nuk pi kafe."
+      ],
+      "explanation": "Das Körperteil steht mit Artikel: „më dhemb dhâmbi“. Gheg schreibt „dhâmbi“ mit â (Standard: „dhëmbi“).",
+      "errorHints": [
+        {
+          "pattern": "dh[aâ]mb(\\s|$)",
+          "category": "grammar.definite_article",
+          "hint": "„Der Zahn“ braucht den Artikel: „dhâmbi“."
+        },
+        {
+          "pattern": "dhembin",
+          "category": "grammar.verb_conjugation",
+          "hint": "Ein Zahn: „më dhemb“ („dhembin“ bei mehreren)."
+        },
+        {
+          "pattern": "kafen|kafja",
+          "category": "grammar.definite_article",
+          "hint": "Kaffee allgemein steht ohne Artikel: „kafe“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_042",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.verbs.reflexive",
+        "vocab.daily_routine",
+        "vocab.time"
+      ],
+      "itemIds": [
+        "item_u_cova",
+        "item_ore",
+        "item_shtate",
+        "item_u_vesha"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich stand um sieben Uhr auf und zog mich an."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "U çova në orën shtatë dhe u vesha.",
+        "Në orën shtatë u çova dhe u vesha."
+      ],
+      "standardForms": [
+        "U ngrita në orën shtatë dhe u vesha.",
+        "Në orën shtatë u ngrita dhe u vesha."
+      ],
+      "explanation": "Reflexive Verben bekommen in der Vergangenheit ein „u“: „u çova“, „u vesha“. Im Kosovo sagt man „çohem“ (Standard: „ngrihem“).",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)[cç]ohem(\\s|$)|vishem",
+          "category": "grammar.verb_tense",
+          "hint": "Das ist Präsens. Vergangenheit: „u çova“, „u vesha“."
+        },
+        {
+          "pattern": "^[cç]ova|dhe vesha",
+          "category": "grammar.verb_conjugation",
+          "hint": "Reflexive Verben bekommen in der Vergangenheit ein „u“: „u çova“, „u vesha“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_043",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.verbs.present",
+        "vocab.food",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_mbrame",
+        "item_gatova",
+        "item_peshk",
+        "item_sot",
+        "item_ha",
+        "item_sallate"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern Abend kochte ich Fisch und heute esse ich Salat."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Mbrâmë gatova peshk dhe sot ha sallatë.",
+        "Dje në mbrâmje gatova peshk dhe sot ha sallatë.",
+        "Mbrâmë gatova peshk, sot ha sallatë."
+      ],
+      "standardForms": [
+        "Mbrëmë gatova peshk dhe sot ha sallatë.",
+        "Dje në mbrëmje gatova peshk dhe sot ha sallatë."
+      ],
+      "explanation": "Gestern Abend: „mbrâmë gatova“ (Vergangenheit). Heute: „sot ha“ (Präsens). Gheg schreibt „mbrâmë“ mit â (Standard: „mbrëmë“).",
+      "errorHints": [
+        {
+          "pattern": "gatuaj peshk",
+          "category": "grammar.verb_tense",
+          "hint": "Gestern Abend: Vergangenheit „gatova“."
+        },
+        {
+          "pattern": "hangra salla",
+          "category": "grammar.verb_tense",
+          "hint": "Heute: Präsens „ha“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_044",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "grammar.plural",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_qero",
+        "item_patate",
+        "item_hidh",
+        "item_vaj",
+        "item_tigan"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Schält die Kartoffeln und gebt Öl in die Pfanne! (zu mehreren)"
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Qëroni patatet dhe hidhni vaj në tigan!",
+        "Qëroni patatet dhe shtoni vaj në tigan!"
+      ],
+      "explanation": "Zu mehreren hängst du „-ni“ an: „qëroni“, „hidhni“. „Die Kartoffeln“ heisst „patatet“.",
+      "errorHints": [
+        {
+          "pattern": "^q[eë]ro ",
+          "category": "grammar.verb_conjugation",
+          "hint": "Zu mehreren: „qëroni“."
+        },
+        {
+          "pattern": "(^|\\s)hidh vaj|(^|\\s)shto vaj",
+          "category": "grammar.verb_conjugation",
+          "hint": "Zu mehreren: „hidhni“."
+        },
+        {
+          "pattern": "patate dhe",
+          "category": "grammar.definite_article",
+          "hint": "„Die Kartoffeln“ sind bestimmt: „patatet“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_045",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.demonstratives",
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_kepuce",
+        "item_i_bukur",
+        "item_ma_se",
+        "item_cizme"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Schuhe sind schöner als die Stiefel."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Këto këpucë janë ma të bukura se çizmet."
+      ],
+      "standardForms": [
+        "Këto këpucë janë më të bukura se çizmet."
+      ],
+      "explanation": "„Këpucë“ ist feminin Mehrzahl: „këto këpucë … ma të bukura“. „Die Stiefel“: „çizmet“.",
+      "errorHints": [
+        {
+          "pattern": "^k[eë]ta ",
+          "category": "grammar.gender",
+          "hint": "„Këpucë“ ist feminin: „këto“."
+        },
+        {
+          "pattern": "ma t[eë] bukur(\\s|$)",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl: „të bukura“."
+        },
+        {
+          "pattern": "ma e bukur",
+          "category": "grammar.linking_article",
+          "hint": "In der Mehrzahl: „ma të bukura“."
+        },
+        {
+          "pattern": "k[eë]puc[eë]t jan",
+          "category": "grammar.definite_article",
+          "hint": "Nach „këto“ steht das Nomen ohne Artikel: „këto këpucë“."
+        },
+        {
+          "pattern": "se [cç]izme(\\s|$)",
+          "category": "grammar.definite_article",
+          "hint": "„Die Stiefel“ brauchen den Artikel: „çizmet“."
+        },
+        {
+          "pattern": "[aâ]sht",
+          "category": "grammar.verb_conjugation",
+          "hint": "Mehrzahl: „janë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_046",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.verbs.present",
+        "vocab.health",
+        "vocab.drinks"
+      ],
+      "itemIds": [
+        "item_jam",
+        "item_i_semure",
+        "item_pi",
+        "item_caj",
+        "item_limon"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich bin krank, ich trinke Tee mit Zitrone."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Jam i sëmurë, pi çaj me limon.",
+        "Jam e sëmurë, pi çaj me limon.",
+        "Jam i sëmurë dhe pi çaj me limon.",
+        "Jam e sëmurë dhe pi çaj me limon."
+      ],
+      "explanation": "Ein Mann sagt „jam i sëmurë“, eine Frau „jam e sëmurë“. „Me limon“ – mit Zitrone, ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "limonin|limona",
+          "category": "vocab.confused",
+          "hint": "Mit Zitrone, ohne Artikel: „me limon“."
+        },
+        {
+          "pattern": "^jam s[eë]mur",
+          "category": "grammar.linking_article",
+          "hint": "Vor dem Adjektiv steht „i“ (Mann) oder „e“ (Frau): „jam i sëmurë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_047",
+      "type": "translate_free",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.definite_article.fem",
+        "vocab.clothes",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_nderrova",
+        "item_pantallona",
+        "item_bleva",
+        "item_xhinse"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern tauschte ich die Hose um und kaufte Jeans."
+      },
+      "answerLang": "sq",
+      "solutions": [
+        "Dje ndërrova pantallonat dhe bleva xhinse.",
+        "Ndërrova pantallonat dje dhe bleva xhinse."
+      ],
+      "explanation": "„Ndërrova“ ist die Vergangenheit von „ndërroj“ (umtauschen). „Die Hose“ ist ein Mehrzahlwort: „pantallonat“.",
+      "errorHints": [
+        {
+          "pattern": "(^|\\s)nd[eë]rroj(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Ndërroj“ ist Präsens. Gestern: „ndërrova“."
+        },
+        {
+          "pattern": "pantallona dhe",
+          "category": "grammar.definite_article",
+          "hint": "„Die Hose“ braucht den Artikel: „pantallonat“."
+        },
+        {
+          "pattern": "(^|\\s)blej(\\s|$)",
+          "category": "grammar.verb_tense",
+          "hint": "„Blej“ ist Präsens (ich kaufe). Für die Vergangenheit: „bleva“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_048",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.definite_article.fem",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_supe",
+        "item_i_nxehte",
+        "item_asht"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Suppe ist heiss."
+      },
+      "answerLang": "sq",
+      "text": "___ âsht e nxehtë.",
+      "solutions": [
+        "Supa"
+      ],
+      "choices": [
+        "Supa",
+        "Supë",
+        "Supën",
+        "Supat"
+      ],
+      "explanation": "„Supë“ ist feminin, bestimmt „supa“. Als Subjekt steht der Nominativ.",
+      "errorHints": [
+        {
+          "pattern": "^sup[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "„Die Suppe“ braucht den Artikel: „supa“."
+        },
+        {
+          "pattern": "^sup[eë]n$",
+          "category": "grammar.case",
+          "hint": "„Supën“ ist Akkusativ (Objekt). Als Subjekt: „supa“."
+        },
+        {
+          "pattern": "^supat$",
+          "category": "vocab.confused",
+          "hint": "„Supat“ wäre Mehrzahl. Eine Suppe: „supa“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_049",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.definite_article.masc",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_djathe",
+        "item_fresket"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Der Käse ist frisch."
+      },
+      "answerLang": "sq",
+      "text": "___ âsht i freskët.",
+      "solutions": [
+        "Djathi"
+      ],
+      "choices": [
+        "Djathi",
+        "Djathë",
+        "Djathin"
+      ],
+      "explanation": "„Djathë“ ist maskulin, bestimmt „djathi“.",
+      "errorHints": [
+        {
+          "pattern": "^djath[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "„Der Käse“ braucht den Artikel: „djathi“."
+        },
+        {
+          "pattern": "^djathin$",
+          "category": "grammar.case",
+          "hint": "„Djathin“ ist Akkusativ (Objekt). Als Subjekt: „djathi“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_050",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.plural",
+        "vocab.food",
+        "vocab.numbers",
+        "grammar.verbs.present"
+      ],
+      "itemIds": [
+        "item_blej",
+        "item_dardhe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich kaufe drei Birnen."
+      },
+      "answerLang": "sq",
+      "text": "Blej tri ___.",
+      "solutions": [
+        "dardha"
+      ],
+      "choices": [
+        "dardha",
+        "dardhë",
+        "dardhat",
+        "dardhën"
+      ],
+      "explanation": "„Dardhë“ bildet die Mehrzahl mit -a: „tri dardha“. Nach einer Zahl steht das Nomen ohne Artikel.",
+      "errorHints": [
+        {
+          "pattern": "^dardh[eë]$",
+          "category": "vocab.confused",
+          "hint": "Mehrzahl: „dardha“ (-ë → -a)."
+        },
+        {
+          "pattern": "^dardhat$",
+          "category": "grammar.definite_article",
+          "hint": "Nach einer Zahl ohne Artikel: „tri dardha“."
+        },
+        {
+          "pattern": "^dardh[eë]n$",
+          "category": "grammar.case",
+          "hint": "„Dardhën“ ist Einzahl mit Artikel. Drei Birnen: „tri dardha“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_051",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.drinks"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_piva",
+        "item_caj",
+        "item_qumesht"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern trank ich Tee mit Milch."
+      },
+      "answerLang": "sq",
+      "text": "Dje ___ çaj me qumësht.",
+      "solutions": [
+        "piva"
+      ],
+      "choices": [
+        "piva",
+        "pi",
+        "pive",
+        "piu"
+      ],
+      "explanation": "„Piva“ ist die Vergangenheit von „pi“ (trinken).",
+      "errorHints": [
+        {
+          "pattern": "^pi$",
+          "category": "grammar.verb_tense",
+          "hint": "„Pi“ ist Präsens. Gestern: „piva“."
+        },
+        {
+          "pattern": "^pive$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Pive“ heisst „du trankst“. Ich: „piva“."
+        },
+        {
+          "pattern": "^piu$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Piu“ heisst „er/sie trank“. Ich: „piva“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_052",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.linking_article",
+        "grammar.adjective_agreement",
+        "grammar.verbs.past_simple",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_bleva",
+        "item_bluze",
+        "item_i_kuq"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich kaufte eine rote Bluse."
+      },
+      "answerLang": "sq",
+      "text": "Bleva nji bluzë ___ kuqe.",
+      "solutions": [
+        "të"
+      ],
+      "choices": [
+        "të",
+        "e",
+        "i"
+      ],
+      "explanation": "Als Objekt nach „nji“ heisst der Verbindungsartikel „të“: „nji bluzë të kuqe“. Als Subjekt hiesse es „bluza e kuqe“.",
+      "errorHints": [
+        {
+          "pattern": "^e$",
+          "category": "grammar.linking_article",
+          "hint": "Als Objekt nach „nji“: „të kuqe“."
+        },
+        {
+          "pattern": "^i$",
+          "category": "grammar.gender",
+          "hint": "„Bluzë“ ist feminin – und als Objekt nach „nji“ heisst es „të“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_053",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_pallto",
+        "item_i_ngrohte",
+        "item_ma_se",
+        "item_xhakete"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Der Mantel ist wärmer als die Jacke."
+      },
+      "answerLang": "sq",
+      "text": "Palltoja âsht ma ___ ngrohtë se xhaketa.",
+      "solutions": [
+        "e"
+      ],
+      "choices": [
+        "e",
+        "i",
+        "të"
+      ],
+      "explanation": "„Pallto“ ist im Albanischen feminin (bestimmt „palltoja“), darum „ma e ngrohtë“.",
+      "errorHints": [
+        {
+          "pattern": "^i$",
+          "category": "grammar.gender",
+          "hint": "„Pallto“ ist feminin (palltoja): „ma e ngrohtë“."
+        },
+        {
+          "pattern": "^t[eë]$",
+          "category": "grammar.linking_article",
+          "hint": "„Të“ steht in der Mehrzahl. Ein Mantel: „ma e ngrohtë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_054",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_mbush",
+        "item_spec",
+        "item_mish",
+        "item_oriz"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Füllt die Peperoni mit Fleisch und Reis! (zu mehreren)"
+      },
+      "answerLang": "sq",
+      "text": "___ specat me mish dhe oriz!",
+      "solutions": [
+        "Mbushni"
+      ],
+      "choices": [
+        "Mbushni",
+        "Mbush",
+        "Mbushim"
+      ],
+      "explanation": "Zu mehreren hängst du „-ni“ an: „mbush → mbushni“.",
+      "errorHints": [
+        {
+          "pattern": "^mbush$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Mbush!“ sagst du zu einer Person. Zu mehreren: „mbushni!“."
+        },
+        {
+          "pattern": "^mbushim$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Mbushim“ heisst „wir füllen“. Der Befehl an mehrere: „mbushni!“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_055",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.demonstratives",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_keto",
+        "item_corape",
+        "item_lesh"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Diese Socken sind aus Wolle."
+      },
+      "answerLang": "sq",
+      "text": "___ çorape janë prej leshi.",
+      "solutions": [
+        "Këto"
+      ],
+      "choices": [
+        "Këto",
+        "Këta",
+        "Kjo",
+        "Ky"
+      ],
+      "explanation": "„Çorape“ ist feminin Mehrzahl, darum „këto“. „Prej leshi“ – aus Wolle.",
+      "errorHints": [
+        {
+          "pattern": "^k[eë]ta$",
+          "category": "grammar.gender",
+          "hint": "„Çorape“ ist feminin: „këto“."
+        },
+        {
+          "pattern": "^kjo$|^ky$",
+          "category": "vocab.confused",
+          "hint": "„Kjo“ und „ky“ sind Einzahl. Socken sind Mehrzahl: „këto“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_056",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.verbs.reflexive",
+        "vocab.daily_routine"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_u_ktheva",
+        "item_vone",
+        "item_ne_shpi"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern kam ich spät nach Hause zurück."
+      },
+      "answerLang": "sq",
+      "text": "Dje ___ vonë në shpi.",
+      "solutions": [
+        "u ktheva"
+      ],
+      "choices": [
+        "u ktheva",
+        "ktheva",
+        "kthehem",
+        "u kthye"
+      ],
+      "explanation": "Reflexive Verben bekommen in der Vergangenheit ein „u“: „kthehem → u ktheva“.",
+      "errorHints": [
+        {
+          "pattern": "^ktheva$",
+          "category": "grammar.verb_conjugation",
+          "hint": "Bei reflexiven Verben steht „u“ davor: „u ktheva“."
+        },
+        {
+          "pattern": "^kthehem$",
+          "category": "grammar.verb_tense",
+          "hint": "„Kthehem“ ist Präsens. Gestern: „u ktheva“."
+        },
+        {
+          "pattern": "^u kthye$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„U kthye“ heisst „er/sie kam zurück“. Ich: „u ktheva“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_057",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.case.accusative",
+        "grammar.definite_article.fem",
+        "grammar.verbs.past_simple",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_pagova",
+        "item_llogari",
+        "item_kartele"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich bezahlte die Rechnung mit der Karte."
+      },
+      "answerLang": "sq",
+      "text": "Pagova ___ me kartelë.",
+      "solutions": [
+        "llogarinë"
+      ],
+      "choices": [
+        "llogarinë",
+        "llogaria",
+        "llogari"
+      ],
+      "explanation": "„Die Rechnung“ ist hier Objekt: „llogaria → llogarinë“ (Akkusativ).",
+      "errorHints": [
+        {
+          "pattern": "^llogaria$",
+          "category": "grammar.case",
+          "hint": "Als Objekt steht der Akkusativ: „llogarinë“."
+        },
+        {
+          "pattern": "^llogari$",
+          "category": "grammar.definite_article",
+          "hint": "„Die Rechnung“ ist bestimmt: „llogarinë“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_058",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_bleva",
+        "item_kepuce"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern kaufte ich Schuhe."
+      },
+      "answerLang": "sq",
+      "text": "Dje ___ këpucë.",
+      "solutions": [
+        "bleva"
+      ],
+      "explanation": "„Bleva“ ist die Vergangenheit von „blej“ (kaufen).",
+      "errorHints": [
+        {
+          "pattern": "^blej$",
+          "category": "grammar.verb_tense",
+          "hint": "„Blej“ ist Präsens. Gestern: „bleva“."
+        },
+        {
+          "pattern": "^bleve$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Bleve“ heisst „du kauftest“. Ich: „bleva“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_059",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.time"
+      ],
+      "itemIds": [
+        "item_bana",
+        "item_mbrame",
+        "item_cka"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Was machtest du gestern Abend?"
+      },
+      "answerLang": "sq",
+      "text": "Çka ___ mbrâmë?",
+      "solutions": [
+        "bâne"
+      ],
+      "standardForms": [
+        "bëre"
+      ],
+      "explanation": "„Bâne“ heisst „du machtest“ (Standard: „bëre“). „Mbrâmë“ ist „gestern Abend“.",
+      "errorHints": [
+        {
+          "pattern": "^b[aâ]na$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Bâna“ heisst „ich machte“. Du: „bâne“."
+        },
+        {
+          "pattern": "^b[aâ]n$",
+          "category": "grammar.verb_tense",
+          "hint": "„Bân“ ist Präsens. Gestern Abend: „bâne“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Aorist „bâna, bâne“ (Standard: bëra, bëre) und „mbrâmë“ (Standard: mbrëmë) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_060",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.plural",
+        "grammar.definite_article.fem",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_veze",
+        "item_frigorifer"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Eier sind im Kühlschrank."
+      },
+      "answerLang": "sq",
+      "text": "___ janë në frigorifer.",
+      "solutions": [
+        "Vezët"
+      ],
+      "explanation": "„Vezë“ (Ei) bleibt in der Mehrzahl gleich. Mit Artikel: „vezët“ – die Eier.",
+      "errorHints": [
+        {
+          "pattern": "^vez[eë]$",
+          "category": "grammar.definite_article",
+          "hint": "„Die Eier“ brauchen den Artikel: „vezët“."
+        },
+        {
+          "pattern": "^veza$",
+          "category": "vocab.confused",
+          "hint": "„Veza“ ist „das Ei“ (Einzahl). Die Eier: „vezët“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_061",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_mos",
+        "item_hap",
+        "item_furre"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Öffne den Ofen nicht!"
+      },
+      "answerLang": "sq",
+      "text": "___ hap furrën!",
+      "solutions": [
+        "Mos"
+      ],
+      "explanation": "Einen Befehl verneinst du mit „mos“, nicht mit „nuk“.",
+      "errorHints": [
+        {
+          "pattern": "^nuk$|^s$",
+          "category": "vocab.confused",
+          "hint": "Beim Befehl heisst „nicht“ „mos“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_062",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement",
+        "grammar.plural",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_pjeshke",
+        "item_i_shtrenjte",
+        "item_ma_se",
+        "item_molle"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Pfirsiche sind teurer als die Äpfel."
+      },
+      "answerLang": "sq",
+      "text": "Pjeshkët janë ma ___ se mollët.",
+      "solutions": [
+        "të shtrenjta"
+      ],
+      "explanation": "„Pjeshkët“ ist feminin Mehrzahl: „ma të shtrenjta“.",
+      "errorHints": [
+        {
+          "pattern": "^e shtrenjt",
+          "category": "grammar.linking_article",
+          "hint": "In der Mehrzahl: „të shtrenjta“."
+        },
+        {
+          "pattern": "shtrenjt[eë]$",
+          "category": "grammar.gender",
+          "hint": "Feminine Mehrzahl: „të shtrenjta“."
+        },
+        {
+          "pattern": "^shtrenjta$",
+          "category": "grammar.linking_article",
+          "hint": "Vor dem Adjektiv fehlt „të“: „të shtrenjta“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_063",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.case.accusative",
+        "grammar.definite_article.masc",
+        "vocab.clothes",
+        "grammar.verbs.present"
+      ],
+      "itemIds": [
+        "item_blej",
+        "item_shall",
+        "item_kapele"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich kaufe den Schal und die Mütze."
+      },
+      "answerLang": "sq",
+      "text": "Blej ___ dhe kapelën.",
+      "solutions": [
+        "shallin"
+      ],
+      "explanation": "Bestimmte Objekte stehen im Akkusativ: „shalli → shallin“, „kapela → kapelën“.",
+      "errorHints": [
+        {
+          "pattern": "^shalli$",
+          "category": "grammar.case",
+          "hint": "Als Objekt: „shallin“."
+        },
+        {
+          "pattern": "^shall$",
+          "category": "grammar.definite_article",
+          "hint": "„Den Schal“ ist bestimmt: „shallin“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_064",
+      "type": "fill_gap",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.health"
+      ],
+      "itemIds": [
+        "item_pardje",
+        "item_shkova",
+        "item_te_bei",
+        "item_mjek"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Vorgestern ging ich zum Arzt."
+      },
+      "answerLang": "sq",
+      "text": "Pardje ___ te mjeku.",
+      "solutions": [
+        "shkova"
+      ],
+      "explanation": "„Shkova“ ist die Vergangenheit von „shkoj“. „Te mjeku“ – zum Arzt.",
+      "errorHints": [
+        {
+          "pattern": "^shkoj$",
+          "category": "grammar.verb_tense",
+          "hint": "„Shkoj“ ist Präsens. Vorgestern: „shkova“."
+        },
+        {
+          "pattern": "^shkove$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Shkove“ heisst „du gingst“. Ich: „shkova“."
+        },
+        {
+          "pattern": "^shkoi$",
+          "category": "grammar.verb_conjugation",
+          "hint": "„Shkoi“ heisst „er/sie ging“. Ich: „shkova“."
+        }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_065",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_hangra",
+        "item_piva",
+        "item_gatova",
+        "item_bleva",
+        "item_pagova"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Vergangenheitsformen zu."
+      },
+      "pairs": [
+        {
+          "left": "hangra",
+          "right": "ich ass"
+        },
+        {
+          "left": "piva",
+          "right": "ich trank"
+        },
+        {
+          "left": "gatova",
+          "right": "ich kochte"
+        },
+        {
+          "left": "bleva",
+          "right": "ich kaufte"
+        },
+        {
+          "left": "pagova",
+          "right": "ich bezahlte"
+        }
+      ],
+      "explanation": "Mit diesen Formen erzählst du, was du gestern gemacht hast. „Hangra“ ist Gheg (Standard: „hëngra“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_066",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.verbs.reflexive",
+        "vocab.daily_routine"
+      ],
+      "itemIds": [
+        "item_u_cova",
+        "item_u_lava",
+        "item_u_vesha",
+        "item_u_ktheva",
+        "item_fjeta"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne zu: Wie war dein Tag gestern?"
+      },
+      "pairs": [
+        {
+          "left": "u çova",
+          "right": "ich stand auf"
+        },
+        {
+          "left": "u lava",
+          "right": "ich wusch mich"
+        },
+        {
+          "left": "u vesha",
+          "right": "ich zog mich an"
+        },
+        {
+          "left": "u ktheva",
+          "right": "ich kam zurück"
+        },
+        {
+          "left": "fjeta",
+          "right": "ich schlief"
+        }
+      ],
+      "explanation": "Reflexive Verben haben in der Vergangenheit ein „u“: „lahem → u lava“, „vishem → u vesha“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_067",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.definite_article.masc",
+        "grammar.definite_article.fem",
+        "vocab.body",
+        "vocab.clothes",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_koke",
+        "item_bark",
+        "item_xhakete",
+        "item_fustan",
+        "item_tenxhere"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die bestimmten Formen zu."
+      },
+      "pairs": [
+        {
+          "left": "koka",
+          "right": "der Kopf"
+        },
+        {
+          "left": "barku",
+          "right": "der Bauch"
+        },
+        {
+          "left": "xhaketa",
+          "right": "die Jacke"
+        },
+        {
+          "left": "fustani",
+          "right": "das Kleid"
+        },
+        {
+          "left": "tenxherja",
+          "right": "der Kochtopf"
+        }
+      ],
+      "explanation": "Achtung: Das Genus ist oft anders als im Deutschen. „Koka“ und „tenxherja“ sind feminin (-a), „fustani“ ist maskulin (-i).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_068",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.plural",
+        "grammar.definite_article.fem",
+        "grammar.definite_article.masc"
+      ],
+      "itemIds": [
+        "item_molle",
+        "item_spec",
+        "item_kepuce",
+        "item_fustan",
+        "item_pjate"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Mehrzahl mit Artikel zu."
+      },
+      "pairs": [
+        {
+          "left": "mollët",
+          "right": "die Äpfel"
+        },
+        {
+          "left": "specat",
+          "right": "die Peperoni"
+        },
+        {
+          "left": "këpucët",
+          "right": "die Schuhe"
+        },
+        {
+          "left": "fustanet",
+          "right": "die Kleider"
+        },
+        {
+          "left": "pjatat",
+          "right": "die Teller"
+        }
+      ],
+      "explanation": "Die bestimmte Mehrzahl endet meist auf -t: „mollë → mollët“, „speca → specat“, „fustane → fustanet“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_069",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_shto",
+        "item_qero",
+        "item_trazo",
+        "item_mbulo",
+        "item_fik"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Befehle zu."
+      },
+      "pairs": [
+        {
+          "left": "shto!",
+          "right": "gib dazu!"
+        },
+        {
+          "left": "qëro!",
+          "right": "schäl!"
+        },
+        {
+          "left": "trazo!",
+          "right": "rühr um!"
+        },
+        {
+          "left": "mbulo!",
+          "right": "deck zu!"
+        },
+        {
+          "left": "fik!",
+          "right": "schalt aus!"
+        }
+      ],
+      "explanation": "Verben auf -oj verlieren beim Befehl das -j: „shtoj → shto“, „mbuloj → mbulo“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_070",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.adjective_agreement"
+      ],
+      "itemIds": [
+        "item_ma_se",
+        "item_i_madh",
+        "item_i_vogel",
+        "item_i_gjate",
+        "item_ma_mire",
+        "item_i_lire"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Vergleichsformen zu."
+      },
+      "pairs": [
+        {
+          "left": "ma i madh",
+          "right": "grösser"
+        },
+        {
+          "left": "ma i vogël",
+          "right": "kleiner"
+        },
+        {
+          "left": "ma i gjatë",
+          "right": "länger"
+        },
+        {
+          "left": "ma mirë",
+          "right": "besser"
+        },
+        {
+          "left": "ma i lirë",
+          "right": "billiger"
+        }
+      ],
+      "explanation": "Gheg vergleicht mit „ma“ (Standard: „më“): „ma i madh se …“ – grösser als …",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_071",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "vocab.clothes",
+        "vocab.food"
+      ],
+      "itemIds": [
+        "item_kepuce",
+        "item_i_ri",
+        "item_xhakete",
+        "item_i_zi",
+        "item_fustan",
+        "item_i_bardhe",
+        "item_supe",
+        "item_i_nxehte",
+        "item_mish",
+        "item_i_skuqun"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne zu."
+      },
+      "pairs": [
+        {
+          "left": "këpucë të reja",
+          "right": "neue Schuhe"
+        },
+        {
+          "left": "xhaketë e zezë",
+          "right": "schwarze Jacke"
+        },
+        {
+          "left": "fustan i bardhë",
+          "right": "weisses Kleid"
+        },
+        {
+          "left": "supë e nxehtë",
+          "right": "heisse Suppe"
+        },
+        {
+          "left": "mish i skuqun",
+          "right": "gebratenes Fleisch"
+        }
+      ],
+      "explanation": "Der Verbindungsartikel zeigt das Genus: „i“ maskulin, „e“ feminin, „të“ Mehrzahl.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„i skuqun“ (Standard: i skuqur) als Gheg-Adjektiv auf -un zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_072",
+      "type": "match_pairs",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "vocab.time",
+        "grammar.verbs.past_simple"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_pardje",
+        "item_mbrame",
+        "item_vjet",
+        "item_zakonisht"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ordne die Zeitangaben zu."
+      },
+      "pairs": [
+        {
+          "left": "dje",
+          "right": "gestern"
+        },
+        {
+          "left": "pardje",
+          "right": "vorgestern"
+        },
+        {
+          "left": "mbrâmë",
+          "right": "gestern Abend"
+        },
+        {
+          "left": "vjet",
+          "right": "letztes Jahr"
+        },
+        {
+          "left": "zakonisht",
+          "right": "normalerweise"
+        }
+      ],
+      "explanation": "Nach „dje, pardje, mbrâmë, vjet“ folgt die Vergangenheit, nach „zakonisht“ das Präsens.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_073",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.verbs.present",
+        "grammar.verbs.reflexive",
+        "vocab.daily_routine"
+      ],
+      "itemIds": [
+        "item_cohem",
+        "item_heret",
+        "item_ha_mengjes"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Ich stehe früh auf und frühstücke."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Çohem",
+        "herët",
+        "dhe",
+        "ha",
+        "mëngjes"
+      ],
+      "solutions": [
+        "Çohem herët dhe ha mëngjes."
+      ],
+      "explanation": "„Çohem“ heisst im Kosovo „ich stehe auf“ (Standard: „ngrihem“). „Ha mëngjes“ – frühstücken.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_074",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 1,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.plural",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_pantallona",
+        "item_teper",
+        "item_i_gjate"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Die Hose ist zu lang."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Pantallonat",
+        "janë",
+        "tepër",
+        "të",
+        "gjata"
+      ],
+      "solutions": [
+        "Pantallonat janë tepër të gjata."
+      ],
+      "explanation": "„Pantallonat“ ist eine Mehrzahl, darum „janë … të gjata“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_075",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "vocab.food",
+        "vocab.shopping"
+      ],
+      "itemIds": [
+        "item_dje",
+        "item_bleva",
+        "item_kilogram",
+        "item_mish",
+        "item_kasap"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern kaufte ich ein Kilo Fleisch beim Metzger."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Dje",
+        "bleva",
+        "nji",
+        "kilogram",
+        "mish",
+        "te",
+        "kasapi"
+      ],
+      "solutions": [
+        "Dje bleva nji kilogram mish te kasapi.",
+        "Bleva nji kilogram mish te kasapi dje."
+      ],
+      "explanation": "Nach der Mengenangabe ohne Artikel: „nji kilogram mish“. „Te kasapi“ – beim Metzger.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_076",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "grammar.case.accusative",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_fillimisht",
+        "item_qero",
+        "item_patate",
+        "item_mandej",
+        "item_skuq",
+        "item_qepe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Zuerst schäl die Kartoffeln, dann brate die Zwiebel."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Fillimisht",
+        "qëro",
+        "patatet",
+        "mandej",
+        "skuq",
+        "qepën"
+      ],
+      "solutions": [
+        "Fillimisht qëro patatet, mandej skuq qepën."
+      ],
+      "explanation": "„Fillimisht“ – zuerst, „mandej“ – dann. „Qepën“ ist der Akkusativ von „qepa“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_077",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.adjective_agreement",
+        "grammar.verbs.present",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_asht",
+        "item_i_ftohte",
+        "item_mbaj",
+        "item_pallto",
+        "item_i_trashe"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Es ist kalt, ich trage einen dicken Mantel."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Âsht",
+        "ftohtë",
+        "mbaj",
+        "nji",
+        "pallto",
+        "të",
+        "trashë"
+      ],
+      "solutions": [
+        "Âsht ftohtë, mbaj nji pallto të trashë."
+      ],
+      "explanation": "„Pallto“ ist feminin. Als Objekt nach „nji“ heisst der Verbindungsartikel „të“: „nji pallto të trashë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_078",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "vocab.health"
+      ],
+      "itemIds": [
+        "item_sot",
+        "item_ndihem",
+        "item_ma_mire",
+        "item_dje"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Heute fühle ich mich besser als gestern."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Sot",
+        "ndihem",
+        "ma",
+        "mirë",
+        "se",
+        "dje"
+      ],
+      "solutions": [
+        "Sot ndihem ma mirë se dje."
+      ],
+      "explanation": "„Ma mirë“ heisst „besser“ (Standard: „më mirë“), „se“ heisst „als“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_079",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.comparison",
+        "grammar.demonstratives",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_ky",
+        "item_kostum",
+        "item_elegant",
+        "item_ma_se"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Dieser Anzug ist eleganter als jener."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Ky",
+        "kostum",
+        "âsht",
+        "ma",
+        "elegant",
+        "se",
+        "ai"
+      ],
+      "solutions": [
+        "Ky kostum âsht ma elegant se ai."
+      ],
+      "explanation": "„Elegant“ steht ohne Verbindungsartikel: „ma elegant“. „Ai“ heisst hier „jener“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_080",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 2,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.case.accusative",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_mbrame",
+        "item_gatova",
+        "item_fasule",
+        "item_per",
+        "item_familje"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Gestern Abend kochte ich Bohnen für die Familie."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Mbrâmë",
+        "gatova",
+        "fasule",
+        "për",
+        "familjen"
+      ],
+      "solutions": [
+        "Mbrâmë gatova fasule për familjen.",
+        "Gatova fasule për familjen mbrâmë."
+      ],
+      "explanation": "Nach „për“ steht der Akkusativ: „familja → familjen“. „Mbrâmë“ heisst „gestern Abend“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_081",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.linking_article",
+        "vocab.clothes"
+      ],
+      "itemIds": [
+        "item_e_shtune",
+        "item_bleva",
+        "item_bluze",
+        "item_i_bardhe",
+        "item_pale",
+        "item_corape"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Am Samstag kaufte ich eine weisse Bluse und ein Paar Socken."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Të",
+        "shtunën",
+        "bleva",
+        "nji",
+        "bluzë",
+        "të",
+        "bardhë",
+        "dhe",
+        "nji",
+        "palë",
+        "çorape"
+      ],
+      "solutions": [
+        "Të shtunën bleva nji bluzë të bardhë dhe nji palë çorape.",
+        "Bleva nji bluzë të bardhë dhe nji palë çorape të shtunën."
+      ],
+      "explanation": "„Të shtunën“ – am Samstag. Als Objekt nach „nji“: „nji bluzë të bardhë“. „Nji palë çorape“ – ein Paar Socken.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_082",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.imperative",
+        "grammar.definite_article.masc",
+        "grammar.case.accusative",
+        "vocab.cooking"
+      ],
+      "itemIds": [
+        "item_kur",
+        "item_uje",
+        "item_vlon",
+        "item_hidh",
+        "item_oriz"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Wenn das Wasser kocht, gib den Reis hinein."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Kur",
+        "uji",
+        "vlon",
+        "hidh",
+        "orizin"
+      ],
+      "solutions": [
+        "Kur uji vlon, hidh orizin.",
+        "Hidh orizin kur uji vlon."
+      ],
+      "explanation": "„Uji“ ist das Wasser (Subjekt), „orizin“ der Reis als Objekt (Akkusativ).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_083",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "vocab.body",
+        "grammar.plural",
+        "grammar.verbs.present"
+      ],
+      "itemIds": [
+        "item_me_dhemb",
+        "item_sy",
+        "item_nuk",
+        "item_lexoj"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Mir tun die Augen weh, ich lese nicht mehr."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Më",
+        "dhembin",
+        "sytë",
+        "nuk",
+        "lexoj",
+        "ma"
+      ],
+      "solutions": [
+        "Më dhembin sytë, nuk lexoj ma."
+      ],
+      "explanation": "„Sytë“ sind die Augen, darum „më dhembin“. „Nuk … ma“ heisst „nicht mehr“ (Standard: „më“).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„nuk … ma“ (nicht mehr; Standard: nuk … më) analog zu „s'ka ma“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u15_review_everyday_084",
+      "type": "word_order",
+      "level": "A2.1",
+      "difficulty": 3,
+      "skillTags": [
+        "grammar.verbs.past_simple",
+        "grammar.case.accusative",
+        "vocab.shopping",
+        "vocab.numbers"
+      ],
+      "itemIds": [
+        "item_pardje",
+        "item_pagova",
+        "item_njizet",
+        "item_euro",
+        "item_per",
+        "item_xhinse"
+      ],
+      "prompt": {
+        "lang": "de",
+        "text": "Vorgestern bezahlte ich zwanzig Euro für die Jeans."
+      },
+      "answerLang": "sq",
+      "tokens": [
+        "Pardje",
+        "pagova",
+        "njizet",
+        "euro",
+        "për",
+        "xhinset"
+      ],
+      "solutions": [
+        "Pardje pagova njizet euro për xhinset.",
+        "Pagova njizet euro për xhinset pardje."
+      ],
+      "explanation": "„Pagova“ ist die Vergangenheit von „paguj“ (bezahlen). „Për xhinset“ – für die Jeans.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
