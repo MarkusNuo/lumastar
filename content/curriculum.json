@@ -295,7 +295,8 @@
           "skillTags": ["grammar.verbs.present", "grammar.verbs.past_simple", "grammar.definite_article.masc", "grammar.definite_article.fem", "grammar.plural", "reading.dialogues"],
           "color": "violet",
           "icon": "repeat",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a2_u15_review_everyday.json"
         }
       ]
     },
@@ -388,7 +389,8 @@
           "skillTags": ["grammar.verbs.future", "grammar.verbs.modal", "grammar.adjective_agreement", "grammar.clitics", "reading.dialogues"],
           "color": "violet",
           "icon": "repeat",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a2_u19_review_plans.json"
         }
       ]
     },
@@ -481,7 +483,8 @@
           "skillTags": ["grammar.verbs.perfect", "grammar.case.dative", "grammar.case.ablative", "grammar.prepositions", "grammar.verbs.imperative", "reading.dialogues"],
           "color": "violet",
           "icon": "repeat",
-          "estimatedLessons": 4
+          "estimatedLessons": 4,
+          "file": "units/a2_u23_review_on_the_road.json"
         }
       ]
     },
