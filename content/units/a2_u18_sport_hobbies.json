@@ -1,0 +1,2549 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u18_sport_hobbies",
+  "level": "A2.2",
+  "grammar": [
+    {
+      "title": "Wie oft? – Häufigkeit",
+      "explanation": "| Gheg | Deutsch |\n|---|---|\n| gjithmonë | immer |\n| zakonisht | normalerweise |\n| shpesh | oft |\n| ndonjiherë | manchmal |\n| rrallë | selten |\n| kurrë | nie |\n\n**Kurrë** braucht zusätzlich *nuk* oder *s'*: *Nuk luaj kurrë shah.* – „Ich spiele nie Schach.“ *Ndonjiherë* heisst im Standard *ndonjëherë*.\n\nMit **herë** (Mal) zählst du: *nji herë në javë* (einmal pro Woche), *dy herë në muaj* (zweimal im Monat). Fragen: **Sa shpesh?** – „Wie oft?“"
+    },
+    {
+      "title": "Spielen, gewinnen, verlieren",
+      "explanation": "| Person | luaj (spielen) |\n|---|---|\n| unë | luaj |\n| ti | luan |\n| ai, ajo | luan |\n| ne | luajmë |\n| ju | luani |\n| ata, ato | luajnë |\n\nDie Sportart steht ohne Artikel: *Luaj futboll, tenis, shah.* Der Gheg-Infinitiv: **me luejtë**, **me fitue** (gewinnen), **me humbë** (verlieren; Standard: *humbur*). Vergangenheit: *Fituam!* – „Wir haben gewonnen!“ *Humbëm.* – „Wir haben verloren.“"
+    },
+    {
+      "title": "Sich verabreden",
+      "explanation": "- **Vorschlagen:** *A don me luejtë tenis? A ke kohë të shtunën? A je i lirë / e lirë? Hajde, shkojmë! Çka thua?*\n- **Zusagen:** *Po, me kënaqësi! Patjetër! Dakord! Pse jo?*\n- **Absagen:** *Më vjen keq, s'muj. Kam punë. Fatkeqësisht s'kam kohë. Nji herë tjetër!*\n- **Zeit und Ort:** *Kur takohemi? Në sa? – Në orën shtatë. Ku takohemi? – Te stadiumi.* Nach **te** (bei) steht das Nomen mit Artikel im Nominativ."
+    },
+    {
+      "title": "Pläne und Lust: kam me …, kam qejf me …",
+      "explanation": "Pläne stehen in der Gheg-Zukunft: *Të shtunën kam me luejtë tenis.* – „Am Samstag werde ich Tennis spielen.“ *Kemi me u takue në orën tetë.* – „Wir werden uns um acht treffen.“\n\nIm Kosovo sagt man oft **kam qejf me** + Partizip: *Kam qejf me vallëzue.* – „Ich tanze gern.“ *S'kam qejf.* – „Ich habe keine Lust.“ **Me mu** heisst „mit mir“ (Standard: *me mua*): *A vjen me mu?*"
+    }
+  ],
+  "items": [
+    { "id": "item_basketboll", "kind": "word", "gheg": "basketboll", "de": "Basketball", "partOfSpeech": "noun", "gender": "m", "definite": "basketbolli", "reviewed": false },
+    { "id": "item_volejboll", "kind": "word", "gheg": "volejboll", "de": "Volleyball", "partOfSpeech": "noun", "gender": "m", "definite": "volejbolli", "reviewed": false },
+    { "id": "item_tenis", "kind": "word", "gheg": "tenis", "de": "Tennis", "partOfSpeech": "noun", "gender": "m", "definite": "tenisi", "reviewed": false },
+    { "id": "item_shah", "kind": "word", "gheg": "shah", "de": "Schach", "partOfSpeech": "noun", "gender": "m", "definite": "shahu", "reviewed": false },
+    { "id": "item_me_vrapue", "kind": "phrase", "gheg": "me vrapue", "de": "laufen, joggen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_biciklete", "kind": "word", "gheg": "biçikletë", "de": "Velo, Fahrrad", "partOfSpeech": "noun", "gender": "f", "definite": "biçikleta", "plural": "biçikleta", "reviewed": false },
+    { "id": "item_me_skijue", "kind": "phrase", "gheg": "me skijue", "de": "Ski fahren", "partOfSpeech": "verb", "note": "Gheg-Infinitiv von „skijoj“ nach der Regel -oj → -ue; im Alltag auch „me bâ ski“ – zu prüfen.", "reviewed": false },
+    { "id": "item_loje", "kind": "word", "gheg": "lojë", "de": "Spiel", "partOfSpeech": "noun", "gender": "f", "definite": "loja", "reviewed": false },
+    { "id": "item_ndeshje", "kind": "word", "gheg": "ndeshje", "de": "Spiel, Match (Wettkampf)", "partOfSpeech": "noun", "gender": "f", "definite": "ndeshja", "plural": "ndeshje", "reviewed": false },
+    { "id": "item_ekip", "kind": "word", "gheg": "ekip", "de": "Mannschaft, Team", "partOfSpeech": "noun", "gender": "m", "definite": "ekipi", "plural": "ekipe", "reviewed": false },
+    { "id": "item_lojtar", "kind": "word", "gheg": "lojtar, lojtare", "de": "Spieler, Spielerin", "partOfSpeech": "noun", "gender": "m", "definite": "lojtari", "plural": "lojtarë", "reviewed": false },
+    { "id": "item_trajner", "kind": "word", "gheg": "trajner, trajnere", "de": "Trainer, Trainerin", "partOfSpeech": "noun", "gender": "m", "definite": "trajneri", "reviewed": false },
+    { "id": "item_gol", "kind": "word", "gheg": "gol", "de": "Tor (Treffer)", "partOfSpeech": "noun", "gender": "m", "definite": "goli", "plural": "gola", "reviewed": false },
+    { "id": "item_top", "kind": "word", "gheg": "top", "de": "Ball", "partOfSpeech": "noun", "gender": "m", "definite": "topi", "plural": "topa", "reviewed": false },
+    { "id": "item_rakete", "kind": "word", "gheg": "raketë", "de": "Schläger (z. B. für Tennis)", "partOfSpeech": "noun", "gender": "f", "definite": "raketa", "plural": "raketa", "reviewed": false },
+    { "id": "item_me_fitue", "kind": "phrase", "gheg": "me fitue", "de": "gewinnen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_humbe", "kind": "phrase", "gheg": "me humbë", "de": "verlieren", "partOfSpeech": "verb", "note": "Partizip „humbë“ (Standard: humbur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_rezultat", "kind": "word", "gheg": "rezultat", "de": "Resultat, Spielstand", "partOfSpeech": "noun", "gender": "m", "definite": "rezultati", "reviewed": false },
+    { "id": "item_stadium", "kind": "word", "gheg": "stadium", "de": "Stadion", "partOfSpeech": "noun", "gender": "m", "definite": "stadiumi", "reviewed": false },
+    { "id": "item_pishine", "kind": "word", "gheg": "pishinë", "de": "Schwimmbad, Pool", "partOfSpeech": "noun", "gender": "f", "definite": "pishina", "reviewed": false },
+    { "id": "item_klub", "kind": "word", "gheg": "klub", "de": "Klub, Verein", "partOfSpeech": "noun", "gender": "m", "definite": "klubi", "reviewed": false },
+    { "id": "item_trening", "kind": "word", "gheg": "trening", "de": "Training", "partOfSpeech": "noun", "gender": "m", "definite": "treningu", "reviewed": false },
+    { "id": "item_koncert", "kind": "word", "gheg": "koncert", "de": "Konzert", "partOfSpeech": "noun", "gender": "m", "definite": "koncerti", "reviewed": false },
+    { "id": "item_hobi", "kind": "word", "gheg": "hobi", "de": "Hobby", "partOfSpeech": "noun", "gender": "m", "plural": "hobi", "note": "Bestimmte Form („hobi“ oder „hobiu“) zu prüfen; „hobi im“ = mein Hobby.", "reviewed": false },
+    { "id": "item_me_vizatue", "kind": "phrase", "gheg": "me vizatue", "de": "zeichnen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_kendue", "kind": "phrase", "gheg": "me këndue", "de": "singen", "partOfSpeech": "verb", "alternatives": ["me kndue"], "note": "Im Kosovo meist „me kndue“ gesprochen; als weitere Schreibung akzeptiert – zu prüfen, welche Form Hauptform sein soll.", "reviewed": false },
+    { "id": "item_me_vallezue", "kind": "phrase", "gheg": "me vallëzue", "de": "tanzen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_peshkue", "kind": "phrase", "gheg": "me peshkue", "de": "fischen, angeln", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_gjithmone", "kind": "word", "gheg": "gjithmonë", "de": "immer", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_ralle", "kind": "word", "gheg": "rrallë", "de": "selten", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_sa_shpesh", "kind": "phrase", "gheg": "sa shpesh?", "de": "wie oft?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_muaj", "kind": "word", "gheg": "muaj", "de": "Monat", "partOfSpeech": "noun", "gender": "m", "definite": "muaji", "plural": "muaj", "reviewed": false },
+    { "id": "item_a_ke_kohe", "kind": "phrase", "gheg": "a ke kohë?", "de": "hast du Zeit?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_a_je_i_lire", "kind": "phrase", "gheg": "a je i lirë?, a je e lirë?", "de": "bist du frei?, hast du Zeit?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_shkojme", "kind": "word", "gheg": "shkojmë", "de": "wir gehen; gehen wir!", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_pse_jo", "kind": "phrase", "gheg": "pse jo?", "de": "warum nicht?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_me_kenaqesi", "kind": "phrase", "gheg": "me kënaqësi", "de": "gern, mit Vergnügen", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_patjeter", "kind": "word", "gheg": "patjetër", "de": "sicher, auf jeden Fall", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_fatkeqesisht", "kind": "word", "gheg": "fatkeqësisht", "de": "leider", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_kam_pune", "kind": "phrase", "gheg": "kam punë", "de": "ich habe zu tun, ich bin beschäftigt", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_nji_here_tjeter", "kind": "phrase", "gheg": "nji herë tjetër", "de": "ein andermal", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_me_vjen_keq", "kind": "phrase", "gheg": "më vjen keq", "de": "es tut mir leid", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_takohemi", "kind": "word", "gheg": "takohemi", "de": "wir treffen uns", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_u_takue", "kind": "phrase", "gheg": "me u takue", "de": "sich treffen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_ne_sa", "kind": "phrase", "gheg": "në sa?", "de": "um wie viel Uhr?", "partOfSpeech": "phrase", "note": "Kosovo-Alltag (kurz für „in welcher Stunde?“) – zu prüfen; neutral auch „në cilën orë?“.", "reviewed": false },
+    { "id": "item_ftese", "kind": "word", "gheg": "ftesë", "de": "Einladung", "partOfSpeech": "noun", "gender": "f", "definite": "ftesa", "reviewed": false },
+    { "id": "item_me_ftue", "kind": "phrase", "gheg": "me ftue", "de": "einladen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_cka_thua", "kind": "phrase", "gheg": "çka thua?", "de": "was meinst du?, was sagst du dazu?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_dakord", "kind": "word", "gheg": "dakord", "de": "einverstanden, okay", "partOfSpeech": "interjection", "alternatives": ["dakort"], "reviewed": false },
+    { "id": "item_kam_qejf", "kind": "phrase", "gheg": "kam qejf", "de": "ich habe Lust; ich mag (kam qejf me … = ich … gern)", "partOfSpeech": "phrase", "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen.", "reviewed": false },
+    { "id": "item_fillon", "kind": "word", "gheg": "fillon", "de": "(es) beginnt, fängt an", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_vjen", "kind": "word", "gheg": "vjen", "de": "du kommst, er/sie kommt (von vij)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_mu", "kind": "phrase", "gheg": "me mu", "de": "mit mir", "partOfSpeech": "phrase", "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen.", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u18_sport_hobbies_001",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_palester", "item_park", "item_stadium", "item_pishine"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Schwimmbad“?" },
+      "choices": ["pishinë", "palestër", "stadium", "park"],
+      "solutions": ["pishinë"],
+      "explanation": "„Pishinë“ ist das Schwimmbad. Dort kannst du „me notue“ – schwimmen.",
+      "errorHints": [
+        { "pattern": "^palest", "category": "vocab.confused", "hint": "„Palestër“ ist das Fitnessstudio." },
+        { "pattern": "^stadium$", "category": "vocab.confused", "hint": "„Stadium“ ist das Stadion." },
+        { "pattern": "^park$", "category": "vocab.confused", "hint": "„Park“ ist der Park." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_002",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_ralle", "item_gjithmone", "item_shpesh", "item_kurre"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „rrallë“?" },
+      "choices": ["selten", "immer", "oft", "nie"],
+      "solutions": ["selten"],
+      "explanation": "„Rrallë“ heisst „selten“: „Rrallë shkoj në kinema.“ – Ich gehe selten ins Kino.",
+      "errorHints": [
+        { "pattern": "immer", "category": "vocab.confused", "hint": "„Immer“ heisst „gjithmonë“." },
+        { "pattern": "oft", "category": "vocab.confused", "hint": "„Oft“ heisst „shpesh“." },
+        { "pattern": "nie", "category": "vocab.confused", "hint": "„Nie“ heisst „kurrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_003",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_kurre", "item_ndonjihere", "item_gjithmone", "item_ralle"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „immer“?" },
+      "choices": ["gjithmonë", "ndonjiherë", "rrallë", "kurrë"],
+      "solutions": ["gjithmonë"],
+      "explanation": "„Gjithmonë“ heisst „immer“, „ndonjiherë“ „manchmal“.",
+      "errorHints": [
+        { "pattern": "ndonj", "category": "vocab.confused", "hint": "„Ndonjiherë“ heisst „manchmal“." },
+        { "pattern": "rrall", "category": "vocab.confused", "hint": "„Rrallë“ heisst „selten“." },
+        { "pattern": "kurr", "category": "vocab.confused", "hint": "„Kurrë“ heisst „nie“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_004",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_ndeshje", "item_top", "item_ekip", "item_stadium"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „ndeshje“?" },
+      "choices": ["das Match", "der Ball", "die Mannschaft", "das Stadion"],
+      "solutions": ["das Match"],
+      "explanation": "„Ndeshje“ ist ein Spiel im Sport, ein Match. Mit Artikel: „ndeshja“.",
+      "errorHints": [
+        { "pattern": "ball", "category": "vocab.confused", "hint": "Der Ball heisst „top“." },
+        { "pattern": "mannschaft", "category": "vocab.confused", "hint": "Die Mannschaft heisst „ekip“." },
+        { "pattern": "stadion", "category": "vocab.confused", "hint": "Das Stadion heisst „stadium“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_005",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_loje", "item_ekip", "item_gol", "item_top"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ball“?" },
+      "choices": ["top", "gol", "lojë", "ekip"],
+      "solutions": ["top"],
+      "explanation": "„Top“ ist der Ball, mit Artikel „topi“.",
+      "errorHints": [
+        { "pattern": "^gol$", "category": "vocab.confused", "hint": "„Gol“ ist das Tor (der Treffer)." },
+        { "pattern": "^loj", "category": "vocab.confused", "hint": "„Lojë“ ist das Spiel." },
+        { "pattern": "^ekip$", "category": "vocab.confused", "hint": "„Ekip“ ist die Mannschaft." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_006",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_me_vjen_keq", "item_s_muj", "item_kam_qejf"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Më vjen keq, s'muj.“?" },
+      "choices": [
+        "Es tut mir leid, ich kann nicht.",
+        "Es freut mich, ich komme.",
+        "Ich habe keine Lust.",
+        "Ich weiss es nicht."
+      ],
+      "solutions": ["Es tut mir leid, ich kann nicht."],
+      "explanation": "„Më vjen keq“ heisst „es tut mir leid“, „më vjen mirë“ dagegen „es freut mich“.",
+      "errorHints": [
+        { "pattern": "freut", "category": "vocab.confused", "hint": "„Es freut mich“ hiesse „më vjen mirë“." },
+        { "pattern": "lust", "category": "vocab.confused", "hint": "„Ich habe keine Lust“ hiesse „s'kam qejf“." },
+        { "pattern": "weiss", "category": "vocab.confused", "hint": "„Ich weiss es nicht“ hiesse „nuk e di“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_007",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans"],
+      "itemIds": [
+        "item_here",
+        "item_me_kenaqesi",
+        "item_kam_pune",
+        "item_nji_here_tjeter",
+        "item_me_vjen_keq",
+        "item_kam_qejf"
+      ],
+      "prompt": { "lang": "de", "text": "Jemand lädt dich ein. Wie sagst du freundlich zu?" },
+      "choices": ["Po, me kënaqësi!", "Më vjen keq, kam punë.", "Nji herë tjetër.", "S'kam qejf."],
+      "solutions": ["Po, me kënaqësi!"],
+      "explanation": "„Me kënaqësi“ heisst „gern, mit Vergnügen“. Die anderen Antworten sind Absagen.",
+      "errorHints": [
+        { "pattern": "vjen keq", "category": "vocab.confused", "hint": "„Më vjen keq, kam punë“ ist eine Absage: Es tut mir leid, ich habe zu tun." },
+        { "pattern": "tjet[eë]r", "category": "vocab.confused", "hint": "„Nji herë tjetër“ heisst „ein andermal“ – also eine Absage." },
+        { "pattern": "qejf", "category": "vocab.confused", "hint": "„S'kam qejf“ heisst „ich habe keine Lust“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_008",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.verbs.kam"],
+      "itemIds": ["item_a_ke_kohe", "item_te_shtunen", "item_te_dielen", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Wie fragst du „Hast du am Samstag Zeit?“" },
+      "choices": ["A ke kohë të shtunën?", "A kam kohë të shtunën?", "Sa kohë ke të shtunën?", "A ke kohë të dielën?"],
+      "solutions": ["A ke kohë të shtunën?"],
+      "explanation": "„A ke kohë?“ – „Hast du Zeit?“. „Të shtunën“ heisst „am Samstag“.",
+      "errorHints": [
+        { "pattern": "^a kam", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Du hast: „ke“." },
+        { "pattern": "^sa koh", "category": "vocab.confused", "hint": "„Sa kohë?“ heisst „wie viel Zeit?“." },
+        { "pattern": "diel", "category": "vocab.confused", "hint": "„Të dielën“ heisst „am Sonntag“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_009",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.sport"],
+      "itemIds": ["item_luaj", "item_futboll"],
+      "prompt": { "lang": "de", "text": "Welche Form passt? „Ne ___ futboll çdo të shtunë.“ (Wir spielen jeden Samstag Fussball.)" },
+      "choices": ["luajmë", "luaj", "luan", "luajnë"],
+      "solutions": ["luajmë"],
+      "explanation": "Zu „ne“ (wir) gehört „luajmë“.",
+      "errorHints": [
+        { "pattern": "^luaj$", "category": "grammar.verb_conjugation", "hint": "„Luaj“ heisst „ich spiele“. Wir spielen: „luajmë“." },
+        { "pattern": "^luan$", "category": "grammar.verb_conjugation", "hint": "„Luan“ heisst „du spielst“ oder „er/sie spielt“." },
+        { "pattern": "^luajn[eë]$", "category": "grammar.verb_conjugation", "hint": "„Luajnë“ heisst „sie spielen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_010",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "vocab.sport"],
+      "itemIds": ["item_sa_shpesh", "item_palester"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Sa shpesh shkon në palestër?“" },
+      "choices": [
+        "Wie oft gehst du ins Fitnessstudio?",
+        "Wann gehst du ins Fitnessstudio?",
+        "Gehst du gern ins Fitnessstudio?",
+        "Mit wem gehst du ins Fitnessstudio?"
+      ],
+      "solutions": ["Wie oft gehst du ins Fitnessstudio?"],
+      "explanation": "„Sa shpesh?“ heisst „wie oft?“; „kur?“ heisst „wann?“.",
+      "errorHints": [
+        { "pattern": "wann", "category": "vocab.confused", "hint": "„Wann“ hiesse „kur“. „Sa shpesh“ heisst „wie oft“." },
+        { "pattern": "gern", "category": "vocab.confused", "hint": "„Gern“ hiesse „të pëlqen“ oder „ke qejf“." },
+        { "pattern": "wem", "category": "vocab.confused", "hint": "„Mit wem“ hiesse „me kë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_011",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "grammar.negation"],
+      "itemIds": ["item_kurre", "item_pishine", "item_gjithmone", "item_ralle"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ich gehe nie ins Schwimmbad.“?" },
+      "choices": [
+        "Nuk shkoj kurrë në pishinë.",
+        "Shkoj kurrë në pishinë.",
+        "Shkoj gjithmonë në pishinë.",
+        "Nuk shkoj rrallë në pishinë."
+      ],
+      "solutions": ["Nuk shkoj kurrë në pishinë."],
+      "explanation": "„Kurrë“ (nie) steht im Albanischen zusammen mit „nuk“ oder „s'“: „Nuk shkoj kurrë …“.",
+      "errorHints": [
+        { "pattern": "^shkoj kurr", "category": "vocab.confused", "hint": "„Kurrë“ braucht zusätzlich „nuk“ oder „s'“: „Nuk shkoj kurrë …“." },
+        { "pattern": "gjithmon", "category": "vocab.confused", "hint": "„Gjithmonë“ heisst „immer“." },
+        { "pattern": "rrall", "category": "vocab.confused", "hint": "„Rrallë“ heisst „selten“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_012",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans", "grammar.verbs.reflexive"],
+      "itemIds": ["item_kur", "item_takohemi", "item_ne_sa"],
+      "prompt": { "lang": "de", "text": "Wie fragst du „Wo treffen wir uns?“" },
+      "choices": ["Ku takohemi?", "Kur takohemi?", "Ku takoj?", "Në sa takohemi?"],
+      "solutions": ["Ku takohemi?"],
+      "explanation": "„Ku?“ heisst „wo?“, „takohemi“ „wir treffen uns“.",
+      "errorHints": [
+        { "pattern": "^kur ", "category": "vocab.confused", "hint": "„Kur“ heisst „wann“." },
+        { "pattern": "^ku takoj$", "category": "grammar.verb_conjugation", "hint": "„Takoj“ heisst „ich treffe“. Wir treffen uns: „takohemi“." },
+        { "pattern": "^n[eë] sa", "category": "vocab.confused", "hint": "„Në sa?“ heisst „um wie viel Uhr?“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_013",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.verbs.modal"],
+      "itemIds": [
+        "item_me_luejte",
+        "item_tenis",
+        "item_fatkeqesisht",
+        "item_kam_pune",
+        "item_s_muj",
+        "item_pse_jo",
+        "item_patjeter",
+        "item_ne_sa",
+        "item_dakord"
+      ],
+      "prompt": { "lang": "de", "text": "Jemand fragt: „A don me luejtë tenis nesër?“ Du hast keine Zeit. Was antwortest du?" },
+      "choices": ["Fatkeqësisht s'muj, kam punë.", "Po, patjetër!", "Dakord, në sa?", "Pse jo?"],
+      "solutions": ["Fatkeqësisht s'muj, kam punë."],
+      "explanation": "„Fatkeqësisht“ heisst „leider“, „kam punë“ „ich habe zu tun“.",
+      "errorHints": [
+        { "pattern": "patjet", "category": "vocab.confused", "hint": "„Patjetër“ ist eine Zusage: sicher, auf jeden Fall." },
+        { "pattern": "dakord", "category": "vocab.confused", "hint": "„Dakord“ heisst „einverstanden“ – eine Zusage." },
+        { "pattern": "pse jo", "category": "vocab.confused", "hint": "„Pse jo?“ heisst „warum nicht?“ – auch eine Zusage." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_014",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_kam_qejf", "item_me_vallezue"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kam qejf me vallëzue.“?" },
+      "choices": ["Ich tanze gern.", "Ich kann tanzen.", "Ich muss tanzen.", "Ich tanze nie."],
+      "solutions": ["Ich tanze gern."],
+      "explanation": "„Kam qejf me …“ heisst „ich habe Lust zu …, ich … gern“. Danach steht der Gheg-Infinitiv: „me vallëzue“.",
+      "errorHints": [
+        { "pattern": "kann", "category": "vocab.confused", "hint": "„Ich kann“ hiesse „muj“ oder „di me“." },
+        { "pattern": "muss", "category": "vocab.confused", "hint": "„Ich muss“ hiesse „duhet me“." },
+        { "pattern": "nie", "category": "vocab.confused", "hint": "„Nie“ hiesse „kurrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_015",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "phrase.plans"],
+      "itemIds": [
+        "item_a_je_i_lire",
+        "item_paradite",
+        "item_pasdite",
+        "item_kam_pune",
+        "item_ndeshje",
+        "item_vjen",
+        "item_me_mu",
+        "item_patjeter",
+        "item_ne_sa",
+        "item_fillon",
+        "item_te_shtunen",
+        "item_ore"
+      ],
+      "prompt": { "lang": "sq", "text": "– Ç'kemi, Besa! A je e lirë të shtunën?\n– Paradite kam punë, po pasdite jam e lirë. Pse?\n– Kam dy bileta për ndeshjen e Prishtinës. A vjen me mu?\n– Patjetër! Në sa fillon?\n– Në orën katër.\n\nFrage: Wann hat Besa am Samstag Zeit?" },
+      "choices": ["Am Nachmittag.", "Am Vormittag.", "Am Abend.", "Gar nicht."],
+      "solutions": ["Am Nachmittag."],
+      "explanation": "„Pasdite jam e lirë“ heisst „am Nachmittag habe ich Zeit“. Am Vormittag hat Besa zu tun: „paradite kam punë“.",
+      "errorHints": [
+        { "pattern": "vormittag", "category": "vocab.confused", "hint": "Am Vormittag hat Besa zu tun: „paradite kam punë“." },
+        { "pattern": "abend", "category": "vocab.confused", "hint": "Vom Abend ist nicht die Rede; Besa ist „pasdite“ frei." },
+        { "pattern": "gar nicht", "category": "vocab.confused", "hint": "Besa sagt „patjetër“ – sie kommt mit." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen. „me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_016",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "vocab.sport", "vocab.time"],
+      "itemIds": [
+        "item_basketboll",
+        "item_klub",
+        "item_trening",
+        "item_here",
+        "item_ekip",
+        "item_ndeshje",
+        "item_biciklete",
+        "item_park",
+        "item_luaj",
+        "item_te_shtunen",
+        "item_te_dielen"
+      ],
+      "prompt": { "lang": "sq", "text": "Driton luan basketboll në nji klub në Ferizaj. Ka trening tri herë në javë: të hânën, të mërkurën dhe të premten. Të shtunën ekipi ka ndeshje. Të dielën pushon dhe shkon me biçikletë në park.\n\nFrage: Wie oft hat Driton Training?" },
+      "choices": ["Dreimal pro Woche.", "Jeden Tag.", "Zweimal pro Woche.", "Nur am Samstag."],
+      "solutions": ["Dreimal pro Woche."],
+      "explanation": "„Tri herë në javë“ heisst „dreimal pro Woche“. „Herë“ ist feminin, darum „tri“ statt „tre“.",
+      "errorHints": [
+        { "pattern": "jeden tag", "category": "vocab.confused", "hint": "„Tri herë në javë“ heisst „dreimal pro Woche“." },
+        { "pattern": "zweimal", "category": "vocab.confused", "hint": "„Tri“ heisst „drei“; zweimal wäre „dy herë“." },
+        { "pattern": "samstag", "category": "vocab.confused", "hint": "Am Samstag hat die Mannschaft ein Spiel („ndeshje“)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_017",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "phrase.plans", "grammar.verbs.modal"],
+      "itemIds": [
+        "item_koncert",
+        "item_hajde",
+        "item_me_vjen_keq",
+        "item_s_muj",
+        "item_nji_here_tjeter",
+        "item_me_mesue",
+        "item_palester",
+        "item_te_shtunen",
+        "item_sonte",
+        "item_ska_problem",
+        "item_shihemi",
+        "item_here"
+      ],
+      "prompt": { "lang": "sq", "text": "– Arben, sonte kemi me shkue në koncert. Hajde edhe ti!\n– Më vjen keq, sonte s'muj. Duhet me mësue. Nji herë tjetër!\n– S'ka problem. Shihemi të shtunën në palestër.\n\nFrage: Warum kommt Arben nicht mit?" },
+      "choices": ["Er muss lernen.", "Er hat keine Lust.", "Er muss arbeiten.", "Er ist krank."],
+      "solutions": ["Er muss lernen."],
+      "explanation": "„Duhet me mësue“ heisst „ich muss lernen“. „Nji herë tjetër“ – ein andermal.",
+      "errorHints": [
+        { "pattern": "lust", "category": "vocab.confused", "hint": "Arben sagt nicht „s'kam qejf“, sondern „duhet me mësue“." },
+        { "pattern": "arbeiten", "category": "vocab.confused", "hint": "„Me mësue“ heisst „lernen“, nicht „arbeiten“ („me punue“)." },
+        { "pattern": "krank", "category": "vocab.confused", "hint": "Von Krankheit steht nichts im Dialog." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_018",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.sport", "grammar.verbs.past_simple"],
+      "itemIds": ["item_ekip", "item_me_fitue", "item_dje"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Ekipi im fitoi dje.“?" },
+      "choices": [
+        "Meine Mannschaft hat gestern gewonnen.",
+        "Meine Mannschaft hat gestern verloren.",
+        "Meine Mannschaft spielt morgen.",
+        "Mein Trainer hat gestern gewonnen."
+      ],
+      "solutions": ["Meine Mannschaft hat gestern gewonnen."],
+      "explanation": "„Fitoi“ ist die Vergangenheit von „fiton“ (gewinnt): „gewann, hat gewonnen“.",
+      "errorHints": [
+        { "pattern": "verloren", "category": "vocab.confused", "hint": "Verlieren heisst „me humbë“; „fitoi“ heisst „gewann“." },
+        { "pattern": "morgen", "category": "grammar.verb_tense", "hint": "„Dje“ heisst „gestern“, und „fitoi“ ist Vergangenheit." },
+        { "pattern": "trainer", "category": "vocab.confused", "hint": "„Ekipi“ ist die Mannschaft; der Trainer heisst „trajneri“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_019",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.past_simple", "vocab.sport"],
+      "itemIds": ["item_me_humbe", "item_me_fitue"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Wir haben verloren.“?" },
+      "choices": ["Humbëm.", "Fituam.", "Humbim.", "Kemi me humbë."],
+      "solutions": ["Humbëm."],
+      "explanation": "„Humbëm“ ist die Vergangenheit von „humbim“ (wir verlieren).",
+      "errorHints": [
+        { "pattern": "^fituam$", "category": "vocab.confused", "hint": "„Fituam“ heisst „wir haben gewonnen“." },
+        { "pattern": "^humbim$", "category": "grammar.verb_tense", "hint": "„Humbim“ ist Präsens: wir verlieren." },
+        { "pattern": "^kemi me", "category": "grammar.verb_tense", "hint": "„Kemi me humbë“ ist Zukunft: wir werden verlieren." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_020",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_rezultat", "item_ndeshje", "item_stadium"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Sa âsht rezultati?“" },
+      "choices": ["Wie steht das Spiel?", "Wer hat gewonnen?", "Wann beginnt das Spiel?", "Wo ist das Stadion?"],
+      "solutions": ["Wie steht das Spiel?"],
+      "explanation": "„Rezultati“ ist das Resultat, der Spielstand: „Sa âsht rezultati?“ – „Wie steht es?“",
+      "errorHints": [
+        { "pattern": "gewonnen", "category": "vocab.confused", "hint": "„Wer hat gewonnen?“ hiesse „Kush fitoi?“." },
+        { "pattern": "wann", "category": "vocab.confused", "hint": "„Wann beginnt das Spiel?“ hiesse „Kur fillon ndeshja?“." },
+        { "pattern": "stadion", "category": "vocab.confused", "hint": "„Wo ist das Stadion?“ hiesse „Ku âsht stadiumi?“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_021",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "phrase.plans"],
+      "itemIds": [
+        "item_kam_me",
+        "item_me_luejte",
+        "item_tenis",
+        "item_luaj",
+        "item_kurre",
+        "item_zakonisht",
+        "item_te_shtunen",
+        "item_dje",
+        "item_park",
+        "item_me_vrapue",
+        "item_stadium"
+      ],
+      "prompt": { "lang": "de", "text": "Welcher Satz ist ein Plan für Samstag?" },
+      "choices": [
+        "Të shtunën kam me luejtë tenis.",
+        "Dje shkova në stadium.",
+        "Zakonisht vrapoj në park.",
+        "Nuk luaj kurrë tenis."
+      ],
+      "solutions": ["Të shtunën kam me luejtë tenis."],
+      "explanation": "„Kam me luejtë“ ist die Gheg-Zukunft: „ich werde spielen“.",
+      "errorHints": [
+        { "pattern": "^dje", "category": "grammar.verb_tense", "hint": "„Shkova“ ist Vergangenheit: ich ging." },
+        { "pattern": "zakonisht", "category": "grammar.verb_tense", "hint": "„Zakonisht“ heisst „normalerweise“ – das ist eine Gewohnheit, kein Plan." },
+        { "pattern": "kurr", "category": "vocab.confused", "hint": "„Nuk luaj kurrë tenis“ heisst „ich spiele nie Tennis“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_022",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_veture", "item_autobus", "item_biciklete", "item_top"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Velo“ (Fahrrad)?" },
+      "choices": ["biçikletë", "veturë", "autobus", "top"],
+      "solutions": ["biçikletë"],
+      "explanation": "„Biçikletë“ ist das Velo. „Me biçikletë“ heisst „mit dem Velo“.",
+      "errorHints": [
+        { "pattern": "^vetur", "category": "vocab.confused", "hint": "„Veturë“ ist das Auto." },
+        { "pattern": "^autobus$", "category": "vocab.confused", "hint": "„Autobus“ ist der Bus." },
+        { "pattern": "^top$", "category": "vocab.confused", "hint": "„Top“ ist der Ball." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_023",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.clitics"],
+      "itemIds": ["item_me_ftue", "item_kinema", "item_koncert"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Ich lade dich ins Kino ein.“?" },
+      "choices": ["Të ftoj në kinema.", "Më fton në kinema.", "Të ftoj në koncert.", "Të pres në kinema."],
+      "solutions": ["Të ftoj në kinema."],
+      "explanation": "„Të ftoj“ heisst „ich lade dich ein“: „të“ ist die Kurzform für „dich“.",
+      "errorHints": [
+        { "pattern": "^m[eë] fton", "category": "grammar.clitics", "hint": "„Më fton“ heisst „du lädst mich ein“." },
+        { "pattern": "koncert", "category": "vocab.confused", "hint": "„Koncert“ ist das Konzert." },
+        { "pattern": "pres", "category": "vocab.confused", "hint": "„Të pres“ heisst „ich warte auf dich“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_024",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.verbs.modal"],
+      "itemIds": ["item_don", "item_me_ardhe", "item_me_mu", "item_pishine"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „A don me ardhë me mu në pishinë?“" },
+      "choices": [
+        "Willst du mit mir ins Schwimmbad kommen?",
+        "Willst du mit uns ins Schwimmbad kommen?",
+        "Kannst du mit mir ins Schwimmbad kommen?",
+        "Kommst du morgen ins Schwimmbad?"
+      ],
+      "solutions": ["Willst du mit mir ins Schwimmbad kommen?"],
+      "explanation": "„Me mu“ heisst „mit mir“ (Standard: „me mua“), „a don me ardhë“ „willst du kommen“.",
+      "errorHints": [
+        { "pattern": "uns", "category": "vocab.confused", "hint": "„Me mu“ heisst „mit mir“; mit uns wäre „me ne“." },
+        { "pattern": "kannst", "category": "vocab.confused", "hint": "„Kannst du“ hiesse „a mundesh“." },
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "Im Satz steht kein „nesër“ (morgen)." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_025",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport", "vocab.time", "grammar.verbs.present"],
+      "itemIds": ["item_luaj", "item_shpesh", "item_basketboll"],
+      "prompt": { "lang": "de", "text": "Ich spiele oft Basketball." },
+      "answerLang": "sq",
+      "solutions": ["Luaj shpesh basketboll.", "Shpesh luaj basketboll."],
+      "wordBank": ["Luaj", "shpesh", "basketboll", "rrallë", "luan", "futboll"],
+      "explanation": "„Shpesh“ heisst „oft“ und steht meist nach dem Verb: „Luaj shpesh …“.",
+      "errorHints": [
+        { "pattern": "rrall", "category": "vocab.confused", "hint": "„Rrallë“ heisst „selten“." },
+        { "pattern": "(^|\\s)luan(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Luan“ heisst „du spielst / er spielt“. Ich spiele: „luaj“." },
+        { "pattern": "futboll", "category": "vocab.confused", "hint": "„Futboll“ ist Fussball." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_026",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans", "grammar.verbs.present"],
+      "itemIds": ["item_hajde", "item_pishine", "item_shkojme"],
+      "prompt": { "lang": "de", "text": "Komm, gehen wir ins Schwimmbad!" },
+      "answerLang": "sq",
+      "solutions": ["Hajde, shkojmë në pishinë!"],
+      "wordBank": ["Hajde", "shkojmë", "në", "pishinë", "shkoj", "palestër", "park"],
+      "explanation": "„Shkojmë“ heisst „wir gehen“ und auch „gehen wir!“. „Hajde“ heisst „komm!“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)shkoj(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Shkoj“ heisst „ich gehe“. Gehen wir: „shkojmë“." },
+        { "pattern": "palest", "category": "vocab.confused", "hint": "„Palestër“ ist das Fitnessstudio." },
+        { "pattern": "(^|\\s)park(\\s|$)", "category": "vocab.confused", "hint": "„Park“ ist der Park. Schwimmbad: „pishinë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_027",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "vocab.leisure"],
+      "itemIds": ["item_me_luejte", "item_sonte", "item_don", "item_shah"],
+      "prompt": { "lang": "de", "text": "Willst du heute Abend Schach spielen?" },
+      "answerLang": "sq",
+      "solutions": ["A don me luejtë shah sonte?", "A don sonte me luejtë shah?"],
+      "wordBank": ["A", "don", "me", "luejtë", "shah", "sonte", "luaj", "du", "tenis"],
+      "explanation": "Nach „don“ (du willst) folgt der Gheg-Infinitiv „me luejtë“.",
+      "errorHints": [
+        { "pattern": "me luaj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me luejtë“." },
+        { "pattern": "^a du ", "category": "grammar.verb_conjugation", "hint": "„Du“ heisst „ich will“. Du willst: „don“." },
+        { "pattern": "tenis", "category": "vocab.confused", "hint": "„Tenis“ ist Tennis; Schach heisst „shah“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_028",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["phrase.plans", "grammar.verbs.reflexive", "vocab.time"],
+      "itemIds": ["item_takohemi", "item_stadium", "item_ore"],
+      "prompt": { "lang": "de", "text": "Wir treffen uns um sieben Uhr beim Stadion." },
+      "answerLang": "sq",
+      "solutions": ["Takohemi në orën shtatë te stadiumi.", "Takohemi te stadiumi në orën shtatë."],
+      "wordBank": ["Takohemi", "në", "orën", "shtatë", "te", "stadiumi", "takoj", "stadium", "tetë"],
+      "explanation": "„Takohemi“ heisst „wir treffen uns“. Nach „te“ (bei) steht der Nominativ mit Artikel: „te stadiumi“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)takoj(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Takoj“ heisst „ich treffe“. Wir treffen uns: „takohemi“." },
+        { "pattern": "te stadium(\\s|$)", "category": "grammar.definite_article", "hint": "Nach „te“ steht das Nomen mit Artikel: „te stadiumi“." },
+        { "pattern": "tet[eë]", "category": "vocab.confused", "hint": "„Tetë“ heisst „acht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_029",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.verbs.modal"],
+      "itemIds": ["item_s_muj", "item_fatkeqesisht", "item_kam_pune"],
+      "prompt": { "lang": "de", "text": "Leider kann ich nicht, ich habe zu tun." },
+      "answerLang": "sq",
+      "solutions": ["Fatkeqësisht s'muj, kam punë."],
+      "wordBank": ["Fatkeqësisht", "s'muj", "kam", "punë", "mundesh", "kohë", "patjetër"],
+      "explanation": "„Fatkeqësisht“ heisst „leider“, „kam punë“ „ich habe zu tun“.",
+      "errorHints": [
+        { "pattern": "mundesh", "category": "grammar.verb_conjugation", "hint": "„Mundesh“ heisst „du kannst“. Ich kann nicht: „s'muj“." },
+        { "pattern": "kam koh", "category": "vocab.confused", "hint": "„Kam kohë“ heisst „ich habe Zeit“ – das Gegenteil." },
+        { "pattern": "patjet", "category": "vocab.confused", "hint": "„Patjetër“ heisst „auf jeden Fall“ – eine Zusage." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_030",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "vocab.sport"],
+      "itemIds": ["item_here", "item_palester"],
+      "prompt": { "lang": "de", "text": "Ich gehe einmal pro Woche ins Fitnessstudio." },
+      "answerLang": "sq",
+      "solutions": [
+        "Shkoj nji herë në javë në palestër.",
+        "Nji herë në javë shkoj në palestër.",
+        "Shkoj në palestër nji herë në javë."
+      ],
+      "wordBank": ["Shkoj", "nji", "herë", "në", "javë", "në", "palestër", "dy", "muaj", "pishinë"],
+      "explanation": "„Nji herë në javë“ heisst „einmal pro Woche“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)dy her", "category": "vocab.confused", "hint": "„Dy herë“ heisst „zweimal“." },
+        { "pattern": "muaj", "category": "vocab.confused", "hint": "„Muaj“ heisst „Monat“." },
+        { "pattern": "pishin", "category": "vocab.confused", "hint": "„Pishinë“ ist das Schwimmbad." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_031",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.sport", "phrase.plans"],
+      "itemIds": ["item_kam_me", "item_tenis", "item_me_luejte", "item_te_shtunen"],
+      "prompt": { "lang": "de", "text": "Am Samstag werde ich mit Besa Tennis spielen." },
+      "answerLang": "sq",
+      "solutions": ["Të shtunën kam me luejtë tenis me Besën.", "Kam me luejtë tenis me Besën të shtunën."],
+      "wordBank": ["Të", "shtunën", "kam", "me", "luejtë", "tenis", "me", "Besën", "luaj", "Besa", "ke"],
+      "explanation": "Zukunft: „kam me luejtë“. Nach „me“ (mit) steht der Akkusativ: „me Besën“.",
+      "errorHints": [
+        { "pattern": "me luaj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me luejtë“." },
+        { "pattern": "me besa(\\s|$)", "category": "grammar.case", "hint": "Nach „me“ (mit) steht der Akkusativ: „me Besën“." },
+        { "pattern": "(^|\\s)ke me", "category": "grammar.verb_conjugation", "hint": "„Ke me“ heisst „du wirst“. Ich werde: „kam me“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_032",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.verbs.present"],
+      "itemIds": ["item_vjen", "item_me_mu", "item_koncert"],
+      "prompt": { "lang": "de", "text": "Kommst du mit mir ins Konzert?" },
+      "answerLang": "sq",
+      "solutions": ["A vjen me mu në koncert?", "Vjen me mu në koncert?"],
+      "wordBank": ["A", "vjen", "me", "mu", "në", "koncert", "vij", "ne", "kinema"],
+      "explanation": "„Vjen“ heisst „du kommst“, „me mu“ „mit mir“ (Standard: „me mua“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)vij(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Vij“ heisst „ich komme“. Du kommst: „vjen“." },
+        { "pattern": "me ne", "category": "vocab.confused", "hint": "„Me ne“ heisst „mit uns“." },
+        { "pattern": "kinema", "category": "vocab.confused", "hint": "„Kinema“ ist das Kino." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_033",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.sport", "grammar.verbs.past_simple"],
+      "itemIds": ["item_ekip", "item_me_fitue"],
+      "prompt": { "lang": "de", "text": "Die Mannschaft hat zwei zu eins gewonnen." },
+      "answerLang": "sq",
+      "solutions": ["Ekipi fitoi dy me nji."],
+      "wordBank": ["Ekipi", "fitoi", "dy", "me", "nji", "humbi", "tre", "ekip"],
+      "explanation": "„Fitoi“ heisst „gewann, hat gewonnen“. Den Spielstand sagst du mit „me“: „dy me nji“ (2:1).",
+      "errorHints": [
+        { "pattern": "humbi", "category": "vocab.confused", "hint": "„Humbi“ heisst „verlor“." },
+        { "pattern": "(^|\\s)tre(\\s|$)", "category": "vocab.confused", "hint": "„Tre“ heisst „drei“." },
+        { "pattern": "^ekip ", "category": "grammar.definite_article", "hint": "„Die Mannschaft“: mit Artikel „ekipi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_034",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_pelqen", "item_me_degjue", "item_me_vizatue", "item_muzike"],
+      "prompt": { "lang": "de", "text": "Ich höre gern Musik und zeichne gern." },
+      "answerLang": "sq",
+      "solutions": ["Më pëlqen me dëgjue muzikë dhe me vizatue."],
+      "wordBank": ["Më", "pëlqen", "me", "dëgjue", "muzikë", "dhe", "me", "vizatue", "vizatoj", "lexue", "kângë"],
+      "explanation": "Nach „më pëlqen“ steht der Gheg-Infinitiv: „me dëgjue“, „me vizatue“.",
+      "errorHints": [
+        { "pattern": "me vizatoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me vizatue“." },
+        { "pattern": "lexue", "category": "vocab.confused", "hint": "„Me lexue“ heisst „lesen“." },
+        { "pattern": "k[aâ]ng", "category": "vocab.confused", "hint": "„Kângë“ ist das Lied." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_035",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me", "phrase.plans"],
+      "itemIds": ["item_kam_qejf", "item_me_dale", "item_sonte"],
+      "prompt": { "lang": "de", "text": "Ich habe keine Lust, heute Abend auszugehen." },
+      "answerLang": "sq",
+      "solutions": ["S'kam qejf me dalë sonte.", "Sonte s'kam qejf me dalë."],
+      "wordBank": ["S'kam", "qejf", "me", "dalë", "sonte", "kohë", "dal", "du"],
+      "explanation": "„S'kam qejf“ heisst „ich habe keine Lust“. Danach folgt „me dalë“ (ausgehen).",
+      "errorHints": [
+        { "pattern": "kam koh", "category": "vocab.confused", "hint": "„S'kam kohë“ heisst „ich habe keine Zeit“. Keine Lust: „s'kam qejf“." },
+        { "pattern": "me dal(\\s|$)", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me dalë“." },
+        { "pattern": "(^|\\s)du(\\s|$)", "category": "vocab.confused", "hint": "„Du“ heisst „ich will“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_036",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.sport", "vocab.time", "grammar.verbs.present"],
+      "itemIds": ["item_fillon", "item_ndeshje", "item_kur"],
+      "prompt": { "lang": "de", "text": "Wann beginnt das Spiel?" },
+      "answerLang": "sq",
+      "solutions": ["Kur fillon ndeshja?", "Ndeshja kur fillon?"],
+      "wordBank": ["Kur", "fillon", "ndeshja", "ndeshje", "fillojmë", "koncerti"],
+      "explanation": "„Fillon“ heisst „beginnt“, „ndeshja“ ist das Spiel (mit Artikel).",
+      "errorHints": [
+        { "pattern": "ndeshje(\\s|$)", "category": "grammar.definite_article", "hint": "„Das Spiel“: mit Artikel „ndeshja“." },
+        { "pattern": "fillojm", "category": "grammar.verb_conjugation", "hint": "„Fillojmë“ heisst „wir beginnen“. Das Spiel beginnt: „fillon“." },
+        { "pattern": "koncerti", "category": "vocab.confused", "hint": "„Koncerti“ ist das Konzert." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_037",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "vocab.sport"],
+      "itemIds": ["item_gjithmone", "item_me_vrapue", "item_park"],
+      "prompt": { "lang": "sq", "text": "Gjithmonë vrapoj në park." },
+      "answerLang": "de",
+      "solutions": ["Ich jogge immer im Park.", "Immer jogge ich im Park."],
+      "wordBank": ["Ich", "jogge", "immer", "im", "Park", "selten", "oft", "Wald"],
+      "explanation": "„Gjithmonë“ heisst „immer“, „vrapoj“ „ich laufe, ich jogge“.",
+      "errorHints": [
+        { "pattern": "selten", "category": "vocab.confused", "hint": "„Selten“ hiesse „rrallë“." },
+        { "pattern": "(^|\\s)oft(\\s|$)", "category": "vocab.confused", "hint": "„Oft“ hiesse „shpesh“." },
+        { "pattern": "wald", "category": "vocab.confused", "hint": "„Park“ ist der Park; der Wald heisst „pyll“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_038",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "vocab.leisure"],
+      "itemIds": ["item_ralle", "item_kinema"],
+      "prompt": { "lang": "sq", "text": "Rrallë shkoj në kinema." },
+      "answerLang": "de",
+      "solutions": ["Ich gehe selten ins Kino.", "Selten gehe ich ins Kino."],
+      "wordBank": ["Ich", "gehe", "selten", "ins", "Kino", "oft", "nie", "Konzert"],
+      "explanation": "„Rrallë“ heisst „selten“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)oft(\\s|$)", "category": "vocab.confused", "hint": "„Oft“ hiesse „shpesh“." },
+        { "pattern": "(^|\\s)nie(\\s|$)", "category": "vocab.confused", "hint": "„Nie“ hiesse „kurrë“." },
+        { "pattern": "konzert", "category": "vocab.confused", "hint": "„Kinema“ ist das Kino." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_039",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_a_je_i_lire", "item_te_dielen"],
+      "prompt": { "lang": "sq", "text": "A je e lirë të dielën?" },
+      "answerLang": "de",
+      "solutions": ["Bist du am Sonntag frei?", "Bist du frei am Sonntag?"],
+      "wordBank": ["Bist", "du", "am", "Sonntag", "frei", "Samstag", "billig", "wir"],
+      "explanation": "„E lirë“ heisst hier „frei“ (eine Frau wird gefragt). Beim Einkaufen heisst „i lirë“ „billig“.",
+      "errorHints": [
+        { "pattern": "samstag", "category": "vocab.confused", "hint": "„Të dielën“ heisst „am Sonntag“." },
+        { "pattern": "billig", "category": "vocab.confused", "hint": "Hier heisst „e lirë“ „frei“. „Billig“ passt nur beim Einkaufen." },
+        { "pattern": "(^|\\s)wir(\\s|$)", "category": "vocab.confused", "hint": "„Je“ heisst „du bist“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_040",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport", "vocab.time"],
+      "itemIds": ["item_ndeshje", "item_fillon", "item_ore"],
+      "prompt": { "lang": "sq", "text": "Ndeshja fillon në orën tetë." },
+      "answerLang": "de",
+      "solutions": ["Das Spiel beginnt um acht Uhr.", "Um acht Uhr beginnt das Spiel."],
+      "wordBank": ["Das", "Spiel", "beginnt", "um", "acht", "Uhr", "endet", "sieben", "Konzert"],
+      "explanation": "„Fillon“ heisst „beginnt“, „në orën tetë“ „um acht Uhr“.",
+      "errorHints": [
+        { "pattern": "endet", "category": "vocab.confused", "hint": "„Fillon“ heisst „beginnt“." },
+        { "pattern": "sieben", "category": "vocab.confused", "hint": "„Tetë“ heisst „acht“." },
+        { "pattern": "konzert", "category": "vocab.confused", "hint": "„Ndeshja“ ist das Spiel, das Match." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_041",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_kam_qejf", "item_me_peshkue", "item_liqen"],
+      "prompt": { "lang": "sq", "text": "Arben ka qejf me peshkue në liqen." },
+      "answerLang": "de",
+      "solutions": ["Arben fischt gern am See.", "Arben angelt gern am See."],
+      "wordBank": ["Arben", "fischt", "gern", "am", "See", "Fluss", "schwimmt", "nie"],
+      "explanation": "„Ka qejf me peshkue“ heisst „er fischt gern“. „Liqen“ ist der See.",
+      "errorHints": [
+        { "pattern": "fluss", "category": "vocab.confused", "hint": "„Liqen“ ist der See; der Fluss heisst „lumë“." },
+        { "pattern": "schwimmt", "category": "vocab.confused", "hint": "„Schwimmen“ hiesse „me notue“." },
+        { "pattern": "(^|\\s)nie(\\s|$)", "category": "vocab.confused", "hint": "„Nie“ hiesse „kurrë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_042",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "vocab.sport"],
+      "itemIds": ["item_fatkeqesisht", "item_kohe", "item_trening"],
+      "prompt": { "lang": "sq", "text": "Fatkeqësisht s'kam kohë, kam trening." },
+      "answerLang": "de",
+      "solutions": ["Leider habe ich keine Zeit, ich habe Training."],
+      "wordBank": ["Leider", "habe", "ich", "keine", "Zeit", "ich", "habe", "Training", "Lust", "Konzert", "gern"],
+      "explanation": "„Fatkeqësisht“ heisst „leider“, „trening“ ist das Training.",
+      "errorHints": [
+        { "pattern": "lust", "category": "vocab.confused", "hint": "Lust wäre „qejf“; „kohë“ heisst „Zeit“." },
+        { "pattern": "konzert", "category": "vocab.confused", "hint": "„Trening“ ist das Training." },
+        { "pattern": "gern", "category": "vocab.confused", "hint": "„Fatkeqësisht“ heisst „leider“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_043",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.sport", "grammar.verbs.past_simple"],
+      "itemIds": ["item_me_humbe", "item_dje"],
+      "prompt": { "lang": "sq", "text": "Dje Prishtina humbi nji me zero." },
+      "answerLang": "de",
+      "solutions": ["Gestern hat Prishtina eins zu null verloren.", "Prishtina hat gestern eins zu null verloren."],
+      "wordBank": ["Gestern", "hat", "Prishtina", "eins", "zu", "null", "verloren", "gewonnen", "zwei", "morgen"],
+      "explanation": "„Humbi“ heisst „verlor, hat verloren“. „Nji me zero“ heisst „eins zu null“.",
+      "errorHints": [
+        { "pattern": "gewonnen", "category": "vocab.confused", "hint": "„Humbi“ heisst „verlor“; gewinnen heisst „me fitue“." },
+        { "pattern": "zwei", "category": "vocab.confused", "hint": "„Nji“ heisst „eins“." },
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "„Dje“ heisst „gestern“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_044",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "vocab.sport", "grammar.verbs.present"],
+      "itemIds": ["item_sa_shpesh", "item_luaj", "item_tenis", "item_shpesh"],
+      "prompt": { "lang": "sq", "text": "Sa shpesh luan tenis?" },
+      "answerLang": "de",
+      "solutions": ["Wie oft spielst du Tennis?"],
+      "wordBank": ["Wie", "oft", "spielst", "du", "Tennis", "wann", "spiele", "Schach"],
+      "explanation": "„Sa shpesh?“ heisst „wie oft?“, „luan“ „du spielst“.",
+      "errorHints": [
+        { "pattern": "wann", "category": "vocab.confused", "hint": "„Wann“ hiesse „kur“. „Sa shpesh“ heisst „wie oft“." },
+        { "pattern": "spiele", "category": "grammar.verb_conjugation", "hint": "„Luan“ heisst „du spielst“." },
+        { "pattern": "schach", "category": "vocab.confused", "hint": "Schach hiesse „shah“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_045",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "phrase.plans"],
+      "itemIds": ["item_me_u_takue", "item_kam_me", "item_park", "item_pasneser", "item_ore"],
+      "prompt": { "lang": "sq", "text": "Kemi me u takue te parku pasnesër në orën dhjetë." },
+      "answerLang": "de",
+      "solutions": [
+        "Wir werden uns übermorgen um zehn Uhr beim Park treffen.",
+        "Übermorgen werden wir uns um zehn Uhr beim Park treffen."
+      ],
+      "wordBank": [
+        "Wir",
+        "werden",
+        "uns",
+        "übermorgen",
+        "um",
+        "zehn",
+        "Uhr",
+        "beim",
+        "Park",
+        "treffen",
+        "morgen",
+        "Kino",
+        "neun"
+      ],
+      "explanation": "„Kemi me u takue“ heisst „wir werden uns treffen“, „pasnesër“ „übermorgen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)morgen", "category": "vocab.confused", "hint": "„Pasnesër“ heisst „übermorgen“." },
+        { "pattern": "kino", "category": "vocab.confused", "hint": "„Parku“ ist der Park." },
+        { "pattern": "neun", "category": "vocab.confused", "hint": "„Dhjetë“ heisst „zehn“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_046",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans", "phrase.politeness"],
+      "itemIds": ["item_ftese", "item_faleminderit"],
+      "prompt": { "lang": "sq", "text": "Faleminderit për ftesën!" },
+      "answerLang": "de",
+      "solutions": ["Danke für die Einladung!"],
+      "wordBank": ["Danke", "für", "die", "Einladung", "Karte", "Spiel", "bitte"],
+      "explanation": "„Ftesa“ ist die Einladung; nach „për“ steht der Akkusativ „ftesën“.",
+      "errorHints": [
+        { "pattern": "karte", "category": "vocab.confused", "hint": "Die Karte hiesse „biletë“." },
+        { "pattern": "spiel", "category": "vocab.confused", "hint": "„Ftesën“ ist die Einladung." },
+        { "pattern": "bitte", "category": "vocab.confused", "hint": "„Faleminderit“ heisst „danke“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_047",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["phrase.plans", "vocab.leisure"],
+      "itemIds": ["item_cka_thua", "item_shkojme", "item_biciklete", "item_mal"],
+      "prompt": { "lang": "sq", "text": "Çka thua, a shkojmë me biçikletë në mal?" },
+      "answerLang": "de",
+      "solutions": [
+        "Was meinst du, fahren wir mit dem Velo in die Berge?",
+        "Was meinst du, fahren wir mit dem Fahrrad in die Berge?"
+      ],
+      "wordBank": [
+        "Was",
+        "meinst",
+        "du",
+        "fahren",
+        "wir",
+        "mit",
+        "dem",
+        "Velo",
+        "in",
+        "die",
+        "Berge",
+        "Fahrrad",
+        "Auto",
+        "Meer"
+      ],
+      "explanation": "„Çka thua?“ heisst „was meinst du?“, „me biçikletë“ „mit dem Velo“.",
+      "errorHints": [
+        { "pattern": "auto", "category": "vocab.confused", "hint": "Das Auto hiesse „veturë“." },
+        { "pattern": "meer", "category": "vocab.confused", "hint": "„Mal“ heisst „Berg“; das Meer heisst „det“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_048",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_lojtar", "item_trening", "item_cdo_dite"],
+      "prompt": { "lang": "sq", "text": "Lojtarët kanë trening çdo ditë." },
+      "answerLang": "de",
+      "solutions": ["Die Spieler haben jeden Tag Training.", "Die Spieler haben Training jeden Tag."],
+      "wordBank": ["Die", "Spieler", "haben", "jeden", "Tag", "Training", "Trainer", "Woche", "Spiel"],
+      "explanation": "„Lojtarët“ ist die Mehrzahl von „lojtar“ (Spieler), mit Artikel.",
+      "errorHints": [
+        { "pattern": "trainer", "category": "vocab.confused", "hint": "Der Trainer heisst „trajner“." },
+        { "pattern": "woche", "category": "vocab.confused", "hint": "„Çdo ditë“ heisst „jeden Tag“." },
+        { "pattern": "(^|\\s)spiel(\\s|$)", "category": "vocab.confused", "hint": "„Trening“ ist das Training." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_049",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport", "grammar.verbs.present"],
+      "itemIds": ["item_luaj", "item_volejboll"],
+      "prompt": { "lang": "de", "text": "Ich spiele Volleyball." },
+      "answerLang": "sq",
+      "solutions": ["Luaj volejboll.", "Unë luaj volejboll."],
+      "explanation": "Die Sportart steht ohne Artikel: „Luaj volejboll.“",
+      "errorHints": [
+        { "pattern": "(^|\\s)luan(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Luan“ heisst „du spielst“. Ich spiele: „luaj“." },
+        { "pattern": "volejbolli", "category": "grammar.definite_article", "hint": "Nach „luaj“ steht die Sportart ohne Artikel: „volejboll“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_050",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.sport", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_basketboll", "item_me_luejte", "item_pelqen", "item_kam_qejf"],
+      "prompt": { "lang": "de", "text": "Spielst du gern Basketball?" },
+      "answerLang": "sq",
+      "solutions": [
+        "A të pëlqen me luejtë basketboll?",
+        "Të pëlqen me luejtë basketboll?",
+        "A ke qejf me luejtë basketboll?",
+        "Ke qejf me luejtë basketboll?"
+      ],
+      "standardForms": ["A të pëlqen të luash basketboll?", "Të pëlqen të luash basketboll?"],
+      "explanation": "„A të pëlqen me …?“ oder „A ke qejf me …?“ – beides heisst „Tust du gern …?“.",
+      "errorHints": [
+        { "pattern": "me luaj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me luejtë“." },
+        { "pattern": "m[eë] p[eë]lqen", "category": "grammar.clitics", "hint": "„Më pëlqen“ heisst „mir gefällt“. Dir gefällt: „të pëlqen“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen. „kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_051",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "vocab.sport"],
+      "itemIds": ["item_sa_shpesh", "item_me_notue", "item_shpesh", "item_pishine"],
+      "prompt": { "lang": "de", "text": "Wie oft gehst du schwimmen?" },
+      "answerLang": "sq",
+      "solutions": ["Sa shpesh shkon me notue?", "Sa shpesh noton?", "Sa shpesh shkon në pishinë?"],
+      "standardForms": ["Sa shpesh shkon për të notuar?"],
+      "explanation": "„Sa shpesh?“ heisst „wie oft?“. Danach: „shkon me notue“ – du gehst schwimmen.",
+      "errorHints": [
+        { "pattern": "^kur ", "category": "vocab.confused", "hint": "„Kur“ heisst „wann“. Wie oft: „sa shpesh“." },
+        { "pattern": "me notoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me notue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_052",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_dakord", "item_shihemi", "item_neser"],
+      "prompt": { "lang": "de", "text": "Einverstanden, bis morgen!" },
+      "answerLang": "sq",
+      "solutions": ["Dakord, shihemi nesër!", "Dakord, nesër shihemi!", "Dakort, shihemi nesër!"],
+      "explanation": "„Dakord“ heisst „einverstanden“, „shihemi nesër“ „wir sehen uns morgen“.",
+      "errorHints": [
+        { "pattern": "dje", "category": "vocab.confused", "hint": "„Dje“ heisst „gestern“. Morgen: „nesër“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_053",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_me_vjen_keq", "item_kam_pune"],
+      "prompt": { "lang": "de", "text": "Es tut mir leid, ich habe zu tun." },
+      "answerLang": "sq",
+      "solutions": ["Më vjen keq, kam punë.", "Më vjen keq, jam i zânë.", "Më vjen keq, jam e zânë."],
+      "explanation": "„Më vjen keq“ heisst „es tut mir leid“, „kam punë“ wörtlich „ich habe Arbeit“.",
+      "errorHints": [
+        { "pattern": "m[eë] vjen mir", "category": "vocab.confused", "hint": "„Më vjen mirë“ heisst „es freut mich“. Es tut mir leid: „më vjen keq“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_054",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans", "grammar.verbs.reflexive"],
+      "itemIds": ["item_takohemi", "item_kur", "item_ne_sa"],
+      "prompt": { "lang": "de", "text": "Wann treffen wir uns?" },
+      "answerLang": "sq",
+      "solutions": ["Kur takohemi?", "Në sa takohemi?"],
+      "explanation": "„Kur?“ heisst „wann?“, „takohemi“ „wir treffen uns“.",
+      "errorHints": [
+        { "pattern": "^ku takohemi", "category": "vocab.confused", "hint": "„Ku“ heisst „wo“. Wann: „kur“." },
+        { "pattern": "takojm[eë]", "category": "grammar.verb_conjugation", "hint": "„Takojmë“ braucht ein Objekt (wir treffen jemanden). Wir treffen uns: „takohemi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_055",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.sport"],
+      "itemIds": ["item_kam_me", "item_stadium", "item_te_dielen"],
+      "prompt": { "lang": "de", "text": "Am Sonntag werden wir ins Stadion gehen." },
+      "answerLang": "sq",
+      "solutions": [
+        "Të dielën kemi me shkue në stadium.",
+        "Kemi me shkue në stadium të dielën.",
+        "Të dielën kena me shkue në stadium.",
+        "Kena me shkue në stadium të dielën.",
+        "Të dielën ne kemi me shkue në stadium.",
+        "Ne kemi me shkue në stadium të dielën."
+      ],
+      "standardForms": ["Të dielën do të shkojmë në stadium.", "Do të shkojmë në stadium të dielën."],
+      "explanation": "Für „wir werden“: „kemi me“ + Partizip – „kemi me shkue“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam me", "category": "grammar.verb_conjugation", "hint": "Für „wir“: „kemi me“." },
+        { "pattern": "me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_056",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "vocab.sport", "grammar.verbs.present"],
+      "itemIds": ["item_me_vrapue", "item_here"],
+      "prompt": { "lang": "de", "text": "Ich jogge zweimal pro Woche." },
+      "answerLang": "sq",
+      "solutions": ["Vrapoj dy herë në javë.", "Dy herë në javë vrapoj.", "Unë vrapoj dy herë në javë."],
+      "explanation": "„Dy herë në javë“ heisst „zweimal pro Woche“, „vrapoj“ „ich laufe, ich jogge“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)tr[ei] her", "category": "vocab.confused", "hint": "„Tre/tri herë“ heisst „dreimal“. Zweimal: „dy herë“." },
+        { "pattern": "vrapon", "category": "grammar.verb_conjugation", "hint": "„Vrapon“ heisst „du läufst“. Ich: „vrapoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_057",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "vocab.sport"],
+      "itemIds": ["item_me_notue", "item_du", "item_me_mesue", "item_s_muj"],
+      "prompt": { "lang": "de", "text": "Ich kann nicht schwimmen, aber ich möchte es lernen." },
+      "answerLang": "sq",
+      "solutions": [
+        "S'di me notue, po du me mësue.",
+        "Nuk di me notue, po du me mësue.",
+        "S'di me notue, po due me mësue.",
+        "Nuk di me notue, po due me mësue.",
+        "S'muj me notue, po du me mësue.",
+        "Nuk muj me notue, po du me mësue."
+      ],
+      "standardForms": ["Nuk di të notoj, por dua të mësoj.", "Nuk di me notue, por dua të mësoj."],
+      "explanation": "„Di me“ heisst „können (gelernt)“, „po“ heisst hier „aber“. Nach „du“ folgt „me mësue“.",
+      "errorHints": [
+        { "pattern": "me notoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me notue“." },
+        { "pattern": "me m[eë]soj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me mësue“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_058",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.sport", "grammar.verbs.past_simple", "grammar.verbs.perfect"],
+      "itemIds": ["item_me_fitue"],
+      "prompt": { "lang": "de", "text": "Wer hat gewonnen?" },
+      "answerLang": "sq",
+      "solutions": ["Kush fitoi?", "Kush ka fitue?"],
+      "standardForms": ["Kush ka fituar?"],
+      "explanation": "„Fitoi“ ist die Vergangenheit von „fiton“. Auch „Kush ka fitue?“ (Perfekt) ist richtig.",
+      "errorHints": [
+        { "pattern": "kush fiton", "category": "grammar.verb_tense", "hint": "„Fiton“ ist Präsens (gewinnt). Gewonnen: „fitoi“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Das Perfekt (Einheit „Perfekt“, A2.3) ist nur als weitere Lösung hinterlegt."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_059",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport", "grammar.definite_article.masc"],
+      "itemIds": ["item_top"],
+      "prompt": { "lang": "de", "text": "der Ball (mit Artikel)" },
+      "answerLang": "sq",
+      "solutions": ["topi"],
+      "explanation": "„Top“ ist maskulin; mit Artikel: „topi“.",
+      "errorHints": [{ "pattern": "^top$", "category": "grammar.definite_article", "hint": "Mit Artikel: „topi“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_060",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_a_ke_kohe", "item_pasdite", "item_kohe", "item_a_je_i_lire"],
+      "prompt": { "lang": "de", "text": "Hast du heute Nachmittag Zeit?" },
+      "answerLang": "sq",
+      "solutions": [
+        "A ke kohë sot pasdite?",
+        "Ke kohë sot pasdite?",
+        "A ke kohë pasdite?",
+        "A je i lirë sot pasdite?",
+        "A je e lirë sot pasdite?"
+      ],
+      "explanation": "„A ke kohë?“ heisst „hast du Zeit?“, „sot pasdite“ „heute Nachmittag“.",
+      "errorHints": [
+        { "pattern": "^a kam koh", "category": "grammar.verb_conjugation", "hint": "„Kam“ heisst „ich habe“. Du hast: „ke“." },
+        { "pattern": "paradite", "category": "vocab.confused", "hint": "„Paradite“ heisst „am Vormittag“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_061",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["phrase.plans", "grammar.clitics"],
+      "itemIds": ["item_me_ftue", "item_koncert", "item_vjen"],
+      "prompt": { "lang": "de", "text": "Ich lade dich zum Konzert ein, kommst du?" },
+      "answerLang": "sq",
+      "solutions": ["Të ftoj në koncert, a vjen?", "Të ftoj në koncert, vjen?", "Të ftoj në koncert. A vjen?"],
+      "explanation": "„Të ftoj“ heisst „ich lade dich ein“ – „të“ ist die Kurzform für „dich“.",
+      "errorHints": [
+        { "pattern": "^ftoj ", "category": "grammar.clitics", "hint": "„Dich“ als Kurzform vor dem Verb: „të ftoj“." },
+        { "pattern": "a vij", "category": "grammar.verb_conjugation", "hint": "„Vij“ heisst „ich komme“. Kommst du: „a vjen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_062",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_hobi", "item_muzike", "item_kam_qejf", "item_me_kendue", "item_me_vallezue"],
+      "prompt": { "lang": "sq", "text": "Hobi im âsht muzika: kam qejf me këndue dhe me vallëzue." },
+      "answerLang": "de",
+      "solutions": [
+        "Mein Hobby ist die Musik: Ich singe und tanze gern.",
+        "Mein Hobby ist Musik: Ich singe und tanze gern.",
+        "Mein Hobby ist die Musik, ich singe und tanze gern.",
+        "Mein Hobby ist Musik, ich singe und tanze gern.",
+        "Mein Hobby ist die Musik: Ich singe gern und tanze gern."
+      ],
+      "explanation": "„Hobi im“ heisst „mein Hobby“, „kam qejf me …“ „ich … gern“.",
+      "errorHints": [{ "pattern": "spiele", "category": "vocab.confused", "hint": "„Me këndue“ heisst „singen“." }],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_063",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "vocab.leisure"],
+      "itemIds": ["item_ndonjihere", "item_shah", "item_gjysh", "item_luaj"],
+      "prompt": { "lang": "sq", "text": "Ndonjiherë luaj shah me gjyshin." },
+      "answerLang": "de",
+      "solutions": [
+        "Manchmal spiele ich mit dem Grossvater Schach.",
+        "Manchmal spiele ich Schach mit dem Grossvater.",
+        "Manchmal spiele ich mit meinem Grossvater Schach.",
+        "Manchmal spiele ich Schach mit meinem Grossvater.",
+        "Manchmal spiele ich mit Grossvater Schach."
+      ],
+      "explanation": "„Ndonjiherë“ heisst „manchmal“ (Standard: ndonjëherë), „me gjyshin“ „mit dem Grossvater“.",
+      "errorHints": [
+        { "pattern": "immer", "category": "vocab.confused", "hint": "„Immer“ wäre „gjithmonë“. „Ndonjiherë“ heisst „manchmal“." },
+        { "pattern": "selten", "category": "vocab.confused", "hint": "„Selten“ wäre „rrallë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_064",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.sport", "vocab.time"],
+      "itemIds": ["item_here", "item_muaj", "item_me_skijue", "item_shkojme"],
+      "prompt": { "lang": "sq", "text": "Nji herë në muaj shkojmë me skijue në Brezovicë." },
+      "answerLang": "de",
+      "solutions": [
+        "Einmal im Monat gehen wir in Brezovica Ski fahren.",
+        "Einmal pro Monat gehen wir in Brezovica Ski fahren.",
+        "Einmal im Monat fahren wir in Brezovica Ski.",
+        "Einmal pro Monat fahren wir in Brezovica Ski.",
+        "Wir gehen einmal im Monat in Brezovica Ski fahren.",
+        "Einmal im Monat gehen wir in Brezovicë Ski fahren."
+      ],
+      "explanation": "„Nji herë në muaj“ heisst „einmal im Monat“. Brezovica ist ein Skigebiet im Kosovo.",
+      "errorHints": [
+        { "pattern": "woche", "category": "vocab.confused", "hint": "„Muaj“ heisst „Monat“; die Woche heisst „javë“." },
+        { "pattern": "zweimal", "category": "vocab.confused", "hint": "„Nji herë“ heisst „einmal“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Infinitiv „me skijue“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_065",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_pse_jo", "item_shkojme", "item_hajde"],
+      "prompt": { "lang": "de", "text": "Warum nicht? Gehen wir!" },
+      "answerLang": "sq",
+      "solutions": ["Pse jo? Shkojmë!", "Pse jo? Hajde, shkojmë!", "Pse jo, shkojmë!"],
+      "explanation": "„Pse jo?“ heisst „warum nicht?“, „shkojmë!“ „gehen wir!“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)shkoj$", "category": "grammar.verb_conjugation", "hint": "„Shkoj“ heisst „ich gehe“. Gehen wir: „shkojmë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_066",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "grammar.negation", "vocab.sport"],
+      "itemIds": ["item_kam_me", "item_trening", "item_i_lodhun", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen werde ich nicht ins Training gehen, ich bin müde." },
+      "answerLang": "sq",
+      "solutions": [
+        "Nesër nuk kam me shkue në trening, jam i lodhun.",
+        "Nesër nuk kam me shkue në trening, jam e lodhun.",
+        "Nesër s'kam me shkue në trening, jam i lodhun.",
+        "Nesër s'kam me shkue në trening, jam e lodhun.",
+        "Nuk kam me shkue në trening nesër, jam i lodhun.",
+        "Nuk kam me shkue në trening nesër, jam e lodhun."
+      ],
+      "standardForms": [
+        "Nesër nuk do të shkoj në trening, jam i lodhur.",
+        "Nesër nuk do të shkoj në trening, jam e lodhur.",
+        "Nesër nuk kam me shkue në trening, jam i lodhur.",
+        "Nesër nuk kam me shkue në trening, jam e lodhur."
+      ],
+      "explanation": "Verneinte Zukunft: „nuk kam me shkue“. „I lodhun“ heisst „müde“ (Standard: „i lodhur“).",
+      "errorHints": [
+        { "pattern": "kam me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." },
+        { "pattern": "^nes[eë]r nuk shkoj", "category": "grammar.verb_tense", "hint": "„Nuk shkoj“ ist Präsens. Für „ich werde nicht gehen“: „nuk kam me shkue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_067",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.sport"],
+      "itemIds": ["item_luaj", "item_tenis"],
+      "prompt": { "lang": "de", "text": "Ich spiele Tennis." },
+      "answerLang": "sq",
+      "text": "___ tenis.",
+      "solutions": ["Luaj"],
+      "choices": ["Luaj", "Luan", "Luajmë", "Luajnë"],
+      "explanation": "Zu „unë“ (ich) gehört „luaj“.",
+      "errorHints": [
+        { "pattern": "^luan$", "category": "grammar.verb_conjugation", "hint": "„Luan“ heisst „du spielst / er spielt“." },
+        { "pattern": "^luajm[eë]$", "category": "grammar.verb_conjugation", "hint": "„Luajmë“ heisst „wir spielen“." },
+        { "pattern": "^luajn[eë]$", "category": "grammar.verb_conjugation", "hint": "„Luajnë“ heisst „sie spielen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_068",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_kinema", "item_shpesh", "item_kurre", "item_gjithmone", "item_ralle"],
+      "prompt": { "lang": "de", "text": "Ich gehe selten ins Kino." },
+      "answerLang": "sq",
+      "text": "Shkoj ___ në kinema.",
+      "solutions": ["rrallë"],
+      "choices": ["rrallë", "gjithmonë", "shpesh", "kurrë"],
+      "explanation": "„Rrallë“ heisst „selten“.",
+      "errorHints": [
+        { "pattern": "^gjithmon", "category": "vocab.confused", "hint": "„Gjithmonë“ heisst „immer“." },
+        { "pattern": "^shpesh$", "category": "vocab.confused", "hint": "„Shpesh“ heisst „oft“." },
+        { "pattern": "^kurr", "category": "vocab.confused", "hint": "„Kurrë“ heisst „nie“ und braucht „nuk“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_069",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.prepositions"],
+      "itemIds": ["item_takohemi", "item_stadium", "item_pishine"],
+      "prompt": { "lang": "de", "text": "Wir treffen uns beim Stadion." },
+      "answerLang": "sq",
+      "text": "Takohemi te ___.",
+      "solutions": ["stadiumi"],
+      "choices": ["stadiumi", "stadium", "stadiumin", "pishina"],
+      "explanation": "Nach „te“ (bei) steht das Nomen mit Artikel im Nominativ: „te stadiumi“.",
+      "errorHints": [
+        { "pattern": "^stadium$", "category": "grammar.definite_article", "hint": "Nach „te“ steht das Nomen mit Artikel: „stadiumi“." },
+        { "pattern": "^stadiumin$", "category": "grammar.case", "hint": "Nach „te“ steht der Nominativ: „stadiumi“, nicht der Akkusativ." },
+        { "pattern": "^pishina$", "category": "vocab.confused", "hint": "„Pishina“ ist das Schwimmbad." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_070",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.sport"],
+      "itemIds": ["item_luaj", "item_volejboll", "item_cdo_dite"],
+      "prompt": { "lang": "de", "text": "Sie spielen jeden Tag Volleyball." },
+      "answerLang": "sq",
+      "text": "Ata ___ volejboll çdo ditë.",
+      "solutions": ["luajnë"],
+      "choices": ["luajnë", "luajmë", "luan", "luani"],
+      "explanation": "Zu „ata“ (sie) gehört „luajnë“.",
+      "errorHints": [
+        { "pattern": "^luajm[eë]$", "category": "grammar.verb_conjugation", "hint": "„Luajmë“ heisst „wir spielen“." },
+        { "pattern": "^luan$", "category": "grammar.verb_conjugation", "hint": "„Luan“ heisst „du spielst / er spielt“." },
+        { "pattern": "^luani$", "category": "grammar.verb_conjugation", "hint": "„Luani“ heisst „ihr spielt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_071",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.pronouns.personal"],
+      "itemIds": ["item_me_mu", "item_don", "item_me_ardhe"],
+      "prompt": { "lang": "de", "text": "Willst du mit mir kommen?" },
+      "answerLang": "sq",
+      "text": "A don me ardhë me ___?",
+      "solutions": ["mu"],
+      "choices": ["mu", "ti", "ne", "unë"],
+      "explanation": "„Me mu“ heisst „mit mir“ (Standard: „me mua“).",
+      "errorHints": [
+        { "pattern": "^ti$", "category": "grammar.case", "hint": "Nach „me“ (mit) steht „mu“: „me mu“ – mit mir." },
+        { "pattern": "^ne$", "category": "vocab.confused", "hint": "„Me ne“ heisst „mit uns“." },
+        { "pattern": "^un[eë]$", "category": "grammar.case", "hint": "Nach „me“ steht „mu“, nicht „unë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_072",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans", "grammar.verbs.present"],
+      "itemIds": ["item_cka_thua"],
+      "prompt": { "lang": "de", "text": "Was meinst du?" },
+      "answerLang": "sq",
+      "text": "Çka ___?",
+      "solutions": ["thua"],
+      "choices": ["thua", "them", "thotë", "thoni"],
+      "explanation": "„Thua“ heisst „du sagst“: „Çka thua?“ – „Was meinst du?“",
+      "errorHints": [
+        { "pattern": "^them$", "category": "grammar.verb_conjugation", "hint": "„Them“ heisst „ich sage“." },
+        { "pattern": "^thot[eë]$", "category": "grammar.verb_conjugation", "hint": "„Thotë“ heisst „er/sie sagt“." },
+        { "pattern": "^thoni$", "category": "grammar.verb_conjugation", "hint": "„Thoni“ heisst „ihr sagt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_073",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.past_simple", "vocab.sport"],
+      "itemIds": ["item_me_fitue", "item_dje", "item_me_humbe"],
+      "prompt": { "lang": "de", "text": "Gestern haben wir gewonnen." },
+      "answerLang": "sq",
+      "text": "Dje ___.",
+      "solutions": ["fituam"],
+      "choices": ["fituam", "fitojmë", "kemi me fitue", "humbëm"],
+      "explanation": "„Fituam“ ist die Vergangenheit: „wir gewannen, wir haben gewonnen“.",
+      "errorHints": [
+        { "pattern": "^fitojm[eë]$", "category": "grammar.verb_tense", "hint": "„Fitojmë“ ist Präsens: wir gewinnen." },
+        { "pattern": "^kemi me", "category": "grammar.verb_tense", "hint": "„Kemi me fitue“ ist Zukunft: wir werden gewinnen." },
+        { "pattern": "^humb[eë]m$", "category": "vocab.confused", "hint": "„Humbëm“ heisst „wir haben verloren“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_074",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.sport"],
+      "itemIds": ["item_kam_me", "item_me_luejte", "item_futboll", "item_te_shtunen", "item_luaj", "item_loje"],
+      "prompt": { "lang": "de", "text": "Am Samstag werde ich Fussball spielen." },
+      "answerLang": "sq",
+      "text": "Të shtunën kam me ___ futboll.",
+      "solutions": ["luejtë"],
+      "choices": ["luejtë", "luaj", "luan", "lojë"],
+      "explanation": "Nach „kam me“ steht das Partizip: „kam me luejtë“ – ich werde spielen.",
+      "errorHints": [
+        { "pattern": "^luaj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „luejtë“." },
+        { "pattern": "^luan$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „luejtë“." },
+        { "pattern": "^loj[eë]$", "category": "vocab.confused", "hint": "„Lojë“ ist das Nomen: das Spiel." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_075",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_a_ke_kohe", "item_ore", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Hast du Zeit?" },
+      "answerLang": "sq",
+      "text": "A ke ___?",
+      "solutions": ["kohë"],
+      "choices": ["kohë", "punë", "qejf", "orë"],
+      "explanation": "„A ke kohë?“ heisst „hast du Zeit?“.",
+      "errorHints": [
+        { "pattern": "^pun[eë]$", "category": "vocab.confused", "hint": "„A ke punë?“ heisst „hast du zu tun?“." },
+        { "pattern": "^qejf$", "category": "vocab.confused", "hint": "„A ke qejf?“ heisst „hast du Lust?“." },
+        { "pattern": "^or[eë]$", "category": "vocab.confused", "hint": "„Orë“ heisst „Uhr, Stunde“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_076",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.present", "vocab.sport"],
+      "itemIds": ["item_trajner", "item_trening", "item_fillon", "item_ore"],
+      "prompt": { "lang": "de", "text": "Der Trainer sagt, dass das Training um fünf Uhr beginnt." },
+      "answerLang": "sq",
+      "text": "Trajneri thotë se treningu ___ në orën pesë.",
+      "solutions": ["fillon"],
+      "choices": ["fillon", "filloj", "fillojnë", "fillova"],
+      "explanation": "„Treningu fillon“ – das Training beginnt (3. Person Einzahl).",
+      "errorHints": [
+        { "pattern": "^filloj$", "category": "grammar.verb_conjugation", "hint": "„Filloj“ heisst „ich beginne“." },
+        { "pattern": "^fillojn[eë]$", "category": "grammar.verb_conjugation", "hint": "„Fillojnë“ heisst „sie beginnen“." },
+        { "pattern": "^fillova$", "category": "grammar.verb_tense", "hint": "„Fillova“ ist Vergangenheit: ich begann." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_077",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "grammar.negation"],
+      "itemIds": ["item_kurre", "item_palester", "item_shpesh", "item_ndonjihere", "item_gjithmone"],
+      "prompt": { "lang": "de", "text": "Ich gehe nie ins Fitnessstudio." },
+      "answerLang": "sq",
+      "text": "Nuk shkoj ___ në palestër.",
+      "solutions": ["kurrë"],
+      "choices": ["kurrë", "gjithmonë", "shpesh", "ndonjiherë"],
+      "explanation": "„Nuk … kurrë“ heisst „nie“.",
+      "errorHints": [
+        { "pattern": "^gjithmon", "category": "vocab.confused", "hint": "„Nuk shkoj gjithmonë“ hiesse „ich gehe nicht immer“." },
+        { "pattern": "^shpesh$", "category": "vocab.confused", "hint": "„Nuk shkoj shpesh“ hiesse „ich gehe nicht oft“." },
+        { "pattern": "^ndonj", "category": "vocab.confused", "hint": "„Ndonjiherë“ heisst „manchmal“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_078",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_me_kenaqesi", "item_shkojme", "item_me_vallezue", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Gehen wir tanzen? – Ja, gern!" },
+      "answerLang": "sq",
+      "text": "A shkojmë me vallëzue? – Po, me ___!",
+      "solutions": ["kënaqësi"],
+      "choices": ["kënaqësi", "punë", "kohë", "mu"],
+      "explanation": "„Me kënaqësi!“ heisst „gern, mit Vergnügen!“.",
+      "errorHints": [
+        { "pattern": "^pun[eë]$", "category": "vocab.confused", "hint": "„Punë“ heisst „Arbeit“. Gern: „me kënaqësi“." },
+        { "pattern": "^koh[eë]$", "category": "vocab.confused", "hint": "„Kohë“ heisst „Zeit“. Gern: „me kënaqësi“." },
+        { "pattern": "^mu$", "category": "vocab.confused", "hint": "„Me mu“ heisst „mit mir“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_079",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_shah", "item_luaj"],
+      "prompt": { "lang": "de", "text": "Ich spiele Schach." },
+      "answerLang": "sq",
+      "text": "Luaj ___.",
+      "solutions": ["shah"],
+      "explanation": "„Shah“ ist Schach. Das Spiel steht ohne Artikel: „luaj shah“.",
+      "errorHints": [
+        { "pattern": "^shahu$", "category": "grammar.definite_article", "hint": "Nach „luaj“ steht das Spiel ohne Artikel: „luaj shah“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_080",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.infinitive_me", "vocab.sport"],
+      "itemIds": ["item_me_vrapue", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen früh gehe ich joggen." },
+      "answerLang": "sq",
+      "text": "Nesër herët shkoj me ___.",
+      "solutions": ["vrapue"],
+      "explanation": "Nach „me“ steht das Partizip: „me vrapue“ (von „vrapoj“, ich laufe).",
+      "errorHints": [
+        { "pattern": "^vrapoj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „vrapue“." },
+        { "pattern": "^vrapuar$", "category": "variant.standard_form", "hint": "„Vrapuar“ ist die Standard-Form. Gheg: „vrapue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_081",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "vocab.sport"],
+      "itemIds": ["item_du", "item_me_fitue"],
+      "prompt": { "lang": "de", "text": "Ich will gewinnen!" },
+      "answerLang": "sq",
+      "text": "Du me ___!",
+      "solutions": ["fitue"],
+      "standardForms": ["fituar"],
+      "explanation": "Nach „du me“ steht das Gheg-Partizip: „fitue“ (Standard: „fituar“).",
+      "errorHints": [
+        { "pattern": "^fitoj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „fitue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_082",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.modal", "grammar.verbs.infinitive_me", "vocab.sport"],
+      "itemIds": ["item_du", "item_me_humbe"],
+      "prompt": { "lang": "de", "text": "Ich will nicht verlieren." },
+      "answerLang": "sq",
+      "text": "Nuk du me ___.",
+      "solutions": ["humbë"],
+      "standardForms": ["humbur"],
+      "explanation": "Das Gheg-Partizip von „humb“ (verlieren) ist „humbë“ (Standard: „humbur“).",
+      "errorHints": [
+        { "pattern": "^humb$", "category": "grammar.participle", "hint": "Das Gheg-Partizip endet auf -ë: „humbë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „humbë“ (Standard: humbur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_083",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_sa_shpesh", "item_gjithmone", "item_shpesh"],
+      "prompt": { "lang": "de", "text": "Wie oft? – Immer." },
+      "answerLang": "sq",
+      "text": "Sa shpesh? – ___.",
+      "solutions": ["Gjithmonë"],
+      "explanation": "„Gjithmonë“ heisst „immer“.",
+      "errorHints": [
+        { "pattern": "^kurr", "category": "vocab.confused", "hint": "„Kurrë“ heisst „nie“." },
+        { "pattern": "^rrall", "category": "vocab.confused", "hint": "„Rrallë“ heisst „selten“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_084",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_muaj", "item_here", "item_shok"],
+      "prompt": { "lang": "de", "text": "Ich treffe meine Freunde einmal im Monat." },
+      "answerLang": "sq",
+      "text": "Takoj shokët nji herë në ___.",
+      "solutions": ["muaj"],
+      "explanation": "„Muaj“ heisst „Monat“: „nji herë në muaj“ – einmal im Monat.",
+      "errorHints": [
+        { "pattern": "^jav[eë]$", "category": "vocab.confused", "hint": "„Javë“ heisst „Woche“. Monat: „muaj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_085",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_fatkeqesisht", "item_s_muj"],
+      "prompt": { "lang": "de", "text": "Leider kann ich heute nicht." },
+      "answerLang": "sq",
+      "text": "___ sot s'muj.",
+      "solutions": ["Fatkeqësisht"],
+      "explanation": "„Fatkeqësisht“ heisst „leider“.",
+      "errorHints": [
+        { "pattern": "^patjet", "category": "vocab.confused", "hint": "„Patjetër“ heisst „auf jeden Fall“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_086",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.verbs.reflexive"],
+      "itemIds": ["item_takohemi", "item_ore"],
+      "prompt": { "lang": "de", "text": "Wir treffen uns um acht Uhr." },
+      "answerLang": "sq",
+      "text": "___ në orën tetë.",
+      "solutions": ["Takohemi"],
+      "explanation": "„Takohemi“ heisst „wir treffen uns“ (von „takohem“).",
+      "errorHints": [
+        { "pattern": "^takojm[eë]$", "category": "grammar.verb_conjugation", "hint": "„Takojmë“ heisst „wir treffen (jemanden)“. Wir treffen uns: „takohemi“." },
+        { "pattern": "^takoj$", "category": "grammar.verb_conjugation", "hint": "„Takoj“ heisst „ich treffe“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_087",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "phrase.plans"],
+      "itemIds": ["item_me_u_takue", "item_kam_me", "item_fundjave"],
+      "prompt": { "lang": "de", "text": "Am Wochenende werden wir uns treffen." },
+      "answerLang": "sq",
+      "text": "Në fundjavë kemi me u ___.",
+      "solutions": ["takue"],
+      "standardForms": ["takuar"],
+      "explanation": "Nach „me u“ steht das Partizip: „me u takue“ – sich treffen.",
+      "errorHints": [
+        { "pattern": "^takohemi$", "category": "grammar.infinitive", "hint": "Nach „me u“ steht das Partizip: „takue“." },
+        { "pattern": "^takoj$", "category": "grammar.infinitive", "hint": "Nach „me u“ steht das Partizip: „takue“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_088",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.case.accusative"],
+      "itemIds": ["item_ftese", "item_faleminderit"],
+      "prompt": { "lang": "de", "text": "Danke für die Einladung!" },
+      "answerLang": "sq",
+      "text": "Faleminderit për ___!",
+      "solutions": ["ftesën"],
+      "explanation": "Nach „për“ steht der Akkusativ mit Artikel: „ftesa“ wird zu „ftesën“.",
+      "errorHints": [
+        { "pattern": "^ftes[eë]$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ mit Artikel: „ftesën“." },
+        { "pattern": "^ftesa$", "category": "grammar.case", "hint": "Nach „për“ steht der Akkusativ: „ftesën“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_089",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.leisure", "phrase.plans"],
+      "itemIds": ["item_kam_qejf", "item_me_vallezue"],
+      "prompt": { "lang": "de", "text": "Ich habe Lust zu tanzen." },
+      "answerLang": "sq",
+      "text": "Kam ___ me vallëzue.",
+      "solutions": ["qejf"],
+      "explanation": "„Kam qejf me …“ heisst „ich habe Lust zu …, ich … gern“.",
+      "errorHints": [
+        { "pattern": "^koh[eë]$", "category": "vocab.confused", "hint": "„Kam kohë“ heisst „ich habe Zeit“." },
+        { "pattern": "^pun[eë]$", "category": "vocab.confused", "hint": "„Kam punë“ heisst „ich habe zu tun“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_090",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_fushe", "item_luaj"],
+      "prompt": { "lang": "de", "text": "Die Kinder spielen auf dem Platz." },
+      "answerLang": "sq",
+      "text": "Fëmijët luajnë në ___.",
+      "solutions": ["fushë"],
+      "explanation": "„Fushë“ ist das Feld, der (Sport-)Platz. Nach „në“ steht es hier ohne Artikel.",
+      "errorHints": [
+        { "pattern": "^fusha$", "category": "grammar.definite_article", "hint": "Nach „në“ steht hier die Form ohne Artikel: „në fushë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_091",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_futboll", "item_basketboll", "item_volejboll", "item_tenis", "item_shah"],
+      "prompt": { "lang": "de", "text": "Ordne die Sportarten zu." },
+      "pairs": [
+        { "left": "futboll", "right": "Fussball" },
+        { "left": "basketboll", "right": "Basketball" },
+        { "left": "volejboll", "right": "Volleyball" },
+        { "left": "tenis", "right": "Tennis" },
+        { "left": "shah", "right": "Schach" }
+      ],
+      "explanation": "Alle Sportarten stehen mit „luaj“ ohne Artikel: „luaj tenis“, „luaj shah“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_092",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_palester", "item_fushe", "item_park", "item_stadium", "item_pishine"],
+      "prompt": { "lang": "de", "text": "Ordne die Orte zu." },
+      "pairs": [
+        { "left": "stadium", "right": "Stadion" },
+        { "left": "pishinë", "right": "Schwimmbad" },
+        { "left": "palestër", "right": "Fitnessstudio" },
+        { "left": "park", "right": "Park" },
+        { "left": "fushë", "right": "Spielfeld" }
+      ],
+      "explanation": "„Në pishinë“ – im Schwimmbad, „në palestër“ – im Fitnessstudio.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_093",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time"],
+      "itemIds": ["item_shpesh", "item_kurre", "item_ndonjihere", "item_gjithmone", "item_ralle"],
+      "prompt": { "lang": "de", "text": "Wie oft? Ordne zu." },
+      "pairs": [
+        { "left": "gjithmonë", "right": "immer" },
+        { "left": "shpesh", "right": "oft" },
+        { "left": "ndonjiherë", "right": "manchmal" },
+        { "left": "rrallë", "right": "selten" },
+        { "left": "kurrë", "right": "nie" }
+      ],
+      "explanation": "„Kurrë“ steht immer mit „nuk“ oder „s'“: „Nuk luaj kurrë.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_094",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_ekip", "item_lojtar", "item_trajner", "item_gol", "item_rezultat"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter aus dem Sport zu." },
+      "pairs": [
+        { "left": "ekip", "right": "Mannschaft" },
+        { "left": "lojtar", "right": "Spieler" },
+        { "left": "trajner", "right": "Trainer" },
+        { "left": "gol", "right": "Tor" },
+        { "left": "rezultat", "right": "Spielstand" }
+      ],
+      "explanation": "Feminin: „lojtare“ (Spielerin), „trajnere“ (Trainerin).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_095",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.leisure", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_me_vrapue", "item_me_vizatue", "item_me_kendue", "item_me_vallezue", "item_me_peshkue"],
+      "prompt": { "lang": "de", "text": "Ordne die Hobbys zu." },
+      "pairs": [
+        { "left": "me vizatue", "right": "zeichnen" },
+        { "left": "me këndue", "right": "singen" },
+        { "left": "me vallëzue", "right": "tanzen" },
+        { "left": "me peshkue", "right": "fischen" },
+        { "left": "me vrapue", "right": "joggen" }
+      ],
+      "explanation": "Alle stehen im Gheg-Infinitiv „me“ + Partizip: „Kam qejf me vizatue.“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_096",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans"],
+      "itemIds": [
+        "item_here",
+        "item_pse_jo",
+        "item_me_kenaqesi",
+        "item_patjeter",
+        "item_nji_here_tjeter",
+        "item_dakord"
+      ],
+      "prompt": { "lang": "de", "text": "Ordne die Antworten auf eine Einladung zu." },
+      "pairs": [
+        { "left": "Me kënaqësi!", "right": "Gern!" },
+        { "left": "Patjetër!", "right": "Auf jeden Fall!" },
+        { "left": "Dakord!", "right": "Einverstanden!" },
+        { "left": "Pse jo?", "right": "Warum nicht?" },
+        { "left": "Nji herë tjetër!", "right": "Ein andermal!" }
+      ],
+      "explanation": "Vier Zusagen und eine Absage: „Nji herë tjetër!“ heisst „ein andermal“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_097",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_kam_qejf", "item_s_muj", "item_fatkeqesisht", "item_kam_pune", "item_me_vjen_keq"],
+      "prompt": { "lang": "de", "text": "Ordne die Absagen zu." },
+      "pairs": [
+        { "left": "Më vjen keq.", "right": "Es tut mir leid." },
+        { "left": "Kam punë.", "right": "Ich habe zu tun." },
+        { "left": "Fatkeqësisht.", "right": "Leider." },
+        { "left": "S'kam qejf.", "right": "Ich habe keine Lust." },
+        { "left": "S'muj.", "right": "Ich kann nicht." }
+      ],
+      "explanation": "Höflich absagen: „Më vjen keq, s'muj. Kam punë.“",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_098",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_takohemi", "item_kohe", "item_a_ke_kohe", "item_a_je_i_lire", "item_ne_sa", "item_cka_thua"],
+      "prompt": { "lang": "de", "text": "Ordne die Fragen zu." },
+      "pairs": [
+        { "left": "A ke kohë?", "right": "Hast du Zeit?" },
+        { "left": "A je i lirë?", "right": "Bist du frei?" },
+        { "left": "Çka thua?", "right": "Was meinst du?" },
+        { "left": "Në sa?", "right": "Um wie viel Uhr?" },
+        { "left": "Ku takohemi?", "right": "Wo treffen wir uns?" }
+      ],
+      "explanation": "Eine Frau fragst du „A je e lirë?“, einen Mann „A je i lirë?“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_099",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.infinitive_me", "vocab.sport"],
+      "itemIds": ["item_me_skijue", "item_me_fitue", "item_me_humbe", "item_me_u_takue", "item_me_ftue"],
+      "prompt": { "lang": "de", "text": "Ordne die Infinitive zu." },
+      "pairs": [
+        { "left": "me fitue", "right": "gewinnen" },
+        { "left": "me humbë", "right": "verlieren" },
+        { "left": "me skijue", "right": "Ski fahren" },
+        { "left": "me ftue", "right": "einladen" },
+        { "left": "me u takue", "right": "sich treffen" }
+      ],
+      "explanation": "„Me humbë“ hat das kurze Gheg-Partizip (Standard: humbur).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizipien „humbë“ und „skijue“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_100",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_biciklete", "item_loje", "item_ndeshje", "item_top", "item_rakete"],
+      "prompt": { "lang": "de", "text": "Ordne die Dinge zu." },
+      "pairs": [
+        { "left": "top", "right": "Ball" },
+        { "left": "raketë", "right": "Schläger" },
+        { "left": "biçikletë", "right": "Velo" },
+        { "left": "ndeshje", "right": "Match" },
+        { "left": "lojë", "right": "Spiel" }
+      ],
+      "explanation": "„Raketë“ ist der Schläger, z. B. für Tennis.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_101",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.present"],
+      "itemIds": ["item_luaj"],
+      "prompt": { "lang": "de", "text": "Ordne die Formen von „luaj“ (spielen) zu." },
+      "pairs": [
+        { "left": "luaj", "right": "ich spiele" },
+        { "left": "luan", "right": "du spielst" },
+        { "left": "luajmë", "right": "wir spielen" },
+        { "left": "luani", "right": "ihr spielt" },
+        { "left": "luajnë", "right": "sie spielen" }
+      ],
+      "explanation": "„Luan“ heisst auch „er/sie spielt“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_102",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure"],
+      "itemIds": ["item_klub", "item_trening", "item_koncert", "item_hobi", "item_ftese"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "hobi", "right": "Hobby" },
+        { "left": "klub", "right": "Verein" },
+        { "left": "trening", "right": "Training" },
+        { "left": "koncert", "right": "Konzert" },
+        { "left": "ftesë", "right": "Einladung" }
+      ],
+      "explanation": "„Faleminderit për ftesën!“ – Danke für die Einladung!",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_103",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_pelqen", "item_me_luejte", "item_tenis"],
+      "prompt": { "lang": "de", "text": "Ich spiele gern Tennis." },
+      "answerLang": "sq",
+      "tokens": ["Më", "pëlqen", "me", "luejtë", "tenis"],
+      "solutions": ["Më pëlqen me luejtë tenis."],
+      "explanation": "„Më pëlqen me …“ heisst „ich … gern“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_104",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.present", "vocab.sport"],
+      "itemIds": ["item_luaj", "item_park", "item_futboll"],
+      "prompt": { "lang": "de", "text": "Wir spielen im Park Fussball." },
+      "answerLang": "sq",
+      "tokens": ["Luajmë", "futboll", "në", "park"],
+      "solutions": ["Luajmë futboll në park.", "Në park luajmë futboll."],
+      "explanation": "„Luajmë“ heisst „wir spielen“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_105",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "vocab.leisure"],
+      "itemIds": ["item_a_ke_kohe", "item_loje", "item_shah", "item_sonte", "item_kohe"],
+      "prompt": { "lang": "de", "text": "Hast du heute Abend Zeit für eine Partie Schach?" },
+      "answerLang": "sq",
+      "tokens": ["A", "ke", "kohë", "sonte", "për", "nji", "lojë", "shah"],
+      "solutions": ["A ke kohë sonte për nji lojë shah?", "A ke kohë për nji lojë shah sonte?"],
+      "explanation": "„Nji lojë shah“ – eine Partie Schach.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_106",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "vocab.sport", "grammar.verbs.infinitive_me"],
+      "itemIds": ["item_here", "item_me_notue"],
+      "prompt": { "lang": "de", "text": "Ich gehe einmal pro Woche schwimmen." },
+      "answerLang": "sq",
+      "tokens": ["Nji", "herë", "në", "javë", "shkoj", "me", "notue"],
+      "solutions": ["Nji herë në javë shkoj me notue.", "Shkoj me notue nji herë në javë."],
+      "explanation": "„Shkoj me notue“ – ich gehe schwimmen. „Nji herë në javë“ bleibt zusammen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_107",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.verbs.modal"],
+      "itemIds": ["item_fatkeqesisht", "item_s_muj", "item_duhet", "item_me_punue"],
+      "prompt": { "lang": "de", "text": "Leider kann ich nicht, ich muss arbeiten." },
+      "answerLang": "sq",
+      "tokens": ["Fatkeqësisht", "s'muj", "duhet", "me", "punue"],
+      "solutions": ["Fatkeqësisht s'muj, duhet me punue."],
+      "explanation": "„Duhet me punue“ – ich muss arbeiten.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_108",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.sport"],
+      "itemIds": ["item_kam_me", "item_volejboll", "item_pasdite", "item_me_luejte", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen Nachmittag werden wir Volleyball spielen." },
+      "answerLang": "sq",
+      "tokens": ["Nesër", "pasdite", "kemi", "me", "luejtë", "volejboll"],
+      "solutions": ["Nesër pasdite kemi me luejtë volejboll.", "Kemi me luejtë volejboll nesër pasdite."],
+      "explanation": "„Kemi me luejtë“ – wir werden spielen.",
+      "errorHints": [
+        { "pattern": "kemi luejt[eë] me", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „kemi me luejtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_109",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.leisure", "grammar.verbs.present"],
+      "itemIds": ["item_fillon", "item_koncert", "item_kur"],
+      "prompt": { "lang": "de", "text": "Wann beginnt das Konzert?" },
+      "answerLang": "sq",
+      "tokens": ["Kur", "fillon", "koncerti"],
+      "solutions": ["Kur fillon koncerti?", "Koncerti kur fillon?"],
+      "explanation": "„Kur“ steht am Anfang der Frage: „Kur fillon koncerti?“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_110",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.sport", "grammar.verbs.infinitive_me", "phrase.plans"],
+      "itemIds": ["item_kam_qejf", "item_me_luejte", "item_futboll"],
+      "prompt": { "lang": "de", "text": "Ich habe heute keine Lust, Fussball zu spielen." },
+      "answerLang": "sq",
+      "tokens": ["S'kam", "qejf", "me", "luejtë", "futboll", "sot"],
+      "solutions": ["S'kam qejf me luejtë futboll sot.", "Sot s'kam qejf me luejtë futboll."],
+      "explanation": "„S'kam qejf me …“ – ich habe keine Lust zu …",
+      "reviewed": false,
+      "source": "manual",
+      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_111",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "vocab.time"],
+      "itemIds": ["item_takohemi", "item_kafene", "item_ore"],
+      "prompt": { "lang": "de", "text": "Wir treffen uns um sechs Uhr beim Café." },
+      "answerLang": "sq",
+      "tokens": ["Takohemi", "në", "orën", "gjashtë", "te", "kafeneja"],
+      "solutions": ["Takohemi në orën gjashtë te kafeneja.", "Takohemi te kafeneja në orën gjashtë."],
+      "explanation": "Nach „te“ steht der Nominativ mit Artikel: „te kafeneja“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_112",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.clitics"],
+      "itemIds": ["item_me_ftue", "item_kinema", "item_te_shtunen"],
+      "prompt": { "lang": "de", "text": "Ich lade dich am Samstag ins Kino ein." },
+      "answerLang": "sq",
+      "tokens": ["Të", "ftoj", "në", "kinema", "të", "shtunën"],
+      "solutions": ["Të ftoj në kinema të shtunën.", "Të shtunën të ftoj në kinema."],
+      "explanation": "„Të“ (dich) steht direkt vor dem Verb: „të ftoj“.",
+      "errorHints": [
+        { "pattern": "ftoj t[eë] n", "category": "grammar.clitics", "hint": "„Të“ steht vor dem Verb: „të ftoj“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_113",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.leisure", "grammar.verbs.present"],
+      "itemIds": ["item_biciklete", "item_cdo_dite"],
+      "prompt": { "lang": "de", "text": "Sie fährt jeden Tag mit dem Velo zur Arbeit." },
+      "answerLang": "sq",
+      "tokens": ["Ajo", "shkon", "çdo", "ditë", "me", "biçikletë", "në", "punë"],
+      "solutions": [
+        "Ajo shkon çdo ditë me biçikletë në punë.",
+        "Çdo ditë ajo shkon me biçikletë në punë.",
+        "Ajo shkon me biçikletë në punë çdo ditë."
+      ],
+      "explanation": "„Me biçikletë“ heisst „mit dem Velo“, „në punë“ „zur Arbeit“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_114",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport"],
+      "itemIds": ["item_rakete", "item_vlla", "item_im"],
+      "prompt": { "lang": "de", "text": "Mein Bruder hat einen neuen Schläger." },
+      "answerLang": "sq",
+      "tokens": ["Vllau", "im", "ka", "nji", "raketë", "të", "re"],
+      "solutions": ["Vllau im ka nji raketë të re."],
+      "explanation": "„Nji raketë të re“ – einen neuen Schläger: „raketë“ ist feminin, darum „të re“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_115",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["phrase.plans", "grammar.question_particle"],
+      "itemIds": ["item_shkojme", "item_mal", "item_fundjave"],
+      "prompt": { "lang": "de", "text": "Gehen wir am Wochenende in die Berge?" },
+      "answerLang": "sq",
+      "tokens": ["A", "shkojmë", "në", "fundjavë", "në", "mal"],
+      "solutions": ["A shkojmë në fundjavë në mal?", "A shkojmë në mal në fundjavë?", "Në fundjavë a shkojmë në mal?"],
+      "explanation": "„A shkojmë …?“ – „Gehen wir …?“ So machst du einen Vorschlag.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_116",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.sport", "grammar.verbs.present"],
+      "itemIds": ["item_ekip", "item_stadium", "item_luaj", "item_sonte"],
+      "prompt": { "lang": "de", "text": "Die Mannschaft spielt heute Abend im Stadion." },
+      "answerLang": "sq",
+      "tokens": ["Ekipi", "luan", "sonte", "në", "stadium"],
+      "solutions": ["Ekipi luan sonte në stadium.", "Sonte ekipi luan në stadium.", "Ekipi luan në stadium sonte."],
+      "explanation": "„Ekipi luan“ – die Mannschaft spielt (3. Person Einzahl).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_117",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["grammar.verbs.modal", "vocab.sport"],
+      "itemIds": ["item_me_skijue"],
+      "prompt": { "lang": "de", "text": "Ich kann nicht Ski fahren." },
+      "answerLang": "sq",
+      "tokens": ["Nuk", "di", "me", "skijue"],
+      "solutions": ["Nuk di me skijue."],
+      "explanation": "„Di me“ heisst „können“ (weil man es gelernt hat).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Infinitiv „me skijue“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_118",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.time", "vocab.leisure", "grammar.verbs.present"],
+      "itemIds": ["item_sa_shpesh", "item_shok", "item_shpesh"],
+      "prompt": { "lang": "de", "text": "Wie oft gehst du mit Freunden aus?" },
+      "answerLang": "sq",
+      "tokens": ["Sa", "shpesh", "del", "me", "shokë"],
+      "solutions": ["Sa shpesh del me shokë?"],
+      "explanation": "„Del“ heisst „du gehst aus“ (von „dal“).",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_119",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.modal", "phrase.plans", "vocab.sport"],
+      "itemIds": ["item_don", "item_me_luejte", "item_basketboll", "item_me_mu", "item_javen_tjeter"],
+      "prompt": { "lang": "de", "text": "Willst du nächste Woche mit mir Basketball spielen?" },
+      "answerLang": "sq",
+      "tokens": ["A", "don", "me", "luejtë", "basketboll", "me", "mu", "javën", "tjetër"],
+      "solutions": [
+        "A don me luejtë basketboll me mu javën tjetër?",
+        "A don javën tjetër me luejtë basketboll me mu?",
+        "Javën tjetër a don me luejtë basketboll me mu?"
+      ],
+      "explanation": "„A don me luejtë …?“ – willst du spielen? „Me mu“ – mit mir.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen. „me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u18_sport_hobbies_120",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["phrase.plans"],
+      "itemIds": ["item_dakord", "item_shihemi", "item_te_shtunen"],
+      "prompt": { "lang": "de", "text": "Einverstanden, bis Samstag!" },
+      "answerLang": "sq",
+      "tokens": ["Dakord", "shihemi", "të", "shtunën"],
+      "solutions": ["Dakord, shihemi të shtunën!", "Dakord, të shtunën shihemi!"],
+      "explanation": "„Shihemi të shtunën!“ – Wir sehen uns am Samstag!",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}

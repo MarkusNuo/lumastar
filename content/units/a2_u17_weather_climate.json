@@ -1,0 +1,2644 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a2_u17_weather_climate",
+  "level": "A2.2",
+  "grammar": [
+    {
+      "title": "Das Wetter von morgen: ka me …",
+      "explanation": "Im Wetterbericht hörst du die Gheg-Zukunft **ka me** + Partizip:\n\n| Gheg | Deutsch |\n|---|---|\n| Nesër ka me ra shi. | Morgen wird es regnen. |\n| Ka me kânë ftohtë. | Es wird kalt sein. |\n| Ka me pasë mjegull. | Es wird Nebel geben. |\n| Moti ka me u ngrohë. | Das Wetter wird wärmer. |\n| Temperaturat kanë me ra. | Die Temperaturen werden sinken. |\n\n*ra* ist das Partizip von *bie* (fallen), *pasë* von *kam* (haben; *ka* = es gibt), *kânë* von *jam* (sein). Bei Mehrzahl steht *kanë me*. Die Standard-Zukunft *do të bjerë shi* gilt als „richtig, aber Standard“."
+    },
+    {
+      "title": "Vergleichen: ma … se, aq … sa",
+      "explanation": "- **ma … se** – „-er als“ (Standard: *më … se*): *Prizreni âsht ma i ngrohtë se Prishtina.* Ohne Nomen: *Sot âsht ma ftohtë se dje.*\n- **aq … sa** – „so … wie“: *Peja âsht aq e ftohtë sa Prishtina.*\n- **ma shumë / ma pak** – „mehr / weniger“: *Në Alpe ka ma shumë borë se në Kosovë.*\n- **Der/die/das …ste:** bestimmtes Nomen + *ma*: *Dimni âsht stina ma e ftohtë.* – „Der Winter ist die kälteste Jahreszeit.“ Ohne Nomen bekommt das Adjektiv den Artikel: *ma i ftohti* (der Kälteste), *ma e ftohta* (die Kälteste)."
+    },
+    {
+      "title": "Adjektive passen sich an",
+      "explanation": "Der Verbindungsartikel und die Endung richten sich nach dem Nomen:\n\n| | Einzahl | Mehrzahl |\n|---|---|---|\n| maskulin | *pylli i thatë* | *pyjet janë të thatë* |\n| feminin | *dita e ftohtë* | *netët janë të ftohta* |\n\nOhne Nomen steht kein Artikel: *Âsht ftohtë.* (Es ist kalt.) Gheg-Adjektive auf **-un** wie *i lagun, e lagun* (nass) heissen im Standard *i lagur*."
+    },
+    {
+      "title": "Was ziehe ich an?",
+      "explanation": "**vesh** – ich ziehe an, du ziehst an; **vish!** – zieh an!; **me veshë** – anziehen. Das Kleidungsstück steht im Akkusativ: *Vish xhaketën!* *Kur âsht ftohtë, vesh pallton.*\n\nFür dich selbst: **Vishu mirë!** – „Zieh dich warm an!“ (von *vishem*, ich ziehe mich an). Achtung: *vesh* heisst auch „Ohr“."
+    }
+  ],
+  "items": [
+    { "id": "item_parashikimi_i_motit", "kind": "phrase", "gheg": "parashikimi i motit", "de": "der Wetterbericht, die Wettervorhersage", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_nen_zero", "kind": "phrase", "gheg": "nën zero", "de": "unter null (Grad)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_sa_grade_jane", "kind": "phrase", "gheg": "sa gradë janë?", "de": "wie viel Grad sind es?", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_stuhi", "kind": "word", "gheg": "stuhi", "de": "Sturm, Unwetter", "partOfSpeech": "noun", "gender": "f", "plural": "stuhi", "note": "Bestimmte Form „stuhia“ oder „stuhija“ (wie „rakija“) zu prüfen; in den Aufgaben nur unbestimmt verwendet.", "reviewed": false },
+    { "id": "item_rrufe", "kind": "word", "gheg": "rrufe", "de": "Blitz", "partOfSpeech": "noun", "gender": "f", "definite": "rrufeja", "plural": "rrufe", "reviewed": false },
+    { "id": "item_mjegull", "kind": "word", "gheg": "mjegull", "de": "Nebel", "partOfSpeech": "noun", "gender": "f", "definite": "mjegulla", "reviewed": false },
+    { "id": "item_akull", "kind": "word", "gheg": "akull", "de": "Eis", "partOfSpeech": "noun", "gender": "m", "definite": "akulli", "reviewed": false },
+    { "id": "item_ngrice", "kind": "word", "gheg": "ngricë", "de": "Frost", "partOfSpeech": "noun", "gender": "f", "definite": "ngrica", "reviewed": false },
+    { "id": "item_vala_e_te_nxehtit", "kind": "phrase", "gheg": "vala e të nxehtit", "de": "die Hitzewelle", "partOfSpeech": "phrase", "note": "Im Kosovo in Wetterberichten üblich – zu prüfen, ob auch im Alltag.", "reviewed": false },
+    { "id": "item_rajon", "kind": "word", "gheg": "rajon", "de": "Region, Gegend", "partOfSpeech": "noun", "gender": "m", "definite": "rajoni", "plural": "rajone", "reviewed": false },
+    { "id": "item_veri", "kind": "word", "gheg": "veri", "de": "Norden (në veri: im Norden)", "partOfSpeech": "noun", "gender": "m", "definite": "veriu", "reviewed": false },
+    { "id": "item_jug", "kind": "word", "gheg": "jug", "de": "Süden (në jug: im Süden)", "partOfSpeech": "noun", "gender": "m", "definite": "jugu", "reviewed": false },
+    { "id": "item_lindje", "kind": "word", "gheg": "lindje", "de": "Osten (në lindje: im Osten)", "partOfSpeech": "noun", "gender": "f", "definite": "lindja", "reviewed": false },
+    { "id": "item_perendim", "kind": "word", "gheg": "perëndim", "de": "Westen (në perëndim: im Westen)", "partOfSpeech": "noun", "gender": "m", "definite": "perëndimi", "reviewed": false },
+    { "id": "item_lugine", "kind": "word", "gheg": "luginë", "de": "Tal", "partOfSpeech": "noun", "gender": "f", "definite": "lugina", "plural": "lugina", "reviewed": false },
+    { "id": "item_fushe", "kind": "word", "gheg": "fushë", "de": "Ebene, Feld; (Sport-)Platz", "partOfSpeech": "noun", "gender": "f", "definite": "fusha", "plural": "fusha", "reviewed": false },
+    { "id": "item_liqen", "kind": "word", "gheg": "liqen", "de": "See", "partOfSpeech": "noun", "gender": "m", "definite": "liqeni", "plural": "liqene", "reviewed": false },
+    { "id": "item_lume", "kind": "word", "gheg": "lumë", "de": "Fluss", "partOfSpeech": "noun", "gender": "m", "definite": "lumi", "reviewed": false },
+    { "id": "item_bjeshke", "kind": "word", "gheg": "bjeshkë", "de": "Hochgebirge, Bergweide (Alp)", "partOfSpeech": "noun", "gender": "f", "definite": "bjeshka", "plural": "bjeshkë", "note": "Typisches Kosovo-Wort (z. B. „Bjeshkët e Nemuna“); Abgrenzung zu „mal“ (Berg) zu prüfen.", "reviewed": false },
+    { "id": "item_alpet", "kind": "word", "gheg": "Alpet", "de": "die Alpen (në Alpe: in den Alpen)", "partOfSpeech": "noun", "reviewed": false },
+    { "id": "item_i_thate", "kind": "phrase", "gheg": "i thatë, e thatë", "de": "trocken", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_i_lagun", "kind": "phrase", "gheg": "i lagun, e lagun", "de": "nass", "partOfSpeech": "adjective", "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen.", "reviewed": false },
+    { "id": "item_i_bute", "kind": "phrase", "gheg": "i butë, e butë", "de": "mild; weich", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_ylber", "kind": "word", "gheg": "ylber", "de": "Regenbogen", "partOfSpeech": "noun", "gender": "m", "definite": "ylberi", "reviewed": false },
+    { "id": "item_termet", "kind": "word", "gheg": "tërmet", "de": "Erdbeben", "partOfSpeech": "noun", "gender": "m", "definite": "tërmeti", "plural": "tërmete", "reviewed": false },
+    { "id": "item_vershim", "kind": "word", "gheg": "vërshim", "de": "Überschwemmung, Hochwasser", "partOfSpeech": "noun", "gender": "m", "definite": "vërshimi", "plural": "vërshime", "note": "Im Kosovo üblich; daneben auch „përmbytje“ – zu prüfen, welches Wort Hauptform sein soll.", "reviewed": false },
+    { "id": "item_zjarr", "kind": "word", "gheg": "zjarr", "de": "Feuer, Brand", "partOfSpeech": "noun", "gender": "m", "definite": "zjarri", "plural": "zjarre", "alternatives": ["zjarm"], "note": "Im Kosovo oft „zjarm“ gesprochen; als weitere Schreibung akzeptiert – zu prüfen, welche Form Hauptform sein soll.", "reviewed": false },
+    { "id": "item_pyll", "kind": "word", "gheg": "pyll", "de": "Wald", "partOfSpeech": "noun", "gender": "m", "definite": "pylli", "plural": "pyje", "reviewed": false },
+    { "id": "item_i_kthjellet", "kind": "phrase", "gheg": "i kthjellët, e kthjellët", "de": "klar, wolkenlos", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_me_u_ngrohe", "kind": "phrase", "gheg": "me u ngrohë", "de": "wärmer werden, sich erwärmen", "partOfSpeech": "verb", "note": "Partizip „ngrohë“ (Standard: ngrohur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_u_ftohe", "kind": "phrase", "gheg": "me u ftohë", "de": "kälter werden, abkühlen", "partOfSpeech": "verb", "note": "Partizip „ftohë“ (Standard: ftohur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_ka_me_pase", "kind": "phrase", "gheg": "ka me pasë …", "de": "es wird … geben (Zukunft von „ka“, es gibt)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_syze_dielli", "kind": "phrase", "gheg": "syze dielli", "de": "Sonnenbrille", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_me_veshe", "kind": "phrase", "gheg": "me veshë", "de": "anziehen (Kleider), tragen", "partOfSpeech": "verb", "note": "Präsens „vesh“ (ich ziehe an), Befehlsform „vish!“. Partizip „veshë“ (Standard: veshur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_vishu_mire", "kind": "phrase", "gheg": "vishu mirë!", "de": "zieh dich warm an! (wörtlich: zieh dich gut an)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_aq_sa", "kind": "grammar", "gheg": "aq … sa", "de": "so … wie (Vergleich), z. B. aq ftohtë sa = so kalt wie", "partOfSpeech": "other", "reviewed": false },
+    { "id": "item_ma_i_ftohti", "kind": "grammar", "gheg": "ma i ftohti, ma e ftohta", "de": "der/die Kälteste (Superlativ mit ma)", "partOfSpeech": "other", "reviewed": false },
+    { "id": "item_ma_pak", "kind": "phrase", "gheg": "ma pak", "de": "weniger", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_natyre", "kind": "word", "gheg": "natyrë", "de": "Natur", "partOfSpeech": "noun", "gender": "f", "definite": "natyra", "reviewed": false },
+    { "id": "item_ajer", "kind": "word", "gheg": "ajër", "de": "Luft", "partOfSpeech": "noun", "gender": "m", "definite": "ajri", "reviewed": false },
+    { "id": "item_ndotje", "kind": "word", "gheg": "ndotje", "de": "Verschmutzung (z. B. der Luft)", "partOfSpeech": "noun", "gender": "f", "definite": "ndotja", "reviewed": false },
+    { "id": "item_jashte", "kind": "word", "gheg": "jashtë", "de": "draussen", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_brenda", "kind": "word", "gheg": "brenda", "de": "drinnen", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_pasdite", "kind": "word", "gheg": "pasdite", "de": "Nachmittag; am Nachmittag", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_paradite", "kind": "word", "gheg": "paradite", "de": "Vormittag; am Vormittag", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_pritet", "kind": "word", "gheg": "pritet", "de": "wird erwartet (z. B. im Wetterbericht)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_rritet", "kind": "word", "gheg": "rritet", "de": "steigt, wächst", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_bie", "kind": "word", "gheg": "bie", "de": "fällt; (Regen, Schnee) fällt", "partOfSpeech": "verb", "note": "Mehrzahl „bien“; Vergangenheit und Partizip „ra“ (Standard-Partizip: rënë) – zu prüfen.", "reviewed": false },
+    { "id": "item_mbi_zero", "kind": "phrase", "gheg": "mbi zero", "de": "über null (Grad)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_minus", "kind": "word", "gheg": "minus", "de": "minus (bei Temperaturen)", "partOfSpeech": "adverb", "reviewed": false },
+    { "id": "item_shkrihet", "kind": "word", "gheg": "shkrihet", "de": "schmilzt (bora shkrihet: der Schnee schmilzt)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_bubullime", "kind": "word", "gheg": "bubullimë", "de": "Donner", "partOfSpeech": "noun", "gender": "f", "definite": "bubullima", "reviewed": false }
+  ],
+  "exercises": [
+    {
+      "id": "ex_a2_u17_weather_climate_001",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_mjegull", "item_akull", "item_ngrice", "item_stuhi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „mjegull“?" },
+      "choices": ["der Nebel", "das Eis", "der Frost", "der Sturm"],
+      "solutions": ["der Nebel"],
+      "explanation": "„Mjegull“ ist der Nebel. „Ka mjegull“ heisst „es ist neblig“.",
+      "errorHints": [
+        { "pattern": "eis", "category": "vocab.confused", "hint": "Eis heisst „akull“." },
+        { "pattern": "frost", "category": "vocab.confused", "hint": "Frost heisst „ngricë“." },
+        { "pattern": "sturm", "category": "vocab.confused", "hint": "Sturm heisst „stuhi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_002",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_rrufe", "item_mjegull", "item_akull", "item_ylber"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Blitz“?" },
+      "choices": ["rrufe", "ylber", "akull", "mjegull"],
+      "solutions": ["rrufe"],
+      "explanation": "„Rrufe“ ist der Blitz. „Stuhi me rrufe“ ist ein Gewitter mit Blitzen.",
+      "errorHints": [
+        { "pattern": "^ylber$", "category": "vocab.confused", "hint": "„Ylber“ ist der Regenbogen." },
+        { "pattern": "^akull$", "category": "vocab.confused", "hint": "„Akull“ ist das Eis." },
+        { "pattern": "^mjegull$", "category": "vocab.confused", "hint": "„Mjegull“ ist der Nebel." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_003",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_ylber", "item_rrufe", "item_re", "item_mjegull"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „ylber“?" },
+      "choices": ["der Regenbogen", "der Blitz", "die Wolke", "der Nebel"],
+      "solutions": ["der Regenbogen"],
+      "explanation": "„Ylber“ ist der Regenbogen, mit Artikel „ylberi“.",
+      "errorHints": [
+        { "pattern": "blitz", "category": "vocab.confused", "hint": "Der Blitz heisst „rrufe“." },
+        { "pattern": "wolke", "category": "vocab.confused", "hint": "Die Wolke heisst „re“." },
+        { "pattern": "nebel", "category": "vocab.confused", "hint": "Der Nebel heisst „mjegull“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_004",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.clothes"],
+      "itemIds": ["item_xhakete", "item_pallto", "item_shall", "item_kapele"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Jacke“?" },
+      "choices": ["xhaketë", "pallto", "shall", "kapelë"],
+      "solutions": ["xhaketë"],
+      "explanation": "„Xhaketë“ ist die Jacke, mit Artikel „xhaketa“.",
+      "errorHints": [
+        { "pattern": "^pallto$", "category": "vocab.confused", "hint": "„Pallto“ ist der Mantel." },
+        { "pattern": "^shall$", "category": "vocab.confused", "hint": "„Shall“ ist der Schal." },
+        { "pattern": "^kapel", "category": "vocab.confused", "hint": "„Kapelë“ ist die Mütze." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_005",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_jashte", "item_brenda", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Jashtë âsht ftohtë.“?" },
+      "choices": ["Draussen ist es kalt.", "Drinnen ist es kalt.", "Draussen ist es heiss.", "Morgen wird es kalt."],
+      "solutions": ["Draussen ist es kalt."],
+      "explanation": "„Jashtë“ heisst „draussen“, „brenda“ heisst „drinnen“.",
+      "errorHints": [
+        { "pattern": "drinnen", "category": "vocab.confused", "hint": "„Drinnen“ hiesse „brenda“." },
+        { "pattern": "heiss", "category": "vocab.confused", "hint": "„Ftohtë“ heisst „kalt“." },
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "„Âsht“ heisst „ist“ – das ist keine Zukunft." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_006",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_veri", "item_jug", "item_lindje", "item_perendim"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „im Norden“?" },
+      "choices": ["në veri", "në jug", "në lindje", "në perëndim"],
+      "solutions": ["në veri"],
+      "explanation": "„Veri“ ist der Norden. „Në veri“ heisst „im Norden“ – nach „në“ ohne Artikel.",
+      "errorHints": [
+        { "pattern": "jug", "category": "vocab.confused", "hint": "„Jug“ ist der Süden." },
+        { "pattern": "lindje", "category": "vocab.confused", "hint": "„Lindje“ ist der Osten." },
+        { "pattern": "per[eë]ndim", "category": "vocab.confused", "hint": "„Perëndim“ ist der Westen." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_007",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.verbs.future"],
+      "itemIds": ["item_ka_me_pase", "item_mjegull", "item_neser"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Nesër ka me pasë mjegull.“?" },
+      "choices": [
+        "Morgen wird es Nebel geben.",
+        "Heute gibt es Nebel.",
+        "Morgen wird es Frost geben.",
+        "Gestern gab es Nebel."
+      ],
+      "solutions": ["Morgen wird es Nebel geben."],
+      "explanation": "„Ka me pasë“ ist die Zukunft von „ka“ (es gibt): „es wird … geben“.",
+      "errorHints": [
+        { "pattern": "^heute", "category": "grammar.verb_tense", "hint": "„Nesër ka me pasë“ ist Zukunft: morgen wird es Nebel geben." },
+        { "pattern": "frost", "category": "vocab.confused", "hint": "„Mjegull“ ist der Nebel; Frost heisst „ngricë“." },
+        { "pattern": "gestern", "category": "grammar.verb_tense", "hint": "„Ka me pasë“ ist Zukunft, nicht Vergangenheit." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_008",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_kam_me", "item_temperature", "item_bie", "item_neser"],
+      "prompt": { "lang": "de", "text": "Welche Form passt? „Nesër temperaturat ___ me ra.“ (Morgen werden die Temperaturen sinken.)" },
+      "choices": ["kanë", "ka", "kam", "kemi"],
+      "solutions": ["kanë"],
+      "explanation": "„Temperaturat“ ist Mehrzahl – darum „kanë me ra“ (sie werden fallen).",
+      "errorHints": [
+        { "pattern": "^ka$", "category": "grammar.verb_conjugation", "hint": "„Ka me“ passt zu einer Sache. „Temperaturat“ ist Mehrzahl: „kanë me“." },
+        { "pattern": "^kam$", "category": "grammar.verb_conjugation", "hint": "„Kam me“ heisst „ich werde“." },
+        { "pattern": "^kemi$", "category": "grammar.verb_conjugation", "hint": "„Kemi me“ heisst „wir werden“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_009",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": [
+        "item_me_u_ngrohe",
+        "item_me_u_ftohe",
+        "item_mot",
+        "item_bore",
+        "item_i_ngrohte",
+        "item_neser",
+        "item_sot"
+      ],
+      "prompt": { "lang": "de", "text": "Der Wetterbericht sagt: „Morgen wird es wärmer.“ Welcher Satz passt?" },
+      "choices": [
+        "Nesër moti ka me u ngrohë.",
+        "Nesër moti ka me u ftohë.",
+        "Sot moti âsht i ngrohtë.",
+        "Nesër ka me ra borë."
+      ],
+      "solutions": ["Nesër moti ka me u ngrohë."],
+      "explanation": "„Me u ngrohë“ heisst „wärmer werden“, „me u ftohë“ „kälter werden“.",
+      "errorHints": [
+        { "pattern": "ftoh", "category": "vocab.confused", "hint": "„Me u ftohë“ heisst „kälter werden“." },
+        { "pattern": "^sot", "category": "grammar.verb_tense", "hint": "„Sot moti âsht i ngrohtë“ heisst „heute ist das Wetter warm“." },
+        { "pattern": "bor[eë]", "category": "vocab.confused", "hint": "Das heisst „Morgen wird es schneien“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ngrohë“ (Standard: ngrohur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_010",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement", "vocab.seasons"],
+      "itemIds": ["item_ma_i_ftohti", "item_dimen", "item_stine", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Der Winter ist die kälteste Jahreszeit.“?" },
+      "choices": [
+        "Dimni âsht stina ma e ftohtë.",
+        "Dimni âsht stina ma i ftohtë.",
+        "Dimni âsht ma i ftohtë se stina.",
+        "Dimni âsht stina e ftohtë."
+      ],
+      "solutions": ["Dimni âsht stina ma e ftohtë."],
+      "explanation": "Bestimmtes Nomen + „ma“ ergibt den Superlativ: „stina ma e ftohtë“. „Stina“ ist feminin, darum „e“.",
+      "errorHints": [
+        { "pattern": "stina ma i", "category": "grammar.linking_article", "hint": "„Stina“ ist feminin – darum „ma e ftohtë“." },
+        { "pattern": "se stina", "category": "vocab.confused", "hint": "„Se stina“ hiesse „als die Jahreszeit“. Für den Superlativ braucht es kein „se“." },
+        { "pattern": "stina e ftoht", "category": "vocab.confused", "hint": "Ohne „ma“ heisst es nur „die kalte Jahreszeit“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_011",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.weather"],
+      "itemIds": ["item_aq_sa", "item_i_ftohte", "item_sot", "item_dje"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Sot âsht aq ftohtë sa dje.“?" },
+      "choices": [
+        "Heute ist es so kalt wie gestern.",
+        "Heute ist es kälter als gestern.",
+        "Heute ist es nicht so kalt wie gestern.",
+        "Gestern war es kalt, heute nicht."
+      ],
+      "solutions": ["Heute ist es so kalt wie gestern."],
+      "explanation": "„Aq … sa“ heisst „so … wie“. „Kälter als“ wäre „ma ftohtë se“.",
+      "errorHints": [
+        { "pattern": "k[aä]lter", "category": "vocab.confused", "hint": "„Kälter als“ hiesse „ma ftohtë se“. „Aq … sa“ heisst „so … wie“." },
+        { "pattern": "nicht so", "category": "vocab.confused", "hint": "Im Satz steht keine Verneinung." },
+        { "pattern": "heute nicht", "category": "vocab.confused", "hint": "Im Satz steht keine Verneinung: Heute ist es so kalt wie gestern." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_012",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.clothes", "grammar.verbs.imperative"],
+      "itemIds": ["item_vishu_mire", "item_vishem", "item_cader", "item_hap", "item_dritare"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Zieh dich warm an!“?" },
+      "choices": ["Vishu mirë!", "Vishem mirë.", "Merr çadrën!", "Hap dritaren!"],
+      "solutions": ["Vishu mirë!"],
+      "explanation": "„Vishu!“ ist die Befehlsform von „vishem“ (sich anziehen). „Vishu mirë!“ heisst wörtlich „Zieh dich gut an!“.",
+      "errorHints": [
+        { "pattern": "^vishem", "category": "grammar.verb_conjugation", "hint": "„Vishem“ heisst „ich ziehe mich an“. Die Aufforderung lautet „vishu“." },
+        { "pattern": "^merr", "category": "vocab.confused", "hint": "„Merr çadrën!“ heisst „Nimm den Regenschirm!“." },
+        { "pattern": "^hap", "category": "vocab.confused", "hint": "„Hap dritaren!“ heisst „Öffne das Fenster!“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_013",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.clothes", "vocab.weather"],
+      "itemIds": ["item_cader", "item_syze_dielli", "item_doreza", "item_dritare", "item_diell", "item_me_veshe"],
+      "prompt": { "lang": "de", "text": "Es regnet. Was sagst du?" },
+      "choices": ["Po marr çadrën.", "Po marr syzet e diellit.", "Po vesh dorëzat.", "Po hap dritaren."],
+      "solutions": ["Po marr çadrën."],
+      "explanation": "Bei Regen nimmst du den Regenschirm: „Po marr çadrën.“ – „Ich nehme gerade den Regenschirm.“",
+      "errorHints": [
+        { "pattern": "syze", "category": "vocab.confused", "hint": "Die Sonnenbrille brauchst du bei Sonne, nicht bei Regen." },
+        { "pattern": "dor[eë]za", "category": "vocab.confused", "hint": "„Dorëzat“ sind die Handschuhe – gut bei Kälte, nicht gegen Regen." },
+        { "pattern": "dritaren", "category": "vocab.confused", "hint": "„Po hap dritaren“ heisst „ich öffne das Fenster“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_014",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "vocab.weather", "grammar.verbs.future"],
+      "itemIds": [
+        "item_parashikimi_i_motit",
+        "item_paradite",
+        "item_pasdite",
+        "item_veri",
+        "item_ka_me_pase",
+        "item_mjegull",
+        "item_temperature",
+        "item_vranet",
+        "item_mot",
+        "item_shi",
+        "item_grade",
+        "item_neser"
+      ],
+      "prompt": { "lang": "sq", "text": "Parashikimi i motit për nesër: Paradite ka me kânë vranët, pasdite ka me ra shi. Në veri ka me pasë mjegull. Temperaturat kanë me ra deri në pesë gradë.\n\nFrage: Wie wird das Wetter morgen am Nachmittag?" },
+      "choices": ["Es wird regnen.", "Es wird bewölkt sein.", "Es wird Nebel geben.", "Es wird schneien."],
+      "solutions": ["Es wird regnen."],
+      "explanation": "„Pasdite ka me ra shi“ heisst „am Nachmittag wird es regnen“. „Paradite“ ist der Vormittag.",
+      "errorHints": [
+        { "pattern": "bew[oö]lkt", "category": "vocab.confused", "hint": "Bewölkt ist es am Vormittag: „paradite ka me kânë vranët“." },
+        { "pattern": "nebel", "category": "vocab.confused", "hint": "Nebel gibt es im Norden: „në veri ka me pasë mjegull“." },
+        { "pattern": "schnei", "category": "vocab.confused", "hint": "Von Schnee („borë“) steht nichts im Text." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_015",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.short_texts", "grammar.comparison", "vocab.seasons"],
+      "itemIds": [
+        "item_ma_se",
+        "item_i_thate",
+        "item_zvicer",
+        "item_dimen",
+        "item_vere",
+        "item_bore",
+        "item_ma_shume",
+        "item_i_nxehte",
+        "item_i_gjate",
+        "item_shpesh",
+        "item_bie"
+      ],
+      "prompt": { "lang": "sq", "text": "Arben jeton në Zvicër, po shpesh shkon në Prizren. Ai thotë: „Në Zvicër dimni âsht ma i gjatë dhe bie ma shumë borë. Në Prizren vera âsht ma e nxehtë dhe ma e thatë.“\n\nFrage: Was stimmt über Prizren?" },
+      "choices": [
+        "Der Sommer ist heisser und trockener.",
+        "Der Winter ist länger.",
+        "Es schneit mehr.",
+        "Der Sommer ist kühler."
+      ],
+      "solutions": ["Der Sommer ist heisser und trockener."],
+      "explanation": "„Vera âsht ma e nxehtë dhe ma e thatë“ heisst „der Sommer ist heisser und trockener“.",
+      "errorHints": [
+        { "pattern": "l[aä]nger", "category": "vocab.confused", "hint": "Der längere Winter ist in der Schweiz: „Në Zvicër dimni âsht ma i gjatë“." },
+        { "pattern": "schneit", "category": "vocab.confused", "hint": "Mehr Schnee fällt in der Schweiz." },
+        { "pattern": "k[uü]hler", "category": "vocab.confused", "hint": "„Ma e nxehtë“ heisst „heisser“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_016",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["reading.dialogues", "vocab.weather"],
+      "itemIds": [
+        "item_parashikimi_i_motit",
+        "item_pritet",
+        "item_stuhi",
+        "item_rrufe",
+        "item_bjeshke",
+        "item_i_forte",
+        "item_mot",
+        "item_ere"
+      ],
+      "prompt": { "lang": "sq", "text": "– Çka thotë parashikimi i motit për të shtunën?\n– Pritet stuhi me rrufe dhe erë të fortë.\n– Atëherë nuk shkojmë në bjeshkë, po në kinema.\n\nFrage: Warum gehen sie nicht in die Berge?" },
+      "choices": [
+        "Ein Unwetter mit Blitzen wird erwartet.",
+        "Es ist zu heiss.",
+        "Es gibt Nebel.",
+        "Sie haben keine Zeit."
+      ],
+      "solutions": ["Ein Unwetter mit Blitzen wird erwartet."],
+      "explanation": "„Pritet stuhi me rrufe“ heisst „ein Unwetter mit Blitzen wird erwartet“. „Bjeshkë“ ist das Hochgebirge.",
+      "errorHints": [
+        { "pattern": "heiss", "category": "vocab.confused", "hint": "Von Hitze steht nichts im Text: „pritet stuhi“ – ein Unwetter wird erwartet." },
+        { "pattern": "nebel", "category": "vocab.confused", "hint": "Nebel („mjegull“) kommt im Dialog nicht vor." },
+        { "pattern": "zeit", "category": "vocab.confused", "hint": "Sie gehen ins Kino – Zeit haben sie also." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_017",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_akull", "item_rruge", "item_i_lagun", "item_i_thate"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Ka akull në rrugë.“?" },
+      "choices": [
+        "Auf der Strasse ist Eis.",
+        "Die Strasse ist nass.",
+        "Die Strasse ist trocken.",
+        "Auf der Strasse liegt Schnee."
+      ],
+      "solutions": ["Auf der Strasse ist Eis."],
+      "explanation": "„Akull“ ist das Eis. „Ka akull në rrugë“ – auf der Strasse ist Eis, also Vorsicht!",
+      "errorHints": [
+        { "pattern": "nass", "category": "vocab.confused", "hint": "Nass heisst „e lagun“." },
+        { "pattern": "trocken", "category": "vocab.confused", "hint": "Trocken heisst „e thatë“." },
+        { "pattern": "schnee", "category": "vocab.confused", "hint": "Schnee heisst „borë“; „akull“ ist das Eis." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_018",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.adjective_agreement"],
+      "itemIds": ["item_vranet", "item_sot", "item_qiell", "item_i_kthjellet"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Heute ist der Himmel klar.“?" },
+      "choices": [
+        "Sot qielli âsht i kthjellët.",
+        "Sot qielli âsht e kthjellët.",
+        "Sot qielli âsht vranët.",
+        "Sot qiell âsht i kthjellët."
+      ],
+      "solutions": ["Sot qielli âsht i kthjellët."],
+      "explanation": "„Qielli“ (der Himmel) ist maskulin – darum „i kthjellët“.",
+      "errorHints": [
+        { "pattern": "qielli [aâ]sht e ", "category": "grammar.linking_article", "hint": "„Qielli“ ist maskulin – darum „i kthjellët“." },
+        { "pattern": "vran", "category": "vocab.confused", "hint": "„Vranët“ heisst „bewölkt“." },
+        { "pattern": "sot qiell [aâ]", "category": "grammar.definite_article", "hint": "„Der Himmel“ braucht den Artikel: „qielli“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_019",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature", "grammar.adjective_agreement"],
+      "itemIds": ["item_i_paster", "item_i_thate", "item_ajer"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Die Luft ist sauber.“?" },
+      "choices": ["Ajri âsht i pastër.", "Ajri âsht e pastër.", "Ajër âsht i pastër.", "Ajri âsht i thatë."],
+      "solutions": ["Ajri âsht i pastër."],
+      "explanation": "„Ajri“ (die Luft) ist im Albanischen maskulin – darum „i pastër“.",
+      "errorHints": [
+        { "pattern": "ajri [aâ]sht e ", "category": "grammar.linking_article", "hint": "„Ajri“ ist maskulin – darum „i pastër“." },
+        { "pattern": "^aj[eë]r ", "category": "grammar.definite_article", "hint": "„Die Luft“ braucht den Artikel: „ajri“." },
+        { "pattern": "that", "category": "vocab.confused", "hint": "„I thatë“ heisst „trocken“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_020",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_ndotje", "item_dimen", "item_bore", "item_mjegull"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Në dimën ka shumë ndotje në Prishtinë.“?" },
+      "choices": [
+        "Im Winter ist die Luft in Prishtina sehr verschmutzt.",
+        "Im Winter gibt es in Prishtina viel Schnee.",
+        "Im Winter ist es in Prishtina sehr kalt.",
+        "Im Winter gibt es in Prishtina viel Nebel."
+      ],
+      "solutions": ["Im Winter ist die Luft in Prishtina sehr verschmutzt."],
+      "explanation": "„Ndotje“ heisst „Verschmutzung“. Im Winter ist die Luft in Prishtina oft schlecht.",
+      "errorHints": [
+        { "pattern": "schnee", "category": "vocab.confused", "hint": "Schnee heisst „borë“." },
+        { "pattern": "kalt", "category": "vocab.confused", "hint": "Kalt heisst „ftohtë“." },
+        { "pattern": "nebel", "category": "vocab.confused", "hint": "Nebel heisst „mjegull“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_021",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_det", "item_lugine", "item_liqen", "item_lume"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „See“?" },
+      "choices": ["liqen", "lumë", "det", "luginë"],
+      "solutions": ["liqen"],
+      "explanation": "„Liqen“ ist der See, „det“ das Meer. Die Schweiz hat viele Seen: „shumë liqene“.",
+      "errorHints": [
+        { "pattern": "^lum", "category": "vocab.confused", "hint": "„Lumë“ ist der Fluss." },
+        { "pattern": "^det$", "category": "vocab.confused", "hint": "„Det“ ist das Meer." },
+        { "pattern": "^lugin", "category": "vocab.confused", "hint": "„Luginë“ ist das Tal." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_022",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_vershim", "item_termet", "item_zjarr", "item_stuhi"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „vërshim“?" },
+      "choices": ["die Überschwemmung", "das Erdbeben", "der Brand", "der Sturm"],
+      "solutions": ["die Überschwemmung"],
+      "explanation": "„Vërshim“ ist eine Überschwemmung, z. B. wenn ein Fluss über die Ufer tritt.",
+      "errorHints": [
+        { "pattern": "erdbeben", "category": "vocab.confused", "hint": "Das Erdbeben heisst „tërmet“." },
+        { "pattern": "brand", "category": "vocab.confused", "hint": "Der Brand heisst „zjarr“." },
+        { "pattern": "sturm", "category": "vocab.confused", "hint": "Der Sturm heisst „stuhi“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_023",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature", "vocab.seasons"],
+      "itemIds": ["item_vere", "item_dimen", "item_shpesh", "item_termet", "item_vershim", "item_zjarr", "item_pyll"],
+      "prompt": { "lang": "de", "text": "Wie sagt man „Im Sommer gibt es oft Waldbrände.“?" },
+      "choices": [
+        "Në verë ka shpesh zjarre në pyje.",
+        "Në verë ka shpesh vërshime në pyje.",
+        "Në dimën ka shpesh zjarre në pyje.",
+        "Në verë ka shpesh tërmete në pyje."
+      ],
+      "solutions": ["Në verë ka shpesh zjarre në pyje."],
+      "explanation": "„Zjarre“ ist die Mehrzahl von „zjarr“ (Brand), „pyje“ die Mehrzahl von „pyll“ (Wald).",
+      "errorHints": [
+        { "pattern": "v[eë]rshime", "category": "vocab.confused", "hint": "„Vërshime“ sind Überschwemmungen." },
+        { "pattern": "dim[eë]n", "category": "vocab.confused", "hint": "„Në dimën“ heisst „im Winter“." },
+        { "pattern": "t[eë]rmete", "category": "vocab.confused", "hint": "„Tërmete“ sind Erdbeben." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Mehrzahl „zjarre“ (Kosovo auch „zjarme“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_024",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["reading.dialogues", "vocab.weather", "vocab.clothes"],
+      "itemIds": [
+        "item_me_veshe",
+        "item_pallto",
+        "item_jashte",
+        "item_nen_zero",
+        "item_shall",
+        "item_doreza",
+        "item_grade"
+      ],
+      "prompt": { "lang": "sq", "text": "– Nânë, a duhet me veshë pallton?\n– Po, jashtë janë pesë gradë nën zero. Merr edhe shallin dhe dorëzat!\n\nFrage: Wie kalt ist es draussen?" },
+      "choices": ["Fünf Grad unter null.", "Fünf Grad über null.", "Fünfzehn Grad.", "Null Grad."],
+      "solutions": ["Fünf Grad unter null."],
+      "explanation": "„Pesë gradë nën zero“ heisst „fünf Grad unter null“. Darum braucht das Kind Mantel, Schal und Handschuhe.",
+      "errorHints": [
+        { "pattern": "[uü]ber", "category": "vocab.confused", "hint": "„Nën zero“ heisst „unter null“; über null wäre „mbi zero“." },
+        { "pattern": "f[uü]nfzehn", "category": "vocab.confused", "hint": "„Pesë“ heisst „fünf“; fünfzehn wäre „pesëmbëdhjetë“." },
+        { "pattern": "^null grad", "category": "vocab.confused", "hint": "„Zero“ steht hier in „nën zero“ – unter null." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „veshë“ (Standard: veshur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_025",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_mjegull", "item_jashte"],
+      "prompt": { "lang": "de", "text": "Draussen gibt es Nebel." },
+      "answerLang": "sq",
+      "solutions": ["Jashtë ka mjegull.", "Ka mjegull jashtë."],
+      "wordBank": ["Jashtë", "ka", "mjegull", "brenda", "akull", "shi"],
+      "explanation": "„Jashtë“ heisst „draussen“, „ka mjegull“ „es gibt Nebel“.",
+      "errorHints": [
+        { "pattern": "brenda", "category": "vocab.confused", "hint": "„Brenda“ heisst „drinnen“." },
+        { "pattern": "akull", "category": "vocab.confused", "hint": "„Akull“ ist das Eis." },
+        { "pattern": "(^|\\s)shi(\\s|$)", "category": "vocab.confused", "hint": "„Shi“ ist der Regen." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_026",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.clothes", "grammar.verbs.imperative"],
+      "itemIds": ["item_xhakete", "item_me_veshe"],
+      "prompt": { "lang": "de", "text": "Zieh die Jacke an!" },
+      "answerLang": "sq",
+      "solutions": ["Vish xhaketën!"],
+      "wordBank": ["Vish", "xhaketën", "vesh", "xhaketa", "kapelën"],
+      "explanation": "„Vish!“ ist die Befehlsform von „vesh“ (anziehen). Die Jacke steht im Akkusativ: „xhaketën“.",
+      "errorHints": [
+        { "pattern": "^vesh ", "category": "grammar.verb_conjugation", "hint": "„Vesh“ heisst „ich ziehe an“. Die Aufforderung lautet „vish!“." },
+        { "pattern": "xhaketa$", "category": "grammar.case", "hint": "Nach „vish“ steht der Akkusativ: „xhaketën“." },
+        { "pattern": "kapel", "category": "vocab.confused", "hint": "„Kapelën“ ist die Mütze." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_027",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_neser", "item_mjegull", "item_ka_me_pase"],
+      "prompt": { "lang": "de", "text": "Morgen wird es Nebel geben." },
+      "answerLang": "sq",
+      "solutions": ["Nesër ka me pasë mjegull.", "Ka me pasë mjegull nesër."],
+      "wordBank": ["Nesër", "ka", "me", "pasë", "mjegull", "kam", "bie", "akull"],
+      "explanation": "„Ka me pasë“ ist die Zukunft von „ka“ (es gibt): „es wird … geben“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam me", "category": "grammar.verb_conjugation", "hint": "Beim Wetter steht die 3. Person: „ka me pasë“." },
+        { "pattern": "bie", "category": "vocab.confused", "hint": "Nebel „fällt“ nicht – es „gibt“ ihn: „ka me pasë mjegull“." },
+        { "pattern": "akull", "category": "vocab.confused", "hint": "„Akull“ ist das Eis." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_028",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.clothes", "vocab.seasons", "grammar.case.accusative"],
+      "itemIds": ["item_dimen", "item_pallto", "item_doreza", "item_me_veshe"],
+      "prompt": { "lang": "de", "text": "Im Winter ziehe ich den Mantel und die Handschuhe an." },
+      "answerLang": "sq",
+      "solutions": ["Në dimën vesh pallton dhe dorëzat.", "Vesh pallton dhe dorëzat në dimën."],
+      "wordBank": ["Në", "dimën", "vesh", "pallton", "dhe", "dorëzat", "palltoja", "shallin", "verë"],
+      "explanation": "Nach „vesh“ steht der Akkusativ: „pallton“, „dorëzat“.",
+      "errorHints": [
+        { "pattern": "palltoja", "category": "grammar.case", "hint": "Nach „vesh“ steht der Akkusativ: „pallton“." },
+        { "pattern": "shallin", "category": "vocab.confused", "hint": "„Shallin“ ist der Schal." },
+        { "pattern": "ver[eë]", "category": "vocab.confused", "hint": "„Verë“ ist der Sommer." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_029",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement"],
+      "itemIds": ["item_ma_se", "item_i_ngrohte"],
+      "prompt": { "lang": "de", "text": "Prizren ist wärmer als Peja." },
+      "answerLang": "sq",
+      "solutions": ["Prizreni âsht ma i ngrohtë se Peja."],
+      "wordBank": ["Prizreni", "âsht", "ma", "i", "ngrohtë", "se", "Peja", "e", "sa", "ftohtë"],
+      "explanation": "„Ma … se“ heisst „-er als“. „Prizreni“ ist maskulin, darum „ma i ngrohtë“.",
+      "errorHints": [
+        { "pattern": "ma e ngroht", "category": "grammar.linking_article", "hint": "„Prizreni“ ist maskulin – darum „ma i ngrohtë“." },
+        { "pattern": "(^|\\s)sa(\\s|$)", "category": "vocab.confused", "hint": "„Als“ heisst beim Vergleich „se“. „Sa“ gehört zu „aq … sa“ (so … wie)." },
+        { "pattern": "ftoht", "category": "vocab.confused", "hint": "„Ftohtë“ heisst „kalt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_030",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.nature", "vocab.weather"],
+      "itemIds": ["item_bore", "item_veri"],
+      "prompt": { "lang": "de", "text": "Im Norden wird es schneien." },
+      "answerLang": "sq",
+      "solutions": ["Në veri ka me ra borë.", "Ka me ra borë në veri."],
+      "wordBank": ["Në", "veri", "ka", "me", "ra", "borë", "jug", "shi", "bie"],
+      "explanation": "„Në veri“ heisst „im Norden“. „Ka me ra borë“ – es wird schneien.",
+      "errorHints": [
+        { "pattern": "jug", "category": "vocab.confused", "hint": "„Jug“ ist der Süden." },
+        { "pattern": "(^|\\s)shi(\\s|$)", "category": "vocab.confused", "hint": "„Shi“ ist der Regen. Schnee heisst „borë“." },
+        { "pattern": "me bie", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ra“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_031",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_bie", "item_temperature", "item_nen_zero"],
+      "prompt": { "lang": "de", "text": "Die Temperaturen werden unter null fallen." },
+      "answerLang": "sq",
+      "solutions": ["Temperaturat kanë me ra nën zero."],
+      "wordBank": ["Temperaturat", "kanë", "me", "ra", "nën", "zero", "ka", "mbi", "rritet"],
+      "explanation": "„Temperaturat“ ist Mehrzahl, darum „kanë me ra“. „Nën zero“ heisst „unter null“.",
+      "errorHints": [
+        { "pattern": "temperaturat ka me", "category": "grammar.verb_conjugation", "hint": "„Temperaturat“ ist Mehrzahl: „kanë me ra“." },
+        { "pattern": "mbi zero", "category": "vocab.confused", "hint": "„Mbi zero“ heisst „über null“." },
+        { "pattern": "rritet", "category": "vocab.confused", "hint": "„Rritet“ heisst „steigt“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_032",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "grammar.question_particle"],
+      "itemIds": ["item_ma_se", "item_i_ftohte", "item_kosove", "item_zvicer"],
+      "prompt": { "lang": "de", "text": "Ist es in der Schweiz kälter als in Kosovo?" },
+      "answerLang": "sq",
+      "solutions": ["A âsht ma ftohtë në Zvicër se në Kosovë?", "A âsht në Zvicër ma ftohtë se në Kosovë?"],
+      "wordBank": ["A", "âsht", "ma", "ftohtë", "në", "Zvicër", "se", "në", "Kosovë", "ngrohtë", "sa", "aq"],
+      "explanation": "Mit „a“ beginnt die Ja/Nein-Frage. „Ma ftohtë se“ heisst „kälter als“.",
+      "errorHints": [
+        { "pattern": "ngroht", "category": "vocab.confused", "hint": "„Ngrohtë“ heisst „warm“." },
+        { "pattern": "(^|\\s)sa(\\s|$)", "category": "vocab.confused", "hint": "Nach „ma“ folgt „se“ (als)." },
+        { "pattern": "(^|\\s)aq(\\s|$)", "category": "vocab.confused", "hint": "„Aq … sa“ heisst „so … wie“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_033",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "vocab.time"],
+      "itemIds": ["item_shi", "item_pasdite", "item_pritet"],
+      "prompt": { "lang": "de", "text": "Am Nachmittag wird Regen erwartet." },
+      "answerLang": "sq",
+      "solutions": ["Pasdite pritet shi.", "Pritet shi pasdite."],
+      "wordBank": ["Pasdite", "pritet", "shi", "paradite", "borë", "pres"],
+      "explanation": "„Pritet“ heisst „wird erwartet“ – typisch für den Wetterbericht.",
+      "errorHints": [
+        { "pattern": "paradite", "category": "vocab.confused", "hint": "„Paradite“ heisst „am Vormittag“." },
+        { "pattern": "bor[eë]", "category": "vocab.confused", "hint": "„Borë“ ist der Schnee." },
+        { "pattern": "(^|\\s)pres(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Pres“ heisst „ich warte“. „Wird erwartet“ heisst „pritet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_034",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature", "grammar.adjective_agreement"],
+      "itemIds": ["item_i_madh", "item_liqen"],
+      "prompt": { "lang": "de", "text": "Der See ist gross." },
+      "answerLang": "sq",
+      "solutions": ["Liqeni âsht i madh."],
+      "wordBank": ["Liqeni", "âsht", "i", "madh", "e", "lumi", "liqen"],
+      "explanation": "„Liqeni“ (der See) ist maskulin – darum „i madh“.",
+      "errorHints": [
+        { "pattern": "liqeni [aâ]sht e ", "category": "grammar.linking_article", "hint": "„Liqeni“ ist maskulin – darum „i madh“." },
+        { "pattern": "lumi", "category": "vocab.confused", "hint": "„Lumi“ ist der Fluss." },
+        { "pattern": "^liqen [aâ]", "category": "grammar.definite_article", "hint": "„Der See“ braucht den Artikel: „liqeni“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_035",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement", "vocab.seasons"],
+      "itemIds": ["item_ma_i_ftohti", "item_stine", "item_dimen", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Der Winter ist die kälteste Jahreszeit." },
+      "answerLang": "sq",
+      "solutions": ["Dimni âsht stina ma e ftohtë."],
+      "wordBank": ["Dimni", "âsht", "stina", "ma", "e", "ftohtë", "i", "se", "vera"],
+      "explanation": "Superlativ: bestimmtes Nomen + „ma“ + Adjektiv. „Stina“ ist feminin, darum „ma e ftohtë“.",
+      "errorHints": [
+        { "pattern": "ma i ftoht", "category": "grammar.linking_article", "hint": "„Stina“ ist feminin – darum „ma e ftohtë“." },
+        { "pattern": "(^|\\s)se(\\s|$)", "category": "vocab.confused", "hint": "Beim Superlativ steht kein „se“: „stina ma e ftohtë“." },
+        { "pattern": "vera", "category": "vocab.confused", "hint": "„Vera“ ist der Sommer." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_036",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.weather", "grammar.adjective_agreement"],
+      "itemIds": ["item_shi", "item_bie_shi", "item_sepse", "item_i_lagun", "item_bie"],
+      "prompt": { "lang": "de", "text": "Arben ist nass, weil es regnet." },
+      "answerLang": "sq",
+      "solutions": ["Arben âsht i lagun, sepse po bie shi.", "Arben âsht i lagun, sepse bie shi."],
+      "wordBank": ["Arben", "âsht", "i", "lagun", "sepse", "po", "bie", "shi", "e", "thatë", "borë"],
+      "explanation": "„I lagun“ heisst „nass“ (Standard: „i lagur“). Arben ist ein Mann, darum „i“.",
+      "errorHints": [
+        { "pattern": "[aâ]sht e lagun", "category": "grammar.linking_article", "hint": "Arben ist ein Mann – darum „i lagun“." },
+        { "pattern": "that", "category": "vocab.confused", "hint": "„I thatë“ heisst „trocken“." },
+        { "pattern": "bor[eë]", "category": "vocab.confused", "hint": "„Bie borë“ heisst „es schneit“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_037",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sot", "item_mjegull"],
+      "prompt": { "lang": "sq", "text": "Sot ka mjegull." },
+      "answerLang": "de",
+      "solutions": ["Heute gibt es Nebel.", "Es gibt heute Nebel."],
+      "wordBank": ["Heute", "gibt", "es", "Nebel", "Eis", "Frost", "morgen"],
+      "explanation": "„Mjegull“ ist der Nebel, „sot“ heisst „heute“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)eis(\\s|$)", "category": "vocab.confused", "hint": "Eis hiesse „akull“." },
+        { "pattern": "frost", "category": "vocab.confused", "hint": "Frost hiesse „ngricë“." },
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "„Sot“ heisst „heute“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_038",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_i_ftohte", "item_i_ngrohte", "item_jashte", "item_brenda"],
+      "prompt": { "lang": "sq", "text": "Jashtë âsht ftohtë, brenda âsht ngrohtë." },
+      "answerLang": "de",
+      "solutions": ["Draussen ist es kalt, drinnen ist es warm."],
+      "wordBank": ["Draussen", "ist", "es", "kalt", "drinnen", "ist", "es", "warm", "heiss", "kühl", "morgen"],
+      "explanation": "„Jashtë“ heisst „draussen“, „brenda“ „drinnen“.",
+      "errorHints": [
+        { "pattern": "heiss", "category": "vocab.confused", "hint": "„Ngrohtë“ heisst „warm“; heiss wäre „nxehtë“." },
+        { "pattern": "k[uü]hl", "category": "vocab.confused", "hint": "Kühl hiesse „freskët“." },
+        { "pattern": "morgen", "category": "vocab.confused", "hint": "Im Satz steht kein „nesër“ (morgen)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_039",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_me_u_ftohe", "item_neser"],
+      "prompt": { "lang": "sq", "text": "Nesër ka me u ftohë." },
+      "answerLang": "de",
+      "solutions": ["Morgen wird es kälter.", "Es wird morgen kälter."],
+      "wordBank": ["Morgen", "wird", "es", "kälter", "wärmer", "heute", "regnen"],
+      "explanation": "„Me u ftohë“ heisst „kälter werden“, „me u ngrohë“ „wärmer werden“.",
+      "errorHints": [
+        { "pattern": "w[aä]rmer", "category": "vocab.confused", "hint": "„Me u ngrohë“ hiesse „wärmer werden“. „Me u ftohë“ heisst „kälter werden“." },
+        { "pattern": "heute", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“." },
+        { "pattern": "regnen", "category": "vocab.confused", "hint": "Regnen hiesse „ka me ra shi“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ftohë“ (Standard: ftohur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_040",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_mal", "item_zvicer", "item_liqen"],
+      "prompt": { "lang": "sq", "text": "Në Zvicër ka shumë liqene dhe male." },
+      "answerLang": "de",
+      "solutions": ["In der Schweiz gibt es viele Seen und Berge.", "Es gibt viele Seen und Berge in der Schweiz."],
+      "wordBank": ["In", "der", "Schweiz", "gibt", "es", "viele", "Seen", "und", "Berge", "Flüsse", "Meere", "Täler"],
+      "explanation": "„Liqene“ ist die Mehrzahl von „liqen“ (See), „male“ von „mal“ (Berg).",
+      "errorHints": [
+        { "pattern": "fl[uü]sse", "category": "vocab.confused", "hint": "„Liqene“ sind Seen; der Fluss heisst „lumë“." },
+        { "pattern": "meere", "category": "vocab.confused", "hint": "„Det“ ist das Meer – im Satz steht „liqene“ (Seen)." },
+        { "pattern": "t[aä]ler", "category": "vocab.confused", "hint": "Das Tal heisst „luginë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_041",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "reading.news"],
+      "itemIds": ["item_javen_tjeter", "item_vala_e_te_nxehtit", "item_pritet"],
+      "prompt": { "lang": "sq", "text": "Javën tjetër pritet vala e të nxehtit." },
+      "answerLang": "de",
+      "solutions": ["Nächste Woche wird die Hitzewelle erwartet.", "Die Hitzewelle wird nächste Woche erwartet."],
+      "wordBank": ["Nächste", "Woche", "wird", "die", "Hitzewelle", "erwartet", "Kälte", "gestern", "Nebel"],
+      "explanation": "„Vala e të nxehtit“ ist die Hitzewelle, „pritet“ heisst „wird erwartet“.",
+      "errorHints": [
+        { "pattern": "k[aä]lte", "category": "vocab.confused", "hint": "„Të nxehtit“ kommt von „nxehtë“ (heiss)." },
+        { "pattern": "gestern", "category": "vocab.confused", "hint": "„Javën tjetër“ heisst „nächste Woche“." },
+        { "pattern": "nebel", "category": "vocab.confused", "hint": "Nebel hiesse „mjegull“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_042",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_diell", "item_ka_diell", "item_qiell", "item_i_kthjellet"],
+      "prompt": { "lang": "sq", "text": "Qielli âsht i kthjellët dhe ka diell." },
+      "answerLang": "de",
+      "solutions": ["Der Himmel ist klar und die Sonne scheint."],
+      "wordBank": ["Der", "Himmel", "ist", "klar", "und", "die", "Sonne", "scheint", "bewölkt", "Regen", "Mond"],
+      "explanation": "„I kthjellët“ heisst „klar, wolkenlos“, „ka diell“ „die Sonne scheint“.",
+      "errorHints": [
+        { "pattern": "bew[oö]lkt", "category": "vocab.confused", "hint": "Bewölkt hiesse „vranët“." },
+        { "pattern": "regen", "category": "vocab.confused", "hint": "Regen hiesse „shi“." },
+        { "pattern": "mond", "category": "vocab.confused", "hint": "„Diell“ ist die Sonne; der Mond heisst „hânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_043",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "vocab.weather"],
+      "itemIds": ["item_ma_se", "item_alpet", "item_kosove", "item_bore", "item_ma_shume"],
+      "prompt": { "lang": "sq", "text": "Në Alpe ka ma shumë borë se në Kosovë." },
+      "answerLang": "de",
+      "solutions": [
+        "In den Alpen gibt es mehr Schnee als im Kosovo.",
+        "In den Alpen gibt es mehr Schnee als in Kosovo."
+      ],
+      "wordBank": [
+        "In",
+        "den",
+        "Alpen",
+        "gibt",
+        "es",
+        "mehr",
+        "Schnee",
+        "als",
+        "im",
+        "Kosovo",
+        "weniger",
+        "wie",
+        "Regen"
+      ],
+      "explanation": "„Ma shumë … se“ heisst „mehr … als“.",
+      "errorHints": [
+        { "pattern": "weniger", "category": "vocab.confused", "hint": "„Ma shumë“ heisst „mehr“; weniger wäre „ma pak“." },
+        { "pattern": "(^|\\s)wie(\\s|$)", "category": "vocab.confused", "hint": "„Se“ heisst nach „ma“ „als“." },
+        { "pattern": "regen", "category": "vocab.confused", "hint": "„Borë“ ist der Schnee." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_044",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_i_thate", "item_pyll"],
+      "prompt": { "lang": "sq", "text": "Pylli âsht i thatë." },
+      "answerLang": "de",
+      "solutions": ["Der Wald ist trocken."],
+      "wordBank": ["Der", "Wald", "ist", "trocken", "nass", "Fluss", "warm"],
+      "explanation": "„Pylli“ ist der Wald, „i thatë“ heisst „trocken“.",
+      "errorHints": [
+        { "pattern": "nass", "category": "vocab.confused", "hint": "Nass hiesse „i lagun“." },
+        { "pattern": "fluss", "category": "vocab.confused", "hint": "Der Fluss heisst „lumi“." },
+        { "pattern": "warm", "category": "vocab.confused", "hint": "Warm hiesse „i ngrohtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_045",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.clothes", "vocab.weather"],
+      "itemIds": ["item_me_veshe", "item_cizme", "item_shi", "item_bie_shi", "item_bie"],
+      "prompt": { "lang": "sq", "text": "Kur bie shi, vesh çizmet." },
+      "answerLang": "de",
+      "solutions": ["Wenn es regnet, ziehe ich die Stiefel an.", "Wenn es regnet, ziehe ich Stiefel an."],
+      "wordBank": ["Wenn", "es", "regnet", "ziehe", "ich", "die", "Stiefel", "an", "Handschuhe", "schneit", "Jacke"],
+      "explanation": "„Kur“ heisst hier „wenn“. „Vesh“ heisst „ich ziehe an“, „çizmet“ sind die Stiefel.",
+      "errorHints": [
+        { "pattern": "handschuhe", "category": "vocab.confused", "hint": "Handschuhe heissen „dorëza“." },
+        { "pattern": "schneit", "category": "vocab.confused", "hint": "„Bie shi“ heisst „es regnet“." },
+        { "pattern": "jacke", "category": "vocab.confused", "hint": "Die Jacke heisst „xhaketë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_046",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_i_bukur", "item_lugine", "item_natyre"],
+      "prompt": { "lang": "sq", "text": "Natyra në luginë âsht shumë e bukur." },
+      "answerLang": "de",
+      "solutions": ["Die Natur im Tal ist sehr schön."],
+      "wordBank": ["Die", "Natur", "im", "Tal", "ist", "sehr", "schön", "Wald", "See", "kalt"],
+      "explanation": "„Natyra“ ist die Natur, „luginë“ das Tal.",
+      "errorHints": [
+        { "pattern": "wald", "category": "vocab.confused", "hint": "Der Wald heisst „pyll“." },
+        { "pattern": "(^|\\s)see(\\s|$)", "category": "vocab.confused", "hint": "Der See heisst „liqen“." },
+        { "pattern": "kalt", "category": "vocab.confused", "hint": "„E bukur“ heisst „schön“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_047",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "vocab.nature"],
+      "itemIds": ["item_ma_se", "item_klime", "item_i_thate", "item_kosove", "item_zvicer"],
+      "prompt": { "lang": "sq", "text": "Klima në Kosovë âsht ma e thatë se në Zvicër." },
+      "answerLang": "de",
+      "solutions": [
+        "Das Klima im Kosovo ist trockener als in der Schweiz.",
+        "Das Klima in Kosovo ist trockener als in der Schweiz."
+      ],
+      "wordBank": [
+        "Das",
+        "Klima",
+        "im",
+        "Kosovo",
+        "ist",
+        "trockener",
+        "als",
+        "in",
+        "der",
+        "Schweiz",
+        "nasser",
+        "wie",
+        "milder"
+      ],
+      "explanation": "„Ma e thatë se“ heisst „trockener als“. „Klima“ ist feminin, darum „e“.",
+      "errorHints": [
+        { "pattern": "nasser", "category": "vocab.confused", "hint": "„E thatë“ heisst „trocken“; nass wäre „e lagun“." },
+        { "pattern": "(^|\\s)wie(\\s|$)", "category": "vocab.confused", "hint": "„Se“ heisst nach „ma“ „als“." },
+        { "pattern": "milder", "category": "vocab.confused", "hint": "Mild hiesse „e butë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_048",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_nate", "item_ngrice"],
+      "prompt": { "lang": "sq", "text": "Natën ka ngricë." },
+      "answerLang": "de",
+      "solutions": ["In der Nacht gibt es Frost.", "Es gibt in der Nacht Frost."],
+      "wordBank": ["In", "der", "Nacht", "gibt", "es", "Frost", "Nebel", "Tag", "Eis"],
+      "explanation": "„Ngricë“ ist der Frost, „natën“ heisst „in der Nacht“.",
+      "errorHints": [
+        { "pattern": "nebel", "category": "vocab.confused", "hint": "Nebel hiesse „mjegull“." },
+        { "pattern": "(^|\\s)tag(\\s|$)", "category": "vocab.confused", "hint": "„Natën“ heisst „in der Nacht“." },
+        { "pattern": "(^|\\s)eis(\\s|$)", "category": "vocab.confused", "hint": "Eis hiesse „akull“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_049",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_bore", "item_bie_bore", "item_jashte", "item_bie"],
+      "prompt": { "lang": "de", "text": "Draussen schneit es." },
+      "answerLang": "sq",
+      "solutions": ["Jashtë bie borë.", "Bie borë jashtë.", "Jashtë po bie borë.", "Po bie borë jashtë."],
+      "explanation": "„Jashtë“ heisst „draussen“, „bie borë“ „es schneit“.",
+      "errorHints": [
+        { "pattern": "brenda", "category": "vocab.confused", "hint": "„Brenda“ heisst „drinnen“. Draussen: „jashtë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_050",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_kam_me_kane", "item_i_ftohte", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen wird es kalt sein." },
+      "answerLang": "sq",
+      "solutions": [
+        "Nesër ka me kânë ftohtë.",
+        "Ka me kânë ftohtë nesër.",
+        "Nesër ka me kjenë ftohtë.",
+        "Ka me kjenë ftohtë nesër."
+      ],
+      "standardForms": ["Nesër do të jetë ftohtë.", "Do të jetë ftohtë nesër."],
+      "explanation": "„Ka me kânë“ heisst „es wird sein“ (Gheg-Zukunft von „jam“).",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam me", "category": "grammar.verb_conjugation", "hint": "Beim Wetter steht die 3. Person: „ka me kânë“." },
+        { "pattern": "^nes[eë]r [aâ]sht", "category": "grammar.verb_tense", "hint": "„Âsht“ ist Präsens. Für „es wird sein“: „ka me kânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_051",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "vocab.numbers"],
+      "itemIds": ["item_jashte", "item_grade", "item_sa_grade_jane"],
+      "prompt": { "lang": "de", "text": "Wie viel Grad sind es draussen?" },
+      "answerLang": "sq",
+      "solutions": ["Sa gradë janë jashtë?", "Jashtë sa gradë janë?"],
+      "explanation": "„Sa gradë janë?“ – „gradë“ ist Mehrzahl, darum „janë“.",
+      "errorHints": [
+        { "pattern": "sa grad[eë] [aâ]sht", "category": "grammar.verb_conjugation", "hint": "„Gradë“ ist Mehrzahl – darum „janë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_052",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "vocab.numbers"],
+      "itemIds": ["item_dy", "item_grade", "item_nen_zero", "item_minus"],
+      "prompt": { "lang": "de", "text": "Es sind zwei Grad unter null." },
+      "answerLang": "sq",
+      "solutions": ["Janë dy gradë nën zero.", "Janë minus dy gradë."],
+      "explanation": "„Nën“ heisst „unter“: „nën zero“ – unter null. Über null wäre „mbi zero“.",
+      "errorHints": [
+        { "pattern": "mbi zero", "category": "vocab.confused", "hint": "„Mbi zero“ heisst „über null“." },
+        { "pattern": "[aâ]sht dy grad", "category": "grammar.verb_conjugation", "hint": "Bei Mehrzahl: „janë dy gradë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_053",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.clothes", "grammar.case.accusative"],
+      "itemIds": ["item_me_veshe", "item_xhakete"],
+      "prompt": { "lang": "de", "text": "Ich ziehe die Jacke an." },
+      "answerLang": "sq",
+      "solutions": ["Vesh xhaketën.", "Unë vesh xhaketën.", "E vesh xhaketën."],
+      "explanation": "„Vesh“ heisst „ich ziehe an“. Die Jacke steht im Akkusativ: „xhaketën“.",
+      "errorHints": [
+        { "pattern": "vesh xhaketa$", "category": "grammar.case", "hint": "Nach „vesh“ steht der Akkusativ: „xhaketën“." },
+        { "pattern": "^vish ", "category": "grammar.verb_conjugation", "hint": "„Vish!“ ist die Aufforderung. „Ich ziehe an“ heisst „vesh“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_054",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.clothes", "vocab.weather", "grammar.verbs.imperative"],
+      "itemIds": ["item_jashte", "item_i_ftohte", "item_i_ngrohte", "item_vishu_mire"],
+      "prompt": { "lang": "de", "text": "Zieh dich warm an, draussen ist es kalt!" },
+      "answerLang": "sq",
+      "solutions": [
+        "Vishu mirë, jashtë âsht ftohtë!",
+        "Vishu mirë, se jashtë âsht ftohtë!",
+        "Vishu ngrohtë, jashtë âsht ftohtë!",
+        "Vishu mirë, âsht ftohtë jashtë!"
+      ],
+      "standardForms": ["Vishu mirë, jashtë është ftohtë!"],
+      "explanation": "„Vishu mirë!“ heisst „Zieh dich warm an!“. „Âsht“ ist die Gheg-Form von „ist“.",
+      "errorHints": [
+        { "pattern": "^vish m", "category": "grammar.verb_conjugation", "hint": "Für dich selbst sagst du „vishu“ (zieh dich an)." },
+        { "pattern": "brenda", "category": "vocab.confused", "hint": "„Brenda“ heisst „drinnen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_055",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.nature"],
+      "itemIds": ["item_ma_se", "item_i_ngrohte", "item_jug"],
+      "prompt": { "lang": "de", "text": "Im Süden ist es wärmer." },
+      "answerLang": "sq",
+      "solutions": ["Në jug âsht ma ngrohtë.", "Âsht ma ngrohtë në jug."],
+      "standardForms": ["Në jug është më ngrohtë.", "Në jug âsht më ngrohtë."],
+      "explanation": "„Ma ngrohtë“ heisst „wärmer“ (Standard: „më ngrohtë“). „Në jug“ – im Süden.",
+      "errorHints": [
+        { "pattern": "n[eë] veri", "category": "vocab.confused", "hint": "„Veri“ ist der Norden. Süden: „jug“." },
+        { "pattern": "ftoht", "category": "vocab.confused", "hint": "„Ftohtë“ heisst „kalt“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_056",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement"],
+      "itemIds": ["item_ma_se", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Prishtina ist kälter als Prizren." },
+      "answerLang": "sq",
+      "solutions": ["Prishtina âsht ma e ftohtë se Prizreni.", "Prishtina âsht ma e ftohtë se Prizren."],
+      "standardForms": ["Prishtina është më e ftohtë se Prizreni.", "Prishtina është më e ftohtë se Prizren."],
+      "explanation": "„Prishtina“ ist feminin, darum „ma e ftohtë“. „Se“ heisst „als“.",
+      "errorHints": [
+        { "pattern": "ma i ftoht", "category": "grammar.linking_article", "hint": "„Prishtina“ ist feminin – darum „ma e ftohtë“." },
+        { "pattern": "ftoht[eë] sa ", "category": "vocab.confused", "hint": "Nach „ma“ steht „se“ (als)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_057",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_fresket", "item_sot", "item_mjegull"],
+      "prompt": { "lang": "de", "text": "Heute gibt es Nebel und es ist kühl." },
+      "answerLang": "sq",
+      "solutions": ["Sot ka mjegull dhe âsht freskët.", "Ka mjegull sot dhe âsht freskët."],
+      "standardForms": ["Sot ka mjegull dhe është freskët."],
+      "explanation": "„Ka mjegull“ – es gibt Nebel. „Freskët“ heisst „kühl, frisch“.",
+      "errorHints": [
+        { "pattern": "akull", "category": "vocab.confused", "hint": "„Akull“ ist das Eis. Nebel heisst „mjegull“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_058",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_bie", "item_nen_zero", "item_temperature", "item_nate"],
+      "prompt": { "lang": "de", "text": "In der Nacht werden die Temperaturen unter null fallen." },
+      "answerLang": "sq",
+      "solutions": ["Natën temperaturat kanë me ra nën zero.", "Temperaturat kanë me ra nën zero natën."],
+      "standardForms": ["Natën temperaturat do të bien nën zero.", "Temperaturat do të bien nën zero natën."],
+      "explanation": "„Kanë me ra“ – sie werden fallen. „Natën“ heisst „in der Nacht“.",
+      "errorHints": [
+        { "pattern": "temperaturat ka me", "category": "grammar.verb_conjugation", "hint": "„Temperaturat“ ist Mehrzahl: „kanë me ra“." },
+        { "pattern": "me bie", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ra“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_059",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather", "grammar.definite_article.masc"],
+      "itemIds": ["item_ylber"],
+      "prompt": { "lang": "de", "text": "der Regenbogen (mit Artikel)" },
+      "answerLang": "sq",
+      "solutions": ["ylberi"],
+      "explanation": "„Ylber“ ist maskulin; mit Artikel: „ylberi“.",
+      "errorHints": [{ "pattern": "^ylber$", "category": "grammar.definite_article", "hint": "Mit Artikel: „ylberi“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_060",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.adjective_agreement"],
+      "itemIds": ["item_i_lagun", "item_rruge"],
+      "prompt": { "lang": "de", "text": "Die Strasse ist nass." },
+      "answerLang": "sq",
+      "solutions": ["Rruga âsht e lagun."],
+      "standardForms": ["Rruga është e lagur.", "Rruga âsht e lagur."],
+      "explanation": "„Rruga“ ist feminin, darum „e lagun“ (Standard: „e lagur“).",
+      "errorHints": [
+        { "pattern": "rruga [aâ]sht i ", "category": "grammar.linking_article", "hint": "„Rruga“ ist feminin – darum „e lagun“." },
+        { "pattern": "that", "category": "vocab.confused", "hint": "„E thatë“ heisst „trocken“." },
+        { "pattern": "^rrug[eë] [aâ]sht", "category": "grammar.definite_article", "hint": "„Die Strasse“ braucht den Artikel: „rruga“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_061",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.clothes", "vocab.weather"],
+      "itemIds": ["item_syze_dielli", "item_ka_diell", "item_diell"],
+      "prompt": { "lang": "de", "text": "Nimm die Sonnenbrille, die Sonne scheint!" },
+      "answerLang": "sq",
+      "solutions": [
+        "Merr syzet e diellit, ka diell!",
+        "Merr syzet e diellit, se ka diell!",
+        "Merr syzet e diellit, âsht me diell!",
+        "Merri syzet e diellit, ka diell!"
+      ],
+      "explanation": "„Syze dielli“ ist die Sonnenbrille, mit Artikel „syzet e diellit“.",
+      "errorHints": [
+        { "pattern": "bie shi", "category": "vocab.confused", "hint": "„Bie shi“ heisst „es regnet“. Die Sonne scheint: „ka diell“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_062",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_ka_me_pase", "item_neser", "item_stuhi", "item_rrufe"],
+      "prompt": { "lang": "de", "text": "Morgen wird es ein Unwetter mit Blitzen geben." },
+      "answerLang": "sq",
+      "solutions": ["Nesër ka me pasë stuhi me rrufe.", "Ka me pasë stuhi me rrufe nesër."],
+      "standardForms": ["Nesër do të ketë stuhi me rrufe.", "Do të ketë stuhi me rrufe nesër."],
+      "explanation": "„Ka me pasë“ heisst „es wird … geben“. „Stuhi me rrufe“ ist ein Unwetter mit Blitzen.",
+      "errorHints": [
+        { "pattern": "(^|\\s)kam me", "category": "grammar.verb_conjugation", "hint": "Beim Wetter steht die 3. Person: „ka me pasë“." },
+        { "pattern": "^nes[eë]r ka stuhi", "category": "grammar.verb_tense", "hint": "„Ka stuhi“ ist Präsens. Für „es wird geben“: „ka me pasë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_063",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_klime", "item_i_bute"],
+      "prompt": { "lang": "sq", "text": "Në Lugano klima âsht e butë." },
+      "answerLang": "de",
+      "solutions": ["In Lugano ist das Klima mild.", "Das Klima in Lugano ist mild."],
+      "explanation": "„E butë“ heisst „mild“ (auch „weich“). „Klima“ ist feminin.",
+      "errorHints": [
+        { "pattern": "trocken", "category": "vocab.confused", "hint": "Trocken hiesse „e thatë“. „E butë“ heisst „mild“." },
+        { "pattern": "kalt", "category": "vocab.confused", "hint": "Kalt hiesse „e ftohtë“. „E butë“ heisst „mild“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_064",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_akull", "item_rruge", "item_duhet", "item_me_vozite", "item_ngadale"],
+      "prompt": { "lang": "sq", "text": "Ka akull në rrugë, duhet me vozitë ngadalë." },
+      "answerLang": "de",
+      "solutions": [
+        "Auf der Strasse ist Eis, man muss langsam fahren.",
+        "Es hat Eis auf der Strasse, man muss langsam fahren.",
+        "Es gibt Eis auf der Strasse, man muss langsam fahren.",
+        "Auf der Strasse ist Eis, du musst langsam fahren.",
+        "Auf der Strasse ist Eis, wir müssen langsam fahren.",
+        "Auf der Strasse ist Eis, ich muss langsam fahren."
+      ],
+      "explanation": "„Akull“ ist das Eis. „Duhet me vozitë ngadalë“ heisst „man muss langsam fahren“.",
+      "errorHints": [
+        { "pattern": "schnee", "category": "vocab.confused", "hint": "Schnee hiesse „borë“; „akull“ ist das Eis." },
+        { "pattern": "schnell", "category": "vocab.confused", "hint": "„Ngadalë“ heisst „langsam“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_065",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_rajon", "item_liqen"],
+      "prompt": { "lang": "de", "text": "In dieser Region gibt es viele Seen." },
+      "answerLang": "sq",
+      "solutions": ["Në këtë rajon ka shumë liqene.", "Ka shumë liqene në këtë rajon."],
+      "explanation": "„Rajon“ heisst „Region“; „liqene“ ist die Mehrzahl von „liqen“ (See).",
+      "errorHints": [
+        { "pattern": "liqen(\\s|$)", "category": "vocab.confused", "hint": "Viele Seen: Mehrzahl „liqene“." },
+        { "pattern": "lum", "category": "vocab.confused", "hint": "„Lumë“ ist der Fluss. See heisst „liqen“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_066",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature", "grammar.adjective_agreement", "grammar.negation"],
+      "itemIds": ["item_i_paster", "item_ajer"],
+      "prompt": { "lang": "de", "text": "Die Luft ist nicht sauber." },
+      "answerLang": "sq",
+      "solutions": ["Ajri nuk âsht i pastër.", "Ajri s'âsht i pastër."],
+      "standardForms": ["Ajri nuk është i pastër."],
+      "explanation": "„Ajri“ (die Luft) ist maskulin, darum „i pastër“.",
+      "errorHints": [
+        { "pattern": "ajri (nuk |s)[aâ]sht e ", "category": "grammar.linking_article", "hint": "„Ajri“ ist maskulin – darum „i pastër“." },
+        { "pattern": "^aj[eë]r ", "category": "grammar.definite_article", "hint": "„Die Luft“ braucht den Artikel: „ajri“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_067",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.clothes"],
+      "itemIds": ["item_dimen", "item_xhakete", "item_pallto", "item_shall", "item_kapele", "item_me_veshe"],
+      "prompt": { "lang": "de", "text": "Im Winter trage ich einen Schal." },
+      "answerLang": "sq",
+      "text": "Në dimën vesh nji ___.",
+      "solutions": ["shall"],
+      "choices": ["shall", "pallto", "kapelë", "xhaketë"],
+      "explanation": "„Shall“ ist der Schal. „Nji“ steht für „ein“.",
+      "errorHints": [
+        { "pattern": "^pallto$", "category": "vocab.confused", "hint": "„Pallto“ ist der Mantel." },
+        { "pattern": "^kapel", "category": "vocab.confused", "hint": "„Kapelë“ ist die Mütze." },
+        { "pattern": "^xhaket", "category": "vocab.confused", "hint": "„Xhaketë“ ist die Jacke." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_068",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_rrufe", "item_mjegull", "item_akull", "item_ylber"],
+      "prompt": { "lang": "de", "text": "Es gibt Nebel." },
+      "answerLang": "sq",
+      "text": "Ka ___.",
+      "solutions": ["mjegull"],
+      "choices": ["mjegull", "ylber", "akull", "rrufe"],
+      "explanation": "„Ka mjegull“ heisst „es gibt Nebel, es ist neblig“.",
+      "errorHints": [
+        { "pattern": "^ylber$", "category": "vocab.confused", "hint": "„Ylber“ ist der Regenbogen." },
+        { "pattern": "^akull$", "category": "vocab.confused", "hint": "„Akull“ ist das Eis." },
+        { "pattern": "^rrufe$", "category": "vocab.confused", "hint": "„Rrufe“ ist der Blitz." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_069",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_me_u_ngrohe", "item_mot", "item_neser", "item_i_ngrohte"],
+      "prompt": { "lang": "de", "text": "Morgen wird das Wetter wärmer." },
+      "answerLang": "sq",
+      "text": "Nesër moti ka me u ___.",
+      "solutions": ["ngrohë"],
+      "choices": ["ngrohë", "ftohë", "ngrohtë", "ngrohet"],
+      "explanation": "Nach „me u“ steht das Partizip: „me u ngrohë“ – wärmer werden.",
+      "errorHints": [
+        { "pattern": "^ftoh[eë]$", "category": "vocab.confused", "hint": "„Me u ftohë“ heisst „kälter werden“." },
+        { "pattern": "^ngroht[eë]$", "category": "grammar.participle", "hint": "„Ngrohtë“ ist das Adjektiv (warm). Nach „me u“ steht das Partizip „ngrohë“." },
+        { "pattern": "^ngrohet$", "category": "grammar.infinitive", "hint": "„Ngrohet“ ist Präsens. Nach „me u“ steht das Partizip „ngrohë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ngrohë“ (Standard: ngrohur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_070",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement", "vocab.weather"],
+      "itemIds": ["item_i_kthjellet", "item_qiell"],
+      "prompt": { "lang": "de", "text": "Der Himmel ist klar." },
+      "answerLang": "sq",
+      "text": "Qielli âsht ___ kthjellët.",
+      "solutions": ["i"],
+      "choices": ["i", "e", "të", "së"],
+      "explanation": "„Qielli“ ist maskulin – darum „i kthjellët“.",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "„Qielli“ ist maskulin – darum „i kthjellët“." },
+        { "pattern": "^t[eë]$", "category": "grammar.linking_article", "hint": "„Të“ steht in der Mehrzahl. „Qielli“ ist Einzahl, maskulin: „i“." },
+        { "pattern": "^s[eë]$", "category": "grammar.linking_article", "hint": "„Së“ steht nicht nach „âsht“. Hier passt „i“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_071",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.adjective_agreement"],
+      "itemIds": ["item_nate", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Die Nächte sind kalt." },
+      "answerLang": "sq",
+      "text": "Netët janë ___ ftohta.",
+      "solutions": ["të"],
+      "choices": ["të", "e", "i", "së"],
+      "explanation": "In der Mehrzahl steht nach „janë“ „të“: „të ftohta“ (feminin Mehrzahl).",
+      "errorHints": [
+        { "pattern": "^e$", "category": "grammar.linking_article", "hint": "In der Mehrzahl nach „janë“ steht „të“: „të ftohta“." },
+        { "pattern": "^i$", "category": "grammar.linking_article", "hint": "„I“ steht bei maskulin Einzahl. Mehrzahl: „të ftohta“." },
+        { "pattern": "^s[eë]$", "category": "grammar.linking_article", "hint": "Hier passt „të“: „netët janë të ftohta“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_072",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.weather"],
+      "itemIds": ["item_aq_sa", "item_i_ngrohte", "item_sot", "item_dje"],
+      "prompt": { "lang": "de", "text": "Heute ist es so warm wie gestern." },
+      "answerLang": "sq",
+      "text": "Sot âsht aq ngrohtë ___ dje.",
+      "solutions": ["sa"],
+      "choices": ["sa", "se", "si", "ma"],
+      "explanation": "„Aq … sa“ heisst „so … wie“. „Ma … se“ heisst „-er als“.",
+      "errorHints": [
+        { "pattern": "^se$", "category": "vocab.confused", "hint": "„Se“ gehört zu „ma … se“ (als). Nach „aq“ steht „sa“." },
+        { "pattern": "^si$", "category": "vocab.confused", "hint": "Nach „aq“ steht „sa“: „aq ngrohtë sa“." },
+        { "pattern": "^ma$", "category": "vocab.confused", "hint": "„Ma“ heisst „mehr, -er“. Nach „aq“ steht „sa“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_073",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather", "grammar.verbs.present"],
+      "itemIds": ["item_temperature", "item_pritet", "item_rritet", "item_bie"],
+      "prompt": { "lang": "de", "text": "Die Temperatur steigt." },
+      "answerLang": "sq",
+      "text": "Temperatura ___.",
+      "solutions": ["rritet"],
+      "choices": ["rritet", "bie", "pritet", "fryn"],
+      "explanation": "„Rritet“ heisst „steigt, wächst“, „bie“ heisst „fällt“.",
+      "errorHints": [
+        { "pattern": "^bie$", "category": "vocab.confused", "hint": "„Bie“ heisst „fällt“." },
+        { "pattern": "^pritet$", "category": "vocab.confused", "hint": "„Pritet“ heisst „wird erwartet“." },
+        { "pattern": "^fryn$", "category": "vocab.confused", "hint": "„Fryn“ heisst „weht“ (der Wind)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_074",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_mal", "item_veri", "item_jug", "item_lindje", "item_perendim"],
+      "prompt": { "lang": "de", "text": "Im Westen gibt es viele Berge." },
+      "answerLang": "sq",
+      "text": "Në ___ ka shumë male.",
+      "solutions": ["perëndim"],
+      "choices": ["perëndim", "lindje", "jug", "veri"],
+      "explanation": "„Perëndim“ ist der Westen. Im Westen von Kosovo liegen die Bjeshkët e Nemuna.",
+      "errorHints": [
+        { "pattern": "^lindje$", "category": "vocab.confused", "hint": "„Lindje“ ist der Osten." },
+        { "pattern": "^jug$", "category": "vocab.confused", "hint": "„Jug“ ist der Süden." },
+        { "pattern": "^veri$", "category": "vocab.confused", "hint": "„Veri“ ist der Norden." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_075",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "vocab.seasons"],
+      "itemIds": ["item_ma_i_ftohti", "item_vere", "item_stine", "item_i_nxehte", "item_i_ngrohte"],
+      "prompt": { "lang": "de", "text": "Der Sommer ist die heisseste Jahreszeit." },
+      "answerLang": "sq",
+      "text": "Vera âsht stina ma e ___.",
+      "solutions": ["nxehtë"],
+      "choices": ["nxehtë", "nxehta", "nxehti", "ngrohtë"],
+      "explanation": "Nach „stina ma e“ steht das Adjektiv ohne Artikel: „ma e nxehtë“. „Ma e nxehta“ steht allein (die Heisseste).",
+      "errorHints": [
+        { "pattern": "^nxehta$", "category": "grammar.definite_article", "hint": "Nach dem Nomen bleibt das Adjektiv ohne Artikel: „stina ma e nxehtë“." },
+        { "pattern": "^nxehti$", "category": "grammar.gender", "hint": "„-i“ ist maskulin, und „stina“ ist feminin." },
+        { "pattern": "^ngroht", "category": "vocab.confused", "hint": "„Ngrohtë“ heisst „warm“, nicht „heiss“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_076",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.clothes", "grammar.verbs.imperative"],
+      "itemIds": ["item_doreza", "item_me_veshe", "item_shall", "item_cizme"],
+      "prompt": { "lang": "de", "text": "Zieh die Handschuhe an!" },
+      "answerLang": "sq",
+      "text": "Vish ___!",
+      "solutions": ["dorëzat"],
+      "choices": ["dorëzat", "dorëza", "çizmet", "shallin"],
+      "explanation": "„Dorëzat“ sind die Handschuhe (mit Artikel).",
+      "errorHints": [
+        { "pattern": "^dor[eë]za$", "category": "grammar.definite_article", "hint": "„Die Handschuhe“: mit Artikel „dorëzat“." },
+        { "pattern": "^[cç]izmet$", "category": "vocab.confused", "hint": "„Çizmet“ sind die Stiefel." },
+        { "pattern": "^shallin$", "category": "vocab.confused", "hint": "„Shallin“ ist der Schal." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_077",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "vocab.weather"],
+      "itemIds": ["item_ma_pak", "item_kosove", "item_zvicer", "item_shi", "item_bie"],
+      "prompt": { "lang": "de", "text": "In Kosovo regnet es weniger als in der Schweiz." },
+      "answerLang": "sq",
+      "text": "Në Kosovë bie ma pak shi ___ në Zvicër.",
+      "solutions": ["se"],
+      "choices": ["se", "sa", "si", "aq"],
+      "explanation": "„Ma pak … se“ heisst „weniger … als“.",
+      "errorHints": [
+        { "pattern": "^sa$", "category": "vocab.confused", "hint": "„Sa“ gehört zu „aq … sa“ (so … wie). Nach „ma pak“ steht „se“." },
+        { "pattern": "^si$", "category": "vocab.confused", "hint": "Nach „ma pak“ steht „se“ (als)." },
+        { "pattern": "^aq$", "category": "vocab.confused", "hint": "„Aq“ heisst „so“. Hier braucht es „se“ (als)." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_078",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_lugine", "item_fushe", "item_liqen", "item_lume", "item_pyll"],
+      "prompt": { "lang": "de", "text": "Im Tal gibt es einen Fluss." },
+      "answerLang": "sq",
+      "text": "Në luginë ka nji ___.",
+      "solutions": ["lumë"],
+      "choices": ["lumë", "liqen", "pyll", "fushë"],
+      "explanation": "„Lumë“ ist der Fluss, „luginë“ das Tal.",
+      "errorHints": [
+        { "pattern": "^liqen$", "category": "vocab.confused", "hint": "„Liqen“ ist der See." },
+        { "pattern": "^pyll$", "category": "vocab.confused", "hint": "„Pyll“ ist der Wald." },
+        { "pattern": "^fush[eë]$", "category": "vocab.confused", "hint": "„Fushë“ ist die Ebene, das Feld." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_079",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_i_ftohte", "item_jashte"],
+      "prompt": { "lang": "de", "text": "Draussen ist es kalt." },
+      "answerLang": "sq",
+      "text": "___ âsht ftohtë.",
+      "solutions": ["Jashtë"],
+      "explanation": "„Jashtë“ heisst „draussen“, „brenda“ „drinnen“.",
+      "errorHints": [{ "pattern": "^brenda$", "category": "vocab.confused", "hint": "„Brenda“ heisst „drinnen“." }],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_080",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_ka_me_pase", "item_mjegull", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen wird es Nebel geben." },
+      "answerLang": "sq",
+      "text": "Nesër ka me ___ mjegull.",
+      "solutions": ["pasë"],
+      "standardForms": ["pasur"],
+      "explanation": "„Pasë“ ist das Gheg-Partizip von „kam“: „ka me pasë“ – es wird geben (Standard: „pasur“).",
+      "errorHints": [
+        { "pattern": "^ka$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „pasë“." },
+        { "pattern": "^ket[eë]$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „pasë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_081",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_kam_me_kane", "item_i_ftohte", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen wird es kalt sein." },
+      "answerLang": "sq",
+      "text": "Nesër ka me ___ ftohtë.",
+      "solutions": ["kânë", "kjenë"],
+      "standardForms": ["qenë"],
+      "explanation": "„Kânë“ (auch „kjenë“) ist das Gheg-Partizip von „jam“: „ka me kânë“ – es wird sein.",
+      "errorHints": [
+        { "pattern": "^[aâ]sht$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „kânë“." },
+        { "pattern": "^jet[eë]$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „kânë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_082",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "vocab.nature"],
+      "itemIds": ["item_ajer", "item_i_paster", "item_fshat", "item_qytet", "item_ma_se"],
+      "prompt": { "lang": "de", "text": "Im Dorf ist die Luft sauberer als in der Stadt." },
+      "answerLang": "sq",
+      "text": "Në fshat ajri âsht ___ i pastër se në qytet.",
+      "solutions": ["ma"],
+      "standardForms": ["më"],
+      "explanation": "„Ma i pastër se“ heisst „sauberer als“ (Standard: „më“).",
+      "errorHints": [
+        { "pattern": "^shum[eë]$", "category": "vocab.confused", "hint": "Für „-er als“ steht „ma … se“." },
+        { "pattern": "^aq$", "category": "vocab.confused", "hint": "„Aq … sa“ heisst „so … wie“. Für „sauberer als“: „ma … se“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_083",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_pritet", "item_vala_e_te_nxehtit", "item_javen_tjeter"],
+      "prompt": { "lang": "de", "text": "Nächste Woche wird die Hitzewelle erwartet." },
+      "answerLang": "sq",
+      "text": "Javën tjetër ___ vala e të nxehtit.",
+      "solutions": ["pritet"],
+      "explanation": "„Pritet“ heisst „wird erwartet“ – so klingt der Wetterbericht.",
+      "errorHints": [
+        { "pattern": "^pres$", "category": "grammar.verb_conjugation", "hint": "„Pres“ heisst „ich warte“. „Wird erwartet“: „pritet“." },
+        { "pattern": "^pret$", "category": "grammar.verb_conjugation", "hint": "„Pret“ heisst „du wartest“. „Wird erwartet“: „pritet“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_084",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_bie_bore", "item_bore", "item_veri", "item_bie"],
+      "prompt": { "lang": "de", "text": "Im Norden schneit es." },
+      "answerLang": "sq",
+      "text": "Në ___ bie borë.",
+      "solutions": ["veri"],
+      "explanation": "„Veri“ ist der Norden, „jug“ der Süden.",
+      "errorHints": [
+        { "pattern": "^jug$", "category": "vocab.confused", "hint": "„Jug“ ist der Süden." },
+        { "pattern": "^lindje$", "category": "vocab.confused", "hint": "„Lindje“ ist der Osten." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_085",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_i_lagun"],
+      "prompt": { "lang": "de", "text": "Ich bin nass. (ein Mann spricht)" },
+      "answerLang": "sq",
+      "text": "Jam i ___.",
+      "solutions": ["lagun"],
+      "standardForms": ["lagur"],
+      "explanation": "„I lagun“ heisst „nass“ (Standard: „i lagur“). Eine Frau sagt „Jam e lagun“.",
+      "errorHints": [{ "pattern": "^that[eë]$", "category": "vocab.confused", "hint": "„I thatë“ heisst „trocken“." }],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_086",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_rritet", "item_temperature"],
+      "prompt": { "lang": "de", "text": "Die Temperaturen werden steigen." },
+      "answerLang": "sq",
+      "text": "Temperaturat kanë me u ___.",
+      "solutions": ["rritë"],
+      "standardForms": ["rritur"],
+      "explanation": "Nach „me u“ steht das Partizip: „rritë“ (von „rritet“, steigen; Standard: „rritur“).",
+      "errorHints": [
+        { "pattern": "^rritet$", "category": "grammar.infinitive", "hint": "Nach „me u“ steht das Partizip: „rritë“." },
+        { "pattern": "^rrit$", "category": "grammar.participle", "hint": "Das Gheg-Partizip endet auf -ë: „rritë“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „rritë“ (Standard: rritur) nach der Regel -ur → -ë – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_087",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature", "grammar.definite_article.masc"],
+      "itemIds": ["item_pyll", "item_i_gjelber"],
+      "prompt": { "lang": "de", "text": "Der Wald ist grün." },
+      "answerLang": "sq",
+      "text": "___ âsht i gjelbër.",
+      "solutions": ["Pylli"],
+      "explanation": "„Pyll“ ist maskulin; „der Wald“ heisst „pylli“.",
+      "errorHints": [
+        { "pattern": "^pyll$", "category": "grammar.definite_article", "hint": "„Der Wald“ braucht den Artikel: „pylli“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_088",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.time", "vocab.weather"],
+      "itemIds": ["item_pasdite", "item_bie_shi", "item_shi"],
+      "prompt": { "lang": "de", "text": "Am Nachmittag wird es regnen." },
+      "answerLang": "sq",
+      "text": "___ ka me ra shi.",
+      "solutions": ["Pasdite"],
+      "explanation": "„Pasdite“ heisst „am Nachmittag“, „paradite“ „am Vormittag“.",
+      "errorHints": [
+        { "pattern": "^paradite$", "category": "vocab.confused", "hint": "„Paradite“ heisst „am Vormittag“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_089",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.clothes", "grammar.case.accusative"],
+      "itemIds": ["item_pallto", "item_me_veshe"],
+      "prompt": { "lang": "de", "text": "Zieh den Mantel an!" },
+      "answerLang": "sq",
+      "text": "Vish ___!",
+      "solutions": ["pallton"],
+      "explanation": "Nach „vish“ steht der Akkusativ: „palltoja“ wird zu „pallton“.",
+      "errorHints": [
+        { "pattern": "^palltoja$", "category": "grammar.case", "hint": "Nach „vish“ steht der Akkusativ: „pallton“." },
+        { "pattern": "^pallto$", "category": "grammar.definite_article", "hint": "„Den Mantel“: mit Artikel „pallton“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_090",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_parashikimi_i_motit", "item_neser", "item_mot"],
+      "prompt": { "lang": "de", "text": "Was sagt der Wetterbericht für morgen?" },
+      "answerLang": "sq",
+      "text": "Çka thotë ___ i motit për nesër?",
+      "solutions": ["parashikimi"],
+      "explanation": "„Parashikimi i motit“ ist der Wetterbericht – wörtlich „die Vorhersage des Wetters“.",
+      "errorHints": [
+        { "pattern": "^parashikim$", "category": "grammar.definite_article", "hint": "Mit Artikel: „parashikimi i motit“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_091",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_stuhi", "item_rrufe", "item_mjegull", "item_akull", "item_ngrice"],
+      "prompt": { "lang": "de", "text": "Ordne die Wetterwörter zu." },
+      "pairs": [
+        { "left": "mjegull", "right": "Nebel" },
+        { "left": "akull", "right": "Eis" },
+        { "left": "ngricë", "right": "Frost" },
+        { "left": "stuhi", "right": "Sturm" },
+        { "left": "rrufe", "right": "Blitz" }
+      ],
+      "explanation": "„Stuhi me rrufe“ ist ein Gewitter mit Blitzen. „Ka akull në rrugë“ – auf der Strasse ist Eis.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_092",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_rajon", "item_veri", "item_jug", "item_lindje", "item_perendim"],
+      "prompt": { "lang": "de", "text": "Ordne die Himmelsrichtungen zu." },
+      "pairs": [
+        { "left": "veri", "right": "Norden" },
+        { "left": "jug", "right": "Süden" },
+        { "left": "lindje", "right": "Osten" },
+        { "left": "perëndim", "right": "Westen" },
+        { "left": "rajon", "right": "Region" }
+      ],
+      "explanation": "„Në veri“ heisst „im Norden“ – nach „në“ ohne Artikel.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_093",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_lugine", "item_fushe", "item_liqen", "item_lume", "item_pyll"],
+      "prompt": { "lang": "de", "text": "Ordne die Landschaft zu." },
+      "pairs": [
+        { "left": "liqen", "right": "See" },
+        { "left": "lumë", "right": "Fluss" },
+        { "left": "luginë", "right": "Tal" },
+        { "left": "pyll", "right": "Wald" },
+        { "left": "fushë", "right": "Ebene" }
+      ],
+      "explanation": "Mit Artikel: liqeni, lumi, lugina, pylli, fusha.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_094",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.clothes"],
+      "itemIds": ["item_xhakete", "item_pallto", "item_shall", "item_doreza", "item_kapele"],
+      "prompt": { "lang": "de", "text": "Ordne die Kleidung zu." },
+      "pairs": [
+        { "left": "xhaketë", "right": "Jacke" },
+        { "left": "pallto", "right": "Mantel" },
+        { "left": "shall", "right": "Schal" },
+        { "left": "dorëza", "right": "Handschuhe" },
+        { "left": "kapelë", "right": "Mütze" }
+      ],
+      "explanation": "Im Winter brauchst du alles: „pallto, shall, dorëza dhe kapelë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_095",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.adjective_agreement"],
+      "itemIds": ["item_i_paster", "item_i_thate", "item_i_lagun", "item_i_bute", "item_i_kthjellet"],
+      "prompt": { "lang": "de", "text": "Ordne die Adjektive zu." },
+      "pairs": [
+        { "left": "i thatë", "right": "trocken" },
+        { "left": "i lagun", "right": "nass" },
+        { "left": "i butë", "right": "mild" },
+        { "left": "i kthjellët", "right": "klar" },
+        { "left": "i pastër", "right": "sauber" }
+      ],
+      "explanation": "Feminin heissen sie: e thatë, e lagun, e butë, e kthjellët, e pastër.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_096",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_vala_e_te_nxehtit", "item_ylber", "item_termet", "item_vershim", "item_zjarr"],
+      "prompt": { "lang": "de", "text": "Ordne die Naturereignisse zu." },
+      "pairs": [
+        { "left": "tërmet", "right": "Erdbeben" },
+        { "left": "vërshim", "right": "Überschwemmung" },
+        { "left": "zjarr", "right": "Brand" },
+        { "left": "ylber", "right": "Regenbogen" },
+        { "left": "vala e të nxehtit", "right": "Hitzewelle" }
+      ],
+      "explanation": "„Vala e të nxehtit“ heisst wörtlich „die Welle der Hitze“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_097",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.verbs.future"],
+      "itemIds": ["item_me_u_ngrohe", "item_me_u_ftohe", "item_pritet", "item_rritet", "item_bie"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter aus dem Wetterbericht zu." },
+      "pairs": [
+        { "left": "pritet", "right": "wird erwartet" },
+        { "left": "rritet", "right": "steigt" },
+        { "left": "bie", "right": "fällt" },
+        { "left": "ka me u ngrohë", "right": "wird wärmer" },
+        { "left": "ka me u ftohë", "right": "wird kälter" }
+      ],
+      "explanation": "„Temperatura rritet“ – die Temperatur steigt. „Temperatura bie“ – sie fällt.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_098",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.time", "vocab.weather"],
+      "itemIds": ["item_nate", "item_jashte", "item_brenda", "item_pasdite", "item_paradite"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "paradite", "right": "am Vormittag" },
+        { "left": "pasdite", "right": "am Nachmittag" },
+        { "left": "natën", "right": "in der Nacht" },
+        { "left": "jashtë", "right": "draussen" },
+        { "left": "brenda", "right": "drinnen" }
+      ],
+      "explanation": "„Pasdite ka me ra shi“ – am Nachmittag wird es regnen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_099",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": [
+        "item_kam_me",
+        "item_ka_me_pase",
+        "item_kam_me_kane",
+        "item_bie",
+        "item_bore",
+        "item_i_ftohte",
+        "item_temperature",
+        "item_mjegull",
+        "item_me_u_ngrohe"
+      ],
+      "prompt": { "lang": "de", "text": "Ordne die Sätze zu." },
+      "pairs": [
+        { "left": "Ka me ra borë.", "right": "Es wird schneien." },
+        { "left": "Ka me pasë mjegull.", "right": "Es wird Nebel geben." },
+        { "left": "Ka me kânë ftohtë.", "right": "Es wird kalt sein." },
+        { "left": "Ka me u ngrohë.", "right": "Es wird wärmer." },
+        { "left": "Temperaturat kanë me ra.", "right": "Die Temperaturen werden sinken." }
+      ],
+      "explanation": "Alle Sätze stehen in der Gheg-Zukunft: „ka me“ / „kanë me“ + Partizip.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_100",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison"],
+      "itemIds": ["item_ma_se", "item_aq_sa", "item_ma_pak", "item_ma_i_ftohti", "item_ma_shume", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Ordne die Vergleiche zu." },
+      "pairs": [
+        { "left": "ma ftohtë se", "right": "kälter als" },
+        { "left": "aq ftohtë sa", "right": "so kalt wie" },
+        { "left": "ma pak", "right": "weniger" },
+        { "left": "ma shumë", "right": "mehr" },
+        { "left": "ma e ftohta", "right": "die Kälteste" }
+      ],
+      "explanation": "„Ma“ ist die Gheg-Form von „më“: ma shumë, ma pak, ma ftohtë.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_101",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.clothes", "vocab.weather"],
+      "itemIds": ["item_diell", "item_cader", "item_cizme", "item_syze_dielli", "item_me_veshe", "item_vishu_mire"],
+      "prompt": { "lang": "de", "text": "Was brauchst du bei welchem Wetter? Ordne zu." },
+      "pairs": [
+        { "left": "çizme", "right": "Stiefel" },
+        { "left": "syze dielli", "right": "Sonnenbrille" },
+        { "left": "çadër", "right": "Regenschirm" },
+        { "left": "me veshë", "right": "anziehen" },
+        { "left": "vishu mirë!", "right": "zieh dich warm an!" }
+      ],
+      "explanation": "„Me veshë“ ist der Gheg-Infinitiv von „vesh“ (ich ziehe an).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „veshë“ (Standard: veshur) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_102",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature"],
+      "itemIds": ["item_bjeshke", "item_alpet", "item_natyre", "item_ajer", "item_ndotje"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "natyrë", "right": "Natur" },
+        { "left": "ajër", "right": "Luft" },
+        { "left": "ndotje", "right": "Verschmutzung" },
+        { "left": "bjeshkë", "right": "Hochgebirge" },
+        { "left": "Alpet", "right": "die Alpen" }
+      ],
+      "explanation": "„Bjeshkë“ ist ein typisches Kosovo-Wort für hohe Berge mit Weiden, z. B. „Bjeshkët e Nemuna“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_103",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather", "grammar.adjective_agreement"],
+      "itemIds": ["item_sot", "item_qiell", "item_i_kthjellet"],
+      "prompt": { "lang": "de", "text": "Heute ist der Himmel klar." },
+      "answerLang": "sq",
+      "tokens": ["Sot", "qielli", "âsht", "i", "kthjellët"],
+      "solutions": ["Sot qielli âsht i kthjellët.", "Qielli sot âsht i kthjellët.", "Qielli âsht i kthjellët sot."],
+      "explanation": "„I kthjellët“ steht nach „âsht“; „sot“ kann am Anfang oder am Ende stehen.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_104",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.clothes", "vocab.weather"],
+      "itemIds": ["item_bore", "item_bie_bore", "item_vishu_mire", "item_bie"],
+      "prompt": { "lang": "de", "text": "Zieh dich warm an, es schneit!" },
+      "answerLang": "sq",
+      "tokens": ["Vishu", "mirë", "po", "bie", "borë"],
+      "solutions": ["Vishu mirë, po bie borë!", "Po bie borë, vishu mirë!"],
+      "explanation": "„Po bie borë“ – es schneit gerade. „Vishu mirë!“ – zieh dich warm an!",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_105",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.verbs.future", "vocab.nature"],
+      "itemIds": ["item_bore", "item_neser", "item_veri"],
+      "prompt": { "lang": "de", "text": "Morgen wird es im Norden schneien." },
+      "answerLang": "sq",
+      "tokens": ["Nesër", "ka", "me", "ra", "borë", "në", "veri"],
+      "solutions": [
+        "Nesër ka me ra borë në veri.",
+        "Nesër në veri ka me ra borë.",
+        "Në veri ka me ra borë nesër.",
+        "Në veri nesër ka me ra borë."
+      ],
+      "explanation": "„Ka me ra“ bleibt zusammen: Das ist die Gheg-Zukunft.",
+      "errorHints": [
+        { "pattern": "ka ra me", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „ka me ra“." }
+      ],
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_106",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.clothes", "vocab.seasons"],
+      "itemIds": ["item_me_veshe", "item_dimen", "item_doreza", "item_cizme"],
+      "prompt": { "lang": "de", "text": "Im Winter ziehe ich Stiefel und Handschuhe an." },
+      "answerLang": "sq",
+      "tokens": ["Në", "dimën", "vesh", "çizme", "dhe", "dorëza"],
+      "solutions": ["Në dimën vesh çizme dhe dorëza.", "Vesh çizme dhe dorëza në dimën."],
+      "explanation": "„Vesh“ heisst „ich ziehe an“. Ohne Artikel: „çizme dhe dorëza“ – Stiefel und Handschuhe.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_107",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement"],
+      "itemIds": ["item_aq_sa", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Peja ist so kalt wie Prishtina." },
+      "answerLang": "sq",
+      "tokens": ["Peja", "âsht", "aq", "e", "ftohtë", "sa", "Prishtina"],
+      "solutions": ["Peja âsht aq e ftohtë sa Prishtina.", "Prishtina âsht aq e ftohtë sa Peja."],
+      "explanation": "„Aq … sa“ heisst „so … wie“. „Peja“ ist feminin, darum „e ftohtë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_108",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_parashikimi_i_motit", "item_bie_shi", "item_mot", "item_shi", "item_neser"],
+      "prompt": { "lang": "de", "text": "Der Wetterbericht sagt, dass es morgen regnen wird." },
+      "answerLang": "sq",
+      "tokens": ["Parashikimi", "i", "motit", "thotë", "se", "nesër", "ka", "me", "ra", "shi"],
+      "solutions": [
+        "Parashikimi i motit thotë se nesër ka me ra shi.",
+        "Parashikimi i motit thotë se ka me ra shi nesër."
+      ],
+      "explanation": "„Thotë se …“ heisst „sagt, dass …“. Danach folgt die Zukunft „ka me ra shi“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_109",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "grammar.verbs.present"],
+      "itemIds": ["item_bie", "item_temperature", "item_nate"],
+      "prompt": { "lang": "de", "text": "In der Nacht fallen die Temperaturen." },
+      "answerLang": "sq",
+      "tokens": ["Natën", "temperaturat", "bien"],
+      "solutions": ["Natën temperaturat bien.", "Temperaturat bien natën."],
+      "explanation": "„Bien“ ist die Mehrzahl von „bie“ (fällt): „temperaturat bien“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_110",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature", "grammar.adjective_agreement"],
+      "itemIds": ["item_klime", "item_i_bute", "item_jug"],
+      "prompt": { "lang": "de", "text": "Im Süden ist das Klima mild." },
+      "answerLang": "sq",
+      "tokens": ["Në", "jug", "klima", "âsht", "e", "butë"],
+      "solutions": ["Në jug klima âsht e butë.", "Klima âsht e butë në jug.", "Klima në jug âsht e butë."],
+      "explanation": "„Klima“ ist feminin, darum „e butë“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_111",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "vocab.time"],
+      "itemIds": ["item_diell", "item_ka_diell", "item_vranet", "item_pasdite", "item_paradite"],
+      "prompt": { "lang": "de", "text": "Am Vormittag ist es bewölkt, am Nachmittag scheint die Sonne." },
+      "answerLang": "sq",
+      "tokens": ["Paradite", "âsht", "vranët", "pasdite", "ka", "diell"],
+      "solutions": ["Paradite âsht vranët, pasdite ka diell.", "Pasdite ka diell, paradite âsht vranët."],
+      "explanation": "„Paradite“ – am Vormittag, „pasdite“ – am Nachmittag.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_112",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.comparison", "grammar.adjective_agreement"],
+      "itemIds": ["item_ma_se", "item_alpet", "item_dimen", "item_kosove", "item_i_gjate"],
+      "prompt": { "lang": "de", "text": "Der Winter in den Alpen ist länger als in Kosovo." },
+      "answerLang": "sq",
+      "tokens": ["Dimni", "në", "Alpe", "âsht", "ma", "i", "gjatë", "se", "në", "Kosovë"],
+      "solutions": ["Dimni në Alpe âsht ma i gjatë se në Kosovë."],
+      "explanation": "„Dimni“ ist maskulin, darum „ma i gjatë“. „Se“ heisst „als“.",
+      "errorHints": [
+        { "pattern": "se ma i", "category": "grammar.word_order", "hint": "„Ma i gjatë“ kommt vor „se“: „ma i gjatë se në Kosovë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_113",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sot", "item_qiell", "item_ylber"],
+      "prompt": { "lang": "de", "text": "Heute gibt es einen Regenbogen am Himmel." },
+      "answerLang": "sq",
+      "tokens": ["Sot", "ka", "nji", "ylber", "në", "qiell"],
+      "solutions": ["Sot ka nji ylber në qiell.", "Sot në qiell ka nji ylber.", "Në qiell ka nji ylber sot."],
+      "explanation": "„Ka nji ylber“ – es gibt einen Regenbogen. „Në qiell“ – am Himmel.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_114",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "vocab.seasons"],
+      "itemIds": ["item_akull", "item_rruge", "item_dimen", "item_shpesh"],
+      "prompt": { "lang": "de", "text": "Im Winter gibt es oft Eis auf der Strasse." },
+      "answerLang": "sq",
+      "tokens": ["Në", "dimën", "ka", "shpesh", "akull", "në", "rrugë"],
+      "solutions": ["Në dimën ka shpesh akull në rrugë.", "Në dimën shpesh ka akull në rrugë."],
+      "explanation": "„Shpesh“ heisst „oft“; es steht meist direkt nach dem Verb.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_115",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.nature", "grammar.adjective_agreement", "grammar.negation"],
+      "itemIds": ["item_ajer", "item_i_paster", "item_dimen"],
+      "prompt": { "lang": "de", "text": "Im Winter ist die Luft in Prishtina nicht sauber." },
+      "answerLang": "sq",
+      "tokens": ["Në", "dimën", "ajri", "në", "Prishtinë", "nuk", "âsht", "i", "pastër"],
+      "solutions": [
+        "Në dimën ajri në Prishtinë nuk âsht i pastër.",
+        "Ajri në Prishtinë nuk âsht i pastër në dimën.",
+        "Në dimën ajri nuk âsht i pastër në Prishtinë."
+      ],
+      "explanation": "„Nuk“ steht direkt vor „âsht“. „Ajri“ ist maskulin, darum „i pastër“.",
+      "errorHints": [
+        { "pattern": "[aâ]sht nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk âsht“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_116",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["vocab.clothes", "grammar.verbs.present"],
+      "itemIds": ["item_me_veshe", "item_kur", "item_i_ftohte"],
+      "prompt": { "lang": "de", "text": "Was ziehst du an, wenn es kalt ist?" },
+      "answerLang": "sq",
+      "tokens": ["Çka", "vesh", "kur", "âsht", "ftohtë"],
+      "solutions": ["Çka vesh kur âsht ftohtë?", "Kur âsht ftohtë, çka vesh?"],
+      "explanation": "„Vesh“ heisst auch „du ziehst an“. „Kur“ heisst hier „wenn“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_117",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.nature", "grammar.adjective_agreement"],
+      "itemIds": ["item_lume", "item_i_madh"],
+      "prompt": { "lang": "de", "text": "Der Fluss ist gross." },
+      "answerLang": "sq",
+      "tokens": ["Lumi", "âsht", "i", "madh"],
+      "solutions": ["Lumi âsht i madh."],
+      "explanation": "„Lumi“ (der Fluss) ist maskulin, darum „i madh“.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_118",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.nature", "vocab.seasons"],
+      "itemIds": ["item_zjarr", "item_pyll", "item_vere"],
+      "prompt": { "lang": "de", "text": "Im Sommer gibt es Brände in den Wäldern." },
+      "answerLang": "sq",
+      "tokens": ["Në", "verë", "ka", "zjarre", "në", "pyje"],
+      "solutions": ["Në verë ka zjarre në pyje.", "Ka zjarre në pyje në verë."],
+      "explanation": "„Zjarre“ und „pyje“ sind Mehrzahlformen von „zjarr“ (Brand) und „pyll“ (Wald).",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Mehrzahl „zjarre“ (Kosovo auch „zjarme“) zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_119",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_sa_grade_jane", "item_grade", "item_sot"],
+      "prompt": { "lang": "de", "text": "Wie viel Grad sind es heute?" },
+      "answerLang": "sq",
+      "tokens": ["Sa", "gradë", "janë", "sot"],
+      "solutions": ["Sa gradë janë sot?", "Sot sa gradë janë?"],
+      "explanation": "„Sa gradë janë?“ – wörtlich „Wie viele Grad sind es?“",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_120",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 3,
+      "skillTags": ["grammar.verbs.future", "vocab.weather"],
+      "itemIds": ["item_me_u_ngrohe", "item_ka_me_pase", "item_ere", "item_neser"],
+      "prompt": { "lang": "de", "text": "Morgen wird es wärmer, aber es wird Wind geben." },
+      "answerLang": "sq",
+      "tokens": ["Nesër", "ka", "me", "u", "ngrohë", "po", "ka", "me", "pasë", "erë"],
+      "solutions": ["Nesër ka me u ngrohë, po ka me pasë erë."],
+      "explanation": "„Po“ heisst hier „aber“. Zweimal Zukunft: „ka me u ngrohë“ und „ka me pasë“.",
+      "reviewed": false,
+      "source": "manual",
+      "note": "Partizip „ngrohë“ (Standard: ngrohur) zu prüfen; „po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_121",
+      "type": "multiple_choice",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather", "vocab.seasons"],
+      "itemIds": ["item_shkrihet", "item_bore"],
+      "prompt": { "lang": "de", "text": "Was bedeutet „Në pranverë bora shkrihet.“?" },
+      "choices": [
+        "Im Frühling schmilzt der Schnee.",
+        "Im Frühling schneit es.",
+        "Im Frühling ist der Schnee weiss.",
+        "Im Frühling friert es."
+      ],
+      "solutions": ["Im Frühling schmilzt der Schnee."],
+      "explanation": "„Shkrihet“ heisst „schmilzt“: „bora shkrihet“ – der Schnee schmilzt.",
+      "errorHints": [
+        { "pattern": "schneit", "category": "vocab.confused", "hint": "„Bie borë“ hiesse „es schneit“." },
+        { "pattern": "weiss", "category": "vocab.confused", "hint": "„Weiss“ hiesse „e bardhë“." },
+        { "pattern": "friert", "category": "vocab.confused", "hint": "„Es friert“ hiesse „ka ngricë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_122",
+      "type": "translate_wordbank",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.seasons", "vocab.nature"],
+      "itemIds": ["item_shkrihet", "item_bore", "item_pranvere", "item_mal"],
+      "prompt": { "lang": "de", "text": "Im Frühling schmilzt der Schnee in den Bergen." },
+      "answerLang": "sq",
+      "solutions": [
+        "Në pranverë bora shkrihet në male.",
+        "Në pranverë shkrihet bora në male.",
+        "Bora shkrihet në male në pranverë."
+      ],
+      "wordBank": ["Në", "pranverë", "bora", "shkrihet", "në", "male", "bie", "verë", "akulli"],
+      "explanation": "„Bora shkrihet“ – der Schnee schmilzt. „Në male“ heisst „in den Bergen“.",
+      "errorHints": [
+        { "pattern": "(^|\\s)bie(\\s|$)", "category": "vocab.confused", "hint": "„Bie“ heisst „fällt“. Schmelzen: „shkrihet“." },
+        { "pattern": "(^|\\s)ver[eë](\\s|$)", "category": "vocab.confused", "hint": "„Verë“ ist der Sommer. Frühling: „pranverë“." },
+        { "pattern": "akulli", "category": "vocab.confused", "hint": "„Akulli“ ist das Eis; der Schnee heisst „bora“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_123",
+      "type": "fill_gap",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_bubullime", "item_rrufe", "item_mjegull", "item_ngrice", "item_ylber"],
+      "prompt": { "lang": "de", "text": "Es gibt Blitz und Donner." },
+      "answerLang": "sq",
+      "text": "Ka rrufe dhe ___.",
+      "solutions": ["bubullimë"],
+      "choices": ["bubullimë", "ylber", "mjegull", "ngricë"],
+      "explanation": "„Bubullimë“ ist der Donner, „rrufe“ der Blitz.",
+      "errorHints": [
+        { "pattern": "^ylber$", "category": "vocab.confused", "hint": "„Ylber“ ist der Regenbogen." },
+        { "pattern": "^mjegull$", "category": "vocab.confused", "hint": "„Mjegull“ ist der Nebel." },
+        { "pattern": "^ngric[eë]$", "category": "vocab.confused", "hint": "„Ngricë“ ist der Frost." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_124",
+      "type": "match_pairs",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather"],
+      "itemIds": ["item_nen_zero", "item_ylber", "item_mbi_zero", "item_shkrihet", "item_bubullime"],
+      "prompt": { "lang": "de", "text": "Ordne die Wörter zu." },
+      "pairs": [
+        { "left": "bubullimë", "right": "Donner" },
+        { "left": "shkrihet", "right": "schmilzt" },
+        { "left": "mbi zero", "right": "über null" },
+        { "left": "nën zero", "right": "unter null" },
+        { "left": "ylber", "right": "Regenbogen" }
+      ],
+      "explanation": "„Mbi“ heisst „über“, „nën“ heisst „unter“: mbi zero, nën zero.",
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_125",
+      "type": "translate_free",
+      "level": "A2.2",
+      "difficulty": 2,
+      "skillTags": ["vocab.weather", "vocab.numbers"],
+      "itemIds": ["item_grade", "item_dhjete", "item_sot", "item_mbi_zero"],
+      "prompt": { "lang": "de", "text": "Heute sind es zehn Grad über null." },
+      "answerLang": "sq",
+      "solutions": ["Sot janë dhjetë gradë mbi zero.", "Janë dhjetë gradë mbi zero sot.", "Sot janë dhjetë gradë."],
+      "explanation": "„Mbi zero“ heisst „über null“, „nën zero“ „unter null“.",
+      "errorHints": [
+        { "pattern": "n[eë]n zero", "category": "vocab.confused", "hint": "„Nën zero“ heisst „unter null“. Über null: „mbi zero“." },
+        { "pattern": "[aâ]sht dhjet", "category": "grammar.verb_conjugation", "hint": "Bei Mehrzahl: „janë dhjetë gradë“." }
+      ],
+      "reviewed": false,
+      "source": "manual"
+    },
+    {
+      "id": "ex_a2_u17_weather_climate_126",
+      "type": "word_order",
+      "level": "A2.2",
+      "difficulty": 1,
+      "skillTags": ["vocab.weather", "vocab.numbers"],
+      "itemIds": ["item_minus", "item_grade", "item_sonte", "item_dhjete"],
+      "prompt": { "lang": "de", "text": "Heute Nacht sind es minus zehn Grad." },
+      "answerLang": "sq",
+      "tokens": ["Sonte", "janë", "minus", "dhjetë", "gradë"],
+      "solutions": ["Sonte janë minus dhjetë gradë.", "Janë minus dhjetë gradë sonte."],
+      "explanation": "„Minus dhjetë gradë“ – minus zehn Grad, also zehn Grad unter null.",
+      "reviewed": false,
+      "source": "manual"
+    }
+  ]
+}
