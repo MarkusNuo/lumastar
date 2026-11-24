@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import app.lumastar.IntegrationTest;
+import app.lumastar.domain.PlanTrigger;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -34,7 +35,8 @@ class SchemaMigrationTest extends IntegrationTest {
                 Map.of("version", "7", "success", true), Map.of("version", "8", "success", true),
                 Map.of("version", "9", "success", true), Map.of("version", "10", "success", true),
                 Map.of("version", "11", "success", true), Map.of("version", "12", "success", true),
-                Map.of("version", "13", "success", true), Map.of("version", "14", "success", true));
+                Map.of("version", "13", "success", true), Map.of("version", "14", "success", true),
+                Map.of("version", "15", "success", true));
     }
 
     @Test
@@ -104,6 +106,15 @@ class SchemaMigrationTest extends IntegrationTest {
                 .update())
                 .isInstanceOf(DuplicateKeyException.class)
                 .hasMessageContaining("users_email_key");
+    }
+
+    @Test
+    void thePlanHistoryAcceptsEveryPlanTrigger() {
+        String check = jdbc.sql("""
+                        SELECT pg_get_constraintdef(oid) FROM pg_constraint WHERE conname = 'plan_changes_triggered_by_check'""")
+                .query(String.class).single();
+
+        assertThat(PlanTrigger.values()).allSatisfy(trigger -> assertThat(check).contains("'%s'".formatted(trigger.code())));
     }
 
     @Test

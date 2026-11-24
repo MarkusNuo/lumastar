@@ -1,5 +1,6 @@
 package app.lumastar.api.plan;
 
+import app.lumastar.core.plan.CourseUpdate;
 import app.lumastar.core.plan.FocusRequest;
 import app.lumastar.core.plan.PlanChanges;
 import app.lumastar.core.plan.PlanGenerator;
@@ -34,8 +35,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The learning plan. {@link #revise} is the single entry point for every (re)calculation: after the
- * placement test, after a re-placement, after a change of the daily goal, after checkpoints and every 7 learning days.
+ * The learning plan. {@link #revise} is the entry point for every (re)calculation: after the placement test, after a
+ * re-placement, after a change of the daily goal, after checkpoints and every 7 learning days;
+ * {@link #reviseForChangedCourse} after units were added to or retired from the course.
  */
 @Service
 public class PlanService {
@@ -87,29 +89,25 @@ public class PlanService {
     @Transactional
     public Optional<StoredPlan> revise(UUID userId, PlanTrigger trigger, List<PlanChange> causes,
                                        List<FocusRequest> focusRequests) {
-        UserEntity learner = users.findForUpdateById(userId).orElseThrow();
-        Instant now = clock.instant();
-        LearnerProfile profile = learner.toProfile();
-        SkillMastery provenMastery = ProvenMastery.of(mastery.effective(userId, now), lessons.lessonsPerSkillTag(userId));
-        Map<SkillTag, String> labels = catalog.skillTagLabels();
-        PlanGenerator generator = generators.create(catalog.curriculumOutline(), labels);
+        Revision revision = recalculate(userId, focusRequests);
+        List<PlanChange> allCauses = new ArrayList<>(causes);
+        allCauses.addAll(PlanChanges.requestedFocus(revision.before(), revision.after(), focusRequests, revision.labels()));
+        return store(userId, trigger, revision, allCauses);
+    }
 
-        Optional<StoredPlan> previous = plans.current(userId);
-        LearningPlan before = previous.map(stored -> livePlans.live(userId, stored, profile.currentLevel())).orElse(null);
-        List<SkillTagErrorRate> errorRates = practisableErrorRates(userId, profile, now);
-        LearningPlan plan = before == null
-                ? generator.generate(profile, provenMastery)
-                : generator.revise(before, profile, provenMastery, errorRates, focusRequests);
-
-        List<PlanChange> changes = new ArrayList<>(causes);
-        changes.addAll(PlanChanges.requestedFocus(before, plan, focusRequests, labels));
-        if (changes.isEmpty()) {
+    /**
+     * Revises an existing plan for changed course content. The units that came into the plan or left it are the causes;
+     * without any, e.g. for new units below the learner's level, no version is stored.
+     *
+     * @return the new version, empty if there is no plan yet or the plan keeps its units
+     */
+    @Transactional
+    public Optional<StoredPlan> reviseForChangedCourse(UUID userId) {
+        if (!hasPlan(userId)) {
             return Optional.empty();
         }
-        StoredPlan stored = plans.save(userId, plan, now);
-        changes.addAll(PlanChanges.between(before, plan, labels, errorRates));
-        plans.logChanges(userId, stored.id(), trigger, changes, now);
-        return Optional.of(stored);
+        Revision revision = recalculate(userId, List.of());
+        return store(userId, PlanTrigger.CONTENT, revision, CourseUpdate.between(revision.before(), revision.after()));
     }
 
     /** The time estimates depend on the daily goal: a changed goal recalculates an existing plan. */
@@ -121,6 +119,40 @@ public class PlanService {
         revise(userId, PlanTrigger.MANUAL, new PlanChange(PlanChangeKind.REPLANNED,
                 "Tagesziel geändert: %d → %d Min. pro Tag".formatted(goalBefore, goalAfter),
                 Map.of("dailyGoalMinutesBefore", goalBefore, "dailyGoalMinutes", goalAfter)));
+    }
+
+    /** The current plan with its live progress ({@code null} before the first plan) and its recalculation. */
+    private record Revision(Instant at, LearningPlan before, LearningPlan after, Map<SkillTag, String> labels,
+                            List<SkillTagErrorRate> errorRates) {
+    }
+
+    private Revision recalculate(UUID userId, List<FocusRequest> focusRequests) {
+        UserEntity learner = users.findForUpdateById(userId).orElseThrow();
+        Instant now = clock.instant();
+        LearnerProfile profile = learner.toProfile();
+        SkillMastery provenMastery = ProvenMastery.of(mastery.effective(userId, now), lessons.lessonsPerSkillTag(userId));
+        Map<SkillTag, String> labels = catalog.skillTagLabels();
+        PlanGenerator generator = generators.create(catalog.curriculumOutline(), labels);
+
+        Optional<StoredPlan> previous = plans.current(userId);
+        LearningPlan before = previous.map(stored -> livePlans.live(userId, stored, profile.currentLevel())).orElse(null);
+        List<SkillTagErrorRate> errorRates = practisableErrorRates(userId, profile, now);
+        LearningPlan after = before == null
+                ? generator.generate(profile, provenMastery)
+                : generator.revise(before, profile, provenMastery, errorRates, focusRequests);
+        return new Revision(now, before, after, labels, errorRates);
+    }
+
+    /** Stores the recalculated plan with its history, starting with the causes; without a cause, nothing is stored. */
+    private Optional<StoredPlan> store(UUID userId, PlanTrigger trigger, Revision revision, List<PlanChange> causes) {
+        if (causes.isEmpty()) {
+            return Optional.empty();
+        }
+        StoredPlan stored = plans.save(userId, revision.after(), revision.at());
+        List<PlanChange> changes = new ArrayList<>(causes);
+        changes.addAll(PlanChanges.between(revision.before(), revision.after(), revision.labels(), revision.errorRates()));
+        plans.logChanges(userId, stored.id(), trigger, changes, revision.at());
+        return Optional.of(stored);
     }
 
     /**

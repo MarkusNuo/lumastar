@@ -12,6 +12,11 @@ public record SeedSummary(Count skillTags, Count stages, Count units, Count item
         }
     }
 
+    /** Whether units came into the course or left it, which changes the learning plans. */
+    public boolean unitsChanged() {
+        return units.created() > 0 || units.retired() > 0;
+    }
+
     @Override
     public String toString() {
         return "skill tags %s, stages %s, units %s, items %s, exercises %s".formatted(skillTags, stages, units, items, exercises);

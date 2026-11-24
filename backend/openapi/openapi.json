@@ -1944,7 +1944,8 @@
           "checkpoint",
           "periodic",
           "lesson",
-          "manual"
+          "manual",
+          "content"
         ],
         "type": "string"
       },

@@ -25,8 +25,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * When the plan is revised: after a checkpoint, every {@value #LEARNING_DAYS} learning days, and when a lesson
- * suggests a focus lesson for a tag without an open focus unit. Re-placements and daily goal changes revise
- * the plan themselves. Every revision starts its history with a German reason.
+ * suggests a focus lesson for a tag without an open focus unit. Re-placements, daily goal changes and course content
+ * changes ({@link CoursePlanRevision}) revise the plan themselves. Every revision starts its history with a German
+ * reason.
  */
 @Service
 public class PlanTriggers {

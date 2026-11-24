@@ -115,7 +115,15 @@ final class PlanFixtures {
         return plan.units().map(PlanUnit::unitId).toList();
     }
 
-    private static Unit unit(String id, Level level, String title, Integer lessons, SkillTag... tags) {
+    /** {@link #CURRICULUM} with {@code extra} units appended to the stage of {@code level}. */
+    static List<Stage> curriculumWith(Level level, Unit... extra) {
+        return CURRICULUM.stream()
+                .map(stage -> stage.level() != level ? stage : new Stage(stage.level(), stage.title(),
+                        Stream.concat(stage.units().stream(), Arrays.stream(extra)).toList()))
+                .toList();
+    }
+
+    static Unit unit(String id, Level level, String title, Integer lessons, SkillTag... tags) {
         return new Unit(id, level, title, null, List.of(), List.of(tags), UnitColor.VIOLET, null, lessons, List.of(), List.of(),
                 List.of());
     }

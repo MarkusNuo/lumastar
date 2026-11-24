@@ -6,11 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
 /**
- * Seeds the content at startup. A missing content directory is skipped with a warning; invalid content aborts
- * the startup so that broken content never reaches the learner.
+ * Seeds the content at startup and publishes {@link ContentSeeded}. A missing content directory is skipped with a
+ * warning; invalid content aborts the startup so that broken content never reaches the learner.
  */
 @Component
 class ContentSeedRunner implements ApplicationRunner {
@@ -20,11 +21,14 @@ class ContentSeedRunner implements ApplicationRunner {
     private final ContentProperties properties;
     private final ContentLoader loader;
     private final ContentSeeder seeder;
+    private final ApplicationEventPublisher events;
 
-    ContentSeedRunner(ContentProperties properties, ContentLoader loader, ContentSeeder seeder) {
+    ContentSeedRunner(ContentProperties properties, ContentLoader loader, ContentSeeder seeder,
+                      ApplicationEventPublisher events) {
         this.properties = properties;
         this.loader = loader;
         this.seeder = seeder;
+        this.events = events;
     }
 
     @Override
@@ -39,5 +43,6 @@ class ContentSeedRunner implements ApplicationRunner {
         }
         SeedSummary summary = seeder.seed(loader.load(root));
         log.info("Content seeded from {}: {}", root, summary);
+        events.publishEvent(new ContentSeeded(summary));
     }
 }
