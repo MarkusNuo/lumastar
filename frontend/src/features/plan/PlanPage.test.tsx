@@ -1,7 +1,7 @@
 import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryRouter, RouterProvider } from 'react-router';
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { jsonResponse, renderWithQueryClient, stubApi } from '../../test/http';
 import { PlanPage } from './PlanPage';
 import { SAMPLE_PATH, SAMPLE_PLAN_CHANGES } from './samplePlan';
@@ -31,6 +31,16 @@ async function bandItem(name: string) {
 }
 
 describe('PlanPage', () => {
+  // The "in ca. …" texts count from today, so the day is pinned to one before the sample estimates.
+  beforeEach(() => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date(2026, 9, 5));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it('shows the plan as a timeline up to C2 with an expected date per band', async () => {
     renderPlan();
 
