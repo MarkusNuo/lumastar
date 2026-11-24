@@ -22,8 +22,8 @@
   ],
   "items": [
     { "id": "item_rroba", "kind": "word", "gheg": "rroba", "de": "Kleider, Kleidung", "partOfSpeech": "noun", "gender": "f", "definite": "rrobat", "note": "Mehrzahlwort.", "reviewed": false },
-    { "id": "item_bluze", "kind": "word", "gheg": "bluzë", "de": "Bluse, Oberteil", "partOfSpeech": "noun", "gender": "f", "definite": "bluza", "plural": "bluza", "note": "Im Kosovo für Bluse, Oberteil oder dünnen Pulli gebraucht – Bedeutungsumfang zu prüfen.", "reviewed": false },
-    { "id": "item_fanelle", "kind": "word", "gheg": "fanellë", "de": "T-Shirt, Trikot", "partOfSpeech": "noun", "gender": "f", "definite": "fanella", "plural": "fanella", "note": "„fanellë“ für T-Shirt im Kosovo-Alltag zu prüfen (daneben hört man „maicë“).", "reviewed": false },
+    { "id": "item_bluze", "kind": "word", "gheg": "bluzë", "de": "Bluse, Oberteil", "partOfSpeech": "noun", "gender": "f", "definite": "bluza", "plural": "bluza", "note": "Im Kosovo für Bluse, Oberteil oder dünnen Pulli gebraucht.", "reviewed": false },
+    { "id": "item_fanelle", "kind": "word", "gheg": "fanellë", "de": "T-Shirt, Trikot", "partOfSpeech": "noun", "gender": "f", "definite": "fanella", "plural": "fanella", "reviewed": false },
     { "id": "item_pantallona", "kind": "word", "gheg": "pantallona", "de": "Hose", "partOfSpeech": "noun", "gender": "f", "definite": "pantallonat", "note": "Mehrzahlwort (wie „die Hosen“).", "reviewed": false },
     { "id": "item_xhinse", "kind": "word", "gheg": "xhinse", "de": "Jeans", "partOfSpeech": "noun", "gender": "f", "definite": "xhinset", "note": "Mehrzahlwort.", "reviewed": false },
     { "id": "item_fustan", "kind": "word", "gheg": "fustan", "de": "Kleid", "partOfSpeech": "noun", "gender": "m", "definite": "fustani", "plural": "fustane", "reviewed": false },
@@ -32,13 +32,13 @@
     { "id": "item_pallto", "kind": "word", "gheg": "pallto", "de": "Mantel", "partOfSpeech": "noun", "gender": "f", "definite": "palltoja", "plural": "pallto", "reviewed": false },
     { "id": "item_kostum", "kind": "word", "gheg": "kostum", "de": "Anzug", "partOfSpeech": "noun", "gender": "m", "definite": "kostumi", "plural": "kostume", "reviewed": false },
     { "id": "item_kepuce", "kind": "word", "gheg": "këpucë", "de": "Schuh, Schuhe", "partOfSpeech": "noun", "gender": "f", "definite": "këpuca", "plural": "këpucë", "reviewed": false },
-    { "id": "item_patika", "kind": "word", "gheg": "patika", "de": "Turnschuhe", "partOfSpeech": "noun", "gender": "f", "definite": "patikat", "note": "Kosovo-Alltagswort, Mehrzahlwort (Standard: atlete) – zu prüfen.", "reviewed": false },
-    { "id": "item_corape", "kind": "word", "gheg": "çorape", "de": "Socken", "partOfSpeech": "noun", "gender": "f", "definite": "çorapet", "note": "Hier als Mehrzahl „Socken“ (Standard-Einzahl: çorap); Kosovo-Form der Einzahl zu prüfen.", "reviewed": false },
+    { "id": "item_patika", "kind": "word", "gheg": "patika", "de": "Turnschuhe", "partOfSpeech": "noun", "gender": "f", "definite": "patikat", "note": "Kosovo-Alltagswort, Mehrzahlwort (Standard: atlete).", "reviewed": false },
+    { "id": "item_corape", "kind": "word", "gheg": "çorape", "de": "Socken", "partOfSpeech": "noun", "gender": "f", "definite": "çorapet", "note": "Mehrzahlwort.", "reviewed": false },
     { "id": "item_cizme", "kind": "word", "gheg": "çizme", "de": "Stiefel", "partOfSpeech": "noun", "gender": "f", "definite": "çizmet", "note": "Mehrzahlwort.", "reviewed": false },
     { "id": "item_kapele", "kind": "word", "gheg": "kapelë", "de": "Mütze, Hut, Kappe", "partOfSpeech": "noun", "gender": "f", "definite": "kapela", "plural": "kapela", "reviewed": false },
     { "id": "item_shall", "kind": "word", "gheg": "shall", "de": "Schal", "partOfSpeech": "noun", "gender": "m", "definite": "shalli", "plural": "shalle", "reviewed": false },
     { "id": "item_doreza", "kind": "word", "gheg": "dorëza", "de": "Handschuhe", "partOfSpeech": "noun", "gender": "f", "definite": "dorëzat", "note": "Mehrzahlwort (von „dorë“, Hand).", "reviewed": false },
-    { "id": "item_rrip", "kind": "word", "gheg": "rrip", "de": "Gürtel", "partOfSpeech": "noun", "gender": "m", "definite": "rripi", "plural": "rripa", "note": "Im Kosovo-Alltag auch „kaish“ (Lehnwort) – zu prüfen.", "reviewed": false },
+    { "id": "item_rrip", "kind": "word", "gheg": "rrip", "de": "Gürtel", "partOfSpeech": "noun", "gender": "m", "definite": "rripi", "plural": "rripa", "reviewed": false },
     { "id": "item_syze", "kind": "word", "gheg": "syze", "de": "Brille", "partOfSpeech": "noun", "gender": "f", "definite": "syzet", "note": "Mehrzahlwort.", "reviewed": false },
     { "id": "item_unaze", "kind": "word", "gheg": "unazë", "de": "Ring", "partOfSpeech": "noun", "gender": "f", "definite": "unaza", "plural": "unaza", "reviewed": false },
     { "id": "item_kravate", "kind": "word", "gheg": "kravatë", "de": "Krawatte", "partOfSpeech": "noun", "gender": "f", "definite": "kravata", "plural": "kravata", "reviewed": false },
@@ -47,32 +47,32 @@
     { "id": "item_pambuk", "kind": "word", "gheg": "pambuk", "de": "Baumwolle", "partOfSpeech": "noun", "gender": "m", "definite": "pambuku", "reviewed": false },
     { "id": "item_lesh", "kind": "word", "gheg": "lesh", "de": "Wolle", "partOfSpeech": "noun", "gender": "m", "definite": "leshi", "reviewed": false },
     { "id": "item_lekure", "kind": "word", "gheg": "lëkurë", "de": "Leder; Haut", "partOfSpeech": "noun", "gender": "f", "definite": "lëkura", "reviewed": false },
-    { "id": "item_me_vija", "kind": "phrase", "gheg": "me vija", "de": "gestreift", "partOfSpeech": "phrase", "note": "„me vija“ (gestreift) als Kosovo-Alltagsform zu prüfen.", "reviewed": false },
-    { "id": "item_me_katrore", "kind": "phrase", "gheg": "me katrorë", "de": "kariert", "partOfSpeech": "phrase", "note": "„me katrorë“ (kariert); im Alltag auch „me kuadrate“ – zu prüfen.", "reviewed": false },
+    { "id": "item_me_vija", "kind": "phrase", "gheg": "me vija", "de": "gestreift", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_me_katrore", "kind": "phrase", "gheg": "me katrorë", "de": "kariert", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_me_pika", "kind": "phrase", "gheg": "me pika", "de": "gepunktet", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_numer", "kind": "word", "gheg": "numër", "de": "Grösse (Kleider, Schuhe); Nummer", "partOfSpeech": "noun", "gender": "m", "definite": "numri", "plural": "numra", "note": "„numër“ für Kleider- und Schuhgrösse im Kosovo-Alltag zu prüfen.", "reviewed": false },
+    { "id": "item_numer", "kind": "word", "gheg": "numër", "de": "Grösse (Kleider, Schuhe); Nummer", "partOfSpeech": "noun", "gender": "m", "definite": "numri", "plural": "numra", "reviewed": false },
     { "id": "item_pale", "kind": "word", "gheg": "palë", "de": "Paar", "partOfSpeech": "noun", "gender": "f", "definite": "pala", "plural": "palë", "reviewed": false },
-    { "id": "item_teper", "kind": "word", "gheg": "tepër", "de": "zu, zu sehr (tepër i madh = zu gross)", "partOfSpeech": "adverb", "note": "Im Alltag oft einfach „shumë“; in getippten Antworten sind beide akzeptiert – zu prüfen.", "reviewed": false },
+    { "id": "item_teper", "kind": "word", "gheg": "tepër", "de": "zu, zu sehr (tepër i madh = zu gross)", "partOfSpeech": "adverb", "note": "Im Alltag oft einfach „shumë“; in getippten Antworten sind beide akzeptiert.", "reviewed": false },
     { "id": "item_i_ngushte", "kind": "word", "gheg": "i ngushtë, e ngushtë", "de": "eng", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_i_rehatshem", "kind": "word", "gheg": "i rehatshëm, e rehatshme", "de": "bequem", "partOfSpeech": "adjective", "note": "Im Kosovo-Alltag oft unveränderlich „rehat“ (âsht rehat) – zu prüfen, ob als Variante akzeptieren.", "reviewed": false },
+    { "id": "item_i_rehatshem", "kind": "word", "gheg": "i rehatshëm, e rehatshme", "de": "bequem", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_i_trashe", "kind": "word", "gheg": "i trashë, e trashë", "de": "dick (Stoff, Kleidung)", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_i_holle", "kind": "word", "gheg": "i hollë, e hollë", "de": "dünn", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_provoj", "kind": "word", "gheg": "provoj", "de": "ich probiere (an)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_provova", "kind": "word", "gheg": "provova", "de": "ich probierte (an) (von provoj)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_kabine", "kind": "word", "gheg": "kabinë", "de": "Umkleidekabine, Kabine", "partOfSpeech": "noun", "gender": "f", "definite": "kabina", "plural": "kabina", "reviewed": false },
     { "id": "item_pasqyre", "kind": "word", "gheg": "pasqyrë", "de": "Spiegel", "partOfSpeech": "noun", "gender": "f", "definite": "pasqyra", "plural": "pasqyra", "reviewed": false },
-    { "id": "item_si_me_rri", "kind": "phrase", "gheg": "si më rri?", "de": "wie steht es mir?, wie sitzt es?", "partOfSpeech": "phrase", "note": "Kosovo-Alltagswendung mit „rri“ (sitzen, stehen); „qysh më rri?“ ist ebenfalls akzeptiert – zu prüfen.", "reviewed": false },
-    { "id": "item_te_rri_mire", "kind": "phrase", "gheg": "të rri mirë", "de": "es steht dir gut", "partOfSpeech": "phrase", "note": "Wendung zu prüfen; daneben hört man auch „të ka hije“.", "reviewed": false },
+    { "id": "item_si_me_rri", "kind": "phrase", "gheg": "si më rri?", "de": "wie steht es mir?, wie sitzt es?", "partOfSpeech": "phrase", "note": "Kosovo-Alltagswendung mit „rri“ (sitzen, stehen); „qysh më rri?“ ist ebenfalls akzeptiert.", "reviewed": false },
+    { "id": "item_te_rri_mire", "kind": "phrase", "gheg": "të rri mirë", "de": "es steht dir gut", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_mbaj", "kind": "word", "gheg": "mbaj", "de": "ich trage (Kleidung); ich halte", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_vec_po_shikoj", "kind": "phrase", "gheg": "veç po shikoj", "de": "ich schaue nur", "partOfSpeech": "phrase", "note": "„veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen.", "reviewed": false },
+    { "id": "item_vec_po_shikoj", "kind": "phrase", "gheg": "veç po shikoj", "de": "ich schaue nur", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_i_zane", "kind": "phrase", "gheg": "i zânë, e zânë", "de": "besetzt", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_zbritje", "kind": "word", "gheg": "zbritje", "de": "Rabatt, Ausverkauf (në zbritje = reduziert)", "partOfSpeech": "noun", "gender": "f", "definite": "zbritja", "plural": "zbritje", "reviewed": false },
     { "id": "item_perqind", "kind": "word", "gheg": "përqind", "de": "Prozent", "partOfSpeech": "noun", "reviewed": false },
-    { "id": "item_kupon", "kind": "word", "gheg": "kupon", "de": "Kassenzettel, Quittung", "partOfSpeech": "noun", "gender": "m", "definite": "kuponi", "note": "Im Kosovo „kupon“ (fiskal) für den Kassenzettel; Standard eher „faturë“ – zu prüfen.", "reviewed": false },
+    { "id": "item_kupon", "kind": "word", "gheg": "kupon", "de": "Kassenzettel, Quittung", "partOfSpeech": "noun", "gender": "m", "definite": "kuponi", "note": "Im Kosovo „kupon“ (fiskal) für den Kassenzettel; Standard eher „faturë“.", "reviewed": false },
     { "id": "item_me_nderrue", "kind": "word", "gheg": "me ndërrue", "de": "umtauschen, wechseln", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_nderroj", "kind": "word", "gheg": "ndërroj", "de": "ich tausche um, ich wechsle", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_nderrova", "kind": "word", "gheg": "ndërrova", "de": "ich tauschte um (von ndërroj)", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_pagova", "kind": "word", "gheg": "pagova", "de": "ich bezahlte (von paguj)", "partOfSpeech": "verb", "note": "Vergangenheit zu „paguj“ (LANGUAGE_GUIDE §14) – Form „pagova“ zu prüfen.", "reviewed": false },
+    { "id": "item_pagova", "kind": "word", "gheg": "pagova", "de": "ich bezahlte (von paguj)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_mode", "kind": "word", "gheg": "modë", "de": "Mode (në modë = modisch)", "partOfSpeech": "noun", "gender": "f", "definite": "moda", "reviewed": false },
     { "id": "item_elegant", "kind": "word", "gheg": "elegant, elegante", "de": "elegant (ohne Verbindungsartikel)", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_keta", "kind": "word", "gheg": "këta", "de": "diese (maskulin, Mehrzahl)", "partOfSpeech": "pronoun", "reviewed": false },
@@ -271,8 +271,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_005",
@@ -660,8 +659,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Wendung „të rri mirë“ (es steht dir gut) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_013",
@@ -806,8 +804,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„numër“ für die Kleider- und Schuhgrösse zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_016",
@@ -961,8 +958,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_019",
@@ -1017,8 +1013,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Wendungen „si më rri?“ und „të rri mirë“ sowie „po“ als „aber“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_020",
@@ -1078,7 +1073,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Kurzform „e“ in „A e keni kuponin?“ hier als feste Wendung; „kupon“ für den Kassenzettel und „po“ als „aber“ zu prüfen."
+      "note": "Kurzform „e“ in „A e keni kuponin?“ hier als feste Wendung."
     },
     {
       "id": "ex_a2_u16_clothes_fashion_021",
@@ -1134,8 +1129,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_022",
@@ -1379,8 +1373,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„fanellë“ für T-Shirt im Kosovo-Alltag zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_027",
@@ -1758,8 +1751,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kartelë“ (Standard: kartë) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_034",
@@ -2236,8 +2228,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Wendung „më rri“ (sitzt mir, steht mir) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_043",
@@ -2563,8 +2554,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Vergangenheit „pagova“ zu „paguj“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_049",
@@ -2838,8 +2828,7 @@
       ],
       "explanation": "„Veç po shikoj“ – ich schaue nur. „Veç“ ist Gheg für „nur“ (Standard: „vetëm“), „po“ zeigt, dass es gerade geschieht.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„veç“ (nur; Standard: vetëm) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_055",
@@ -2891,8 +2880,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„muj“ (Standard: mund) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_056",
@@ -3042,8 +3030,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„numër“ für die Kleider- und Schuhgrösse zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_059",
@@ -3086,8 +3073,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„me vija“ (gestreift) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_060",
@@ -3231,8 +3217,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„me katrorë“ (kariert; im Alltag auch „me kuadrate“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_063",
@@ -3276,8 +3261,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Wendung „si më rri?“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_064",
@@ -3327,8 +3311,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Vergangenheit „pagova“ zu „paguj“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_065",
@@ -3677,8 +3660,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Mehrzahl „rripa“ mit „këta … të shtrenjtë“ (maskulin) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_073",
@@ -4446,8 +4428,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„Sa numër mban?“ als Frage nach der Grösse im Kosovo-Alltag zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_090",
@@ -4657,8 +4638,7 @@
       ],
       "explanation": "„Nji palë këpucë“ ist ein Paar Schuhe, „nji palë çorape“ ein Paar Socken.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„patika“ (Turnschuhe) als Kosovo-Alltagswort zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_095",
@@ -4838,8 +4818,7 @@
       ],
       "explanation": "Material mit „prej“: „prej pambuku, prej leshi, prej lëkure“. Muster mit „me“: „me vija, me pika“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„me vija“ (gestreift) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_099",
@@ -4932,8 +4911,7 @@
       ],
       "explanation": "Für den Umtausch brauchst du meist den „kupon“ (Quittung).",
       "reviewed": false,
-      "source": "manual",
-      "note": "„kupon“ für den Kassenzettel zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_101",
@@ -4980,8 +4958,7 @@
       ],
       "explanation": "„Më“ heisst „mir“, „të“ heisst „dir“ – hier in festen Wendungen. „E zânë“ (besetzt) schreibt man mit Nasalvokal.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Wendungen „si më rri?“ und „të rri mirë“, „veç“ und „numër“ als Kleidergrösse zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_102",
@@ -5027,8 +5004,7 @@
       ],
       "explanation": "Verben auf -oj bilden die Vergangenheit auf -ova: „provoj → provova“. „Pagova“ gehört zu „paguj“ (ich bezahle).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Vergangenheit „pagova“ zu „paguj“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_103",
@@ -5169,8 +5145,7 @@
       ],
       "explanation": "„Rroba“ (Kleider) ist Mehrzahl: „rrobat e reja“ – die neuen Kleider.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„me katrorë“ (kariert) und „fanellë“ (T-Shirt) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_106",
@@ -5342,8 +5317,7 @@
       ],
       "explanation": "„Me pagu“ ist der Gheg-Infinitiv zu „paguj“ (ich bezahle). Das erste „me“ bildet den Infinitiv, das zweite heisst „mit“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„muj“ (Standard: mund) und „kartelë“ (Standard: kartë) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_111",
@@ -5591,8 +5565,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Wendung „të rri mirë“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_118",
@@ -5623,8 +5596,7 @@
       ],
       "explanation": "„Kuponi“ ist die Quittung. „Në çantë“ – in der Tasche.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„kupon“ für den Kassenzettel zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_119",

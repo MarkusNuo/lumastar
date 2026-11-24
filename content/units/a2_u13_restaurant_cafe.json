@@ -31,7 +31,7 @@
     { "id": "item_cka_na_rekomandoni", "kind": "phrase", "gheg": "çka na rekomandoni?", "de": "was empfehlen Sie uns?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_kisha_dashte", "kind": "phrase", "gheg": "kisha dashtë …", "de": "ich hätte gern …, ich möchte …", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_vegjetarian", "kind": "phrase", "gheg": "vegjetarian, vegjetariane", "de": "vegetarisch; Vegetarier, Vegetarierin", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_bje", "kind": "word", "gheg": "bje, bjeni", "de": "ich bringe, bring!; bringt!, bringen Sie!", "partOfSpeech": "verb", "note": "Bestätigt sind „bje“ (ich bringe, bring!) und „bjeni“ (bringt, bringen Sie). Weitere Formen (z. B. „du bringst“) und der Infinitiv „me pru“ sind noch nicht bestätigt – zu prüfen.", "reviewed": false },
+    { "id": "item_bje", "kind": "word", "gheg": "bje, bjeni", "de": "ich bringe, bring!; bringt!, bringen Sie!", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_a_mundeni_me", "kind": "phrase", "gheg": "a mundeni me …?", "de": "können Sie …?, könnt ihr …?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_byrek", "kind": "word", "gheg": "byrek", "de": "Burek (Blätterteig, meist mit Fleisch)", "partOfSpeech": "noun", "gender": "m", "definite": "byreku", "plural": "byrekë", "reviewed": false },
     { "id": "item_qebape", "kind": "word", "gheg": "qebape", "de": "Qebape (Hackfleischröllchen vom Grill, Mehrzahl)", "partOfSpeech": "noun", "gender": "m", "definite": "qebapet", "reviewed": false },
@@ -42,8 +42,8 @@
     { "id": "item_akullore", "kind": "word", "gheg": "akullore", "de": "Glace", "partOfSpeech": "noun", "gender": "f", "definite": "akullorja", "plural": "akullore", "reviewed": false },
     { "id": "item_ambelsire", "kind": "word", "gheg": "âmbëlsirë", "de": "Dessert, Süssspeise", "partOfSpeech": "noun", "gender": "f", "definite": "âmbëlsira", "plural": "âmbëlsira", "reviewed": false },
     { "id": "item_sok", "kind": "word", "gheg": "sok", "de": "Saft, Süssgetränk", "partOfSpeech": "noun", "gender": "m", "definite": "soku", "reviewed": false },
-    { "id": "item_jogurt", "kind": "word", "gheg": "jogurt", "de": "Trinkjoghurt", "partOfSpeech": "noun", "gender": "m", "definite": "jogurti", "note": "Im Kosovo trinkt man „jogurt“ zum Burek; „kos“ ist dicker Joghurt zum Löffeln – Abgrenzung zu prüfen.", "reviewed": false },
-    { "id": "item_caj_rusi", "kind": "phrase", "gheg": "çaj rusi", "de": "Schwarztee (wörtlich: russischer Tee)", "partOfSpeech": "phrase", "note": "Im Kosovo übliche Bezeichnung für Schwarztee – zu prüfen.", "reviewed": false },
+    { "id": "item_jogurt", "kind": "word", "gheg": "jogurt", "de": "Trinkjoghurt", "partOfSpeech": "noun", "gender": "m", "definite": "jogurti", "note": "Im Kosovo trinkt man „jogurt“ zum Burek; „kos“ ist dicker Joghurt zum Löffeln.", "reviewed": false },
+    { "id": "item_caj_rusi", "kind": "phrase", "gheg": "çaj rusi", "de": "Schwarztee (wörtlich: russischer Tee)", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_raki", "kind": "word", "gheg": "raki", "de": "Raki (Obstbrand, Schnaps)", "partOfSpeech": "noun", "gender": "f", "definite": "rakija", "reviewed": false },
     { "id": "item_uje_me_gaz", "kind": "phrase", "gheg": "ujë me gaz", "de": "Mineralwasser mit Kohlensäure (ohne: ujë pa gaz)", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_pirun", "kind": "word", "gheg": "pirun", "de": "Gabel", "partOfSpeech": "noun", "gender": "m", "definite": "piruni", "plural": "pirunë", "reviewed": false },
@@ -92,8 +92,7 @@
       ],
       "explanation": "Mit Artikel: „restoranti, kamarieri, kuzhinieri“. Die Kellnerin heisst „kamariere“, die Köchin „kuzhiniere“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„kuzhinier“ (Koch); im Kosovo-Alltag auch „kuvar“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_003",
@@ -669,8 +668,7 @@
         { "pattern": "(^|\\s)mundeni(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Mundeni“ heisst „Sie können“. „Ich kann“: „muj“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_033",
@@ -982,8 +980,7 @@
         { "pattern": "llogaria(\\s|$)", "category": "grammar.case", "hint": "Als Objekt steht „llogarinë“ (Akkusativ)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Lehnwort „hesap“ (Rechnung) neben „llogari“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_049",
@@ -1001,8 +998,7 @@
         { "pattern": "^a mundeni ma me", "category": "grammar.clitics", "hint": "Die Kurzform steht zwischen „me“ und dem Partizip: „me ma pru“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Infinitiv „me pru“ (bringen) ist vom Autor noch nicht bestätigt – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_050",
@@ -1151,8 +1147,7 @@
         { "pattern": "k[aä]se", "category": "vocab.confused", "hint": "Käse heisst „djathë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Abgrenzung „jogurt“ (Trinkjoghurt) und „kos“ (Joghurt zum Löffeln) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_058",
@@ -1192,8 +1187,7 @@
         { "pattern": "wasser", "category": "vocab.confused", "hint": "„Jogurt“ ist Trinkjoghurt, Wasser wäre „ujë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Abgrenzung „jogurt“ (Trinkjoghurt) und „kos“ (Joghurt zum Löffeln) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_060",
@@ -1303,8 +1297,7 @@
         { "pattern": "^joghurt$", "category": "vocab.confused", "hint": "Den Joghurt („kos“) bestellt der Gast zur Pite." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_066",
@@ -1396,8 +1389,7 @@
       ],
       "explanation": "Im Kosovo heisst Schwarztee „çaj rusi“ (russischer Tee). „Raki“ ist ein Obstbrand.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„çaj rusi“ für Schwarztee – im Kosovo üblich, zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_071",
@@ -1491,8 +1483,7 @@
         { "pattern": "milch", "category": "vocab.confused", "hint": "„Sheqer“ ist Zucker. Milch wäre „qumësht“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„çaj rusi“ für Schwarztee – im Kosovo üblich, zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_076",
@@ -1547,8 +1538,7 @@
         { "pattern": "stark", "category": "vocab.confused", "hint": "„Stark“ hiesse „i fortë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gebrauch „të qeras nji …“ (ich lade dich auf … ein, ohne Präposition) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_079",
@@ -1606,8 +1596,7 @@
         { "pattern": "joghurt", "category": "vocab.confused", "hint": "Trinkjoghurt („jogurt“) bestellt niemand." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„çaj rusi“ für Schwarztee – im Kosovo üblich, zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_082",
@@ -1798,8 +1787,7 @@
       ],
       "explanation": "Mit femininen Nomen: „e shijshme, e kripun, e djegëse, e âmbël, e ftohtë“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv „i kripun“ (Standard: i kripur) – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_092",
@@ -1840,8 +1828,7 @@
         { "pattern": "heiss", "category": "vocab.confused", "hint": "„Heiss“ hiesse „e nxehtë“. „E ftohtë“ heisst „kalt“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv „i kripun“ (Standard: i kripur) – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_094",
@@ -1860,8 +1847,7 @@
         { "pattern": "^krip[eë]$", "category": "vocab.confused", "hint": "„Kripë“ ist das Salz. Salzig: „e kripun“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv „i kripun“ (Standard: i kripur) – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_095",
@@ -2076,8 +2062,7 @@
       ],
       "explanation": "„Pare“ (Geld) ist ein Mehrzahlwort: „paret“ – das Geld. „Hesap“ sagt man im Café oft statt „llogari“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Lehnwort „hesap“ (Rechnung) neben „llogari“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_107",
@@ -2157,8 +2142,7 @@
         { "pattern": "(^|\\s)mundesh(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Mundesh“ heisst „du kannst“. „Ich kann“: „muj“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_111",
@@ -2250,8 +2234,7 @@
       "solutions": ["Sot të qeras nji kafe.", "Të qeras nji kafe sot."],
       "explanation": "„Të qeras“ heisst „ich lade dich ein“. „Të“ (dir, dich) steht vor dem Verb.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gebrauch „të qeras nji …“ (ich lade dich auf … ein, ohne Präposition) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_116",
@@ -2349,8 +2332,7 @@
         { "pattern": "kein", "category": "vocab.confused", "hint": "„Mbaje kusurin!“ – der Gast lässt das Rückgeld als Trinkgeld." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Lehnwort „hesap“ (Rechnung) neben „llogari“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_121",
@@ -2400,8 +2382,7 @@
         { "pattern": "(^|\\s)byreku(\\s|$)", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „byrek“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Abgrenzung „jogurt“ (Trinkjoghurt) und „kos“ (Joghurt zum Löffeln) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_124",

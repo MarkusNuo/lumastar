@@ -24,12 +24,12 @@
     { "id": "item_parashikimi_i_motit", "kind": "phrase", "gheg": "parashikimi i motit", "de": "der Wetterbericht, die Wettervorhersage", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_nen_zero", "kind": "phrase", "gheg": "nën zero", "de": "unter null (Grad)", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_sa_grade_jane", "kind": "phrase", "gheg": "sa gradë janë?", "de": "wie viel Grad sind es?", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_stuhi", "kind": "word", "gheg": "stuhi", "de": "Sturm, Unwetter", "partOfSpeech": "noun", "gender": "f", "plural": "stuhi", "note": "Bestimmte Form „stuhia“ oder „stuhija“ (wie „rakija“) zu prüfen; in den Aufgaben nur unbestimmt verwendet.", "reviewed": false },
+    { "id": "item_stuhi", "kind": "word", "gheg": "stuhi", "de": "Sturm, Unwetter", "partOfSpeech": "noun", "gender": "f", "plural": "stuhi", "reviewed": false },
     { "id": "item_rrufe", "kind": "word", "gheg": "rrufe", "de": "Blitz", "partOfSpeech": "noun", "gender": "f", "definite": "rrufeja", "plural": "rrufe", "reviewed": false },
     { "id": "item_mjegull", "kind": "word", "gheg": "mjegull", "de": "Nebel", "partOfSpeech": "noun", "gender": "f", "definite": "mjegulla", "reviewed": false },
     { "id": "item_akull", "kind": "word", "gheg": "akull", "de": "Eis", "partOfSpeech": "noun", "gender": "m", "definite": "akulli", "reviewed": false },
     { "id": "item_ngrice", "kind": "word", "gheg": "ngricë", "de": "Frost", "partOfSpeech": "noun", "gender": "f", "definite": "ngrica", "reviewed": false },
-    { "id": "item_vala_e_te_nxehtit", "kind": "phrase", "gheg": "vala e të nxehtit", "de": "die Hitzewelle", "partOfSpeech": "phrase", "note": "Im Kosovo in Wetterberichten üblich – zu prüfen, ob auch im Alltag.", "reviewed": false },
+    { "id": "item_vala_e_te_nxehtit", "kind": "phrase", "gheg": "vala e të nxehtit", "de": "die Hitzewelle", "partOfSpeech": "phrase", "note": "Im Kosovo in Wetterberichten üblich.", "reviewed": false },
     { "id": "item_rajon", "kind": "word", "gheg": "rajon", "de": "Region, Gegend", "partOfSpeech": "noun", "gender": "m", "definite": "rajoni", "plural": "rajone", "reviewed": false },
     { "id": "item_veri", "kind": "word", "gheg": "veri", "de": "Norden (në veri: im Norden)", "partOfSpeech": "noun", "gender": "m", "definite": "veriu", "reviewed": false },
     { "id": "item_jug", "kind": "word", "gheg": "jug", "de": "Süden (në jug: im Süden)", "partOfSpeech": "noun", "gender": "m", "definite": "jugu", "reviewed": false },
@@ -39,20 +39,20 @@
     { "id": "item_fushe", "kind": "word", "gheg": "fushë", "de": "Ebene, Feld; (Sport-)Platz", "partOfSpeech": "noun", "gender": "f", "definite": "fusha", "plural": "fusha", "reviewed": false },
     { "id": "item_liqen", "kind": "word", "gheg": "liqen", "de": "See", "partOfSpeech": "noun", "gender": "m", "definite": "liqeni", "plural": "liqene", "reviewed": false },
     { "id": "item_lume", "kind": "word", "gheg": "lumë", "de": "Fluss", "partOfSpeech": "noun", "gender": "m", "definite": "lumi", "reviewed": false },
-    { "id": "item_bjeshke", "kind": "word", "gheg": "bjeshkë", "de": "Hochgebirge, Bergweide (Alp)", "partOfSpeech": "noun", "gender": "f", "definite": "bjeshka", "plural": "bjeshkë", "note": "Typisches Kosovo-Wort (z. B. „Bjeshkët e Nemuna“); Abgrenzung zu „mal“ (Berg) zu prüfen.", "reviewed": false },
+    { "id": "item_bjeshke", "kind": "word", "gheg": "bjeshkë", "de": "Hochgebirge, Bergweide (Alp)", "partOfSpeech": "noun", "gender": "f", "definite": "bjeshka", "plural": "bjeshkë", "note": "Typisches Kosovo-Wort (z. B. „Bjeshkët e Nemuna“).", "reviewed": false },
     { "id": "item_alpet", "kind": "word", "gheg": "Alpet", "de": "die Alpen (në Alpe: in den Alpen)", "partOfSpeech": "noun", "reviewed": false },
     { "id": "item_i_thate", "kind": "phrase", "gheg": "i thatë, e thatë", "de": "trocken", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_i_lagun", "kind": "phrase", "gheg": "i lagun, e lagun", "de": "nass", "partOfSpeech": "adjective", "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen.", "reviewed": false },
+    { "id": "item_i_lagun", "kind": "phrase", "gheg": "i lagun, e lagun", "de": "nass", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_ylber", "kind": "word", "gheg": "ylber", "de": "Regenbogen", "partOfSpeech": "noun", "gender": "m", "definite": "ylberi", "reviewed": false },
     { "id": "item_termet", "kind": "word", "gheg": "tërmet", "de": "Erdbeben", "partOfSpeech": "noun", "gender": "m", "definite": "tërmeti", "plural": "tërmete", "reviewed": false },
-    { "id": "item_vershim", "kind": "word", "gheg": "vërshim", "de": "Überschwemmung, Hochwasser", "partOfSpeech": "noun", "gender": "m", "definite": "vërshimi", "plural": "vërshime", "note": "Im Kosovo üblich; daneben auch „përmbytje“ – zu prüfen, welches Wort Hauptform sein soll.", "reviewed": false },
+    { "id": "item_vershim", "kind": "word", "gheg": "vërshim", "de": "Überschwemmung, Hochwasser", "partOfSpeech": "noun", "gender": "m", "definite": "vërshimi", "plural": "vërshime", "reviewed": false },
     { "id": "item_pyll", "kind": "word", "gheg": "pyll", "de": "Wald", "partOfSpeech": "noun", "gender": "m", "definite": "pylli", "plural": "pyje", "reviewed": false },
     { "id": "item_i_kthjellet", "kind": "phrase", "gheg": "i kthjellët, e kthjellët", "de": "klar, wolkenlos", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_me_u_ngrohe", "kind": "phrase", "gheg": "me u ngrohë", "de": "wärmer werden, sich erwärmen", "partOfSpeech": "verb", "note": "Partizip „ngrohë“ (Standard: ngrohur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
-    { "id": "item_me_u_ftohe", "kind": "phrase", "gheg": "me u ftohë", "de": "kälter werden, abkühlen", "partOfSpeech": "verb", "note": "Partizip „ftohë“ (Standard: ftohur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_u_ngrohe", "kind": "phrase", "gheg": "me u ngrohë", "de": "wärmer werden, sich erwärmen", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_u_ftohe", "kind": "phrase", "gheg": "me u ftohë", "de": "kälter werden, abkühlen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_ka_me_pase", "kind": "phrase", "gheg": "ka me pasë …", "de": "es wird … geben (Zukunft von „ka“, es gibt)", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_syze_dielli", "kind": "phrase", "gheg": "syze dielli", "de": "Sonnenbrille", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_me_veshe", "kind": "phrase", "gheg": "me veshë", "de": "anziehen (Kleider), tragen", "partOfSpeech": "verb", "note": "Präsens „vesh“ (ich ziehe an), Befehlsform „vish!“. Partizip „veshë“ (Standard: veshur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_veshe", "kind": "phrase", "gheg": "me veshë", "de": "anziehen (Kleider), tragen", "partOfSpeech": "verb", "note": "Präsens „vesh“ (ich ziehe an), Befehlsform „vish!“.", "reviewed": false },
     { "id": "item_vishu_mire", "kind": "phrase", "gheg": "vishu mirë!", "de": "zieh dich warm an! (wörtlich: zieh dich gut an)", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_aq_sa", "kind": "grammar", "gheg": "aq … sa", "de": "so … wie (Vergleich), z. B. aq ftohtë sa = so kalt wie", "partOfSpeech": "other", "reviewed": false },
     { "id": "item_ma_i_ftohti", "kind": "grammar", "gheg": "ma i ftohti, ma e ftohta", "de": "der/die Kälteste (Superlativ mit ma)", "partOfSpeech": "other", "reviewed": false },
@@ -66,7 +66,7 @@
     { "id": "item_paradite", "kind": "word", "gheg": "paradite", "de": "Vormittag; am Vormittag", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_pritet", "kind": "word", "gheg": "pritet", "de": "wird erwartet (z. B. im Wetterbericht)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_rritet", "kind": "word", "gheg": "rritet", "de": "steigt, wächst", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_bie", "kind": "word", "gheg": "bie", "de": "fällt; (Regen, Schnee) fällt", "partOfSpeech": "verb", "note": "Mehrzahl „bien“; Vergangenheit und Partizip „ra“ (Standard-Partizip: rënë) – zu prüfen.", "reviewed": false },
+    { "id": "item_bie", "kind": "word", "gheg": "bie", "de": "fällt; (Regen, Schnee) fällt", "partOfSpeech": "verb", "note": "Mehrzahl „bien“; Vergangenheit und Partizip „ra“.", "reviewed": false },
     { "id": "item_mbi_zero", "kind": "phrase", "gheg": "mbi zero", "de": "über null (Grad)", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_minus", "kind": "word", "gheg": "minus", "de": "minus (bei Temperaturen)", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_shkrihet", "kind": "word", "gheg": "shkrihet", "de": "schmilzt (bora shkrihet: der Schnee schmilzt)", "partOfSpeech": "verb", "reviewed": false },
@@ -260,8 +260,7 @@
         { "pattern": "bor[eë]", "category": "vocab.confused", "hint": "Das heisst „Morgen wird es schneien“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ngrohë“ (Standard: ngrohur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_010",
@@ -379,8 +378,7 @@
         { "pattern": "schnei", "category": "vocab.confused", "hint": "Von Schnee („borë“) steht nichts im Text." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_015",
@@ -602,8 +600,7 @@
         { "pattern": "t[eë]rmete", "category": "vocab.confused", "hint": "„Tërmete“ sind Erdbeben." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Mehrzahl „zjarre“ (Kosovo auch „zjarme“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_024",
@@ -630,8 +627,7 @@
         { "pattern": "^null grad", "category": "vocab.confused", "hint": "„Zero“ steht hier in „nën zero“ – unter null." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „veshë“ (Standard: veshur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_025",
@@ -751,8 +747,7 @@
         { "pattern": "me bie", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ra“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_031",
@@ -772,8 +767,7 @@
         { "pattern": "rritet", "category": "vocab.confused", "hint": "„Rritet“ heisst „steigt“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_032",
@@ -873,8 +867,7 @@
         { "pattern": "bor[eë]", "category": "vocab.confused", "hint": "„Bie borë“ heisst „es schneit“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_037",
@@ -934,8 +927,7 @@
         { "pattern": "regnen", "category": "vocab.confused", "hint": "Regnen hiesse „ka me ra shi“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ftohë“ (Standard: ftohur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_040",
@@ -1342,8 +1334,7 @@
         { "pattern": "me bie", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me ra“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_059",
@@ -1378,8 +1369,7 @@
         { "pattern": "^rrug[eë] [aâ]sht", "category": "grammar.definite_article", "hint": "„Die Strasse“ braucht den Artikel: „rruga“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_061",
@@ -1563,8 +1553,7 @@
         { "pattern": "^ngrohet$", "category": "grammar.infinitive", "hint": "„Ngrohet“ ist Präsens. Nach „me u“ steht das Partizip „ngrohë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ngrohë“ (Standard: ngrohur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_070",
@@ -1884,8 +1873,7 @@
       "explanation": "„I lagun“ heisst „nass“ (Standard: „i lagur“). Eine Frau sagt „Jam e lagun“.",
       "errorHints": [{ "pattern": "^that[eë]$", "category": "vocab.confused", "hint": "„I thatë“ heisst „trocken“." }],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_086",
@@ -1905,8 +1893,7 @@
         { "pattern": "^rrit$", "category": "grammar.participle", "hint": "Das Gheg-Partizip endet auf -ë: „rritë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „rritë“ (Standard: rritur) nach der Regel -ur → -ë – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_087",
@@ -2074,8 +2061,7 @@
       ],
       "explanation": "Feminin heissen sie: e thatë, e lagun, e butë, e kthjellët, e pastër.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv „i/e lagun“ (Standard: i/e lagur) wie „i lodhun“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_096",
@@ -2161,8 +2147,7 @@
       ],
       "explanation": "Alle Sätze stehen in der Gheg-Zukunft: „ka me“ / „kanë me“ + Partizip.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_100",
@@ -2200,8 +2185,7 @@
       ],
       "explanation": "„Me veshë“ ist der Gheg-Infinitiv von „vesh“ (ich ziehe an).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „veshë“ (Standard: veshur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_102",
@@ -2273,8 +2257,7 @@
         { "pattern": "ka ra me", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „ka me ra“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_106",
@@ -2322,8 +2305,7 @@
       ],
       "explanation": "„Thotë se …“ heisst „sagt, dass …“. Danach folgt die Zukunft „ka me ra shi“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_109",
@@ -2483,8 +2465,7 @@
       "solutions": ["Në verë ka zjarre në pyje.", "Ka zjarre në pyje në verë."],
       "explanation": "„Zjarre“ und „pyje“ sind Mehrzahlformen von „zjarr“ (Brand) und „pyll“ (Wald).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Mehrzahl „zjarre“ (Kosovo auch „zjarme“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_119",
@@ -2514,8 +2495,7 @@
       "solutions": ["Nesër ka me u ngrohë, po ka me pasë erë."],
       "explanation": "„Po“ heisst hier „aber“. Zweimal Zukunft: „ka me u ngrohë“ und „ka me pasë“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ngrohë“ (Standard: ngrohur) zu prüfen; „po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u17_weather_climate_121",

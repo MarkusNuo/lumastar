@@ -17,7 +17,7 @@
     }
   ],
   "items": [
-    { "id": "item_nese", "kind": "word", "gheg": "nëse", "de": "wenn, falls (Bedingung)", "partOfSpeech": "conjunction", "note": "Im Kosovo-Alltag geläufig – zu prüfen.", "reviewed": false },
+    { "id": "item_nese", "kind": "word", "gheg": "nëse", "de": "wenn, falls (Bedingung)", "partOfSpeech": "conjunction", "reviewed": false },
     { "id": "item_ose", "kind": "word", "gheg": "ose", "de": "oder (in Aussagen; in Fragen meist „apo“)", "partOfSpeech": "conjunction", "reviewed": false },
     { "id": "item_mbaron", "kind": "word", "gheg": "mbaron", "de": "(es) endet, hört auf", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_urime", "kind": "phrase", "gheg": "urime!", "de": "gratuliere!, herzlichen Glückwunsch!", "partOfSpeech": "interjection", "reviewed": false },
@@ -81,8 +81,7 @@
         { "pattern": "basketbolli", "category": "grammar.definite_article", "hint": "Die Sportart steht ohne Artikel: „basketboll“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_004",
@@ -97,8 +96,7 @@
       "solutions": ["Në bjeshkë ka me ra borë.", "Ka me ra borë në bjeshkë."],
       "explanation": "„Bie borë“ heisst „es schneit“. In der Zukunft: „ka me ra borë“ – „ra“ ist das Partizip von „bie“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_005",
@@ -118,8 +116,7 @@
         { "pattern": "^don$", "category": "vocab.confused", "hint": "„Don“ heisst „du willst“. Müssen: „duhet“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „veshë“ (Standard: veshur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_006",
@@ -138,8 +135,7 @@
         { "pattern": "tennis", "category": "vocab.confused", "hint": "Vom Tennis ist nicht die Rede. Bei Regen kocht Besa Flija." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_007",
@@ -213,8 +209,7 @@
       ],
       "explanation": "Im Wetterbericht hörst du „ka me“ + Partizip: „ra“ (von „bie“), „pasë“ (von „kam“), „kânë“ (von „jam“).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ra“ (von „bie“, Standard: rënë) in „ka me ra“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_011",
@@ -275,8 +270,7 @@
         { "pattern": "gestern", "category": "vocab.confused", "hint": "„Gestern“ heisst „dje“. „Nesër“ heisst „morgen“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_014",
@@ -296,8 +290,7 @@
         { "pattern": "shtun", "category": "vocab.confused", "hint": "„Të shtunën“ heisst „am Samstag“. Am Sonntag: „të dielën“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen. „me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_015",
@@ -471,8 +464,7 @@
         { "pattern": "^morgen um", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“, „pasnesër“ heisst „übermorgen“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen. Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_024",
@@ -698,8 +690,7 @@
         { "pattern": "kälter", "category": "vocab.confused", "hint": "„Ma të shijshme“ heisst „leckerer“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_036",
@@ -817,8 +808,7 @@
         { "pattern": "niemand", "category": "vocab.confused", "hint": "Bezahlt wird auf jeden Fall: Verliert die Mannschaft, bezahlt Besa." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_042",
@@ -912,8 +902,7 @@
         { "pattern": "(^|\\s)uns(\\s|$)", "category": "vocab.confused", "hint": "„Mit uns“ hiesse „me ne“. „Me mu“ heisst „mit mir“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_047",
@@ -949,8 +938,7 @@
       "solutions": ["Kur mbaron ndeshja, kam me të thirrë.", "Kam me të thirrë kur mbaron ndeshja."],
       "explanation": "„Thirrë“ ist das Gheg-Partizip von „thërras“ (anrufen). Die Kurzform „të“ steht zwischen „me“ und „thirrë“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „thirrë“ (von „thërras“, Standard: thirrur) nach der Regel -ur → -ë – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_049",
@@ -1199,8 +1187,7 @@
         { "pattern": "nes[eë]r", "category": "vocab.confused", "hint": "„Nesër“ heisst „morgen“. Heute Abend: „sonte“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „thirrë“ (von „thërras“, Standard: thirrur) nach der Regel -ur → -ë – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_062",
@@ -1334,8 +1321,7 @@
       ],
       "explanation": "In der Zukunft steht die Kurzform immer zwischen „me“ und dem Partizip: „kam me ta tregue“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „thirrë“ (von „thërras“, Standard: thirrur) nach der Regel -ur → -ë – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_069",
@@ -1428,8 +1414,7 @@
         { "pattern": "qebape", "category": "vocab.confused", "hint": "Von Qebape ist nicht die Rede." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mirëmbrâma“ mit â laut Sprachrichtlinie zu prüfen. „po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_074",
@@ -1449,8 +1434,7 @@
         { "pattern": "(^|\\s)kam me udh", "category": "grammar.verb_tense", "hint": "„Kam me udhëtue“ heisst „ich werde reisen“. Ich möchte: „du me udhëtue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kisha dashtë me“ + Partizip (ich möchte …) als Erweiterung des bestätigten „kisha dashtë …“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_075",
@@ -1545,8 +1529,7 @@
         { "pattern": "me vesh pallton", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me veshë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „veshë“ (Standard: veshur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_080",
@@ -1624,8 +1607,7 @@
         { "pattern": "allein", "category": "vocab.confused", "hint": "Blerim reist „me motrën“ – mit seiner Schwester." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u19_review_plans_084",

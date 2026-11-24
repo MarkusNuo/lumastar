@@ -27,7 +27,7 @@
     { "id": "item_tas", "kind": "word", "gheg": "tas", "de": "Schüssel", "partOfSpeech": "noun", "gender": "m", "definite": "tasi", "plural": "tasa", "reviewed": false },
     { "id": "item_frigorifer", "kind": "word", "gheg": "frigorifer", "de": "Kühlschrank", "partOfSpeech": "noun", "gender": "m", "definite": "frigoriferi", "reviewed": false },
     { "id": "item_ene", "kind": "word", "gheg": "enë", "de": "Gefäss; Mehrzahl enët: Geschirr", "partOfSpeech": "noun", "gender": "f", "definite": "ena", "plural": "enë", "reviewed": false },
-    { "id": "item_zjarr", "kind": "word", "gheg": "zjarr", "de": "Feuer; Herd, Hitze (beim Kochen)", "partOfSpeech": "noun", "gender": "m", "definite": "zjarri", "note": "„në zjarr“ für „auf dem Herd“ zu prüfen (im Kosovo-Alltag auch „shporet“ für den Herd).", "reviewed": false },
+    { "id": "item_zjarr", "kind": "word", "gheg": "zjarr", "de": "Feuer; Herd, Hitze (beim Kochen)", "partOfSpeech": "noun", "gender": "m", "definite": "zjarri", "reviewed": false },
     { "id": "item_kapak", "kind": "word", "gheg": "kapak", "de": "Deckel", "partOfSpeech": "noun", "gender": "m", "definite": "kapaku", "plural": "kapakë", "reviewed": false },
     { "id": "item_shto", "kind": "word", "gheg": "shto, shtoni", "de": "füg hinzu!, gib dazu! (von shtoj)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_laj", "kind": "word", "gheg": "laj, lani", "de": "wasch!, wascht! (laj: auch „ich wasche“)", "partOfSpeech": "verb", "reviewed": false },
@@ -35,7 +35,7 @@
     { "id": "item_skuq", "kind": "word", "gheg": "skuq, skuqni", "de": "brate!, bratet! (in der Pfanne)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_piq", "kind": "word", "gheg": "piq, piqni", "de": "back!, backt! (von pjek)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_hidh", "kind": "word", "gheg": "hidh, hidhni", "de": "gib hinein!, wirf hinein! (von hedh)", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_trazo", "kind": "word", "gheg": "trazo, trazoni", "de": "rühr um!, rührt um! (von trazoj)", "partOfSpeech": "verb", "note": "Für „vermischen“ im Kosovo auch „përzie“ – zu prüfen.", "reviewed": false },
+    { "id": "item_trazo", "kind": "word", "gheg": "trazo, trazoni", "de": "rühr um!, rührt um! (von trazoj)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_merr", "kind": "word", "gheg": "merr, merrni", "de": "nimm!, nehmt!; du nimmst, er/sie nimmt (von marr)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_mbush", "kind": "word", "gheg": "mbush, mbushni", "de": "füll!, füllt! (von mbush)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_ndiz", "kind": "word", "gheg": "ndiz, ndizni", "de": "schalt ein!, zünd an! (von ndez)", "partOfSpeech": "verb", "reviewed": false },
@@ -45,15 +45,15 @@
     { "id": "item_nxeh", "kind": "word", "gheg": "nxeh, nxehni", "de": "erhitze!, wärm auf! (von nxeh)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_vendos", "kind": "word", "gheg": "vendos, vendosni", "de": "stell!, leg! (von vendos)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_mos", "kind": "word", "gheg": "mos", "de": "nicht (beim Befehl: mos shto! – gib nicht dazu!)", "partOfSpeech": "particle", "reviewed": false },
-    { "id": "item_me_pre", "kind": "phrase", "gheg": "me pre", "de": "schneiden", "partOfSpeech": "verb", "note": "Gheg-Partizip „pre“ (Standard: prerë) – zu prüfen.", "reviewed": false },
-    { "id": "item_me_pjeke", "kind": "phrase", "gheg": "me pjekë", "de": "backen, braten (im Ofen)", "partOfSpeech": "verb", "note": "Gheg-Partizip „pjekë“ (Standard: pjekur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
-    { "id": "item_me_skuqe", "kind": "phrase", "gheg": "me skuqë", "de": "braten (in der Pfanne), frittieren", "partOfSpeech": "verb", "note": "Gheg-Partizip „skuqë“ (Standard: skuqur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_pre", "kind": "phrase", "gheg": "me pre", "de": "schneiden", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_pjeke", "kind": "phrase", "gheg": "me pjekë", "de": "backen, braten (im Ofen)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_me_skuqe", "kind": "phrase", "gheg": "me skuqë", "de": "braten (in der Pfanne), frittieren", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_gatuaj", "kind": "word", "gheg": "gatuaj", "de": "ich koche (gatuan: du kochst, er/sie kocht)", "partOfSpeech": "verb", "note": "Präsens auf -uaj wie in der Sprachrichtlinie (Kosovo-Aussprache „gatuej/gatuj“).", "reviewed": false },
     { "id": "item_vlon", "kind": "word", "gheg": "vlon", "de": "(es) kocht, siedet", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_si_bahet", "kind": "phrase", "gheg": "si bâhet …?", "de": "wie macht man …?, wie wird … gemacht?", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_i_skuqun", "kind": "phrase", "gheg": "i skuqun, e skuqun", "de": "gebraten, frittiert", "partOfSpeech": "adjective", "note": "Gheg-Adjektiv auf -un wie „i hapun“ (Standard: i skuqur) – zu prüfen; „patate të skuqura“ (Pommes frites) ist bestätigt.", "reviewed": false },
+    { "id": "item_i_skuqun", "kind": "phrase", "gheg": "i skuqun, e skuqun", "de": "gebraten, frittiert", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_fillimisht", "kind": "word", "gheg": "fillimisht", "de": "zuerst, zunächst", "partOfSpeech": "adverb", "reviewed": false },
-    { "id": "item_mandej", "kind": "word", "gheg": "mandej", "de": "dann, danach", "partOfSpeech": "adverb", "note": "Kosovo-Alltagsform neben „pastaj“ – zu prüfen.", "reviewed": false },
+    { "id": "item_mandej", "kind": "word", "gheg": "mandej", "de": "dann, danach", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_ne_fund", "kind": "phrase", "gheg": "në fund", "de": "am Schluss, zum Schluss", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_nderkohe", "kind": "word", "gheg": "ndërkohë", "de": "inzwischen, unterdessen", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_recete", "kind": "word", "gheg": "recetë", "de": "Rezept", "partOfSpeech": "noun", "gender": "f", "definite": "receta", "plural": "receta", "reviewed": false },
@@ -69,12 +69,12 @@
     { "id": "item_pite", "kind": "word", "gheg": "pite", "de": "Pite (gefüllter Teig, z. B. mit Käse oder Spinat)", "partOfSpeech": "noun", "gender": "f", "definite": "pitja", "plural": "pite", "reviewed": false },
     { "id": "item_tave", "kind": "word", "gheg": "tavë", "de": "Tavë (Ofengericht im Tontopf)", "partOfSpeech": "noun", "gender": "f", "definite": "tava", "plural": "tava", "reviewed": false },
     { "id": "item_i_shijshem", "kind": "phrase", "gheg": "i shijshëm, e shijshme", "de": "lecker, schmackhaft", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_kuzhinier", "kind": "word", "gheg": "kuzhinier, kuzhiniere", "de": "Koch, Köchin", "partOfSpeech": "noun", "gender": "m", "definite": "kuzhinieri", "plural": "kuzhinierë", "note": "Im Kosovo-Alltag auch „kuvar“ (Lehnwort) – zu prüfen, ob als Alternative zeigen.", "reviewed": false },
+    { "id": "item_kuzhinier", "kind": "word", "gheg": "kuzhinier, kuzhiniere", "de": "Koch, Köchin", "partOfSpeech": "noun", "gender": "m", "definite": "kuzhinieri", "plural": "kuzhinierë", "reviewed": false },
     { "id": "item_gjelle", "kind": "word", "gheg": "gjellë", "de": "Gericht, (warme) Speise", "partOfSpeech": "noun", "gender": "f", "definite": "gjella", "plural": "gjella", "reviewed": false },
     { "id": "item_pomfrit", "kind": "word", "gheg": "pomfrit", "de": "Pommes frites", "partOfSpeech": "noun", "gender": "m", "definite": "pomfriti", "note": "Bestätigt; ebenso richtig: „patate të skuqura“.", "reviewed": false },
-    { "id": "item_supe", "kind": "word", "gheg": "supë", "de": "Suppe", "partOfSpeech": "noun", "gender": "f", "definite": "supa", "note": "Im Kosovo oft auch „çorbë“ (z. B. „çorbë fasule“) – zu prüfen, ob als eigenes Item aufnehmen.", "reviewed": false },
+    { "id": "item_supe", "kind": "word", "gheg": "supë", "de": "Suppe", "partOfSpeech": "noun", "gender": "f", "definite": "supa", "reviewed": false },
     { "id": "item_i_djeges", "kind": "phrase", "gheg": "i djegës, e djegëse", "de": "scharf (gewürzt)", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_i_kripun", "kind": "phrase", "gheg": "i kripun, e kripun", "de": "salzig, versalzen", "partOfSpeech": "adjective", "note": "Gheg-Adjektiv auf -un wie „i hapun“, „i lodhun“ (Standard: i kripur) – zu prüfen.", "reviewed": false }
+    { "id": "item_i_kripun", "kind": "phrase", "gheg": "i kripun, e kripun", "de": "salzig, versalzen", "partOfSpeech": "adjective", "reviewed": false }
   ],
   "exercises": [
     {
@@ -132,8 +132,7 @@
       ],
       "explanation": "„Kuzhinier“ ist der Koch, „kuzhinë“ die Küche. Auf dem Herd kocht man „në zjarr“ – wörtlich „auf dem Feuer“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„në zjarr“ für „auf dem Herd“ zu prüfen (im Kosovo-Alltag auch „në shporet“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_004",
@@ -282,8 +281,7 @@
       "solutions": ["Tenxherja âsht në zjarr."],
       "explanation": "„Në zjarr“ heisst wörtlich „auf dem Feuer“ – so sagt man für „auf dem Herd“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„në zjarr“ für „auf dem Herd“ zu prüfen (im Kosovo-Alltag auch „në shporet“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_012",
@@ -321,8 +319,7 @@
       ],
       "explanation": "Einige Verben ändern im Imperativ den Vokal: „hedh → hidh“, „marr → merr“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„trazo“ für „umrühren, vermischen“ zu prüfen (auch „përzie“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_014",
@@ -457,8 +454,7 @@
         { "pattern": "^trazoni$", "category": "grammar.verb_conjugation", "hint": "„Trazoni“ sagt man zu mehreren. Zu einer Person: „trazo!“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„trazo“ für „umrühren, vermischen“ zu prüfen (auch „përzie“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_021",
@@ -534,8 +530,7 @@
         { "pattern": "tenxherja", "category": "grammar.case", "hint": "Als Objekt: „tenxheren“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„në zjarr“ für „auf dem Herd“ zu prüfen (im Kosovo-Alltag auch „në shporet“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_025",
@@ -775,8 +770,7 @@
         { "pattern": "mos trazoj", "category": "grammar.verb_conjugation", "hint": "Nach „mos“ steht der Befehl: „trazo“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„trazo“ für „umrühren, vermischen“ zu prüfen (auch „përzie“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_038",
@@ -831,8 +825,7 @@
       ],
       "explanation": "Gheg-Infinitiv: „me“ + kurzes Partizip. Standard sagt „të pres“, „të pjek“, „të skuq“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_041",
@@ -851,8 +844,7 @@
         { "pattern": "pjeku$", "category": "grammar.participle", "hint": "Das Partizip heisst „pjekë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_042",
@@ -869,8 +861,7 @@
       "explanation": "„Me pre“ heisst „schneiden“ – Gheg-Partizip „pre“ (Standard: „prerë“).",
       "errorHints": [{ "pattern": "^pres$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me pre“, nicht „pres“." }],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_043",
@@ -891,8 +882,7 @@
         { "pattern": "^skuqni$", "category": "grammar.infinitive", "hint": "„Skuqni!“ ist ein Befehl. Nach „me“ steht das Partizip." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_044",
@@ -912,8 +902,7 @@
         { "pattern": "gatuaj", "category": "grammar.infinitive", "hint": "„Gatuaj“ heisst „ich koche“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_045",
@@ -984,8 +973,7 @@
         { "pattern": "^skuq[eë]$", "category": "grammar.participle", "hint": "„Skuqë“ steht nach „me“. Als Adjektiv: „i skuqun“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_049",
@@ -1002,8 +990,7 @@
       "explanation": "Gheg-Adjektiv auf -un: „e pjekun“ (Standard: „e pjekur“). „Pitja“ ist feminin.",
       "errorHints": [{ "pattern": "^pjek[eë]$", "category": "grammar.participle", "hint": "„Pjekë“ steht nach „me“. Als Adjektiv: „e pjekun“." }],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_050",
@@ -1061,8 +1048,7 @@
         { "pattern": "kalt", "category": "vocab.confused", "hint": "„Kalt“ hiesse „i ftohtë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_053",
@@ -1081,8 +1067,7 @@
       ],
       "explanation": "Mit diesen Wörtern erklärst du ein Rezept Schritt für Schritt. „Mandej“ hört man im Kosovo sehr oft.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„mandej“ (dann) als Kosovo-Alltagsform neben „pastaj“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_054",
@@ -1141,8 +1126,7 @@
         { "pattern": "laj patate(\\s|$)", "category": "grammar.definite_article", "hint": "„Die Kartoffeln“ braucht den Artikel: „patatet“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mandej“ (dann) als Kosovo-Alltagsform neben „pastaj“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_057",
@@ -1205,8 +1189,7 @@
         { "pattern": "shtoj orizin", "category": "grammar.verb_conjugation", "hint": "„Shtoj“ heisst „ich füge hinzu“. Der Befehl: „shto!“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mandej“ (dann) als Kosovo-Alltagsform neben „pastaj“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_061",
@@ -1391,8 +1374,7 @@
         { "pattern": "^brum[eë]$", "category": "grammar.definite_article", "hint": "Gemeint ist „den Teig“ – mit Artikel: „brumin“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Imperativ „bâj!“ (mach!, Standard: bëj!) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_071",
@@ -1770,8 +1752,7 @@
       ],
       "explanation": "„I kripun“ und „i skuqun“ sind Gheg-Formen auf -un (Standard: „i kripur“, „i skuqur“).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_091",
@@ -1809,8 +1790,7 @@
         { "pattern": "ausschalten", "category": "vocab.confused", "hint": "Vom Ausschalten steht nichts im Rezept." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„trazo“ für „umrühren, vermischen“ zu prüfen (auch „përzie“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_092",
@@ -1893,8 +1873,7 @@
         { "pattern": "eine", "category": "vocab.confused", "hint": "„Tri orë“ heisst „drei Stunden“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen. „mandej“ (dann) als Kosovo-Alltagsform neben „pastaj“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_095",
@@ -1989,8 +1968,7 @@
         { "pattern": "zwei", "category": "vocab.confused", "hint": "„Nji“ heisst „ein, einen“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„trazo“ für „umrühren, vermischen“ zu prüfen (auch „përzie“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_099",
@@ -2010,8 +1988,7 @@
         { "pattern": "k[uü]hlschrank", "category": "vocab.confused", "hint": "„Furrë“ ist der Ofen." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„në zjarr“ für „auf dem Herd“ zu prüfen (im Kosovo-Alltag auch „në shporet“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_100",
@@ -2051,8 +2028,7 @@
         { "pattern": "(^|\\s)piq(\\s|$)", "category": "grammar.infinitive", "hint": "„Piq!“ ist ein Befehl." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_102",
@@ -2072,8 +2048,7 @@
         { "pattern": "(^|\\s)ich(\\s|$)", "category": "grammar.verb_conjugation", "hint": "„Mundesh“ heisst „du kannst“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_103",
@@ -2390,8 +2365,7 @@
       "solutions": ["Duhet me pjekë mishin nji orë."],
       "explanation": "„Duhet me pjekë …“ – man muss … backen. Zuerst „me“, dann das Partizip „pjekë“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizipien „pjekë“, „skuqë“, „pre“ (Standard: pjekur, skuqur, prerë) und Adjektive auf -un („i skuqun“, „i pjekun“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u14_cooking_recipes_121",
@@ -2421,8 +2395,7 @@
       "solutions": ["Fillimisht bâj brumin, pastaj piq piten."],
       "explanation": "Zwei Befehle nacheinander: „bâj!“ (mach) und „piq!“ (back).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Imperativ „bâj!“ (mach!, Standard: bëj!) zu prüfen."
+      "source": "manual"
     }
   ]
 }

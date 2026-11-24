@@ -19,11 +19,11 @@
   "items": [
     { "id": "item_dhimbje_koke", "kind": "phrase", "gheg": "dhimbje koke", "de": "Kopfschmerzen, Kopfweh", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_ftohje", "kind": "word", "gheg": "ftohje", "de": "Erkältung", "partOfSpeech": "noun", "gender": "f", "definite": "ftohja", "reviewed": false },
-    { "id": "item_jam_ftohe", "kind": "phrase", "gheg": "jam ftohë", "de": "ich bin erkältet, ich habe mich erkältet", "partOfSpeech": "phrase", "note": "Partizip „ftohë“ (von ftohem, Standard: ftohur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_jam_ftohe", "kind": "phrase", "gheg": "jam ftohë", "de": "ich bin erkältet, ich habe mich erkältet", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_me_rrjedh_hunda", "kind": "phrase", "gheg": "më rrjedh hunda", "de": "ich habe eine laufende Nase (wörtlich: mir läuft die Nase)", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_me_vjen_me_vjelle", "kind": "phrase", "gheg": "më vjen me vjellë", "de": "mir ist übel (wörtlich: es kommt mir zu erbrechen)", "partOfSpeech": "phrase", "note": "Gheg-Infinitiv „me vjellë“ (Standard: më vjen të vjell); im Kosovo auch „më përzihet“ – zu prüfen.", "reviewed": false },
-    { "id": "item_alergji", "kind": "word", "gheg": "alergji", "de": "Allergie", "partOfSpeech": "noun", "gender": "f", "note": "Bestimmte Form „alergjia“ oder wie „shpija“ „alergjija“ – zu prüfen; in den Aufgaben nur unbestimmt verwendet.", "reviewed": false },
-    { "id": "item_marramendje", "kind": "word", "gheg": "marramendje", "de": "Schwindel", "partOfSpeech": "noun", "gender": "f", "definite": "marramendja", "note": "Im Kosovo auch „më merren mendt“ (mir wird schwindlig) – zu prüfen, ob als eigenes Item aufnehmen.", "reviewed": false },
+    { "id": "item_me_vjen_me_vjelle", "kind": "phrase", "gheg": "më vjen me vjellë", "de": "mir ist übel (wörtlich: es kommt mir zu erbrechen)", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_alergji", "kind": "word", "gheg": "alergji", "de": "Allergie", "partOfSpeech": "noun", "gender": "f", "reviewed": false },
+    { "id": "item_marramendje", "kind": "word", "gheg": "marramendje", "de": "Schwindel", "partOfSpeech": "noun", "gender": "f", "definite": "marramendja", "reviewed": false },
     { "id": "item_plage", "kind": "word", "gheg": "plagë", "de": "Wunde", "partOfSpeech": "noun", "gender": "f", "definite": "plaga", "plural": "plagë", "reviewed": false },
     { "id": "item_kollitem", "kind": "word", "gheg": "kollitem", "de": "ich huste (kollitesh: du hustest)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_teshtij", "kind": "word", "gheg": "teshtij", "de": "ich niese", "partOfSpeech": "verb", "reviewed": false },
@@ -31,49 +31,49 @@
     { "id": "item_i_rende", "kind": "phrase", "gheg": "i rëndë, e rëndë", "de": "schwer; schlimm, ernst", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_gjak", "kind": "word", "gheg": "gjak", "de": "Blut", "partOfSpeech": "noun", "gender": "m", "definite": "gjaku", "reviewed": false },
     { "id": "item_rrezohem", "kind": "word", "gheg": "rrëzohem", "de": "ich falle hin, ich stürze", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_jam_rrezue", "kind": "phrase", "gheg": "jam rrëzue", "de": "ich bin hingefallen, ich bin gestürzt", "partOfSpeech": "phrase", "note": "Perfekt mit „jam“ + Partizip „rrëzue“ (Standard: jam rrëzuar) – zu prüfen.", "reviewed": false },
+    { "id": "item_jam_rrezue", "kind": "phrase", "gheg": "jam rrëzue", "de": "ich bin hingefallen, ich bin gestürzt", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_lendohem", "kind": "word", "gheg": "lëndohem", "de": "ich verletze mich", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_jam_lendue", "kind": "phrase", "gheg": "jam lëndue", "de": "ich habe mich verletzt, ich bin verletzt", "partOfSpeech": "phrase", "note": "Perfekt mit „jam“ + Partizip „lëndue“ (Standard: jam lënduar) – zu prüfen.", "reviewed": false },
+    { "id": "item_jam_lendue", "kind": "phrase", "gheg": "jam lëndue", "de": "ich habe mich verletzt, ich bin verletzt", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_sherohem", "kind": "word", "gheg": "shërohem", "de": "ich werde gesund, ich erhole mich (Perfekt: jam shërue)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_shtrihem", "kind": "word", "gheg": "shtrihem", "de": "ich lege mich hin (shtrihu! – leg dich hin!)", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_thye", "kind": "word", "gheg": "thye", "de": "gebrochen (Partizip von thyej, ich breche)", "partOfSpeech": "verb", "note": "Gheg-Partizip „thye“ (Standard: thyer) – zu prüfen.", "reviewed": false },
-    { "id": "item_cka_ka_ndodhe", "kind": "phrase", "gheg": "çka ka ndodhë?", "de": "was ist passiert?", "partOfSpeech": "phrase", "note": "Partizip „ndodhë“ (Standard: ndodhur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_thye", "kind": "word", "gheg": "thye", "de": "gebrochen (Partizip von thyej, ich breche)", "partOfSpeech": "verb", "reviewed": false },
+    { "id": "item_cka_ka_ndodhe", "kind": "phrase", "gheg": "çka ka ndodhë?", "de": "was ist passiert?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_qafe", "kind": "word", "gheg": "qafë", "de": "Hals (aussen), Nacken", "partOfSpeech": "noun", "gender": "f", "definite": "qafa", "reviewed": false },
     { "id": "item_gjoks", "kind": "word", "gheg": "gjoks", "de": "Brust", "partOfSpeech": "noun", "gender": "m", "definite": "gjoksi", "reviewed": false },
     { "id": "item_stomak", "kind": "word", "gheg": "stomak", "de": "Magen", "partOfSpeech": "noun", "gender": "m", "definite": "stomaku", "reviewed": false },
-    { "id": "item_gju", "kind": "word", "gheg": "gju", "de": "Knie", "partOfSpeech": "noun", "gender": "m", "definite": "gjuni", "plural": "gjunj", "note": "Gheg „gjuni“ mit -n- (Standard: gjuri, Rhotazismus); Plural „gjunj“ – zu prüfen.", "reviewed": false },
+    { "id": "item_gju", "kind": "word", "gheg": "gju", "de": "Knie", "partOfSpeech": "noun", "gender": "m", "definite": "gjuni", "plural": "gjunj", "reviewed": false },
     { "id": "item_kocke", "kind": "word", "gheg": "kockë", "de": "Knochen", "partOfSpeech": "noun", "gender": "f", "definite": "kocka", "plural": "kocka", "reviewed": false },
     { "id": "item_doktor", "kind": "word", "gheg": "doktor", "de": "Doktor, Arzt (Alltag)", "partOfSpeech": "noun", "gender": "m", "definite": "doktori", "plural": "doktorë", "reviewed": false },
-    { "id": "item_termin", "kind": "word", "gheg": "termin", "de": "Termin (z. B. beim Arzt)", "partOfSpeech": "noun", "gender": "m", "definite": "termini", "plural": "termine", "note": "Im Kosovo-Alltag sehr üblich (Standard eher „takim“ oder „orar“) – zu prüfen.", "reviewed": false },
+    { "id": "item_termin", "kind": "word", "gheg": "termin", "de": "Termin (z. B. beim Arzt)", "partOfSpeech": "noun", "gender": "m", "definite": "termini", "plural": "termine", "reviewed": false },
     { "id": "item_me_marre_termin", "kind": "phrase", "gheg": "me marrë termin", "de": "einen Termin abmachen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_dhoma_e_pritjes", "kind": "phrase", "gheg": "dhoma e pritjes", "de": "das Wartezimmer", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_me_kontrollue", "kind": "phrase", "gheg": "me kontrollue", "de": "untersuchen, kontrollieren", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_sigurim_shendetesor", "kind": "phrase", "gheg": "sigurim shëndetësor", "de": "Krankenversicherung, Krankenkasse", "partOfSpeech": "noun", "gender": "m", "definite": "sigurimi shëndetësor", "reviewed": false },
     { "id": "item_urgjence", "kind": "word", "gheg": "urgjencë", "de": "Notfall; Notfallstation", "partOfSpeech": "noun", "gender": "f", "definite": "urgjenca", "reviewed": false },
-    { "id": "item_ambulance", "kind": "word", "gheg": "ambulancë", "de": "Krankenwagen", "partOfSpeech": "noun", "gender": "f", "definite": "ambulanca", "note": "Im Kosovo heisst „ambulanca“ auch die Arztpraxis im Quartier – Bedeutung zu prüfen.", "reviewed": false },
+    { "id": "item_ambulance", "kind": "word", "gheg": "ambulancë", "de": "Krankenwagen", "partOfSpeech": "noun", "gender": "f", "definite": "ambulanca", "reviewed": false },
     { "id": "item_pacient", "kind": "word", "gheg": "pacient, paciente", "de": "Patient, Patientin", "partOfSpeech": "noun", "gender": "m", "definite": "pacienti", "plural": "pacientë", "reviewed": false },
     { "id": "item_merr_fryme_thelle", "kind": "phrase", "gheg": "merr frymë thellë", "de": "atme tief ein!", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_tension", "kind": "word", "gheg": "tension", "de": "Blutdruck", "partOfSpeech": "noun", "gender": "m", "definite": "tensioni", "note": "Im Kosovo-Alltag „tension“ (Standard eher „presion i gjakut“) – zu prüfen.", "reviewed": false },
+    { "id": "item_tension", "kind": "word", "gheg": "tension", "de": "Blutdruck", "partOfSpeech": "noun", "gender": "m", "definite": "tensioni", "reviewed": false },
     { "id": "item_analize", "kind": "word", "gheg": "analizë", "de": "(Labor-)Untersuchung, Analyse", "partOfSpeech": "noun", "gender": "f", "definite": "analiza", "plural": "analiza", "reviewed": false },
-    { "id": "item_i_nalte", "kind": "phrase", "gheg": "i naltë, e naltë", "de": "hoch", "partOfSpeech": "adjective", "note": "Gheg-Form (Standard: i lartë) – zu prüfen.", "reviewed": false },
+    { "id": "item_i_nalte", "kind": "phrase", "gheg": "i naltë, e naltë", "de": "hoch", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_tablete", "kind": "word", "gheg": "tabletë", "de": "Tablette", "partOfSpeech": "noun", "gender": "f", "definite": "tableta", "plural": "tableta", "reviewed": false },
     { "id": "item_pike", "kind": "word", "gheg": "pikë", "de": "Tropfen (auch: Punkt)", "partOfSpeech": "noun", "gender": "f", "definite": "pika", "plural": "pika", "reviewed": false },
     { "id": "item_shurup", "kind": "word", "gheg": "shurup", "de": "Sirup", "partOfSpeech": "noun", "gender": "m", "definite": "shurupi", "reviewed": false },
     { "id": "item_pomade", "kind": "word", "gheg": "pomadë", "de": "Salbe", "partOfSpeech": "noun", "gender": "f", "definite": "pomada", "reviewed": false },
     { "id": "item_antibiotik", "kind": "word", "gheg": "antibiotik", "de": "Antibiotikum", "partOfSpeech": "noun", "gender": "m", "definite": "antibiotiku", "plural": "antibiotikë", "reviewed": false },
     { "id": "item_kunder", "kind": "word", "gheg": "kundër", "de": "gegen (mit Ablativ)", "partOfSpeech": "preposition", "reviewed": false },
-    { "id": "item_flaster", "kind": "word", "gheg": "flaster", "de": "Pflaster", "partOfSpeech": "noun", "gender": "m", "definite": "flasteri", "note": "Kosovo-Alltagswort – zu prüfen.", "reviewed": false },
+    { "id": "item_flaster", "kind": "word", "gheg": "flaster", "de": "Pflaster", "partOfSpeech": "noun", "gender": "m", "definite": "flasteri", "reviewed": false },
     { "id": "item_fashe", "kind": "word", "gheg": "fashë", "de": "Verband, Binde", "partOfSpeech": "noun", "gender": "f", "definite": "fasha", "reviewed": false },
     { "id": "item_farmacist", "kind": "word", "gheg": "farmacist, farmaciste", "de": "Apotheker, Apothekerin", "partOfSpeech": "noun", "gender": "m", "definite": "farmacisti", "reviewed": false },
     { "id": "item_me_marre", "kind": "phrase", "gheg": "me marrë", "de": "nehmen; (ein Medikament) einnehmen", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_prej_kur", "kind": "phrase", "gheg": "prej kur?", "de": "seit wann?", "partOfSpeech": "phrase", "note": "Gheg „prej“ (Standard eher „që kur“); „që kur“ wird als weitere Lösung akzeptiert – zu prüfen.", "reviewed": false },
+    { "id": "item_prej_kur", "kind": "phrase", "gheg": "prej kur?", "de": "seit wann?", "partOfSpeech": "phrase", "note": "In den Aufgaben ist „që kur?“ als weitere Lösung akzeptiert.", "reviewed": false },
     { "id": "item_prej_dje", "kind": "phrase", "gheg": "prej dje", "de": "seit gestern (auch: që dje)", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_prej_tri_ditesh", "kind": "phrase", "gheg": "prej tri ditësh", "de": "seit drei Tagen", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_prej_nji_jave", "kind": "phrase", "gheg": "prej nji jave", "de": "seit einer Woche", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_here", "kind": "word", "gheg": "herë", "de": "Mal", "partOfSpeech": "noun", "gender": "f", "definite": "hera", "plural": "herë", "reviewed": false },
     { "id": "item_tri_here_ne_dite", "kind": "phrase", "gheg": "tri herë në ditë", "de": "dreimal täglich", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_para_ngranies", "kind": "phrase", "gheg": "para ngrânies", "de": "vor dem Essen", "partOfSpeech": "phrase", "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen.", "reviewed": false },
-    { "id": "item_pas_ngranies", "kind": "phrase", "gheg": "pas ngrânies", "de": "nach dem Essen", "partOfSpeech": "phrase", "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen.", "reviewed": false }
+    { "id": "item_para_ngranies", "kind": "phrase", "gheg": "para ngrânies", "de": "vor dem Essen", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_pas_ngranies", "kind": "phrase", "gheg": "pas ngrânies", "de": "nach dem Essen", "partOfSpeech": "phrase", "reviewed": false }
   ],
   "exercises": [
     {
@@ -93,8 +93,7 @@
       ],
       "explanation": "„Qafa“ ist der Hals von aussen, „fyti“ der Hals innen. „Gjuni“ (das Knie) ist eine Gheg-Form mit -n- (Standard: „gjuri“).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg „gjuni“ (Standard: gjuri) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_002",
@@ -132,8 +131,7 @@
         { "pattern": "^kocka$", "category": "vocab.confused", "hint": "„Kocka“ ist der Knochen." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg „gjuni“ (Standard: gjuri) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_004",
@@ -152,8 +150,7 @@
         { "pattern": "^gju$", "category": "grammar.definite_article", "hint": "Hier braucht es den bestimmten Artikel: „gjuni“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg „gjuni“ (Standard: gjuri) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_005",
@@ -248,8 +245,7 @@
       ],
       "explanation": "„Kollitem“ (ich huste) ist reflexiv wie „ndihem“. „Jam ftohë“ ist das Perfekt von „ftohem“ – wörtlich „ich habe mich erkältet“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ftohë“ (Standard: ftohur) und „më vjen me vjellë“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_010",
@@ -268,8 +264,7 @@
         { "pattern": "m[uü]de", "category": "vocab.confused", "hint": "Müde heisst „i lodhun / e lodhun“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ftohë“ (Standard: ftohur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_011",
@@ -309,8 +304,7 @@
         { "pattern": "(^|\\s)ftohem(\\s|$)", "category": "grammar.verb_tense", "hint": "„Ftohem“ ist Präsens. Perfekt: „Jam ftohë.“" }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ftohë“ (Standard: ftohur) und die Vergangenheitsform „u ftoha“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_013",
@@ -388,8 +382,7 @@
         { "pattern": "^vjen m[eë] me", "category": "grammar.word_order", "hint": "Die Kurzform „më“ steht am Anfang, vor dem Verb: „Më vjen …“" }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„Më vjen me vjellë“ (Standard: më vjen të vjell) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_017",
@@ -408,8 +401,7 @@
         { "pattern": "m[uü]de", "category": "vocab.confused", "hint": "„Müde“ heisst „i lodhun“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„Më vjen me vjellë“ (Standard: më vjen të vjell) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_018",
@@ -428,8 +420,7 @@
         { "pattern": "seit wann", "category": "vocab.confused", "hint": "„Seit wann?“ heisst „Prej kur?“" }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ndodhë“ (Standard: ndodhur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_019",
@@ -448,8 +439,7 @@
         { "pattern": "^jam rr[eë]zohem$", "category": "grammar.participle", "hint": "Nach „jam“ steht das Partizip: „rrëzue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_020",
@@ -469,8 +459,7 @@
         { "pattern": "(^|\\s)shpi(\\s|$)", "category": "vocab.confused", "hint": "„Shpi“ heisst „Haus“. Die Strasse heisst „rrugë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_021",
@@ -489,8 +478,7 @@
         { "pattern": "(^|\\s)kam ndodh", "category": "grammar.verb_conjugation", "hint": "„Es ist passiert“ steht in der 3. Person: „ka ndodhë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ndodhë“ (Standard: ndodhur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_022",
@@ -510,8 +498,7 @@
         { "pattern": "^rr[eë]zue$", "category": "vocab.confused", "hint": "„Rrëzue“ heisst „hingefallen“. Verletzt: „lëndue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_023",
@@ -531,8 +518,7 @@
         { "pattern": "(^|\\s)dir(\\s|$)", "category": "grammar.clitics", "hint": "„Dir“ wäre „të“. Hier geht es um dich selbst: „e kam thye“ – ich habe gebrochen." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_024",
@@ -553,8 +539,7 @@
         { "pattern": "^kan[eë]$", "category": "grammar.verb_conjugation", "hint": "„Kanë“ heisst „sie haben“ (Plural)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_025",
@@ -573,8 +558,7 @@
         { "pattern": "^im vllau", "category": "grammar.word_order", "hint": "Das Possessivpronomen steht nach dem Nomen: „vllau im“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizip „thye“ (Standard: thyer) und „vllau“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_026",
@@ -594,8 +578,7 @@
         { "pattern": "(^|\\s)jam thye", "category": "grammar.verb_tense", "hint": "Mit Objekt bildest du das Perfekt mit „kam“: „E kam thye gishtin.“" }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_027",
@@ -619,8 +602,7 @@
         { "pattern": "schwere", "category": "vocab.confused", "hint": "„S'âsht gja e rëndë“ heisst „es ist nichts Schlimmes“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„veç“ (nur), „gja“ (Sache, etwas) und das Partizip „ndodhë“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_028",
@@ -641,8 +623,7 @@
         { "pattern": "^sh[eë]rue$", "category": "vocab.confused", "hint": "„Shërue“ heisst „gesund geworden“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_029",
@@ -661,8 +642,7 @@
         { "pattern": "erk[aä]ltet", "category": "vocab.confused", "hint": "„Erkältet“ heisst „ftohë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_030",
@@ -682,8 +662,7 @@
         { "pattern": "(^|\\s)nein(\\s|$)", "category": "vocab.confused", "hint": "„Po“ heisst „ja“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_031",
@@ -702,8 +681,7 @@
         { "pattern": "^sh[eë]rohem$", "category": "grammar.participle", "hint": "Nach „jam“ steht das Partizip: „shërue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_032",
@@ -742,8 +720,7 @@
         { "pattern": "dhom", "category": "vocab.confused", "hint": "Das ist ein Ort: „im Wartezimmer“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_034",
@@ -800,8 +777,7 @@
       ],
       "explanation": "„Termin“ ist im Kosovo-Alltag üblich, wie im Deutschen. „Në urgjencë“ heisst „in der Notfallstation“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„termin“ (Standard eher „takim“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_037",
@@ -840,8 +816,7 @@
         { "pattern": "recet", "category": "vocab.confused", "hint": "„Recetë“ heisst „Rezept“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ (ich will) und „termin“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_039",
@@ -881,8 +856,7 @@
         { "pattern": "apotheke", "category": "vocab.confused", "hint": "Von der Apotheke ist nicht die Rede." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„urdhëroni“ (bitte schön, hier bitte; im Kosovo auch „urdhno“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_041",
@@ -1033,8 +1007,7 @@
         { "pattern": "fieber", "category": "vocab.confused", "hint": "„Fieber“ heisst „temperaturë“. „Tensioni“ ist der Blutdruck." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„tension“ (Blutdruck; Standard eher „presion i gjakut“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_048",
@@ -1072,8 +1045,7 @@
         { "pattern": "^ult[eë]$", "category": "vocab.confused", "hint": "„I ultë“ heisst „tief, niedrig“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg „i naltë“ (Standard: i lartë) und „tension“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_050",
@@ -1092,8 +1064,7 @@
         { "pattern": "warte", "category": "vocab.confused", "hint": "„Warte!“ hiesse „Prit!“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ambulancë“ (Krankenwagen) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_051",
@@ -1158,8 +1129,7 @@
         { "pattern": "^gjysh im", "category": "grammar.definite_article", "hint": "Mit „im“ steht das Nomen mit Artikel: „gjyshi im“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_054",
@@ -1183,8 +1153,7 @@
         { "pattern": "fuss", "category": "vocab.confused", "hint": "Der Verband ist „në dorë“ – an der Hand." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen. Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_055",
@@ -1203,8 +1172,7 @@
       ],
       "explanation": "„Pika“ ist der Plural von „pikë“ (Tropfen): „pika për sy“ sind Augentropfen.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„flaster“ (Pflaster) als Kosovo-Alltagswort zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_056",
@@ -1307,8 +1275,7 @@
         { "pattern": "tropfen", "category": "vocab.confused", "hint": "„Tabletë“ ist die Tablette; Tropfen heissen „pika“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_061",
@@ -1329,8 +1296,7 @@
         { "pattern": "^kund[eë]r$", "category": "vocab.confused", "hint": "„Kundër“ heisst „gegen“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_062",
@@ -1356,8 +1322,7 @@
         { "pattern": "(^|\\s)ngr[aâ]nie(\\s|$)", "category": "grammar.case", "hint": "Nach „pas“ steht der Ablativ: „pas ngrânies“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_063",
@@ -1399,8 +1364,7 @@
         { "pattern": "schlafen", "category": "vocab.confused", "hint": "Vom Schlafen ist nicht die Rede: „para ngrânies“ – vor dem Essen." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_065",
@@ -1464,8 +1428,7 @@
       ],
       "explanation": "„Para“ heisst „vor“, „pas“ „nach“, „prej“ „seit“. Danach steht der Ablativ: „ngrânies“, „ditësh“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_068",
@@ -1543,8 +1506,7 @@
       "solutions": ["gjak", "gjaku"],
       "explanation": "„Gjak“ heisst „Blut“. Nach „prej“ steht der Ablativ: „prej hundës“ (aus der Nase).",
       "reviewed": false,
-      "source": "manual",
-      "note": "„Më rrjedh gjak prej hundës“ (Standard eher „nga hunda“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_072",
@@ -1581,8 +1543,7 @@
         { "pattern": "(^|\\s)[aâ]sht nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk âsht“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Passiv „âsht thye“ (Standard: është thyer) laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_074",
@@ -1640,8 +1601,7 @@
         { "pattern": "(^|\\s)pika(\\s|$)", "category": "vocab.confused", "hint": "„Pika“ sind Tropfen." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„flaster“ (Pflaster) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_077",
@@ -1915,8 +1875,7 @@
         { "pattern": "^kur t", "category": "vocab.confused", "hint": "„Kur“ allein heisst „wann“. „Seit wann“ heisst „prej kur“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„prej kur“ und „që kur“ als Gheg-Lösungen zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_091",
@@ -1992,8 +1951,7 @@
       ],
       "explanation": "Präsens auf -hem, Perfekt mit „jam“ + Partizip auf -ue: rrëzohem → jam rrëzue.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_095",
@@ -2014,8 +1972,7 @@
         { "pattern": "^[aâ]sht$", "category": "grammar.verb_conjugation", "hint": "„Fëmijët“ ist Plural – darum „janë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ftohë“ (Standard: ftohur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_096",
@@ -2034,8 +1991,7 @@
         { "pattern": "(^|\\s)jam l[eë]ndue", "category": "grammar.verb_conjugation", "hint": "„Jam“ heisst „ich bin“. Du: „je“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_097",
@@ -2210,8 +2166,7 @@
       ],
       "explanation": "Wichtige Sätze beim Arzt. „Gja“ heisst „Sache, etwas“ (Standard: „gjë“).",
       "reviewed": false,
-      "source": "manual",
-      "note": "„gja“ (Standard: gjë) und das Partizip „ndodhë“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_106",
@@ -2299,8 +2254,7 @@
         { "pattern": "arzt", "category": "vocab.confused", "hint": "„Ambulanca“ ist der Krankenwagen." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ambulancë“ (Krankenwagen) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_110",
@@ -2320,8 +2274,7 @@
         { "pattern": "(^|\\s)ka rr[eë]zue", "category": "grammar.verb_tense", "hint": "Reflexive Verben bilden das Perfekt mit „jam“: „âsht rrëzue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_111",
@@ -2365,8 +2318,7 @@
         { "pattern": "(^|\\s)jam k[aâ]n[eë]", "category": "grammar.verb_tense", "hint": "„Sein“ bildet das Perfekt mit „kam“: „kam kânë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kânë / kjenë“ (gewesen) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_113",
@@ -2386,8 +2338,7 @@
         { "pattern": "^ult[eë]$", "category": "vocab.confused", "hint": "„Të ultë“ heisst „tief, niedrig“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg „i naltë“ (Standard: i lartë) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_114",
@@ -2407,8 +2358,7 @@
         { "pattern": "^rr[eë]zua$", "category": "grammar.verb_tense", "hint": "„Rrëzua“ ist Vergangenheit („sie fiel“). Nach „âsht“ steht das Partizip „rrëzue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_115",
@@ -2459,8 +2409,7 @@
         { "pattern": "^je ku", "category": "grammar.word_order", "hint": "Das Fragewort „ku“ steht am Anfang." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_118",
@@ -2493,8 +2442,7 @@
         { "pattern": "(^|\\s)marr[eë] me(\\s|$)", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „me marrë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie, ngrënies) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u22_doctor_pharmacy_120",

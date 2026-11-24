@@ -27,7 +27,7 @@
     { "id": "item_shah", "kind": "word", "gheg": "shah", "de": "Schach", "partOfSpeech": "noun", "gender": "m", "definite": "shahu", "reviewed": false },
     { "id": "item_me_vrapue", "kind": "phrase", "gheg": "me vrapue", "de": "laufen, joggen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_biciklete", "kind": "word", "gheg": "biçikletë", "de": "Velo, Fahrrad", "partOfSpeech": "noun", "gender": "f", "definite": "biçikleta", "plural": "biçikleta", "reviewed": false },
-    { "id": "item_me_skijue", "kind": "phrase", "gheg": "me skijue", "de": "Ski fahren", "partOfSpeech": "verb", "note": "Gheg-Infinitiv von „skijoj“ nach der Regel -oj → -ue; im Alltag auch „me bâ ski“ – zu prüfen.", "reviewed": false },
+    { "id": "item_me_skijue", "kind": "phrase", "gheg": "me skijue", "de": "Ski fahren", "partOfSpeech": "verb", "note": "Gheg-Infinitiv von „skijoj“ nach der Regel -oj → -ue.", "reviewed": false },
     { "id": "item_loje", "kind": "word", "gheg": "lojë", "de": "Spiel", "partOfSpeech": "noun", "gender": "f", "definite": "loja", "reviewed": false },
     { "id": "item_ndeshje", "kind": "word", "gheg": "ndeshje", "de": "Spiel, Match (Wettkampf)", "partOfSpeech": "noun", "gender": "f", "definite": "ndeshja", "plural": "ndeshje", "reviewed": false },
     { "id": "item_ekip", "kind": "word", "gheg": "ekip", "de": "Mannschaft, Team", "partOfSpeech": "noun", "gender": "m", "definite": "ekipi", "plural": "ekipe", "reviewed": false },
@@ -37,16 +37,16 @@
     { "id": "item_top", "kind": "word", "gheg": "top", "de": "Ball", "partOfSpeech": "noun", "gender": "m", "definite": "topi", "plural": "topa", "reviewed": false },
     { "id": "item_rakete", "kind": "word", "gheg": "raketë", "de": "Schläger (z. B. für Tennis)", "partOfSpeech": "noun", "gender": "f", "definite": "raketa", "plural": "raketa", "reviewed": false },
     { "id": "item_me_fitue", "kind": "phrase", "gheg": "me fitue", "de": "gewinnen", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_humbe", "kind": "phrase", "gheg": "me hupë", "de": "verlieren", "partOfSpeech": "verb", "alternatives": ["me humbë"], "note": "Partizip „humbë“ (Standard: humbur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_humbe", "kind": "phrase", "gheg": "me hupë", "de": "verlieren", "partOfSpeech": "verb", "alternatives": ["me humbë"], "reviewed": false },
     { "id": "item_rezultat", "kind": "word", "gheg": "rezultat", "de": "Resultat, Spielstand", "partOfSpeech": "noun", "gender": "m", "definite": "rezultati", "reviewed": false },
     { "id": "item_stadium", "kind": "word", "gheg": "stadium", "de": "Stadion", "partOfSpeech": "noun", "gender": "m", "definite": "stadiumi", "reviewed": false },
     { "id": "item_pishine", "kind": "word", "gheg": "pishinë", "de": "Schwimmbad, Pool", "partOfSpeech": "noun", "gender": "f", "definite": "pishina", "reviewed": false },
     { "id": "item_klub", "kind": "word", "gheg": "klub", "de": "Klub, Verein", "partOfSpeech": "noun", "gender": "m", "definite": "klubi", "reviewed": false },
     { "id": "item_trening", "kind": "word", "gheg": "trening", "de": "Training", "partOfSpeech": "noun", "gender": "m", "definite": "treningu", "reviewed": false },
     { "id": "item_koncert", "kind": "word", "gheg": "koncert", "de": "Konzert", "partOfSpeech": "noun", "gender": "m", "definite": "koncerti", "reviewed": false },
-    { "id": "item_hobi", "kind": "word", "gheg": "hobi", "de": "Hobby", "partOfSpeech": "noun", "gender": "m", "plural": "hobi", "note": "Bestimmte Form („hobi“ oder „hobiu“) zu prüfen; „hobi im“ = mein Hobby.", "reviewed": false },
+    { "id": "item_hobi", "kind": "word", "gheg": "hobi", "de": "Hobby", "partOfSpeech": "noun", "gender": "m", "plural": "hobi", "note": "„hobi im“ = mein Hobby.", "reviewed": false },
     { "id": "item_me_vizatue", "kind": "phrase", "gheg": "me vizatue", "de": "zeichnen", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_kendue", "kind": "phrase", "gheg": "me këndue", "de": "singen", "partOfSpeech": "verb", "alternatives": ["me kndue"], "note": "Im Kosovo meist „me kndue“ gesprochen; als weitere Schreibung akzeptiert – zu prüfen, welche Form Hauptform sein soll.", "reviewed": false },
+    { "id": "item_me_kendue", "kind": "phrase", "gheg": "me këndue", "de": "singen", "partOfSpeech": "verb", "alternatives": ["me kndue"], "note": "Im Kosovo meist „me kndue“ gesprochen; als weitere Schreibung akzeptiert.", "reviewed": false },
     { "id": "item_me_vallezue", "kind": "phrase", "gheg": "me vallëzue", "de": "tanzen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_me_peshkue", "kind": "phrase", "gheg": "me peshkue", "de": "fischen, angeln", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_gjithmone", "kind": "word", "gheg": "gjithmonë", "de": "immer", "partOfSpeech": "adverb", "reviewed": false },
@@ -65,15 +65,15 @@
     { "id": "item_me_vjen_keq", "kind": "phrase", "gheg": "më vjen keq", "de": "es tut mir leid", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_takohemi", "kind": "word", "gheg": "takohemi", "de": "wir treffen uns", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_me_u_takue", "kind": "phrase", "gheg": "me u takue", "de": "sich treffen", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_ne_sa", "kind": "phrase", "gheg": "në sa?", "de": "um wie viel Uhr?", "partOfSpeech": "phrase", "note": "Kosovo-Alltag (kurz für „in welcher Stunde?“) – zu prüfen; neutral auch „në cilën orë?“.", "reviewed": false },
+    { "id": "item_ne_sa", "kind": "phrase", "gheg": "në sa?", "de": "um wie viel Uhr?", "partOfSpeech": "phrase", "note": "Kosovo-Alltag (kurz für „in welcher Stunde?“); neutral auch „në cilën orë?“.", "reviewed": false },
     { "id": "item_ftese", "kind": "word", "gheg": "ftesë", "de": "Einladung", "partOfSpeech": "noun", "gender": "f", "definite": "ftesa", "reviewed": false },
     { "id": "item_me_ftue", "kind": "phrase", "gheg": "me ftue", "de": "einladen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_cka_thua", "kind": "phrase", "gheg": "çka thua?", "de": "was meinst du?, was sagst du dazu?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_dakord", "kind": "word", "gheg": "dakord", "de": "einverstanden, okay", "partOfSpeech": "interjection", "alternatives": ["dakort"], "reviewed": false },
-    { "id": "item_kam_qejf", "kind": "phrase", "gheg": "kam qejf", "de": "ich habe Lust; ich mag (kam qejf me … = ich … gern)", "partOfSpeech": "phrase", "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen.", "reviewed": false },
+    { "id": "item_kam_qejf", "kind": "phrase", "gheg": "kam qejf", "de": "ich habe Lust; ich mag (kam qejf me … = ich … gern)", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_fillon", "kind": "word", "gheg": "fillon", "de": "(es) beginnt, fängt an", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_vjen", "kind": "word", "gheg": "vjen", "de": "du kommst, er/sie kommt (von vij)", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_mu", "kind": "phrase", "gheg": "me mu", "de": "mit mir", "partOfSpeech": "phrase", "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen.", "reviewed": false }
+    { "id": "item_me_mu", "kind": "phrase", "gheg": "me mu", "de": "mit mir", "partOfSpeech": "phrase", "reviewed": false }
   ],
   "exercises": [
     {
@@ -219,8 +219,7 @@
         { "pattern": "qejf", "category": "vocab.confused", "hint": "„S'kam qejf“ heisst „ich habe keine Lust“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_008",
@@ -373,8 +372,7 @@
         { "pattern": "nie", "category": "vocab.confused", "hint": "„Nie“ hiesse „kurrë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_015",
@@ -406,8 +404,7 @@
         { "pattern": "gar nicht", "category": "vocab.confused", "hint": "Besa sagt „patjetër“ – sie kommt mit." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen. „me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_016",
@@ -568,8 +565,7 @@
         { "pattern": "kurr", "category": "vocab.confused", "hint": "„Nuk luaj kurrë tenis“ heisst „ich spiele nie Tennis“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_022",
@@ -631,8 +627,7 @@
         { "pattern": "morgen", "category": "vocab.confused", "hint": "Im Satz steht kein „nesër“ (morgen)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_025",
@@ -692,8 +687,7 @@
         { "pattern": "tenis", "category": "vocab.confused", "hint": "„Tenis“ ist Tennis; Schach heisst „shah“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_028",
@@ -777,8 +771,7 @@
         { "pattern": "(^|\\s)ke me", "category": "grammar.verb_conjugation", "hint": "„Ke me“ heisst „du wirst“. Ich werde: „kam me“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_032",
@@ -798,8 +791,7 @@
         { "pattern": "kinema", "category": "vocab.confused", "hint": "„Kinema“ ist das Kino." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_033",
@@ -859,8 +851,7 @@
         { "pattern": "(^|\\s)du(\\s|$)", "category": "vocab.confused", "hint": "„Du“ heisst „ich will“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_036",
@@ -980,8 +971,7 @@
         { "pattern": "(^|\\s)nie(\\s|$)", "category": "vocab.confused", "hint": "„Nie“ hiesse „kurrë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_042",
@@ -1196,8 +1186,7 @@
         { "pattern": "m[eë] p[eë]lqen", "category": "grammar.clitics", "hint": "„Më pëlqen“ heisst „mir gefällt“. Dir gefällt: „të pëlqen“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen. „kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_051",
@@ -1336,8 +1325,7 @@
         { "pattern": "me m[eë]soj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me mësue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_058",
@@ -1434,8 +1422,7 @@
       "explanation": "„Hobi im“ heisst „mein Hobby“, „kam qejf me …“ „ich … gern“.",
       "errorHints": [{ "pattern": "spiele", "category": "vocab.confused", "hint": "„Me këndue“ heisst „singen“." }],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_063",
@@ -1484,8 +1471,7 @@
         { "pattern": "zweimal", "category": "vocab.confused", "hint": "„Nji herë“ heisst „einmal“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Infinitiv „me skijue“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_065",
@@ -1638,8 +1624,7 @@
         { "pattern": "^un[eë]$", "category": "grammar.case", "hint": "Nach „me“ steht „mu“, nicht „unë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_072",
@@ -1702,8 +1687,7 @@
         { "pattern": "^loj[eë]$", "category": "vocab.confused", "hint": "„Lojë“ ist das Nomen: das Spiel." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_075",
@@ -1862,8 +1846,7 @@
         { "pattern": "^hu(mb|p)$", "category": "grammar.participle", "hint": "Nach „me“ steht das Partizip: „hupë“ (auch „humbë“)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „humbë“ (Standard: humbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_083",
@@ -1995,8 +1978,7 @@
         { "pattern": "^pun[eë]$", "category": "vocab.confused", "hint": "„Kam punë“ heisst „ich habe zu tun“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_090",
@@ -2154,8 +2136,7 @@
       ],
       "explanation": "Höflich absagen: „Më vjen keq, s'muj. Kam punë.“",
       "reviewed": false,
-      "source": "manual",
-      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_098",
@@ -2193,8 +2174,7 @@
       ],
       "explanation": "„Me hupë“ hat das kurze Gheg-Partizip, auch „me humbë“ (Standard: humbur).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizipien „humbë“ und „skijue“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_100",
@@ -2266,8 +2246,7 @@
       "solutions": ["Më pëlqen me luejtë tenis."],
       "explanation": "„Më pëlqen me …“ heisst „ich … gern“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_104",
@@ -2345,8 +2324,7 @@
         { "pattern": "kemi luejt[eë] me", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „kemi me luejtë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_109",
@@ -2376,8 +2354,7 @@
       "solutions": ["S'kam qejf me luejtë futboll sot.", "Sot s'kam qejf me luejtë futboll."],
       "explanation": "„S'kam qejf me …“ – ich habe keine Lust zu …",
       "reviewed": false,
-      "source": "manual",
-      "note": "„kam qejf me …“ (Lust haben, gern tun) als Kosovo-Alltagswendung – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_111",
@@ -2489,8 +2466,7 @@
       "solutions": ["Nuk di me skijue."],
       "explanation": "„Di me“ heisst „können“ (weil man es gelernt hat).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Infinitiv „me skijue“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_118",
@@ -2524,8 +2500,7 @@
       ],
       "explanation": "„A don me luejtë …?“ – willst du spielen? „Me mu“ – mit mir.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „luejtë“ (Standard: luajtur) zu prüfen; im Kosovo auch „lujtë“ gesprochen. „me mu“ (mit mir; Standard: me mua) analog zum bestätigten „për mu“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u18_sport_hobbies_120",

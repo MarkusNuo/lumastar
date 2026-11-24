@@ -21,25 +21,25 @@
     }
   ],
   "items": [
-    { "id": "item_peme", "kind": "word", "gheg": "pemë", "de": "Obst; Frucht", "partOfSpeech": "noun", "gender": "f", "definite": "pema", "plural": "pemë", "note": "Im Kosovo heisst „pemë“ Obst (im Standard eher „fruta“; dort ist „pemë“ vor allem der Obstbaum) – zu prüfen.", "reviewed": false },
+    { "id": "item_peme", "kind": "word", "gheg": "pemë", "de": "Obst; Frucht", "partOfSpeech": "noun", "gender": "f", "definite": "pema", "plural": "pemë", "note": "Im Kosovo heisst „pemë“ Obst (im Standard eher „fruta“; dort ist „pemë“ vor allem der Obstbaum).", "reviewed": false },
     { "id": "item_perime", "kind": "word", "gheg": "perime", "de": "Gemüse", "partOfSpeech": "noun", "gender": "f", "definite": "perimet", "note": "Mehrzahlwort.", "reviewed": false },
     { "id": "item_dardhe", "kind": "word", "gheg": "dardhë", "de": "Birne", "partOfSpeech": "noun", "gender": "f", "definite": "dardha", "plural": "dardha", "reviewed": false },
     { "id": "item_banane", "kind": "word", "gheg": "banane", "de": "Banane", "partOfSpeech": "noun", "gender": "f", "definite": "bananja", "plural": "banane", "reviewed": false },
     { "id": "item_portokall", "kind": "word", "gheg": "portokall", "de": "Orange", "partOfSpeech": "noun", "gender": "m", "definite": "portokalli", "plural": "portokalle", "reviewed": false },
     { "id": "item_limon", "kind": "word", "gheg": "limon", "de": "Zitrone", "partOfSpeech": "noun", "gender": "m", "definite": "limoni", "plural": "limona", "reviewed": false },
     { "id": "item_rrush", "kind": "word", "gheg": "rrush", "de": "Trauben (Sammelwort)", "partOfSpeech": "noun", "gender": "m", "definite": "rrushi", "reviewed": false },
-    { "id": "item_dredhez", "kind": "word", "gheg": "dredhëz", "de": "Erdbeere", "partOfSpeech": "noun", "gender": "f", "definite": "dredhëza", "plural": "dredhëza", "note": "Kosovo-Wort (Standard: luleshtrydhe) – zu prüfen.", "reviewed": false },
+    { "id": "item_dredhez", "kind": "word", "gheg": "dredhëz", "de": "Erdbeere", "partOfSpeech": "noun", "gender": "f", "definite": "dredhëza", "plural": "dredhëza", "reviewed": false },
     { "id": "item_shalqi", "kind": "word", "gheg": "shalqi", "de": "Wassermelone", "partOfSpeech": "noun", "gender": "m", "definite": "shalqini", "plural": "shalqinj", "reviewed": false },
     { "id": "item_pjeshke", "kind": "word", "gheg": "pjeshkë", "de": "Pfirsich", "partOfSpeech": "noun", "gender": "f", "definite": "pjeshka", "plural": "pjeshkë", "reviewed": false },
     { "id": "item_kumbull", "kind": "word", "gheg": "kumbull", "de": "Pflaume, Zwetschge", "partOfSpeech": "noun", "gender": "f", "definite": "kumbulla", "plural": "kumbulla", "reviewed": false },
-    { "id": "item_patate", "kind": "word", "gheg": "patate", "de": "Kartoffel", "partOfSpeech": "noun", "gender": "f", "definite": "patatja", "plural": "patate", "note": "Im Kosovo-Alltag auch „kompir“ – zu prüfen, ob zusätzlich zeigen.", "reviewed": false },
+    { "id": "item_patate", "kind": "word", "gheg": "patate", "de": "Kartoffel", "partOfSpeech": "noun", "gender": "f", "definite": "patatja", "plural": "patate", "reviewed": false },
     { "id": "item_qepe", "kind": "word", "gheg": "qepë", "de": "Zwiebel", "partOfSpeech": "noun", "gender": "f", "definite": "qepa", "plural": "qepë", "reviewed": false },
     { "id": "item_hudher", "kind": "word", "gheg": "hudhër", "de": "Knoblauch", "partOfSpeech": "noun", "gender": "f", "definite": "hudhra", "reviewed": false },
     { "id": "item_spec", "kind": "word", "gheg": "spec", "de": "Peperoni", "partOfSpeech": "noun", "gender": "m", "definite": "speci", "plural": "speca", "reviewed": false },
     { "id": "item_kastravec", "kind": "word", "gheg": "kastravec", "de": "Gurke", "partOfSpeech": "noun", "gender": "m", "definite": "kastraveci", "plural": "kastraveca", "reviewed": false },
     { "id": "item_laker", "kind": "word", "gheg": "lakër", "de": "Kohl", "partOfSpeech": "noun", "gender": "f", "definite": "lakra", "reviewed": false },
     { "id": "item_karote", "kind": "word", "gheg": "karotë", "de": "Karotte, Rüebli", "partOfSpeech": "noun", "gender": "f", "definite": "karota", "plural": "karota", "reviewed": false },
-    { "id": "item_fasule", "kind": "word", "gheg": "fasule", "de": "Bohnen (auch das Bohnengericht)", "partOfSpeech": "noun", "gender": "f", "definite": "fasulja", "note": "Im Kosovo-Alltag auch „pasul“ – zu prüfen.", "reviewed": false },
+    { "id": "item_fasule", "kind": "word", "gheg": "fasule", "de": "Bohnen (auch das Bohnengericht)", "partOfSpeech": "noun", "gender": "f", "definite": "fasulja", "reviewed": false },
     { "id": "item_mish_vici", "kind": "phrase", "gheg": "mish viçi", "de": "Kalbfleisch", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_sallam", "kind": "word", "gheg": "sallam", "de": "Wurst, Aufschnitt", "partOfSpeech": "noun", "gender": "m", "definite": "sallami", "reviewed": false },
     { "id": "item_kasap", "kind": "word", "gheg": "kasap", "de": "Metzger (te kasapi: beim Metzger)", "partOfSpeech": "noun", "gender": "m", "definite": "kasapi", "reviewed": false },
@@ -52,23 +52,23 @@
     { "id": "item_oriz", "kind": "word", "gheg": "oriz", "de": "Reis", "partOfSpeech": "noun", "gender": "m", "definite": "orizi", "reviewed": false },
     { "id": "item_makarona", "kind": "word", "gheg": "makarona", "de": "Teigwaren", "partOfSpeech": "noun", "gender": "f", "definite": "makaronat", "note": "Mehrzahlwort.", "reviewed": false },
     { "id": "item_piper", "kind": "word", "gheg": "piper", "de": "Pfeffer", "partOfSpeech": "noun", "gender": "m", "definite": "piperi", "reviewed": false },
-    { "id": "item_gjysme_kilogrami", "kind": "phrase", "gheg": "gjysmë kilogrami", "de": "ein halbes Kilo", "partOfSpeech": "phrase", "note": "Im Kosovo-Alltag auch „gjysë kile“ gesprochen – zu prüfen.", "reviewed": false },
+    { "id": "item_gjysme_kilogrami", "kind": "phrase", "gheg": "gjysmë kilogrami", "de": "ein halbes Kilo", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_gram", "kind": "word", "gheg": "gram", "de": "Gramm", "partOfSpeech": "noun", "gender": "m", "definite": "grami", "plural": "gram", "reviewed": false },
     { "id": "item_liter", "kind": "word", "gheg": "litër", "de": "Liter", "partOfSpeech": "noun", "gender": "m", "definite": "litri", "plural": "litra", "reviewed": false },
     { "id": "item_pako", "kind": "word", "gheg": "pako", "de": "Packung", "partOfSpeech": "noun", "gender": "f", "definite": "pakoja", "plural": "pako", "reviewed": false },
-    { "id": "item_kanace", "kind": "word", "gheg": "kanaçe", "de": "Dose, Büchse", "partOfSpeech": "noun", "gender": "f", "definite": "kanaçja", "plural": "kanaçe", "note": "Für Getränkedosen üblich; für Konserven auch „konservë“ – zu prüfen.", "reviewed": false },
-    { "id": "item_market", "kind": "word", "gheg": "market", "de": "Supermarkt, Lebensmittelladen", "partOfSpeech": "noun", "gender": "m", "definite": "marketi", "plural": "markete", "note": "Im Kosovo-Alltag üblich (neben „supermarket“) – zu prüfen.", "reviewed": false },
+    { "id": "item_kanace", "kind": "word", "gheg": "kanaçe", "de": "Dose, Büchse", "partOfSpeech": "noun", "gender": "f", "definite": "kanaçja", "plural": "kanaçe", "reviewed": false },
+    { "id": "item_market", "kind": "word", "gheg": "market", "de": "Supermarkt, Lebensmittelladen", "partOfSpeech": "noun", "gender": "m", "definite": "marketi", "plural": "markete", "reviewed": false },
     { "id": "item_arke", "kind": "word", "gheg": "arkë", "de": "Kasse", "partOfSpeech": "noun", "gender": "f", "definite": "arka", "reviewed": false },
     { "id": "item_shporte", "kind": "word", "gheg": "shportë", "de": "Korb, Einkaufskorb", "partOfSpeech": "noun", "gender": "f", "definite": "shporta", "plural": "shporta", "reviewed": false },
     { "id": "item_kusur", "kind": "word", "gheg": "kusur", "de": "Rückgeld", "partOfSpeech": "noun", "gender": "m", "definite": "kusuri", "reviewed": false },
     { "id": "item_cmim", "kind": "word", "gheg": "çmim", "de": "Preis", "partOfSpeech": "noun", "gender": "m", "definite": "çmimi", "plural": "çmime", "reviewed": false },
-    { "id": "item_oferte", "kind": "word", "gheg": "ofertë", "de": "Angebot, Aktion (në ofertë: im Angebot)", "partOfSpeech": "noun", "gender": "f", "definite": "oferta", "note": "Im Kosovo-Alltag auch „aksion“ – zu prüfen.", "reviewed": false },
+    { "id": "item_oferte", "kind": "word", "gheg": "ofertë", "de": "Angebot, Aktion (në ofertë: im Angebot)", "partOfSpeech": "noun", "gender": "f", "definite": "oferta", "reviewed": false },
     { "id": "item_cent", "kind": "word", "gheg": "cent", "de": "Cent", "partOfSpeech": "noun", "gender": "m", "plural": "cent", "reviewed": false },
     { "id": "item_liste", "kind": "word", "gheg": "listë", "de": "Liste", "partOfSpeech": "noun", "gender": "f", "definite": "lista", "reviewed": false },
-    { "id": "item_i_pjekun", "kind": "phrase", "gheg": "i pjekun, e pjekun", "de": "reif; gebacken", "partOfSpeech": "adjective", "note": "Gheg-Adjektiv auf -un wie „i hapun“ (Standard: i pjekur) – zu prüfen.", "reviewed": false },
+    { "id": "item_i_pjekun", "kind": "phrase", "gheg": "i pjekun, e pjekun", "de": "reif; gebacken", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_i_bute", "kind": "phrase", "gheg": "i butë, e butë", "de": "weich", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_i_kalbun", "kind": "phrase", "gheg": "i kalbun, e kalbun", "de": "faul, verdorben", "partOfSpeech": "adjective", "note": "Gheg-Adjektiv auf -un wie „i hapun“ (Standard: i kalbur) – zu prüfen.", "reviewed": false },
-    { "id": "item_urdheno", "kind": "word", "gheg": "urdhëno", "de": "bitte schön!, hier, bitte! (beim Geben)", "partOfSpeech": "interjection", "alternatives": ["urdhno"], "note": "Gheg-Form mit -n- (Standard: urdhëro, urdhëroni); höflich „urdhënoni“ – Schreibung zu prüfen.", "reviewed": false },
+    { "id": "item_i_kalbun", "kind": "phrase", "gheg": "i kalbun, e kalbun", "de": "faul, verdorben", "partOfSpeech": "adjective", "reviewed": false },
+    { "id": "item_urdheno", "kind": "word", "gheg": "urdhëno", "de": "bitte schön!, hier, bitte! (beim Geben)", "partOfSpeech": "interjection", "alternatives": ["urdhno"], "note": "Höflich: „urdhënoni“.", "reviewed": false },
     { "id": "item_me_provue", "kind": "phrase", "gheg": "me provue", "de": "probieren, kosten; anprobieren", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_shes", "kind": "word", "gheg": "shes", "de": "ich verkaufe (shet: du verkaufst, er/sie verkauft)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_kushtojne", "kind": "word", "gheg": "kushtojnë", "de": "(sie) kosten", "partOfSpeech": "verb", "reviewed": false },
@@ -117,8 +117,7 @@
       ],
       "explanation": "„Dredhëz“ ist das Kosovo-Wort für die Erdbeere (Standard: „luleshtrydhe“). „Rrush“ meint die Trauben als Ganzes.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„dredhëz“ (Erdbeere) als Kosovo-Wort (Standard: luleshtrydhe) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_003",
@@ -195,8 +194,7 @@
         { "pattern": "(^|\\s)dy(\\s|$)", "category": "vocab.confused", "hint": "„Dy“ heisst „zwei“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Unterscheidung „tre“ (m.) / „tri“ (f.) im Kosovo-Alltag laut Einheit „Zahlen“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_007",
@@ -216,8 +214,7 @@
         { "pattern": "dy portokall(\\s|$)", "category": "vocab.unknown", "hint": "Nach „dy“ steht die Mehrzahl: „portokalle“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Unterscheidung „tre“ (m.) / „tri“ (f.) im Kosovo-Alltag laut Einheit „Zahlen“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_008",
@@ -283,8 +280,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„dredhëz“ (Erdbeere) als Kosovo-Wort (Standard: luleshtrydhe) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_011",
@@ -1222,8 +1218,7 @@
       "solutions": ["Blej tri pako oriz."],
       "explanation": "„Pako“ ist feminin – darum „tri pako“. Die Mehrzahl bleibt gleich.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Unterscheidung „tre“ (m.) / „tri“ (f.) im Kosovo-Alltag laut Einheit „Zahlen“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_059",
@@ -1342,8 +1337,7 @@
         { "pattern": "viel", "category": "vocab.confused", "hint": "„Wie viel?“ heisst „sa?“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„urdhëno“ (Standard: urdhëro) als Gheg-Form mit -n- zu prüfen; im Alltag oft „urdhno“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_065",
@@ -1425,8 +1419,7 @@
         { "pattern": "^lista$", "category": "vocab.confused", "hint": "„Lista“ ist die Liste." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„urdhëno“ (Standard: urdhëro) als Gheg-Form mit -n- zu prüfen; im Alltag oft „urdhno“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_069",
@@ -1442,8 +1435,7 @@
       "explanation": "„Cent“ bleibt in der Mehrzahl gleich – wie „euro“. Den Preis verbindet man mit „e“: „tre euro e pesëdhjetë cent“.",
       "errorHints": [{ "pattern": "^cent[aeë]$", "category": "vocab.unknown", "hint": "„Cent“ bleibt in der Mehrzahl gleich." }],
       "reviewed": false,
-      "source": "manual",
-      "note": "Preisangabe „… euro e … cent“ im Kosovo-Alltag zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_070",
@@ -1481,8 +1473,7 @@
         { "pattern": "dredh[eë]za (jan|n[eë]|sot)", "category": "grammar.definite_article", "hint": "Gemeint ist „die Erdbeeren“ – mit Artikel: „dredhëzat“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„dredhëz“ (Erdbeere) als Kosovo-Wort (Standard: luleshtrydhe) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_072",
@@ -1727,8 +1718,7 @@
         { "pattern": "^nji$", "category": "vocab.confused", "hint": "„Nji“ heisst „ein, eine“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„dredhëz“ (Erdbeere) als Kosovo-Wort (Standard: luleshtrydhe) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_085",
@@ -1743,8 +1733,7 @@
       "solutions": ["Urdhëno paret për bukën."],
       "explanation": "„Paret“ ist „das Geld“ (Mehrzahlwort). Nach „për“ steht der Akkusativ: „bukën“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„urdhëno“ (Standard: urdhëro) als Gheg-Form mit -n- zu prüfen; im Alltag oft „urdhno“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_086",
@@ -1790,8 +1779,7 @@
         { "pattern": "^drei", "category": "vocab.confused", "hint": "„Tre euro“ ist der Preis für ein Kilo." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„dredhëz“ (Erdbeere) als Kosovo-Wort (Standard: luleshtrydhe) zu prüfen. „urdhëno“ (Standard: urdhëro) als Gheg-Form mit -n- zu prüfen; im Alltag oft „urdhno“ gesprochen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_088",
@@ -1813,8 +1801,7 @@
         { "pattern": "mag", "category": "vocab.confused", "hint": "Sie will Kajmak, aber „s'ka ma“ – es hat keinen mehr." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_089",
@@ -1858,8 +1845,7 @@
         { "pattern": "zwei", "category": "vocab.confused", "hint": "„E marr“ – ich nehme sie (eine)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv auf -un („i pjekun“, „i kalbun“; Standard: i pjekur, i kalbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_091",
@@ -1878,8 +1864,7 @@
       ],
       "explanation": "„I pjekun“ (reif) und „i kalbun“ (faul) sind Gheg-Formen auf -un (Standard: „i pjekur“, „i kalbur“).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv auf -un („i pjekun“, „i kalbun“; Standard: i pjekur, i kalbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_092",
@@ -1898,8 +1883,7 @@
         { "pattern": "^kumbull [aâ]sht", "category": "grammar.definite_article", "hint": "„Die Pflaume“ braucht den Artikel: „kumbulla“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv auf -un („i pjekun“, „i kalbun“; Standard: i pjekur, i kalbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_093",
@@ -1919,8 +1903,7 @@
         { "pattern": "^but[eë]$", "category": "vocab.confused", "hint": "„E butë“ heisst „weich“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv auf -un („i pjekun“, „i kalbun“; Standard: i pjekur, i kalbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_094",
@@ -1941,8 +1924,7 @@
         { "pattern": "^ftoht", "category": "vocab.confused", "hint": "„E ftohtë“ heisst „kalt“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv auf -un („i pjekun“, „i kalbun“; Standard: i pjekur, i kalbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_095",
@@ -1996,8 +1978,7 @@
       "solutions": ["Shalqini âsht i pjekun dhe i âmbël.", "Shalqini âsht i âmbël dhe i pjekun."],
       "explanation": "„Shalqini“ ist maskulin – darum „i pjekun“ und „i âmbël“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Adjektiv auf -un („i pjekun“, „i kalbun“; Standard: i pjekur, i kalbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_098",
@@ -2017,8 +1998,7 @@
         { "pattern": "weich", "category": "vocab.confused", "hint": "„Weich“ hiesse „të buta“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen. „dredhëz“ (Erdbeere) als Kosovo-Wort (Standard: luleshtrydhe) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_099",
@@ -2465,8 +2445,7 @@
       "solutions": ["A janë të freskëta dredhëzat?", "A janë dredhëzat të freskëta?"],
       "explanation": "Fragen beginnen mit „a“. „Dredhëzat“ ist feminine Mehrzahl – darum „të freskëta“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„dredhëz“ (Erdbeere) als Kosovo-Wort (Standard: luleshtrydhe) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u12_groceries_market_123",

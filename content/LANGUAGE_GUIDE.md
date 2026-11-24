@@ -1,6 +1,6 @@
 # Lumastar – Gheg-Sprachrichtlinie
 
-**Status:** Entwurf 0.3 (mit Entscheiden zu *makinë*, *do* und *kena/jena*; Abschnitt 13 nennt zu jeder wiederkehrenden unsicheren Form die betroffenen Einheiten). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
+**Status:** Entwurf 0.4 (mit Entscheiden zu *makinë*, *do* und *kena/jena* sowie den Entscheiden des Autors in Abschnitt 14; Abschnitt 13 nennt zu jeder wiederkehrenden unsicheren Form die betroffenen Einheiten). Jeder Punkt mit **(zu prüfen)** muss vom Autor bestätigt oder korrigiert werden. Alle Inhalte stehen auf `reviewed: false`, bis der Autor sie geprüft hat.
 
 Diese Richtlinie ist verbindlich für:
 
@@ -110,7 +110,8 @@ Der Zirkumflex markiert einen Nasalvokal. **Faustregel:** Wo Standardalbanisch e
 | kângë, kânga | këngë, kënga | Lied |
 | i/e âmbël | i/e ëmbël | süss |
 | zâ | zë | Stimme |
-| mbrâmje, mirëmbrâma | mbrëmje, mirëmbrëma | Abend, guten Abend (zu prüfen) |
+| mbrâmje, mirëmbrâma, mbrâmë | mbrëmje, mirëmbrëma, mbrëmë | Abend, guten Abend, gestern Abend |
+| ngrânie | ngrënie | das Essen (*pas ngrânies* = nach dem Essen) |
 
 - **ê, î, ô, û** sind im Kosovo-Gheg selten. In A0–A2 kommen sie nicht vor; vor einer Verwendung mit dem Autor klären (zu prüfen). Die Sonderzeichen-Leiste der App bietet sie trotzdem an.
 - **Kein** Zirkumflex bei *jam, kam, kemi, ne, me, nji, shpi, emën, vena* und allen Wörtern, die nicht in der Liste stehen. Im Zweifel: ohne Zirkumflex schreiben und eine `note` mit (zu prüfen) setzen.
@@ -143,7 +144,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | punue | punuar | gearbeitet | alle Partizipien auf -uar → -ue |
 | shkue | shkuar | gegangen | |
 | mësue | mësuar | gelernt | |
-| kânë / kjenë | qenë | gewesen | *kânë* als Hauptform, *kjenë* als Alternative (zu prüfen) |
+| kânë / kjenë | qenë | gewesen | *kânë* als Hauptform, *kjenë* als zweite Lösung (Entscheid des Autors) |
 | bâ | bërë | gemacht | |
 | pa | parë | gesehen | |
 | dhânë | dhënë | gegeben | |
@@ -157,7 +158,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | tue punue | duke punuar | beim Arbeiten, arbeitend | Kosovo *tu/tuj* (zu prüfen) |
 | du | dua | ich will, ich liebe | nie *due* (Entscheid des Autors, Abschnitt 14) |
 | don / do | do | du willst, er/sie will | *don* ist die Kosovo-Hauptform; *do* ist ebenfalls Gheg und wird in getippten Antworten überall akzeptiert (Abschnitt 13, Nr. 15) |
-| muj | mund, mundem | ich kann | Kosovo (zu prüfen) |
+| muj | mund, mundem | ich kann | Kosovo; verneint *s'muj* (Entscheid des Autors) |
 | hangra | hëngra | ich ass | (zu prüfen) |
 | çohem | ngrihem | ich stehe auf | Kosovo-Wortschatz (zu prüfen) |
 | të bâftë mirë | të bëftë mirë | en Guete, guten Appetit | (zu prüfen) |
@@ -171,12 +172,12 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | çka | çfarë | was | |
 | qysh | si | wie | *si* ist auch im Gheg üblich und richtig |
 | tash, tashti | tani | jetzt | |
-| ma | më | mehr (*ma i madh* = grösser) | das Pronomen *më* (mir/mich) bleibt *më* |
-| po | por | aber (*Mirë, po ti?*) | *po* heisst auch „ja“ und steht vor Verlaufsformen (zu prüfen) |
-| prej | nga | von, aus (*Prej ku je?*) | *nga* ist auch im Kosovo verbreitet (zu prüfen) |
+| ma | më | mehr (*ma i madh* = grösser), nicht mehr (*s'ka ma*) | das Pronomen *më* (mir/mich) bleibt *më* |
+| po | por | aber (*Mirë, po ti?*, auch am Satzanfang: *Po kush paguan?*) | *po* heisst auch „ja“ und steht vor Verlaufsformen (Entscheid des Autors) |
+| prej | nga | von, aus, seit (*Prej ku je? Prej kur?*) | *nga* ist auch im Kosovo verbreitet; Lumastar schreibt *prej* (Entscheid des Autors) |
 | kah | nga (Richtung) | wohin, woher | (zu prüfen) |
-| veç | vetëm | nur | (zu prüfen) |
-| gja | gjë | Sache, etwas | Schreibung *gja* oder *gjâ* zu prüfen |
+| veç | vetëm | nur | (Entscheid des Autors) |
+| gja | gjë | Sache, etwas | *gja*, nicht *gjâ* (Entscheid des Autors) |
 
 ### 5.3 Nomen und Adjektive
 
@@ -197,7 +198,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | dhâmbi | dhëmbi | der Zahn | |
 | kânga | kënga | das Lied | |
 | e hânë | e hënë | Montag | |
-| mbrâmja | mbrëmja | der Abend | (zu prüfen) |
+| mbrâmja | mbrëmja | der Abend | ebenso *mbrâmë* (gestern Abend) (Entscheid des Autors) |
 | zâ | zë | Stimme | |
 | i/e âmbël | i/e ëmbël | süss | |
 | i martuem | i martuar | verheiratet | (zu prüfen) |
@@ -211,7 +212,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | Gheg (Lumastar) | Standard | Deutsch | Hinweis |
 |---|---|---|---|
 | mirëdita, mirëmëngjes | gleich | guten Tag, guten Morgen | |
-| mirëmbrâma | mirëmbrëma | guten Abend | (zu prüfen) |
+| mirëmbrâma | mirëmbrëma | guten Abend | (Entscheid des Autors) |
 | qysh je? / si je? | si je? | wie geht es dir? | |
 | ç'kemi? | ç'kemi? | was gibt's? (locker) | im Kosovo sehr üblich |
 | çka po bân? | çfarë po bën? | was machst du gerade? | |
@@ -240,7 +241,7 @@ Im Toskischen (und damit im Standard) wurde ein altes **-n- zwischen Vokalen zu 
 
 ### 7.1 Präsens
 
-Die Präsensformen regelmässiger Verben sind weitgehend wie im Standard: *punoj, punon, punon, punojmë, punoni, punojnë*. Gheg-Besonderheiten zeigen sich vor allem bei häufigen unregelmässigen Verben: *bâj/bân* (machen), *du* (wollen), *muj* (können, zu prüfen).
+Die Präsensformen regelmässiger Verben sind weitgehend wie im Standard: *punoj, punon, punon, punojmë, punoni, punojnë*. Gheg-Besonderheiten zeigen sich vor allem bei häufigen unregelmässigen Verben: *bâj/bân* (machen), *du* (wollen), *muj* (können).
 
 - **Verlaufsform** mit *po*: *Po punoj.* – „Ich arbeite gerade.“ *Çka po bân?* – „Was machst du gerade?“
 - **Ja/Nein-Fragen** mit *a*: *A je mirë? A ke fëmijë?*
@@ -289,12 +290,12 @@ Gheg-Partizipien sind kürzer als die Standard-Partizipien. Regeln:
 | pi (trinken) | pi | pirë | getrunken (zu prüfen) |
 | di (wissen) | ditë | ditur | gewusst (zu prüfen) |
 
-- **Adjektivische Partizipien** enden im Gheg auf **-uem** bzw. **-un**: *i martuem* (Standard *i martuar*), *i lodhun* (Standard *i lodhur*) (zu prüfen).
+- **Adjektivische Partizipien** enden im Gheg auf **-uem** bzw. **-un**: *i martuem* (Standard *i martuar*), *i lodhun* (Standard *i lodhur*) (zu prüfen). Vom Autor bestätigt sind *i pjekun, i kalbun, i skuqun, i kripun, i lagun* (Abschnitt 14).
 - Fehler am Partizip haben die Kategorie `grammar.participle`.
 
 ### 7.4 Perfekt
 
-**kam + Partizip**: *Kam punue.* – „Ich habe gearbeitet.“ *Kam pa.* – „Ich habe gesehen.“ *Kam kânë në Prizren.* – „Ich bin in Prizren gewesen.“ Auch „sein“ bildet das Perfekt mit *kam* (anders als im Deutschen). **jam + Partizip** steht nur bei reflexiven und passiven Verben: *Jam lodhë.* – „Ich bin müde geworden.“, *Shpija âsht ndërtue.* – „Das Haus ist gebaut worden.“ (zu prüfen)
+**kam + Partizip**: *Kam punue.* – „Ich habe gearbeitet.“ *Kam pa.* – „Ich habe gesehen.“ *Kam kânë në Prizren.* – „Ich bin in Prizren gewesen.“ Auch „sein“ bildet das Perfekt mit *kam* (anders als im Deutschen). **jam + Partizip** steht nur bei reflexiven und passiven Verben: *Jam lodhë.* – „Ich bin müde geworden.“, *Shpija âsht ndërtue.* – „Das Haus ist gebaut worden.“ Vom Autor bestätigt (Abschnitt 14): *jam rrëzue, jam ftohë, jam kthye, âsht anulue*.
 
 ### 7.5 Zukunft
 
@@ -476,20 +477,20 @@ Trifft kein Muster, nimmt der Evaluator den ersten Skill-Tag der Aufgabe (in ihr
 
 ## 13. Offene Punkte (zu prüfen)
 
-Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
+Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss. Teile, die der Autor schon entschieden hat, sind mit **Entschieden** markiert; sie stehen in Abschnitt 14.
 
 1. Referenzvarietät Kosovo-Gheg und Zirkumflex-Schreibung bestätigen.
-2. Schreibungen mit â: *mbrâmje, mirëmbrâma, lânë*; Verwendung von ê, î, ô, û.
+2. Schreibungen mit â: *lânë*; Verwendung von ê, î, ô, û. **Entschieden (Abschnitt 14):** *mbrâmje, mirëmbrâma, mbrâmë* mit â.
 3. Rhotazismus-Formen, die im Kosovo oft durch Standard-Formen ersetzt werden: *emni/emri, emnin/emrin*.
-4. Formen der Familien-Einheit: *vlla, vllau, vllazën* als Kosovo-Formen (Standard *vëlla, vëllai, vëllezër*) und ob *vëlla* als weitere Schreibung akzeptiert bleibt oder als Standard-Form gilt, *gruja* (Standard *gruaja*), *axhë/axha* (Standard *xhaxhai*), *babai* oder *baba* als bestimmte Form, *jem/jeme* als Alternative zu *im/ime*, *dhe / edhe / e* für „und“, *çikë* neben *vajzë*.
-5. Verben: *muj* (können), *hangra* (ich ass), *kânë/kjenë* (gewesen), *ngrânë* (gegessen), *çohem* (aufstehen), *folë* oder *fol* (gesprochen), *pi* und *ditë* als Partizipien, *tue/tu/tuj* als Gerundium. **Entschieden (Abschnitt 14):** *du* (ich will), nie *due*.
+4. Formen der Familien-Einheit: *vlla, vllau, vllazën* als Kosovo-Formen (Standard *vëlla, vëllai, vëllezër*) und ob *vëlla* als weitere Schreibung akzeptiert bleibt oder als Standard-Form gilt, *gruja* (Standard *gruaja*), *axhë/axha* (Standard *xhaxhai*), *babai* oder *baba* als bestimmte Form, *jem/jeme* als Alternative zu *im/ime*, *dhe / edhe / e* für „und“, *çikë* neben *vajzë*. **Entschieden (Abschnitt 14):** *vllau*, Dativ *vllaut*.
+5. Verben: *hangra* (ich ass), *ngrânë* (gegessen), *çohem* (aufstehen), *folë* oder *fol* (gesprochen), *pi* und *ditë* als Partizipien, *tue/tu/tuj* als Gerundium. **Entschieden (Abschnitt 14):** *du* (ich will), nie *due*; *muj* (ich kann); *kânë* (gewesen) als Hauptform, *kjenë* als zweite Lösung.
 6. Plural „sein/haben“ im Kosovo-Alltag: *jemi/jena*, *kemi/kena* – welche Form die Hauptform ist (Entscheid zum Akzeptieren: Nr. 15).
-7. Funktionswörter: *po* als „aber“, *prej* für „von/aus“, *kah*, *veç*, *gja/gjâ*.
+7. Funktionswörter: *kah*. **Entschieden (Abschnitt 14):** *po* als „aber“, *prej* für „von, aus, seit“, *veç* (nur), *gja* (nicht *gjâ*).
 8. Ob *të* + Konjunktiv (*du të punoj*) und *do të* + Konjunktiv (Zukunft) als Gheg-Lösung oder als Standard-Form gelten.
 9. Ausnahmen der Blockliste: *gëzuar* (Prost) und *duar* (Hände); Muster *-ënë*.
 10. Evaluator: Bewertung von Formen ohne End-ë (*mir*) und von lautnahen Schreibungen (*osht, nona*), die in getippten Antworten je nach Länge falsch oder Tippfehler sind; Schwellen der Tippfehler-Toleranz (6 und 16 Buchstaben); Tag `spelling.diacritics`, wenn Zirkumflex und ë/ç zugleich fehlen; automatische Erkennung von Standard-Formen über die Blockliste; `match_pairs` mit einer falschen Zuordnung ist falsch statt „fast richtig“.
 11. Kurzformen mit Apostroph (*m'fal, t'lutem*) als zusätzliche Lösungen zulassen?
-12. Formen aus der Einstufungsbank (`placement.json`, vor allem B2–C2): Konditional *kisha me* + Partizip (*kisha me ardhë*), Bedingung mit *me pasë / me e pasë ditë*, Partizipien *ra* (von *bie*), *ble*, *vozitë*, *mbrojtë*, *ndezë*, *hedhë*, *gjetë*, *mërzitë*, *rritë*, *vendosë*, *qëndrue*, Passiv mit *prej* als Agens, *i lumtun*, *pare* (Geld), *veturë*, *me bâ muhabet*, Klitikon-Stellung in *për me të pa*, ironisches *Punë e madhe!*, Sprichwort *Gjuha kockë s'ka, po kockë thyen*. Die betroffenen Aufgaben haben eine `note`.
+12. Formen aus der Einstufungsbank (`placement.json`, vor allem B2–C2): Konditional *kisha me* + Partizip (*kisha me ardhë*), Bedingung mit *me pasë / me e pasë ditë*, Partizipien *ra* (von *bie*), *ble*, *vozitë*, *mbrojtë*, *ndezë*, *hedhë*, *gjetë*, *mërzitë*, *rritë*, *vendosë*, *qëndrue*, Passiv mit *prej* als Agens, *i lumtun*, *pare* (Geld), *veturë*, *me bâ muhabet*, Klitikon-Stellung in *për me të pa*, ironisches *Punë e madhe!*, Sprichwort *Gjuha kockë s'ka, po kockë thyen*. Die betroffenen Aufgaben haben eine `note`. **Entschieden (Abschnitt 14):** Partizipien *ra*, *ble*, *rritë*; *pare*.
 13. Regionale Formen: *qumësht* (Milch) als Kosovo-Form; *tamël* ist Nordwest-Gheg und wird nicht verwendet.
 14. **Auto: *veturë* und *makinë*.** Entscheid: *makinë* ist im Kosovo verbreitet und gilt überall als **Gheg-Lösung** neben *veturë*; in getippten Aufgaben mit *veturë* ist *makinë* immer als weitere Lösung hinterlegt, nie in `standardForms`. Bausteine und Auswahl zeigen nur *veturë*. Zu prüfen: *veturë* als Hauptform.
 15. **Varianten, die getippt überall akzeptiert werden.** Entscheid: Wo *don* (du willst, er/sie will) in einer getippten Lösung steht, ist auch *do* hinterlegt; wo *kemi/jemi* steht, auch *kena/jena*. Bausteine und Auswahl bleiben bei *don*, *kemi*, *jemi*. Ausnahme: die feste Grussformel *ç'kemi?* (ohne *ç'kena?*). Zu prüfen: ob *do*, *kena*, *jena* Hauptform werden sollen (Nr. 6).
@@ -497,18 +498,18 @@ Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 
 ### 13.1 Wiederkehrende unsichere Formen: betroffene Einheiten
 
-Diese Formen kommen in vielen Aufgaben vor. Nicht jede Aufgabe trägt dazu eine eigene `note`; massgeblich ist diese Liste. Eine Entscheidung hier gilt für alle genannten Einheiten und wird danach überall angewendet. Zahlen: Aufgaben (+ Items) mit der Form in Gheg-Feldern, Stand Entwurf 0.3; „Einstufung“ = `placement.json`.
+Diese Formen kommen in vielen Aufgaben vor. Nicht jede Aufgabe trägt dazu eine eigene `note`; massgeblich ist diese Liste. Eine Entscheidung hier gilt für alle genannten Einheiten und wird danach überall angewendet; Zeilen mit **entschieden** hat der Autor bestätigt (Abschnitt 14). Zahlen: Aufgaben (+ Items) mit der Form in Gheg-Feldern, Stand Entwurf 0.3; „Einstufung“ = `placement.json`.
 
 | Form | Standard | Punkt | Betroffene Einheiten |
 |---|---|---|---|
-| *du* (ich will) – **entschieden**, *due* wird nicht akzeptiert | dua | 5, 14 | a1_u10 (25+1), a2_u05 (23), a1_u13 (8), a2_u06 (7), a2_u08 (3), a2_u11 (2), Einstufung (4) |
+| *du* (ich will) – **entschieden** (Abschnitt 14): *due* wird nicht akzeptiert | dua | 5 | a1_u10 (25+1), a2_u05 (23), a1_u13 (8), a2_u06 (7), a2_u08 (3), a2_u11 (2), Einstufung (4) |
 | *don / do* (du willst, er/sie will) | do | 15 | a1_u10 (13+1), a2_u05 (11), a1_u13 (1), a2_u06 (1), Einstufung (1) |
-| *muj* (ich kann), *mundesh* (du kannst) | mund, mundem | 5 | a1_u10 (11+1), a2_u05 (17+1), a1_u13 (2) |
+| *muj* (ich kann) – **entschieden** (Abschnitt 14); *mundesh* (du kannst) | mund, mundem | 5 | a1_u10 (11+1), a2_u05 (17+1), a1_u13 (2) |
 | *hangra* (ich ass) | hëngra | 5 | a2_u02 (9+1); als Auswahl oder Ablenker auch a1_u10 (1), a2_u04 (1), a2_u09 (2) |
-| *kânë / kjenë* (gewesen) | qenë | 5 | a2_u09 (13+1), a2_u04 (3+1), Einstufung (2) |
+| *kânë / kjenë* (gewesen) – **entschieden** (Abschnitt 14): *kânë* Hauptform, *kjenë* zweite Lösung | qenë | 5 | a2_u09 (13+1), a2_u04 (3+1), Einstufung (2) |
 | *ngrânë* (gegessen) | ngrënë | 5 | a2_u09 (10+1), a1_u10 (5+1), a2_u04 (4+1), a2_u05 (2) |
 | *gatue* (gekocht), Präsens *gatuaj* | gatuar | 16 | a1_u10 (2+1), a2_u04 (2+1), a2_u05 (4), a2_u09 (1+1), a2_u11 (2) |
-| *mbrâmje, në mbrâmje, mirëmbrâma* | mbrëmje, mirëmbrëma | 2 | a2_u01 (5), a2_u02 (5), a1_u01 (4+1), a1_u12 (3+1), a2_u04 (1), a2_u09 (1), a2_u11 (1), Einstufung (1) |
+| *mbrâmje, në mbrâmje, mirëmbrâma* – **entschieden** (Abschnitt 14) | mbrëmje, mirëmbrëma | 2 | a2_u01 (5), a2_u02 (5), a1_u01 (4+1), a1_u12 (3+1), a2_u04 (1), a2_u09 (1), a2_u11 (1), Einstufung (1) |
 | *veturë / makinë* (Auto) | makinë | 14 | a1_u11 (13+1), a2_u08 (6), a2_u10 (5), a1_u13 (1), Einstufung (1) |
 | *kemi / kena* (wir haben) | kemi | 6, 15 | a1_u08 (13+1), a2_u09 (10), a2_u04 (9), a1_u13 (3), a1_u01 (5+1, nur *ç'kemi?*) |
 | *jemi / jena* (wir sind) | jemi | 6, 15 | a0_u03 (13+1), a1_u08 (11), a1_u09 (2), a1_u01 (1), Einstufung (1) |
@@ -541,4 +542,18 @@ Diese Formen hat der Autor bestätigt; sie gelten für neue Einheiten und haben 
 | bezahlen | *me pagu*, ich bezahle *paguj* | ältere Formen *me pague* / *paguaj* bleiben akzeptiert |
 | ich lade dich ein | *të qeras* | |
 | en Guete | *të bâftë mirë* (zu einer Person), *ju bëftë mirë* (zu mehreren oder höflich) | |
+
+### 14.1 Prüfliste der neuen A2-Einheiten (November 2026)
+
+Ausser *du* und *hupë* (Tabelle oben) hat der Autor **alle übrigen Formen der Gheg-Prüfliste zu den neuen A2-Einheiten bestätigt, so wie sie in den Einheiten stehen**. Das gilt auch dort, wo dieselben Formen in älteren Einheiten oder in der Einstufung vorkommen. Die wichtigsten:
+
+- **Funktionswörter:** *prej* für „von, aus, seit“ (*prej kur?, prej Zvicre, prej hundës*; *që kur?* bleibt weitere Lösung), *po* = „aber“ (auch am Satzanfang), *ma* = „nicht mehr“ (*s'ka ma*), *veç* (nur), *gja* (nicht *gjâ*), *ndonjiherë*, *me mu* (mit mir).
+- **Partizipien:** auf -ë *ndodhë, ftohë, ngrohë, veshë, zbritë, ikë, thirrë, rritë, pjekë, skuqë*; kurz *thye, kthye, pre, ble*; *ra* (von *bie*: *ka me ra*); *luejtë*; *kânë* als Hauptform, *kjenë* als zweite Lösung.
+- **Perfekt mit *jam*** bei reflexiven Verben und im Passiv: *jam rrëzue, jam lëndue, jam ftohë, jam kthye, âsht anulue, nuk âsht thye*.
+- **Verbformen:** *muj / s'muj* (ich kann), *din* (du weisst), Aorist wie im Standard (*pagova, gatova, u lava, u vesha, u ftoha, pritëm, arritëm*), von *bâj* Befehl *bâj!* und Aorist *bâna, bâne*.
+- **Adjektive auf -un:** *i pjekun, i kalbun, i skuqun, i kripun, i lagun*.
+- **Formen mit â:** *mbrâmë, mbrâmje, mirëmbrâma, ngrânie* (*para ngrânies, pas ngrânies*).
+- **Wendungen:** *kam qejf me …*, *si më rri? / të rri mirë*, *më vjen me vjellë*, *i ka thânë … me pushue*, *kisha dashtë me* + Partizip, *a mundeni me ma pru …?*, *urdhëno / urdhënoni*.
+- **Nomen, Adjektive und Zahlwörter:** *gju, gjuni, gjunj*, *i naltë* (hoch), *vllau / vllaut*, *zjarre*, *këta rripa*, *çorape*, *tre limona / tri dardha*. Die bestimmte Form der Nomen auf -i (*stuhi, alergji, taksi, hobi*) wird vorerst nicht verwendet.
+- **Wortwahl:** wie in den Einheiten, z. B. *pemë* (Obst), *dredhëz, patate, fasule, kanaçe, market, ofertë*; *në zjarr, trazo, mandej, supë, kuzhinier*; *hesap* neben *llogari*, *çaj rusi*, *jogurt* / *kos*, *të qeras nji kafe*; *fanellë, patika, bluzë, rrip, me vija, me katrorë, numër, tepër, i rehatshëm*; *kupon, kartelë*; *furrë, kioskë, berber, qoshe, mbrapa, vendkalim*; *ndalesë, kryqëzim, rrethrrotullim, pompa*; *termin, tension, ambulancë* (Krankenwagen), *flaster, marramendje*; *dhomë teke / dyshe, karta e imbarkimit, nëse, atëherë*; *bjeshkë, vërshim, vala e të nxehtit, me skijue, me këndue, në sa?*.
 

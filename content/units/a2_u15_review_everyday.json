@@ -17,11 +17,11 @@
     }
   ],
   "items": [
-    { "id": "item_gatova", "kind": "word", "gheg": "gatova", "de": "ich kochte (von gatuaj)", "partOfSpeech": "verb", "note": "Vergangenheit von „gatuaj“ (gatova, gatove, gatoi) wie im Standard – als Gheg-Form zu prüfen.", "reviewed": false },
+    { "id": "item_gatova", "kind": "word", "gheg": "gatova", "de": "ich kochte (von gatuaj)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_bleve", "kind": "word", "gheg": "bleve", "de": "du kauftest (von blej)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_u_lava", "kind": "phrase", "gheg": "u lava", "de": "ich wusch mich (von lahem)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_u_vesha", "kind": "phrase", "gheg": "u vesha", "de": "ich zog mich an (von vishem)", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_mbrame", "kind": "word", "gheg": "mbrâmë", "de": "gestern Abend", "partOfSpeech": "adverb", "note": "Gheg mit â wie „mbrâmje“ (Standard: mbrëmë) – zu prüfen.", "reviewed": false }
+    { "id": "item_mbrame", "kind": "word", "gheg": "mbrâmë", "de": "gestern Abend", "partOfSpeech": "adverb", "reviewed": false }
   ],
   "exercises": [
     {
@@ -531,8 +531,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„urdhëno“ (Standard: urdhëro) als Gheg-Form mit -n- zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_011",
@@ -589,8 +588,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Wendungen „si më rri?“ und „të rri mirë“ sowie „po“ als „aber“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_012",
@@ -645,8 +643,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„u lava“, „u vesha“ und „gatova“ als Vergangenheitsformen zu prüfen; „mbrâmje“ mit â laut Sprachrichtlinie."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_013",
@@ -758,8 +755,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrâmë“ (Standard: mbrëmë) und „veç“ (Standard: vetëm) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_015",
@@ -1455,8 +1451,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_027",
@@ -1703,8 +1698,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„po“ als „aber“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_031",
@@ -2131,7 +2125,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Perfekt „ke ble“ (Partizip „ble“, Standard: blerë) als weitere Lösung akzeptiert – zu prüfen."
+      "note": "Perfekt „ke ble“ ist als weitere Lösung akzeptiert."
     },
     {
       "id": "ex_a2_u15_review_everyday_039",
@@ -2169,8 +2163,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„trazo“ für „umrühren“ zu prüfen (auch „përzie“)."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_040",
@@ -2205,8 +2198,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„patika“ (Turnschuhe) als Kosovo-Alltagswort zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_041",
@@ -3117,8 +3109,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Aorist „bâna, bâne“ (Standard: bëra, bëre) und „mbrâmë“ (Standard: mbrëmë) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_060",
@@ -3658,8 +3649,7 @@
       ],
       "explanation": "Der Verbindungsartikel zeigt das Genus: „i“ maskulin, „e“ feminin, „të“ Mehrzahl.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„i skuqun“ (Standard: i skuqur) als Gheg-Adjektiv auf -un zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_072",
@@ -4117,8 +4107,7 @@
       ],
       "explanation": "„Sytë“ sind die Augen, darum „më dhembin“. „Nuk … ma“ heisst „nicht mehr“ (Standard: „më“).",
       "reviewed": false,
-      "source": "manual",
-      "note": "„nuk … ma“ (nicht mehr; Standard: nuk … më) analog zu „s'ka ma“ – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u15_review_everyday_084",

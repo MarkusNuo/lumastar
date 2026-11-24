@@ -19,8 +19,8 @@
   "items": [
     { "id": "item_hotel", "kind": "word", "gheg": "hotel", "de": "Hotel", "partOfSpeech": "noun", "gender": "m", "definite": "hoteli", "plural": "hotele", "reviewed": false },
     { "id": "item_recepsion", "kind": "word", "gheg": "recepsion", "de": "Rezeption", "partOfSpeech": "noun", "gender": "m", "definite": "recepsioni", "reviewed": false },
-    { "id": "item_dhome_teke", "kind": "phrase", "gheg": "dhomë teke", "de": "Einzelzimmer", "partOfSpeech": "phrase", "note": "„dhomë teke“ (Einzelzimmer) im Kosovo-Alltag zu prüfen; Standard auch „dhomë njëshe“.", "reviewed": false },
-    { "id": "item_dhome_dyshe", "kind": "phrase", "gheg": "dhomë dyshe", "de": "Doppelzimmer", "partOfSpeech": "phrase", "note": "„dhomë dyshe“ (Doppelzimmer) im Kosovo-Alltag zu prüfen.", "reviewed": false },
+    { "id": "item_dhome_teke", "kind": "phrase", "gheg": "dhomë teke", "de": "Einzelzimmer", "partOfSpeech": "phrase", "reviewed": false },
+    { "id": "item_dhome_dyshe", "kind": "phrase", "gheg": "dhomë dyshe", "de": "Doppelzimmer", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_kat", "kind": "word", "gheg": "kat", "de": "Stockwerk, Stock", "partOfSpeech": "noun", "gender": "m", "definite": "kati", "plural": "kate", "reviewed": false },
     { "id": "item_ashensor", "kind": "word", "gheg": "ashensor", "de": "Lift", "partOfSpeech": "noun", "gender": "m", "definite": "ashensori", "reviewed": false },
     { "id": "item_perfshihet", "kind": "word", "gheg": "përfshihet", "de": "(es) ist inbegriffen", "partOfSpeech": "verb", "reviewed": false },
@@ -38,7 +38,7 @@
     { "id": "item_fluturim", "kind": "word", "gheg": "fluturim", "de": "Flug", "partOfSpeech": "noun", "gender": "m", "definite": "fluturimi", "plural": "fluturime", "reviewed": false },
     { "id": "item_me_fluturue", "kind": "phrase", "gheg": "me fluturue", "de": "fliegen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_porte", "kind": "word", "gheg": "portë", "de": "Gate (am Flughafen); Tor", "partOfSpeech": "noun", "gender": "f", "definite": "porta", "reviewed": false },
-    { "id": "item_karta_e_imbarkimit", "kind": "phrase", "gheg": "karta e imbarkimit", "de": "die Bordkarte", "partOfSpeech": "phrase", "note": "Fachwort; ob man im Kosovo-Alltag eher „bileta“ oder „boarding pass“ sagt – zu prüfen.", "reviewed": false },
+    { "id": "item_karta_e_imbarkimit", "kind": "phrase", "gheg": "karta e imbarkimit", "de": "die Bordkarte", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_dogane", "kind": "word", "gheg": "doganë", "de": "Zoll", "partOfSpeech": "noun", "gender": "f", "definite": "dogana", "reviewed": false },
     { "id": "item_kufi", "kind": "word", "gheg": "kufi", "de": "Grenze", "partOfSpeech": "noun", "gender": "m", "definite": "kufiri", "reviewed": false },
     { "id": "item_vonese", "kind": "word", "gheg": "vonesë", "de": "Verspätung", "partOfSpeech": "noun", "gender": "f", "definite": "vonesa", "reviewed": false },
@@ -51,12 +51,12 @@
     { "id": "item_autostrade", "kind": "word", "gheg": "autostradë", "de": "Autobahn", "partOfSpeech": "noun", "gender": "f", "definite": "autostrada", "reviewed": false },
     { "id": "item_kontroll", "kind": "word", "gheg": "kontroll", "de": "Kontrolle", "partOfSpeech": "noun", "gender": "m", "definite": "kontrolli", "reviewed": false },
     { "id": "item_me_deklarue", "kind": "phrase", "gheg": "me deklarue", "de": "verzollen, deklarieren", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_ike", "kind": "phrase", "gheg": "me ikë", "de": "abreisen, weggehen", "partOfSpeech": "verb", "note": "Partizip „ikë“ (Standard: ikur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_ike", "kind": "phrase", "gheg": "me ikë", "de": "abreisen, weggehen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_arrita", "kind": "word", "gheg": "arrita", "de": "ich kam an (von arrij)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_fluturova", "kind": "word", "gheg": "fluturova", "de": "ich flog (von fluturoj)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_rezervova", "kind": "word", "gheg": "rezervova", "de": "ich reservierte, ich buchte (von rezervoj)", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_u_nisem", "kind": "phrase", "gheg": "u nisëm", "de": "wir fuhren los, wir brachen auf (von nisem)", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_ndonjihere", "kind": "word", "gheg": "ndonjiherë", "de": "jemals, schon einmal; manchmal", "partOfSpeech": "adverb", "note": "Gheg „ndonjiherë“ wie „ndonji“ (Standard: ndonjëherë) – zu prüfen.", "reviewed": false },
+    { "id": "item_ndonjihere", "kind": "word", "gheg": "ndonjiherë", "de": "jemals, schon einmal; manchmal", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_per_sa_nete", "kind": "phrase", "gheg": "për sa netë?", "de": "für wie viele Nächte?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_a_keni_dhome_te_lire", "kind": "phrase", "gheg": "a keni nji dhomë të lirë?", "de": "haben Sie ein Zimmer frei?, habt ihr ein freies Zimmer?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_turist", "kind": "word", "gheg": "turist, turiste", "de": "Tourist, Touristin", "partOfSpeech": "noun", "gender": "m", "definite": "turisti", "plural": "turistë", "reviewed": false },
@@ -64,7 +64,7 @@
     { "id": "item_dush", "kind": "word", "gheg": "dush", "de": "Dusche", "partOfSpeech": "noun", "gender": "m", "definite": "dushi", "reviewed": false },
     { "id": "item_ballkon", "kind": "word", "gheg": "ballkon", "de": "Balkon", "partOfSpeech": "noun", "gender": "m", "definite": "ballkoni", "reviewed": false },
     { "id": "item_ja", "kind": "word", "gheg": "ja", "de": "hier ist, da ist (beim Zeigen oder Geben)", "partOfSpeech": "particle", "reviewed": false },
-    { "id": "item_humbe", "kind": "word", "gheg": "hupë", "de": "verloren (Partizip von humb)", "partOfSpeech": "verb", "alternatives": ["humbë"], "note": "Partizip „humbë“ (Standard: humbur); im Kosovo-Alltag oft „hupë“ – zu prüfen.", "reviewed": false }
+    { "id": "item_humbe", "kind": "word", "gheg": "hupë", "de": "verloren (Partizip von humb)", "partOfSpeech": "verb", "alternatives": ["humbë"], "reviewed": false }
   ],
   "exercises": [
     {
@@ -103,8 +103,7 @@
       ],
       "explanation": "In den Kosovo reist du mit „pasaportë“ oder „letërnjoftim“ (Identitätskarte).",
       "reviewed": false,
-      "source": "manual",
-      "note": "„karta e imbarkimit“ (Bordkarte) im Kosovo-Alltag zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_003",
@@ -199,8 +198,7 @@
       ],
       "explanation": "Nur „kam“ wird konjugiert, „me“ + Partizip bleibt gleich: kam, ke, ka, kemi, keni, kanë me …",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ikë“ (Standard: ikur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_008",
@@ -257,8 +255,7 @@
       ],
       "explanation": "„I lirë“ heisst „billig“ und auch „frei“: „nji dhomë e lirë“. „I zânë“ schreibt Gheg mit â (Standard: i zënë).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Passiv-Perfekt „âsht anulue“ (jam + Partizip) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_011",
@@ -277,8 +274,7 @@
       ],
       "explanation": "Gheg-Partizipien sind kurz: „hupë, ardhë, pritë, anulue“ (Standard: humbur, ardhur, pritur, anuluar).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen. Passiv-Perfekt „âsht anulue“ (jam + Partizip) zu prüfen. „ndonjiherë“ (Standard: ndonjëherë) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_012",
@@ -297,8 +293,7 @@
       ],
       "explanation": "„Dhomë teke“ ist ein Zimmer für eine Person, „dhomë dyshe“ eines für zwei.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„dhomë teke“ zu prüfen. „dhomë dyshe“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_013",
@@ -393,8 +388,7 @@
         { "pattern": "schlafzimmer", "category": "vocab.confused", "hint": "Das Schlafzimmer heisst „dhoma e gjumit“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„dhomë dyshe“ zu prüfen. „dhomë teke“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_018",
@@ -508,8 +502,7 @@
         { "pattern": "ausgebucht", "category": "vocab.confused", "hint": "„Anulue“ heisst „annulliert“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Passiv-Perfekt „âsht anulue“ (jam + Partizip) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_024",
@@ -528,8 +521,7 @@
         { "pattern": "^ku ", "category": "vocab.confused", "hint": "„Ku“ fragt „wo“. Ja/Nein-Fragen beginnen mit „a“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndonjiherë“ (Standard: ndonjëherë) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_025",
@@ -605,8 +597,7 @@
         { "pattern": "pasë", "category": "grammar.verb_tense", "hint": "„Kam pasë“ heisst „ich habe gehabt“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„dhomë teke“ zu prüfen. „dhomë dyshe“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_029",
@@ -644,8 +635,7 @@
         { "pattern": "nacht", "category": "vocab.confused", "hint": "„E tretë“ gehört zu „katin e tretë“ – im dritten Stock." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„dhomë dyshe“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_031",
@@ -664,8 +654,7 @@
         { "pattern": "zwei", "category": "vocab.confused", "hint": "„Nji orë“ heisst „eine Stunde“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„karta e imbarkimit“ (Bordkarte) im Kosovo-Alltag zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_032",
@@ -684,8 +673,7 @@
         { "pattern": "flughafen", "category": "vocab.confused", "hint": "Sie reisen mit dem Auto („me veturë“)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Aorist 1. Person Plural „pritëm, arritëm“ wie im Standard – zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_033",
@@ -723,8 +711,7 @@
         { "pattern": "keni thirrë", "category": "grammar.verb_tense", "hint": "„A keni thirrë“ heisst „Haben Sie gerufen?“" }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „thirrë“ (Standard: thirrur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_035",
@@ -961,8 +948,7 @@
         { "pattern": "taksia", "category": "grammar.definite_article", "hint": "Nach „nji“ steht „taksi“ ohne Artikel." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „thirrë“ (Standard: thirrur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_047",
@@ -1002,8 +988,7 @@
         { "pattern": "^ku ", "category": "vocab.confused", "hint": "„Ku“ heisst „wo“. „Wann“ ist „kur“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ikë“ (Standard: ikur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_049",
@@ -1203,8 +1188,7 @@
         { "pattern": "kosovo", "category": "vocab.confused", "hint": "„Shqipni“ ist Albanien." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndonjiherë“ (Standard: ndonjëherë) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_059",
@@ -1264,8 +1248,7 @@
         { "pattern": "lift", "category": "vocab.confused", "hint": "Der Lift heisst „ashensori“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„dhomë dyshe“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_062",
@@ -1427,8 +1410,7 @@
         { "pattern": "pasaporta$", "category": "grammar.case", "hint": "Das Objekt steht im Akkusativ: „pasaportën“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_071",
@@ -1574,8 +1556,7 @@
         { "pattern": "ka anulue", "category": "grammar.verb_tense", "hint": "Beim Passiv steht „âsht“: „âsht anulue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Passiv-Perfekt „âsht anulue“ (jam + Partizip) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_079",
@@ -1676,8 +1657,7 @@
         { "pattern": "^ikën$", "category": "grammar.verb_conjugation", "hint": "„Ikën“ heisst „sie gehen weg“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ikë“ (Standard: ikur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_084",
@@ -1719,8 +1699,7 @@
         { "pattern": "^fluturon$", "category": "grammar.participle", "hint": "Nach „ke“ steht das Partizip: „fluturue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndonjiherë“ (Standard: ndonjëherë) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_086",
@@ -2059,8 +2038,7 @@
         { "pattern": "^kurrë$", "category": "vocab.confused", "hint": "„Kurrë“ heisst „nie“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndonjiherë“ (Standard: ndonjëherë) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_103",
@@ -2176,8 +2154,7 @@
       "solutions": ["A keni nji dhomë dyshe?"],
       "explanation": "Höfliche Ja/Nein-Frage mit „a keni …?“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„dhomë dyshe“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_110",
@@ -2192,8 +2169,7 @@
       "solutions": ["Kam me ikë të hânën.", "Të hânën kam me ikë."],
       "explanation": "Zukunft: „kam me ikë“. „Të hânën“ heisst „am Montag“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ikë“ (Standard: ikur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_111",
@@ -2223,8 +2199,7 @@
       "solutions": ["Fluturimi për Prishtinë âsht anulue."],
       "explanation": "Passiv mit „âsht“ + Partizip: „âsht anulue“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Passiv-Perfekt „âsht anulue“ (jam + Partizip) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_113",
@@ -2329,8 +2304,7 @@
       "solutions": ["Kisha dashtë nji dhomë teke për dy netë."],
       "explanation": "„Kisha dashtë …“ – ich hätte gern … „Për dy netë“ – für zwei Nächte.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„dhomë teke“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u21_hotel_airport_120",

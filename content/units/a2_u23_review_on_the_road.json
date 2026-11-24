@@ -17,13 +17,13 @@
     }
   ],
   "items": [
-    { "id": "item_atehere", "kind": "word", "gheg": "atëherë", "de": "dann, in dem Fall", "partOfSpeech": "adverb", "note": "Schreibung „atëherë“ wie im Standard; ob im Kosovo-Alltag eine kürzere Form üblicher ist – zu prüfen.", "reviewed": false },
+    { "id": "item_atehere", "kind": "word", "gheg": "atëherë", "de": "dann, in dem Fall", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_gjate_prep", "kind": "word", "gheg": "gjatë", "de": "während (mit Ablativ)", "partOfSpeech": "preposition", "reviewed": false },
     { "id": "item_pas_prep", "kind": "word", "gheg": "pas", "de": "nach (zeitlich, mit Ablativ)", "partOfSpeech": "preposition", "reviewed": false },
     { "id": "item_prape", "kind": "word", "gheg": "prapë", "de": "wieder, schon wieder", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_fatmiresisht", "kind": "word", "gheg": "fatmirësisht", "de": "zum Glück, glücklicherweise", "partOfSpeech": "adverb", "reviewed": false },
     { "id": "item_dhurate", "kind": "word", "gheg": "dhuratë", "de": "Geschenk", "partOfSpeech": "noun", "gender": "f", "definite": "dhurata", "plural": "dhurata", "reviewed": false },
-    { "id": "item_jam_kthye", "kind": "phrase", "gheg": "jam kthye", "de": "ich bin zurückgekommen (Perfekt von kthehem)", "partOfSpeech": "phrase", "note": "Partizip „kthye“ (Standard: kthyer) nach dem Muster von „thye“ – zu prüfen.", "reviewed": false }
+    { "id": "item_jam_kthye", "kind": "phrase", "gheg": "jam kthye", "de": "ich bin zurückgekommen (Perfekt von kthehem)", "partOfSpeech": "phrase", "reviewed": false }
   ],
   "exercises": [
     {
@@ -81,8 +81,7 @@
       ],
       "explanation": "Reflexive Verben und das Passiv bilden das Perfekt mit „jam“ (jam ftohë, âsht anulue), alle anderen mit „kam“ (kam hupë, ka ardhë).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_004",
@@ -158,8 +157,7 @@
       ],
       "explanation": "„Fatmirësisht“ (zum Glück) ist das Gegenteil von „fatkeqësisht“ (leider). „Jam kthye“ ist das Perfekt von „kthehem“ – reflexiv, darum mit „jam“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „kthye“ (Standard: kthyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_008",
@@ -254,8 +252,7 @@
         { "pattern": "^rr[eë]zohem", "category": "grammar.verb_tense", "hint": "„Rrëzohem“ ist Präsens (ich falle hin). Perfekt: „jam rrëzue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_013",
@@ -331,8 +328,7 @@
         { "pattern": "geblieben", "category": "vocab.confused", "hint": "„Kthehem“ heisst „zurückkehren“, nicht „bleiben“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „kthye“ (Standard: kthyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_017",
@@ -350,8 +346,7 @@
         { "pattern": "wunde", "category": "vocab.confused", "hint": "„Kocka“ ist der Knochen. Die Wunde heisst „plaga“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_018",
@@ -389,8 +384,7 @@
         { "pattern": "spital", "category": "vocab.confused", "hint": "„Barnatorja“ ist die Apotheke, nicht das Spital." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_020",
@@ -409,8 +403,7 @@
         { "pattern": "tasche", "category": "vocab.confused", "hint": "Die Tasche („çanta“) hat Arben dabei." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „ndodhë“ (Standard: ndodhur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_021",
@@ -429,8 +422,7 @@
         { "pattern": "dreimal", "category": "vocab.confused", "hint": "„Dy herë në ditë“ heisst „zweimal täglich“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Partizip „thye“ (Standard: thyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_022",
@@ -705,8 +697,7 @@
         { "pattern": "dhurata", "category": "grammar.definite_article", "hint": "Nach „nji“ steht die unbestimmte Form: „dhuratë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Kosovo-Form „vllaut“ (Standard: vëllait) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_036",
@@ -726,8 +717,7 @@
         { "pattern": "(^|\\s)pas(\\s|$)", "category": "vocab.confused", "hint": "„Pas“ heisst „nach“. Während: „gjatë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_037",
@@ -747,8 +737,7 @@
         { "pattern": "rezept", "category": "vocab.confused", "hint": "„Ilaçi“ ist das Medikament. Das Rezept heisst „receta“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Nomen „ngrânie“ mit â wie „ngrânë“ (Standard: ngrënie) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_038",
@@ -867,8 +856,7 @@
         { "pattern": "(^|\\s)kam kthye", "category": "grammar.verb_conjugation", "hint": "„Kthehem“ ist reflexiv – Perfekt mit „jam“: „jam kthye“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „kthye“ (Standard: kthyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_044",
@@ -1199,8 +1187,7 @@
         { "pattern": "^jam$", "category": "grammar.verb_conjugation", "hint": "Die Grossmutter (3. Person): „âsht“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_061",
@@ -1401,8 +1388,7 @@
         { "pattern": "^u kthye", "category": "grammar.verb_tense", "hint": "Hier steht das Perfekt: „je kthye“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „kthye“ (Standard: kthyer) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_071",
@@ -1542,8 +1528,7 @@
         { "pattern": "ka i th", "category": "grammar.clitics", "hint": "Die Kurzform „i“ steht vor „ka“: „i ka thânë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„i ka thânë … me pushue“ (Gheg-Infinitiv nach „them“; Standard: t’i ka thënë të pushojë) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_079",
@@ -1558,8 +1543,7 @@
       "solutions": ["Pas punës jam rrëzue në rrugë.", "Jam rrëzue në rrugë pas punës."],
       "explanation": "„Pas punës“ – nach der Arbeit (Ablativ). „Jam rrëzue“ – Perfekt eines reflexiven Verbs mit „jam“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u23_review_on_the_road_080",

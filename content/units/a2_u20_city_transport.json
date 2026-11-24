@@ -22,7 +22,7 @@
   ],
   "items": [
     { "id": "item_komune", "kind": "word", "gheg": "komunë", "de": "Gemeinde; Gemeindehaus", "partOfSpeech": "noun", "gender": "f", "definite": "komuna", "plural": "komuna", "reviewed": false },
-    { "id": "item_kioske", "kind": "word", "gheg": "kioskë", "de": "Kiosk", "partOfSpeech": "noun", "gender": "f", "definite": "kioska", "plural": "kioska", "note": "Schreibung „kioskë“ (im Kosovo auch „kiosk“ gehört) zu prüfen.", "reviewed": false },
+    { "id": "item_kioske", "kind": "word", "gheg": "kioskë", "de": "Kiosk", "partOfSpeech": "noun", "gender": "f", "definite": "kioska", "plural": "kioska", "reviewed": false },
     { "id": "item_shesh", "kind": "word", "gheg": "shesh", "de": "Platz (in der Stadt)", "partOfSpeech": "noun", "gender": "m", "definite": "sheshi", "plural": "sheshe", "reviewed": false },
     { "id": "item_ure", "kind": "word", "gheg": "urë", "de": "Brücke", "partOfSpeech": "noun", "gender": "f", "definite": "ura", "plural": "ura", "reviewed": false },
     { "id": "item_park", "kind": "word", "gheg": "park", "de": "Park", "partOfSpeech": "noun", "gender": "m", "definite": "parku", "plural": "parqe", "reviewed": false },
@@ -32,30 +32,30 @@
     { "id": "item_lagje", "kind": "word", "gheg": "lagje", "de": "Quartier, Stadtviertel", "partOfSpeech": "noun", "gender": "f", "definite": "lagjja", "reviewed": false },
     { "id": "item_biblioteke", "kind": "word", "gheg": "bibliotekë", "de": "Bibliothek", "partOfSpeech": "noun", "gender": "f", "definite": "biblioteka", "reviewed": false },
     { "id": "item_polic", "kind": "word", "gheg": "polic", "de": "Polizist", "partOfSpeech": "noun", "gender": "m", "definite": "polici", "plural": "policë", "reviewed": false },
-    { "id": "item_berber", "kind": "word", "gheg": "berber", "de": "Coiffeur (für Herren)", "partOfSpeech": "noun", "gender": "m", "definite": "berberi", "note": "Im Kosovo-Alltag üblich für den Herrencoiffeur – zu prüfen.", "reviewed": false },
+    { "id": "item_berber", "kind": "word", "gheg": "berber", "de": "Coiffeur (für Herren)", "partOfSpeech": "noun", "gender": "m", "definite": "berberi", "reviewed": false },
     { "id": "item_stacioni_i_autobuseve", "kind": "phrase", "gheg": "stacioni i autobusëve", "de": "der Busbahnhof", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_ndalese", "kind": "word", "gheg": "ndalesë", "de": "Haltestelle", "partOfSpeech": "noun", "gender": "f", "definite": "ndalesa", "note": "Für die Bushaltestelle sagt man im Kosovo-Alltag oft auch „stacion“ – zu prüfen, welches Wort üblicher ist.", "reviewed": false },
+    { "id": "item_ndalese", "kind": "word", "gheg": "ndalesë", "de": "Haltestelle", "partOfSpeech": "noun", "gender": "f", "definite": "ndalesa", "reviewed": false },
     { "id": "item_linje", "kind": "word", "gheg": "linjë", "de": "(Bus-)Linie", "partOfSpeech": "noun", "gender": "f", "definite": "linja", "plural": "linja", "reviewed": false },
-    { "id": "item_taksi", "kind": "word", "gheg": "taksi", "de": "Taxi", "partOfSpeech": "noun", "note": "Genus und bestimmte Form (taksia?) zu prüfen; in den Aufgaben nur unbestimmt gebraucht (me taksi, nji taksi).", "reviewed": false },
+    { "id": "item_taksi", "kind": "word", "gheg": "taksi", "de": "Taxi", "partOfSpeech": "noun", "reviewed": false },
     { "id": "item_taksist", "kind": "word", "gheg": "taksist", "de": "Taxifahrer", "partOfSpeech": "noun", "gender": "m", "definite": "taksisti", "reviewed": false },
     { "id": "item_orar", "kind": "word", "gheg": "orar", "de": "Fahrplan; Öffnungszeiten", "partOfSpeech": "noun", "gender": "m", "definite": "orari", "reviewed": false },
     { "id": "item_semafor", "kind": "word", "gheg": "semafor", "de": "Ampel", "partOfSpeech": "noun", "gender": "m", "definite": "semafori", "reviewed": false },
-    { "id": "item_kryqezim", "kind": "word", "gheg": "kryqëzim", "de": "Kreuzung", "partOfSpeech": "noun", "gender": "m", "definite": "kryqëzimi", "note": "Im Kosovo auch „udhëkryq“ – zu prüfen, welches Wort üblicher ist.", "reviewed": false },
-    { "id": "item_rrethrrotullim", "kind": "word", "gheg": "rrethrrotullim", "de": "Kreisel (Kreisverkehr)", "partOfSpeech": "noun", "gender": "m", "definite": "rrethrrotullimi", "note": "Wort für den Kreisel im Kosovo-Alltag zu prüfen.", "reviewed": false },
-    { "id": "item_vendkalim", "kind": "word", "gheg": "vendkalim", "de": "Fussgängerstreifen", "partOfSpeech": "noun", "gender": "m", "definite": "vendkalimi", "note": "Voll „vendkalim për këmbësorë“; ob im Kosovo-Alltag „vendkalimi“ allein üblich ist – zu prüfen.", "reviewed": false },
-    { "id": "item_pompe", "kind": "word", "gheg": "pompë", "de": "Tankstelle", "partOfSpeech": "noun", "gender": "f", "definite": "pompa", "note": "Im Kosovo-Alltag heisst die Tankstelle „pompa“ (eigentlich: Zapfsäule) – zu prüfen.", "reviewed": false },
+    { "id": "item_kryqezim", "kind": "word", "gheg": "kryqëzim", "de": "Kreuzung", "partOfSpeech": "noun", "gender": "m", "definite": "kryqëzimi", "reviewed": false },
+    { "id": "item_rrethrrotullim", "kind": "word", "gheg": "rrethrrotullim", "de": "Kreisel (Kreisverkehr)", "partOfSpeech": "noun", "gender": "m", "definite": "rrethrrotullimi", "reviewed": false },
+    { "id": "item_vendkalim", "kind": "word", "gheg": "vendkalim", "de": "Fussgängerstreifen", "partOfSpeech": "noun", "gender": "m", "definite": "vendkalimi", "note": "Voll „vendkalim për këmbësorë“.", "reviewed": false },
+    { "id": "item_pompe", "kind": "word", "gheg": "pompë", "de": "Tankstelle", "partOfSpeech": "noun", "gender": "f", "definite": "pompa", "note": "Im Kosovo-Alltag heisst die Tankstelle „pompa“ (eigentlich: Zapfsäule).", "reviewed": false },
     { "id": "item_dalje", "kind": "word", "gheg": "dalje", "de": "Ausgang; Ausfahrt", "partOfSpeech": "noun", "gender": "f", "definite": "dalja", "reviewed": false },
     { "id": "item_ne_anen_tjeter", "kind": "phrase", "gheg": "në anën tjetër", "de": "auf der anderen Seite", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_harte", "kind": "word", "gheg": "hartë", "de": "Karte, Stadtplan", "partOfSpeech": "noun", "gender": "f", "definite": "harta", "reviewed": false },
     { "id": "item_adrese", "kind": "word", "gheg": "adresë", "de": "Adresse", "partOfSpeech": "noun", "gender": "f", "definite": "adresa", "reviewed": false },
     { "id": "item_perballe", "kind": "word", "gheg": "përballë", "de": "gegenüber", "partOfSpeech": "preposition", "reviewed": false },
-    { "id": "item_mbrapa", "kind": "word", "gheg": "mbrapa", "de": "hinter, hinten", "partOfSpeech": "preposition", "note": "Kosovo-Form (Standard: prapa) – zu prüfen.", "reviewed": false },
+    { "id": "item_mbrapa", "kind": "word", "gheg": "mbrapa", "de": "hinter, hinten", "partOfSpeech": "preposition", "reviewed": false },
     { "id": "item_para_prep", "kind": "word", "gheg": "para", "de": "vor (örtlich und zeitlich)", "partOfSpeech": "preposition", "reviewed": false },
     { "id": "item_deri", "kind": "word", "gheg": "deri", "de": "bis", "partOfSpeech": "preposition", "reviewed": false },
     { "id": "item_i_pare", "kind": "phrase", "gheg": "i parë, e parë", "de": "erste", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_i_dyte", "kind": "phrase", "gheg": "i dytë, e dytë", "de": "zweite", "partOfSpeech": "adjective", "reviewed": false },
     { "id": "item_i_trete", "kind": "phrase", "gheg": "i tretë, e tretë", "de": "dritte", "partOfSpeech": "adjective", "reviewed": false },
-    { "id": "item_qoshe", "kind": "word", "gheg": "qoshe", "de": "Ecke", "partOfSpeech": "noun", "gender": "f", "definite": "qoshja", "note": "Kosovo-Alltagswort (auch „cep“, „kënd“) – zu prüfen.", "reviewed": false },
+    { "id": "item_qoshe", "kind": "word", "gheg": "qoshe", "de": "Ecke", "partOfSpeech": "noun", "gender": "f", "definite": "qoshja", "reviewed": false },
     { "id": "item_cili", "kind": "word", "gheg": "cili, cila", "de": "welcher, welche", "partOfSpeech": "pronoun", "reviewed": false },
     { "id": "item_vazhdo", "kind": "word", "gheg": "vazhdo", "de": "geh weiter!, fahr weiter!", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_kalo", "kind": "word", "gheg": "kalo", "de": "geh über …!, überquere!", "partOfSpeech": "verb", "reviewed": false },
@@ -63,11 +63,11 @@
     { "id": "item_zbrit", "kind": "word", "gheg": "zbrit", "de": "steig aus!", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_pyet", "kind": "word", "gheg": "pyet", "de": "frag!; du fragst, er/sie fragt", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_me_parkue", "kind": "phrase", "gheg": "me parkue", "de": "parkieren", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_zbrite", "kind": "phrase", "gheg": "me zbritë", "de": "aussteigen", "partOfSpeech": "verb", "note": "Partizip „zbritë“ (Standard: zbritur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_zbrite", "kind": "phrase", "gheg": "me zbritë", "de": "aussteigen", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_me_kalue", "kind": "phrase", "gheg": "me kalue", "de": "überqueren; vorbeigehen", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_kam_humbe_rrugen", "kind": "phrase", "gheg": "kam hupë rrugën", "de": "ich habe mich verlaufen", "partOfSpeech": "phrase", "alternatives": ["kam humbë rrugën"], "note": "Partizip „humbë“ (Standard: humbur); im Kosovo-Alltag oft „hupë“ – zu prüfen, welche Form Hauptform ist.", "reviewed": false },
+    { "id": "item_kam_humbe_rrugen", "kind": "phrase", "gheg": "kam hupë rrugën", "de": "ich habe mich verlaufen", "partOfSpeech": "phrase", "alternatives": ["kam humbë rrugën"], "reviewed": false },
     { "id": "item_ku_ke_kane", "kind": "phrase", "gheg": "ku ke kânë?", "de": "wo bist du gewesen?", "partOfSpeech": "phrase", "reviewed": false },
-    { "id": "item_a_e_din_ku_asht", "kind": "phrase", "gheg": "a e din ku âsht …?", "de": "weisst du, wo … ist?", "partOfSpeech": "phrase", "note": "Kosovo „din“ (du weisst; Standard: di) – zu prüfen.", "reviewed": false },
+    { "id": "item_a_e_din_ku_asht", "kind": "phrase", "gheg": "a e din ku âsht …?", "de": "weisst du, wo … ist?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_sa_larg_asht", "kind": "phrase", "gheg": "sa larg âsht?", "de": "wie weit ist es?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_trafik", "kind": "word", "gheg": "trafik", "de": "Verkehr", "partOfSpeech": "noun", "gender": "m", "definite": "trafiku", "reviewed": false },
     { "id": "item_hapet", "kind": "word", "gheg": "hapet", "de": "(es) öffnet, geht auf", "partOfSpeech": "verb", "reviewed": false },
@@ -91,8 +91,7 @@
       ],
       "explanation": "„Komunë“ ist im Kosovo die Gemeinde und das Gemeindehaus. Brot kaufst du „te furra“ – „furrë“ heisst eigentlich „Ofen“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„furrë“ für die Bäckerei zu prüfen. Schreibung „kioskë“ zu prüfen. „berber“ (Herrencoiffeur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_002",
@@ -130,8 +129,7 @@
       ],
       "explanation": "Zur Tankstelle sagt man im Kosovo einfach „pompa“. Über die Strasse gehst du „te vendkalimi“ – beim Fussgängerstreifen.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„kryqëzim“ (auch „udhëkryq“) zu prüfen. „rrethrrotullim“ (Kreisel) zu prüfen. „pompa“ für die Tankstelle zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_004",
@@ -150,8 +148,7 @@
       ],
       "explanation": "„Linja katër“ ist die Linie vier. Der „orar“ ist der Fahrplan – und auch die Öffnungszeiten.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndalesë“ (Haltestelle; Alltag oft „stacion“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_005",
@@ -170,8 +167,7 @@
       ],
       "explanation": "Nach „përballë“, „mbrapa“ und „para“ steht der Ablativ: „përballë postës“, „mbrapa marketit“, „para komunës“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_006",
@@ -228,8 +224,7 @@
       ],
       "explanation": "Alle diese Präpositionen verlangen den Ablativ: maskulin -it (marketit, sheshit), feminin -s / -ës (bankës, komunës, qendrës).",
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_009",
@@ -267,8 +262,7 @@
       ],
       "explanation": "„Cili“ heisst „welcher“ (feminin „cila“). Danach steht das Nomen ohne Artikel: „cili autobus“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„furrë“ für die Bäckerei zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_011",
@@ -287,8 +281,7 @@
       ],
       "explanation": "Im Gheg bildet man das Perfekt fast immer mit „kam“ – auch bei „sein“ und „aussteigen“. Die Partizipien sind kurz: „pritë, zbritë, hupë“ (Standard: pritur, zbritur, humbur).",
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndalesë“ (Haltestelle; Alltag oft „stacion“) zu prüfen. Partizip „zbritë“ (Standard: zbritur) zu prüfen. Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_012",
@@ -326,8 +319,7 @@
         { "pattern": "bank", "category": "vocab.confused", "hint": "Die Bank heisst „banka“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„furrë“ für die Bäckerei zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_014",
@@ -346,8 +338,7 @@
         { "pattern": "^komuna$", "category": "vocab.confused", "hint": "„Komuna“ ist das Gemeindehaus." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„furrë“ für die Bäckerei zu prüfen. Schreibung „kioskë“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_015",
@@ -366,8 +357,7 @@
         { "pattern": "kreisel", "category": "vocab.confused", "hint": "Der Kreisel heisst „rrethrrotullimi“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kryqëzim“ (auch „udhëkryq“) zu prüfen. „rrethrrotullim“ (Kreisel) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_016",
@@ -386,8 +376,7 @@
         { "pattern": "^deri$", "category": "vocab.confused", "hint": "„Deri“ heisst „bis“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_017",
@@ -594,8 +583,7 @@
         { "pattern": "bus", "category": "vocab.confused", "hint": "Von einem Bus ist hier nicht die Rede." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_028",
@@ -614,8 +602,7 @@
         { "pattern": "ecke", "category": "vocab.confused", "hint": "Die Ecke heisst „qoshja“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„pompa“ für die Tankstelle zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_029",
@@ -653,8 +640,7 @@
         { "pattern": "rechts", "category": "vocab.confused", "hint": "„Kthehu majtas“ heisst „bieg links ab“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„din“ (du weisst; Standard: di) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_031",
@@ -673,8 +659,7 @@
         { "pattern": "ersten", "category": "vocab.confused", "hint": "„E parë“ wäre „erste“. Hier steht „e tretë“ – dritte." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndalesë“ (Haltestelle; Alltag oft „stacion“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_032",
@@ -768,8 +753,7 @@
         { "pattern": "br[uü]cke", "category": "vocab.confused", "hint": "Die Brücke heisst „ura“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„furrë“ für die Bäckerei zu prüfen. „qoshe“ (Ecke) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_037",
@@ -789,8 +773,7 @@
         { "pattern": "^kur", "category": "vocab.confused", "hint": "„Kur“ heisst „wann“. „Wo“ ist „ku“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„furrë“ für die Bäckerei zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_038",
@@ -868,8 +851,7 @@
         { "pattern": "parkut", "category": "vocab.confused", "hint": "„Parkut“ ist der Ablativ von „parku“ (der Park)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_042",
@@ -929,8 +911,7 @@
         { "pattern": "berberin", "category": "grammar.case", "hint": "Nach „te“ steht der Nominativ: „te berberi“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„berber“ (Herrencoiffeur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_045",
@@ -949,8 +930,7 @@
         { "pattern": "(^|\\s)kur(\\s|$)", "category": "vocab.confused", "hint": "„Kur“ heisst „wann“. „Wo“ ist „ku“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„din“ (du weisst; Standard: di) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_046",
@@ -990,8 +970,7 @@
         { "pattern": "parë", "category": "vocab.confused", "hint": "„E parë“ heisst „erste“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„rrethrrotullim“ (Kreisel) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_048",
@@ -1091,8 +1070,7 @@
         { "pattern": "hinter", "category": "vocab.confused", "hint": "„Hinter“ wäre „mbrapa“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „kioskë“ zu prüfen. „qoshe“ (Ecke) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_053",
@@ -1251,8 +1229,7 @@
         { "pattern": "bank", "category": "vocab.confused", "hint": "„Barnatorja“ ist die Apotheke." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_061",
@@ -1342,8 +1319,7 @@
         { "pattern": "pompë", "category": "grammar.definite_article", "hint": "Mit Artikel: „pompa“ (die Tankstelle)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„pompa“ für die Tankstelle zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_066",
@@ -1380,8 +1356,7 @@
         { "pattern": "^furrë", "category": "grammar.definite_article", "hint": "Mit Artikel: „furra“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„furrë“ für die Bäckerei zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_068",
@@ -1434,8 +1409,7 @@
         { "pattern": "te (kryqëzimin|udhëkryqin)", "category": "grammar.case", "hint": "Nach „te“ steht der Nominativ: „te kryqëzimi“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„kryqëzim“ (auch „udhëkryq“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_071",
@@ -1490,8 +1464,7 @@
         { "pattern": "te ndalesën", "category": "grammar.case", "hint": "Nach „te“ steht der Nominativ: „te ndalesa“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndalesë“ (Haltestelle; Alltag oft „stacion“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_074",
@@ -1545,8 +1518,7 @@
         { "pattern": "shkoll(a|ën?)$", "category": "grammar.case", "hint": "Nach „përballë“ steht der Ablativ: „shkollës“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_077",
@@ -1563,8 +1535,7 @@
         { "pattern": "^ndalesë$", "category": "grammar.definite_article", "hint": "Mit Artikel: „ndalesa“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndalesë“ (Haltestelle; Alltag oft „stacion“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_078",
@@ -1600,8 +1571,7 @@
         { "pattern": "qendër$", "category": "grammar.definite_article", "hint": "Mit Artikel: „qendra“ (das Zentrum)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_080",
@@ -1622,8 +1592,7 @@
         { "pattern": "^banka$", "category": "vocab.confused", "hint": "„Banka“ ist die Bank." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„furrë“ für die Bäckerei zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_081",
@@ -1644,8 +1613,7 @@
         { "pattern": "^me$", "category": "vocab.confused", "hint": "„Me“ heisst „mit“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „kioskë“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_082",
@@ -1686,8 +1654,7 @@
         { "pattern": "^ndales(ën|ës)$", "category": "grammar.case", "hint": "Nach „te“ steht der Nominativ: „ndalesa“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndalesë“ (Haltestelle; Alltag oft „stacion“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_084",
@@ -1708,8 +1675,7 @@
         { "pattern": "^shesh$", "category": "grammar.case", "hint": "Nach „mbrapa“ steht der Ablativ: „sheshit“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_085",
@@ -1730,8 +1696,7 @@
         { "pattern": "^komunën$", "category": "grammar.case", "hint": "„Komunën“ ist Akkusativ. Nach „para“: „komunës“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „kioskë“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_086",
@@ -1878,8 +1843,7 @@
         { "pattern": "^zbrit$", "category": "grammar.participle", "hint": "„Zbrit!“ ist der Imperativ. Nach „kam“: „zbritë“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „zbritë“ (Standard: zbritur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_093",
@@ -2193,8 +2157,7 @@
       "solutions": ["Kioska âsht përballë furrës."],
       "explanation": "Nach „përballë“ steht der Ablativ: furra → furrës.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „kioskë“ zu prüfen. „furrë“ für die Bäckerei zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_110",
@@ -2209,8 +2172,7 @@
       "solutions": ["Vazhdo drejt deri te rrethrrotullimi."],
       "explanation": "„Deri te“ heisst „bis zu“; danach steht der Nominativ mit Artikel.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„rrethrrotullim“ (Kreisel) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_111",
@@ -2270,8 +2232,7 @@
       "solutions": ["Parkingu âsht mbrapa bibliotekës."],
       "explanation": "Nach „mbrapa“ steht der Ablativ: biblioteka → bibliotekës.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_115",
@@ -2286,8 +2247,7 @@
       "solutions": ["Zbrit te ndalesa e dytë!", "Te ndalesa e dytë zbrit!"],
       "explanation": "„Ndalesa e dytë“ – die zweite Haltestelle. Nach „te“ steht der Nominativ.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„ndalesë“ (Haltestelle; Alltag oft „stacion“) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_116",
@@ -2302,8 +2262,7 @@
       "solutions": ["A e din ku âsht stacioni i autobusëve?"],
       "explanation": "„A e din ku âsht …?“ – „Weisst du, wo … ist?“ Das „e“ (es) gehört vor „din“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "„din“ (du weisst; Standard: di) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_117",
@@ -2318,8 +2277,7 @@
       "solutions": ["Kam hupë rrugën dhe kam marrë nji taksi."],
       "explanation": "Zwei Perfektformen: „kam hupë“ (verloren) und „kam marrë“ (genommen).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_118",
@@ -2349,8 +2307,7 @@
       "solutions": ["Ndal te pompa mbrapa urës!"],
       "explanation": "„Te pompa“ (Nominativ nach „te“), „mbrapa urës“ (Ablativ nach „mbrapa“).",
       "reviewed": false,
-      "source": "manual",
-      "note": "„pompa“ für die Tankstelle zu prüfen. „mbrapa“ (Standard: prapa) zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u20_city_transport_120",
