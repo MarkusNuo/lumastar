@@ -383,7 +383,7 @@
       "itemIds": ["item_du", "item_clitic_te", "item_me_ftue", "item_restorant", "item_te_shtunen"],
       "prompt": { "lang": "de", "text": "Ich will dich am Samstag ins Restaurant einladen." },
       "answerLang": "sq",
-      "solutions": ["Du me të ftue në restorant të shtunën.", "Due me të ftue në restorant të shtunën.", "Të shtunën du me të ftue në restorant.", "Të shtunën due me të ftue në restorant.", "Du me të ftue të shtunën në restorant.", "Due me të ftue të shtunën në restorant."],
+      "solutions": ["Du me të ftue në restorant të shtunën.", "Të shtunën du me të ftue në restorant.", "Du me të ftue të shtunën në restorant."],
       "standardForms": ["Dua të të ftoj në restorant të shtunën.", "Të shtunën dua të të ftoj në restorant."],
       "explanation": "Die Kurzform „të“ (dich) steht zwischen „me“ und dem Partizip: „du me të ftue“. Standard wäre „dua të të ftoj“.",
       "errorHints": [
@@ -1440,7 +1440,7 @@
       "itemIds": ["item_vitin_tjeter", "item_du", "item_udhetoj", "item_zvicer", "item_ose", "item_gjermani", "item_kisha_dashte"],
       "prompt": { "lang": "de", "text": "Nächstes Jahr möchte ich in die Schweiz oder nach Deutschland reisen." },
       "answerLang": "sq",
-      "solutions": ["Vitin tjetër du me udhëtue në Zvicër ose në Gjermani.", "Vitin tjetër due me udhëtue në Zvicër ose në Gjermani.", "Du me udhëtue në Zvicër ose në Gjermani vitin tjetër.", "Due me udhëtue në Zvicër ose në Gjermani vitin tjetër.", "Vitin tjetër kisha dashtë me udhëtue në Zvicër ose në Gjermani."],
+      "solutions": ["Vitin tjetër du me udhëtue në Zvicër ose në Gjermani.", "Du me udhëtue në Zvicër ose në Gjermani vitin tjetër.", "Vitin tjetër kisha dashtë me udhëtue në Zvicër ose në Gjermani."],
       "standardForms": ["Vitin tjetër dua të udhëtoj në Zvicër ose në Gjermani.", "Dua të udhëtoj në Zvicër ose në Gjermani vitin tjetër."],
       "explanation": "„Du me udhëtue“ – ich möchte reisen (Standard: „dua të udhëtoj“). „Ose“ heisst „oder“.",
       "errorHints": [

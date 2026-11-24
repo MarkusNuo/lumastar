@@ -155,7 +155,7 @@ Die wichtigsten Unterschiede im Alltagswortschatz. Die Gheg-Spalte ist verbindli
 | folë | folur | gesprochen | Kosovo auch *fol* (zu prüfen) |
 | kam me shkue | do të shkoj | ich werde gehen | Abschnitt 7.5 |
 | tue punue | duke punuar | beim Arbeiten, arbeitend | Kosovo *tu/tuj* (zu prüfen) |
-| du / due | dua | ich will, ich liebe | Schreibung zu prüfen |
+| du | dua | ich will, ich liebe | nie *due* (Entscheid des Autors, Abschnitt 14) |
 | don / do | do | du willst, er/sie will | *don* ist die Kosovo-Hauptform; *do* ist ebenfalls Gheg und wird in getippten Antworten überall akzeptiert (Abschnitt 13, Nr. 15) |
 | muj | mund, mundem | ich kann | Kosovo (zu prüfen) |
 | hangra | hëngra | ich ass | (zu prüfen) |
@@ -240,7 +240,7 @@ Im Toskischen (und damit im Standard) wurde ein altes **-n- zwischen Vokalen zu 
 
 ### 7.1 Präsens
 
-Die Präsensformen regelmässiger Verben sind weitgehend wie im Standard: *punoj, punon, punon, punojmë, punoni, punojnë*. Gheg-Besonderheiten zeigen sich vor allem bei häufigen unregelmässigen Verben: *bâj/bân* (machen), *du* (wollen, zu prüfen), *muj* (können, zu prüfen).
+Die Präsensformen regelmässiger Verben sind weitgehend wie im Standard: *punoj, punon, punon, punojmë, punoni, punojnë*. Gheg-Besonderheiten zeigen sich vor allem bei häufigen unregelmässigen Verben: *bâj/bân* (machen), *du* (wollen), *muj* (können, zu prüfen).
 
 - **Verlaufsform** mit *po*: *Po punoj.* – „Ich arbeite gerade.“ *Çka po bân?* – „Was machst du gerade?“
 - **Ja/Nein-Fragen** mit *a*: *A je mirë? A ke fëmijë?*
@@ -356,7 +356,7 @@ Vor Adjektiven und Genitiven steht ein **Verbindungsartikel**, der sich nach dem
 | Klitikon | Bedeutung | Beispiel |
 |---|---|---|
 | më | mir, mich | *Më fal!* – Verzeih mir! |
-| të | dir, dich | *Të du.* – Ich liebe dich. (zu prüfen: *du*) |
+| të | dir, dich | *Të du.* – Ich liebe dich. |
 | e | ihn, sie, es (Akkusativ) | *E di.* – Ich weiss es. |
 | i | ihm, ihr (Dativ); sie (Akkusativ Plural) | *I shkrova.* – Ich schrieb ihm/ihr. |
 | na | uns | *Na ndihmo!* – Hilf uns! |
@@ -482,7 +482,7 @@ Sammlung aller Punkte, die der Autor entscheiden oder bestätigen muss:
 2. Schreibungen mit â: *mbrâmje, mirëmbrâma, lânë*; Verwendung von ê, î, ô, û.
 3. Rhotazismus-Formen, die im Kosovo oft durch Standard-Formen ersetzt werden: *emni/emri, emnin/emrin*.
 4. Formen der Familien-Einheit: *vlla, vllau, vllazën* als Kosovo-Formen (Standard *vëlla, vëllai, vëllezër*) und ob *vëlla* als weitere Schreibung akzeptiert bleibt oder als Standard-Form gilt, *gruja* (Standard *gruaja*), *axhë/axha* (Standard *xhaxhai*), *babai* oder *baba* als bestimmte Form, *jem/jeme* als Alternative zu *im/ime*, *dhe / edhe / e* für „und“, *çikë* neben *vajzë*.
-5. Verben: *du* oder *due* (wollen), *muj* (können), *hangra* (ich ass), *kânë/kjenë* (gewesen), *ngrânë* (gegessen), *çohem* (aufstehen), *folë* oder *fol* (gesprochen), *pi* und *ditë* als Partizipien, *tue/tu/tuj* als Gerundium.
+5. Verben: *muj* (können), *hangra* (ich ass), *kânë/kjenë* (gewesen), *ngrânë* (gegessen), *çohem* (aufstehen), *folë* oder *fol* (gesprochen), *pi* und *ditë* als Partizipien, *tue/tu/tuj* als Gerundium. **Entschieden (Abschnitt 14):** *du* (ich will), nie *due*.
 6. Plural „sein/haben“ im Kosovo-Alltag: *jemi/jena*, *kemi/kena* – welche Form die Hauptform ist (Entscheid zum Akzeptieren: Nr. 15).
 7. Funktionswörter: *po* als „aber“, *prej* für „von/aus“, *kah*, *veç*, *gja/gjâ*.
 8. Ob *të* + Konjunktiv (*du të punoj*) und *do të* + Konjunktiv (Zukunft) als Gheg-Lösung oder als Standard-Form gelten.
@@ -501,7 +501,7 @@ Diese Formen kommen in vielen Aufgaben vor. Nicht jede Aufgabe trägt dazu eine 
 
 | Form | Standard | Punkt | Betroffene Einheiten |
 |---|---|---|---|
-| *du / due* (ich will) | dua | 5 | a1_u10 (25+1), a2_u05 (23), a1_u13 (8), a2_u06 (7), a2_u08 (3), a2_u11 (2), Einstufung (4) |
+| *du* (ich will) – **entschieden**, *due* wird nicht akzeptiert | dua | 5, 14 | a1_u10 (25+1), a2_u05 (23), a1_u13 (8), a2_u06 (7), a2_u08 (3), a2_u11 (2), Einstufung (4) |
 | *don / do* (du willst, er/sie will) | do | 15 | a1_u10 (13+1), a2_u05 (11), a1_u13 (1), a2_u06 (1), Einstufung (1) |
 | *muj* (ich kann), *mundesh* (du kannst) | mund, mundem | 5 | a1_u10 (11+1), a2_u05 (17+1), a1_u13 (2) |
 | *hangra* (ich ass) | hëngra | 5 | a2_u02 (9+1); als Auswahl oder Ablenker auch a1_u10 (1), a2_u04 (1), a2_u09 (2) |
@@ -520,6 +520,7 @@ Diese Formen hat der Autor bestätigt; sie gelten für neue Einheiten und haben 
 
 | Thema | Gheg | Hinweis |
 |---|---|---|
+| ich will, ich möchte | *du* | nie *due*, auch nicht als weitere Lösung (Standard: *dua*) |
 | Speisekarte | *menu*, best. *menuja* | nicht *meny* |
 | bestellen | *me porositë* | Partizip *porositë* |
 | für mich | *për mu* | nicht *për mue* (Standard: *për mua*) |

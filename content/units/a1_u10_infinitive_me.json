@@ -64,8 +64,6 @@
       "gheg": "du",
       "de": "ich will; ich liebe",
       "partOfSpeech": "verb",
-      "alternatives": ["due"],
-      "note": "Kosovo-Schreibung „du“ (ich will); „due“ (ältere Gheg-Schreibung, in den A2-Einheiten schon als Lösung akzeptiert) als Alternative aufgenommen. Beides laut Sprachrichtlinie zu prüfen (Standard: dua).",
       "reviewed": false
     },
     {
@@ -641,7 +639,7 @@
       "itemIds": ["item_du", "item_me_ngrane"],
       "prompt": { "lang": "de", "text": "Ich will essen." },
       "answerLang": "sq",
-      "solutions": ["Du me ngrânë.", "Due me ngrânë.", "Unë du me ngrânë.", "Unë due me ngrânë."],
+      "solutions": ["Du me ngrânë.", "Unë du me ngrânë."],
       "standardForms": ["Dua të ha.", "Unë dua të ha.", "Du të ha."],
       "explanation": "„Ha“ (essen) hat das Partizip „ngrânë“: „Du me ngrânë.“ Standard: „Dua të ha.“",
       "errorHints": [
@@ -652,8 +650,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen; die ältere Gheg-Schreibung „due“ ist als weitere Lösung aufgenommen (Standard: dua)."
+      "source": "manual"
     },
     {
       "id": "ex_a1_u10_infinitive_me_026",
@@ -704,13 +701,12 @@
       "itemIds": ["item_du", "item_me_shkue", "item_ne_shpi"],
       "prompt": { "lang": "de", "text": "Ich will nach Hause gehen." },
       "answerLang": "sq",
-      "solutions": ["Du me shkue në shpi.", "Due me shkue në shpi.", "Unë du me shkue në shpi.", "Unë due me shkue në shpi."],
+      "solutions": ["Du me shkue në shpi.", "Unë du me shkue në shpi."],
       "standardForms": ["Dua të shkoj në shtëpi.", "Unë dua të shkoj në shtëpi.", "Du të shkoj në shpi."],
       "explanation": "„Në shpi“ heisst „nach Hause“ oder „zu Hause“. Gheg sagt „shpi“ (Standard: „shtëpi“).",
       "errorHints": [{ "pattern": "me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip „shkue“." }],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen; die ältere Gheg-Schreibung „due“ ist als weitere Lösung aufgenommen (Standard: dua)."
+      "source": "manual"
     },
     {
       "id": "ex_a1_u10_infinitive_me_029",
@@ -761,7 +757,7 @@
       "itemIds": ["item_nuk", "item_du", "item_me_punue", "item_sot"],
       "prompt": { "lang": "de", "text": "Ich will heute nicht arbeiten." },
       "answerLang": "sq",
-      "solutions": ["Nuk du me punue sot.", "Sot nuk du me punue.", "S'du me punue sot.", "Sot s'du me punue.", "Nuk due me punue sot.", "Sot nuk due me punue."],
+      "solutions": ["Nuk du me punue sot.", "Sot nuk du me punue.", "S'du me punue sot.", "Sot s'du me punue."],
       "standardForms": ["Nuk dua të punoj sot.", "Sot nuk dua të punoj."],
       "explanation": "Die Verneinung „nuk“ oder „s'“ steht vor dem Verb: „nuk du me punue“.",
       "errorHints": [
@@ -769,8 +765,7 @@
         { "pattern": "me punoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me punue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen; die ältere Gheg-Schreibung „due“ ist als weitere Lösung aufgenommen (Standard: dua)."
+      "source": "manual"
     },
     {
       "id": "ex_a1_u10_infinitive_me_032",
@@ -1146,7 +1141,7 @@
       "explanation": "„Du“ = ich will, „muj“ = ich kann, „duhet“ = man muss. „S'“ verneint.",
       "reviewed": false,
       "source": "manual",
-      "note": "Schreibung „du“ (ich will) laut Sprachrichtlinie zu prüfen (auch „due“; Standard: dua). Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a1_u10_infinitive_me_049",

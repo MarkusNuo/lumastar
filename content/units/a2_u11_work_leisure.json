@@ -703,7 +703,7 @@
       "itemIds": ["item_punoj", "item_banke"],
       "prompt": { "lang": "de", "text": "Ich möchte in einer Bank arbeiten." },
       "answerLang": "sq",
-      "solutions": ["Du me punue në nji bankë.", "Due me punue në nji bankë.", "Unë du me punue në nji bankë."],
+      "solutions": ["Du me punue në nji bankë.", "Unë du me punue në nji bankë."],
       "explanation": "Gheg: „du me punue“ – „wollen“ + Infinitiv mit „me“ (Standard: „dua të punoj“).",
       "errorHints": [
         { "pattern": "me punoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me punue“." },
@@ -711,8 +711,7 @@
       ],
       "standardForms": ["Dua të punoj në një bankë.", "Unë dua të punoj në një bankë."],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Form „du“ / „due“ (ich will) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u11_work_leisure_032",

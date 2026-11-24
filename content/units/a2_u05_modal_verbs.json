@@ -67,7 +67,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+      "note": "Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a2_u05_modal_verbs_002",
@@ -142,8 +142,7 @@
         { "pattern": "^du fjeta$", "category": "grammar.verb_tense", "hint": "„Fjeta“ ist Vergangenheit („ich schlief“)." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u05_modal_verbs_006",
@@ -277,7 +276,7 @@
       "itemIds": ["item_du", "item_me_fjete"],
       "prompt": { "lang": "de", "text": "Ich will schlafen." },
       "answerLang": "sq",
-      "solutions": ["Du me fjetë.", "Due me fjetë."],
+      "solutions": ["Du me fjetë."],
       "wordBank": ["Du", "me", "fjetë", "fle", "don", "muj"],
       "explanation": "„Du me fjetë“: „du“ (ich will) + Gheg-Infinitiv „me fjetë“.",
       "errorHints": [
@@ -286,8 +285,7 @@
         { "pattern": "^muj", "category": "vocab.confused", "hint": "„Muj“ heisst „ich kann“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u05_modal_verbs_014",
@@ -685,7 +683,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen. „të + Konjunktiv“ als Standard-Form gewertet (Sprachrichtlinie 7.2, offener Punkt 8) – zu prüfen."
+      "note": "„të + Konjunktiv“ als Standard-Form gewertet (Sprachrichtlinie 7.2, offener Punkt 8) – zu prüfen."
     },
     {
       "id": "ex_a2_u05_modal_verbs_034",
@@ -793,8 +791,7 @@
         { "pattern": "^udh[eë]ton$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „udhëtue“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u05_modal_verbs_039",
@@ -832,8 +829,7 @@
         { "pattern": "^punova$", "category": "grammar.verb_tense", "hint": "„Punova“ ist Vergangenheit." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u05_modal_verbs_041",
@@ -955,7 +951,7 @@
       "explanation": "Modalverb + „me“ + Partizip – so funktioniert es im Gheg immer.",
       "reviewed": false,
       "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen. Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
+      "note": "Kosovo-Form „muj“ (ich kann; Standard: mund, mundem) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a2_u05_modal_verbs_047",
@@ -1071,7 +1067,7 @@
       "errorHints": [{ "pattern": "(^|\\s)pi me(\\s|$)", "category": "grammar.word_order", "hint": "„Me“ steht direkt vor dem Partizip: „me pi“." }],
       "reviewed": false,
       "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen. Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
+      "note": "Partizip „pi“ (Standard: pirë) laut Sprachrichtlinie zu prüfen."
     },
     {
       "id": "ex_a2_u05_modal_verbs_053",
@@ -1103,8 +1099,7 @@
       "explanation": "„Nuk“ steht vor dem Modalverb: „nuk du“.",
       "errorHints": [{ "pattern": "^du nuk", "category": "grammar.word_order", "hint": "„Nuk“ steht vor dem Verb: „nuk du“." }],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u05_modal_verbs_055",
@@ -1197,8 +1192,7 @@
       "solutions": ["Sonte du me pa nji film.", "Du me pa nji film sonte."],
       "explanation": "„Me pa“ heisst „sehen“ – „pa“ ist das kurze Gheg-Partizip (Standard: „parë“).",
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u05_modal_verbs_061",

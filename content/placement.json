@@ -419,8 +419,7 @@
       "explanation": "Gheg hat einen echten Infinitiv: „me“ + Partizip, also „me mësue“. Standard sagt „të mësoj“.",
       "errorHints": [{ "pattern": "^me m[eë]soj$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me mësue“." }],
       "reviewed": false,
-      "source": "manual",
-      "note": "„du“ (ich will) – Schreibung „du/due“ laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "pl_a1_3_004",
@@ -1005,8 +1004,7 @@
         { "pattern": "^m[eë]son$", "category": "grammar.verb_conjugation", "hint": "Nach „që“ mit Wunsch steht der Konjunktiv: „të mësosh“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "„du“ (ich will) – Schreibung „du/due“ zu prüfen."
+      "source": "manual"
     },
     {
       "id": "pl_b1_2_005",
@@ -1749,7 +1747,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Ablenker enthalten absichtlich Standard- und Mischformen (Register-Aufgabe); „du“ zu prüfen."
+      "note": "Ablenker enthalten absichtlich Standard- und Mischformen (Register-Aufgabe)."
     },
     {
       "id": "pl_c1_3_003",

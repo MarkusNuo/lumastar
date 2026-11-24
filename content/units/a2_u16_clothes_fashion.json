@@ -1814,8 +1814,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_035",
@@ -3169,9 +3168,7 @@
       "answerLang": "sq",
       "solutions": [
         "Du me ndërrue këtë xhaketë, âsht tepër e ngushtë.",
-        "Due me ndërrue këtë xhaketë, âsht tepër e ngushtë.",
         "Du me ndërrue këtë xhaketë, âsht shumë e ngushtë.",
-        "Due me ndërrue këtë xhaketë, âsht shumë e ngushtë.",
         "Du me e ndërrue këtë xhaketë, âsht tepër e ngushtë.",
         "Du me e ndërrue këtë xhaketë, âsht shumë e ngushtë."
       ],
@@ -3200,8 +3197,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ / „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_062",
@@ -4247,8 +4243,7 @@
         }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u16_clothes_fashion_085",

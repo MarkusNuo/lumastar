@@ -100,8 +100,7 @@
         { "pattern": "ihn", "category": "grammar.clitics", "hint": "„Ihn“ hiesse „e“: „E du.“" }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will, ich liebe; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u06_clitics_003",
@@ -287,8 +286,7 @@
         { "pattern": "^e du$", "category": "grammar.clitics", "hint": "„E du“ heisst „ich liebe ihn/sie“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will, ich liebe; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u06_clitics_014",
@@ -645,7 +643,7 @@
       "itemIds": ["item_clitic_te", "item_du"],
       "prompt": { "lang": "de", "text": "Ich will dich sehen." },
       "answerLang": "sq",
-      "solutions": ["Du me të pa.", "Due me të pa."],
+      "solutions": ["Du me të pa."],
       "standardForms": ["Dua të të shoh.", "Dua me të pa."],
       "explanation": "Beim Gheg-Infinitiv steht die Kurzform zwischen „me“ und dem Partizip: „du me të pa“.",
       "errorHints": [
@@ -654,7 +652,7 @@
       ],
       "reviewed": false,
       "source": "manual",
-      "note": "Stellung des Kurzworts zwischen „me“ und Partizip („me të pa“) laut Sprachrichtlinie (offener Punkt 12) zu prüfen. Schreibung „du“ oder „due“ (ich will, ich liebe; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "note": "Stellung des Kurzworts zwischen „me“ und Partizip („me të pa“) laut Sprachrichtlinie (offener Punkt 12) zu prüfen."
     },
     {
       "id": "ex_a2_u06_clitics_033",
@@ -879,7 +877,7 @@
       "errorHints": [{ "pattern": "^m[eë]$", "category": "grammar.clitics", "hint": "„Më“ heisst „mich“. „Dich“ heisst „të“." }],
       "reviewed": false,
       "source": "manual",
-      "note": "Stellung des Kurzworts zwischen „me“ und Partizip („me të pa“) laut Sprachrichtlinie (offener Punkt 12) zu prüfen. Schreibung „du“ oder „due“ (ich will, ich liebe; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "note": "Stellung des Kurzworts zwischen „me“ und Partizip („me të pa“) laut Sprachrichtlinie (offener Punkt 12) zu prüfen."
     },
     {
       "id": "ex_a2_u06_clitics_045",
@@ -936,8 +934,7 @@
       ],
       "explanation": "Kurze Sätze mit Kurzformen – typisch für den Alltag.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will, ich liebe; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u06_clitics_048",
@@ -1139,7 +1136,7 @@
       "explanation": "Die Kurzform steht zwischen „me“ und dem Partizip: „me të pa“.",
       "reviewed": false,
       "source": "manual",
-      "note": "Stellung des Kurzworts zwischen „me“ und Partizip („me të pa“) laut Sprachrichtlinie (offener Punkt 12) zu prüfen. Schreibung „du“ oder „due“ (ich will, ich liebe; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "note": "Stellung des Kurzworts zwischen „me“ und Partizip („me të pa“) laut Sprachrichtlinie (offener Punkt 12) zu prüfen."
     },
     {
       "id": "ex_a2_u06_clitics_060",

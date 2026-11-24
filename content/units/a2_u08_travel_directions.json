@@ -621,15 +621,14 @@
       "itemIds": ["item_ne_prep"],
       "prompt": { "lang": "de", "text": "Ich will nach Peja fahren." },
       "answerLang": "sq",
-      "solutions": ["Du me shkue në Pejë.", "Due me shkue në Pejë.", "Unë du me shkue në Pejë.", "Unë due me shkue në Pejë."],
+      "solutions": ["Du me shkue në Pejë.", "Unë du me shkue në Pejë."],
       "explanation": "Gheg sagt „du me shkue“ – „wollen“ + Infinitiv mit „me“ (Standard: „dua të shkoj“).",
       "errorHints": [
         { "pattern": "me shkoj", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „me shkue“." }
       ],
       "standardForms": ["Dua të shkoj në Pejë.", "Unë dua të shkoj në Pejë."],
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Form „du“ / „due“ (ich will) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u08_travel_directions_031",
@@ -1135,8 +1134,7 @@
       "solutions": ["Du me udhëtue me veturë."],
       "explanation": "„Du me udhëtue“ heisst „ich will reisen“ – mit dem Gheg-Infinitiv.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Gheg-Form „du“ / „due“ (ich will) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u08_travel_directions_059",

@@ -207,8 +207,7 @@
         { "pattern": "(^|\\s)tre(\\s|$)", "category": "vocab.confused", "hint": "„Tre“ heisst „drei“. Zwei heisst „dy“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_009",
@@ -227,8 +226,7 @@
         { "pattern": "^rezervova", "category": "grammar.verb_tense", "hint": "„Rezervova“ ist Vergangenheit: „ich reservierte“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_010",
@@ -642,7 +640,7 @@
       "itemIds": ["item_du", "item_me_porosite"],
       "prompt": { "lang": "de", "text": "Ich möchte bestellen." },
       "answerLang": "sq",
-      "solutions": ["Du me porositë.", "Due me porositë."],
+      "solutions": ["Du me porositë."],
       "wordBank": ["Du", "me", "porositë", "porosis", "rezervue", "don"],
       "explanation": "„Du me porositë“: „du“ (ich will, ich möchte) + Gheg-Infinitiv „me porositë“ (Standard: „dua të porosis“).",
       "errorHints": [
@@ -651,8 +649,7 @@
         { "pattern": "^don", "category": "grammar.verb_conjugation", "hint": "„Don“ heisst „du willst“. Für „ich“: „du“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_032",
@@ -2060,8 +2057,7 @@
         { "pattern": "du e me", "category": "grammar.clitics", "hint": "Die Kurzform steht zwischen „me“ und dem Partizip: „me e pagu“." }
       ],
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_106",
@@ -2369,8 +2365,7 @@
       "solutions": ["Du me pagu me kartelë."],
       "explanation": "„Du me pagu“ – ich möchte bezahlen (Standard: „dua të paguaj“). Das zweite „me“ heisst „mit“.",
       "reviewed": false,
-      "source": "manual",
-      "note": "Schreibung „du“ oder „due“ (ich will; Standard: dua) laut Sprachrichtlinie zu prüfen."
+      "source": "manual"
     },
     {
       "id": "ex_a2_u13_restaurant_cafe_122",
