@@ -9,7 +9,7 @@ starts it when it is not running and stops it again after the run; the backend g
 open the e2e frontend.
 
 Projects run in this order: `setup` (first start), `daily-goal`, `phone-390` and `phone-360` (all
-other tests), then `levelup-phone-390` and `levelup-phone-360`. A full run takes about twenty minutes,
+other tests), then `levelup-phone-390` and `levelup-phone-360`. A full run takes about 25 minutes,
 five of them the daily-goal test.
 
 ```bash
@@ -192,16 +192,19 @@ no screen requests anything from another host. All other tests block service wor
 Passing a checkpoint moves the learner up for good, so `tests/levelup/` runs in the projects
 `levelup-phone-390` and `levelup-phone-360`, after both phone projects (and one after the other).
 They play the lessons of the stage through the API (`support/progression.ts`) and the checkpoint
-itself through the UI: a failed try, then the level-up. The badge test passes stages through the
+itself through the UI: a failed try, then the level-up. A stage must be done within the lessons its
+units still plan (from `GET /api/path`) plus a few focus lessons. The badge test passes stages through the
 API until a checkpoint completes a CEFR band (A1.3, then A2.3 in the second project): it plays more
-lessons than any other test (about half a minute) and is tagged `@slow`;
+lessons than any other test (about a minute) and is tagged `@slow`;
 `npx playwright test --grep-invert @slow` leaves it out. A failure in a phone project skips the
 level-up projects (they depend on it).
 
 Reviews (`tests/review`): the backend has no test clock, so the test relies on the FSRS learning steps:
 a wrong answer on an item still being learned is due again after one minute (a known item lapses into
 relearning and is due only after ten minutes, so the test reads the cards from the export and makes its
-mistakes on new items). When nothing is due, the test waits up to two minutes for such a card. The review summary counts only cards
+mistakes on new items). A later right answer on the same item in the lesson would move its card on to
+the next step, so a mistake goes only to the last exercise that practises such an item; a lesson
+without one is composed anew. When nothing is due, the test waits up to two minutes for such a card. The review summary counts only cards
 a review lesson can practise, so the test expects a review to start whenever something is due.
 
 ## Names and keys

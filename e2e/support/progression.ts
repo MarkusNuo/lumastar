@@ -1,6 +1,6 @@
 import { expect, type APIRequestContext } from '@playwright/test';
 import { playViaApi, type CheckpointResult } from './lessonApi.ts';
-import { currentUnit, fetchPath, openFocusUnits, stageOf } from './planApi.ts';
+import { currentUnit, fetchPath, openFocusUnits, stageOf, type PathStage } from './planApi.ts';
 
 /*
  * Moving the learner along the plan through the API, every answer right, for tests whose subject is
@@ -8,16 +8,24 @@ import { currentUnit, fetchPath, openFocusUnits, stageOf } from './planApi.ts';
  * add nothing but time.
  */
 
-/** Far above the largest stage of the content (21 lessons); focus units add one lesson each. */
-const MAX_LESSONS_PER_STAGE = 40;
+/** Focus units the plan may insert on the way, one lesson each, on top of the lessons of the stage. */
+const FOCUS_LESSONS_ALLOWED = 10;
+
+/** The lessons the plan still expects in the units of a stage that are not done yet. */
+function lessonsLeft(stage: PathStage): number {
+  return stage.units
+    .filter((unit) => unit.hasContent && (unit.status === 'planned' || unit.status === 'in_progress'))
+    .reduce((sum, unit) => sum + Math.max(1, unit.estimatedLessons) - unit.lessonsCompleted, 0);
+}
 
 /** Plays lessons of the unit in progress until the checkpoint of the stage opens; returns their number. */
 export async function completeStageViaApi(request: APIRequestContext, level: string): Promise<number> {
+  const planned = lessonsLeft(stageOf(await fetchPath(request), level));
   for (let played = 0; ; played += 1) {
     const path = await fetchPath(request);
     if (stageOf(path, level).checkpoint.status !== 'locked') return played;
-    expect(played, `the units of ${level} are done within a bounded number of lessons`).toBeLessThan(
-      MAX_LESSONS_PER_STAGE,
+    expect(played, `${level} is done within its ${planned} planned lessons and some focus lessons`).toBeLessThan(
+      planned + FOCUS_LESSONS_ALLOWED,
     );
     await playViaApi(request, { unitId: currentUnit(path).unitId });
   }
