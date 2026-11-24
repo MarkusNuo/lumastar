@@ -1655,7 +1655,7 @@ export interface components {
             units: components["schemas"]["PlanUnit"][];
         };
         /** @enum {string} */
-        PlanTrigger: "placement" | "checkpoint" | "periodic" | "lesson" | "manual";
+        PlanTrigger: "placement" | "checkpoint" | "periodic" | "lesson" | "manual" | "content";
         PlanUnit: {
             /** Format: int32 */
             estimatedLessons?: number;
