@@ -789,13 +789,13 @@
       "prompt": { "lang": "de", "text": "Die Mannschaft wird morgen nicht verlieren." },
       "answerLang": "sq",
       "text": "Ekipi nuk ka me ___ nesër.",
-      "choices": ["humbë", "humb", "humbet", "fitue"],
-      "solutions": ["humbë"],
-      "explanation": "Nach „ka me“ steht das Partizip: „humbë“ (Standard: „humbur“).",
+      "choices": ["hupë", "humb", "humbet", "fitue"],
+      "solutions": ["hupë"],
+      "explanation": "Nach „ka me“ steht das Partizip: „hupë“ (Standard: „humbur“).",
       "errorHints": [
-        { "pattern": "^humb$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip mit „ë“: „humbë“." },
-        { "pattern": "^humbet$", "category": "grammar.infinitive", "hint": "„Humbet“ ist Präsens. Nach „me“ steht das Partizip „humbë“." },
-        { "pattern": "^fitue$", "category": "vocab.confused", "hint": "„Me fitue“ heisst „gewinnen“. Verlieren: „me humbë“." }
+        { "pattern": "^humb$", "category": "grammar.infinitive", "hint": "Nach „me“ steht das Partizip: „hupë“." },
+        { "pattern": "^humbet$", "category": "grammar.infinitive", "hint": "„Humbet“ ist Präsens. Nach „me“ steht das Partizip „hupë“." },
+        { "pattern": "^fitue$", "category": "vocab.confused", "hint": "„Me fitue“ heisst „gewinnen“. Verlieren: „me hupë“." }
       ],
       "reviewed": false,
       "source": "manual"

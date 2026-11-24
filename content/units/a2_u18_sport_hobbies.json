@@ -9,7 +9,7 @@
     },
     {
       "title": "Spielen, gewinnen, verlieren",
-      "explanation": "| Person | luaj (spielen) |\n|---|---|\n| unë | luaj |\n| ti | luan |\n| ai, ajo | luan |\n| ne | luajmë |\n| ju | luani |\n| ata, ato | luajnë |\n\nDie Sportart steht ohne Artikel: *Luaj futboll, tenis, shah.* Der Gheg-Infinitiv: **me luejtë**, **me fitue** (gewinnen), **me humbë** (verlieren; Standard: *humbur*). Vergangenheit: *Fituam!* – „Wir haben gewonnen!“ *Humbëm.* – „Wir haben verloren.“"
+      "explanation": "| Person | luaj (spielen) |\n|---|---|\n| unë | luaj |\n| ti | luan |\n| ai, ajo | luan |\n| ne | luajmë |\n| ju | luani |\n| ata, ato | luajnë |\n\nDie Sportart steht ohne Artikel: *Luaj futboll, tenis, shah.* Der Gheg-Infinitiv: **me luejtë**, **me fitue** (gewinnen), **me hupë** (verlieren; auch *me humbë*; Standard: *humbur*). Vergangenheit: *Fituam!* – „Wir haben gewonnen!“ *Humbëm.* – „Wir haben verloren.“"
     },
     {
       "title": "Sich verabreden",
@@ -37,7 +37,7 @@
     { "id": "item_top", "kind": "word", "gheg": "top", "de": "Ball", "partOfSpeech": "noun", "gender": "m", "definite": "topi", "plural": "topa", "reviewed": false },
     { "id": "item_rakete", "kind": "word", "gheg": "raketë", "de": "Schläger (z. B. für Tennis)", "partOfSpeech": "noun", "gender": "f", "definite": "raketa", "plural": "raketa", "reviewed": false },
     { "id": "item_me_fitue", "kind": "phrase", "gheg": "me fitue", "de": "gewinnen", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_me_humbe", "kind": "phrase", "gheg": "me humbë", "de": "verlieren", "partOfSpeech": "verb", "note": "Partizip „humbë“ (Standard: humbur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
+    { "id": "item_me_humbe", "kind": "phrase", "gheg": "me hupë", "de": "verlieren", "partOfSpeech": "verb", "alternatives": ["me humbë"], "note": "Partizip „humbë“ (Standard: humbur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
     { "id": "item_rezultat", "kind": "word", "gheg": "rezultat", "de": "Resultat, Spielstand", "partOfSpeech": "noun", "gender": "m", "definite": "rezultati", "reviewed": false },
     { "id": "item_stadium", "kind": "word", "gheg": "stadium", "de": "Stadion", "partOfSpeech": "noun", "gender": "m", "definite": "stadiumi", "reviewed": false },
     { "id": "item_pishine", "kind": "word", "gheg": "pishinë", "de": "Schwimmbad, Pool", "partOfSpeech": "noun", "gender": "f", "definite": "pishina", "reviewed": false },
@@ -489,7 +489,7 @@
       "solutions": ["Meine Mannschaft hat gestern gewonnen."],
       "explanation": "„Fitoi“ ist die Vergangenheit von „fiton“ (gewinnt): „gewann, hat gewonnen“.",
       "errorHints": [
-        { "pattern": "verloren", "category": "vocab.confused", "hint": "Verlieren heisst „me humbë“; „fitoi“ heisst „gewann“." },
+        { "pattern": "verloren", "category": "vocab.confused", "hint": "Verlieren heisst „me hupë“; „fitoi“ heisst „gewann“." },
         { "pattern": "morgen", "category": "grammar.verb_tense", "hint": "„Dje“ heisst „gestern“, und „fitoi“ ist Vergangenheit." },
         { "pattern": "trainer", "category": "vocab.confused", "hint": "„Ekipi“ ist die Mannschaft; der Trainer heisst „trajneri“." }
       ],
@@ -504,13 +504,13 @@
       "skillTags": ["grammar.verbs.past_simple", "vocab.sport"],
       "itemIds": ["item_me_humbe", "item_me_fitue"],
       "prompt": { "lang": "de", "text": "Wie sagt man „Wir haben verloren.“?" },
-      "choices": ["Humbëm.", "Fituam.", "Humbim.", "Kemi me humbë."],
+      "choices": ["Humbëm.", "Fituam.", "Humbim.", "Kemi me hupë."],
       "solutions": ["Humbëm."],
       "explanation": "„Humbëm“ ist die Vergangenheit von „humbim“ (wir verlieren).",
       "errorHints": [
         { "pattern": "^fituam$", "category": "vocab.confused", "hint": "„Fituam“ heisst „wir haben gewonnen“." },
         { "pattern": "^humbim$", "category": "grammar.verb_tense", "hint": "„Humbim“ ist Präsens: wir verlieren." },
-        { "pattern": "^kemi me", "category": "grammar.verb_tense", "hint": "„Kemi me humbë“ ist Zukunft: wir werden verlieren." }
+        { "pattern": "^kemi me", "category": "grammar.verb_tense", "hint": "„Kemi me hupë“ ist Zukunft: wir werden verlieren." }
       ],
       "reviewed": false,
       "source": "manual"
@@ -1855,11 +1855,11 @@
       "prompt": { "lang": "de", "text": "Ich will nicht verlieren." },
       "answerLang": "sq",
       "text": "Nuk du me ___.",
-      "solutions": ["humbë"],
+      "solutions": ["hupë", "humbë"],
       "standardForms": ["humbur"],
-      "explanation": "Das Gheg-Partizip von „humb“ (verlieren) ist „humbë“ (Standard: „humbur“).",
+      "explanation": "Das Gheg-Partizip von „humb“ (verlieren) ist „hupë“, auch „humbë“ (Standard: „humbur“).",
       "errorHints": [
-        { "pattern": "^humb$", "category": "grammar.participle", "hint": "Das Gheg-Partizip endet auf -ë: „humbë“." }
+        { "pattern": "^hu(mb|p)$", "category": "grammar.participle", "hint": "Nach „me“ steht das Partizip: „hupë“ (auch „humbë“)." }
       ],
       "reviewed": false,
       "source": "manual",
@@ -2186,12 +2186,12 @@
       "prompt": { "lang": "de", "text": "Ordne die Infinitive zu." },
       "pairs": [
         { "left": "me fitue", "right": "gewinnen" },
-        { "left": "me humbë", "right": "verlieren" },
+        { "left": "me hupë", "right": "verlieren" },
         { "left": "me skijue", "right": "Ski fahren" },
         { "left": "me ftue", "right": "einladen" },
         { "left": "me u takue", "right": "sich treffen" }
       ],
-      "explanation": "„Me humbë“ hat das kurze Gheg-Partizip (Standard: humbur).",
+      "explanation": "„Me hupë“ hat das kurze Gheg-Partizip, auch „me humbë“ (Standard: humbur).",
       "reviewed": false,
       "source": "manual",
       "note": "Partizipien „humbë“ und „skijue“ zu prüfen."

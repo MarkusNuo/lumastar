@@ -17,7 +17,7 @@
     },
     {
       "title": "Wo bist du gewesen? Perfekt unterwegs",
-      "explanation": "**Ku ke kânë?** – „Wo bist du gewesen?“ Die Antwort steht im Perfekt mit *kam* + Partizip:\n\n| Gheg | Deutsch | Standard |\n|---|---|---|\n| Kam kânë në komunë. | Ich bin im Gemeindehaus gewesen. | Kam qenë në komunë. |\n| Kam pritë autobusin. | Ich habe auf den Bus gewartet. | Kam pritur autobusin. |\n| Kam zbritë te sheshi. | Ich bin beim Platz ausgestiegen. | Kam zbritur te sheshi. |\n| Kam humbë rrugën. | Ich habe mich verlaufen. | Kam humbur rrugën. |\n\nAuch bei „sein“, „gehen“ und „aussteigen“ steht im Gheg **kam**, nicht wie im Deutschen „sein“."
+      "explanation": "**Ku ke kânë?** – „Wo bist du gewesen?“ Die Antwort steht im Perfekt mit *kam* + Partizip:\n\n| Gheg | Deutsch | Standard |\n|---|---|---|\n| Kam kânë në komunë. | Ich bin im Gemeindehaus gewesen. | Kam qenë në komunë. |\n| Kam pritë autobusin. | Ich habe auf den Bus gewartet. | Kam pritur autobusin. |\n| Kam zbritë te sheshi. | Ich bin beim Platz ausgestiegen. | Kam zbritur te sheshi. |\n| Kam hupë rrugën. | Ich habe mich verlaufen. | Kam humbur rrugën. |\n\nAuch bei „sein“, „gehen“ und „aussteigen“ steht im Gheg **kam**, nicht wie im Deutschen „sein“.\n\nFür „verloren“ sagt man meist *hupë*; *humbë* ist ebenfalls richtig."
     }
   ],
   "items": [
@@ -65,7 +65,7 @@
     { "id": "item_me_parkue", "kind": "phrase", "gheg": "me parkue", "de": "parkieren", "partOfSpeech": "verb", "reviewed": false },
     { "id": "item_me_zbrite", "kind": "phrase", "gheg": "me zbritë", "de": "aussteigen", "partOfSpeech": "verb", "note": "Partizip „zbritë“ (Standard: zbritur) nach der Regel -ur → -ë – zu prüfen.", "reviewed": false },
     { "id": "item_me_kalue", "kind": "phrase", "gheg": "me kalue", "de": "überqueren; vorbeigehen", "partOfSpeech": "verb", "reviewed": false },
-    { "id": "item_kam_humbe_rrugen", "kind": "phrase", "gheg": "kam humbë rrugën", "de": "ich habe mich verlaufen", "partOfSpeech": "phrase", "alternatives": ["kam hupë rrugën"], "note": "Partizip „humbë“ (Standard: humbur); im Kosovo-Alltag oft „hupë“ – zu prüfen, welche Form Hauptform ist.", "reviewed": false },
+    { "id": "item_kam_humbe_rrugen", "kind": "phrase", "gheg": "kam hupë rrugën", "de": "ich habe mich verlaufen", "partOfSpeech": "phrase", "alternatives": ["kam humbë rrugën"], "note": "Partizip „humbë“ (Standard: humbur); im Kosovo-Alltag oft „hupë“ – zu prüfen, welche Form Hauptform ist.", "reviewed": false },
     { "id": "item_ku_ke_kane", "kind": "phrase", "gheg": "ku ke kânë?", "de": "wo bist du gewesen?", "partOfSpeech": "phrase", "reviewed": false },
     { "id": "item_a_e_din_ku_asht", "kind": "phrase", "gheg": "a e din ku âsht …?", "de": "weisst du, wo … ist?", "partOfSpeech": "phrase", "note": "Kosovo „din“ (du weisst; Standard: di) – zu prüfen.", "reviewed": false },
     { "id": "item_sa_larg_asht", "kind": "phrase", "gheg": "sa larg âsht?", "de": "wie weit ist es?", "partOfSpeech": "phrase", "reviewed": false },
@@ -283,9 +283,9 @@
         { "left": "Kam marrë nji taksi.", "right": "Ich habe ein Taxi genommen." },
         { "left": "Kam pritë te ndalesa.", "right": "Ich habe an der Haltestelle gewartet." },
         { "left": "Kam zbritë te sheshi.", "right": "Ich bin beim Platz ausgestiegen." },
-        { "left": "Kam humbë rrugën.", "right": "Ich habe mich verlaufen." }
+        { "left": "Kam hupë rrugën.", "right": "Ich habe mich verlaufen." }
       ],
-      "explanation": "Im Gheg bildet man das Perfekt fast immer mit „kam“ – auch bei „sein“ und „aussteigen“. Die Partizipien sind kurz: „pritë, zbritë, humbë“ (Standard: pritur, zbritur, humbur).",
+      "explanation": "Im Gheg bildet man das Perfekt fast immer mit „kam“ – auch bei „sein“ und „aussteigen“. Die Partizipien sind kurz: „pritë, zbritë, hupë“ (Standard: pritur, zbritur, humbur).",
       "reviewed": false,
       "source": "manual",
       "note": "„ndalesë“ (Haltestelle; Alltag oft „stacion“) zu prüfen. Partizip „zbritë“ (Standard: zbritur) zu prüfen. Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen."
@@ -584,13 +584,13 @@
       "difficulty": 2,
       "skillTags": ["grammar.verbs.perfect", "phrase.directions"],
       "itemIds": ["item_kam_humbe_rrugen"],
-      "prompt": { "lang": "de", "text": "Was bedeutet „Kam humbë rrugën.“?" },
+      "prompt": { "lang": "de", "text": "Was bedeutet „Kam hupë rrugën.“?" },
       "choices": ["Ich habe mich verlaufen.", "Ich habe die Strasse überquert.", "Ich habe den Weg gefunden.", "Ich habe den Bus verpasst."],
       "solutions": ["Ich habe mich verlaufen."],
-      "explanation": "Wörtlich: „Ich habe den Weg verloren.“ „Humbë“ ist das Gheg-Partizip von „humb“ (Standard: humbur).",
+      "explanation": "Wörtlich: „Ich habe den Weg verloren.“ „Hupë“ ist das Gheg-Partizip von „humb“, auch „humbë“ (Standard: humbur).",
       "errorHints": [
         { "pattern": "[uü]berquert", "category": "vocab.confused", "hint": "Überqueren heisst „me kalue“." },
-        { "pattern": "gefunden", "category": "vocab.confused", "hint": "„Humbë“ heisst „verloren“ – das Gegenteil von „gefunden“." },
+        { "pattern": "gefunden", "category": "vocab.confused", "hint": "„Hupë“ heisst „verloren“ – das Gegenteil von „gefunden“." },
         { "pattern": "bus", "category": "vocab.confused", "hint": "Von einem Bus ist hier nicht die Rede." }
       ],
       "reviewed": false,
@@ -1593,9 +1593,9 @@
       "itemIds": ["item_kam_humbe_rrugen", "item_qender"],
       "prompt": { "lang": "de", "text": "Ich habe mich verlaufen. Wo ist das Zentrum?" },
       "answerLang": "sq",
-      "solutions": ["Kam humbë rrugën. Ku âsht qendra?", "Kam hupë rrugën. Ku âsht qendra?", "Kam humbë rrugën. Qendra ku âsht?", "Kam hupë rrugën. Qendra ku âsht?"],
+      "solutions": ["Kam hupë rrugën. Ku âsht qendra?", "Kam humbë rrugën. Ku âsht qendra?", "Kam hupë rrugën. Qendra ku âsht?", "Kam humbë rrugën. Qendra ku âsht?"],
       "standardForms": ["Kam humbur rrugën. Ku është qendra?"],
-      "explanation": "„Kam humbë rrugën“ heisst wörtlich „ich habe den Weg verloren“ (Standard: kam humbur).",
+      "explanation": "„Kam hupë rrugën“ heisst wörtlich „ich habe den Weg verloren“ (auch „kam humbë“; Standard: kam humbur).",
       "errorHints": [
         { "pattern": "qendër$", "category": "grammar.definite_article", "hint": "Mit Artikel: „qendra“ (das Zentrum)." }
       ],
@@ -2314,9 +2314,9 @@
       "itemIds": ["item_kam_humbe_rrugen", "item_marre", "item_taksi"],
       "prompt": { "lang": "de", "text": "Ich habe mich verlaufen und ein Taxi genommen." },
       "answerLang": "sq",
-      "tokens": ["Kam", "humbë", "rrugën", "dhe", "kam", "marrë", "nji", "taksi"],
-      "solutions": ["Kam humbë rrugën dhe kam marrë nji taksi."],
-      "explanation": "Zwei Perfektformen: „kam humbë“ (verloren) und „kam marrë“ (genommen).",
+      "tokens": ["Kam", "hupë", "rrugën", "dhe", "kam", "marrë", "nji", "taksi"],
+      "solutions": ["Kam hupë rrugën dhe kam marrë nji taksi."],
+      "explanation": "Zwei Perfektformen: „kam hupë“ (verloren) und „kam marrë“ (genommen).",
       "reviewed": false,
       "source": "manual",
       "note": "Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen."

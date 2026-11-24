@@ -5,7 +5,7 @@
   "grammar": [
     {
       "title": "Was ist passiert? – Perfekt mit „kam“ und „jam“",
-      "explanation": "Mit dem **Perfekt** erzählst du, was unterwegs passiert ist. Fast alle Verben nehmen **kam** + Partizip – auch „gehen“, „kommen“ und „sein“:\n\n| Gheg | Deutsch | Standard |\n|---|---|---|\n| Kam humbë pasaportën. | Ich habe den Pass verloren. | humbur |\n| Valixhja nuk ka ardhë. | Der Koffer ist nicht angekommen. | ardhur |\n| Kemi pritë dy orë. | Wir haben zwei Stunden gewartet. | pritur |\n| Kam kânë te mjeku. | Ich bin beim Arzt gewesen. | qenë |\n\n**Reflexive Verben** und das **Passiv** nehmen **jam**: *Jam ftohë.* (Ich habe mich erkältet.) *Jam rrëzue.* (Ich bin hingefallen.) *Jam kthye.* (Ich bin zurückgekommen.) *Fluturimi âsht anulue.* (Der Flug wurde annulliert.)\n\nMit einer genauen Zeitangabe (*dje, vjet*) nimmst du oft die einfache Vergangenheit: *Dje u ktheva.* (Gestern kam ich zurück.)"
+      "explanation": "Mit dem **Perfekt** erzählst du, was unterwegs passiert ist. Fast alle Verben nehmen **kam** + Partizip – auch „gehen“, „kommen“ und „sein“:\n\n| Gheg | Deutsch | Standard |\n|---|---|---|\n| Kam hupë pasaportën. | Ich habe den Pass verloren. | humbur |\n| Valixhja nuk ka ardhë. | Der Koffer ist nicht angekommen. | ardhur |\n| Kemi pritë dy orë. | Wir haben zwei Stunden gewartet. | pritur |\n| Kam kânë te mjeku. | Ich bin beim Arzt gewesen. | qenë |\n\n**Reflexive Verben** und das **Passiv** nehmen **jam**: *Jam ftohë.* (Ich habe mich erkältet.) *Jam rrëzue.* (Ich bin hingefallen.) *Jam kthye.* (Ich bin zurückgekommen.) *Fluturimi âsht anulue.* (Der Flug wurde annulliert.)\n\nMit einer genauen Zeitangabe (*dje, vjet*) nimmst du oft die einfache Vergangenheit: *Dje u ktheva.* (Gestern kam ich zurück.)"
     },
     {
       "title": "Präpositionen und Fälle auf einen Blick",
@@ -35,13 +35,13 @@
       "itemIds": ["item_humbe", "item_harrue", "item_marre", "item_prite", "item_ardhe"],
       "prompt": { "lang": "de", "text": "Ordne die Partizipien zu." },
       "pairs": [
-        { "left": "humbë", "right": "verloren" },
+        { "left": "hupë", "right": "verloren" },
         { "left": "harrue", "right": "vergessen" },
         { "left": "marrë", "right": "genommen" },
         { "left": "pritë", "right": "gewartet" },
         { "left": "ardhë", "right": "gekommen" }
       ],
-      "explanation": "Gheg-Partizipien sind kurz: „humbë, pritë, ardhë“ (Standard: humbur, pritur, ardhur), „harrue“ (Standard: harruar).",
+      "explanation": "Gheg-Partizipien sind kurz: „hupë, pritë, ardhë“ (Standard: humbur, pritur, ardhur), „harrue“ (Standard: harruar).",
       "reviewed": false,
       "source": "manual"
     },
@@ -73,13 +73,13 @@
       "itemIds": ["item_humbe", "item_anulue", "item_ardhe", "item_jam_ftohe", "item_jam_rrezue", "item_gjate_prep"],
       "prompt": { "lang": "de", "text": "Was ist unterwegs passiert? Ordne zu." },
       "pairs": [
-        { "left": "Kam humbë pasaportën.", "right": "Ich habe den Pass verloren." },
+        { "left": "Kam hupë pasaportën.", "right": "Ich habe den Pass verloren." },
         { "left": "Fluturimi âsht anulue.", "right": "Der Flug wurde annulliert." },
         { "left": "Valixhja nuk ka ardhë.", "right": "Der Koffer ist nicht angekommen." },
         { "left": "Jam ftohë gjatë udhëtimit.", "right": "Ich habe mich auf der Reise erkältet." },
         { "left": "Jam rrëzue në aeroport.", "right": "Ich bin am Flughafen hingefallen." }
       ],
-      "explanation": "Reflexive Verben und das Passiv bilden das Perfekt mit „jam“ (jam ftohë, âsht anulue), alle anderen mit „kam“ (kam humbë, ka ardhë).",
+      "explanation": "Reflexive Verben und das Passiv bilden das Perfekt mit „jam“ (jam ftohë, âsht anulue), alle anderen mit „kam“ (kam hupë, ka ardhë).",
       "reviewed": false,
       "source": "manual",
       "note": "Perfekt reflexiver Verben mit „jam“ + Partizip laut Sprachrichtlinie 7.4 zu prüfen."
@@ -477,12 +477,12 @@
       "difficulty": 3,
       "skillTags": ["reading.short_texts", "grammar.verbs.perfect", "grammar.prepositions", "vocab.travel"],
       "itemIds": ["item_kam_humbe_rrugen", "item_polic", "item_trego", "item_deri", "item_stacioni_i_autobuseve", "item_atehere", "item_marre", "item_autobus", "item_gjate_prep", "item_fjete"],
-      "prompt": { "lang": "sq", "text": "Sot kam humbë rrugën në Prishtinë. Nji polic më ka tregue rrugën deri te stacioni i autobusëve. Atëherë kam marrë autobusin për Prizren. Gjatë udhëtimit kam fjetë.\n\nFrage: Was hat die Person während der Fahrt gemacht?" },
+      "prompt": { "lang": "sq", "text": "Sot kam hupë rrugën në Prishtinë. Nji polic më ka tregue rrugën deri te stacioni i autobusëve. Atëherë kam marrë autobusin për Prizren. Gjatë udhëtimit kam fjetë.\n\nFrage: Was hat die Person während der Fahrt gemacht?" },
       "choices": ["Sie hat geschlafen.", "Sie hat den Weg gesucht.", "Sie hat mit einem Polizisten gesprochen.", "Sie hat ein Taxi genommen."],
       "solutions": ["Sie hat geschlafen."],
       "explanation": "„Gjatë udhëtimit kam fjetë“ – während der Fahrt habe ich geschlafen. Nach „gjatë“ steht der Ablativ.",
       "errorHints": [
-        { "pattern": "weg", "category": "vocab.confused", "hint": "Den Weg hat sie vorher verloren: „kam humbë rrugën“." },
+        { "pattern": "weg", "category": "vocab.confused", "hint": "Den Weg hat sie vorher verloren: „kam hupë rrugën“." },
         { "pattern": "polizist", "category": "vocab.confused", "hint": "Der Polizist hat ihr vorher den Weg gezeigt." },
         { "pattern": "taxi", "category": "vocab.confused", "hint": "Sie hat den Bus genommen: „kam marrë autobusin“." }
       ],
@@ -1108,11 +1108,11 @@
       "prompt": { "lang": "de", "text": "Ich habe den Pass verloren." },
       "answerLang": "sq",
       "text": "Kam ___ pasaportën.",
-      "solutions": ["humbë"],
-      "choices": ["humbë", "humb", "harroj", "marr"],
-      "explanation": "Nach „kam“ steht das Partizip: „humbë“ (Standard: humbur).",
+      "solutions": ["hupë"],
+      "choices": ["hupë", "humb", "harroj", "marr"],
+      "explanation": "Nach „kam“ steht das Partizip: „hupë“ (Standard: humbur).",
       "errorHints": [
-        { "pattern": "^humb$", "category": "grammar.participle", "hint": "Nach „kam“ steht das Partizip: „humbë“." },
+        { "pattern": "^humb$", "category": "grammar.participle", "hint": "Nach „kam“ steht das Partizip: „hupë“." },
         { "pattern": "^harroj$", "category": "grammar.participle", "hint": "„Harroj“ heisst „ich vergesse“ – und nach „kam“ steht das Partizip." },
         { "pattern": "^marr$", "category": "vocab.confused", "hint": "„Marr“ heisst „ich nehme“." }
       ],

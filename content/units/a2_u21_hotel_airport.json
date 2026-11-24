@@ -9,7 +9,7 @@
     },
     {
       "title": "Von der Reise erzählen: Aorist und Perfekt",
-      "explanation": "Für einen **bestimmten Zeitpunkt** (*dje, vjet, të shtunën*) nimmst du meist den **Aorist**: *Dje fluturova në Prishtinë.* – *Arrita në orën dhjetë.* – *Vjet rezervova nji apartament.* – *U nisëm herët.* (wir fuhren früh los)\n\nDas **Perfekt** (*kam* + Partizip) erzählt, was passiert ist oder was du schon erlebt hast: *Kam humbë pasaportën.* – *Bagazhi nuk ka ardhë.* – *A ke kânë ndonjiherë në Shqipni?*\n\nBei Passiv steht *jam*: *Fluturimi âsht anulue.* – Der Flug wurde annulliert (Standard: është anuluar)."
+      "explanation": "Für einen **bestimmten Zeitpunkt** (*dje, vjet, të shtunën*) nimmst du meist den **Aorist**: *Dje fluturova në Prishtinë.* – *Arrita në orën dhjetë.* – *Vjet rezervova nji apartament.* – *U nisëm herët.* (wir fuhren früh los)\n\nDas **Perfekt** (*kam* + Partizip) erzählt, was passiert ist oder was du schon erlebt hast: *Kam hupë pasaportën.* – *Bagazhi nuk ka ardhë.* – *A ke kânë ndonjiherë në Shqipni?*\n\nBei Passiv steht *jam*: *Fluturimi âsht anulue.* – Der Flug wurde annulliert (Standard: është anuluar)."
     },
     {
       "title": "Fragen mit „a“",
@@ -64,7 +64,7 @@
     { "id": "item_dush", "kind": "word", "gheg": "dush", "de": "Dusche", "partOfSpeech": "noun", "gender": "m", "definite": "dushi", "reviewed": false },
     { "id": "item_ballkon", "kind": "word", "gheg": "ballkon", "de": "Balkon", "partOfSpeech": "noun", "gender": "m", "definite": "ballkoni", "reviewed": false },
     { "id": "item_ja", "kind": "word", "gheg": "ja", "de": "hier ist, da ist (beim Zeigen oder Geben)", "partOfSpeech": "particle", "reviewed": false },
-    { "id": "item_humbe", "kind": "word", "gheg": "humbë", "de": "verloren (Partizip von humb)", "partOfSpeech": "verb", "alternatives": ["hupë"], "note": "Partizip „humbë“ (Standard: humbur); im Kosovo-Alltag oft „hupë“ – zu prüfen.", "reviewed": false }
+    { "id": "item_humbe", "kind": "word", "gheg": "hupë", "de": "verloren (Partizip von humb)", "partOfSpeech": "verb", "alternatives": ["humbë"], "note": "Partizip „humbë“ (Standard: humbur); im Kosovo-Alltag oft „hupë“ – zu prüfen.", "reviewed": false }
   ],
   "exercises": [
     {
@@ -269,13 +269,13 @@
       "itemIds": ["item_humbe", "item_pasaporte", "item_bagazh", "item_ardhe", "item_fluturim", "item_anulue", "item_prite", "item_kufi", "item_ndonjihere"],
       "prompt": { "lang": "de", "text": "Ordne die Sätze im Perfekt zu." },
       "pairs": [
-        { "left": "Kam humbë pasaportën.", "right": "Ich habe meinen Pass verloren." },
+        { "left": "Kam hupë pasaportën.", "right": "Ich habe meinen Pass verloren." },
         { "left": "Bagazhi nuk ka ardhë.", "right": "Das Gepäck ist nicht angekommen." },
         { "left": "Fluturimi âsht anulue.", "right": "Der Flug wurde annulliert." },
         { "left": "Kemi pritë dy orë në kufi.", "right": "Wir haben zwei Stunden an der Grenze gewartet." },
         { "left": "A ke kânë ndonjiherë në Durrës?", "right": "Bist du schon einmal in Durrës gewesen?" }
       ],
-      "explanation": "Gheg-Partizipien sind kurz: „humbë, ardhë, pritë, anulue“ (Standard: humbur, ardhur, pritur, anuluar).",
+      "explanation": "Gheg-Partizipien sind kurz: „hupë, ardhë, pritë, anulue“ (Standard: humbur, ardhur, pritur, anuluar).",
       "reviewed": false,
       "source": "manual",
       "note": "Partizip „humbë“ (Alltag auch „hupë“; Standard: humbur) zu prüfen. Passiv-Perfekt „âsht anulue“ (jam + Partizip) zu prüfen. „ndonjiherë“ (Standard: ndonjëherë) zu prüfen."
@@ -1420,9 +1420,9 @@
       "itemIds": ["item_humbe", "item_pasaporte"],
       "prompt": { "lang": "de", "text": "Ich habe meinen Pass verloren." },
       "answerLang": "sq",
-      "solutions": ["Kam humbë pasaportën.", "Kam hupë pasaportën.", "E kam humbë pasaportën.", "E kam hupë pasaportën.", "Humba pasaportën.", "E humba pasaportën."],
+      "solutions": ["Kam hupë pasaportën.", "Kam humbë pasaportën.", "E kam hupë pasaportën.", "E kam humbë pasaportën.", "Humba pasaportën.", "E humba pasaportën."],
       "standardForms": ["Kam humbur pasaportën.", "E kam humbur pasaportën."],
-      "explanation": "Perfekt mit dem kurzen Gheg-Partizip „humbë“ (Standard: humbur). „Pasaportën“ ist der Akkusativ.",
+      "explanation": "Perfekt mit dem kurzen Gheg-Partizip „hupë“, auch „humbë“ (Standard: humbur). „Pasaportën“ ist der Akkusativ.",
       "errorHints": [
         { "pattern": "pasaporta$", "category": "grammar.case", "hint": "Das Objekt steht im Akkusativ: „pasaportën“." }
       ],

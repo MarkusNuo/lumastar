@@ -521,6 +521,7 @@ Diese Formen hat der Autor bestätigt; sie gelten für neue Einheiten und haben 
 | Thema | Gheg | Hinweis |
 |---|---|---|
 | ich will, ich möchte | *du* | nie *due*, auch nicht als weitere Lösung (Standard: *dua*) |
+| verloren (Partizip von *humb*) | *hupë*: *kam hupë*, *me hupë* | *humbë* bleibt in getippten Antworten als weitere Lösung akzeptiert; Präsens und Aorist bleiben *humb, humbet, humba, humbëm* (Standard-Partizip: *humbur*) |
 | Speisekarte | *menu*, best. *menuja* | nicht *meny* |
 | bestellen | *me porositë* | Partizip *porositë* |
 | für mich | *për mu* | nicht *për mue* (Standard: *për mua*) |
