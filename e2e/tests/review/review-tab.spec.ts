@@ -8,8 +8,8 @@ import { canAnswerWrong } from '../../support/lessonAnswers.ts';
 import {
   finishViaApi,
   isCompletion,
-  playViaApi,
   startViaApi,
+  type LessonExercise,
   type LessonResponse,
 } from '../../support/lessonApi.ts';
 import { playOpenedLesson } from '../../support/lessonFlow.ts';
@@ -41,11 +41,58 @@ const MAX_REVIEW_ROUNDS = 6;
 /** At most this many deliberate mistakes, so the trigger lesson stays an ordinary one. */
 const TRIGGER_MISTAKES = 2;
 
+/** How often the trigger lesson is composed anew before the test gives up on one that fits. */
+const TRIGGER_COMPOSITIONS = 5;
+
 /** Items whose card is in review or relearning: a wrong answer leaves them due only in ten minutes. */
 async function knownItems(page: Page): Promise<Set<string>> {
   const cards = (await fetchExport(page.request)).rows<SrsCardRow>('srs_cards');
   return new Set(
     cards.filter((card) => card.state === 'review' || card.state === 'relearning').map((card) => card.itemId),
+  );
+}
+
+/**
+ * The exercises to answer wrong so that a card comes due after the first learning step: each one is
+ * the last exercise of the lesson that practises one of its items still being learned. A later right
+ * answer on that item would move its card on to the next step (5 or 10 minutes); retries review no card.
+ */
+function soonDueMistakes(lesson: LessonResponse, known: ReadonlySet<string>): Set<string> {
+  const lastExerciseOf = new Map<string, string>();
+  for (const exercise of lesson.exercises) {
+    for (const item of exercise.itemIds) lastExerciseOf.set(item, exercise.id);
+  }
+  const bringsCardDue = (exercise: LessonExercise) =>
+    canAnswerWrong(exercise) &&
+    exercise.itemIds.some((item) => !known.has(item) && lastExerciseOf.get(item) === exercise.id);
+  return new Set(
+    lesson.exercises
+      .filter(bringsCardDue)
+      .slice(0, TRIGGER_MISTAKES)
+      .map((exercise) => exercise.id),
+  );
+}
+
+/**
+ * Starts lessons of the unit in progress through the API until one has such mistakes. The composer
+ * draws from one seeded sequence for the whole run, so whether a lesson fits depends on the content
+ * and on every lesson before it; one that does not fit is left unfinished, like a lesson closed in
+ * the player.
+ */
+async function startTriggerLesson(
+  page: Page,
+  known: ReadonlySet<string>,
+): Promise<{ lesson: LessonResponse; wrong: Set<string> }> {
+  const { unitId } = currentUnit(await fetchPath(page.request));
+  for (let composition = 0; composition < TRIGGER_COMPOSITIONS; composition += 1) {
+    const started = await startViaApi(page.request, { unitId });
+    expect(started.status(), await started.text()).toBe(201);
+    const lesson = (await started.json()) as LessonResponse;
+    const wrong = soonDueMistakes(lesson, known);
+    if (wrong.size > 0) return { lesson, wrong };
+  }
+  throw new Error(
+    `None of ${TRIGGER_COMPOSITIONS} lessons of ${unitId} has a mistake that brings a card due soon`,
   );
 }
 
@@ -87,18 +134,9 @@ test('the review tab shows what is due, plays it as a review lesson and ends wit
   await test.step('something is due', async () => {
     if ((await fetchReviewSummary(page.request)).dueNow > 0) return;
     test.info().annotations.push({ type: 'slow', description: 'waited for the first FSRS learning step' });
-    // Wrong answers on items still being learned are rated Again: due after the first learning step.
-    const known = await knownItems(page);
-    const { result } = await playViaApi(
-      page.request,
-      { unitId: currentUnit(await fetchPath(page.request)).unitId },
-      (exercise, played) =>
-        played.exercises
-          .filter((candidate) => canAnswerWrong(candidate) && candidate.itemIds.every((id) => !known.has(id)))
-          .slice(0, TRIGGER_MISTAKES)
-          .includes(exercise)
-          ? 'wrong'
-          : 'correct',
+    const { lesson, wrong } = await startTriggerLesson(page, await knownItems(page));
+    const result = await finishViaApi(page.request, lesson, (exercise) =>
+      wrong.has(exercise.id) ? 'wrong' : 'correct',
     );
     expect(result.correctCount, 'mistakes on items of the unit in progress still being learned').toBeLessThan(
       result.exerciseCount,
